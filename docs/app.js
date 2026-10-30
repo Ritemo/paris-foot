@@ -40,7 +40,8 @@ const FLASHSCORE = { "Ligue 1": "france/ligue-1", "Premier League": "angleterre/
 function flashscoreLink(path) {
   const web = `https://www.flashscore.fr/football/${path}/`;
   if (!/Android/i.test(navigator.userAgent)) return web;
-  return `intent://www.flashscore.fr/football/${path}/#Intent;scheme=https;package=eu.livesport.FlashResultats_fr;S.browser_fallback_url=${encodeURIComponent(web)};end`;
+  // l'appli Flashscore n'accepte pas les liens vers une page de championnat : on l'ouvre directement sur son accueil
+  return `intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;package=eu.livesport.FlashScore_com;S.browser_fallback_url=${encodeURIComponent(web)};end`;
 }
 const KIT = ["#c8102e", "#0057b8", "#e3a400", "#00843d", "#6c1d45", "#26323a", "#e35205", "#0095c8", "#7a2582", "#b5121b", "#1f6f50", "#3949ab"];
 
@@ -75,7 +76,7 @@ function findCombo(id) {
 function legHtml(c, l, i) {
   const ov = (overrides()[c.id] || {})[i];
   const fs = bets()[c.id] && c.status === "en attente" && FLASHSCORE[l.league] && l.won === undefined
-    ? `<a class="tag fs" href="${flashscoreLink(FLASHSCORE[l.league])}" rel="noopener">Suivre sur Flashscore</a>` : "";
+    ? `<a class="tag fs" href="${flashscoreLink(FLASHSCORE[l.league])}" rel="noopener">Ouvrir Flashscore</a>` : "";
   const res = l.won === true ? `<span class="tag win">✓ ${esc(l.score)}</span>` : l.won === false ? `<span class="tag loss">✗ ${esc(l.score)}</span>` : "";
   return `<div class="leg">
     <div class="crests">${crest(l.home, "h")}${crest(l.away, "a")}</div>

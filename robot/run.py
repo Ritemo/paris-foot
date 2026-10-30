@@ -6,7 +6,9 @@ Variable d'environnement requise : ODDS_API_KEY.
 import io
 import json
 import os
+import re
 import sys
+import unicodedata
 import urllib.request
 from datetime import datetime, timedelta, timezone
 from itertools import combinations
@@ -56,7 +58,8 @@ def save(name, obj):
 
 
 def http_get(url, timeout=40):
-    req = urllib.request.Request(url, headers={"User-Agent": "paris-foot-robot"})
+    ua = "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 Chrome/126 Mobile Safari/537.36" if "espn.com" in url else "paris-foot-robot"
+    req = urllib.request.Request(url, headers={"User-Agent": ua, "Accept": "application/json"})
     with urllib.request.urlopen(req, timeout=timeout) as r:
         return r.read(), dict(r.headers)
 
@@ -326,6 +329,65 @@ def folie_for_day(day, legs):
     return cb
 
 
+# ---------------------------------------------------------------- resultats ESPN (gratuit, des la fin du match)
+ESPN_LEAGUE = {"F1": "fra.1", "E0": "eng.1", "SP1": "esp.1", "I1": "ita.1", "D1": "ger.1"}
+
+
+def _norm_team(s):
+    s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode().lower()
+    s = re.sub(r"[-'.]", " ", s)
+    s = re.sub(r"\b(fc|ac|as|afc|sc|rc|cf|ca|bc|tsg|vfb|vfl|fsv|ogc|ssc|us|ud|rcd|1|04|05|07|29)\b", " ", s)
+    return [w for w in s.split() if len(w) > 1]
+
+
+def _team_score(a, b):
+    x, y = _norm_team(a), _norm_team(b)
+    return sum(1 for w in x if any(v == w or (len(w) >= 4 and len(v) >= 4 and (v.startswith(w[:4]) or w.startswith(v[:4]))) for v in y))
+
+
+def espn_scores(history):
+    """Scores finaux ESPN pour les selections terminees encore sans resultat : {(match_id): (buts dom, buts ext)}."""
+    pending = []
+    for c in history["combos"]:
+        if c["status"] != "en attente":
+            continue
+        for l in c["legs"]:
+            k = datetime.fromisoformat(l["kickoff"].replace("Z", "+00:00"))
+            if "won" not in l and NOW - timedelta(days=4) < k < NOW - timedelta(minutes=100):
+                pending.append(l)
+    boards, out = {}, {}
+    for l in pending:
+        lg = ESPN_LEAGUE.get(l.get("div"))
+        if not lg:
+            continue
+        d = l["kickoff"][:10].replace("-", "")
+        if (lg, d) not in boards:
+            try:
+                body, _h = http_get(f"https://site.api.espn.com/apis/site/v2/sports/soccer/{lg}/scoreboard?dates={d}")
+                boards[(lg, d)] = json.loads(body).get("events", [])
+            except Exception as e:
+                print("espn", lg, d, e, file=sys.stderr)
+                boards[(lg, d)] = []
+        k = datetime.fromisoformat(l["kickoff"].replace("Z", "+00:00"))
+        best, best_s = None, 0
+        for e in boards[(lg, d)]:
+            try:
+                ek = datetime.fromisoformat(e["date"].replace("Z", "+00:00"))
+                comp = e["competitions"][0]["competitors"]
+                H = next(t for t in comp if t["homeAway"] == "home")
+                A = next(t for t in comp if t["homeAway"] == "away")
+            except Exception:
+                continue
+            if abs((ek - k).total_seconds()) > 1200:
+                continue
+            sc = _team_score(l["home"], H["team"]["displayName"]) + _team_score(l["away"], A["team"]["displayName"])
+            if sc > best_s:
+                best, best_s = (e, H, A), sc
+        if best and best[0].get("status", {}).get("type", {}).get("state") == "post":
+            out[l["match_id"]] = (int(best[1]["score"]), int(best[2]["score"]))
+    return out
+
+
 # ---------------------------------------------------------------- reglement juste / faux
 def leg_result(l, hg, ag):
     m = l["market"]
@@ -355,16 +417,17 @@ def find_score_fd(fd, l):
     return None
 
 
-def settle(history, fd, api_scores):
+def settle(history, fd, api_scores, espn=None):
+    espn = espn or {}
     for c in history["combos"]:
         if c["status"] not in ("en attente",):
             continue
         for l in c["legs"]:
             if "won" in l:
                 continue
-            if l["kickoff"] > (NOW - timedelta(hours=2, minutes=15)).isoformat():
-                continue
-            sc = api_scores.get(l["match_id"]) or find_score_fd(fd, l)
+            sc = espn.get(l["match_id"])  # ESPN : uniquement des matchs termines
+            if not sc and l["kickoff"] <= (NOW - timedelta(hours=2, minutes=15)).isoformat():
+                sc = api_scores.get(l["match_id"]) or find_score_fd(fd, l)
             if sc:
                 l["score"] = f"{sc[0]}-{sc[1]}"
                 l["won"] = bool(leg_result(l, *sc))
@@ -376,7 +439,7 @@ def settle(history, fd, api_scores):
             c["settled_at"] = NOW.isoformat()
 
 
-def fetch_api_scores(history, fd):
+def fetch_api_scores(history, fd, espn=None):
     """Resultats via l'API (2 credits / championnat) seulement pour les matchs absents de football-data."""
     if NOW.astimezone(PARIS).hour >= 12 or (credits["remaining"] or 0) < CREDIT_FLOOR_SCORES:
         return {}
@@ -387,7 +450,7 @@ def fetch_api_scores(history, fd):
         for l in c["legs"]:
             ended = l["kickoff"] <= (NOW - timedelta(hours=2, minutes=15)).isoformat()
             recent = l["kickoff"] >= (NOW - timedelta(days=3)).isoformat()
-            if "won" not in l and ended and recent and find_score_fd(fd, l) is None:
+            if "won" not in l and ended and recent and l["match_id"] not in (espn or {}) and find_score_fd(fd, l) is None:
                 need.add(next(k for k, v in LEAGUES.items() if v[0] == l["div"]))
     out = {}
     for sport in need:
@@ -425,11 +488,47 @@ def bilan(history):
 
 
 # ---------------------------------------------------------------- programme principal
+ODDS_SLOTS = ((7, 30), (16, 30))  # heures de Paris ou les cotes sont actualisees (credits)
+
+
+def odds_due(meta):
+    if os.environ.get("FORCE") == "1":
+        return True
+    last = meta.get("last_odds_run")
+    now_p = NOW.astimezone(PARIS)
+    for h, m in ODDS_SLOTS:
+        slot = now_p.replace(hour=h, minute=m, second=0, microsecond=0)
+        if slot <= now_p and (not last or datetime.fromisoformat(last) < slot):
+            return True
+    return False
+
+
+def results_only(meta, history):
+    """Passage gratuit : resultats ESPN seulement, on n'ecrit que si quelque chose a change."""
+    before = json.dumps(history, sort_keys=True, default=str)
+    settle(history, None, {}, espn_scores(history))
+    if json.dumps(history, sort_keys=True, default=str) == before:
+        print("rien de nouveau")
+        return
+    history["bilan"] = bilan(history)
+    history["updated"] = NOW.isoformat()
+    by_id = {c["id"]: c for c in history["combos"]}
+    today_data = load("today.json", {})
+    today_data["combos"] = [by_id.get(c["id"], c) for c in today_data.get("combos", [])]
+    save("history.json", history)
+    save("today.json", today_data)
+    meta["last_results_run"] = NOW.isoformat()
+    save("meta.json", meta)
+    print("resultats mis a jour")
+
+
 def main():
-    if not KEY:
-        sys.exit("ODDS_API_KEY manquante")
     meta = load("meta.json", {})
     history = load("history.json", {"combos": []})
+    if not odds_due(meta):
+        return results_only(meta, history)
+    if not KEY:
+        sys.exit("ODDS_API_KEY manquante")
     cache = load("odds_cache.json", {})
     credits["remaining"] = meta.get("credits_remaining")
 
@@ -488,15 +587,16 @@ def main():
             frozen.add(day)
 
     # 4. resultats et bilan
-    api_scores = fetch_api_scores(history, fd)
-    settle(history, fd, api_scores)
+    espn = espn_scores(history)
+    api_scores = fetch_api_scores(history, fd, espn)
+    settle(history, fd, api_scores, espn)
     history["combos"].sort(key=lambda c: (c["day"], c["kind"]), reverse=True)
     history["bilan"] = bilan(history)
     history["updated"] = NOW.isoformat()
 
     current = [c for c in history["combos"] if c["day"] >= today.isoformat() and not c.get("replaced")]
     meta.update(credits_remaining=credits["remaining"], credits_used_last_run=credits["used_run"],
-                last_run=NOW.isoformat(), frozen_days=sorted(d for d in frozen if d >= (today - timedelta(days=7)).isoformat()),
+                last_run=NOW.isoformat(), last_odds_run=NOW.isoformat(), frozen_days=sorted(d for d in frozen if d >= (today - timedelta(days=7)).isoformat()),
                 leagues=[v[1] for v in LEAGUES.values()])
     save("today.json", dict(generated_at=NOW.isoformat(), credits_remaining=credits["remaining"],
                             combos=sorted(current, key=lambda c: (c["day"], c["kind"] == "folie", c["kind"])),

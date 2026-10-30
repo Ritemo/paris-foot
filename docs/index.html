@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=17">
+<link rel="stylesheet" href="style.css?v=18">
 </head>
 <body>
 <header class="pitch">
@@ -50,6 +50,16 @@
       </label>
       <button id="save-settings" class="btn">Enregistrer</button>
       <p id="settings-msg" class="hint"></p>
+    </div>
+    <div class="panel">
+      <h3>Sauvegarde de mes paris</h3>
+      <p class="hint" style="margin:0 0 12px">Tes paris, tes cotes corrigées et ton budget ne sont enregistrés que sur ce téléphone. Garde une copie : elle se restaure en un geste, même sur un autre téléphone.</p>
+      <div class="row" style="justify-content:flex-start">
+        <button id="export" class="btn">Sauvegarder</button>
+        <label class="btn ghost" for="import-file">Restaurer</label>
+        <input id="import-file" type="file" accept="application/json,.json" hidden>
+      </div>
+      <p id="backup-msg" class="hint"></p>
     </div>
     <div class="panel legend">
       <h3>Lire un ticket</h3>
@@ -91,7 +101,7 @@
   </form>
 </dialog>
 
-<script src="live.js?v=17"></script>
-<script src="app.js?v=17"></script>
+<script src="live.js?v=18"></script>
+<script src="app.js?v=18"></script>
 </body>
 </html>

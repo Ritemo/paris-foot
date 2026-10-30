@@ -193,7 +193,8 @@ function renderBilan() {
   const mise = done.reduce((s, x) => s + x.mise, 0);
   const gain = done.reduce((s, x) => s + (x.c.status === "gagne" ? x.mise * (x.odds - 1) : -x.mise), 0);
 
-  let h = `<h2 class="section-title">Mes paris</h2><div class="panel">`;
+  let h = backupDue() ? `<div class="panel backup-nudge"><b>Pense à sauvegarder tes paris</b><p class="hint">Ils ne sont stockés que sur ce téléphone. ${backupInfo()} Onglet Réglages, bouton « Sauvegarder ».</p></div>` : "";
+  h += `<h2 class="section-title">Mes paris</h2><div class="panel">`;
   if (!mine.length) h += `<p class="hint" style="margin:0">Touche « Je le joue » sur un ticket pour suivre tes paris ici.</p>`;
   else {
     h += `<div class="scoreline"><div class="w"><b>${won}</b><small>gagnés</small></div><span class="sep">/</span>
@@ -334,6 +335,45 @@ function loadSettings() {
   document.getElementById("repo").value = s.repo;
   document.getElementById("repo").placeholder = repoGuess() || "compte/nom-du-dépôt";
 }
+/* --------------------------------------------------------------- sauvegarde des paris */
+function backupInfo() {
+  const last = LS.get("pf_last_export", null);
+  return last ? `Dernière sauvegarde le ${new Date(last).toLocaleDateString("fr-FR", { day: "numeric", month: "long" })}.` : "Aucune sauvegarde pour l'instant.";
+}
+function backupDue() {
+  const n = Object.keys(bets()).length, last = LS.get("pf_last_export", null);
+  return n > 0 && (!last || Date.now() - new Date(last).getTime() > 14 * 864e5);
+}
+document.getElementById("export").onclick = async () => {
+  const s = settings();
+  const data = { app: "combines-foot", version: 1, date: new Date().toISOString(), bets: bets(), overrides: overrides(), budget: s.budget };
+  const blob = new Blob([JSON.stringify(data, null, 1)], { type: "application/json" });
+  const name = `combines-foot-${isoDay(new Date())}.json`;
+  const file = new File([blob], name, { type: "application/json" });
+  try {
+    if (navigator.canShare && navigator.canShare({ files: [file] })) await navigator.share({ files: [file], title: "Sauvegarde Combinés Foot" });
+    else { const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = name; a.click(); }
+    LS.set("pf_last_export", new Date().toISOString());
+    document.getElementById("backup-msg").textContent = `Sauvegarde créée (${Object.keys(bets()).length} paris). ${backupInfo()}`;
+    renderAll();
+  } catch (err) { if (err.name !== "AbortError") toast("Sauvegarde impossible : " + err.message); }
+};
+document.getElementById("import-file").onchange = async (e) => {
+  const f = e.target.files[0];
+  if (!f) return;
+  try {
+    const d = JSON.parse(await f.text());
+    if (d.app !== "combines-foot" || typeof d.bets !== "object") throw new Error("ce fichier n'est pas une sauvegarde Combinés Foot");
+    const merged = Object.assign({}, d.bets, bets());
+    LS.set("pf_bets", merged);
+    LS.set("pf_overrides", Object.assign({}, d.overrides || {}, overrides()));
+    if (d.budget) LS.set("pf_settings", Object.assign(settings(), { budget: d.budget }));
+    loadSettings(); renderAll(); scheduleLive();
+    document.getElementById("backup-msg").textContent = `Restauré : ${Object.keys(merged).length} paris au total.`;
+  } catch (err) { toast("Restauration impossible : " + err.message); }
+  e.target.value = "";
+};
+
 document.getElementById("save-settings").onclick = () => {
   LS.set("pf_settings", {
     budget: +document.getElementById("budget").value || 40,
@@ -385,6 +425,7 @@ async function load(quiet) {
 }
 
 loadSettings();
+document.getElementById("backup-msg").textContent = backupInfo();
 load().then(scheduleLive);
 document.addEventListener("visibilitychange", () => { if (!document.hidden) scheduleLive(); });
 if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});

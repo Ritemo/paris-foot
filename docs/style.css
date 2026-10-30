@@ -205,3 +205,5 @@ dialog input { width: 100%; padding: 12px; font: 800 24px var(--display); text-a
 .verdict { margin: 0; padding: 9px 16px; font: 800 15px var(--display); color: #fff; }
 .verdict.on { background: #e0a100; color: #2b2000; } .verdict.ok { background: var(--vert); } .verdict.ko { background: var(--rouge); }
 .live-status { margin: -4px 4px 12px; }
+.backup-nudge { margin-top: 18px; border: 2px dashed #e0a100; } .backup-nudge b { font: 800 16px var(--display); }
+label.btn { display: inline-block; }

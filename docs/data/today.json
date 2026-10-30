@@ -1,0 +1,2868 @@
+{
+ "generated_at": "2026-10-30T00:03:43.510958+00:00",
+ "credits_remaining": 477,
+ "combos": [
+  {
+   "id": "2026-10-30|00b03cb40c27ed23e2ecb18f062a5122:-3.5|9a9f6c78276f74f15f42b013b033aa5d:-3.5",
+   "day": "2026-10-30",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "9a9f6c78276f74f15f42b013b033aa5d",
+     "league": "Ligue 1",
+     "kickoff": "2026-10-30T18:00:00Z",
+     "home": "Le Havre",
+     "away": "Paris Saint Germain",
+     "fd_home": "Le Havre",
+     "fd_away": "Paris SG",
+     "div": "F1",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.83,
+     "src": "pmu",
+     "p": 0.5251,
+     "ev": -0.0391
+    },
+    {
+     "match_id": "00b03cb40c27ed23e2ecb18f062a5122",
+     "league": "Liga",
+     "kickoff": "2026-10-30T20:00:00Z",
+     "home": "Villarreal",
+     "away": "Espanyol",
+     "fd_home": "Villarreal",
+     "fd_away": "Espanol",
+     "div": "SP1",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.51,
+     "src": "pmu",
+     "p": 0.5994,
+     "ev": -0.0949
+    }
+   ],
+   "odds": 2.76,
+   "p": 0.3147,
+   "cost": 0.1303,
+   "stars": 2,
+   "stake": 2,
+   "status": "en attente",
+   "proposed_at": "2026-10-30T00:03:43.510958+00:00"
+  },
+  {
+   "id": "2026-10-30|00b03cb40c27ed23e2ecb18f062a5122:1|a547720e6b4661d6319c4f11dbdf8e1f:-3.5",
+   "day": "2026-10-30",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "00b03cb40c27ed23e2ecb18f062a5122",
+     "league": "Liga",
+     "kickoff": "2026-10-30T20:00:00Z",
+     "home": "Villarreal",
+     "away": "Espanyol",
+     "fd_home": "Villarreal",
+     "fd_away": "Espanol",
+     "div": "SP1",
+     "market": "1",
+     "label": "Victoire Villarreal",
+     "odds": 1.35,
+     "src": "unibet",
+     "p": 0.6609,
+     "ev": -0.1078
+    },
+    {
+     "match_id": "a547720e6b4661d6319c4f11dbdf8e1f",
+     "league": "Ligue 1",
+     "kickoff": "2026-10-30T18:00:00Z",
+     "home": "Nice",
+     "away": "Rennes",
+     "fd_home": "Nice",
+     "fd_away": "Rennes",
+     "div": "F1",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.47,
+     "src": "pmu",
+     "p": 0.6063,
+     "ev": -0.1087
+    }
+   ],
+   "odds": 1.98,
+   "p": 0.4007,
+   "cost": 0.2048,
+   "stars": 1,
+   "stake": 3,
+   "status": "en attente",
+   "proposed_at": "2026-10-30T00:03:43.510958+00:00"
+  },
+  {
+   "id": "2026-10-31|04aa939b89001eedf55668e66c74836e:+2.5|3966f2fe1c2f73bfa12e61db83bd0bf9:-3.5",
+   "day": "2026-10-31",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "3966f2fe1c2f73bfa12e61db83bd0bf9",
+     "league": "Bundesliga",
+     "kickoff": "2026-10-31T14:30:00Z",
+     "home": "FC Schalke 04",
+     "away": "RB Leipzig",
+     "fd_home": "Schalke 04",
+     "fd_away": "RB Leipzig",
+     "div": "D1",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.62,
+     "src": "pmu",
+     "p": 0.597,
+     "ev": -0.0329
+    },
+    {
+     "match_id": "04aa939b89001eedf55668e66c74836e",
+     "league": "Serie A",
+     "kickoff": "2026-10-31T14:00:00Z",
+     "home": "Bologna",
+     "away": "Monza",
+     "fd_home": "Bologna",
+     "fd_away": "Monza",
+     "div": "I1",
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.75,
+     "src": "pmu",
+     "p": 0.546,
+     "ev": -0.0445
+    }
+   ],
+   "odds": 2.83,
+   "p": 0.326,
+   "cost": 0.0759,
+   "stars": 2,
+   "stake": 2,
+   "status": "en attente",
+   "proposed_at": "2026-10-30T00:03:43.510958+00:00"
+  },
+  {
+   "id": "2026-10-31|aecb9d8c01176616c87d893bee4bc0de:-3.5|bad7337b335a16859b1db6b8e6cf6ca5:-4.5",
+   "day": "2026-10-31",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "bad7337b335a16859b1db6b8e6cf6ca5",
+     "league": "Bundesliga",
+     "kickoff": "2026-10-31T17:30:00Z",
+     "home": "Bayern Munich",
+     "away": "Borussia Dortmund",
+     "fd_home": "Bayern Munich",
+     "fd_away": "Dortmund",
+     "div": "D1",
+     "market": "-4.5",
+     "label": "Moins de 4,5 buts",
+     "odds": 1.5,
+     "src": "pmu",
+     "p": 0.6241,
+     "ev": -0.0638
+    },
+    {
+     "match_id": "aecb9d8c01176616c87d893bee4bc0de",
+     "league": "Bundesliga",
+     "kickoff": "2026-10-31T14:30:00Z",
+     "home": "Borussia Monchengladbach",
+     "away": "SC Paderborn",
+     "fd_home": "M'gladbach",
+     "fd_away": "Paderborn",
+     "div": "D1",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.57,
+     "src": "pmu",
+     "p": 0.598,
+     "ev": -0.0611
+    }
+   ],
+   "odds": 2.35,
+   "p": 0.3732,
+   "cost": 0.121,
+   "stars": 2,
+   "stake": 3,
+   "status": "en attente",
+   "proposed_at": "2026-10-30T00:03:43.510958+00:00"
+  },
+  {
+   "id": "2026-10-31|2db2b55e71574a19ff0557898d3e9933:-4.5|6601f69175a02f03fb7065aacb538e01:+2.5|8f0b7ef29a47f675429758e83a426d7e:1",
+   "day": "2026-10-31",
+   "kind": "x3",
+   "legs": [
+    {
+     "match_id": "8f0b7ef29a47f675429758e83a426d7e",
+     "league": "Liga",
+     "kickoff": "2026-10-31T17:30:00Z",
+     "home": "Real Betis",
+     "away": "Málaga",
+     "fd_home": "Betis",
+     "fd_away": "Malaga",
+     "div": "SP1",
+     "market": "1",
+     "label": "Victoire Real Betis",
+     "odds": 1.28,
+     "src": "unibet",
+     "p": 0.7092,
+     "ev": -0.0922
+    },
+    {
+     "match_id": "2db2b55e71574a19ff0557898d3e9933",
+     "league": "Liga",
+     "kickoff": "2026-10-31T20:00:00Z",
+     "home": "Barcelona",
+     "away": "Alavés",
+     "fd_home": "Barcelona",
+     "fd_away": "Alaves",
+     "div": "SP1",
+     "market": "-4.5",
+     "label": "Moins de 4,5 buts",
+     "odds": 1.54,
+     "src": "pmu",
+     "p": 0.5985,
+     "ev": -0.0783
+    },
+    {
+     "match_id": "6601f69175a02f03fb7065aacb538e01",
+     "league": "Premier League",
+     "kickoff": "2026-10-31T12:30:00Z",
+     "home": "Chelsea",
+     "away": "Manchester United",
+     "fd_home": "Chelsea",
+     "fd_away": "Man United",
+     "div": "E0",
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.5,
+     "src": "pmu",
+     "p": 0.6072,
+     "ev": -0.0892
+    }
+   ],
+   "odds": 2.96,
+   "p": 0.2577,
+   "cost": 0.2379,
+   "stars": 1,
+   "stake": 2,
+   "status": "en attente",
+   "proposed_at": "2026-10-30T00:03:43.510958+00:00"
+  }
+ ],
+ "matches": [
+  {
+   "id": "9a9f6c78276f74f15f42b013b033aa5d",
+   "league": "Ligue 1",
+   "div": "F1",
+   "kickoff": "2026-10-30T18:00:00Z",
+   "day": "2026-10-30",
+   "home": "Le Havre",
+   "away": "Paris Saint Germain",
+   "fd_home": "Le Havre",
+   "fd_away": "Paris SG",
+   "lambdas": [
+    0.942,
+    2.8
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Le Havre",
+     "odds": 9.0,
+     "src": "unibet",
+     "p": 0.1094,
+     "ev": -0.0154
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 6.5,
+     "src": "unibet",
+     "p": 0.1651,
+     "ev": 0.0732
+    },
+    {
+     "market": "2",
+     "label": "Victoire Paris Saint Germain",
+     "odds": 1.2,
+     "src": "unibet",
+     "p": 0.7255,
+     "ev": -0.1294
+    },
+    {
+     "market": "+3.5",
+     "label": "Plus de 3,5 buts",
+     "odds": 1.73,
+     "src": "pmu",
+     "p": 0.4749,
+     "ev": -0.1784
+    },
+    {
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.83,
+     "src": "pmu",
+     "p": 0.5251,
+     "ev": -0.0391
+    },
+    {
+     "market": "H2",
+     "label": "Paris Saint Germain gagne par 2 buts ou + (handicap -1)",
+     "odds": 1.75,
+     "src": "estimee",
+     "p": 0.5189,
+     "ev": -0.0919
+    }
+   ]
+  },
+  {
+   "id": "a547720e6b4661d6319c4f11dbdf8e1f",
+   "league": "Ligue 1",
+   "div": "F1",
+   "kickoff": "2026-10-30T18:00:00Z",
+   "day": "2026-10-30",
+   "home": "Nice",
+   "away": "Rennes",
+   "fd_home": "Nice",
+   "fd_away": "Rennes",
+   "lambdas": [
+    1.548,
+    1.637
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Nice",
+     "odds": 2.55,
+     "src": "unibet",
+     "p": 0.343,
+     "ev": -0.1253
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.5,
+     "src": "unibet",
+     "p": 0.2462,
+     "ev": -0.1383
+    },
+    {
+     "market": "2",
+     "label": "Victoire Rennes",
+     "odds": 2.3,
+     "src": "unibet",
+     "p": 0.4108,
+     "ev": -0.0552
+    },
+    {
+     "market": "+3.5",
+     "label": "Plus de 3,5 buts",
+     "odds": 2.25,
+     "src": "pmu",
+     "p": 0.3937,
+     "ev": -0.1142
+    },
+    {
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.47,
+     "src": "pmu",
+     "p": 0.6063,
+     "ev": -0.1087
+    }
+   ]
+  },
+  {
+   "id": "b275fe870ec88a9f0054c9220beb2673",
+   "league": "Bundesliga",
+   "div": "D1",
+   "kickoff": "2026-10-30T19:30:00Z",
+   "day": "2026-10-30",
+   "home": "Elversberg",
+   "away": "FSV Mainz 05",
+   "fd_home": "Elversberg",
+   "fd_away": "Mainz",
+   "lambdas": [
+    1.489,
+    1.794
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Elversberg",
+     "odds": 2.9,
+     "src": "unibet",
+     "p": 0.3469,
+     "ev": 0.006
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.6,
+     "src": "unibet",
+     "p": 0.2381,
+     "ev": -0.1428
+    },
+    {
+     "market": "2",
+     "label": "Victoire FSV Mainz 05",
+     "odds": 2.05,
+     "src": "unibet",
+     "p": 0.415,
+     "ev": -0.1493
+    },
+    {
+     "market": "+3.5",
+     "label": "Plus de 3,5 buts",
+     "odds": 2.14,
+     "src": "pmu",
+     "p": 0.4249,
+     "ev": -0.0907
+    },
+    {
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.53,
+     "src": "pmu",
+     "p": 0.5751,
+     "ev": -0.1201
+    }
+   ]
+  },
+  {
+   "id": "00b03cb40c27ed23e2ecb18f062a5122",
+   "league": "Liga",
+   "div": "SP1",
+   "kickoff": "2026-10-30T20:00:00Z",
+   "day": "2026-10-30",
+   "home": "Villarreal",
+   "away": "Espanyol",
+   "fd_home": "Villarreal",
+   "fd_away": "Espanol",
+   "lambdas": [
+    2.297,
+    0.979
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Villarreal",
+     "odds": 1.35,
+     "src": "unibet",
+     "p": 0.6609,
+     "ev": -0.1078
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 4.8,
+     "src": "unibet",
+     "p": 0.1977,
+     "ev": -0.051
+    },
+    {
+     "market": "2",
+     "label": "Victoire Espanyol",
+     "odds": 6.2,
+     "src": "unibet",
+     "p": 0.1414,
+     "ev": -0.1233
+    },
+    {
+     "market": "+3.5",
+     "label": "Plus de 3,5 buts",
+     "odds": 2.14,
+     "src": "pmu",
+     "p": 0.4006,
+     "ev": -0.1427
+    },
+    {
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.51,
+     "src": "pmu",
+     "p": 0.5994,
+     "ev": -0.0949
+    },
+    {
+     "market": "H1",
+     "label": "Villarreal gagne par 2 buts ou + (handicap -1)",
+     "odds": 2.07,
+     "src": "estimee",
+     "p": 0.435,
+     "ev": -0.0996
+    }
+   ]
+  },
+  {
+   "id": "7932d9a82dcdb164a3e4ef5e03694ee3",
+   "league": "Ligue 1",
+   "div": "F1",
+   "kickoff": "2026-10-30T20:05:00Z",
+   "day": "2026-10-30",
+   "home": "Lille",
+   "away": "RC Lens",
+   "fd_home": "Lille",
+   "fd_away": "Lens",
+   "lambdas": [
+    1.484,
+    1.4
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Lille",
+     "odds": 2.35,
+     "src": "unibet",
+     "p": 0.3895,
+     "ev": -0.0847
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.5,
+     "src": "unibet",
+     "p": 0.265,
+     "ev": -0.0725
+    },
+    {
+     "market": "2",
+     "label": "Victoire RC Lens",
+     "odds": 2.6,
+     "src": "unibet",
+     "p": 0.3455,
+     "ev": -0.1017
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.61,
+     "src": "pmu",
+     "p": 0.5381,
+     "ev": -0.1337
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 1.97,
+     "src": "pmu",
+     "p": 0.4619,
+     "ev": -0.0901
+    }
+   ]
+  },
+  {
+   "id": "6601f69175a02f03fb7065aacb538e01",
+   "league": "Premier League",
+   "div": "E0",
+   "kickoff": "2026-10-31T12:30:00Z",
+   "day": "2026-10-31",
+   "home": "Chelsea",
+   "away": "Manchester United",
+   "fd_home": "Chelsea",
+   "fd_away": "Man United",
+   "lambdas": [
+    1.855,
+    1.214
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Chelsea",
+     "odds": 1.73,
+     "src": "unibet",
+     "p": 0.488,
+     "ev": -0.1558
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.7,
+     "src": "unibet",
+     "p": 0.2389,
+     "ev": -0.1161
+    },
+    {
+     "market": "2",
+     "label": "Victoire Manchester United",
+     "odds": 3.7,
+     "src": "unibet",
+     "p": 0.2731,
+     "ev": 0.0105
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.5,
+     "src": "pmu",
+     "p": 0.6072,
+     "ev": -0.0892
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 2.18,
+     "src": "pmu",
+     "p": 0.3928,
+     "ev": -0.1437
+    }
+   ]
+  },
+  {
+   "id": "005711684f3e51024ac40c1ee69978e9",
+   "league": "Liga",
+   "div": "SP1",
+   "kickoff": "2026-10-31T13:00:00Z",
+   "day": "2026-10-31",
+   "home": "Levante",
+   "away": "Atlético Madrid",
+   "fd_home": "Levante",
+   "fd_away": "Ath Madrid",
+   "lambdas": [
+    1.105,
+    2.159
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Levante",
+     "odds": 5.0,
+     "src": "betclic",
+     "p": 0.2005,
+     "ev": 0.0025
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 4.35,
+     "src": "betclic",
+     "p": 0.2201,
+     "ev": -0.0426
+    },
+    {
+     "market": "2",
+     "label": "Victoire Atlético Madrid",
+     "odds": 1.49,
+     "src": "betclic",
+     "p": 0.5794,
+     "ev": -0.1367
+    },
+    {
+     "market": "+3.5",
+     "label": "Plus de 3,5 buts",
+     "odds": 2.16,
+     "src": "pmu",
+     "p": 0.3967,
+     "ev": -0.1431
+    },
+    {
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.51,
+     "src": "pmu",
+     "p": 0.6033,
+     "ev": -0.089
+    },
+    {
+     "market": "H2",
+     "label": "Atlético Madrid gagne par 2 buts ou + (handicap -1)",
+     "odds": 2.54,
+     "src": "estimee",
+     "p": 0.3575,
+     "ev": -0.0919
+    }
+   ]
+  },
+  {
+   "id": "04aa939b89001eedf55668e66c74836e",
+   "league": "Serie A",
+   "div": "I1",
+   "kickoff": "2026-10-31T14:00:00Z",
+   "day": "2026-10-31",
+   "home": "Bologna",
+   "away": "Monza",
+   "fd_home": "Bologna",
+   "fd_away": "Monza",
+   "lambdas": [
+    1.777,
+    0.933
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Bologna",
+     "odds": 1.58,
+     "src": "unibet",
+     "p": 0.5564,
+     "ev": -0.1209
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.7,
+     "src": "unibet",
+     "p": 0.2401,
+     "ev": -0.1116
+    },
+    {
+     "market": "2",
+     "label": "Victoire Monza",
+     "odds": 4.7,
+     "src": "unibet",
+     "p": 0.2035,
+     "ev": -0.0435
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.75,
+     "src": "pmu",
+     "p": 0.546,
+     "ev": -0.0445
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 1.81,
+     "src": "pmu",
+     "p": 0.454,
+     "ev": -0.1783
+    },
+    {
+     "market": "H1",
+     "label": "Bologna gagne par 2 buts ou + (handicap -1)",
+     "odds": 2.78,
+     "src": "estimee",
+     "p": 0.3226,
+     "ev": -0.1032
+    }
+   ]
+  },
+  {
+   "id": "24400b6372faf9f4996cd5704d707374",
+   "league": "Bundesliga",
+   "div": "D1",
+   "kickoff": "2026-10-31T14:30:00Z",
+   "day": "2026-10-31",
+   "home": "Augsburg",
+   "away": "SC Freiburg",
+   "fd_home": "Augsburg",
+   "fd_away": "Freiburg",
+   "lambdas": [
+    1.516,
+    1.85
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Augsburg",
+     "odds": 2.9,
+     "src": "unibet",
+     "p": 0.3371,
+     "ev": -0.0224
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.7,
+     "src": "unibet",
+     "p": 0.2372,
+     "ev": -0.1224
+    },
+    {
+     "market": "2",
+     "label": "Victoire SC Freiburg",
+     "odds": 2.0,
+     "src": "unibet",
+     "p": 0.4258,
+     "ev": -0.1484
+    },
+    {
+     "market": "+3.5",
+     "label": "Plus de 3,5 buts",
+     "odds": 2.04,
+     "src": "pmu",
+     "p": 0.4304,
+     "ev": -0.122
+    },
+    {
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.57,
+     "src": "pmu",
+     "p": 0.5696,
+     "ev": -0.1057
+    }
+   ]
+  },
+  {
+   "id": "a7ba9b844f121a4a8777d87b1f863137",
+   "league": "Bundesliga",
+   "div": "D1",
+   "kickoff": "2026-10-31T14:30:00Z",
+   "day": "2026-10-31",
+   "home": "Bayer Leverkusen",
+   "away": "VfB Stuttgart",
+   "fd_home": "Leverkusen",
+   "fd_away": "Stuttgart",
+   "lambdas": [
+    2.256,
+    1.527
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Bayer Leverkusen",
+     "odds": 1.68,
+     "src": "unibet",
+     "p": 0.5264,
+     "ev": -0.1156
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 4.1,
+     "src": "unibet",
+     "p": 0.2122,
+     "ev": -0.13
+    },
+    {
+     "market": "2",
+     "label": "Victoire VfB Stuttgart",
+     "odds": 3.6,
+     "src": "unibet",
+     "p": 0.2614,
+     "ev": -0.059
+    },
+    {
+     "market": "+3.5",
+     "label": "Plus de 3,5 buts",
+     "odds": 1.7,
+     "src": "pmu",
+     "p": 0.5204,
+     "ev": -0.1153
+    },
+    {
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.87,
+     "src": "pmu",
+     "p": 0.4796,
+     "ev": -0.1031
+    }
+   ]
+  },
+  {
+   "id": "aecb9d8c01176616c87d893bee4bc0de",
+   "league": "Bundesliga",
+   "div": "D1",
+   "kickoff": "2026-10-31T14:30:00Z",
+   "day": "2026-10-31",
+   "home": "Borussia Monchengladbach",
+   "away": "SC Paderborn",
+   "fd_home": "M'gladbach",
+   "fd_away": "Paderborn",
+   "lambdas": [
+    1.925,
+    1.441
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Borussia Monchengladbach",
+     "odds": 1.86,
+     "src": "unibet",
+     "p": 0.4834,
+     "ev": -0.1009
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.7,
+     "src": "unibet",
+     "p": 0.2394,
+     "ev": -0.1142
+    },
+    {
+     "market": "2",
+     "label": "Victoire SC Paderborn",
+     "odds": 3.2,
+     "src": "unibet",
+     "p": 0.2772,
+     "ev": -0.113
+    },
+    {
+     "market": "+3.5",
+     "label": "Plus de 3,5 buts",
+     "odds": 2.04,
+     "src": "pmu",
+     "p": 0.402,
+     "ev": -0.1799
+    },
+    {
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.57,
+     "src": "pmu",
+     "p": 0.598,
+     "ev": -0.0611
+    }
+   ]
+  },
+  {
+   "id": "3966f2fe1c2f73bfa12e61db83bd0bf9",
+   "league": "Bundesliga",
+   "div": "D1",
+   "kickoff": "2026-10-31T14:30:00Z",
+   "day": "2026-10-31",
+   "home": "FC Schalke 04",
+   "away": "RB Leipzig",
+   "fd_home": "Schalke 04",
+   "fd_away": "RB Leipzig",
+   "lambdas": [
+    1.396,
+    2.041
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire FC Schalke 04",
+     "odds": 3.6,
+     "src": "unibet",
+     "p": 0.2459,
+     "ev": -0.1148
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.7,
+     "src": "unibet",
+     "p": 0.2347,
+     "ev": -0.1316
+    },
+    {
+     "market": "2",
+     "label": "Victoire RB Leipzig",
+     "odds": 1.74,
+     "src": "unibet",
+     "p": 0.5194,
+     "ev": -0.0962
+    },
+    {
+     "market": "+3.5",
+     "label": "Plus de 3,5 buts",
+     "odds": 1.97,
+     "src": "pmu",
+     "p": 0.403,
+     "ev": -0.2061
+    },
+    {
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.62,
+     "src": "pmu",
+     "p": 0.597,
+     "ev": -0.0329
+    }
+   ]
+  },
+  {
+   "id": "2fad25b09c01b71e47a5b0fd1d0b4e61",
+   "league": "Bundesliga",
+   "div": "D1",
+   "kickoff": "2026-10-31T14:30:00Z",
+   "day": "2026-10-31",
+   "home": "Werder Bremen",
+   "away": "TSG Hoffenheim",
+   "fd_home": "Werder Bremen",
+   "fd_away": "Hoffenheim",
+   "lambdas": [
+    1.67,
+    1.885
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Werder Bremen",
+     "odds": 2.65,
+     "src": "unibet",
+     "p": 0.3468,
+     "ev": -0.081
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.7,
+     "src": "unibet",
+     "p": 0.2321,
+     "ev": -0.1412
+    },
+    {
+     "market": "2",
+     "label": "Victoire TSG Hoffenheim",
+     "odds": 2.1,
+     "src": "unibet",
+     "p": 0.4211,
+     "ev": -0.1157
+    },
+    {
+     "market": "+3.5",
+     "label": "Plus de 3,5 buts",
+     "odds": 1.87,
+     "src": "pmu",
+     "p": 0.4676,
+     "ev": -0.1256
+    },
+    {
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.7,
+     "src": "pmu",
+     "p": 0.5324,
+     "ev": -0.0949
+    }
+   ]
+  },
+  {
+   "id": "a6c06eabdf4e6710354b6098d39449e7",
+   "league": "Premier League",
+   "div": "E0",
+   "kickoff": "2026-10-31T15:00:00Z",
+   "day": "2026-10-31",
+   "home": "Bournemouth",
+   "away": "Leeds United",
+   "fd_home": "Bournemouth",
+   "fd_away": "Leeds",
+   "lambdas": [
+    1.57,
+    1.164
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Bournemouth",
+     "odds": 1.96,
+     "src": "unibet",
+     "p": 0.4625,
+     "ev": -0.0935
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.3,
+     "src": "unibet",
+     "p": 0.2638,
+     "ev": -0.1295
+    },
+    {
+     "market": "2",
+     "label": "Victoire Leeds United",
+     "odds": 3.3,
+     "src": "unibet",
+     "p": 0.2737,
+     "ev": -0.0968
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.72,
+     "src": "pmu",
+     "p": 0.5165,
+     "ev": -0.1116
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 1.83,
+     "src": "pmu",
+     "p": 0.4835,
+     "ev": -0.1152
+    }
+   ]
+  },
+  {
+   "id": "b9254b648ca25ce7831988b53ed17c3c",
+   "league": "Premier League",
+   "div": "E0",
+   "kickoff": "2026-10-31T15:00:00Z",
+   "day": "2026-10-31",
+   "home": "Brentford",
+   "away": "Nottingham Forest",
+   "fd_home": "Brentford",
+   "fd_away": "Nott'm Forest",
+   "lambdas": [
+    1.665,
+    1.236
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Brentford",
+     "odds": 1.9,
+     "src": "unibet",
+     "p": 0.4606,
+     "ev": -0.1249
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.5,
+     "src": "unibet",
+     "p": 0.2593,
+     "ev": -0.0925
+    },
+    {
+     "market": "2",
+     "label": "Victoire Nottingham Forest",
+     "odds": 3.2,
+     "src": "unibet",
+     "p": 0.2801,
+     "ev": -0.1037
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.61,
+     "src": "pmu",
+     "p": 0.5389,
+     "ev": -0.1324
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 2.0,
+     "src": "pmu",
+     "p": 0.4611,
+     "ev": -0.0778
+    }
+   ]
+  },
+  {
+   "id": "7df53f9af95d5a4e13b504882078dab8",
+   "league": "Premier League",
+   "div": "E0",
+   "kickoff": "2026-10-31T15:00:00Z",
+   "day": "2026-10-31",
+   "home": "Manchester City",
+   "away": "Brighton and Hove Albion",
+   "fd_home": "Man City",
+   "fd_away": "Brighton",
+   "lambdas": [
+    2.222,
+    1.265
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Manchester City",
+     "odds": 1.53,
+     "src": "unibet",
+     "p": 0.5707,
+     "ev": -0.1268
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 4.2,
+     "src": "unibet",
+     "p": 0.2169,
+     "ev": -0.089
+    },
+    {
+     "market": "2",
+     "label": "Victoire Brighton and Hove Albion",
+     "odds": 4.4,
+     "src": "unibet",
+     "p": 0.2124,
+     "ev": -0.0654
+    },
+    {
+     "market": "+3.5",
+     "label": "Plus de 3,5 buts",
+     "odds": 1.93,
+     "src": "pmu",
+     "p": 0.4378,
+     "ev": -0.155
+    },
+    {
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.65,
+     "src": "pmu",
+     "p": 0.5622,
+     "ev": -0.0724
+    },
+    {
+     "market": "H1",
+     "label": "Manchester City gagne par 2 buts ou + (handicap -1)",
+     "odds": 2.53,
+     "src": "estimee",
+     "p": 0.3538,
+     "ev": -0.1049
+    }
+   ]
+  },
+  {
+   "id": "d20fbb0cd5ad9369b8ed6f2c4a198619",
+   "league": "Premier League",
+   "div": "E0",
+   "kickoff": "2026-10-31T15:00:00Z",
+   "day": "2026-10-31",
+   "home": "Coventry City",
+   "away": "Sunderland",
+   "fd_home": "Coventry",
+   "fd_away": "Sunderland",
+   "lambdas": [
+    1.235,
+    1.435
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Coventry City",
+     "odds": 2.85,
+     "src": "unibet",
+     "p": 0.3171,
+     "ev": -0.0963
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.2,
+     "src": "unibet",
+     "p": 0.279,
+     "ev": -0.1072
+    },
+    {
+     "market": "2",
+     "label": "Victoire Sunderland",
+     "odds": 2.2,
+     "src": "unibet",
+     "p": 0.4039,
+     "ev": -0.1114
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.78,
+     "src": "pmu",
+     "p": 0.4771,
+     "ev": -0.1508
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 1.78,
+     "src": "pmu",
+     "p": 0.5229,
+     "ev": -0.0692
+    }
+   ]
+  },
+  {
+   "id": "1ec76c009147b63859f68c6b5a1dd77b",
+   "league": "Premier League",
+   "div": "E0",
+   "kickoff": "2026-10-31T15:00:00Z",
+   "day": "2026-10-31",
+   "home": "Hull City",
+   "away": "Ipswich Town",
+   "fd_home": "Hull",
+   "fd_away": "Ipswich",
+   "lambdas": [
+    1.306,
+    1.274
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Hull City",
+     "odds": 2.4,
+     "src": "unibet",
+     "p": 0.3761,
+     "ev": -0.0974
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.2,
+     "src": "unibet",
+     "p": 0.2764,
+     "ev": -0.1155
+    },
+    {
+     "market": "2",
+     "label": "Victoire Ipswich Town",
+     "odds": 2.5,
+     "src": "unibet",
+     "p": 0.3476,
+     "ev": -0.131
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.87,
+     "src": "pmu",
+     "p": 0.4914,
+     "ev": -0.0811
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 1.7,
+     "src": "pmu",
+     "p": 0.5086,
+     "ev": -0.1354
+    }
+   ]
+  },
+  {
+   "id": "77383723574e3d39c7aba22eec6c4ce3",
+   "league": "Liga",
+   "div": "SP1",
+   "kickoff": "2026-10-31T15:15:00Z",
+   "day": "2026-10-31",
+   "home": "Rayo Vallecano",
+   "away": "Celta Vigo",
+   "fd_home": "Vallecano",
+   "fd_away": "Celta",
+   "lambdas": [
+    1.341,
+    1.153
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Rayo Vallecano",
+     "odds": 2.25,
+     "src": "unibet",
+     "p": 0.4092,
+     "ev": -0.0793
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.1,
+     "src": "unibet",
+     "p": 0.2848,
+     "ev": -0.1171
+    },
+    {
+     "market": "2",
+     "label": "Victoire Celta Vigo",
+     "odds": 2.9,
+     "src": "unibet",
+     "p": 0.306,
+     "ev": -0.1126
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.95,
+     "src": "pmu",
+     "p": 0.4503,
+     "ev": -0.1219
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 1.63,
+     "src": "pmu",
+     "p": 0.5497,
+     "ev": -0.104
+    }
+   ]
+  },
+  {
+   "id": "34cd26b96f78bd7aa3dbff3d1daca7a7",
+   "league": "Serie A",
+   "div": "I1",
+   "kickoff": "2026-10-31T17:00:00Z",
+   "day": "2026-10-31",
+   "home": "Udinese",
+   "away": "AS Roma",
+   "fd_home": "Udinese",
+   "fd_away": "Roma",
+   "lambdas": [
+    0.949,
+    2.053
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Udinese",
+     "odds": 5.5,
+     "src": "unibet",
+     "p": 0.1692,
+     "ev": -0.0694
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 4.2,
+     "src": "unibet",
+     "p": 0.2233,
+     "ev": -0.0621
+    },
+    {
+     "market": "2",
+     "label": "Victoire AS Roma",
+     "odds": 1.43,
+     "src": "unibet",
+     "p": 0.6075,
+     "ev": -0.1313
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.54,
+     "src": "pmu",
+     "p": 0.5647,
+     "ev": -0.1304
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 2.1,
+     "src": "pmu",
+     "p": 0.4353,
+     "ev": -0.0859
+    },
+    {
+     "market": "H2",
+     "label": "AS Roma gagne par 2 buts ou + (handicap -1)",
+     "odds": 2.39,
+     "src": "estimee",
+     "p": 0.3732,
+     "ev": -0.1081
+    }
+   ]
+  },
+  {
+   "id": "01b17432a283eb27af86ae45602eb6dd",
+   "league": "Premier League",
+   "div": "E0",
+   "kickoff": "2026-10-31T17:30:00Z",
+   "day": "2026-10-31",
+   "home": "Tottenham Hotspur",
+   "away": "Crystal Palace",
+   "fd_home": "Tottenham",
+   "fd_away": "Crystal Palace",
+   "lambdas": [
+    2.08,
+    1.043
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Tottenham Hotspur",
+     "odds": 1.47,
+     "src": "unibet",
+     "p": 0.5801,
+     "ev": -0.1473
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 4.2,
+     "src": "unibet",
+     "p": 0.2283,
+     "ev": -0.0411
+    },
+    {
+     "market": "2",
+     "label": "Victoire Crystal Palace",
+     "odds": 5.0,
+     "src": "unibet",
+     "p": 0.1917,
+     "ev": -0.0415
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.48,
+     "src": "pmu",
+     "p": 0.5767,
+     "ev": -0.1465
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 2.25,
+     "src": "pmu",
+     "p": 0.4233,
+     "ev": -0.0476
+    },
+    {
+     "market": "H1",
+     "label": "Tottenham Hotspur gagne par 2 buts ou + (handicap -1)",
+     "odds": 2.55,
+     "src": "estimee",
+     "p": 0.3512,
+     "ev": -0.1044
+    }
+   ]
+  },
+  {
+   "id": "8f0b7ef29a47f675429758e83a426d7e",
+   "league": "Liga",
+   "div": "SP1",
+   "kickoff": "2026-10-31T17:30:00Z",
+   "day": "2026-10-31",
+   "home": "Real Betis",
+   "away": "Málaga",
+   "fd_home": "Betis",
+   "fd_away": "Malaga",
+   "lambdas": [
+    2.384,
+    0.891
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Real Betis",
+     "odds": 1.28,
+     "src": "unibet",
+     "p": 0.7092,
+     "ev": -0.0922
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 5.1,
+     "src": "unibet",
+     "p": 0.1787,
+     "ev": -0.0886
+    },
+    {
+     "market": "2",
+     "label": "Victoire Málaga",
+     "odds": 7.4,
+     "src": "unibet",
+     "p": 0.1121,
+     "ev": -0.1705
+    },
+    {
+     "market": "+3.5",
+     "label": "Plus de 3,5 buts",
+     "odds": 2.14,
+     "src": "pmu",
+     "p": 0.4111,
+     "ev": -0.1202
+    },
+    {
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.51,
+     "src": "pmu",
+     "p": 0.5889,
+     "ev": -0.1108
+    },
+    {
+     "market": "H1",
+     "label": "Real Betis gagne par 2 buts ou + (handicap -1)",
+     "odds": 1.84,
+     "src": "estimee",
+     "p": 0.488,
+     "ev": -0.1021
+    }
+   ]
+  },
+  {
+   "id": "bad7337b335a16859b1db6b8e6cf6ca5",
+   "league": "Bundesliga",
+   "div": "D1",
+   "kickoff": "2026-10-31T17:30:00Z",
+   "day": "2026-10-31",
+   "home": "Bayern Munich",
+   "away": "Borussia Dortmund",
+   "fd_home": "Bayern Munich",
+   "fd_away": "Dortmund",
+   "lambdas": [
+    2.91,
+    1.277
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Bayern Munich",
+     "odds": 1.27,
+     "src": "unibet",
+     "p": 0.6969,
+     "ev": -0.1149
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 5.6,
+     "src": "unibet",
+     "p": 0.1651,
+     "ev": -0.0754
+    },
+    {
+     "market": "2",
+     "label": "Victoire Borussia Dortmund",
+     "odds": 6.6,
+     "src": "unibet",
+     "p": 0.138,
+     "ev": -0.0892
+    },
+    {
+     "market": "+4.5",
+     "label": "Plus de 4,5 buts",
+     "odds": 2.18,
+     "src": "pmu",
+     "p": 0.3759,
+     "ev": -0.1805
+    },
+    {
+     "market": "-4.5",
+     "label": "Moins de 4,5 buts",
+     "odds": 1.5,
+     "src": "pmu",
+     "p": 0.6241,
+     "ev": -0.0638
+    },
+    {
+     "market": "H1",
+     "label": "Bayern Munich gagne par 2 buts ou + (handicap -1)",
+     "odds": 1.8,
+     "src": "estimee",
+     "p": 0.4984,
+     "ev": -0.1029
+    }
+   ]
+  },
+  {
+   "id": "961df571fad52d969150e9ced52b16f7",
+   "league": "Ligue 1",
+   "div": "F1",
+   "kickoff": "2026-10-31T19:45:00Z",
+   "day": "2026-10-31",
+   "home": "Lyon",
+   "away": "Angers",
+   "fd_home": "Lyon",
+   "fd_away": "Angers",
+   "lambdas": [
+    2.221,
+    0.903
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Lyon",
+     "odds": 1.33,
+     "src": "unibet",
+     "p": 0.6689,
+     "ev": -0.1104
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 4.7,
+     "src": "unibet",
+     "p": 0.1997,
+     "ev": -0.0614
+    },
+    {
+     "market": "2",
+     "label": "Victoire Angers",
+     "odds": 6.4,
+     "src": "unibet",
+     "p": 0.1314,
+     "ev": -0.159
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.48,
+     "src": "pmu",
+     "p": 0.5912,
+     "ev": -0.125
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 2.25,
+     "src": "pmu",
+     "p": 0.4088,
+     "ev": -0.0802
+    },
+    {
+     "market": "H1",
+     "label": "Lyon gagne par 2 buts ou + (handicap -1)",
+     "odds": 2.04,
+     "src": "estimee",
+     "p": 0.4374,
+     "ev": -0.1077
+    }
+   ]
+  },
+  {
+   "id": "75cf0c0e471877a0bfa95d689d0f0325",
+   "league": "Ligue 1",
+   "div": "F1",
+   "kickoff": "2026-10-31T19:45:00Z",
+   "day": "2026-10-31",
+   "home": "Troyes",
+   "away": "Le Mans FC",
+   "fd_home": "Troyes",
+   "fd_away": "Le Mans",
+   "lambdas": [
+    1.463,
+    1.285
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Troyes",
+     "odds": 2.2,
+     "src": "unibet",
+     "p": 0.3809,
+     "ev": -0.162
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.3,
+     "src": "unibet",
+     "p": 0.272,
+     "ev": -0.1024
+    },
+    {
+     "market": "2",
+     "label": "Victoire Le Mans FC",
+     "odds": 2.75,
+     "src": "unibet",
+     "p": 0.347,
+     "ev": -0.0458
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.72,
+     "src": "pmu",
+     "p": 0.5026,
+     "ev": -0.1355
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 1.85,
+     "src": "pmu",
+     "p": 0.4974,
+     "ev": -0.0798
+    }
+   ]
+  },
+  {
+   "id": "e82f25e981f2ebc731cfaf5716231af5",
+   "league": "Serie A",
+   "div": "I1",
+   "kickoff": "2026-10-31T19:45:00Z",
+   "day": "2026-10-31",
+   "home": "AC Milan",
+   "away": "Inter Milan",
+   "fd_home": "Milan",
+   "fd_away": "Inter",
+   "lambdas": [
+    1.257,
+    1.743
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire AC Milan",
+     "odds": 3.3,
+     "src": "unibet",
+     "p": 0.2654,
+     "ev": -0.1242
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.6,
+     "src": "unibet",
+     "p": 0.2486,
+     "ev": -0.105
+    },
+    {
+     "market": "2",
+     "label": "Victoire Inter Milan",
+     "odds": 1.85,
+     "src": "unibet",
+     "p": 0.4861,
+     "ev": -0.1007
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.54,
+     "src": "pmu",
+     "p": 0.5728,
+     "ev": -0.1179
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 2.1,
+     "src": "pmu",
+     "p": 0.4272,
+     "ev": -0.1029
+    }
+   ]
+  },
+  {
+   "id": "640c52a86289f35698261b41987dd71e",
+   "league": "Premier League",
+   "div": "E0",
+   "kickoff": "2026-10-31T20:00:00Z",
+   "day": "2026-10-31",
+   "home": "Aston Villa",
+   "away": "Fulham",
+   "fd_home": "Aston Villa",
+   "fd_away": "Fulham",
+   "lambdas": [
+    1.69,
+    1.194
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Aston Villa",
+     "odds": 1.85,
+     "src": "unibet",
+     "p": 0.475,
+     "ev": -0.1212
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.5,
+     "src": "unibet",
+     "p": 0.2583,
+     "ev": -0.096
+    },
+    {
+     "market": "2",
+     "label": "Victoire Fulham",
+     "odds": 3.4,
+     "src": "unibet",
+     "p": 0.2668,
+     "ev": -0.0929
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.61,
+     "src": "pmu",
+     "p": 0.5345,
+     "ev": -0.1395
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 1.97,
+     "src": "pmu",
+     "p": 0.4655,
+     "ev": -0.083
+    }
+   ]
+  },
+  {
+   "id": "2db2b55e71574a19ff0557898d3e9933",
+   "league": "Liga",
+   "div": "SP1",
+   "kickoff": "2026-10-31T20:00:00Z",
+   "day": "2026-10-31",
+   "home": "Barcelona",
+   "away": "Alavés",
+   "fd_home": "Barcelona",
+   "fd_away": "Alaves",
+   "lambdas": [
+    3.386,
+    0.882
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Barcelona",
+     "odds": 1.08,
+     "src": "unibet",
+     "p": 0.8278,
+     "ev": -0.106
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 8.5,
+     "src": "unibet",
+     "p": 0.111,
+     "ev": -0.0565
+    },
+    {
+     "market": "2",
+     "label": "Victoire Alavés",
+     "odds": 16.0,
+     "src": "unibet",
+     "p": 0.0612,
+     "ev": -0.0208
+    },
+    {
+     "market": "+4.5",
+     "label": "Plus de 4,5 buts",
+     "odds": 2.1,
+     "src": "pmu",
+     "p": 0.4015,
+     "ev": -0.1568
+    },
+    {
+     "market": "-4.5",
+     "label": "Moins de 4,5 buts",
+     "odds": 1.54,
+     "src": "pmu",
+     "p": 0.5985,
+     "ev": -0.0783
+    },
+    {
+     "market": "H1",
+     "label": "Barcelona gagne par 2 buts ou + (handicap -1)",
+     "odds": 1.37,
+     "src": "estimee",
+     "p": 0.6602,
+     "ev": -0.0955
+    }
+   ]
+  },
+  {
+   "id": "9507f4bcbcfd4e4953720628a2b86a17",
+   "league": "Serie A",
+   "div": "I1",
+   "kickoff": "2026-11-01T11:30:00Z",
+   "day": "2026-11-01",
+   "home": "Como",
+   "away": "Venezia",
+   "fd_home": "Como",
+   "fd_away": "Venezia",
+   "lambdas": [
+    2.659,
+    0.988
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Como",
+     "odds": 1.23,
+     "src": "unibet",
+     "p": 0.7334,
+     "ev": -0.0979
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 5.6,
+     "src": "unibet",
+     "p": 0.1622,
+     "ev": -0.0917
+    },
+    {
+     "market": "2",
+     "label": "Victoire Venezia",
+     "odds": 7.8,
+     "src": "unibet",
+     "p": 0.1044,
+     "ev": -0.1857
+    },
+    {
+     "market": "+3.5",
+     "label": "Plus de 3,5 buts",
+     "odds": 1.8,
+     "src": "pmu",
+     "p": 0.4712,
+     "ev": -0.1518
+    },
+    {
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.76,
+     "src": "pmu",
+     "p": 0.5288,
+     "ev": -0.0693
+    },
+    {
+     "market": "H1",
+     "label": "Como gagne par 2 buts ou + (handicap -1)",
+     "odds": 1.7,
+     "src": "estimee",
+     "p": 0.5246,
+     "ev": -0.1082
+    }
+   ]
+  },
+  {
+   "id": "ddcc9a51a2d7368e055d1abefacdb74e",
+   "league": "Liga",
+   "div": "SP1",
+   "kickoff": "2026-11-01T13:00:00Z",
+   "day": "2026-11-01",
+   "home": "Getafe",
+   "away": "Sevilla",
+   "fd_home": "Getafe",
+   "fd_away": "Sevilla",
+   "lambdas": [
+    0.914,
+    1.105
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Getafe",
+     "odds": 3.0,
+     "src": "unibet",
+     "p": 0.2958,
+     "ev": -0.1126
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 2.9,
+     "src": "unibet",
+     "p": 0.3245,
+     "ev": -0.0589
+    },
+    {
+     "market": "2",
+     "label": "Victoire Sevilla",
+     "odds": 2.25,
+     "src": "unibet",
+     "p": 0.3796,
+     "ev": -0.1459
+    },
+    {
+     "market": "+1.5",
+     "label": "Plus de 1,5 buts",
+     "odds": 1.47,
+     "src": "pmu",
+     "p": 0.5979,
+     "ev": -0.1211
+    },
+    {
+     "market": "-1.5",
+     "label": "Moins de 1,5 buts",
+     "odds": 2.25,
+     "src": "pmu",
+     "p": 0.4021,
+     "ev": -0.0953
+    }
+   ]
+  },
+  {
+   "id": "448a1083448ea9dff55bfebf15ff20b4",
+   "league": "Ligue 1",
+   "div": "F1",
+   "kickoff": "2026-11-01T14:00:00Z",
+   "day": "2026-11-01",
+   "home": "Strasbourg",
+   "away": "Auxerre",
+   "fd_home": "Strasbourg",
+   "fd_away": "Auxerre",
+   "lambdas": [
+    1.873,
+    1.196
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Strasbourg",
+     "odds": 1.7,
+     "src": "unibet",
+     "p": 0.5289,
+     "ev": -0.1009
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.7,
+     "src": "unibet",
+     "p": 0.2366,
+     "ev": -0.1246
+    },
+    {
+     "market": "2",
+     "label": "Victoire Auxerre",
+     "odds": 3.8,
+     "src": "unibet",
+     "p": 0.2346,
+     "ev": -0.1085
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.5,
+     "src": "pmu",
+     "p": 0.5968,
+     "ev": -0.1048
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 2.18,
+     "src": "pmu",
+     "p": 0.4032,
+     "ev": -0.121
+    }
+   ]
+  },
+  {
+   "id": "3f9f4bc9a19bf36dcb74be2f29610d55",
+   "league": "Serie A",
+   "div": "I1",
+   "kickoff": "2026-11-01T14:00:00Z",
+   "day": "2026-11-01",
+   "home": "Lazio",
+   "away": "Cagliari",
+   "fd_home": "Lazio",
+   "fd_away": "Cagliari",
+   "lambdas": [
+    1.964,
+    0.76
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Lazio",
+     "odds": 1.36,
+     "src": "unibet",
+     "p": 0.6258,
+     "ev": -0.1489
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 4.3,
+     "src": "unibet",
+     "p": 0.228,
+     "ev": -0.0196
+    },
+    {
+     "market": "2",
+     "label": "Victoire Cagliari",
+     "odds": 6.5,
+     "src": "unibet",
+     "p": 0.1462,
+     "ev": -0.0497
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.74,
+     "src": "pmu",
+     "p": 0.5009,
+     "ev": -0.1284
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 1.82,
+     "src": "pmu",
+     "p": 0.4991,
+     "ev": -0.0916
+    },
+    {
+     "market": "H1",
+     "label": "Lazio gagne par 2 buts ou + (handicap -1)",
+     "odds": 2.35,
+     "src": "estimee",
+     "p": 0.3801,
+     "ev": -0.1068
+    }
+   ]
+  },
+  {
+   "id": "b7b781db85506536dce5e7ce59a59863",
+   "league": "Serie A",
+   "div": "I1",
+   "kickoff": "2026-11-01T14:00:00Z",
+   "day": "2026-11-01",
+   "home": "Frosinone",
+   "away": "Torino",
+   "fd_home": "Frosinone",
+   "fd_away": "Torino",
+   "lambdas": [
+    1.854,
+    1.525
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Frosinone",
+     "odds": 1.98,
+     "src": "unibet",
+     "p": 0.484,
+     "ev": -0.0417
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.7,
+     "src": "unibet",
+     "p": 0.2247,
+     "ev": -0.1686
+    },
+    {
+     "market": "2",
+     "label": "Victoire Torino",
+     "odds": 2.85,
+     "src": "unibet",
+     "p": 0.2913,
+     "ev": -0.1698
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.36,
+     "src": "pmu",
+     "p": 0.685,
+     "ev": -0.0684
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 2.6,
+     "src": "pmu",
+     "p": 0.315,
+     "ev": -0.181
+    }
+   ]
+  },
+  {
+   "id": "60eaeb599578cd5c951f917c4fef06ff",
+   "league": "Bundesliga",
+   "div": "D1",
+   "kickoff": "2026-11-01T14:30:00Z",
+   "day": "2026-11-01",
+   "home": "Union Berlin",
+   "away": "1. FC Köln",
+   "fd_home": "Union Berlin",
+   "fd_away": "FC Koln",
+   "lambdas": [
+    1.513,
+    1.478
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Union Berlin",
+     "odds": 2.35,
+     "src": "unibet",
+     "p": 0.3876,
+     "ev": -0.0891
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.4,
+     "src": "unibet",
+     "p": 0.258,
+     "ev": -0.1228
+    },
+    {
+     "market": "2",
+     "label": "Victoire 1. FC Köln",
+     "odds": 2.45,
+     "src": "unibet",
+     "p": 0.3543,
+     "ev": -0.132
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.55,
+     "src": "pmu",
+     "p": 0.5679,
+     "ev": -0.1198
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 2.1,
+     "src": "pmu",
+     "p": 0.4321,
+     "ev": -0.0926
+    }
+   ]
+  },
+  {
+   "id": "6c520ed959578ca3aebe351ee3765d53",
+   "league": "Liga",
+   "div": "SP1",
+   "kickoff": "2026-11-01T15:15:00Z",
+   "day": "2026-11-01",
+   "home": "Real Racing Club de Santander",
+   "away": "Real Madrid",
+   "fd_home": "Santander",
+   "fd_away": "Real Madrid",
+   "lambdas": [
+    1.121,
+    3.147
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Real Racing Club de Santander",
+     "odds": 9.0,
+     "src": "unibet",
+     "p": 0.1057,
+     "ev": -0.0487
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 6.8,
+     "src": "unibet",
+     "p": 0.1389,
+     "ev": -0.0555
+    },
+    {
+     "market": "2",
+     "label": "Victoire Real Madrid",
+     "odds": 1.16,
+     "src": "unibet",
+     "p": 0.7554,
+     "ev": -0.1237
+    },
+    {
+     "market": "+4.5",
+     "label": "Plus de 4,5 buts",
+     "odds": 2.1,
+     "src": "pmu",
+     "p": 0.4245,
+     "ev": -0.1086
+    },
+    {
+     "market": "-4.5",
+     "label": "Moins de 4,5 buts",
+     "odds": 1.54,
+     "src": "pmu",
+     "p": 0.5755,
+     "ev": -0.1137
+    },
+    {
+     "market": "H2",
+     "label": "Real Madrid gagne par 2 buts ou + (handicap -1)",
+     "odds": 1.56,
+     "src": "estimee",
+     "p": 0.5727,
+     "ev": -0.1066
+    }
+   ]
+  },
+  {
+   "id": "cf3a2e2b4a4e9815d1d0be8dcef916da",
+   "league": "Ligue 1",
+   "div": "F1",
+   "kickoff": "2026-11-01T16:15:00Z",
+   "day": "2026-11-01",
+   "home": "Paris FC",
+   "away": "AS Monaco",
+   "fd_home": "Paris FC",
+   "fd_away": "Monaco",
+   "lambdas": [
+    1.541,
+    1.314
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Paris FC",
+     "odds": 2.15,
+     "src": "unibet",
+     "p": 0.418,
+     "ev": -0.1013
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.3,
+     "src": "unibet",
+     "p": 0.2634,
+     "ev": -0.1308
+    },
+    {
+     "market": "2",
+     "label": "Victoire AS Monaco",
+     "odds": 2.85,
+     "src": "unibet",
+     "p": 0.3186,
+     "ev": -0.092
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.63,
+     "src": "pmu",
+     "p": 0.5387,
+     "ev": -0.1219
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 1.95,
+     "src": "pmu",
+     "p": 0.4613,
+     "ev": -0.1005
+    }
+   ]
+  },
+  {
+   "id": "6a3819cdbe2ba2fe5a3d8f9b4b459965",
+   "league": "Premier League",
+   "div": "E0",
+   "kickoff": "2026-11-01T16:30:00Z",
+   "day": "2026-11-01",
+   "home": "Liverpool",
+   "away": "Arsenal",
+   "fd_home": "Liverpool",
+   "fd_away": "Arsenal",
+   "lambdas": [
+    1.272,
+    1.448
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Liverpool",
+     "odds": 2.75,
+     "src": "unibet",
+     "p": 0.3107,
+     "ev": -0.1456
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.3,
+     "src": "unibet",
+     "p": 0.2742,
+     "ev": -0.0951
+    },
+    {
+     "market": "2",
+     "label": "Victoire Arsenal",
+     "odds": 2.2,
+     "src": "unibet",
+     "p": 0.4151,
+     "ev": -0.0868
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.74,
+     "src": "pmu",
+     "p": 0.4916,
+     "ev": -0.1446
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 1.82,
+     "src": "pmu",
+     "p": 0.5084,
+     "ev": -0.0747
+    }
+   ]
+  },
+  {
+   "id": "1eb5e1a69ae9dd9edd92fde344308a4e",
+   "league": "Bundesliga",
+   "div": "D1",
+   "kickoff": "2026-11-01T16:30:00Z",
+   "day": "2026-11-01",
+   "home": "Eintracht Frankfurt",
+   "away": "Hamburger SV",
+   "fd_home": "Ein Frankfurt",
+   "fd_away": "Hamburg",
+   "lambdas": [
+    2.312,
+    1.29
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Eintracht Frankfurt",
+     "odds": 1.5,
+     "src": "unibet",
+     "p": 0.5845,
+     "ev": -0.1232
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 4.2,
+     "src": "unibet",
+     "p": 0.2084,
+     "ev": -0.1247
+    },
+    {
+     "market": "2",
+     "label": "Victoire Hamburger SV",
+     "odds": 4.6,
+     "src": "unibet",
+     "p": 0.2071,
+     "ev": -0.0473
+    },
+    {
+     "market": "+3.5",
+     "label": "Plus de 3,5 buts",
+     "odds": 1.83,
+     "src": "pmu",
+     "p": 0.471,
+     "ev": -0.1381
+    },
+    {
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.73,
+     "src": "pmu",
+     "p": 0.529,
+     "ev": -0.0848
+    },
+    {
+     "market": "H1",
+     "label": "Eintracht Frankfurt gagne par 2 buts ou + (handicap -1)",
+     "odds": 2.4,
+     "src": "estimee",
+     "p": 0.3713,
+     "ev": -0.1089
+    }
+   ]
+  },
+  {
+   "id": "940b9e69539033539039f9af694e2925",
+   "league": "Serie A",
+   "div": "I1",
+   "kickoff": "2026-11-01T17:00:00Z",
+   "day": "2026-11-01",
+   "home": "Lecce",
+   "away": "Genoa",
+   "fd_home": "Lecce",
+   "fd_away": "Genoa",
+   "lambdas": [
+    1.023,
+    1.281
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Lecce",
+     "odds": 3.1,
+     "src": "unibet",
+     "p": 0.2919,
+     "ev": -0.0951
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.0,
+     "src": "unibet",
+     "p": 0.3002,
+     "ev": -0.0994
+    },
+    {
+     "market": "2",
+     "label": "Victoire Genoa",
+     "odds": 2.15,
+     "src": "unibet",
+     "p": 0.4079,
+     "ev": -0.123
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 2.2,
+     "src": "pmu",
+     "p": 0.3927,
+     "ev": -0.1361
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 1.5,
+     "src": "pmu",
+     "p": 0.6073,
+     "ev": -0.0891
+    }
+   ]
+  },
+  {
+   "id": "5262991e389930615bec34b642428c93",
+   "league": "Liga",
+   "div": "SP1",
+   "kickoff": "2026-11-01T17:30:00Z",
+   "day": "2026-11-01",
+   "home": "Elche CF",
+   "away": "Valencia",
+   "fd_home": "Elche",
+   "fd_away": "Valencia",
+   "lambdas": [
+    1.435,
+    1.235
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Elche CF",
+     "odds": 2.2,
+     "src": "unibet",
+     "p": 0.4288,
+     "ev": -0.0566
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.2,
+     "src": "unibet",
+     "p": 0.2729,
+     "ev": -0.1267
+    },
+    {
+     "market": "2",
+     "label": "Victoire Valencia",
+     "odds": 2.85,
+     "src": "unibet",
+     "p": 0.2983,
+     "ev": -0.1498
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.78,
+     "src": "pmu",
+     "p": 0.4885,
+     "ev": -0.1305
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 1.78,
+     "src": "pmu",
+     "p": 0.5115,
+     "ev": -0.0895
+    }
+   ]
+  },
+  {
+   "id": "df1e1589c51bbcac432125567d1f7c58",
+   "league": "Ligue 1",
+   "div": "F1",
+   "kickoff": "2026-11-01T19:45:00Z",
+   "day": "2026-11-01",
+   "home": "Marseille",
+   "away": "Toulouse",
+   "fd_home": "Marseille",
+   "fd_away": "Toulouse",
+   "lambdas": [
+    1.855,
+    1.276
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Marseille",
+     "odds": 1.8,
+     "src": "unibet",
+     "p": 0.5076,
+     "ev": -0.0863
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.9,
+     "src": "unibet",
+     "p": 0.238,
+     "ev": -0.0718
+    },
+    {
+     "market": "2",
+     "label": "Victoire Toulouse",
+     "odds": 3.5,
+     "src": "unibet",
+     "p": 0.2544,
+     "ev": -0.1096
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.47,
+     "src": "pmu",
+     "p": 0.6087,
+     "ev": -0.1052
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 2.25,
+     "src": "pmu",
+     "p": 0.3913,
+     "ev": -0.1196
+    }
+   ]
+  },
+  {
+   "id": "aeadf1388a1075328536501576b3d550",
+   "league": "Serie A",
+   "div": "I1",
+   "kickoff": "2026-11-01T19:45:00Z",
+   "day": "2026-11-01",
+   "home": "Juventus",
+   "away": "Napoli",
+   "fd_home": "Juventus",
+   "fd_away": "Napoli",
+   "lambdas": [
+    1.413,
+    1.121
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Juventus",
+     "odds": 2.1,
+     "src": "unibet",
+     "p": 0.4255,
+     "ev": -0.1064
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.2,
+     "src": "unibet",
+     "p": 0.2824,
+     "ev": -0.0963
+    },
+    {
+     "market": "2",
+     "label": "Victoire Napoli",
+     "odds": 3.1,
+     "src": "unibet",
+     "p": 0.2921,
+     "ev": -0.0945
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.91,
+     "src": "pmu",
+     "p": 0.455,
+     "ev": -0.131
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 1.66,
+     "src": "pmu",
+     "p": 0.545,
+     "ev": -0.0953
+    }
+   ]
+  },
+  {
+   "id": "3757bcd765c7da1538cdf2785e784038",
+   "league": "Liga",
+   "div": "SP1",
+   "kickoff": "2026-11-01T20:00:00Z",
+   "day": "2026-11-01",
+   "home": "Athletic Bilbao",
+   "away": "Real Sociedad",
+   "fd_home": "Ath Bilbao",
+   "fd_away": "Sociedad",
+   "lambdas": [
+    1.584,
+    1.22
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Athletic Bilbao",
+     "odds": 1.98,
+     "src": "unibet",
+     "p": 0.4564,
+     "ev": -0.0963
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.5,
+     "src": "unibet",
+     "p": 0.2583,
+     "ev": -0.096
+    },
+    {
+     "market": "2",
+     "label": "Victoire Real Sociedad",
+     "odds": 3.1,
+     "src": "unibet",
+     "p": 0.2853,
+     "ev": -0.1156
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.67,
+     "src": "pmu",
+     "p": 0.5456,
+     "ev": -0.0888
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 1.89,
+     "src": "pmu",
+     "p": 0.4544,
+     "ev": -0.1412
+    }
+   ]
+  }
+ ]
+}

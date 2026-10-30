@@ -50,17 +50,17 @@
      "label": "Plus de 2,5 buts",
      "odds": 1.5,
      "src": "pmu",
-     "p": 0.6091,
-     "ev": -0.0864
+     "p": 0.6071,
+     "ev": -0.0894
     }
    ],
    "odds": 2.91,
-   "p": 0.2619,
-   "cost": 0.2376,
+   "p": 0.2611,
+   "cost": 0.2401,
    "stars": 1,
    "stake": 2,
    "status": "en attente",
-   "proposed_at": "2026-10-30T13:31:07.549506+00:00"
+   "proposed_at": "2026-10-30T15:04:31.893491+00:00"
   },
   {
    "id": "2026-10-31|04aa939b89001eedf55668e66c74836e:+2.5|3966f2fe1c2f73bfa12e61db83bd0bf9:-3.5",
@@ -80,8 +80,8 @@
      "label": "Moins de 3,5 buts",
      "odds": 1.62,
      "src": "pmu",
-     "p": 0.5971,
-     "ev": -0.0327
+     "p": 0.5968,
+     "ev": -0.0332
     },
     {
      "match_id": "04aa939b89001eedf55668e66c74836e",
@@ -96,17 +96,17 @@
      "label": "Plus de 2,5 buts",
      "odds": 1.75,
      "src": "pmu",
-     "p": 0.5462,
-     "ev": -0.0441
+     "p": 0.546,
+     "ev": -0.0445
     }
    ],
    "odds": 2.83,
-   "p": 0.3261,
-   "cost": 0.0754,
+   "p": 0.3259,
+   "cost": 0.0762,
    "stars": 2,
    "stake": 2,
    "status": "en attente",
-   "proposed_at": "2026-10-30T13:31:07.549506+00:00"
+   "proposed_at": "2026-10-30T15:04:31.893491+00:00"
   },
   {
    "id": "2026-10-31|7df53f9af95d5a4e13b504882078dab8:-3.5|aecb9d8c01176616c87d893bee4bc0de:-3.5",
@@ -142,17 +142,95 @@
      "label": "Moins de 3,5 buts",
      "odds": 1.67,
      "src": "pmu",
-     "p": 0.5578,
-     "ev": -0.0685
+     "p": 0.5577,
+     "ev": -0.0686
     }
    ],
    "odds": 2.62,
-   "p": 0.3335,
-   "cost": 0.1258,
+   "p": 0.3334,
+   "cost": 0.1259,
    "stars": 2,
    "stake": 2,
    "status": "en attente",
-   "proposed_at": "2026-10-30T13:31:07.549506+00:00"
+   "proposed_at": "2026-10-30T15:04:31.893491+00:00"
+  },
+  {
+   "id": "2026-10-31|24400b6372faf9f4996cd5704d707374:1|3966f2fe1c2f73bfa12e61db83bd0bf9:-3.5|6601f69175a02f03fb7065aacb538e01:2|bad7337b335a16859b1db6b8e6cf6ca5:-3.5",
+   "day": "2026-10-31",
+   "kind": "folie",
+   "legs": [
+    {
+     "match_id": "6601f69175a02f03fb7065aacb538e01",
+     "league": "Premier League",
+     "kickoff": "2026-10-31T12:30:00Z",
+     "home": "Chelsea",
+     "away": "Manchester United",
+     "fd_home": "Chelsea",
+     "fd_away": "Man United",
+     "div": "E0",
+     "market": "2",
+     "label": "Victoire Manchester United",
+     "odds": 3.8,
+     "src": "unibet",
+     "p": 0.2694,
+     "ev": 0.0237
+    },
+    {
+     "match_id": "24400b6372faf9f4996cd5704d707374",
+     "league": "Bundesliga",
+     "kickoff": "2026-10-31T14:30:00Z",
+     "home": "Augsburg",
+     "away": "SC Freiburg",
+     "fd_home": "Augsburg",
+     "fd_away": "Freiburg",
+     "div": "D1",
+     "market": "1",
+     "label": "Victoire Augsburg",
+     "odds": 2.95,
+     "src": "unibet",
+     "p": 0.3348,
+     "ev": -0.0123
+    },
+    {
+     "match_id": "3966f2fe1c2f73bfa12e61db83bd0bf9",
+     "league": "Bundesliga",
+     "kickoff": "2026-10-31T14:30:00Z",
+     "home": "FC Schalke 04",
+     "away": "RB Leipzig",
+     "fd_home": "Schalke 04",
+     "fd_away": "RB Leipzig",
+     "div": "D1",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.62,
+     "src": "pmu",
+     "p": 0.5968,
+     "ev": -0.0332
+    },
+    {
+     "match_id": "bad7337b335a16859b1db6b8e6cf6ca5",
+     "league": "Bundesliga",
+     "kickoff": "2026-10-31T17:30:00Z",
+     "home": "Bayern Munich",
+     "away": "Borussia Dortmund",
+     "fd_home": "Bayern Munich",
+     "fd_away": "Dortmund",
+     "div": "D1",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 2.2,
+     "src": "pmu",
+     "p": 0.4363,
+     "ev": -0.0401
+    }
+   ],
+   "odds": 39.95,
+   "p": 0.0235,
+   "cost": 0.0617,
+   "stars": 0,
+   "stake": 1,
+   "status": "en attente",
+   "proposed_at": "2026-10-30T15:04:31.893491+00:00"
   },
   {
    "id": "2026-10-30|00b03cb40c27ed23e2ecb18f062a5122:-3.5|9a9f6c78276f74f15f42b013b033aa5d:-3.5",
@@ -245,11 +323,89 @@
    "stake": 3,
    "status": "en attente",
    "proposed_at": "2026-10-30T00:03:43.510958+00:00"
+  },
+  {
+   "id": "2026-10-30|7932d9a82dcdb164a3e4ef5e03694ee3:1|9a9f6c78276f74f15f42b013b033aa5d:-3.5|a547720e6b4661d6319c4f11dbdf8e1f:2|b275fe870ec88a9f0054c9220beb2673:1",
+   "day": "2026-10-30",
+   "kind": "folie",
+   "legs": [
+    {
+     "match_id": "b275fe870ec88a9f0054c9220beb2673",
+     "league": "Bundesliga",
+     "kickoff": "2026-10-30T19:30:00Z",
+     "home": "Elversberg",
+     "away": "FSV Mainz 05",
+     "fd_home": "Elversberg",
+     "fd_away": "Mainz",
+     "div": "D1",
+     "market": "1",
+     "label": "Victoire Elversberg",
+     "odds": 3.1,
+     "src": "unibet",
+     "p": 0.3313,
+     "ev": 0.027
+    },
+    {
+     "match_id": "a547720e6b4661d6319c4f11dbdf8e1f",
+     "league": "Ligue 1",
+     "kickoff": "2026-10-30T18:00:00Z",
+     "home": "Nice",
+     "away": "Rennes",
+     "fd_home": "Nice",
+     "fd_away": "Rennes",
+     "div": "F1",
+     "market": "2",
+     "label": "Victoire Rennes",
+     "odds": 2.45,
+     "src": "unibet",
+     "p": 0.3921,
+     "ev": -0.0394
+    },
+    {
+     "match_id": "7932d9a82dcdb164a3e4ef5e03694ee3",
+     "league": "Ligue 1",
+     "kickoff": "2026-10-30T20:05:00Z",
+     "home": "Lille",
+     "away": "RC Lens",
+     "fd_home": "Lille",
+     "fd_away": "Lens",
+     "div": "F1",
+     "market": "1",
+     "label": "Victoire Lille",
+     "odds": 2.55,
+     "src": "unibet",
+     "p": 0.3753,
+     "ev": -0.043
+    },
+    {
+     "match_id": "9a9f6c78276f74f15f42b013b033aa5d",
+     "league": "Ligue 1",
+     "kickoff": "2026-10-30T18:00:00Z",
+     "home": "Le Havre",
+     "away": "Paris Saint Germain",
+     "fd_home": "Le Havre",
+     "fd_away": "Paris SG",
+     "div": "F1",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.72,
+     "src": "pmu",
+     "p": 0.551,
+     "ev": -0.0523
+    }
+   ],
+   "odds": 33.31,
+   "p": 0.0269,
+   "cost": 0.1053,
+   "stars": 0,
+   "stake": 1,
+   "status": "en attente",
+   "proposed_at": "2026-10-30T15:04:31.893491+00:00"
   }
  ],
  "bilan": {
   "n": 0,
   "gagnes": 0
  },
- "updated": "2026-10-30T13:31:07.549506+00:00"
+ "updated": "2026-10-30T15:04:31.893491+00:00"
 }

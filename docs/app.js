@@ -66,6 +66,7 @@ function findCombo(id) {
 /* --------------------------------------------------------------- tickets */
 function legHtml(c, l, i) {
   const ov = (overrides()[c.id] || {})[i];
+  const res = l.won === true ? `<span class="tag win">✓ ${esc(l.score)}</span>` : l.won === false ? `<span class="tag loss">✗ ${esc(l.score)}</span>` : "";
   return `<div class="leg">
     <div class="crests">${crest(l.home, "h")}${crest(l.away, "a")}</div>
     <div class="pick"><b>${esc(l.label)}</b><span class="vs">${esc(l.home)} contre ${esc(l.away)}</span>

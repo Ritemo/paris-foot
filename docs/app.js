@@ -238,7 +238,28 @@ function renderHeader() {
   document.getElementById("budget-strip").innerHTML = `<div class="line"><span>Budget du mois</span><span><b>${fmt(spent, 0)} €</b> sur ${fmt(s.budget, 0)} €</span></div>
     <div class="gauge ${spent > s.budget ? "over" : ""}"><i style="width:${Math.min(100, (100 * spent) / Math.max(s.budget, 1))}%"></i></div>`;
 }
-function renderAll() { renderHeader(); renderCombos(); renderMatchs(); renderBilan(); }
+/* --------------------------------------------------------------- tickets joués en cours */
+function renderEncours() {
+  const el = document.getElementById("tab-encours");
+  const t = isoDay(new Date()), since = isoDay(new Date(Date.now() - 2 * 864e5));
+  const mine = Object.keys(bets()).map(findCombo).filter(Boolean);
+  const live = mine.filter((c) => c.status === "en attente").sort((x, y) => (x.day + x.legs[0].kickoff).localeCompare(y.day + y.legs[0].kickoff));
+  const done = mine.filter((c) => c.status !== "en attente" && c.day >= since).sort((x, y) => y.day.localeCompare(x.day));
+  const badge = document.getElementById("encours-badge");
+  badge.hidden = !live.length; badge.textContent = live.length;
+  let h = "";
+  if (!live.length) h += `<div class="empty">${EMPTY_BALL}<b>Aucun ticket en cours</b><p>Touche « Je le joue » sur un ticket : il se rangera ici jusqu'à la fin de ses matchs.</p></div>`;
+  else {
+    const stake = live.reduce((s, c) => s + bets()[c.id].mise, 0);
+    const pot = live.reduce((s, c) => s + bets()[c.id].mise * bets()[c.id].odds, 0);
+    h += `<div class="day"><h2>En cours</h2><span>${live.length} ticket${live.length > 1 ? "s" : ""}, ${fmt(stake, 0)} € misés, jusqu'à ${fmt(pot)} € à gagner</span></div>`;
+    h += live.map(ticketHtml).join("");
+  }
+  if (done.length) h += `<div class="day"><h2>Derniers résultats</h2><span>sur 2 jours</span></div>` + done.map(ticketHtml).join("");
+  el.innerHTML = h;
+}
+
+function renderAll() { renderHeader(); renderEncours(); renderCombos(); renderMatchs(); renderBilan(); }
 
 /* --------------------------------------------------------------- dialogues */
 function ask(title, text, value, { clear = false, steps = null } = {}) {

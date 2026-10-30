@@ -34,12 +34,6 @@ function dayTitle(day) {
 const SRC = { unibet: "Unibet", pmu: "PMU, à vérifier", netbet: "NetBet, à vérifier", betclic: "Betclic, à vérifier",
   winamax: "Winamax, à vérifier", estimee: "estimée" };
 const LEAGUE_COLOR = { "Ligue 1": "#1a3a8f", "Premier League": "#3d195b", "Liga": "#e0301e", "Serie A": "#008fd7", "Bundesliga": "#d20515" };
-const FLASHSCORE = { "Ligue 1": "france/ligue-1", "Premier League": "angleterre/premier-league", "Liga": "espagne/laliga",
-  "Serie A": "italie/serie-a", "Bundesliga": "allemagne/bundesliga" };
-// Lien web vers la page du championnat (le bouton OUVRIR de la page bascule ensuite dans l'appli Flashscore)
-function flashscoreLink(path) {
-  return `https://www.flashscore.fr/football/${path}/`;
-}
 const KIT = ["#c8102e", "#0057b8", "#e3a400", "#00843d", "#6c1d45", "#26323a", "#e35205", "#0095c8", "#7a2582", "#b5121b", "#1f6f50", "#3949ab"];
 
 function crest(name, cls) {
@@ -72,13 +66,10 @@ function findCombo(id) {
 /* --------------------------------------------------------------- tickets */
 function legHtml(c, l, i) {
   const ov = (overrides()[c.id] || {})[i];
-  const fs = bets()[c.id] && c.status === "en attente" && FLASHSCORE[l.league] && l.won === undefined
-    ? `<a class="tag fs" href="${flashscoreLink(FLASHSCORE[l.league])}" rel="noopener">Suivre sur Flashscore</a>` : "";
-  const res = l.won === true ? `<span class="tag win">✓ ${esc(l.score)}</span>` : l.won === false ? `<span class="tag loss">✗ ${esc(l.score)}</span>` : "";
   return `<div class="leg">
     <div class="crests">${crest(l.home, "h")}${crest(l.away, "a")}</div>
     <div class="pick"><b>${esc(l.label)}</b><span class="vs">${esc(l.home)} contre ${esc(l.away)}</span>
-      <div class="meta"><span class="tag">${esc(l.league)}</span><span class="tag">${when(l.kickoff)}</span><span class="tag">${pct(l.p)}</span>${res}${fs}</div></div>
+      <div class="meta"><span class="tag">${esc(l.league)}</span><span class="tag">${when(l.kickoff)}</span><span class="tag">${pct(l.p)}</span>${res}</div></div>
     <button class="odd ${esc(l.src)} ${ov ? "edited" : ""}" data-combo="${esc(c.id)}" data-leg="${i}" aria-label="Corriger la cote">
       ${fmt(ov || l.odds)}<small>${ov ? "ta cote" : esc(SRC[l.src] || l.src)}</small></button>
   </div>`;

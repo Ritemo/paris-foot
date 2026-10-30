@@ -184,9 +184,6 @@ dialog input { width: 100%; padding: 12px; font: 800 24px var(--display); text-a
   border-radius: 20px; padding: 3px 10px; transform: rotate(3deg); }
 .ticket.folie .btn:not(.played) { background: #c2185b; color: #fff; box-shadow: 0 3px 0 #7d0f3b; }
 .kick small { display: block; font: 600 11px var(--texte); color: var(--sous); margin-top: 2px; }
-.tag.fs { background: #ff0046; color: #fff; text-decoration: none; padding: 3px 9px; }
-.tag.fs::before { content: ""; display: inline-block; width: 9px; height: 9px; margin-right: 5px; border-radius: 50%;
-  background: #fff; box-shadow: inset 0 0 0 2px #ff0046, 0 0 0 1px #fff; vertical-align: -1px; }
 .tabs button { position: relative; }
 .badge { position: absolute; top: 2px; left: 50%; margin-left: 6px; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px;
   background: var(--rouge); color: #fff; font: 800 11px/18px var(--texte); }

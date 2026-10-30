@@ -19,7 +19,7 @@ const when = (iso) => {
   const day = d.toLocaleDateString("fr-FR", { weekday: "short", day: "numeric", month: "short", timeZone: "Europe/Paris" });
   return `${day} à ${hour(iso)}`;
 };
-const kindOrder = (c) => (c.kind === "folie" ? 9 : c.kind === "x3" ? 2 : 1);
+const kindOrder = (c) => (c.kind === "folie" ? 9 : c.kind === "perso" ? 0 : c.kind === "x3" ? 2 : 1);
 const longDate = (day) => new Date(day + "T12:00:00").toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" });
 
 function dayTitle(day) {
@@ -33,7 +33,8 @@ function dayTitle(day) {
 
 const SRC = { unibet: "Unibet", pmu: "PMU, à vérifier", netbet: "NetBet, à vérifier", betclic: "Betclic, à vérifier",
   winamax: "Winamax, à vérifier", estimee: "estimée" };
-const LEAGUE_COLOR = { "Ligue 1": "#1a3a8f", "Premier League": "#3d195b", "Liga": "#e0301e", "Serie A": "#008fd7", "Bundesliga": "#d20515" };
+const LEAGUE_COLOR = { "Ligue 1": "#1a3a8f", "Premier League": "#3d195b", "Liga": "#e0301e", "Serie A": "#008fd7", "Bundesliga": "#d20515",
+  "Ligue des champions": "#0b1f6b" };
 const KIT = ["#c8102e", "#0057b8", "#e3a400", "#00843d", "#6c1d45", "#26323a", "#e35205", "#0095c8", "#7a2582", "#b5121b", "#1f6f50", "#3949ab"];
 
 function crest(name, cls) {
@@ -90,9 +91,10 @@ function ticketHtml(c) {
   const folie = c.kind === "folie";
   const head = folie
     ? `<span class="kind">Folie du jour, ${c.legs.length} matchs</span><span class="fun">pour le fun</span>`
+    : c.kind === "perso" ? `<span class="kind">Mon combiné de ${c.legs.length}</span><span class="fun perso">composé par toi</span>`
     : `<span class="kind">Combiné ${c.kind === "x3" ? "de 3" : "de 2"}</span>
       <span class="stars" aria-label="${k.stars} étoile${k.stars > 1 ? "s" : ""} sur 3">${[1, 2, 3].map((n) => `<i class="${n <= k.stars ? "on" : ""}"></i>`).join("")}</span>`;
-  return `<article class="ticket ${c.status} ${folie ? "folie" : ""}">
+  return `<article class="ticket ${c.status} ${folie ? "folie" : ""} ${c.kind === "perso" ? "perso" : ""}">
     <div class="board">
       ${head}
       <div class="score">
@@ -156,8 +158,9 @@ function renderMatchs() {
         const p1 = s["1"]?.p || 0, pN = s["N"]?.p || 0, p2 = s["2"]?.p || 0;
         const extras = m.sel.filter((x) => !["1", "N", "2"].includes(x.market)).map((x) => {
           const lab = x.market.startsWith("H") ? `${x.market === "H1" ? m.home : m.away} par 2 buts ou +` : x.label;
-          return `<span class="extra">${esc(lab)} <b>${pct(x.p)}</b> à ${fmt(x.odds)}${x.src === "estimee" ? " (estimée)" : ""}</span>`;
+          return pickBtn(m, x, `${lab}, ${pct(x.p)}`);
         }).join("");
+        const started = new Date(m.kickoff) <= new Date();
         h += `<div class="match">
           <div class="mhead">
             <div class="team">${crest(m.home, "")}<span>${esc(m.home)}</span></div>
@@ -167,13 +170,14 @@ function renderMatchs() {
           <div class="tri" role="img" aria-label="Victoire ${esc(m.home)} ${pct(p1)}, nul ${pct(pN)}, victoire ${esc(m.away)} ${pct(p2)}">
             <div class="h" style="flex:${p1}">${pct(p1)}</div><div class="n" style="flex:${pN}">${pct(pN)}</div><div class="a" style="flex:${p2}">${pct(p2)}</div>
           </div>
-          <div class="tri-odds"><span>1 à ${fmt(s["1"]?.odds || 0)}</span><span>nul à ${fmt(s["N"]?.odds || 0)}</span><span>2 à ${fmt(s["2"]?.odds || 0)}</span></div>
-          <div class="extras">${extras}</div>
+          ${started ? `<p class="hint">Match commencé.</p>` : `<div class="picks3">${s["1"] ? pickBtn(m, s["1"], "1") : ""}${s["N"] ? pickBtn(m, s["N"], "Nul") : ""}${s["2"] ? pickBtn(m, s["2"], "2") : ""}</div>
+          <div class="extras">${extras}</div>`}
         </div>`;
       }
     }
   }
-  el.innerHTML = h + `<p class="hint" style="margin:6px 4px 20px">Cotes Unibet pour la victoire et le nul, PMU pour les buts.</p>`;
+  el.innerHTML = `<p class="hint" style="margin:16px 4px 0">Touche les cotes pour composer ton propre combiné.</p>` + h
+    + `<p class="hint" style="margin:6px 4px 20px">Cotes Unibet pour la victoire et le nul, PMU pour les buts, * = estimée.</p>`;
 }
 
 /* --------------------------------------------------------------- bilan */
@@ -182,6 +186,59 @@ function compare(annonce, reelle) {
     <div class="row2"><span>Annoncée</span><div class="bar"><i style="width:${annonce * 100}%"></i></div><b>${pct(annonce)}</b></div>
     <div class="row2"><span>Réelle</span><div class="bar real"><i style="width:${reelle * 100}%"></i></div><b>${pct(reelle)}</b></div>
   </div>`;
+}
+
+/* courbe du solde et bilan mensuel de mes paris */
+function myCharts(done) {
+  if (!done.length) return "";
+  const rows = done.map((x) => ({ day: x.c.day, g: x.c.status === "gagne" ? x.mise * (x.odds - 1) : -x.mise, mise: x.mise }))
+    .sort((a, b) => a.day.localeCompare(b.day));
+  let cum = 0;
+  const pts = [{ v: 0 }].concat(rows.map((r) => ({ v: (cum += r.g), day: r.day })));
+  let h = `<h2 class="section-title">Mon solde</h2><div class="panel">`;
+  if (pts.length >= 3) {
+    const W = 320, H = 130, pad = 8;
+    const vs = pts.map((p) => p.v), lo = Math.min(0, ...vs), hi = Math.max(0, ...vs), span = hi - lo || 1;
+    const X = (i) => pad + (i * (W - 2 * pad)) / (pts.length - 1), Y = (v) => pad + ((hi - v) * (H - 2 * pad)) / span;
+    const line = pts.map((p, i) => `${X(i).toFixed(1)},${Y(p.v).toFixed(1)}`).join(" ");
+    const last = pts[pts.length - 1].v;
+    h += `<svg class="curve" viewBox="0 0 ${W} ${H}" role="img" aria-label="Évolution de ton solde, ${eur(last)} au total">
+      <line x1="${pad}" x2="${W - pad}" y1="${Y(0)}" y2="${Y(0)}" class="zero"/>
+      <polygon points="${X(0)},${Y(0)} ${line} ${X(pts.length - 1)},${Y(0)}" class="${last >= 0 ? "area-pos" : "area-neg"}"/>
+      <polyline points="${line}" class="${last >= 0 ? "pos" : "neg"}"/>
+      <circle cx="${X(pts.length - 1)}" cy="${Y(last)}" r="4" class="${last >= 0 ? "pos" : "neg"}"/></svg>
+      <p class="hint">Après chaque pari terminé, du premier au dernier. La ligne fine marque 0 €.</p>`;
+  } else h += `<p class="hint" style="margin:0">La courbe apparaît à partir de 2 paris terminés.</p>`;
+  const months = {};
+  for (const r of rows) { const m = r.day.slice(0, 7); months[m] = months[m] || { n: 0, mise: 0, g: 0 }; months[m].n++; months[m].mise += r.mise; months[m].g += r.g; }
+  h += `<table class="months"><thead><tr><th>Mois</th><th>Paris</th><th>Misé</th><th>Bilan</th></tr></thead><tbody>` +
+    Object.keys(months).sort().reverse().map((m) => {
+      const label = new Date(m + "-15").toLocaleDateString("fr-FR", { month: "long", year: "numeric" });
+      return `<tr><td>${esc(label)}</td><td>${months[m].n}</td><td>${fmt(months[m].mise, 0)} €</td><td class="${months[m].g >= 0 ? "pos" : "neg"}">${eur(months[m].g)}</td></tr>`;
+    }).join("") + `</tbody></table></div>`;
+  return h;
+}
+
+/* réussite par type de sélection, sur tous les tickets du robot */
+function marketStats() {
+  const cats = { "Victoire": (m) => m === "1" || m === "2", "Match nul": (m) => m === "N", "Plus de buts": (m) => m[0] === "+",
+    "Moins de buts": (m) => m[0] === "-", "Handicap": (m) => m[0] === "H" };
+  const acc = {};
+  for (const c of hist?.combos || []) {
+    if (c.replaced) continue;
+    for (const l of c.legs) {
+      if (l.won === undefined) continue;
+      const k = Object.keys(cats).find((n) => cats[n](l.market));
+      if (!k) continue;
+      acc[k] = acc[k] || { n: 0, w: 0, p: 0 }; acc[k].n++; acc[k].w += l.won ? 1 : 0; acc[k].p += l.p;
+    }
+  }
+  const keys = Object.keys(acc);
+  if (!keys.length) return "";
+  return `<h2 class="section-title">Réussite par type de pari</h2><div class="panel">` + keys.map((k) => {
+    const a = acc[k];
+    return `<div class="mstat"><div class="mstat-head"><b>${esc(k)}</b><span>${a.w} sur ${a.n} sélection${a.n > 1 ? "s" : ""}</span></div>${compare(a.p / a.n, a.w / a.n)}</div>`;
+  }).join("") + `<p class="hint">Chaque match d'un ticket compte, qu'il ait été joué ou non. Un type de pari qui réussit nettement moins qu'annoncé sur plusieurs dizaines de sélections mérite d'être évité.</p></div>`;
 }
 
 function renderBilan() {
@@ -203,7 +260,7 @@ function renderBilan() {
       <div class="money ${gain >= 0 ? "pos" : "neg"}">${eur(gain)}</div><p class="hint">sur ${fmt(mise, 0)} € misés</p>`;
     if (done.length) h += compare(done.reduce((s, x) => s + x.c.p, 0) / done.length, won / done.length);
   }
-  h += `</div><h2 class="section-title">Tous les tickets du robot</h2><div class="panel">`;
+  h += `</div>` + myCharts(done) + `<h2 class="section-title">Tous les tickets du robot</h2><div class="panel">`;
   if (!b.n) h += `<p class="hint" style="margin:0">Aucun ticket terminé pour l'instant. Le premier bilan arrive après les matchs du jour.</p>`;
   else {
     h += `<div class="scoreline"><div class="w"><b>${b.gagnes}</b><small>gagnés</small></div><span class="sep">/</span>
@@ -217,7 +274,8 @@ function renderBilan() {
     h += `<p class="hint">Folies : ${b.folie.gagnes} passée${b.folie.gagnes > 1 ? "s" : ""} sur ${b.folie.n}, ${eur(b.folie.bilan)} à 1 € la folie (comptées à part).</p>`;
   }
   h += `</div>`;
-  const past = (hist?.combos || []).filter((c) => c.status !== "en attente").slice(0, 40);
+  h += marketStats();
+  const past = (hist?.combos || []).filter((c) => c.status !== "en attente" && !c.replaced).slice(0, 40);
   if (past.length) {
     h += `<h2 class="section-title">Historique</h2><div class="panel">` + past.map((c) => `<div class="hist">
       <span class="dot ${c.status}">${c.status === "gagne" ? "✓" : "✗"}</span>
@@ -257,7 +315,7 @@ function renderEncours() {
   el.innerHTML = h;
 }
 
-function renderAll() { renderHeader(); renderEncours(); renderCombos(); renderMatchs(); renderBilan(); }
+function renderAll() { renderHeader(); renderEncours(); renderCombos(); renderMatchs(); renderBilan(); renderComposer(); }
 
 /* --------------------------------------------------------------- dialogues */
 function ask(title, text, value, { clear = false, steps = null } = {}) {
@@ -317,6 +375,7 @@ document.addEventListener("click", async (e) => {
     document.querySelectorAll(".tabs button").forEach((b) => b.classList.toggle("active", b === tab));
     document.querySelectorAll(".tab").forEach((s) => s.classList.toggle("active", s.id === "tab-" + tab.dataset.tab));
     window.scrollTo(0, 0);
+    renderComposer();
   }
 });
 
@@ -426,6 +485,12 @@ async function load(quiet) {
 
 loadSettings();
 document.getElementById("backup-msg").textContent = backupInfo();
+document.getElementById("ntfy-sub").href = `ntfy://ntfy.sh/${NTFY_TOPIC}`;
+document.getElementById("ntfy-topic").textContent = NTFY_TOPIC;
+document.getElementById("ntfy-test").onclick = ntfyTest;
+const liveBox = document.getElementById("live-alerts");
+liveBox.checked = LS.get("pf_live_alerts", false) && "Notification" in window && Notification.permission === "granted";
+liveBox.onchange = async () => { liveBox.checked = await toggleLiveAlerts(liveBox.checked); };
 load().then(scheduleLive);
 document.addEventListener("visibilitychange", () => { if (!document.hidden) scheduleLive(); });
 if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});

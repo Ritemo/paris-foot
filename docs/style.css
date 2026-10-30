@@ -207,3 +207,40 @@ dialog input { width: 100%; padding: 12px; font: 800 24px var(--display); text-a
 .live-status { margin: -4px 4px 12px; }
 .backup-nudge { margin-top: 18px; border: 2px dashed #e0a100; } .backup-nudge b { font: 800 16px var(--display); }
 label.btn { display: inline-block; }
+
+/* ---------- composer son combine */
+.picks3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 8px; }
+.pick-btn { display: flex; justify-content: space-between; align-items: center; gap: 6px; border: 2px solid var(--trait); background: var(--ticket);
+  border-radius: 10px; padding: 6px 10px; cursor: pointer; font-size: 13px; color: var(--encre); text-align: left; }
+.pick-btn b { font: 800 15px var(--display); }
+.pick-btn.on { background: var(--jaune); border-color: var(--jaune); color: #14261c; }
+.extras .pick-btn { flex: 1 1 100%; }
+#composer { position: fixed; z-index: 11; left: 10px; right: 10px; max-width: 620px; margin: 0 auto; bottom: calc(84px + env(safe-area-inset-bottom));
+  background: var(--pelouse); color: #fff; border-radius: 18px; padding: 10px 14px 12px; box-shadow: 0 10px 30px -8px rgba(0,0,0,.5); }
+.comp-head { display: flex; align-items: baseline; gap: 8px; } .comp-head b { font: 800 16px var(--display); } .comp-head span { opacity: .8; font-size: 13px; }
+.comp-clear { margin-left: auto; background: none; border: 0; color: #fff; text-decoration: underline; cursor: pointer; font-size: 13px; }
+.comp-stats { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 8px; align-items: center; margin-top: 6px; }
+.comp-stats b { display: block; font: 800 20px/1 var(--display); } .comp-stats small { font-size: 11px; opacity: .8; }
+.comp-stats .cost-low b { color: #9ff0bf; } .comp-stats .cost-high b { color: #ffb3b9; }
+#tab-matchs { padding-bottom: 120px; }
+.ticket.perso .board { background: linear-gradient(120deg, #0b4a6f, #1475b0); }
+.fun.perso { background: #fff; color: #0b4a6f; }
+
+/* ---------- bilan enrichi */
+.curve { width: 100%; height: auto; display: block; }
+.curve .zero { stroke: var(--trait); stroke-width: 1.5; }
+.curve polyline { fill: none; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+.curve polyline.pos, .curve circle.pos { stroke: var(--vert); fill: none; } .curve polyline.neg, .curve circle.neg { stroke: var(--rouge); fill: none; }
+.curve circle { stroke-width: 3; fill: var(--ticket) !important; }
+.curve .area-pos { fill: color-mix(in srgb, var(--vert) 16%, transparent); } .curve .area-neg { fill: color-mix(in srgb, var(--rouge) 14%, transparent); }
+.months { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 14px; }
+.months th { text-align: left; font-size: 12px; color: var(--sous); font-weight: 700; padding: 4px 0; }
+.months td { padding: 8px 0; border-top: 1px solid var(--trait); } .months td:first-child { text-transform: capitalize; }
+.months .pos { color: var(--vert); font-weight: 800; } .months .neg { color: var(--rouge); font-weight: 800; }
+.mstat + .mstat { border-top: 1px solid var(--trait); padding-top: 8px; margin-top: 4px; }
+.mstat-head { display: flex; justify-content: space-between; } .mstat-head span { color: var(--sous); font-size: 13px; }
+
+/* ---------- reglages notifications */
+.steps-list { margin: 0 0 12px; padding-left: 20px; font-size: 14px; } .steps-list li { margin: 8px 0; }
+.steps-list a { color: var(--pelouse-2); font-weight: 800; } code { background: var(--ticket-2); padding: 1px 6px; border-radius: 6px; font-size: 13px; }
+.switch { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; } .switch input { width: 22px; height: 22px; flex: none; accent-color: var(--pelouse-2); }

@@ -1,5 +1,6 @@
 /* Suivi en direct des tickets joués : scores ESPN (gratuit, sans clé), actualisés chaque minute pendant les matchs. */
-const ESPN_LEAGUE = { "Ligue 1": "fra.1", "Premier League": "eng.1", "Liga": "esp.1", "Serie A": "ita.1", "Bundesliga": "ger.1" };
+const ESPN_LEAGUE = { "Ligue 1": "fra.1", "Premier League": "eng.1", "Liga": "esp.1", "Serie A": "ita.1", "Bundesliga": "ger.1",
+  "Ligue des champions": "uefa.champions" };
 let LIVE = {};            // match_id -> { h, a, state: "pre" | "in" | "post", clock }
 let liveUpdated = null;   // date de la dernière mise à jour réussie
 let liveError = false;
@@ -23,14 +24,18 @@ function liveLegs() {
   const out = [];
   for (const id of Object.keys(bets())) {
     const c = findCombo(id);
-    if (c && c.status === "en attente") for (const l of c.legs) if (l.won === undefined) out.push(l);
+    if (c && c.status === "en attente") for (const l of c.legs) if (l.won === undefined) out.push(c.kind === "perso" ? { ...l, perso: true } : l);
   }
   return out;
 }
-// faut-il suivre maintenant ? (un match commence dans moins de 15 min, ou a commencé il y a moins de 2h30)
+// faut-il suivre maintenant ? (un match commence dans moins de 15 min, ou a commencé il y a moins de 2h30,
+// ou un de tes combinés perso attend encore son résultat : l'appli le règle elle-même)
 function liveWindow(legs) {
   const now = Date.now();
-  return legs.some((l) => { const k = new Date(l.kickoff).getTime(); return now > k - 15 * 6e4 && now < k + 150 * 6e4; });
+  return legs.some((l) => {
+    const k = new Date(l.kickoff).getTime();
+    return (now > k - 15 * 6e4 && now < k + 150 * 6e4) || (l.perso && now > k + 105 * 6e4 && now < k + 4 * 864e5);
+  });
 }
 
 async function refreshLive() {
@@ -62,8 +67,59 @@ async function refreshLive() {
       }
     }
     liveUpdated = new Date(); liveError = false;
+    settlePerso();
+    liveAlerts();
   } catch { liveError = true; }
   renderAll();
+}
+
+// tes combinés perso : l'appli pose elle-même le résultat (le robot ne les connaît pas)
+function settlePerso() {
+  const all = bets();
+  let changed = false;
+  for (const [id, b] of Object.entries(all)) {
+    const c = b.snap;
+    if (!c || c.kind !== "perso" || c.status !== "en attente") continue;
+    for (const l of c.legs) {
+      const s = LIVE[l.match_id];
+      if (l.won === undefined && s && s.state === "post") {
+        const x = legLive(l);
+        l.score = `${s.h}-${s.a}`; l.won = x.state === "ok"; changed = true;
+      }
+    }
+    if (c.legs.some((l) => l.won === false)) c.status = "perdu";
+    else if (c.legs.every((l) => l.won === true)) c.status = "gagne";
+  }
+  if (changed) LS.set("pf_bets", all);
+}
+
+// alertes sur le téléphone pendant les matchs (si tu les as autorisées)
+function liveAlerts() {
+  if (!("Notification" in window) || Notification.permission !== "granted" || !LS.get("pf_live_alerts", false)) return;
+  const seen = LS.get("pf_alert_seen", {});
+  const fire = (key, title, body) => {
+    if (seen[key]) return;
+    seen[key] = Date.now();
+    navigator.serviceWorker?.ready.then((r) => r.showNotification(title, { body, icon: "icon-192.png", badge: "icon-192.png", tag: key }))
+      .catch(() => { try { new Notification(title, { body }); } catch {} });
+  };
+  for (const id of Object.keys(bets())) {
+    const c = findCombo(id);
+    if (!c || c.status !== "en attente") continue;
+    for (const l of c.legs) {
+      const s = LIVE[l.match_id];
+      if (!s || s.state === "pre") continue;
+      const x = legLive(l);
+      const sk = `s|${l.match_id}`, now = `${s.h}-${s.a}`;
+      if (seen[sk] && seen[sk] !== now) fire(`but|${l.match_id}|${now}`, `But ! ${l.home} ${now} ${l.away}`, `${l.label} : ${x.note} (${s.clock})`);
+      seen[sk] = now;
+    }
+    const t = ticketLive(c);
+    if (t && t.cls === "ko") fire(`ko|${id}`, "Ticket tombé", `Ton combiné à ${fmt(combo(c).odds)} est perdu.`);
+    if (t && t.cls === "ok") fire(`ok|${id}`, "Ticket gagnant !", `Ton combiné à ${fmt(combo(c).odds)} est passé.`);
+  }
+  for (const k of Object.keys(seen)) if (typeof seen[k] === "number" && Date.now() - seen[k] > 3 * 864e5) delete seen[k];
+  LS.set("pf_alert_seen", seen);
 }
 
 function scheduleLive() {

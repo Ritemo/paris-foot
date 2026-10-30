@@ -33,7 +33,10 @@ LEAGUES = {  # cle The Odds API -> (code football-data, nom affiche)
     "soccer_spain_la_liga": ("SP1", "Liga"),
     "soccer_italy_serie_a": ("I1", "Serie A"),
     "soccer_germany_bundesliga": ("D1", "Bundesliga"),
+    "soccer_uefa_champs_league": ("CL", "Ligue des champions"),  # pas d'historique football-data : probabilites du marche seules
 }
+FD_DIVS = ("F1", "E0", "SP1", "I1", "D1")
+NTFY_TOPIC = os.environ.get("NTFY_TOPIC", "combines-foot-ritemo-7k3q9x")
 XI, MIX, W_MODEL = 0.0019, 0.5, 0.2      # reglages valides par le backtest
 CREDIT_FLOOR_TOTALS = 40                   # en dessous : 1N2 seulement (1 credit / championnat)
 CREDIT_FLOOR_ODDS = 12                     # en dessous : plus d'appel payant, on garde le cache
@@ -86,7 +89,7 @@ def paris_day(iso):
 # ---------------------------------------------------------------- historique et modele
 def load_history_fd():
     frames = []
-    for div, _ in LEAGUES.values():
+    for div in FD_DIVS:
         for s in season_codes(NOW):
             try:
                 body, _h = http_get(f"https://www.football-data.co.uk/mmz4281/{s}/{div}.csv")
@@ -330,7 +333,7 @@ def folie_for_day(day, legs):
 
 
 # ---------------------------------------------------------------- resultats ESPN (gratuit, des la fin du match)
-ESPN_LEAGUE = {"F1": "fra.1", "E0": "eng.1", "SP1": "esp.1", "I1": "ita.1", "D1": "ger.1"}
+ESPN_LEAGUE = {"F1": "fra.1", "E0": "eng.1", "SP1": "esp.1", "I1": "ita.1", "D1": "ger.1", "CL": "uefa.champions"}
 
 
 def _norm_team(s):
@@ -386,6 +389,62 @@ def espn_scores(history):
         if best and best[0].get("status", {}).get("type", {}).get("state") == "post":
             out[l["match_id"]] = (int(best[1]["score"]), int(best[2]["score"]))
     return out
+
+
+# ---------------------------------------------------------------- notifications (ntfy.sh, gratuit)
+def notify(title, message, tags="soccer", priority=3):
+    if not NTFY_TOPIC or os.environ.get("NO_NOTIFY") == "1":
+        print("[notif]", title, "|", message)
+        return
+    try:
+        req = urllib.request.Request(f"https://ntfy.sh/{NTFY_TOPIC}", data=message.encode("utf-8"), method="POST",
+                                     headers={"Title": _hdr(title),
+                                              "Tags": tags, "Priority": str(priority), "Click": "https://ritemo.github.io/paris-foot/"})
+        urllib.request.urlopen(req, timeout=20).read()
+    except Exception as e:
+        print("ntfy", e, file=sys.stderr)
+
+
+def _hdr(s):
+    # en-tete HTTP : encodage RFC 2047 pour les accents
+    import base64
+    return "=?UTF-8?B?" + base64.b64encode(s.encode("utf-8")).decode() + "?="
+
+
+def fr(x):
+    return f"{x:.2f}".replace(".", ",")
+
+
+def short(c):
+    return " + ".join(f"{l['label']} ({l['home']}-{l['away']})" for l in c["legs"])
+
+
+def notify_settled(before, history):
+    """Un message par ticket qui vient d'etre regle."""
+    for c in history["combos"]:
+        if c.get("replaced") or before.get(c["id"]) != "en attente" or c["status"] == "en attente":
+            continue
+        kind = "Folie" if c["kind"] == "folie" else f"Combiné de {len(c['legs'])}"
+        if c["status"] == "gagne":
+            notify(f"Ticket gagné, cote {fr(c['odds'])}", f"{kind} : {short(c)}", "white_check_mark,tada", 4)
+        else:
+            lost = [l for l in c["legs"] if l.get("won") is False]
+            why = ", ".join(f"{l['label']} ({l['home']} {l.get('score', '')} {l['away']})" for l in lost)
+            notify(f"Ticket perdu, cote {fr(c['odds'])}", f"{kind} : raté sur {why}", "x", 2)
+
+
+def notify_new_day(day, combos):
+    todays = [c for c in combos if c["day"] == day and not c.get("replaced")]
+    if not todays:
+        return
+    best = max((c for c in todays if c["kind"] != "folie"), key=lambda c: c["p"], default=None)
+    lines = [f"{len(todays)} tickets pour aujourd'hui."]
+    if best:
+        lines.append(f"Le plus sûr : cote {fr(best['odds'])}, {round(best['p'] * 100)} % de chance.")
+    folie = next((c for c in todays if c["kind"] == "folie"), None)
+    if folie:
+        lines.append(f"Folie du jour : cote {fr(folie['odds'])}.")
+    notify("Les tickets du jour sont prêts", " ".join(lines), "ticket", 3)
 
 
 # ---------------------------------------------------------------- reglement juste / faux
@@ -506,7 +565,9 @@ def odds_due(meta):
 def results_only(meta, history):
     """Passage gratuit : resultats ESPN seulement, on n'ecrit que si quelque chose a change."""
     before = json.dumps(history, sort_keys=True, default=str)
+    status_before = {c["id"]: c["status"] for c in history["combos"]}
     settle(history, None, {}, espn_scores(history))
+    notify_settled(status_before, history)
     if json.dumps(history, sort_keys=True, default=str) == before:
         print("rien de nouveau")
         return
@@ -534,7 +595,7 @@ def main():
 
     fd = load_history_fd()
     models = {}
-    for div, _ in LEAGUES.values():
+    for div in FD_DIVS:
         g = fd[(fd.Div == div) & (fd.Date < pd.Timestamp(NOW.date()))]
         if len(g) > 50:
             models[div] = fit_league(g)
@@ -585,11 +646,14 @@ def main():
         history["combos"] += new
         if day == today.isoformat():
             frozen.add(day)
+            notify_new_day(day, history["combos"])
 
     # 4. resultats et bilan
     espn = espn_scores(history)
     api_scores = fetch_api_scores(history, fd, espn)
+    status_before = {c["id"]: c["status"] for c in history["combos"]}
     settle(history, fd, api_scores, espn)
+    notify_settled(status_before, history)
     history["combos"].sort(key=lambda c: (c["day"], c["kind"]), reverse=True)
     history["bilan"] = bilan(history)
     history["updated"] = NOW.isoformat()

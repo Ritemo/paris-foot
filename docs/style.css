@@ -176,3 +176,11 @@ dialog input { width: 100%; padding: 12px; font: 800 24px var(--display); text-a
 .toast { position: fixed; z-index: 20; left: 16px; right: 16px; max-width: 520px; margin: 0 auto; bottom: calc(96px + env(safe-area-inset-bottom));
   background: var(--encre); color: var(--fond); border-radius: 14px; padding: 12px 16px; font-size: 14px; font-weight: 600; text-align: center; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+/* ---------- folie du jour */
+.ticket.folie .board { background: linear-gradient(120deg, #6a1b9a 0%, #c2185b 55%, #ff6f00 100%); }
+.ticket.folie .score .cote { color: #fff; text-shadow: 0 3px 0 rgba(0,0,0,.25); }
+.fun { grid-column: 2; grid-row: 1; justify-self: end; font: 800 12px var(--texte); background: var(--jaune); color: #3a1240;
+  border-radius: 20px; padding: 3px 10px; transform: rotate(3deg); }
+.ticket.folie .btn:not(.played) { background: #c2185b; color: #fff; box-shadow: 0 3px 0 #7d0f3b; }
+.kick small { display: block; font: 600 11px var(--texte); color: var(--sous); margin-top: 2px; }

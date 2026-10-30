@@ -296,7 +296,34 @@ def combos_for_day(day, matches):
         if best:
             chosen.append(best[1])
             used |= {(l["match_id"], l["market"]) for l in best[1]["legs"]}
+    folie = folie_for_day(day, legs)
+    if folie:
+        chosen.append(folie)
     return chosen
+
+
+def folie_for_day(day, legs):
+    """Pari 'folie' : grosse cote (15 a 40) pour le fun, en choisissant les selections les moins taxees."""
+    pool = [l for l in legs if 1.45 <= l["odds"] <= 4.5 and l["src"] != "estimee" and l["p"] >= 0.25]
+    pool.sort(key=lambda l: -l["ev"])
+    pool = pool[:14]
+    best = None
+    for n in (4, 5):
+        for c in combinations(pool, n):
+            if len({l["match_id"] for l in c}) < n:
+                continue
+            cb = make_combo(day, "folie", list(c))
+            if not (15 <= cb["odds"] <= 40):
+                continue
+            score = -cb["cost"] + 0.5 * cb["p"]
+            if best is None or score > best[0]:
+                best = (score, cb)
+    if not best:
+        return None
+    cb = best[1]
+    cb["stake"] = 1
+    cb["stars"] = 0
+    return cb
 
 
 # ---------------------------------------------------------------- reglement juste / faux
@@ -375,8 +402,16 @@ def fetch_api_scores(history, fd):
 
 
 def bilan(history):
-    done = [c for c in history["combos"] if c["status"] in ("gagne", "perdu")]
+    allc = [c for c in history["combos"] if c["status"] in ("gagne", "perdu")]
+    done = [c for c in allc if c["kind"] != "folie"]  # les folies ont leur propre ligne
     out = dict(n=len(done), gagnes=sum(c["status"] == "gagne" for c in done))
+    if allc:
+        for k in ("x2", "x3", "folie"):
+            sub = [c for c in allc if c["kind"] == k]
+            if sub:
+                out[k] = dict(n=len(sub), gagnes=sum(c["status"] == "gagne" for c in sub),
+                              reussite_annoncee=round(float(np.mean([c["p"] for c in sub])), 3),
+                              bilan=round(sum((c["odds"] - 1) * c["stake"] if c["status"] == "gagne" else -c["stake"] for c in sub), 2))
     if done:
         out["reussite_reelle"] = round(out["gagnes"] / len(done), 3)
         out["reussite_annoncee"] = round(float(np.mean([c["p"] for c in done])), 3)
@@ -386,11 +421,6 @@ def bilan(history):
         out["mise_2eur"] = 2 * len(done)
         out["bilan_mise_suggeree"] = round(gs, 2)
         out["mise_suggeree_totale"] = sum(c["stake"] for c in done)
-        for k in ("x2", "x3"):
-            sub = [c for c in done if c["kind"] == k]
-            if sub:
-                out[k] = dict(n=len(sub), gagnes=sum(c["status"] == "gagne" for c in sub),
-                              reussite_annoncee=round(float(np.mean([c["p"] for c in sub])), 3))
     return out
 
 
@@ -433,6 +463,15 @@ def main():
     frozen = set(meta.get("frozen_days", []))
     for day in days:
         if day in frozen:
+            # journee deja figee : on ajoute seulement une folie si elle manque (matchs a venir uniquement)
+            if not any(c["day"] == day and c["kind"] == "folie" for c in history["combos"]):
+                legs = [dict(match_id=m["id"], league=m["league"], kickoff=m["kickoff"], home=m["home"], away=m["away"],
+                             fd_home=m["fd_home"], fd_away=m["fd_away"], div=m["div"], **s)
+                        for m in matches if m["day"] == day for s in m["sel"]]
+                f = folie_for_day(day, legs)
+                if f:
+                    f["proposed_at"] = NOW.isoformat()
+                    history["combos"].append(f)
             continue
         history["combos"] = [c for c in history["combos"] if c["day"] != day or c.get("status") != "en attente"]
         new = combos_for_day(day, matches)
@@ -454,7 +493,7 @@ def main():
                 last_run=NOW.isoformat(), frozen_days=sorted(d for d in frozen if d >= (today - timedelta(days=7)).isoformat()),
                 leagues=[v[1] for v in LEAGUES.values()])
     save("today.json", dict(generated_at=NOW.isoformat(), credits_remaining=credits["remaining"],
-                            combos=sorted(current, key=lambda c: (c["day"], c["kind"])),
+                            combos=sorted(current, key=lambda c: (c["day"], c["kind"] == "folie", c["kind"])),
                             matches=[m for m in matches if m["day"] <= (today + timedelta(days=2)).isoformat()]))
     save("history.json", history)
     save("odds_cache.json", cache)

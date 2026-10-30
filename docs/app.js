@@ -14,6 +14,12 @@ const eur = (x) => (x > 0 ? "+" : "") + fmt(x) + " €";
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const isoDay = (d) => d.toLocaleDateString("sv-SE", { timeZone: "Europe/Paris" });
 const hour = (iso) => new Date(iso).toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Paris" }).replace(":", "h");
+const when = (iso) => {
+  const d = new Date(iso);
+  const day = d.toLocaleDateString("fr-FR", { weekday: "short", day: "numeric", month: "short", timeZone: "Europe/Paris" });
+  return `${day} à ${hour(iso)}`;
+};
+const kindOrder = (c) => (c.kind === "folie" ? 9 : c.kind === "x3" ? 2 : 1);
 const longDate = (day) => new Date(day + "T12:00:00").toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" });
 
 function dayTitle(day) {
@@ -64,7 +70,7 @@ function legHtml(c, l, i) {
   return `<div class="leg">
     <div class="crests">${crest(l.home, "h")}${crest(l.away, "a")}</div>
     <div class="pick"><b>${esc(l.label)}</b><span class="vs">${esc(l.home)} contre ${esc(l.away)}</span>
-      <div class="meta"><span class="tag">${esc(l.league)}</span><span class="tag">${hour(l.kickoff)}</span><span class="tag">${pct(l.p)}</span>${res}</div></div>
+      <div class="meta"><span class="tag">${esc(l.league)}</span><span class="tag">${when(l.kickoff)}</span><span class="tag">${pct(l.p)}</span>${res}</div></div>
     <button class="odd ${esc(l.src)} ${ov ? "edited" : ""}" data-combo="${esc(c.id)}" data-leg="${i}" aria-label="Corriger la cote">
       ${fmt(ov || l.odds)}<small>${ov ? "ta cote" : esc(SRC[l.src] || l.src)}</small></button>
   </div>`;
@@ -81,13 +87,17 @@ function ticketHtml(c) {
   if (b) action = `<button class="btn played" data-bet="${esc(c.id)}">${gain !== null ? eur(gain) : `Joué ${fmt(b.mise, 0)} €`}</button>`;
   else if (c.status === "en attente") action = `<button class="btn" data-bet="${esc(c.id)}">Je le joue</button>`;
   else action = "";
-  return `<article class="ticket ${c.status}">
+  const folie = c.kind === "folie";
+  const head = folie
+    ? `<span class="kind">Folie du jour, ${c.legs.length} matchs</span><span class="fun">pour le fun</span>`
+    : `<span class="kind">Combiné ${c.kind === "x3" ? "de 3" : "de 2"}</span>
+      <span class="stars" aria-label="${k.stars} étoile${k.stars > 1 ? "s" : ""} sur 3">${[1, 2, 3].map((n) => `<i class="${n <= k.stars ? "on" : ""}"></i>`).join("")}</span>`;
+  return `<article class="ticket ${c.status} ${folie ? "folie" : ""}">
     <div class="board">
-      <span class="kind">Combiné ${c.kind === "x3" ? "de 3" : "de 2"}</span>
-      <span class="stars" aria-label="${k.stars} étoile${k.stars > 1 ? "s" : ""} sur 3">${[1, 2, 3].map((n) => `<i class="${n <= k.stars ? "on" : ""}"></i>`).join("")}</span>
+      ${head}
       <div class="score">
         <div class="cote">${fmt(k.odds)}<small>cote</small></div>
-        <div class="stat">${pct(c.p)}<small>de chance</small></div>
+        <div class="stat">${c.p < 0.1 ? fmt(c.p * 100, 1) + " %" : pct(c.p)}<small>de chance</small></div>
         <div class="stat ${costCls}">${Math.round(k.cost * 100)} %<small>de coût</small></div>
       </div>
     </div>
@@ -118,12 +128,12 @@ function renderCombos() {
     <p>Le robot prépare les combinés vers 8h et 17h les jours de match. Touche le ballon pour lancer une actualisation.</p></div>`;
   for (const d of [...new Set(current.map((c) => c.day))].sort()) {
     const [a, b] = dayTitle(d);
-    h += `<div class="day"><h2>${esc(a)}</h2><span>${esc(b)}</span></div>` + current.filter((c) => c.day === d).map(ticketHtml).join("");
+    h += `<div class="day"><h2>${esc(a)}</h2><span>${esc(b)}</span></div>` + current.filter((c) => c.day === d).sort((x, y) => kindOrder(x) - kindOrder(y)).map(ticketHtml).join("");
   }
   const recent = (hist?.combos || []).filter((c) => c.day < t && c.day >= isoDay(new Date(Date.now() - 3 * 864e5)));
   for (const d of [...new Set(recent.map((c) => c.day))].sort().reverse()) {
     const [a, b] = dayTitle(d);
-    h += `<div class="day"><h2>${esc(a)}</h2><span>${esc(b)}</span></div>` + recent.filter((c) => c.day === d).map(ticketHtml).join("");
+    h += `<div class="day"><h2>${esc(a)}</h2><span>${esc(b)}</span></div>` + recent.filter((c) => c.day === d).sort((x, y) => kindOrder(x) - kindOrder(y)).map(ticketHtml).join("");
   }
   el.innerHTML = h;
   freshStamp = null;
@@ -150,7 +160,7 @@ function renderMatchs() {
         h += `<div class="match">
           <div class="mhead">
             <div class="team">${crest(m.home, "")}<span>${esc(m.home)}</span></div>
-            <div class="kick">${hour(m.kickoff)}</div>
+            <div class="kick">${hour(m.kickoff)}<small>${esc(new Date(m.kickoff).toLocaleDateString("fr-FR", { weekday: "short", day: "numeric", month: "short", timeZone: "Europe/Paris" }))}</small></div>
             <div class="team away">${crest(m.away, "")}<span>${esc(m.away)}</span></div>
           </div>
           <div class="tri" role="img" aria-label="Victoire ${esc(m.home)} ${pct(p1)}, nul ${pct(pN)}, victoire ${esc(m.away)} ${pct(p2)}">
@@ -200,6 +210,9 @@ function renderBilan() {
       <p class="hint">en misant 2 € sur chaque ticket (${b.mise_2eur} € au total). Avec les mises conseillées : ${eur(b.bilan_mise_suggeree)} sur ${b.mise_suggeree_totale} €.</p>
       ${compare(b.reussite_annoncee, b.reussite_reelle)}
       <p class="hint">Si la réussite réelle reste proche de l'annoncée, le modèle fait son travail. Il faut une bonne centaine de tickets avant de juger : sur quelques semaines, c'est surtout de la chance.</p>`;
+  }
+  if (b.folie) {
+    h += `<p class="hint">Folies : ${b.folie.gagnes} passée${b.folie.gagnes > 1 ? "s" : ""} sur ${b.folie.n}, ${eur(b.folie.bilan)} à 1 € la folie (comptées à part).</p>`;
   }
   h += `</div>`;
   const past = (hist?.combos || []).filter((c) => c.status !== "en attente").slice(0, 40);
@@ -267,7 +280,8 @@ document.addEventListener("click", async (e) => {
       if (v <= 0) delete all[c.id]; else all[c.id].mise = Math.min(v, 5);
     } else {
       const left = settings().budget - monthSpent();
-      const v = await ask("Combien tu mises ?", `${c.stake} € conseillés. Il te reste ${fmt(Math.max(left, 0), 0)} € dans ton budget du mois.`, c.stake, { steps: [1, 2, 3, 4, 5] });
+      const v = await ask("Combien tu mises ?", c.kind === "folie" ? `Pour le fun : 1 € suffit, ${fmt(combo(c).odds)} fois la mise si ça passe. Il te reste ${fmt(Math.max(left, 0), 0)} € dans ton budget du mois.`
+        : `${c.stake} € conseillés. Il te reste ${fmt(Math.max(left, 0), 0)} € dans ton budget du mois.`, c.stake, { steps: c.kind === "folie" ? [1, 2] : [1, 2, 3, 4, 5] });
       if (!v || isNaN(v) || v <= 0) return;
       if (v > left && !confirm("Cette mise dépasse ton budget du mois. La garder quand même ?")) return;
       all[c.id] = { mise: Math.min(v, 5), odds: +combo(c).odds.toFixed(2), date: isoDay(new Date()) };

@@ -310,8 +310,20 @@ document.getElementById("save-settings").onclick = () => {
 
 document.getElementById("refresh").onclick = async () => {
   const s = settings(), repo = repoGuess(), btn = document.getElementById("refresh");
-  if (!s.token || !repo) { toast("Ajoute ton jeton GitHub dans Réglages pour lancer le robot. En attendant, les données sont rechargées."); await load(); return; }
   const before = today?.generated_at;
+  if (!s.token) {
+    // sans jeton : on ouvre la page du robot sur GitHub (appli GitHub ou navigateur), il reste a toucher "Run workflow"
+    window.open(`https://github.com/${repo || "Ritemo/paris-foot"}/actions/workflows/robot.yml`, "_blank");
+    toast("Sur GitHub, touche « Run workflow ». Les cotes arrivent ici 2 à 3 minutes après.", 6000);
+    btn.classList.add("spin");
+    for (let i = 0; i < 30; i++) {
+      await new Promise((ok) => setTimeout(ok, 15000));
+      await load(true);
+      if (today?.generated_at !== before) { toast("Cotes à jour."); break; }
+    }
+    btn.classList.remove("spin");
+    return;
+  }
   btn.classList.add("spin");
   try {
     const r = await fetch(`https://api.github.com/repos/${repo}/actions/workflows/robot.yml/dispatches`, {

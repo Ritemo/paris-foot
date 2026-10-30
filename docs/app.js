@@ -70,7 +70,7 @@ function legHtml(c, l, i) {
   return `<div class="leg">
     <div class="crests">${crest(l.home, "h")}${crest(l.away, "a")}</div>
     <div class="pick"><b>${esc(l.label)}</b><span class="vs">${esc(l.home)} contre ${esc(l.away)}</span>
-      <div class="meta"><span class="tag">${esc(l.league)}</span><span class="tag">${when(l.kickoff)}</span><span class="tag">${pct(l.p)}</span>${res}</div></div>
+      <div class="meta"><span class="tag">${esc(l.league)}</span><span class="tag">${when(l.kickoff)}</span><span class="tag">${pct(l.p)}</span>${res}</div>${bets()[c.id] && c.status === "en attente" ? liveLegHtml(l) : ""}</div>
     <button class="odd ${esc(l.src)} ${ov ? "edited" : ""}" data-combo="${esc(c.id)}" data-leg="${i}" aria-label="Corriger la cote">
       ${fmt(ov || l.odds)}<small>${ov ? "ta cote" : esc(SRC[l.src] || l.src)}</small></button>
   </div>`;
@@ -101,6 +101,7 @@ function ticketHtml(c) {
         <div class="stat ${costCls}">${Math.round(k.cost * 100)} %<small>de coût</small></div>
       </div>
     </div>
+    ${b && c.status === "en attente" ? liveTicketHtml(c) : ""}
     ${stamp ? `<div class="stamp ${stampCls} ${freshStamp === c.id ? "fresh" : ""}">${stamp}</div>` : ""}
     <div class="legs">${c.legs.map((l, i) => legHtml(c, l, i)).join("")}</div>
     <div class="perf"><span class="notch"></span></div>
@@ -249,7 +250,7 @@ function renderEncours() {
     const stake = live.reduce((s, c) => s + bets()[c.id].mise, 0);
     const pot = live.reduce((s, c) => s + bets()[c.id].mise * bets()[c.id].odds, 0);
     h += `<div class="day"><h2>En cours</h2><span>${live.length} ticket${live.length > 1 ? "s" : ""}, ${fmt(stake, 0)} € misés, jusqu'à ${fmt(pot)} € à gagner</span></div>`;
-    h += live.map(ticketHtml).join("");
+    h += liveStatusLine() + live.map(ticketHtml).join("");
   }
   if (done.length) h += `<div class="day"><h2>Derniers résultats</h2><span>sur 2 jours</span></div>` + done.map(ticketHtml).join("");
   el.innerHTML = h;
@@ -308,7 +309,7 @@ document.addEventListener("click", async (e) => {
       all[c.id] = { mise: Math.min(v, 5), odds: +combo(c).odds.toFixed(2), date: isoDay(new Date()), snap: c };
       freshStamp = c.id;
     }
-    LS.set("pf_bets", all); renderAll(); return;
+    LS.set("pf_bets", all); renderAll(); scheduleLive(); return;
   }
   const tab = e.target.closest(".tabs button");
   if (tab) {
@@ -384,5 +385,6 @@ async function load(quiet) {
 }
 
 loadSettings();
-load();
+load().then(scheduleLive);
+document.addEventListener("visibilitychange", () => { if (!document.hidden) scheduleLive(); });
 if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});

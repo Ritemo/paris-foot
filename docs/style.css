@@ -189,3 +189,19 @@ dialog input { width: 100%; padding: 12px; font: 800 24px var(--display); text-a
   background: var(--rouge); color: #fff; font: 800 11px/18px var(--texte); }
 .tabs button { font-size: 11px; }
 .day { flex-wrap: wrap; row-gap: 2px; } .day h2 { white-space: nowrap; }
+
+/* ---------- direct */
+.live { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 8px; margin-top: 8px; padding: 6px 10px; border-radius: 10px;
+  background: var(--ticket-2); border-left: 4px solid var(--sous); font-size: 13px; }
+.live b { font: 800 17px var(--display); }
+.live span { font-weight: 700; color: var(--sous); }
+.live em { font-style: normal; flex-basis: 100%; }
+.live.ok, .live.on { border-left-color: var(--vert); } .live.ok em { color: var(--vert); font-weight: 800; }
+.live.risk { border-left-color: #e0a100; }
+.live.ko { border-left-color: var(--rouge); } .live.ko em { color: var(--rouge); font-weight: 800; }
+.live:not(.ok):not(.ko) span::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 5px; border-radius: 50%;
+  background: var(--rouge); animation: blink 1.4s infinite; }
+@keyframes blink { 50% { opacity: .2; } }
+.verdict { margin: 0; padding: 9px 16px; font: 800 15px var(--display); color: #fff; }
+.verdict.on { background: #e0a100; color: #2b2000; } .verdict.ok { background: var(--vert); } .verdict.ko { background: var(--rouge); }
+.live-status { margin: -4px 4px 12px; }

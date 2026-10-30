@@ -406,16 +406,29 @@ function backupDue() {
 document.getElementById("export").onclick = async () => {
   const s = settings();
   const data = { app: "combines-foot", version: 1, date: new Date().toISOString(), bets: bets(), overrides: overrides(), budget: s.budget };
-  const blob = new Blob([JSON.stringify(data, null, 1)], { type: "application/json" });
-  const name = `combines-foot-${isoDay(new Date())}.json`;
-  const file = new File([blob], name, { type: "application/json" });
-  try {
-    if (navigator.canShare && navigator.canShare({ files: [file] })) await navigator.share({ files: [file], title: "Sauvegarde Combinés Foot" });
-    else { const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = name; a.click(); }
+  const text = JSON.stringify(data, null, 1);
+  const name = `combines-foot-sauvegarde-${isoDay(new Date())}.txt`;
+  const done = () => {
     LS.set("pf_last_export", new Date().toISOString());
     document.getElementById("backup-msg").textContent = `Sauvegarde créée (${Object.keys(bets()).length} paris). ${backupInfo()}`;
     renderAll();
-  } catch (err) { if (err.name !== "AbortError") toast("Sauvegarde impossible : " + err.message); }
+  };
+  const download = () => {
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([text], { type: "text/plain" })); a.download = name;
+    document.body.appendChild(a); a.click(); a.remove();
+    toast("Fichier enregistré dans tes Téléchargements.");
+    done();
+  };
+  // Android n'accepte de partager que certains types de fichiers : on passe par du texte, et on télécharge si le partage échoue
+  const file = new File([text], name, { type: "text/plain" });
+  try {
+    if (navigator.canShare && navigator.canShare({ files: [file] })) { await navigator.share({ files: [file], title: "Sauvegarde Combinés Foot" }); done(); }
+    else download();
+  } catch (err) {
+    if (err.name === "AbortError") return;
+    try { download(); } catch (e2) { toast("Sauvegarde impossible : " + e2.message); }
+  }
 };
 document.getElementById("import-file").onchange = async (e) => {
   const f = e.target.files[0];

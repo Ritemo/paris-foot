@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-10-30T00:03:43.510958+00:00",
- "credits_remaining": 477,
+ "generated_at": "2026-10-30T13:31:07.549506+00:00",
+ "credits_remaining": 467,
  "combos": [
   {
    "id": "2026-10-30|00b03cb40c27ed23e2ecb18f062a5122:-3.5|9a9f6c78276f74f15f42b013b033aa5d:-3.5",
@@ -112,8 +112,8 @@
      "label": "Moins de 3,5 buts",
      "odds": 1.62,
      "src": "pmu",
-     "p": 0.597,
-     "ev": -0.0329
+     "p": 0.5971,
+     "ev": -0.0327
     },
     {
      "match_id": "04aa939b89001eedf55668e66c74836e",
@@ -128,39 +128,23 @@
      "label": "Plus de 2,5 buts",
      "odds": 1.75,
      "src": "pmu",
-     "p": 0.546,
-     "ev": -0.0445
+     "p": 0.5462,
+     "ev": -0.0441
     }
    ],
    "odds": 2.83,
-   "p": 0.326,
-   "cost": 0.0759,
+   "p": 0.3261,
+   "cost": 0.0754,
    "stars": 2,
    "stake": 2,
    "status": "en attente",
-   "proposed_at": "2026-10-30T00:03:43.510958+00:00"
+   "proposed_at": "2026-10-30T13:31:07.549506+00:00"
   },
   {
-   "id": "2026-10-31|aecb9d8c01176616c87d893bee4bc0de:-3.5|bad7337b335a16859b1db6b8e6cf6ca5:-4.5",
+   "id": "2026-10-31|7df53f9af95d5a4e13b504882078dab8:-3.5|aecb9d8c01176616c87d893bee4bc0de:-3.5",
    "day": "2026-10-31",
    "kind": "x2",
    "legs": [
-    {
-     "match_id": "bad7337b335a16859b1db6b8e6cf6ca5",
-     "league": "Bundesliga",
-     "kickoff": "2026-10-31T17:30:00Z",
-     "home": "Bayern Munich",
-     "away": "Borussia Dortmund",
-     "fd_home": "Bayern Munich",
-     "fd_away": "Dortmund",
-     "div": "D1",
-     "market": "-4.5",
-     "label": "Moins de 4,5 buts",
-     "odds": 1.5,
-     "src": "pmu",
-     "p": 0.6241,
-     "ev": -0.0638
-    },
     {
      "match_id": "aecb9d8c01176616c87d893bee4bc0de",
      "league": "Bundesliga",
@@ -174,17 +158,33 @@
      "label": "Moins de 3,5 buts",
      "odds": 1.57,
      "src": "pmu",
-     "p": 0.598,
-     "ev": -0.0611
+     "p": 0.5978,
+     "ev": -0.0615
+    },
+    {
+     "match_id": "7df53f9af95d5a4e13b504882078dab8",
+     "league": "Premier League",
+     "kickoff": "2026-10-31T15:00:00Z",
+     "home": "Manchester City",
+     "away": "Brighton and Hove Albion",
+     "fd_home": "Man City",
+     "fd_away": "Brighton",
+     "div": "E0",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.67,
+     "src": "pmu",
+     "p": 0.5578,
+     "ev": -0.0685
     }
    ],
-   "odds": 2.35,
-   "p": 0.3732,
-   "cost": 0.121,
+   "odds": 2.62,
+   "p": 0.3335,
+   "cost": 0.1258,
    "stars": 2,
-   "stake": 3,
+   "stake": 2,
    "status": "en attente",
-   "proposed_at": "2026-10-30T00:03:43.510958+00:00"
+   "proposed_at": "2026-10-30T13:31:07.549506+00:00"
   },
   {
    "id": "2026-10-31|2db2b55e71574a19ff0557898d3e9933:-4.5|6601f69175a02f03fb7065aacb538e01:+2.5|8f0b7ef29a47f675429758e83a426d7e:1",
@@ -202,10 +202,10 @@
      "div": "SP1",
      "market": "1",
      "label": "Victoire Real Betis",
-     "odds": 1.28,
+     "odds": 1.26,
      "src": "unibet",
-     "p": 0.7092,
-     "ev": -0.0922
+     "p": 0.7188,
+     "ev": -0.0943
     },
     {
      "match_id": "2db2b55e71574a19ff0557898d3e9933",
@@ -220,8 +220,8 @@
      "label": "Moins de 4,5 buts",
      "odds": 1.54,
      "src": "pmu",
-     "p": 0.5985,
-     "ev": -0.0783
+     "p": 0.5983,
+     "ev": -0.0786
     },
     {
      "match_id": "6601f69175a02f03fb7065aacb538e01",
@@ -236,17 +236,17 @@
      "label": "Plus de 2,5 buts",
      "odds": 1.5,
      "src": "pmu",
-     "p": 0.6072,
-     "ev": -0.0892
+     "p": 0.6091,
+     "ev": -0.0864
     }
    ],
-   "odds": 2.96,
-   "p": 0.2577,
-   "cost": 0.2379,
+   "odds": 2.91,
+   "p": 0.2619,
+   "cost": 0.2376,
    "stars": 1,
    "stake": 2,
    "status": "en attente",
-   "proposed_at": "2026-10-30T00:03:43.510958+00:00"
+   "proposed_at": "2026-10-30T13:31:07.549506+00:00"
   }
  ],
  "matches": [
@@ -261,58 +261,58 @@
    "fd_home": "Le Havre",
    "fd_away": "Paris SG",
    "lambdas": [
-    0.942,
-    2.8
+    0.949,
+    2.63
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Le Havre",
-     "odds": 9.0,
+     "odds": 8.5,
      "src": "unibet",
-     "p": 0.1094,
-     "ev": -0.0154
+     "p": 0.1196,
+     "ev": 0.0166
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 6.5,
+     "odds": 5.6,
      "src": "unibet",
-     "p": 0.1651,
-     "ev": 0.0732
+     "p": 0.1765,
+     "ev": -0.0116
     },
     {
      "market": "2",
      "label": "Victoire Paris Saint Germain",
-     "odds": 1.2,
+     "odds": 1.26,
      "src": "unibet",
-     "p": 0.7255,
-     "ev": -0.1294
+     "p": 0.7039,
+     "ev": -0.1131
     },
     {
      "market": "+3.5",
      "label": "Plus de 3,5 buts",
-     "odds": 1.73,
+     "odds": 1.85,
      "src": "pmu",
-     "p": 0.4749,
-     "ev": -0.1784
+     "p": 0.4474,
+     "ev": -0.1723
     },
     {
      "market": "-3.5",
      "label": "Moins de 3,5 buts",
-     "odds": 1.83,
+     "odds": 1.71,
      "src": "pmu",
-     "p": 0.5251,
-     "ev": -0.0391
+     "p": 0.5526,
+     "ev": -0.0551
     },
     {
      "market": "H2",
      "label": "Paris Saint Germain gagne par 2 buts ou + (handicap -1)",
-     "odds": 1.75,
+     "odds": 1.87,
      "src": "estimee",
-     "p": 0.5189,
-     "ev": -0.0919
+     "p": 0.4897,
+     "ev": -0.0843
     }
    ]
   },
@@ -327,50 +327,50 @@
    "fd_home": "Nice",
    "fd_away": "Rennes",
    "lambdas": [
-    1.548,
-    1.637
+    1.507,
+    1.507
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Nice",
-     "odds": 2.55,
+     "odds": 2.45,
      "src": "unibet",
-     "p": 0.343,
-     "ev": -0.1253
+     "p": 0.3549,
+     "ev": -0.1305
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 3.5,
+     "odds": 3.4,
      "src": "unibet",
-     "p": 0.2462,
-     "ev": -0.1383
+     "p": 0.253,
+     "ev": -0.1398
     },
     {
      "market": "2",
      "label": "Victoire Rennes",
-     "odds": 2.3,
+     "odds": 2.45,
      "src": "unibet",
-     "p": 0.4108,
-     "ev": -0.0552
+     "p": 0.3921,
+     "ev": -0.0394
     },
     {
-     "market": "+3.5",
-     "label": "Plus de 3,5 buts",
-     "odds": 2.25,
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.53,
      "src": "pmu",
-     "p": 0.3937,
-     "ev": -0.1142
+     "p": 0.5868,
+     "ev": -0.1022
     },
     {
-     "market": "-3.5",
-     "label": "Moins de 3,5 buts",
-     "odds": 1.47,
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 2.12,
      "src": "pmu",
-     "p": 0.6063,
-     "ev": -0.1087
+     "p": 0.4132,
+     "ev": -0.124
     }
    ]
   },
@@ -385,50 +385,50 @@
    "fd_home": "Elversberg",
    "fd_away": "Mainz",
    "lambdas": [
-    1.489,
-    1.794
+    1.452,
+    1.858
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Elversberg",
-     "odds": 2.9,
+     "odds": 3.1,
      "src": "unibet",
-     "p": 0.3469,
-     "ev": 0.006
+     "p": 0.3315,
+     "ev": 0.0277
     },
     {
      "market": "N",
      "label": "Match nul",
      "odds": 3.6,
      "src": "unibet",
-     "p": 0.2381,
-     "ev": -0.1428
+     "p": 0.2354,
+     "ev": -0.1526
     },
     {
      "market": "2",
      "label": "Victoire FSV Mainz 05",
-     "odds": 2.05,
+     "odds": 1.95,
      "src": "unibet",
-     "p": 0.415,
-     "ev": -0.1493
+     "p": 0.433,
+     "ev": -0.1557
     },
     {
      "market": "+3.5",
      "label": "Plus de 3,5 buts",
-     "odds": 2.14,
+     "odds": 2.1,
      "src": "pmu",
-     "p": 0.4249,
-     "ev": -0.0907
+     "p": 0.4297,
+     "ev": -0.0976
     },
     {
      "market": "-3.5",
      "label": "Moins de 3,5 buts",
-     "odds": 1.53,
+     "odds": 1.54,
      "src": "pmu",
-     "p": 0.5751,
-     "ev": -0.1201
+     "p": 0.5703,
+     "ev": -0.1217
     }
    ]
   },
@@ -443,58 +443,58 @@
    "fd_home": "Villarreal",
    "fd_away": "Espanol",
    "lambdas": [
-    2.297,
-    0.979
+    2.4,
+    1.039
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Villarreal",
-     "odds": 1.35,
+     "odds": 1.34,
      "src": "unibet",
-     "p": 0.6609,
-     "ev": -0.1078
+     "p": 0.6651,
+     "ev": -0.1088
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 4.8,
+     "odds": 4.9,
      "src": "unibet",
-     "p": 0.1977,
-     "ev": -0.051
+     "p": 0.1924,
+     "ev": -0.0572
     },
     {
      "market": "2",
      "label": "Victoire Espanyol",
      "odds": 6.2,
      "src": "unibet",
-     "p": 0.1414,
-     "ev": -0.1233
+     "p": 0.1425,
+     "ev": -0.1165
     },
     {
      "market": "+3.5",
      "label": "Plus de 3,5 buts",
-     "odds": 2.14,
+     "odds": 1.97,
      "src": "pmu",
-     "p": 0.4006,
-     "ev": -0.1427
+     "p": 0.4292,
+     "ev": -0.1545
     },
     {
      "market": "-3.5",
      "label": "Moins de 3,5 buts",
-     "odds": 1.51,
+     "odds": 1.61,
      "src": "pmu",
-     "p": 0.5994,
-     "ev": -0.0949
+     "p": 0.5708,
+     "ev": -0.081
     },
     {
      "market": "H1",
      "label": "Villarreal gagne par 2 buts ou + (handicap -1)",
-     "odds": 2.07,
+     "odds": 2.03,
      "src": "estimee",
-     "p": 0.435,
-     "ev": -0.0996
+     "p": 0.4439,
+     "ev": -0.0989
     }
    ]
   },
@@ -509,50 +509,50 @@
    "fd_home": "Lille",
    "fd_away": "Lens",
    "lambdas": [
-    1.484,
-    1.4
+    1.367,
+    1.322
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Lille",
-     "odds": 2.35,
+     "odds": 2.5,
      "src": "unibet",
-     "p": 0.3895,
-     "ev": -0.0847
+     "p": 0.3783,
+     "ev": -0.0542
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 3.5,
+     "odds": 3.15,
      "src": "unibet",
-     "p": 0.265,
-     "ev": -0.0725
+     "p": 0.274,
+     "ev": -0.1369
     },
     {
      "market": "2",
      "label": "Victoire RC Lens",
-     "odds": 2.6,
+     "odds": 2.65,
      "src": "unibet",
-     "p": 0.3455,
-     "ev": -0.1017
+     "p": 0.3477,
+     "ev": -0.0786
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
-     "odds": 1.61,
+     "odds": 1.76,
      "src": "pmu",
-     "p": 0.5381,
-     "ev": -0.1337
+     "p": 0.5007,
+     "ev": -0.1188
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
-     "odds": 1.97,
+     "odds": 1.8,
      "src": "pmu",
-     "p": 0.4619,
-     "ev": -0.0901
+     "p": 0.4993,
+     "ev": -0.1013
     }
    ]
   },
@@ -567,50 +567,50 @@
    "fd_home": "Chelsea",
    "fd_away": "Man United",
    "lambdas": [
-    1.855,
-    1.214
+    1.891,
+    1.189
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Chelsea",
-     "odds": 1.73,
+     "odds": 1.7,
      "src": "unibet",
-     "p": 0.488,
-     "ev": -0.1558
+     "p": 0.499,
+     "ev": -0.1517
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 3.7,
+     "odds": 3.8,
      "src": "unibet",
-     "p": 0.2389,
-     "ev": -0.1161
+     "p": 0.2365,
+     "ev": -0.1013
     },
     {
      "market": "2",
      "label": "Victoire Manchester United",
-     "odds": 3.7,
+     "odds": 3.9,
      "src": "unibet",
-     "p": 0.2731,
-     "ev": 0.0105
+     "p": 0.2645,
+     "ev": 0.0315
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
      "odds": 1.5,
      "src": "pmu",
-     "p": 0.6072,
-     "ev": -0.0892
+     "p": 0.6091,
+     "ev": -0.0864
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
-     "odds": 2.18,
+     "odds": 2.2,
      "src": "pmu",
-     "p": 0.3928,
-     "ev": -0.1437
+     "p": 0.3909,
+     "ev": -0.14
     }
    ]
   },
@@ -625,58 +625,58 @@
    "fd_home": "Levante",
    "fd_away": "Ath Madrid",
    "lambdas": [
-    1.105,
-    2.159
+    1.085,
+    2.189
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Levante",
-     "odds": 5.0,
+     "odds": 5.25,
      "src": "betclic",
-     "p": 0.2005,
-     "ev": 0.0025
+     "p": 0.1946,
+     "ev": 0.0216
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 4.35,
+     "odds": 4.4,
      "src": "betclic",
-     "p": 0.2201,
-     "ev": -0.0426
+     "p": 0.2175,
+     "ev": -0.043
     },
     {
      "market": "2",
      "label": "Victoire Atlético Madrid",
-     "odds": 1.49,
+     "odds": 1.47,
      "src": "betclic",
-     "p": 0.5794,
-     "ev": -0.1367
+     "p": 0.5878,
+     "ev": -0.1359
     },
     {
      "market": "+3.5",
      "label": "Plus de 3,5 buts",
-     "odds": 2.16,
+     "odds": 2.14,
      "src": "pmu",
-     "p": 0.3967,
-     "ev": -0.1431
+     "p": 0.3984,
+     "ev": -0.1474
     },
     {
      "market": "-3.5",
      "label": "Moins de 3,5 buts",
      "odds": 1.51,
      "src": "pmu",
-     "p": 0.6033,
-     "ev": -0.089
+     "p": 0.6016,
+     "ev": -0.0916
     },
     {
      "market": "H2",
      "label": "Atlético Madrid gagne par 2 buts ou + (handicap -1)",
-     "odds": 2.54,
+     "odds": 2.49,
      "src": "estimee",
-     "p": 0.3575,
-     "ev": -0.0919
+     "p": 0.3659,
+     "ev": -0.0889
     }
    ]
   },
@@ -691,58 +691,58 @@
    "fd_home": "Bologna",
    "fd_away": "Monza",
    "lambdas": [
-    1.777,
-    0.933
+    1.774,
+    0.937
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Bologna",
-     "odds": 1.58,
+     "odds": 1.57,
      "src": "unibet",
-     "p": 0.5564,
-     "ev": -0.1209
+     "p": 0.555,
+     "ev": -0.1286
     },
     {
      "market": "N",
      "label": "Match nul",
      "odds": 3.7,
      "src": "unibet",
-     "p": 0.2401,
-     "ev": -0.1116
+     "p": 0.2404,
+     "ev": -0.1105
     },
     {
      "market": "2",
      "label": "Victoire Monza",
-     "odds": 4.7,
+     "odds": 4.6,
      "src": "unibet",
-     "p": 0.2035,
-     "ev": -0.0435
+     "p": 0.2046,
+     "ev": -0.0588
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
      "odds": 1.75,
      "src": "pmu",
-     "p": 0.546,
-     "ev": -0.0445
+     "p": 0.5462,
+     "ev": -0.0441
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
      "odds": 1.81,
      "src": "pmu",
-     "p": 0.454,
-     "ev": -0.1783
+     "p": 0.4538,
+     "ev": -0.1786
     },
     {
      "market": "H1",
      "label": "Bologna gagne par 2 buts ou + (handicap -1)",
-     "odds": 2.78,
+     "odds": 2.77,
      "src": "estimee",
-     "p": 0.3226,
-     "ev": -0.1032
+     "p": 0.3214,
+     "ev": -0.1097
     }
    ]
   },
@@ -757,8 +757,8 @@
    "fd_home": "Augsburg",
    "fd_away": "Freiburg",
    "lambdas": [
-    1.516,
-    1.85
+    1.521,
+    1.856
    ],
    "model": true,
    "sel": [
@@ -767,40 +767,40 @@
      "label": "Victoire Augsburg",
      "odds": 2.9,
      "src": "unibet",
-     "p": 0.3371,
-     "ev": -0.0224
+     "p": 0.3373,
+     "ev": -0.0218
     },
     {
      "market": "N",
      "label": "Match nul",
      "odds": 3.7,
      "src": "unibet",
-     "p": 0.2372,
-     "ev": -0.1224
+     "p": 0.2368,
+     "ev": -0.1238
     },
     {
      "market": "2",
      "label": "Victoire SC Freiburg",
      "odds": 2.0,
      "src": "unibet",
-     "p": 0.4258,
-     "ev": -0.1484
+     "p": 0.4259,
+     "ev": -0.1482
     },
     {
      "market": "+3.5",
      "label": "Plus de 3,5 buts",
-     "odds": 2.04,
+     "odds": 2.02,
      "src": "pmu",
-     "p": 0.4304,
-     "ev": -0.122
+     "p": 0.4323,
+     "ev": -0.1268
     },
     {
      "market": "-3.5",
      "label": "Moins de 3,5 buts",
      "odds": 1.57,
      "src": "pmu",
-     "p": 0.5696,
-     "ev": -0.1057
+     "p": 0.5677,
+     "ev": -0.1087
     }
    ]
   },
@@ -815,50 +815,50 @@
    "fd_home": "Leverkusen",
    "fd_away": "Stuttgart",
    "lambdas": [
-    2.256,
-    1.527
+    2.27,
+    1.522
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Bayer Leverkusen",
-     "odds": 1.68,
+     "odds": 1.66,
      "src": "unibet",
-     "p": 0.5264,
-     "ev": -0.1156
+     "p": 0.5293,
+     "ev": -0.1214
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 4.1,
+     "odds": 4.2,
      "src": "unibet",
-     "p": 0.2122,
-     "ev": -0.13
+     "p": 0.2115,
+     "ev": -0.1117
     },
     {
      "market": "2",
      "label": "Victoire VfB Stuttgart",
      "odds": 3.6,
      "src": "unibet",
-     "p": 0.2614,
-     "ev": -0.059
+     "p": 0.2592,
+     "ev": -0.0669
     },
     {
      "market": "+3.5",
      "label": "Plus de 3,5 buts",
      "odds": 1.7,
      "src": "pmu",
-     "p": 0.5204,
-     "ev": -0.1153
+     "p": 0.5217,
+     "ev": -0.1131
     },
     {
      "market": "-3.5",
      "label": "Moins de 3,5 buts",
-     "odds": 1.87,
+     "odds": 1.88,
      "src": "pmu",
-     "p": 0.4796,
-     "ev": -0.1031
+     "p": 0.4783,
+     "ev": -0.1008
     }
    ]
   },
@@ -873,50 +873,50 @@
    "fd_home": "M'gladbach",
    "fd_away": "Paderborn",
    "lambdas": [
-    1.925,
-    1.441
+    1.95,
+    1.417
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Borussia Monchengladbach",
-     "odds": 1.86,
+     "odds": 1.82,
      "src": "unibet",
-     "p": 0.4834,
-     "ev": -0.1009
+     "p": 0.4921,
+     "ev": -0.1044
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 3.7,
+     "odds": 3.8,
      "src": "unibet",
-     "p": 0.2394,
-     "ev": -0.1142
+     "p": 0.2382,
+     "ev": -0.0948
     },
     {
      "market": "2",
      "label": "Victoire SC Paderborn",
-     "odds": 3.2,
+     "odds": 3.3,
      "src": "unibet",
-     "p": 0.2772,
-     "ev": -0.113
+     "p": 0.2697,
+     "ev": -0.11
     },
     {
      "market": "+3.5",
      "label": "Plus de 3,5 buts",
      "odds": 2.04,
      "src": "pmu",
-     "p": 0.402,
-     "ev": -0.1799
+     "p": 0.4022,
+     "ev": -0.1795
     },
     {
      "market": "-3.5",
      "label": "Moins de 3,5 buts",
      "odds": 1.57,
      "src": "pmu",
-     "p": 0.598,
-     "ev": -0.0611
+     "p": 0.5978,
+     "ev": -0.0615
     }
    ]
   },
@@ -931,50 +931,50 @@
    "fd_home": "Schalke 04",
    "fd_away": "RB Leipzig",
    "lambdas": [
-    1.396,
-    2.041
+    1.382,
+    2.054
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire FC Schalke 04",
-     "odds": 3.6,
+     "odds": 3.7,
      "src": "unibet",
-     "p": 0.2459,
-     "ev": -0.1148
+     "p": 0.2421,
+     "ev": -0.1042
     },
     {
      "market": "N",
      "label": "Match nul",
      "odds": 3.7,
      "src": "unibet",
-     "p": 0.2347,
-     "ev": -0.1316
+     "p": 0.234,
+     "ev": -0.1342
     },
     {
      "market": "2",
      "label": "Victoire RB Leipzig",
-     "odds": 1.74,
+     "odds": 1.73,
      "src": "unibet",
-     "p": 0.5194,
-     "ev": -0.0962
+     "p": 0.5239,
+     "ev": -0.0937
     },
     {
      "market": "+3.5",
      "label": "Plus de 3,5 buts",
      "odds": 1.97,
      "src": "pmu",
-     "p": 0.403,
-     "ev": -0.2061
+     "p": 0.4029,
+     "ev": -0.2063
     },
     {
      "market": "-3.5",
      "label": "Moins de 3,5 buts",
      "odds": 1.62,
      "src": "pmu",
-     "p": 0.597,
-     "ev": -0.0329
+     "p": 0.5971,
+     "ev": -0.0327
     }
    ]
   },
@@ -989,8 +989,8 @@
    "fd_home": "Werder Bremen",
    "fd_away": "Hoffenheim",
    "lambdas": [
-    1.67,
-    1.885
+    1.671,
+    1.864
    ],
    "model": true,
    "sel": [
@@ -999,40 +999,40 @@
      "label": "Victoire Werder Bremen",
      "odds": 2.65,
      "src": "unibet",
-     "p": 0.3468,
-     "ev": -0.081
+     "p": 0.35,
+     "ev": -0.0725
     },
     {
      "market": "N",
      "label": "Match nul",
      "odds": 3.7,
      "src": "unibet",
-     "p": 0.2321,
-     "ev": -0.1412
+     "p": 0.233,
+     "ev": -0.1379
     },
     {
      "market": "2",
      "label": "Victoire TSG Hoffenheim",
-     "odds": 2.1,
+     "odds": 2.15,
      "src": "unibet",
-     "p": 0.4211,
-     "ev": -0.1157
+     "p": 0.4171,
+     "ev": -0.1032
     },
     {
      "market": "+3.5",
      "label": "Plus de 3,5 buts",
-     "odds": 1.87,
+     "odds": 1.88,
      "src": "pmu",
-     "p": 0.4676,
-     "ev": -0.1256
+     "p": 0.464,
+     "ev": -0.1277
     },
     {
      "market": "-3.5",
      "label": "Moins de 3,5 buts",
-     "odds": 1.7,
+     "odds": 1.68,
      "src": "pmu",
-     "p": 0.5324,
-     "ev": -0.0949
+     "p": 0.536,
+     "ev": -0.0995
     }
    ]
   },
@@ -1047,7 +1047,7 @@
    "fd_home": "Bournemouth",
    "fd_away": "Leeds",
    "lambdas": [
-    1.57,
+    1.543,
     1.164
    ],
    "model": true,
@@ -1055,42 +1055,42 @@
     {
      "market": "1",
      "label": "Victoire Bournemouth",
-     "odds": 1.96,
+     "odds": 1.97,
      "src": "unibet",
-     "p": 0.4625,
-     "ev": -0.0935
+     "p": 0.457,
+     "ev": -0.0997
     },
     {
      "market": "N",
      "label": "Match nul",
      "odds": 3.3,
      "src": "unibet",
-     "p": 0.2638,
-     "ev": -0.1295
+     "p": 0.2657,
+     "ev": -0.1232
     },
     {
      "market": "2",
      "label": "Victoire Leeds United",
-     "odds": 3.3,
+     "odds": 3.2,
      "src": "unibet",
-     "p": 0.2737,
-     "ev": -0.0968
+     "p": 0.2774,
+     "ev": -0.1123
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
-     "odds": 1.72,
+     "odds": 1.75,
      "src": "pmu",
-     "p": 0.5165,
-     "ev": -0.1116
+     "p": 0.5112,
+     "ev": -0.1054
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
-     "odds": 1.83,
+     "odds": 1.81,
      "src": "pmu",
-     "p": 0.4835,
-     "ev": -0.1152
+     "p": 0.4888,
+     "ev": -0.1153
     }
    ]
   },
@@ -1105,50 +1105,50 @@
    "fd_home": "Brentford",
    "fd_away": "Nott'm Forest",
    "lambdas": [
-    1.665,
-    1.236
+    1.621,
+    1.214
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Brentford",
-     "odds": 1.9,
+     "odds": 1.93,
      "src": "unibet",
-     "p": 0.4606,
-     "ev": -0.1249
+     "p": 0.456,
+     "ev": -0.1199
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 3.5,
+     "odds": 3.4,
      "src": "unibet",
-     "p": 0.2593,
-     "ev": -0.0925
+     "p": 0.2625,
+     "ev": -0.1075
     },
     {
      "market": "2",
      "label": "Victoire Nottingham Forest",
      "odds": 3.2,
      "src": "unibet",
-     "p": 0.2801,
-     "ev": -0.1037
+     "p": 0.2816,
+     "ev": -0.0989
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
-     "odds": 1.61,
+     "odds": 1.65,
      "src": "pmu",
-     "p": 0.5389,
-     "ev": -0.1324
+     "p": 0.5267,
+     "ev": -0.1309
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
-     "odds": 2.0,
+     "odds": 1.93,
      "src": "pmu",
-     "p": 0.4611,
-     "ev": -0.0778
+     "p": 0.4733,
+     "ev": -0.0865
     }
    ]
   },
@@ -1163,8 +1163,8 @@
    "fd_home": "Man City",
    "fd_away": "Brighton",
    "lambdas": [
-    2.222,
-    1.265
+    2.236,
+    1.277
    ],
    "model": true,
    "sel": [
@@ -1173,48 +1173,48 @@
      "label": "Victoire Manchester City",
      "odds": 1.53,
      "src": "unibet",
-     "p": 0.5707,
-     "ev": -0.1268
+     "p": 0.571,
+     "ev": -0.1264
     },
     {
      "market": "N",
      "label": "Match nul",
      "odds": 4.2,
      "src": "unibet",
-     "p": 0.2169,
-     "ev": -0.089
+     "p": 0.2162,
+     "ev": -0.092
     },
     {
      "market": "2",
      "label": "Victoire Brighton and Hove Albion",
      "odds": 4.4,
      "src": "unibet",
-     "p": 0.2124,
-     "ev": -0.0654
+     "p": 0.2128,
+     "ev": -0.0637
     },
     {
      "market": "+3.5",
      "label": "Plus de 3,5 buts",
-     "odds": 1.93,
+     "odds": 1.91,
      "src": "pmu",
-     "p": 0.4378,
-     "ev": -0.155
+     "p": 0.4422,
+     "ev": -0.1554
     },
     {
      "market": "-3.5",
      "label": "Moins de 3,5 buts",
-     "odds": 1.65,
+     "odds": 1.67,
      "src": "pmu",
-     "p": 0.5622,
-     "ev": -0.0724
+     "p": 0.5578,
+     "ev": -0.0685
     },
     {
      "market": "H1",
      "label": "Manchester City gagne par 2 buts ou + (handicap -1)",
-     "odds": 2.53,
+     "odds": 2.52,
      "src": "estimee",
-     "p": 0.3538,
-     "ev": -0.1049
+     "p": 0.3547,
+     "ev": -0.1062
     }
    ]
   },
@@ -1229,50 +1229,50 @@
    "fd_home": "Coventry",
    "fd_away": "Sunderland",
    "lambdas": [
-    1.235,
-    1.435
+    1.223,
+    1.436
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Coventry City",
-     "odds": 2.85,
+     "odds": 2.9,
      "src": "unibet",
-     "p": 0.3171,
-     "ev": -0.0963
+     "p": 0.3145,
+     "ev": -0.0879
     },
     {
      "market": "N",
      "label": "Match nul",
      "odds": 3.2,
      "src": "unibet",
-     "p": 0.279,
-     "ev": -0.1072
+     "p": 0.2794,
+     "ev": -0.1059
     },
     {
      "market": "2",
      "label": "Victoire Sunderland",
      "odds": 2.2,
      "src": "unibet",
-     "p": 0.4039,
-     "ev": -0.1114
+     "p": 0.4061,
+     "ev": -0.1066
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
-     "odds": 1.78,
+     "odds": 1.79,
      "src": "pmu",
-     "p": 0.4771,
-     "ev": -0.1508
+     "p": 0.4748,
+     "ev": -0.1501
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
-     "odds": 1.78,
+     "odds": 1.77,
      "src": "pmu",
-     "p": 0.5229,
-     "ev": -0.0692
+     "p": 0.5252,
+     "ev": -0.0704
     }
    ]
   },
@@ -1287,50 +1287,50 @@
    "fd_home": "Hull",
    "fd_away": "Ipswich",
    "lambdas": [
-    1.306,
-    1.274
+    1.344,
+    1.328
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Hull City",
-     "odds": 2.4,
+     "odds": 2.45,
      "src": "unibet",
-     "p": 0.3761,
-     "ev": -0.0974
+     "p": 0.3753,
+     "ev": -0.0805
     },
     {
      "market": "N",
      "label": "Match nul",
      "odds": 3.2,
      "src": "unibet",
-     "p": 0.2764,
-     "ev": -0.1155
+     "p": 0.2719,
+     "ev": -0.1299
     },
     {
      "market": "2",
      "label": "Victoire Ipswich Town",
      "odds": 2.5,
      "src": "unibet",
-     "p": 0.3476,
-     "ev": -0.131
+     "p": 0.3528,
+     "ev": -0.118
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
-     "odds": 1.87,
+     "odds": 1.78,
      "src": "pmu",
-     "p": 0.4914,
-     "ev": -0.0811
+     "p": 0.5097,
+     "ev": -0.0927
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
-     "odds": 1.7,
+     "odds": 1.78,
      "src": "pmu",
-     "p": 0.5086,
-     "ev": -0.1354
+     "p": 0.4903,
+     "ev": -0.1273
     }
    ]
   },
@@ -1345,50 +1345,50 @@
    "fd_home": "Vallecano",
    "fd_away": "Celta",
    "lambdas": [
-    1.341,
-    1.153
+    1.358,
+    1.139
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Rayo Vallecano",
-     "odds": 2.25,
+     "odds": 2.2,
      "src": "unibet",
-     "p": 0.4092,
-     "ev": -0.0793
+     "p": 0.4156,
+     "ev": -0.0857
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 3.1,
+     "odds": 3.2,
      "src": "unibet",
-     "p": 0.2848,
-     "ev": -0.1171
+     "p": 0.2841,
+     "ev": -0.0909
     },
     {
      "market": "2",
      "label": "Victoire Celta Vigo",
-     "odds": 2.9,
+     "odds": 2.95,
      "src": "unibet",
-     "p": 0.306,
-     "ev": -0.1126
+     "p": 0.3003,
+     "ev": -0.1141
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
      "odds": 1.95,
      "src": "pmu",
-     "p": 0.4503,
-     "ev": -0.1219
+     "p": 0.451,
+     "ev": -0.1206
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
      "odds": 1.63,
      "src": "pmu",
-     "p": 0.5497,
-     "ev": -0.104
+     "p": 0.549,
+     "ev": -0.1051
     }
    ]
   },
@@ -1403,58 +1403,58 @@
    "fd_home": "Udinese",
    "fd_away": "Roma",
    "lambdas": [
-    0.949,
-    2.053
+    0.964,
+    2.039
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Udinese",
-     "odds": 5.5,
+     "odds": 5.3,
      "src": "unibet",
-     "p": 0.1692,
-     "ev": -0.0694
+     "p": 0.1729,
+     "ev": -0.0836
     },
     {
      "market": "N",
      "label": "Match nul",
      "odds": 4.2,
      "src": "unibet",
-     "p": 0.2233,
-     "ev": -0.0621
+     "p": 0.2248,
+     "ev": -0.0558
     },
     {
      "market": "2",
      "label": "Victoire AS Roma",
-     "odds": 1.43,
+     "odds": 1.44,
      "src": "unibet",
-     "p": 0.6075,
-     "ev": -0.1313
+     "p": 0.6023,
+     "ev": -0.1327
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
      "odds": 1.54,
      "src": "pmu",
-     "p": 0.5647,
-     "ev": -0.1304
+     "p": 0.5649,
+     "ev": -0.1301
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
      "odds": 2.1,
      "src": "pmu",
-     "p": 0.4353,
-     "ev": -0.0859
+     "p": 0.4351,
+     "ev": -0.0863
     },
     {
      "market": "H2",
      "label": "AS Roma gagne par 2 buts ou + (handicap -1)",
-     "odds": 2.39,
+     "odds": 2.42,
      "src": "estimee",
-     "p": 0.3732,
-     "ev": -0.1081
+     "p": 0.3683,
+     "ev": -0.1087
     }
    ]
   },
@@ -1469,58 +1469,58 @@
    "fd_home": "Tottenham",
    "fd_away": "Crystal Palace",
    "lambdas": [
-    2.08,
-    1.043
+    2.045,
+    1.074
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Tottenham Hotspur",
-     "odds": 1.47,
+     "odds": 1.51,
      "src": "unibet",
-     "p": 0.5801,
-     "ev": -0.1473
+     "p": 0.5683,
+     "ev": -0.1419
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 4.2,
+     "odds": 4.0,
      "src": "unibet",
-     "p": 0.2283,
-     "ev": -0.0411
+     "p": 0.2315,
+     "ev": -0.074
     },
     {
      "market": "2",
      "label": "Victoire Crystal Palace",
-     "odds": 5.0,
+     "odds": 4.8,
      "src": "unibet",
-     "p": 0.1917,
-     "ev": -0.0415
+     "p": 0.2002,
+     "ev": -0.039
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
      "odds": 1.48,
      "src": "pmu",
-     "p": 0.5767,
-     "ev": -0.1465
+     "p": 0.5762,
+     "ev": -0.1472
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
      "odds": 2.25,
      "src": "pmu",
-     "p": 0.4233,
-     "ev": -0.0476
+     "p": 0.4238,
+     "ev": -0.0464
     },
     {
      "market": "H1",
      "label": "Tottenham Hotspur gagne par 2 buts ou + (handicap -1)",
-     "odds": 2.55,
+     "odds": 2.62,
      "src": "estimee",
-     "p": 0.3512,
-     "ev": -0.1044
+     "p": 0.34,
+     "ev": -0.1092
     }
    ]
   },
@@ -1535,58 +1535,58 @@
    "fd_home": "Betis",
    "fd_away": "Malaga",
    "lambdas": [
-    2.384,
-    0.891
+    2.428,
+    0.872
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Real Betis",
-     "odds": 1.28,
+     "odds": 1.26,
      "src": "unibet",
-     "p": 0.7092,
-     "ev": -0.0922
+     "p": 0.7188,
+     "ev": -0.0943
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 5.1,
+     "odds": 5.3,
      "src": "unibet",
-     "p": 0.1787,
-     "ev": -0.0886
+     "p": 0.1746,
+     "ev": -0.0746
     },
     {
      "market": "2",
      "label": "Victoire Málaga",
-     "odds": 7.4,
+     "odds": 7.8,
      "src": "unibet",
-     "p": 0.1121,
-     "ev": -0.1705
+     "p": 0.1067,
+     "ev": -0.1677
     },
     {
      "market": "+3.5",
      "label": "Plus de 3,5 buts",
-     "odds": 2.14,
+     "odds": 2.12,
      "src": "pmu",
-     "p": 0.4111,
-     "ev": -0.1202
+     "p": 0.4155,
+     "ev": -0.1191
     },
     {
      "market": "-3.5",
      "label": "Moins de 3,5 buts",
-     "odds": 1.51,
+     "odds": 1.53,
      "src": "pmu",
-     "p": 0.5889,
-     "ev": -0.1108
+     "p": 0.5845,
+     "ev": -0.1057
     },
     {
      "market": "H1",
      "label": "Real Betis gagne par 2 buts ou + (handicap -1)",
-     "odds": 1.84,
+     "odds": 1.8,
      "src": "estimee",
-     "p": 0.488,
-     "ev": -0.1021
+     "p": 0.4991,
+     "ev": -0.1016
     }
    ]
   },
@@ -1601,8 +1601,8 @@
    "fd_home": "Bayern Munich",
    "fd_away": "Dortmund",
    "lambdas": [
-    2.91,
-    1.277
+    2.898,
+    1.274
    ],
    "model": true,
    "sel": [
@@ -1611,114 +1611,48 @@
      "label": "Victoire Bayern Munich",
      "odds": 1.27,
      "src": "unibet",
-     "p": 0.6969,
-     "ev": -0.1149
+     "p": 0.6958,
+     "ev": -0.1163
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 5.6,
+     "odds": 5.5,
      "src": "unibet",
-     "p": 0.1651,
-     "ev": -0.0754
+     "p": 0.1657,
+     "ev": -0.0887
     },
     {
      "market": "2",
      "label": "Victoire Borussia Dortmund",
      "odds": 6.6,
      "src": "unibet",
-     "p": 0.138,
-     "ev": -0.0892
+     "p": 0.1385,
+     "ev": -0.0859
     },
     {
-     "market": "+4.5",
-     "label": "Plus de 4,5 buts",
-     "odds": 2.18,
+     "market": "+3.5",
+     "label": "Plus de 3,5 buts",
+     "odds": 1.49,
      "src": "pmu",
-     "p": 0.3759,
-     "ev": -0.1805
+     "p": 0.5662,
+     "ev": -0.1564
     },
     {
-     "market": "-4.5",
-     "label": "Moins de 4,5 buts",
-     "odds": 1.5,
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 2.23,
      "src": "pmu",
-     "p": 0.6241,
-     "ev": -0.0638
+     "p": 0.4338,
+     "ev": -0.0326
     },
     {
      "market": "H1",
      "label": "Bayern Munich gagne par 2 buts ou + (handicap -1)",
      "odds": 1.8,
      "src": "estimee",
-     "p": 0.4984,
-     "ev": -0.1029
-    }
-   ]
-  },
-  {
-   "id": "961df571fad52d969150e9ced52b16f7",
-   "league": "Ligue 1",
-   "div": "F1",
-   "kickoff": "2026-10-31T19:45:00Z",
-   "day": "2026-10-31",
-   "home": "Lyon",
-   "away": "Angers",
-   "fd_home": "Lyon",
-   "fd_away": "Angers",
-   "lambdas": [
-    2.221,
-    0.903
-   ],
-   "model": true,
-   "sel": [
-    {
-     "market": "1",
-     "label": "Victoire Lyon",
-     "odds": 1.33,
-     "src": "unibet",
-     "p": 0.6689,
-     "ev": -0.1104
-    },
-    {
-     "market": "N",
-     "label": "Match nul",
-     "odds": 4.7,
-     "src": "unibet",
-     "p": 0.1997,
-     "ev": -0.0614
-    },
-    {
-     "market": "2",
-     "label": "Victoire Angers",
-     "odds": 6.4,
-     "src": "unibet",
-     "p": 0.1314,
-     "ev": -0.159
-    },
-    {
-     "market": "+2.5",
-     "label": "Plus de 2,5 buts",
-     "odds": 1.48,
-     "src": "pmu",
-     "p": 0.5912,
-     "ev": -0.125
-    },
-    {
-     "market": "-2.5",
-     "label": "Moins de 2,5 buts",
-     "odds": 2.25,
-     "src": "pmu",
-     "p": 0.4088,
-     "ev": -0.0802
-    },
-    {
-     "market": "H1",
-     "label": "Lyon gagne par 2 buts ou + (handicap -1)",
-     "odds": 2.04,
-     "src": "estimee",
-     "p": 0.4374,
-     "ev": -0.1077
+     "p": 0.4969,
+     "ev": -0.1056
     }
    ]
   },
@@ -1733,50 +1667,50 @@
    "fd_home": "Troyes",
    "fd_away": "Le Mans",
    "lambdas": [
-    1.463,
-    1.285
+    1.451,
+    1.279
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Troyes",
-     "odds": 2.2,
+     "odds": 2.25,
      "src": "unibet",
-     "p": 0.3809,
-     "ev": -0.162
+     "p": 0.3796,
+     "ev": -0.1459
     },
     {
      "market": "N",
      "label": "Match nul",
      "odds": 3.3,
      "src": "unibet",
-     "p": 0.272,
-     "ev": -0.1024
+     "p": 0.2729,
+     "ev": -0.0994
     },
     {
      "market": "2",
      "label": "Victoire Le Mans FC",
-     "odds": 2.75,
+     "odds": 2.8,
      "src": "unibet",
-     "p": 0.347,
-     "ev": -0.0458
+     "p": 0.3474,
+     "ev": -0.0273
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
-     "odds": 1.72,
+     "odds": 1.73,
      "src": "pmu",
-     "p": 0.5026,
-     "ev": -0.1355
+     "p": 0.499,
+     "ev": -0.1367
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
-     "odds": 1.85,
+     "odds": 1.83,
      "src": "pmu",
-     "p": 0.4974,
-     "ev": -0.0798
+     "p": 0.501,
+     "ev": -0.0832
     }
    ]
   },
@@ -1791,8 +1725,8 @@
    "fd_home": "Milan",
    "fd_away": "Inter",
    "lambdas": [
-    1.257,
-    1.743
+    1.278,
+    1.737
    ],
    "model": true,
    "sel": [
@@ -1801,40 +1735,40 @@
      "label": "Victoire AC Milan",
      "odds": 3.3,
      "src": "unibet",
-     "p": 0.2654,
-     "ev": -0.1242
+     "p": 0.2702,
+     "ev": -0.1083
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 3.6,
+     "odds": 3.5,
      "src": "unibet",
-     "p": 0.2486,
-     "ev": -0.105
+     "p": 0.2487,
+     "ev": -0.1295
     },
     {
      "market": "2",
      "label": "Victoire Inter Milan",
-     "odds": 1.85,
+     "odds": 1.9,
      "src": "unibet",
-     "p": 0.4861,
-     "ev": -0.1007
+     "p": 0.4811,
+     "ev": -0.0859
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
-     "odds": 1.54,
+     "odds": 1.53,
      "src": "pmu",
-     "p": 0.5728,
-     "ev": -0.1179
+     "p": 0.5752,
+     "ev": -0.1199
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
-     "odds": 2.1,
+     "odds": 2.12,
      "src": "pmu",
-     "p": 0.4272,
-     "ev": -0.1029
+     "p": 0.4248,
+     "ev": -0.0994
     }
    ]
   },
@@ -1849,50 +1783,50 @@
    "fd_home": "Aston Villa",
    "fd_away": "Fulham",
    "lambdas": [
-    1.69,
-    1.194
+    1.702,
+    1.18
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Aston Villa",
-     "odds": 1.85,
+     "odds": 1.84,
      "src": "unibet",
-     "p": 0.475,
-     "ev": -0.1212
+     "p": 0.4797,
+     "ev": -0.1174
     },
     {
      "market": "N",
      "label": "Match nul",
      "odds": 3.5,
      "src": "unibet",
-     "p": 0.2583,
-     "ev": -0.096
+     "p": 0.2576,
+     "ev": -0.0984
     },
     {
      "market": "2",
      "label": "Victoire Fulham",
-     "odds": 3.4,
+     "odds": 3.5,
      "src": "unibet",
-     "p": 0.2668,
-     "ev": -0.0929
+     "p": 0.2627,
+     "ev": -0.0806
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
      "odds": 1.61,
      "src": "pmu",
-     "p": 0.5345,
-     "ev": -0.1395
+     "p": 0.5343,
+     "ev": -0.1398
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
      "odds": 1.97,
      "src": "pmu",
-     "p": 0.4655,
-     "ev": -0.083
+     "p": 0.4657,
+     "ev": -0.0826
     }
    ]
   },
@@ -1907,58 +1841,58 @@
    "fd_home": "Barcelona",
    "fd_away": "Alaves",
    "lambdas": [
-    3.386,
-    0.882
+    3.437,
+    0.833
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Barcelona",
-     "odds": 1.08,
+     "odds": 1.06,
      "src": "unibet",
-     "p": 0.8278,
-     "ev": -0.106
+     "p": 0.8382,
+     "ev": -0.1115
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 8.5,
+     "odds": 9.5,
      "src": "unibet",
-     "p": 0.111,
-     "ev": -0.0565
+     "p": 0.106,
+     "ev": 0.007
     },
     {
      "market": "2",
      "label": "Victoire Alavés",
-     "odds": 16.0,
+     "odds": 17.0,
      "src": "unibet",
-     "p": 0.0612,
-     "ev": -0.0208
+     "p": 0.0558,
+     "ev": -0.0514
     },
     {
      "market": "+4.5",
      "label": "Plus de 4,5 buts",
      "odds": 2.1,
      "src": "pmu",
-     "p": 0.4015,
-     "ev": -0.1568
+     "p": 0.4017,
+     "ev": -0.1564
     },
     {
      "market": "-4.5",
      "label": "Moins de 4,5 buts",
      "odds": 1.54,
      "src": "pmu",
-     "p": 0.5985,
-     "ev": -0.0783
+     "p": 0.5983,
+     "ev": -0.0786
     },
     {
      "market": "H1",
      "label": "Barcelona gagne par 2 buts ou + (handicap -1)",
-     "odds": 1.37,
+     "odds": 1.34,
      "src": "estimee",
-     "p": 0.6602,
-     "ev": -0.0955
+     "p": 0.6745,
+     "ev": -0.0962
     }
    ]
   },
@@ -1973,58 +1907,58 @@
    "fd_home": "Como",
    "fd_away": "Venezia",
    "lambdas": [
-    2.659,
-    0.988
+    2.673,
+    0.973
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Como",
-     "odds": 1.23,
+     "odds": 1.22,
      "src": "unibet",
-     "p": 0.7334,
-     "ev": -0.0979
+     "p": 0.7377,
+     "ev": -0.1
     },
     {
      "market": "N",
      "label": "Match nul",
      "odds": 5.6,
      "src": "unibet",
-     "p": 0.1622,
-     "ev": -0.0917
+     "p": 0.1606,
+     "ev": -0.1006
     },
     {
      "market": "2",
      "label": "Victoire Venezia",
-     "odds": 7.8,
+     "odds": 8.1,
      "src": "unibet",
-     "p": 0.1044,
-     "ev": -0.1857
+     "p": 0.1017,
+     "ev": -0.1762
     },
     {
      "market": "+3.5",
      "label": "Plus de 3,5 buts",
      "odds": 1.8,
      "src": "pmu",
-     "p": 0.4712,
-     "ev": -0.1518
+     "p": 0.4711,
+     "ev": -0.152
     },
     {
      "market": "-3.5",
      "label": "Moins de 3,5 buts",
      "odds": 1.76,
      "src": "pmu",
-     "p": 0.5288,
-     "ev": -0.0693
+     "p": 0.5289,
+     "ev": -0.0691
     },
     {
      "market": "H1",
      "label": "Como gagne par 2 buts ou + (handicap -1)",
-     "odds": 1.7,
+     "odds": 1.68,
      "src": "estimee",
-     "p": 0.5246,
-     "ev": -0.1082
+     "p": 0.5294,
+     "ev": -0.1106
     }
    ]
   },
@@ -2039,34 +1973,34 @@
    "fd_home": "Getafe",
    "fd_away": "Sevilla",
    "lambdas": [
-    0.914,
-    1.105
+    0.903,
+    1.116
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Getafe",
-     "odds": 3.0,
+     "odds": 3.1,
      "src": "unibet",
-     "p": 0.2958,
-     "ev": -0.1126
+     "p": 0.2915,
+     "ev": -0.0964
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 2.9,
+     "odds": 2.95,
      "src": "unibet",
-     "p": 0.3245,
-     "ev": -0.0589
+     "p": 0.3241,
+     "ev": -0.0439
     },
     {
      "market": "2",
      "label": "Victoire Sevilla",
      "odds": 2.25,
      "src": "unibet",
-     "p": 0.3796,
-     "ev": -0.1459
+     "p": 0.3844,
+     "ev": -0.1351
     },
     {
      "market": "+1.5",
@@ -2155,58 +2089,58 @@
    "fd_home": "Lazio",
    "fd_away": "Cagliari",
    "lambdas": [
-    1.964,
-    0.76
+    1.952,
+    0.783
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Lazio",
-     "odds": 1.36,
+     "odds": 1.38,
      "src": "unibet",
-     "p": 0.6258,
-     "ev": -0.1489
+     "p": 0.619,
+     "ev": -0.1458
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 4.3,
+     "odds": 4.2,
      "src": "unibet",
-     "p": 0.228,
-     "ev": -0.0196
+     "p": 0.23,
+     "ev": -0.034
     },
     {
      "market": "2",
      "label": "Victoire Cagliari",
-     "odds": 6.5,
+     "odds": 6.3,
      "src": "unibet",
-     "p": 0.1462,
-     "ev": -0.0497
+     "p": 0.1509,
+     "ev": -0.0493
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
-     "odds": 1.74,
+     "odds": 1.73,
      "src": "pmu",
-     "p": 0.5009,
-     "ev": -0.1284
+     "p": 0.503,
+     "ev": -0.1298
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
-     "odds": 1.82,
+     "odds": 1.83,
      "src": "pmu",
-     "p": 0.4991,
-     "ev": -0.0916
+     "p": 0.497,
+     "ev": -0.0905
     },
     {
      "market": "H1",
      "label": "Lazio gagne par 2 buts ou + (handicap -1)",
-     "odds": 2.35,
+     "odds": 2.38,
      "src": "estimee",
-     "p": 0.3801,
-     "ev": -0.1068
+     "p": 0.3739,
+     "ev": -0.1101
     }
    ]
   },
@@ -2221,50 +2155,50 @@
    "fd_home": "Frosinone",
    "fd_away": "Torino",
    "lambdas": [
-    1.854,
-    1.525
+    1.901,
+    1.518
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Frosinone",
-     "odds": 1.98,
+     "odds": 1.94,
      "src": "unibet",
-     "p": 0.484,
-     "ev": -0.0417
+     "p": 0.4936,
+     "ev": -0.0424
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 3.7,
+     "odds": 3.8,
      "src": "unibet",
-     "p": 0.2247,
-     "ev": -0.1686
+     "p": 0.2225,
+     "ev": -0.1545
     },
     {
      "market": "2",
      "label": "Victoire Torino",
-     "odds": 2.85,
+     "odds": 2.95,
      "src": "unibet",
-     "p": 0.2913,
-     "ev": -0.1698
+     "p": 0.2839,
+     "ev": -0.1625
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
-     "odds": 1.36,
+     "odds": 1.34,
      "src": "pmu",
-     "p": 0.685,
-     "ev": -0.0684
+     "p": 0.6912,
+     "ev": -0.0738
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
-     "odds": 2.6,
+     "odds": 2.65,
      "src": "pmu",
-     "p": 0.315,
-     "ev": -0.181
+     "p": 0.3088,
+     "ev": -0.1817
     }
    ]
   },
@@ -2279,50 +2213,50 @@
    "fd_home": "Union Berlin",
    "fd_away": "FC Koln",
    "lambdas": [
-    1.513,
-    1.478
+    1.532,
+    1.462
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Union Berlin",
-     "odds": 2.35,
+     "odds": 2.3,
      "src": "unibet",
-     "p": 0.3876,
-     "ev": -0.0891
+     "p": 0.394,
+     "ev": -0.0938
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 3.4,
+     "odds": 3.5,
      "src": "unibet",
-     "p": 0.258,
-     "ev": -0.1228
+     "p": 0.2578,
+     "ev": -0.0977
     },
     {
      "market": "2",
      "label": "Victoire 1. FC Köln",
-     "odds": 2.45,
+     "odds": 2.5,
      "src": "unibet",
-     "p": 0.3543,
-     "ev": -0.132
+     "p": 0.3482,
+     "ev": -0.1295
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
      "odds": 1.55,
      "src": "pmu",
-     "p": 0.5679,
-     "ev": -0.1198
+     "p": 0.5684,
+     "ev": -0.119
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
      "odds": 2.1,
      "src": "pmu",
-     "p": 0.4321,
-     "ev": -0.0926
+     "p": 0.4316,
+     "ev": -0.0936
     }
    ]
   },
@@ -2337,58 +2271,58 @@
    "fd_home": "Santander",
    "fd_away": "Real Madrid",
    "lambdas": [
-    1.121,
-    3.147
+    1.143,
+    3.134
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Real Racing Club de Santander",
-     "odds": 9.0,
+     "odds": 8.6,
      "src": "unibet",
-     "p": 0.1057,
-     "ev": -0.0487
+     "p": 0.1087,
+     "ev": -0.0652
     },
     {
      "market": "N",
      "label": "Match nul",
      "odds": 6.8,
      "src": "unibet",
-     "p": 0.1389,
-     "ev": -0.0555
+     "p": 0.1406,
+     "ev": -0.0439
     },
     {
      "market": "2",
      "label": "Victoire Real Madrid",
-     "odds": 1.16,
+     "odds": 1.17,
      "src": "unibet",
-     "p": 0.7554,
-     "ev": -0.1237
+     "p": 0.7508,
+     "ev": -0.1216
     },
     {
      "market": "+4.5",
      "label": "Plus de 4,5 buts",
      "odds": 2.1,
      "src": "pmu",
-     "p": 0.4245,
-     "ev": -0.1086
+     "p": 0.4258,
+     "ev": -0.1058
     },
     {
      "market": "-4.5",
      "label": "Moins de 4,5 buts",
-     "odds": 1.54,
+     "odds": 1.55,
      "src": "pmu",
-     "p": 0.5755,
-     "ev": -0.1137
+     "p": 0.5742,
+     "ev": -0.11
     },
     {
      "market": "H2",
      "label": "Real Madrid gagne par 2 buts ou + (handicap -1)",
-     "odds": 1.56,
+     "odds": 1.58,
      "src": "estimee",
-     "p": 0.5727,
-     "ev": -0.1066
+     "p": 0.5673,
+     "ev": -0.1037
     }
    ]
   },
@@ -2403,50 +2337,116 @@
    "fd_home": "Paris FC",
    "fd_away": "Monaco",
    "lambdas": [
-    1.541,
-    1.314
+    1.519,
+    1.325
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Paris FC",
-     "odds": 2.15,
+     "odds": 2.2,
      "src": "unibet",
-     "p": 0.418,
-     "ev": -0.1013
+     "p": 0.4117,
+     "ev": -0.0943
     },
     {
      "market": "N",
      "label": "Match nul",
      "odds": 3.3,
      "src": "unibet",
-     "p": 0.2634,
-     "ev": -0.1308
+     "p": 0.2643,
+     "ev": -0.1278
     },
     {
      "market": "2",
      "label": "Victoire AS Monaco",
-     "odds": 2.85,
+     "odds": 2.8,
      "src": "unibet",
-     "p": 0.3186,
-     "ev": -0.092
+     "p": 0.3239,
+     "ev": -0.0931
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
-     "odds": 1.63,
+     "odds": 1.64,
      "src": "pmu",
-     "p": 0.5387,
-     "ev": -0.1219
+     "p": 0.5364,
+     "ev": -0.1203
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
-     "odds": 1.95,
+     "odds": 1.94,
      "src": "pmu",
-     "p": 0.4613,
-     "ev": -0.1005
+     "p": 0.4636,
+     "ev": -0.1006
+    }
+   ]
+  },
+  {
+   "id": "961df571fad52d969150e9ced52b16f7",
+   "league": "Ligue 1",
+   "div": "F1",
+   "kickoff": "2026-11-01T16:15:00Z",
+   "day": "2026-11-01",
+   "home": "Lyon",
+   "away": "Angers",
+   "fd_home": "Lyon",
+   "fd_away": "Angers",
+   "lambdas": [
+    2.221,
+    0.91
+   ],
+   "model": true,
+   "sel": [
+    {
+     "market": "1",
+     "label": "Victoire Lyon",
+     "odds": 1.34,
+     "src": "unibet",
+     "p": 0.6679,
+     "ev": -0.105
+    },
+    {
+     "market": "N",
+     "label": "Match nul",
+     "odds": 4.7,
+     "src": "unibet",
+     "p": 0.1999,
+     "ev": -0.0605
+    },
+    {
+     "market": "2",
+     "label": "Victoire Angers",
+     "odds": 6.4,
+     "src": "unibet",
+     "p": 0.1323,
+     "ev": -0.1533
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.47,
+     "src": "pmu",
+     "p": 0.5924,
+     "ev": -0.1292
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 2.25,
+     "src": "pmu",
+     "p": 0.4076,
+     "ev": -0.0829
+    },
+    {
+     "market": "H1",
+     "label": "Lyon gagne par 2 buts ou + (handicap -1)",
+     "odds": 2.05,
+     "src": "estimee",
+     "p": 0.4365,
+     "ev": -0.1052
     }
    ]
   },
@@ -2461,8 +2461,8 @@
    "fd_home": "Liverpool",
    "fd_away": "Arsenal",
    "lambdas": [
-    1.272,
-    1.448
+    1.274,
+    1.431
    ],
    "model": true,
    "sel": [
@@ -2471,40 +2471,40 @@
      "label": "Victoire Liverpool",
      "odds": 2.75,
      "src": "unibet",
-     "p": 0.3107,
-     "ev": -0.1456
+     "p": 0.3139,
+     "ev": -0.1368
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 3.3,
+     "odds": 3.2,
      "src": "unibet",
-     "p": 0.2742,
-     "ev": -0.0951
+     "p": 0.2752,
+     "ev": -0.1194
     },
     {
      "market": "2",
      "label": "Victoire Arsenal",
-     "odds": 2.2,
+     "odds": 2.25,
      "src": "unibet",
-     "p": 0.4151,
-     "ev": -0.0868
+     "p": 0.4109,
+     "ev": -0.0755
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
-     "odds": 1.74,
+     "odds": 1.75,
      "src": "pmu",
-     "p": 0.4916,
-     "ev": -0.1446
+     "p": 0.4886,
+     "ev": -0.145
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
-     "odds": 1.82,
+     "odds": 1.81,
      "src": "pmu",
-     "p": 0.5084,
-     "ev": -0.0747
+     "p": 0.5114,
+     "ev": -0.0744
     }
    ]
   },
@@ -2519,58 +2519,58 @@
    "fd_home": "Ein Frankfurt",
    "fd_away": "Hamburg",
    "lambdas": [
-    2.312,
-    1.29
+    2.345,
+    1.259
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Eintracht Frankfurt",
-     "odds": 1.5,
+     "odds": 1.47,
      "src": "unibet",
-     "p": 0.5845,
-     "ev": -0.1232
+     "p": 0.5951,
+     "ev": -0.1252
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 4.2,
+     "odds": 4.4,
      "src": "unibet",
-     "p": 0.2084,
-     "ev": -0.1247
+     "p": 0.2057,
+     "ev": -0.0949
     },
     {
      "market": "2",
      "label": "Victoire Hamburger SV",
-     "odds": 4.6,
+     "odds": 4.8,
      "src": "unibet",
-     "p": 0.2071,
-     "ev": -0.0473
+     "p": 0.1991,
+     "ev": -0.0443
     },
     {
      "market": "+3.5",
      "label": "Plus de 3,5 buts",
      "odds": 1.83,
      "src": "pmu",
-     "p": 0.471,
-     "ev": -0.1381
+     "p": 0.4714,
+     "ev": -0.1373
     },
     {
      "market": "-3.5",
      "label": "Moins de 3,5 buts",
      "odds": 1.73,
      "src": "pmu",
-     "p": 0.529,
-     "ev": -0.0848
+     "p": 0.5286,
+     "ev": -0.0855
     },
     {
      "market": "H1",
      "label": "Eintracht Frankfurt gagne par 2 buts ou + (handicap -1)",
-     "odds": 2.4,
+     "odds": 2.35,
      "src": "estimee",
-     "p": 0.3713,
-     "ev": -0.1089
+     "p": 0.3816,
+     "ev": -0.1032
     }
    ]
   },
@@ -2585,8 +2585,8 @@
    "fd_home": "Lecce",
    "fd_away": "Genoa",
    "lambdas": [
-    1.023,
-    1.281
+    1.013,
+    1.251
    ],
    "model": true,
    "sel": [
@@ -2595,40 +2595,40 @@
      "label": "Victoire Lecce",
      "odds": 3.1,
      "src": "unibet",
-     "p": 0.2919,
-     "ev": -0.0951
+     "p": 0.2941,
+     "ev": -0.0883
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 3.0,
+     "odds": 2.95,
      "src": "unibet",
-     "p": 0.3002,
-     "ev": -0.0994
+     "p": 0.303,
+     "ev": -0.1061
     },
     {
      "market": "2",
      "label": "Victoire Genoa",
-     "odds": 2.15,
+     "odds": 2.2,
      "src": "unibet",
-     "p": 0.4079,
-     "ev": -0.123
+     "p": 0.4029,
+     "ev": -0.1136
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
-     "odds": 2.2,
+     "odds": 2.25,
      "src": "pmu",
-     "p": 0.3927,
-     "ev": -0.1361
+     "p": 0.3842,
+     "ev": -0.1356
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
-     "odds": 1.5,
+     "odds": 1.47,
      "src": "pmu",
-     "p": 0.6073,
-     "ev": -0.0891
+     "p": 0.6158,
+     "ev": -0.0948
     }
    ]
   },
@@ -2643,50 +2643,50 @@
    "fd_home": "Elche",
    "fd_away": "Valencia",
    "lambdas": [
-    1.435,
-    1.235
+    1.464,
+    1.211
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Elche CF",
-     "odds": 2.2,
+     "odds": 2.1,
      "src": "unibet",
-     "p": 0.4288,
-     "ev": -0.0566
+     "p": 0.4391,
+     "ev": -0.0779
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 3.2,
+     "odds": 3.3,
      "src": "unibet",
-     "p": 0.2729,
-     "ev": -0.1267
+     "p": 0.2719,
+     "ev": -0.1027
     },
     {
      "market": "2",
      "label": "Victoire Valencia",
-     "odds": 2.85,
+     "odds": 2.9,
      "src": "unibet",
-     "p": 0.2983,
-     "ev": -0.1498
+     "p": 0.289,
+     "ev": -0.1619
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
      "odds": 1.78,
      "src": "pmu",
-     "p": 0.4885,
-     "ev": -0.1305
+     "p": 0.4893,
+     "ev": -0.129
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
      "odds": 1.78,
      "src": "pmu",
-     "p": 0.5115,
-     "ev": -0.0895
+     "p": 0.5107,
+     "ev": -0.091
     }
    ]
   },
@@ -2701,50 +2701,50 @@
    "fd_home": "Marseille",
    "fd_away": "Toulouse",
    "lambdas": [
-    1.855,
-    1.276
+    1.84,
+    1.273
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Marseille",
-     "odds": 1.8,
+     "odds": 1.82,
      "src": "unibet",
-     "p": 0.5076,
-     "ev": -0.0863
+     "p": 0.5054,
+     "ev": -0.0802
     },
     {
      "market": "N",
      "label": "Match nul",
      "odds": 3.9,
      "src": "unibet",
-     "p": 0.238,
-     "ev": -0.0718
+     "p": 0.239,
+     "ev": -0.0679
     },
     {
      "market": "2",
      "label": "Victoire Toulouse",
      "odds": 3.5,
      "src": "unibet",
-     "p": 0.2544,
-     "ev": -0.1096
+     "p": 0.2556,
+     "ev": -0.1054
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
-     "odds": 1.47,
+     "odds": 1.48,
      "src": "pmu",
-     "p": 0.6087,
-     "ev": -0.1052
+     "p": 0.6057,
+     "ev": -0.1036
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
-     "odds": 2.25,
+     "odds": 2.23,
      "src": "pmu",
-     "p": 0.3913,
-     "ev": -0.1196
+     "p": 0.3943,
+     "ev": -0.1207
     }
    ]
   },
@@ -2759,7 +2759,7 @@
    "fd_home": "Juventus",
    "fd_away": "Napoli",
    "lambdas": [
-    1.413,
+    1.41,
     1.121
    ],
    "model": true,
@@ -2769,40 +2769,40 @@
      "label": "Victoire Juventus",
      "odds": 2.1,
      "src": "unibet",
-     "p": 0.4255,
-     "ev": -0.1064
+     "p": 0.4248,
+     "ev": -0.1079
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 3.2,
+     "odds": 3.1,
      "src": "unibet",
-     "p": 0.2824,
-     "ev": -0.0963
+     "p": 0.2826,
+     "ev": -0.1239
     },
     {
      "market": "2",
      "label": "Victoire Napoli",
      "odds": 3.1,
      "src": "unibet",
-     "p": 0.2921,
-     "ev": -0.0945
+     "p": 0.2926,
+     "ev": -0.0929
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
      "odds": 1.91,
      "src": "pmu",
-     "p": 0.455,
-     "ev": -0.131
+     "p": 0.4544,
+     "ev": -0.1321
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
      "odds": 1.66,
      "src": "pmu",
-     "p": 0.545,
-     "ev": -0.0953
+     "p": 0.5456,
+     "ev": -0.0943
     }
    ]
   },
@@ -2817,50 +2817,50 @@
    "fd_home": "Ath Bilbao",
    "fd_away": "Sociedad",
    "lambdas": [
-    1.584,
-    1.22
+    1.65,
+    1.299
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Athletic Bilbao",
-     "odds": 1.98,
+     "odds": 1.97,
      "src": "unibet",
-     "p": 0.4564,
-     "ev": -0.0963
+     "p": 0.4554,
+     "ev": -0.1029
     },
     {
      "market": "N",
      "label": "Match nul",
      "odds": 3.5,
      "src": "unibet",
-     "p": 0.2583,
-     "ev": -0.096
+     "p": 0.2526,
+     "ev": -0.1159
     },
     {
      "market": "2",
      "label": "Victoire Real Sociedad",
-     "odds": 3.1,
+     "odds": 3.0,
      "src": "unibet",
-     "p": 0.2853,
-     "ev": -0.1156
+     "p": 0.292,
+     "ev": -0.124
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
-     "odds": 1.67,
+     "odds": 1.57,
      "src": "pmu",
-     "p": 0.5456,
-     "ev": -0.0888
+     "p": 0.5726,
+     "ev": -0.101
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
-     "odds": 1.89,
+     "odds": 2.04,
      "src": "pmu",
-     "p": 0.4544,
-     "ev": -0.1412
+     "p": 0.4274,
+     "ev": -0.1281
     }
    ]
   }

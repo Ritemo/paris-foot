@@ -16,10 +16,10 @@
      "div": "SP1",
      "market": "1",
      "label": "Victoire Real Betis",
-     "odds": 1.28,
+     "odds": 1.26,
      "src": "unibet",
-     "p": 0.7092,
-     "ev": -0.0922
+     "p": 0.7188,
+     "ev": -0.0943
     },
     {
      "match_id": "2db2b55e71574a19ff0557898d3e9933",
@@ -34,8 +34,8 @@
      "label": "Moins de 4,5 buts",
      "odds": 1.54,
      "src": "pmu",
-     "p": 0.5985,
-     "ev": -0.0783
+     "p": 0.5983,
+     "ev": -0.0786
     },
     {
      "match_id": "6601f69175a02f03fb7065aacb538e01",
@@ -50,17 +50,17 @@
      "label": "Plus de 2,5 buts",
      "odds": 1.5,
      "src": "pmu",
-     "p": 0.6072,
-     "ev": -0.0892
+     "p": 0.6091,
+     "ev": -0.0864
     }
    ],
-   "odds": 2.96,
-   "p": 0.2577,
-   "cost": 0.2379,
+   "odds": 2.91,
+   "p": 0.2619,
+   "cost": 0.2376,
    "stars": 1,
    "stake": 2,
    "status": "en attente",
-   "proposed_at": "2026-10-30T00:03:43.510958+00:00"
+   "proposed_at": "2026-10-30T13:31:07.549506+00:00"
   },
   {
    "id": "2026-10-31|04aa939b89001eedf55668e66c74836e:+2.5|3966f2fe1c2f73bfa12e61db83bd0bf9:-3.5",
@@ -80,8 +80,8 @@
      "label": "Moins de 3,5 buts",
      "odds": 1.62,
      "src": "pmu",
-     "p": 0.597,
-     "ev": -0.0329
+     "p": 0.5971,
+     "ev": -0.0327
     },
     {
      "match_id": "04aa939b89001eedf55668e66c74836e",
@@ -96,39 +96,23 @@
      "label": "Plus de 2,5 buts",
      "odds": 1.75,
      "src": "pmu",
-     "p": 0.546,
-     "ev": -0.0445
+     "p": 0.5462,
+     "ev": -0.0441
     }
    ],
    "odds": 2.83,
-   "p": 0.326,
-   "cost": 0.0759,
+   "p": 0.3261,
+   "cost": 0.0754,
    "stars": 2,
    "stake": 2,
    "status": "en attente",
-   "proposed_at": "2026-10-30T00:03:43.510958+00:00"
+   "proposed_at": "2026-10-30T13:31:07.549506+00:00"
   },
   {
-   "id": "2026-10-31|aecb9d8c01176616c87d893bee4bc0de:-3.5|bad7337b335a16859b1db6b8e6cf6ca5:-4.5",
+   "id": "2026-10-31|7df53f9af95d5a4e13b504882078dab8:-3.5|aecb9d8c01176616c87d893bee4bc0de:-3.5",
    "day": "2026-10-31",
    "kind": "x2",
    "legs": [
-    {
-     "match_id": "bad7337b335a16859b1db6b8e6cf6ca5",
-     "league": "Bundesliga",
-     "kickoff": "2026-10-31T17:30:00Z",
-     "home": "Bayern Munich",
-     "away": "Borussia Dortmund",
-     "fd_home": "Bayern Munich",
-     "fd_away": "Dortmund",
-     "div": "D1",
-     "market": "-4.5",
-     "label": "Moins de 4,5 buts",
-     "odds": 1.5,
-     "src": "pmu",
-     "p": 0.6241,
-     "ev": -0.0638
-    },
     {
      "match_id": "aecb9d8c01176616c87d893bee4bc0de",
      "league": "Bundesliga",
@@ -142,17 +126,33 @@
      "label": "Moins de 3,5 buts",
      "odds": 1.57,
      "src": "pmu",
-     "p": 0.598,
-     "ev": -0.0611
+     "p": 0.5978,
+     "ev": -0.0615
+    },
+    {
+     "match_id": "7df53f9af95d5a4e13b504882078dab8",
+     "league": "Premier League",
+     "kickoff": "2026-10-31T15:00:00Z",
+     "home": "Manchester City",
+     "away": "Brighton and Hove Albion",
+     "fd_home": "Man City",
+     "fd_away": "Brighton",
+     "div": "E0",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.67,
+     "src": "pmu",
+     "p": 0.5578,
+     "ev": -0.0685
     }
    ],
-   "odds": 2.35,
-   "p": 0.3732,
-   "cost": 0.121,
+   "odds": 2.62,
+   "p": 0.3335,
+   "cost": 0.1258,
    "stars": 2,
-   "stake": 3,
+   "stake": 2,
    "status": "en attente",
-   "proposed_at": "2026-10-30T00:03:43.510958+00:00"
+   "proposed_at": "2026-10-30T13:31:07.549506+00:00"
   },
   {
    "id": "2026-10-30|00b03cb40c27ed23e2ecb18f062a5122:-3.5|9a9f6c78276f74f15f42b013b033aa5d:-3.5",
@@ -251,5 +251,5 @@
   "n": 0,
   "gagnes": 0
  },
- "updated": "2026-10-30T00:03:43.510958+00:00"
+ "updated": "2026-10-30T13:31:07.549506+00:00"
 }

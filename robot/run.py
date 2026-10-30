@@ -402,7 +402,7 @@ def fetch_api_scores(history, fd):
 
 
 def bilan(history):
-    allc = [c for c in history["combos"] if c["status"] in ("gagne", "perdu")]
+    allc = [c for c in history["combos"] if c["status"] in ("gagne", "perdu") and not c.get("replaced")]
     done = [c for c in allc if c["kind"] != "folie"]  # les folies ont leur propre ligne
     out = dict(n=len(done), gagnes=sum(c["status"] == "gagne" for c in done))
     if allc:
@@ -473,8 +473,14 @@ def main():
                     f["proposed_at"] = NOW.isoformat()
                     history["combos"].append(f)
             continue
-        history["combos"] = [c for c in history["combos"] if c["day"] != day or c.get("status") != "en attente"]
         new = combos_for_day(day, matches)
+        new_ids = {c["id"] for c in new}
+        old = [c for c in history["combos"] if c["day"] == day and c.get("status") == "en attente" and not c.get("replaced")]
+        for c in old:  # un ticket deja propose n'est jamais efface : il reste suivi (tu l'as peut-etre joue)
+            if c["id"] in new_ids:
+                new = [n for n in new if n["id"] != c["id"]]  # identique : on garde l'ancien tel quel
+            else:
+                c["replaced"] = True
         for c in new:
             c["proposed_at"] = NOW.isoformat()
         history["combos"] += new
@@ -488,7 +494,7 @@ def main():
     history["bilan"] = bilan(history)
     history["updated"] = NOW.isoformat()
 
-    current = [c for c in history["combos"] if c["day"] >= today.isoformat()]
+    current = [c for c in history["combos"] if c["day"] >= today.isoformat() and not c.get("replaced")]
     meta.update(credits_remaining=credits["remaining"], credits_used_last_run=credits["used_run"],
                 last_run=NOW.isoformat(), frozen_days=sorted(d for d in frozen if d >= (today - timedelta(days=7)).isoformat()),
                 leagues=[v[1] for v in LEAGUES.values()])

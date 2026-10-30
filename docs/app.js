@@ -62,7 +62,7 @@ function monthSpent() {
   return Object.values(bets()).filter((b) => (b.date || "").slice(0, 7) === m).reduce((s, b) => s + b.mise, 0);
 }
 function findCombo(id) {
-  return (today?.combos || []).find((c) => c.id === id) || (hist?.combos || []).find((c) => c.id === id);
+  return (today?.combos || []).find((c) => c.id === id) || (hist?.combos || []).find((c) => c.id === id) || bets()[id]?.snap;
 }
 
 /* --------------------------------------------------------------- tickets */
@@ -309,7 +309,7 @@ document.addEventListener("click", async (e) => {
         : `${c.stake} € conseillés. Il te reste ${fmt(Math.max(left, 0), 0)} € dans ton budget du mois.`, c.stake, { steps: c.kind === "folie" ? [1, 2] : [1, 2, 3, 4, 5] });
       if (!v || isNaN(v) || v <= 0) return;
       if (v > left && !confirm("Cette mise dépasse ton budget du mois. La garder quand même ?")) return;
-      all[c.id] = { mise: Math.min(v, 5), odds: +combo(c).odds.toFixed(2), date: isoDay(new Date()) };
+      all[c.id] = { mise: Math.min(v, 5), odds: +combo(c).odds.toFixed(2), date: isoDay(new Date()), snap: c };
       freshStamp = c.id;
     }
     LS.set("pf_bets", all); renderAll(); return;

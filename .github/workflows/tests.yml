@@ -1,0 +1,33 @@
+name: Tests
+
+on:
+  push:
+    paths: ["docs/*.js", "docs/*.css", "docs/*.html", "robot/**", "tests/**", "tools/**"]
+  workflow_dispatch: {}
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: robot/requirements.txt
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: pip install -r robot/requirements.txt playwright && python -m playwright install --with-deps chromium
+      - name: Tests du robot et de l'appli
+        run: |
+          for f in docs/app.js docs/live.js docs/compose.js docs/sw.js; do node --check "$f"; done
+          python tests/test_robot.py
+          python tests/test_app.py
+      - name: Prévenir en cas d'échec
+        if: failure()
+        run: |
+          curl -s -H "Title: =?UTF-8?B?$(printf 'Combinés Foot : un test a échoué' | base64 -w0)?=" -H "Tags: warning" -H "Priority: 4" \
+            -d "La dernière mise à jour de l'appli a un problème. Détails : https://github.com/${{ github.repository }}/actions" \
+            https://ntfy.sh/combines-foot-ritemo-7k3q9x

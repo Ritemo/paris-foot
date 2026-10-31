@@ -35,3 +35,8 @@ Comme pour l'appli hand : coller l'adresse de l'appli sur pwabuilder.com, puis *
 - Tes paris joués, tes cotes corrigées et ton budget sont enregistrés sur ton téléphone.
 
 Rappel du backtest : aucune stratégie testée ne bat durablement les bookmakers. Les combinés de 2 favoris sont simplement les moins coûteux. Joue pour le plaisir et dans ton budget.
+
+## Tests
+
+Avant chaque publication : `./tools/check.sh` (numéro de version automatique, syntaxe, tests du robot et test de l'appli dans Chromium, sans réseau ni crédit).
+Les mêmes tests tournent sur GitHub à chaque modification de l'appli ou du robot, avec une notification ntfy en cas d'échec.

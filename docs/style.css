@@ -244,3 +244,15 @@ label.btn { display: inline-block; }
 .steps-list { margin: 0 0 12px; padding-left: 20px; font-size: 14px; } .steps-list li { margin: 8px 0; }
 .steps-list a { color: var(--pelouse-2); font-weight: 800; } code { background: var(--ticket-2); padding: 1px 6px; border-radius: 6px; font-size: 13px; }
 .switch { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; } .switch input { width: 22px; height: 22px; flex: none; accent-color: var(--pelouse-2); }
+
+/* ---------- bilan : deux vues */
+.seg { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin: 16px 0 4px; padding: 4px; background: var(--ticket); border-radius: 14px; box-shadow: var(--ombre); }
+.seg button { border: 0; background: none; border-radius: 10px; padding: 9px 6px; font-weight: 800; font-size: 13px; color: var(--sous); cursor: pointer; }
+.seg button.on { background: var(--pelouse); color: #fff; }
+.grp summary { list-style: none; cursor: pointer; } .grp summary::-webkit-details-marker { display: none; }
+.grp-head { display: flex; align-items: baseline; gap: 10px; } .grp-head b { font: 800 18px var(--display); flex: 1; }
+.grp-head span { font-size: 13px; color: var(--sous); } .grp-head .pos { color: var(--vert); font-weight: 800; font-size: 15px; } .grp-head .neg { color: var(--rouge); font-weight: 800; font-size: 15px; }
+.grp[open] summary { border-bottom: 1px solid var(--trait); padding-bottom: 8px; margin-bottom: 4px; }
+.grp summary::after { content: "Voir les tickets"; display: block; font-size: 12px; font-weight: 700; color: var(--pelouse-2); margin-top: 6px; }
+.grp[open] summary::after { content: "Masquer"; }
+.hist .o.pos { color: var(--vert); } .hist .o.neg { color: var(--rouge); }

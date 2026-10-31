@@ -223,13 +223,12 @@ function myCharts(done) {
   return h;
 }
 
-/* réussite par type de sélection, sur tous les tickets du robot */
-function marketStats() {
+/* réussite par type de sélection, sur une liste de tickets */
+function marketStats(combos, note) {
   const cats = { "Victoire": (m) => m === "1" || m === "2", "Match nul": (m) => m === "N", "Plus de buts": (m) => m[0] === "+",
     "Moins de buts": (m) => m[0] === "-", "Handicap": (m) => m[0] === "H" };
   const acc = {};
-  for (const c of hist?.combos || []) {
-    if (c.replaced) continue;
+  for (const c of combos) {
     for (const l of c.legs) {
       if (l.won === undefined) continue;
       const k = Object.keys(cats).find((n) => cats[n](l.market));
@@ -242,51 +241,69 @@ function marketStats() {
   return `<h2 class="section-title">Réussite par type de pari</h2><div class="panel">` + keys.map((k) => {
     const a = acc[k];
     return `<div class="mstat"><div class="mstat-head"><b>${esc(k)}</b><span>${a.w} sur ${a.n} sélection${a.n > 1 ? "s" : ""}</span></div>${compare(a.p / a.n, a.w / a.n)}</div>`;
-  }).join("") + `<p class="hint">Chaque match d'un ticket compte, qu'il ait été joué ou non. Un type de pari qui réussit nettement moins qu'annoncé sur plusieurs dizaines de sélections mérite d'être évité.</p></div>`;
+  }).join("") + `<p class="hint">${note}</p></div>`;
 }
+
+let bilanView = LS.get("pf_bilan_view", "mine");
 
 function renderBilan() {
   const el = document.getElementById("tab-bilan");
-  const b = hist?.bilan || {};
-  const mine = Object.entries(bets()).map(([id, x]) => ({ id, ...x, c: findCombo(id) }));
-  const done = mine.filter((x) => x.c && x.c.status !== "en attente");
+  const seg = `<div class="seg" role="tablist">
+    <button role="tab" data-bview="mine" aria-selected="${bilanView === "mine"}" class="${bilanView === "mine" ? "on" : ""}">Mes paris</button>
+    <button role="tab" data-bview="robot" aria-selected="${bilanView === "robot"}" class="${bilanView === "robot" ? "on" : ""}">Qualité des tickets proposés</button></div>`;
+  el.innerHTML = seg + (bilanView === "mine" ? bilanMine() : bilanRobot());
+}
+
+/* ---- mes paris : l'essentiel du bilan */
+function bilanMine() {
+  const mine = Object.entries(bets()).map(([id, x]) => ({ id, ...x, c: findCombo(id) })).filter((x) => x.c);
+  const done = mine.filter((x) => x.c.status !== "en attente");
   const won = done.filter((x) => x.c.status === "gagne").length;
   const mise = done.reduce((s, x) => s + x.mise, 0);
   const gain = done.reduce((s, x) => s + (x.c.status === "gagne" ? x.mise * (x.odds - 1) : -x.mise), 0);
-
   let h = backupDue() ? `<div class="panel backup-nudge"><b>Pense à sauvegarder tes paris</b><p class="hint">Ils ne sont stockés que sur ce téléphone. ${backupInfo()} Onglet Réglages, bouton « Sauvegarder ».</p></div>` : "";
-  h += `<h2 class="section-title">Mes paris</h2><div class="panel">`;
-  if (!mine.length) h += `<p class="hint" style="margin:0">Touche « Je le joue » sur un ticket pour suivre tes paris ici.</p>`;
-  else {
-    h += `<div class="scoreline"><div class="w"><b>${won}</b><small>gagnés</small></div><span class="sep">/</span>
+  h += `<div class="panel" style="margin-top:14px">`;
+  if (!mine.length) return h + `<p class="hint" style="margin:0">Touche « Je le joue » sur un ticket : ton bilan se construira ici, pari après pari.</p></div>`;
+  h += `<div class="scoreline"><div class="w"><b>${won}</b><small>gagnés</small></div><span class="sep">/</span>
       <div class="l"><b>${done.length - won}</b><small>perdus</small></div><span class="sep">/</span>
       <div><b>${mine.length - done.length}</b><small>en cours</small></div></div>
-      <div class="money ${gain >= 0 ? "pos" : "neg"}">${eur(gain)}</div><p class="hint">sur ${fmt(mise, 0)} € misés</p>`;
-    if (done.length) h += compare(done.reduce((s, x) => s + x.c.p, 0) / done.length, won / done.length);
+    <div class="money ${gain >= 0 ? "pos" : "neg"}">${eur(gain)}</div><p class="hint">sur ${fmt(mise, 0)} € misés${mise ? `, soit ${gain >= 0 ? "+" : ""}${Math.round((100 * gain) / mise)} %` : ""}</p>`;
+  if (done.length) h += compare(done.reduce((s, x) => s + x.c.p, 0) / done.length, won / done.length);
+  h += `</div>` + myCharts(done);
+  h += marketStats(done.map((x) => x.c), "Sur les matchs de tes tickets joués.");
+  if (done.length) {
+    h += `<h2 class="section-title">Mes tickets terminés</h2><div class="panel">` + done.sort((a, b) => b.c.day.localeCompare(a.c.day)).map((x) => {
+      const g = x.c.status === "gagne" ? x.mise * (x.odds - 1) : -x.mise;
+      return `<div class="hist"><span class="dot ${x.c.status}">${x.c.status === "gagne" ? "✓" : "✗"}</span>
+        <div>${x.c.legs.map((l) => esc(l.label)).join(" + ")}<small>${esc(longDate(x.c.day))}, ${fmt(x.mise, 0)} € à ${fmt(x.odds)}</small></div>
+        <span class="o ${g >= 0 ? "pos" : "neg"}">${eur(g)}</span></div>`;
+    }).join("") + `</div>`;
   }
-  h += `</div>` + myCharts(done) + `<h2 class="section-title">Tous les tickets du robot</h2><div class="panel">`;
-  if (!b.n) h += `<p class="hint" style="margin:0">Aucun ticket terminé pour l'instant. Le premier bilan arrive après les matchs du jour.</p>`;
-  else {
-    h += `<div class="scoreline"><div class="w"><b>${b.gagnes}</b><small>gagnés</small></div><span class="sep">/</span>
-      <div class="l"><b>${b.n - b.gagnes}</b><small>perdus</small></div></div>
-      <div class="money ${b.bilan_2eur >= 0 ? "pos" : "neg"}">${eur(b.bilan_2eur)}</div>
-      <p class="hint">en misant 2 € sur chaque ticket (${b.mise_2eur} € au total). Avec les mises conseillées : ${eur(b.bilan_mise_suggeree)} sur ${b.mise_suggeree_totale} €.</p>
-      ${compare(b.reussite_annoncee, b.reussite_reelle)}
-      <p class="hint">Si la réussite réelle reste proche de l'annoncée, le modèle fait son travail. Il faut une bonne centaine de tickets avant de juger : sur quelques semaines, c'est surtout de la chance.</p>`;
+  return h;
+}
+
+/* ---- qualité de tous les tickets proposés par le robot, par étoiles et folie */
+function bilanRobot() {
+  const all = (hist?.combos || []).filter((c) => !c.replaced && c.status !== "en attente");
+  if (!all.length) return `<div class="panel" style="margin-top:14px"><p class="hint" style="margin:0">Aucun ticket terminé pour l'instant.</p></div>`;
+  const groups = [["3 étoiles", (c) => c.kind !== "folie" && c.stars === 3, 2], ["2 étoiles", (c) => c.kind !== "folie" && c.stars === 2, 2],
+    ["1 étoile", (c) => c.kind !== "folie" && (c.stars || 1) <= 1, 2], ["Folies du jour", (c) => c.kind === "folie", 1]];
+  let h = `<p class="hint" style="margin:14px 4px">Tous les tickets proposés par le robot, joués ou non, pour juger si ses notes tiennent la route.</p>`;
+  for (const [name, f, stake] of groups) {
+    const g = all.filter(f);
+    if (!g.length) continue;
+    const w = g.filter((c) => c.status === "gagne").length;
+    const bil = g.reduce((s, c) => s + (c.status === "gagne" ? stake * (c.odds - 1) : -stake), 0);
+    h += `<details class="panel grp"><summary><div class="grp-head"><b>${esc(name)}</b><span>${w} gagné${w > 1 ? "s" : ""} sur ${g.length}</span>
+        <span class="${bil >= 0 ? "pos" : "neg"}">${eur(bil)}</span></div>
+        <p class="hint" style="margin:2px 0 0">à ${stake} € par ticket, cote moyenne ${fmt(g.reduce((s, c) => s + c.odds, 0) / g.length)}</p>
+        ${compare(g.reduce((s, c) => s + c.p, 0) / g.length, w / g.length)}</summary>` +
+      g.map((c) => `<div class="hist"><span class="dot ${c.status}">${c.status === "gagne" ? "✓" : "✗"}</span>
+        <div>${c.legs.map((l) => esc(l.label)).join(" + ")}<small>${esc(longDate(c.day))}${bets()[c.id] ? ", joué" : ""}</small></div>
+        <span class="o">${fmt(c.odds)}</span></div>`).join("") + `</details>`;
   }
-  if (b.folie) {
-    h += `<p class="hint">Folies : ${b.folie.gagnes} passée${b.folie.gagnes > 1 ? "s" : ""} sur ${b.folie.n}, ${eur(b.folie.bilan)} à 1 € la folie (comptées à part).</p>`;
-  }
-  h += `</div>`;
-  h += marketStats();
-  const past = (hist?.combos || []).filter((c) => c.status !== "en attente" && !c.replaced).slice(0, 40);
-  if (past.length) {
-    h += `<h2 class="section-title">Historique</h2><div class="panel">` + past.map((c) => `<div class="hist">
-      <span class="dot ${c.status}">${c.status === "gagne" ? "✓" : "✗"}</span>
-      <div>${c.legs.map((l) => esc(l.label)).join(" + ")}<small>${esc(longDate(c.day))}</small></div>
-      <span class="o">${fmt(c.odds)}</span></div>`).join("") + `</div>`;
-  }
-  el.innerHTML = h;
+  h += marketStats(all, "Sur tous les tickets proposés. Un type de pari qui réussit nettement moins qu'annoncé sur plusieurs dizaines de sélections mérite d'être évité.");
+  return h;
 }
 
 function renderHeader() {
@@ -374,6 +391,8 @@ document.addEventListener("click", async (e) => {
     }
     LS.set("pf_bets", all); renderAll(); scheduleLive(); syncPlayed(); return;
   }
+  const bv = e.target.closest("[data-bview]");
+  if (bv) { bilanView = bv.dataset.bview; LS.set("pf_bilan_view", bilanView); renderBilan(); return; }
   const tab = e.target.closest(".tabs button");
   if (tab) {
     document.querySelectorAll(".tabs button").forEach((b) => b.classList.toggle("active", b === tab));

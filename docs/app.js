@@ -302,11 +302,14 @@ function bilanMine() {
 
 /* ---- qualité de tous les tickets proposés par le robot, par étoiles et folie */
 function bilanRobot() {
-  const all = (hist?.combos || []).filter((c) => !c.replaced && c.status !== "en attente");
+  // un ticket remplacé par une version plus récente compte quand même si tu l'as joué
+  const all = (hist?.combos || []).filter((c) => (!c.replaced || bets()[c.id]) && c.status !== "en attente")
+    .map((c) => { const x = findCombo(c.id); return x && x.status !== "en attente" ? x : c; });
   if (!all.length) return `<div class="panel" style="margin-top:14px"><p class="hint" style="margin:0">Aucun ticket terminé pour l'instant.</p></div>`;
   const groups = [["3 étoiles", (c) => c.kind !== "folie" && c.stars === 3, 2], ["2 étoiles", (c) => c.kind !== "folie" && c.stars === 2, 2],
     ["1 étoile", (c) => c.kind !== "folie" && (c.stars || 1) <= 1, 2], ["Folies du jour", (c) => c.kind === "folie", 1]];
-  let h = `<p class="hint" style="margin:14px 4px">Tous les tickets proposés par le robot, joués ou non, pour juger si ses notes tiennent la route.</p>`;
+  const pending = (hist?.combos || []).filter((c) => !c.replaced && c.status === "en attente").length;
+  let h = `<p class="hint" style="margin:14px 4px">Tickets proposés par le robot et terminés, joués ou non, pour juger si ses notes tiennent la route.${pending ? ` ${pending} ticket${pending > 1 ? "s" : ""} encore en cours ${pending > 1 ? "seront comptés" : "sera compté"} à la fin de leurs matchs.` : ""} Il faut plusieurs dizaines de tickets par groupe avant d'en tirer une conclusion.</p>`;
   for (const [name, f, stake] of groups) {
     const g = all.filter(f);
     if (!g.length) continue;

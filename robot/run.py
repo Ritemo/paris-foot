@@ -419,18 +419,59 @@ def short(c):
     return " + ".join(f"{l['label']} ({l['home']}-{l['away']})" for l in c["legs"])
 
 
-def notify_settled(before, history):
-    """Un message par ticket qui vient d'etre regle."""
+def sync_played(meta):
+    """Tickets que tu as joues : l'appli les publie sur un canal ntfy prive, le robot les relit a chaque passage."""
+    played = meta.get("played", {})
+    before = json.dumps(played, sort_keys=True)
+    try:
+        body, _h = http_get(f"https://ntfy.sh/{NTFY_TOPIC}-joues/json?poll=1&since=all")
+        evs = [json.loads(x) for x in body.decode("utf-8").splitlines() if x.strip()]
+        for ev in sorted((e for e in evs if e.get("event") == "message"), key=lambda e: e.get("time", 0)):
+            try:
+                d = json.loads(ev["message"])
+            except Exception:
+                continue
+            if d.get("action") == "add" and d.get("id"):
+                old = played.get(d["id"], {})
+                played[d["id"]] = {"mise": d.get("mise"), "odds": d.get("odds"), "t": ev.get("time"),
+                                   "snap": old.get("snap") or d.get("snap")}
+            elif d.get("action") == "remove":
+                played.pop(d.get("id"), None)
+    except Exception as e:
+        print("ntfy joues", e, file=sys.stderr)
+    limit = (NOW - timedelta(days=10)).timestamp()
+    played = {k: v for k, v in played.items() if (v.get("t") or 0) > limit}
+    meta["played"] = played
+    return json.dumps(played, sort_keys=True) != before
+
+
+def settle_perso(meta):
+    """Combines composes par toi : le robot les regle aussi, pour te prevenir."""
+    played = meta.get("played", {})
+    persos = [v["snap"] for v in played.values() if v.get("snap") and v["snap"].get("status") == "en attente"]
+    if not persos:
+        return False
+    h = {"combos": persos}
+    before = {c["id"]: c["status"] for c in persos}
+    settle(h, None, {}, espn_scores(h))
+    notify_settled(before, h, played)
+    return any(c["status"] != before[c["id"]] or any("won" in l for l in c["legs"]) for c in persos)
+
+
+def notify_settled(before, history, played):
+    """Un message par ticket JOUE qui vient d'etre regle (les autres restent silencieux)."""
     for c in history["combos"]:
-        if c.get("replaced") or before.get(c["id"]) != "en attente" or c["status"] == "en attente":
+        if c["id"] not in played or before.get(c["id"]) != "en attente" or c["status"] == "en attente":
             continue
-        kind = "Folie" if c["kind"] == "folie" else f"Combiné de {len(c['legs'])}"
+        b = played[c["id"]]
+        mise, odds = b.get("mise") or 0, b.get("odds") or c["odds"]
+        kind = "Folie" if c["kind"] == "folie" else "Ton combiné" if c["kind"] == "perso" else f"Combiné de {len(c['legs'])}"
         if c["status"] == "gagne":
-            notify(f"Ticket gagné, cote {fr(c['odds'])}", f"{kind} : {short(c)}", "white_check_mark,tada", 4)
+            notify(f"Ticket gagné : {fr(mise * odds)} € pour {fr(mise)} €", f"{kind} à {fr(odds)} : {short(c)}", "white_check_mark,tada", 4)
         else:
             lost = [l for l in c["legs"] if l.get("won") is False]
             why = ", ".join(f"{l['label']} ({l['home']} {l.get('score', '')} {l['away']})" for l in lost)
-            notify(f"Ticket perdu, cote {fr(c['odds'])}", f"{kind} : raté sur {why}", "x", 2)
+            notify(f"Ticket perdu, cote {fr(odds)}", f"{kind} : raté sur {why}", "x", 2)
 
 
 def notify_new_day(day, combos):
@@ -565,10 +606,14 @@ def odds_due(meta):
 def results_only(meta, history):
     """Passage gratuit : resultats ESPN seulement, on n'ecrit que si quelque chose a change."""
     before = json.dumps(history, sort_keys=True, default=str)
+    meta_changed = sync_played(meta)
+    meta_changed |= settle_perso(meta)
     status_before = {c["id"]: c["status"] for c in history["combos"]}
     settle(history, None, {}, espn_scores(history))
-    notify_settled(status_before, history)
+    notify_settled(status_before, history, meta.get("played", {}))
     if json.dumps(history, sort_keys=True, default=str) == before:
+        if meta_changed:
+            save("meta.json", meta)
         print("rien de nouveau")
         return
     history["bilan"] = bilan(history)
@@ -651,9 +696,11 @@ def main():
     # 4. resultats et bilan
     espn = espn_scores(history)
     api_scores = fetch_api_scores(history, fd, espn)
+    sync_played(meta)
+    settle_perso(meta)
     status_before = {c["id"]: c["status"] for c in history["combos"]}
     settle(history, fd, api_scores, espn)
-    notify_settled(status_before, history)
+    notify_settled(status_before, history, meta.get("played", {}))
     history["combos"].sort(key=lambda c: (c["day"], c["kind"]), reverse=True)
     history["bilan"] = bilan(history)
     history["updated"] = NOW.isoformat()

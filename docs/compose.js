@@ -71,6 +71,7 @@ document.addEventListener("click", async (e) => {
   const all = bets();
   all[c.id] = { mise: Math.min(v, 5), odds: +combo(c).odds.toFixed(2), date: isoDay(new Date()), snap: c };
   LS.set("pf_bets", all); LS.set("pf_draft", {});
+  publishPlayed("add", c.id, all[c.id]);
   freshStamp = c.id;
   renderAll(); scheduleLive();
   document.querySelector('.tabs button[data-tab="encours"]').click();
@@ -78,6 +79,29 @@ document.addEventListener("click", async (e) => {
 });
 
 /* --------------------------------------------------------------- notifications */
+// le robot ne connaît pas tes paris (ils restent sur ce téléphone) : on lui signale ceux que tu joues,
+// pour qu'il ne t'envoie que les résultats de TES tickets
+async function publishPlayed(action, id, b) {
+  const msg = { action, id };
+  if (action === "add") { msg.mise = b.mise; msg.odds = b.odds; if (b.snap?.kind === "perso") msg.snap = b.snap; }
+  try {
+    const r = await fetch(`https://ntfy.sh/${NTFY_TOPIC}-joues`, { method: "POST", body: JSON.stringify(msg) });
+    if (!r.ok) return false;
+    const synced = LS.get("pf_synced", {});
+    if (action === "add") synced[id] = b.mise; else delete synced[id];
+    LS.set("pf_synced", synced);
+    return true;
+  } catch { return false; }
+}
+// à l'ouverture : signale les paris en cours pas encore transmis (ou dont la mise a changé)
+async function syncPlayed() {
+  const synced = LS.get("pf_synced", {});
+  for (const [id, b] of Object.entries(bets())) {
+    const c = findCombo(id);
+    if (c && c.status === "en attente" && synced[id] !== b.mise) await publishPlayed("add", id, b);
+  }
+  for (const id of Object.keys(synced)) if (!bets()[id]) await publishPlayed("remove", id);
+}
 async function ntfyTest() {
   try {
     const r = await fetch(`https://ntfy.sh/${NTFY_TOPIC}`, { method: "POST", body: "Les notifications Combinés Foot fonctionnent.",

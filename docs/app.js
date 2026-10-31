@@ -368,7 +368,7 @@ document.addEventListener("click", async (e) => {
       all[c.id] = { mise: Math.min(v, 5), odds: +combo(c).odds.toFixed(2), date: isoDay(new Date()), snap: c };
       freshStamp = c.id;
     }
-    LS.set("pf_bets", all); renderAll(); scheduleLive(); return;
+    LS.set("pf_bets", all); renderAll(); scheduleLive(); syncPlayed(); return;
   }
   const tab = e.target.closest(".tabs button");
   if (tab) {
@@ -440,7 +440,7 @@ document.getElementById("import-file").onchange = async (e) => {
     LS.set("pf_bets", merged);
     LS.set("pf_overrides", Object.assign({}, d.overrides || {}, overrides()));
     if (d.budget) LS.set("pf_settings", Object.assign(settings(), { budget: d.budget }));
-    loadSettings(); renderAll(); scheduleLive();
+    loadSettings(); renderAll(); scheduleLive(); syncPlayed();
     document.getElementById("backup-msg").textContent = `Restauré : ${Object.keys(merged).length} paris au total.`;
   } catch (err) { toast("Restauration impossible : " + err.message); }
   e.target.value = "";
@@ -504,6 +504,6 @@ document.getElementById("ntfy-test").onclick = ntfyTest;
 const liveBox = document.getElementById("live-alerts");
 liveBox.checked = LS.get("pf_live_alerts", false) && "Notification" in window && Notification.permission === "granted";
 liveBox.onchange = async () => { liveBox.checked = await toggleLiveAlerts(liveBox.checked); };
-load().then(scheduleLive);
+load().then(() => { scheduleLive(); syncPlayed(); });
 document.addEventListener("visibilitychange", () => { if (!document.hidden) scheduleLive(); });
 if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});

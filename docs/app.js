@@ -520,6 +520,7 @@ async function load(quiet) {
 }
 
 loadSettings();
+document.getElementById("app-version").textContent = (document.querySelector('script[src^="app.js"]')?.src.split("v=")[1]) || "?";
 document.getElementById("backup-msg").textContent = backupInfo();
 document.getElementById("ntfy-sub").href = `ntfy://ntfy.sh/${NTFY_TOPIC}`;
 document.getElementById("ntfy-topic").textContent = NTFY_TOPIC;

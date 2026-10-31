@@ -124,23 +124,23 @@ const EMPTY_BALL = `<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" 
 
 function renderCombos() {
   const el = document.getElementById("tab-combos");
-  const t = isoDay(new Date());
-  const current = (today?.combos || []).filter((c) => c.day >= t);
+  const t = isoDay(new Date()), now = new Date().toISOString();
+  // seuls les tickets encore jouables : aucun de leurs matchs n'a commencé (les tickets joués vivent dans « En cours »)
+  const all = (today?.combos || []).filter((c) => c.day >= t);
+  const current = all.filter((c) => c.status === "en attente" && c.legs.every((l) => l.kickoff > now));
+  const gone = all.length - current.length;
   let h = "";
-  if (!current.length) h += `<div class="empty">${EMPTY_BALL}<b>Pas de ticket pour l'instant</b>
-    <p>Le robot prépare les combinés vers 8h et 17h les jours de match. Touche le ballon pour lancer une actualisation.</p></div>`;
+  if (!current.length) h += `<div class="empty">${EMPTY_BALL}<b>Plus de ticket jouable pour l'instant</b>
+    <p>Les tickets disparaissent dès qu'un de leurs matchs commence. Les suivants arrivent vers 8h et 17h les jours de match.</p></div>`;
   for (const d of [...new Set(current.map((c) => c.day))].sort()) {
     const [a, b] = dayTitle(d);
     h += `<div class="day"><h2>${esc(a)}</h2><span>${esc(b)}</span></div>` + current.filter((c) => c.day === d).sort((x, y) => kindOrder(x) - kindOrder(y)).map(ticketHtml).join("");
   }
-  const recent = (hist?.combos || []).filter((c) => c.day < t && c.day >= isoDay(new Date(Date.now() - 3 * 864e5)));
-  for (const d of [...new Set(recent.map((c) => c.day))].sort().reverse()) {
-    const [a, b] = dayTitle(d);
-    h += `<div class="day"><h2>${esc(a)}</h2><span>${esc(b)}</span></div>` + recent.filter((c) => c.day === d).sort((x, y) => kindOrder(x) - kindOrder(y)).map(ticketHtml).join("");
-  }
+  if (gone) h += `<p class="hint" style="margin:14px 4px 24px">${gone} ticket${gone > 1 ? "s" : ""} retiré${gone > 1 ? "s" : ""} car un match a commencé : tes tickets joués sont dans « En cours », les résultats dans le Bilan.</p>`;
   el.innerHTML = h;
   freshStamp = null;
 }
+setInterval(() => { if (!document.hidden) renderCombos(); }, 60e3);
 
 /* --------------------------------------------------------------- matchs */
 function renderMatchs() {

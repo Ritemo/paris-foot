@@ -264,3 +264,4 @@ label.btn { display: inline-block; }
 .cash .net { background: var(--pelouse); color: #fff; } .cash .net small { color: rgba(255,255,255,.8); }
 .cash .net.pos b { color: #9ff0bf; } .cash .net.neg b { color: #ffb3b9; }
 .months td small { display: block; font-size: 11px; color: var(--sous); text-transform: none; }
+.tok { display: flex; gap: 6px; margin-top: 6px; } .tok input { margin-top: 0 !important; flex: 1; min-width: 0; } .tok .btn { padding: 8px 10px; font-size: 13px; }

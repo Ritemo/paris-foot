@@ -542,6 +542,15 @@ async function load(quiet) {
 }
 
 loadSettings();
+document.getElementById("token-show").onclick = () => {
+  const t = document.getElementById("token"), shown = t.type === "text";
+  t.type = shown ? "password" : "text"; document.getElementById("token-show").textContent = shown ? "Afficher" : "Masquer";
+};
+document.getElementById("token-copy").onclick = async () => {
+  const v = document.getElementById("token").value.trim();
+  if (!v) { toast("Aucun jeton enregistré dans l'appli."); return; }
+  try { await navigator.clipboard.writeText(v); toast("Jeton copié."); } catch { toast("Copie impossible : touche Afficher puis sélectionne le texte."); }
+};
 document.getElementById("app-version").textContent = (document.querySelector('script[src^="app.js"]')?.src.split("v=")[1]) || "?";
 document.getElementById("backup-msg").textContent = backupInfo();
 document.getElementById("ntfy-sub").href = `ntfy://ntfy.sh/${NTFY_TOPIC}`;

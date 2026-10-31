@@ -56,6 +56,18 @@ function combo(c) {
   const stars = c.p >= 0.35 && cost <= 0.12 ? 3 : c.p >= 0.28 && cost <= 0.18 ? 2 : 1;
   return { odds, cost, stars };
 }
+// un ticket joué garde la cote à laquelle tu l'as pris : si tu corriges une cote, on recalcule la cote du ticket joué
+function syncBetOdds(id) {
+  const all = bets(), b = all[id], c = findCombo(id);
+  if (!b || !c) return;
+  const ov = overrides()[id] || {};
+  if (!Object.keys(ov).length) return;
+  const odds = +combo(c).odds.toFixed(2);
+  if (b.odds !== odds) {
+    b.odds = odds; LS.set("pf_bets", all);
+    if (typeof publishPlayed === "function" && c.status === "en attente") publishPlayed("add", id, b);
+  }
+}
 function monthSpent() {
   const m = isoDay(new Date()).slice(0, 7);
   return Object.values(bets()).filter((b) => (b.date || "").slice(0, 7) === m).reduce((s, b) => s + b.mise, 0);
@@ -376,7 +388,7 @@ document.addEventListener("click", async (e) => {
     const ov = overrides();
     if (v === "clear") { if (ov[c.id]) delete ov[c.id][i]; }
     else if (v && v > 1) { ov[c.id] = ov[c.id] || {}; ov[c.id][i] = v; }
-    LS.set("pf_overrides", ov); renderAll(); return;
+    LS.set("pf_overrides", ov); syncBetOdds(c.id); renderAll(); return;
   }
   const bt = e.target.closest("[data-bet]");
   if (bt) {
@@ -522,6 +534,7 @@ async function load(quiet) {
   const get = (f) => fetch(`data/${f}?t=${Date.now()}`, { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
   [today, hist, meta] = await Promise.all([get("today.json"), get("history.json"), get("meta.json")]);
   if (today) LS.set("pf_cache", { today, hist }); else if (!quiet) ({ today, hist } = LS.get("pf_cache", {}));
+  for (const id of Object.keys(overrides())) syncBetOdds(id);
   renderAll();
 }
 

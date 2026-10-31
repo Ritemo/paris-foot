@@ -61,7 +61,11 @@ function monthSpent() {
   return Object.values(bets()).filter((b) => (b.date || "").slice(0, 7) === m).reduce((s, b) => s + b.mise, 0);
 }
 function findCombo(id) {
-  return (today?.combos || []).find((c) => c.id === id) || (hist?.combos || []).find((c) => c.id === id) || bets()[id]?.snap;
+  const c = (today?.combos || []).find((x) => x.id === id) || (hist?.combos || []).find((x) => x.id === id);
+  const snap = bets()[id]?.snap;
+  // résultat déjà connu par l'appli (scores ESPN) alors que le robot n'est pas encore repassé
+  if (c && c.status === "en attente" && snap && snap.status !== "en attente") return snap;
+  return c || snap;
 }
 
 /* --------------------------------------------------------------- tickets */

@@ -24,7 +24,7 @@ function liveLegs() {
   const out = [];
   for (const id of Object.keys(bets())) {
     const c = findCombo(id);
-    if (c && c.status === "en attente") for (const l of c.legs) if (l.won === undefined) out.push(c.kind === "perso" ? { ...l, perso: true } : l);
+    if (c && c.status === "en attente") for (const l of c.legs) if (l.won === undefined) out.push({ ...l, played: true });
   }
   return out;
 }
@@ -34,7 +34,7 @@ function liveWindow(legs) {
   const now = Date.now();
   return legs.some((l) => {
     const k = new Date(l.kickoff).getTime();
-    return (now > k - 15 * 6e4 && now < k + 150 * 6e4) || (l.perso && now > k + 105 * 6e4 && now < k + 4 * 864e5);
+    return (now > k - 15 * 6e4 && now < k + 150 * 6e4) || (l.played && now > k + 105 * 6e4 && now < k + 4 * 864e5);
   });
 }
 
@@ -73,13 +73,20 @@ async function refreshLive() {
   renderAll();
 }
 
-// tes combinés perso : l'appli pose elle-même le résultat (le robot ne les connaît pas)
+// l'appli pose elle-même le résultat de tes tickets joués dès la fin des matchs, sans attendre le robot
+// (indispensable pour tes combinés perso, que le robot ne règle pas dans son historique)
 function settlePerso() {
   const all = bets();
   let changed = false;
   for (const [id, b] of Object.entries(all)) {
     const c = b.snap;
-    if (!c || c.kind !== "perso" || c.status !== "en attente") continue;
+    if (!c || c.status !== "en attente") continue;
+    // reprendre les résultats déjà posés par le robot
+    const rc = (today?.combos || []).find((x) => x.id === id) || (hist?.combos || []).find((x) => x.id === id);
+    for (const l of c.legs) {
+      const r = rc && rc.legs.find((x) => x.match_id === l.match_id && x.market === l.market);
+      if (l.won === undefined && r && r.won !== undefined) { l.won = r.won; l.score = r.score; changed = true; }
+    }
     for (const l of c.legs) {
       const s = LIVE[l.match_id];
       if (l.won === undefined && s && s.state === "post") {

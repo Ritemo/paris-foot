@@ -5,7 +5,11 @@ on:
     # toutes les heures de 6h a 23h (UTC) : resultats gratuits a chaque passage,
     # cotes (credits) seulement au premier passage apres 7h30 et 16h30 heure de Paris
     - cron: "17 5-23 * * *"
-  workflow_dispatch: {}     # bouton "Actualiser" : actualise aussi les cotes
+  workflow_dispatch:        # bouton "Actualiser" de l'appli (cotes + resultats) ou declencheur externe horaire
+    inputs:
+      force:
+        description: "1 = actualiser aussi les cotes (credits), 0 = resultats seulement"
+        default: "1"
 
 permissions:
   contents: write
@@ -29,7 +33,7 @@ jobs:
       - name: Combinés et résultats
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
-          FORCE: ${{ github.event_name == 'workflow_dispatch' && '1' || '0' }}
+          FORCE: ${{ github.event_name == 'workflow_dispatch' && inputs.force || '0' }}
         run: python robot/run.py
       - name: Enregistrer les données
         run: |

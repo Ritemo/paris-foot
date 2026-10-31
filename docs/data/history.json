@@ -106,7 +106,8 @@
    "stars": 2,
    "stake": 3,
    "status": "en attente",
-   "proposed_at": "2026-10-31T09:06:17.977792+00:00"
+   "proposed_at": "2026-10-31T09:06:17.977792+00:00",
+   "replaced": true
   },
   {
    "id": "2026-11-01|940b9e69539033539039f9af694e2925:-2.5|961df571fad52d969150e9ced52b16f7:1",
@@ -153,6 +154,52 @@
    "stake": 3,
    "status": "en attente",
    "proposed_at": "2026-10-31T09:06:17.977792+00:00"
+  },
+  {
+   "id": "2026-11-01|6a3819cdbe2ba2fe5a3d8f9b4b459965:-2.5|9507f4bcbcfd4e4953720628a2b86a17:-3.5",
+   "day": "2026-11-01",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "9507f4bcbcfd4e4953720628a2b86a17",
+     "league": "Serie A",
+     "kickoff": "2026-11-01T11:30:00Z",
+     "home": "Como",
+     "away": "Venezia",
+     "fd_home": "Como",
+     "fd_away": "Venezia",
+     "div": "I1",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.78,
+     "src": "pmu",
+     "p": 0.5242,
+     "ev": -0.0669
+    },
+    {
+     "match_id": "6a3819cdbe2ba2fe5a3d8f9b4b459965",
+     "league": "Premier League",
+     "kickoff": "2026-11-01T16:30:00Z",
+     "home": "Liverpool",
+     "away": "Arsenal",
+     "fd_home": "Liverpool",
+     "fd_away": "Arsenal",
+     "div": "E0",
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 1.83,
+     "src": "pmu",
+     "p": 0.5082,
+     "ev": -0.07
+    }
+   ],
+   "odds": 3.26,
+   "p": 0.2664,
+   "cost": 0.1322,
+   "stars": 1,
+   "stake": 2,
+   "status": "en attente",
+   "proposed_at": "2026-10-31T16:08:36.995292+00:00"
   },
   {
    "id": "2026-11-01|5262991e389930615bec34b642428c93:1|9507f4bcbcfd4e4953720628a2b86a17:-3.5|b7b781db85506536dce5e7ce59a59863:1|ddcc9a51a2d7368e055d1abefacdb74e:N",
@@ -283,7 +330,9 @@
      "odds": 1.5,
      "src": "pmu",
      "p": 0.6071,
-     "ev": -0.0894
+     "ev": -0.0894,
+     "score": "2-0",
+     "won": false
     }
    ],
    "odds": 2.91,
@@ -291,9 +340,10 @@
    "cost": 0.2401,
    "stars": 1,
    "stake": 2,
-   "status": "en attente",
+   "status": "perdu",
    "proposed_at": "2026-10-30T15:04:31.893491+00:00",
-   "replaced": true
+   "replaced": true,
+   "settled_at": "2026-10-31T16:08:36.995292+00:00"
   },
   {
    "id": "2026-10-31|2db2b55e71574a19ff0557898d3e9933:H1|8f0b7ef29a47f675429758e83a426d7e:1|bad7337b335a16859b1db6b8e6cf6ca5:1",
@@ -392,7 +442,9 @@
      "odds": 1.75,
      "src": "pmu",
      "p": 0.546,
-     "ev": -0.0445
+     "ev": -0.0445,
+     "score": "2-1",
+     "won": true
     }
    ],
    "odds": 2.83,
@@ -563,7 +615,9 @@
      "odds": 1.71,
      "src": "pmu",
      "p": 0.5546,
-     "ev": -0.0516
+     "ev": -0.0516,
+     "score": "2-1",
+     "won": true
     },
     {
      "match_id": "2db2b55e71574a19ff0557898d3e9933",
@@ -609,7 +663,9 @@
      "odds": 3.8,
      "src": "unibet",
      "p": 0.2694,
-     "ev": 0.0237
+     "ev": 0.0237,
+     "score": "2-0",
+     "won": false
     },
     {
      "match_id": "24400b6372faf9f4996cd5704d707374",
@@ -665,9 +721,10 @@
    "cost": 0.0617,
    "stars": 0,
    "stake": 1,
-   "status": "en attente",
+   "status": "perdu",
    "proposed_at": "2026-10-30T15:04:31.893491+00:00",
-   "replaced": true
+   "replaced": true,
+   "settled_at": "2026-10-31T16:08:36.995292+00:00"
   },
   {
    "id": "2026-10-31|3966f2fe1c2f73bfa12e61db83bd0bf9:-3.5|6601f69175a02f03fb7065aacb538e01:2|75cf0c0e471877a0bfa95d689d0f0325:2|bad7337b335a16859b1db6b8e6cf6ca5:-3.5",
@@ -704,7 +761,9 @@
      "odds": 3.3,
      "src": "unibet",
      "p": 0.3,
-     "ev": -0.01
+     "ev": -0.01,
+     "score": "2-0",
+     "won": false
     },
     {
      "match_id": "bad7337b335a16859b1db6b8e6cf6ca5",
@@ -744,8 +803,9 @@
    "cost": 0.0813,
    "stars": 0,
    "stake": 1,
-   "status": "en attente",
-   "proposed_at": "2026-10-31T09:06:17.977792+00:00"
+   "status": "perdu",
+   "proposed_at": "2026-10-31T09:06:17.977792+00:00",
+   "settled_at": "2026-10-31T16:08:36.995292+00:00"
   },
   {
    "id": "2026-10-30|00b03cb40c27ed23e2ecb18f062a5122:-3.5|9a9f6c78276f74f15f42b013b033aa5d:-3.5",
@@ -947,10 +1007,10 @@
    "bilan": -5
   },
   "folie": {
-   "n": 1,
+   "n": 2,
    "gagnes": 0,
    "reussite_annoncee": 0.027,
-   "bilan": -1
+   "bilan": -2
   },
   "reussite_reelle": 0.0,
   "reussite_annoncee": 0.358,
@@ -959,5 +1019,5 @@
   "bilan_mise_suggeree": -5,
   "mise_suggeree_totale": 5
  },
- "updated": "2026-10-31T09:06:17.977792+00:00"
+ "updated": "2026-10-31T16:08:36.995292+00:00"
 }

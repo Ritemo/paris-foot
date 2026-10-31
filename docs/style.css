@@ -256,3 +256,11 @@ label.btn { display: inline-block; }
 .grp summary::after { content: "Voir les tickets"; display: block; font-size: 12px; font-weight: 700; color: var(--pelouse-2); margin-top: 6px; }
 .grp[open] summary::after { content: "Masquer"; }
 .hist .o.pos { color: var(--vert); } .hist .o.neg { color: var(--rouge); }
+
+.cash { display: grid; grid-template-columns: 1fr 1fr 1.2fr; gap: 8px; margin: 4px 0; }
+.cash div { background: var(--ticket-2); border-radius: 12px; padding: 10px; }
+.cash small { display: block; font-size: 12px; color: var(--sous); font-weight: 700; }
+.cash b { font: 800 19px var(--display); }
+.cash .net { background: var(--pelouse); color: #fff; } .cash .net small { color: rgba(255,255,255,.8); }
+.cash .net.pos b { color: #9ff0bf; } .cash .net.neg b { color: #ffb3b9; }
+.months td small { display: block; font-size: 11px; color: var(--sous); text-transform: none; }

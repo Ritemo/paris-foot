@@ -195,7 +195,8 @@ function compare(annonce, reelle) {
 /* courbe du solde et bilan mensuel de mes paris */
 function myCharts(done) {
   if (!done.length) return "";
-  const rows = done.map((x) => ({ day: x.c.day, g: x.c.status === "gagne" ? x.mise * (x.odds - 1) : -x.mise, mise: x.mise }))
+  const rows = done.map((x) => ({ day: x.c.day, g: x.c.status === "gagne" ? x.mise * (x.odds - 1) : -x.mise, mise: x.mise,
+    back: x.c.status === "gagne" ? x.mise * x.odds : 0 }))
     .sort((a, b) => a.day.localeCompare(b.day));
   let cum = 0;
   const pts = [{ v: 0 }].concat(rows.map((r) => ({ v: (cum += r.g), day: r.day })));
@@ -214,11 +215,11 @@ function myCharts(done) {
       <p class="hint">Après chaque pari terminé, du premier au dernier. La ligne fine marque 0 €.</p>`;
   } else h += `<p class="hint" style="margin:0">La courbe apparaît à partir de 2 paris terminés.</p>`;
   const months = {};
-  for (const r of rows) { const m = r.day.slice(0, 7); months[m] = months[m] || { n: 0, mise: 0, g: 0 }; months[m].n++; months[m].mise += r.mise; months[m].g += r.g; }
-  h += `<table class="months"><thead><tr><th>Mois</th><th>Paris</th><th>Misé</th><th>Bilan</th></tr></thead><tbody>` +
+  for (const r of rows) { const m = r.day.slice(0, 7); months[m] = months[m] || { n: 0, mise: 0, g: 0, back: 0 }; months[m].n++; months[m].mise += r.mise; months[m].g += r.g; months[m].back += r.back; }
+  h += `<table class="months"><thead><tr><th>Mois</th><th>Misé</th><th>Récupéré</th><th>Gain réel</th></tr></thead><tbody>` +
     Object.keys(months).sort().reverse().map((m) => {
       const label = new Date(m + "-15").toLocaleDateString("fr-FR", { month: "long", year: "numeric" });
-      return `<tr><td>${esc(label)}</td><td>${months[m].n}</td><td>${fmt(months[m].mise, 0)} €</td><td class="${months[m].g >= 0 ? "pos" : "neg"}">${eur(months[m].g)}</td></tr>`;
+      return `<tr><td>${esc(label)}<small>${months[m].n} pari${months[m].n > 1 ? "s" : ""}</small></td><td>${fmt(months[m].mise)} €</td><td>${fmt(months[m].back)} €</td><td class="${months[m].g >= 0 ? "pos" : "neg"}">${eur(months[m].g)}</td></tr>`;
     }).join("") + `</tbody></table></div>`;
   return h;
 }
@@ -267,7 +268,12 @@ function bilanMine() {
   h += `<div class="scoreline"><div class="w"><b>${won}</b><small>gagnés</small></div><span class="sep">/</span>
       <div class="l"><b>${done.length - won}</b><small>perdus</small></div><span class="sep">/</span>
       <div><b>${mine.length - done.length}</b><small>en cours</small></div></div>
-    <div class="money ${gain >= 0 ? "pos" : "neg"}">${eur(gain)}</div><p class="hint">sur ${fmt(mise, 0)} € misés${mise ? `, soit ${gain >= 0 ? "+" : ""}${Math.round((100 * gain) / mise)} %` : ""}</p>`;
+    <div class="cash">
+      <div><small>Misé</small><b>${fmt(mise)} €</b></div>
+      <div><small>Récupéré</small><b>${fmt(mise + gain)} €</b></div>
+      <div class="net ${gain >= 0 ? "pos" : "neg"}"><small>Gain réel</small><b>${eur(gain)}</b></div>
+    </div>
+    <p class="hint">Récupéré = ce que les tickets gagnants t'ont rapporté, mise comprise. Gain réel = récupéré moins tout ce que tu as misé${mise ? `, soit ${gain >= 0 ? "+" : ""}${Math.round((100 * gain) / mise)} % de ta mise` : ""}.</p>`;
   if (done.length) h += compare(done.reduce((s, x) => s + x.c.p, 0) / done.length, won / done.length);
   h += `</div>` + myCharts(done);
   h += marketStats(done.map((x) => x.c), "Sur les matchs de tes tickets joués.");
@@ -275,7 +281,7 @@ function bilanMine() {
     h += `<h2 class="section-title">Mes tickets terminés</h2><div class="panel">` + done.sort((a, b) => b.c.day.localeCompare(a.c.day)).map((x) => {
       const g = x.c.status === "gagne" ? x.mise * (x.odds - 1) : -x.mise;
       return `<div class="hist"><span class="dot ${x.c.status}">${x.c.status === "gagne" ? "✓" : "✗"}</span>
-        <div>${x.c.legs.map((l) => esc(l.label)).join(" + ")}<small>${esc(longDate(x.c.day))}, ${fmt(x.mise, 0)} € à ${fmt(x.odds)}</small></div>
+        <div>${x.c.legs.map((l) => esc(l.label)).join(" + ")}<small>${esc(longDate(x.c.day))}, ${fmt(x.mise, 0)} € misés à ${fmt(x.odds)}${x.c.status === "gagne" ? `, ${fmt(x.mise * x.odds)} € récupérés` : ""}</small></div>
         <span class="o ${g >= 0 ? "pos" : "neg"}">${eur(g)}</span></div>`;
     }).join("") + `</div>`;
   }

@@ -207,7 +207,9 @@
      "odds": 1.48,
      "src": "pmu",
      "p": 0.6057,
-     "ev": -0.1036
+     "ev": -0.1036,
+     "score": "2-0",
+     "won": false
     },
     {
      "match_id": "448a1083448ea9dff55bfebf15ff20b4",
@@ -233,9 +235,10 @@
    "cost": 0.2779,
    "stars": 1,
    "stake": 2,
-   "status": "en attente",
+   "status": "perdu",
    "proposed_at": "2026-10-31T09:06:17.977792+00:00",
-   "replaced": true
+   "replaced": true,
+   "settled_at": "2026-11-01T21:45:46.093836+00:00"
   },
   {
    "id": "2026-11-01|6c520ed959578ca3aebe351ee3765d53:H2|9507f4bcbcfd4e4953720628a2b86a17:1|df1e1589c51bbcac432125567d1f7c58:+2.5",
@@ -274,7 +277,9 @@
      "odds": 1.48,
      "src": "pmu",
      "p": 0.6075,
-     "ev": -0.1009
+     "ev": -0.1009,
+     "score": "2-0",
+     "won": false
     },
     {
      "match_id": "6c520ed959578ca3aebe351ee3765d53",
@@ -300,8 +305,9 @@
    "cost": 0.2605,
    "stars": 1,
    "stake": 2,
-   "status": "en attente",
-   "proposed_at": "2026-11-01T06:31:01.144345+00:00"
+   "status": "perdu",
+   "proposed_at": "2026-11-01T06:31:01.144345+00:00",
+   "settled_at": "2026-11-01T21:45:46.093836+00:00"
   },
   {
    "id": "2026-11-01|9507f4bcbcfd4e4953720628a2b86a17:-3.5|b7b781db85506536dce5e7ce59a59863:+2.5",
@@ -1367,7 +1373,7 @@
   }
  ],
  "bilan": {
-  "n": 7,
+  "n": 8,
   "gagnes": 2,
   "x2": {
    "n": 6,
@@ -1376,10 +1382,10 @@
    "bilan": -1.31
   },
   "x3": {
-   "n": 1,
+   "n": 2,
    "gagnes": 0,
-   "reussite_annoncee": 0.348,
-   "bilan": -2
+   "reussite_annoncee": 0.302,
+   "bilan": -4
   },
   "folie": {
    "n": 3,
@@ -1387,12 +1393,12 @@
    "reussite_annoncee": 0.028,
    "bilan": -3
   },
-  "reussite_reelle": 0.286,
-  "reussite_annoncee": 0.35,
-  "bilan_2eur": -2.7,
-  "mise_2eur": 14,
-  "bilan_mise_suggeree": -3.31,
-  "mise_suggeree_totale": 17
+  "reussite_reelle": 0.25,
+  "reussite_annoncee": 0.338,
+  "bilan_2eur": -4.7,
+  "mise_2eur": 16,
+  "bilan_mise_suggeree": -5.31,
+  "mise_suggeree_totale": 19
  },
- "updated": "2026-11-01T19:01:15.016547+00:00"
+ "updated": "2026-11-01T21:45:46.093836+00:00"
 }

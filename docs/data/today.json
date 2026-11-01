@@ -67,7 +67,9 @@
      "odds": 1.78,
      "src": "pmu",
      "p": 0.5242,
-     "ev": -0.0669
+     "ev": -0.0669,
+     "score": "1-0",
+     "won": true
     },
     {
      "match_id": "6a3819cdbe2ba2fe5a3d8f9b4b459965",
@@ -113,7 +115,9 @@
      "odds": 1.26,
      "src": "unibet",
      "p": 0.7238,
-     "ev": -0.088
+     "ev": -0.088,
+     "score": "1-0",
+     "won": true
     },
     {
      "match_id": "df1e1589c51bbcac432125567d1f7c58",

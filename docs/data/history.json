@@ -60,7 +60,8 @@
    "stars": 1,
    "stake": 1,
    "status": "en attente",
-   "proposed_at": "2026-11-02T06:31:08.011869+00:00"
+   "proposed_at": "2026-11-02T06:31:08.011869+00:00",
+   "replaced": true
   },
   {
    "id": "2026-11-03|a341241606cb5b1b59e425d00be64883:2|adf608a0e9be02eb1d8b0a6f464a12b1:1",
@@ -152,7 +153,54 @@
    "stars": 1,
    "stake": 2,
    "status": "en attente",
-   "proposed_at": "2026-11-02T06:31:08.011869+00:00"
+   "proposed_at": "2026-11-02T06:31:08.011869+00:00",
+   "replaced": true
+  },
+  {
+   "id": "2026-11-03|bc0b6614c9714816038d5a0ff8963144:-3.5|f6f3cf01c2b20b7f746b5a06097a0569:2",
+   "day": "2026-11-03",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "bc0b6614c9714816038d5a0ff8963144",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-03T20:00:00Z",
+     "home": "Manchester United",
+     "away": "AS Roma",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.5,
+     "src": "pmu",
+     "p": 0.5912,
+     "ev": -0.1132
+    },
+    {
+     "match_id": "f6f3cf01c2b20b7f746b5a06097a0569",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-03T20:00:00Z",
+     "home": "Feyenoord",
+     "away": "Inter Milan",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "market": "2",
+     "label": "Victoire Inter Milan",
+     "odds": 1.7,
+     "src": "unibet",
+     "p": 0.5286,
+     "ev": -0.1014
+    }
+   ],
+   "odds": 2.55,
+   "p": 0.3125,
+   "cost": 0.2031,
+   "stars": 1,
+   "stake": 2,
+   "status": "en attente",
+   "proposed_at": "2026-11-02T15:31:05.660484+00:00"
   },
   {
    "id": "2026-11-03|1a5a84045050d0d7baf1301909d3b465:1|61b42fd619617a7a2a3770c2444e8a40:2|9b8076d3ffa027df6f6cb3189de46706:2|a341241606cb5b1b59e425d00be64883:2",
@@ -230,7 +278,86 @@
    "stars": 0,
    "stake": 1,
    "status": "en attente",
-   "proposed_at": "2026-11-02T06:31:08.011869+00:00"
+   "proposed_at": "2026-11-02T06:31:08.011869+00:00",
+   "replaced": true
+  },
+  {
+   "id": "2026-11-03|61b42fd619617a7a2a3770c2444e8a40:-3.5|a341241606cb5b1b59e425d00be64883:2|bd680c6ad693dae859030f86e1be2769:+4.5|f6f3cf01c2b20b7f746b5a06097a0569:1",
+   "day": "2026-11-03",
+   "kind": "folie",
+   "legs": [
+    {
+     "match_id": "f6f3cf01c2b20b7f746b5a06097a0569",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-03T20:00:00Z",
+     "home": "Feyenoord",
+     "away": "Inter Milan",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "market": "1",
+     "label": "Victoire Feyenoord",
+     "odds": 3.7,
+     "src": "unibet",
+     "p": 0.251,
+     "ev": -0.0713
+    },
+    {
+     "match_id": "a341241606cb5b1b59e425d00be64883",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-03T20:00:00Z",
+     "home": "Villarreal",
+     "away": "Paris Saint Germain",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "market": "2",
+     "label": "Victoire Paris Saint Germain",
+     "odds": 1.48,
+     "src": "unibet",
+     "p": 0.6109,
+     "ev": -0.0959
+    },
+    {
+     "match_id": "bd680c6ad693dae859030f86e1be2769",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-03T20:00:00Z",
+     "home": "Barcelona",
+     "away": "Aston Villa",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "market": "+4.5",
+     "label": "Plus de 4,5 buts",
+     "odds": 2.02,
+     "src": "pmu",
+     "p": 0.4422,
+     "ev": -0.1068
+    },
+    {
+     "match_id": "61b42fd619617a7a2a3770c2444e8a40",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-03T20:00:00Z",
+     "home": "Atlético Madrid",
+     "away": "Bayern Munich",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.61,
+     "src": "pmu",
+     "p": 0.5542,
+     "ev": -0.1077
+    }
+   ],
+   "odds": 17.81,
+   "p": 0.0376,
+   "cost": 0.3308,
+   "stars": 0,
+   "stake": 1,
+   "status": "en attente",
+   "proposed_at": "2026-11-02T15:31:05.660484+00:00"
   },
   {
    "id": "2026-11-02|5118966f484adf525196d196a61bc5d6:-2.5|66608b64d462d1d3deabe573c8456d86:+2.5",
@@ -1726,5 +1853,5 @@
   "bilan_mise_suggeree": -5.31,
   "mise_suggeree_totale": 19
  },
- "updated": "2026-11-02T06:31:08.011869+00:00"
+ "updated": "2026-11-02T15:31:05.660484+00:00"
 }

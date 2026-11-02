@@ -1,7 +1,7 @@
 {
- "credits_remaining": 470,
+ "credits_remaining": 460,
  "credits_used_last_run": 10,
- "last_run": "2026-11-02T06:31:08.011869+00:00",
+ "last_run": "2026-11-02T15:31:05.660484+00:00",
  "frozen_days": [
   "2026-10-30",
   "2026-10-31",
@@ -17,7 +17,7 @@
   "Ligue des champions"
  ],
  "last_results_run": "2026-11-01T21:45:46.093836+00:00",
- "last_odds_run": "2026-11-02T06:31:08.011869+00:00",
+ "last_odds_run": "2026-11-02T15:31:05.660484+00:00",
  "played": {
   "2026-10-31|04aa939b89001eedf55668e66c74836e:+2.5|3966f2fe1c2f73bfa12e61db83bd0bf9:-3.5": {
    "mise": 2,

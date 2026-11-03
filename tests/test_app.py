@@ -150,7 +150,7 @@ async def main():
         await pg.click('#dlg button[value="ok"]')
         await pg.wait_for_timeout(300)
         odds = await pg.evaluate("bets()['c-futur'].odds")
-        check(abs(odds - round(1.5 * 1.75, 2)) < 0.011, f"la cote du ticket joué suit la correction ({odds})")
+        check(abs(odds - 1.5 * 1.75) < 1e-6, f"la cote du ticket joué suit la correction, sans arrondi ({odds})")
 
         print("Composer un combiné")
         await pg.click('.tabs button[data-tab="matchs"]')

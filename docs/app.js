@@ -60,10 +60,9 @@ function combo(c) {
 function syncBetOdds(id) {
   const all = bets(), b = all[id], c = findCombo(id);
   if (!b || !c) return;
-  const ov = overrides()[id] || {};
-  if (!Object.keys(ov).length) return;
-  const odds = +combo(c).odds.toFixed(2);
-  if (b.odds !== odds) {
+  // cote du combiné = produit exact des cotes (Unibet ne l'arrondit pas avant de calculer le gain)
+  const odds = +combo(c).odds.toFixed(4);
+  if (Math.abs((b.odds || 0) - odds) > 1e-6) {
     b.odds = odds; LS.set("pf_bets", all);
     if (typeof publishPlayed === "function" && c.status === "en attente") publishPlayed("add", id, b);
   }
@@ -541,7 +540,7 @@ document.addEventListener("click", async (e) => {
         : `${c.stake} € conseillés. Il te reste ${fmt(Math.max(left, 0), 0)} € dans ton budget du mois.`, c.stake, { steps: c.kind === "folie" ? [1, 2] : [1, 2, 3, 4, 5] });
       if (!v || isNaN(v) || v <= 0) return;
       if (v > left && !confirm("Cette mise dépasse ton budget du mois. La garder quand même ?")) return;
-      all[c.id] = { mise: Math.min(v, 5), odds: +combo(c).odds.toFixed(2), date: isoDay(new Date()), ts: Date.now(), snap: c };
+      all[c.id] = { mise: Math.min(v, 5), odds: +combo(c).odds.toFixed(4), date: isoDay(new Date()), ts: Date.now(), snap: c };
       freshStamp = c.id;
     }
     LS.set("pf_bets", all); renderAll(); scheduleLive(); syncPlayed(); return;
@@ -690,7 +689,7 @@ async function load(quiet) {
   const get = (f) => fetch(`data/${f}?t=${Date.now()}`, { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
   [today, hist, meta] = await Promise.all([get("today.json"), get("history.json"), get("meta.json")]);
   if (today) LS.set("pf_cache", { today, hist }); else if (!quiet) ({ today, hist } = LS.get("pf_cache", {}));
-  for (const id of Object.keys(overrides())) syncBetOdds(id);
+  for (const id of Object.keys(bets())) syncBetOdds(id);
   renderAll();
 }
 

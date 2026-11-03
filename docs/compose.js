@@ -24,7 +24,7 @@ function draftCombo() {
   const ev = legs.reduce((x, l) => x * (1 + l.ev), 1) - 1;
   const day = isoDay(new Date(legs[0].kickoff));
   return { id: `perso|${day}|${legs.map((l) => l.match_id + ":" + l.market).join("|")}`, day, kind: "perso", legs,
-    odds: +odds.toFixed(2), p, cost: -ev, stars: 0, stake: p < 0.25 ? 1 : p < 0.35 ? 2 : 3, status: "en attente" };
+    odds: +odds.toFixed(4), p, cost: -ev, stars: 0, stake: p < 0.25 ? 1 : p < 0.35 ? 2 : 3, status: "en attente" };
 }
 
 function pickBtn(m, s, text) {
@@ -69,7 +69,7 @@ document.addEventListener("click", async (e) => {
   if (!v || isNaN(v) || v <= 0) return;
   if (v > left && !confirm("Cette mise dépasse ton budget du mois. La garder quand même ?")) return;
   const all = bets();
-  all[c.id] = { mise: Math.min(v, 5), odds: +combo(c).odds.toFixed(2), date: isoDay(new Date()), ts: Date.now(), snap: c };
+  all[c.id] = { mise: Math.min(v, 5), odds: +combo(c).odds.toFixed(4), date: isoDay(new Date()), ts: Date.now(), snap: c };
   LS.set("pf_bets", all); LS.set("pf_draft", {});
   publishPlayed("add", c.id, all[c.id]);
   freshStamp = c.id;

@@ -346,7 +346,32 @@ function bilanMine() {
         <span class="o ${g >= 0 ? "pos" : "neg"}">${eur(g)}</span></div>`;
     }).join("") + `</div>`;
   }
-  return h;
+  return h + missedWinners();
+}
+
+/* tickets gagnants du robot que tu n'as pas joués (14 derniers jours), et en face les perdants que tu as évités */
+function missedWinners() {
+  const since = isoDay(new Date(Date.now() - 14 * 864e5));
+  const left = (hist?.combos || []).filter((c) => !c.replaced && !bets()[c.id] && c.day >= since && c.status !== "en attente");
+  if (!left.length) return "";
+  const stake = (c) => (c.kind === "folie" ? 1 : 2);
+  const won = left.filter((c) => c.status === "gagne").sort((a, b) => b.day.localeCompare(a.day));
+  const lost = left.filter((c) => c.status === "perdu");
+  const missed = won.reduce((s, c) => s + stake(c) * (c.odds - 1), 0), avoided = lost.reduce((s, c) => s + stake(c), 0);
+  const net = missed - avoided;
+  let h = `<h2 class="section-title">Tickets passés sans toi</h2><div class="panel">
+    <div class="flair">
+      <div><small>Gagnants non joués</small><b class="pos">${won.length}</b><span>${eur(missed)} manqués</span></div>
+      <div><small>Perdants évités</small><b class="neg">${lost.length}</b><span>${fmt(avoided)} € épargnés</span></div>
+    </div>
+    <p class="hint">Sur les 14 derniers jours, à 2 € par ticket (1 € la Folie). Au total, laisser ces tickets ${net >= 0 ? `t'a privé de ${fmt(net)} €` : `t'a fait économiser ${fmt(-net)} €`}.</p>`;
+  if (won.length) {
+    h += won.map((c) => `<div class="hist"><span class="dot gagne">✓</span>
+      <div>${c.legs.map((l) => esc(l.label) + (l.score ? ` <small style="display:inline">(${esc(l.home)} ${esc(l.score)} ${esc(l.away)})</small>` : "")).join(" + ")}
+        <small>${esc(longDate(c.day))}, ${c.kind === "folie" ? "Folie du jour" : "★".repeat(c.stars || 1)}, ${stake(c)} € auraient rapporté ${fmt(stake(c) * c.odds)} €</small></div>
+      <span class="o">${fmt(c.odds)}</span></div>`).join("");
+  } else h += `<p class="hint" style="margin:0">Aucun ticket gagnant laissé de côté ces 14 derniers jours.</p>`;
+  return h + `</div>`;
 }
 
 /* ---- qualité de tous les tickets proposés par le robot, par étoiles et folie */

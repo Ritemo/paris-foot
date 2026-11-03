@@ -178,6 +178,7 @@ async def main():
         check("Gain réel" in txt and "Récupéré" in txt, "misé, récupéré et gain réel affichés")
         check("Rentabilité" in txt and "Attendue" in txt, "rentabilité réelle et attendue affichées")
         check("Tickets que tu as laissés" in txt, "comparaison tickets joués / laissés (ton flair)")
+        check("Tickets passés sans toi" in txt and "Gagnants non joués" in txt, "tickets gagnants non joués affichés")
         n_g = await pg.locator(".gf-needle").count(); check(n_g == 1, f"jauge du flair affichée ({n_g})")
         await pg.click('[data-bview="robot"]')
         await pg.wait_for_timeout(200)

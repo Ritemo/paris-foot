@@ -69,7 +69,16 @@ function syncBetOdds(id) {
   }
 }
 /* bankroll : ton solde Unibet = point de départ + dépôts - retraits + résultat des paris depuis cette date - mises en jeu */
-const bank = () => LS.get("pf_bank", null);   // { start: date, moves: [{date, amount, note}] }
+// { start: date, moves: [{date, kind, amount, note}] } ; par défaut : dépôt de départ de 30 € à la date de ton premier pari
+const bank = () => {
+  const B = LS.get("pf_bank", null);
+  if (B) return B;
+  const first = Object.values(LS.get("pf_bets", {})).map((x) => x.date).filter(Boolean).sort()[0];
+  if (!first) return null;
+  const init = { start: first, moves: [{ date: first, kind: "depart", amount: 30, note: "Dépôt de départ" }] };
+  LS.set("pf_bank", init);
+  return init;
+};
 function bankroll() {
   const B = bank();
   if (!B) return null;

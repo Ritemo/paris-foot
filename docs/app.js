@@ -215,6 +215,18 @@ function roiBlock(real, expected) {
   <p class="hint">La rentabilité attendue, c'est ce que tes tickets valaient d'après les chances du robot et les cotes (en général un peu négative, à cause de la marge des bookmakers). L'écart vient de la chance du moment et de tes choix : la partie « Ton flair » plus bas aide à faire la part des deux.</p>`;
 }
 
+/* jauge du flair : de -100 à +100 points, rouge, orange autour de 0, vert */
+function flairGauge(diff, enough) {
+  const real = Math.round(diff * 100), v = Math.max(-100, Math.min(100, real));
+  const pos = (v + 100) / 2;
+  const label = v <= -40 ? "Tri à revoir" : v < -10 ? "Plutôt défavorable" : v <= 10 ? "Neutre" : v < 40 ? "Plutôt bon" : "Bon flair";
+  return `<div class="gauge-flair ${enough ? "" : "early"}" role="img" aria-label="Jauge du flair : ${label}, ${v >= 0 ? "+" : ""}${v} points">
+    <div class="gf-track"><i class="gf-needle" style="left:${pos}%"><span style="transform:translateX(-${pos}%)">${real >= 0 ? "+" : "−"}${Math.abs(real)}</span></i></div>
+    <div class="gf-scale"><span>−100</span><span>0</span><span>+100</span></div>
+    <div class="gf-label">${label}${enough ? "" : " (provisoire)"}</div>
+  </div>`;
+}
+
 /* ton flair : les tickets du robot que tu as choisis de jouer font-ils mieux que ceux que tu as laissés ? */
 function flair(mine) {
   const playedIds = new Set(mine.map((x) => x.id));
@@ -233,6 +245,7 @@ function flair(mine) {
       <div><small>Tickets que tu as joués</small><b class="${rp >= 0 ? "pos" : "neg"}">${roiTxt(rp)}</b><span>${hp} gagné${hp > 1 ? "s" : ""} sur ${played.length}</span></div>
       <div><small>Tickets que tu as laissés</small><b class="${rl >= 0 ? "pos" : "neg"}">${roiTxt(rl)}</b><span>${hl} gagné${hl > 1 ? "s" : ""} sur ${left.length}</span></div>
     </div>
+    ${flairGauge(diff, enough)}
     <div class="flair-verdict ${diff >= 0 ? "pos" : "neg"}">Ton tri vaut <b>${diff >= 0 ? "+" : "−"}${Math.abs(Math.round(diff * 100))} points</b> de rentabilité
       ${diff >= 0 ? "par rapport aux tickets que tu as écartés" : "de moins que les tickets que tu as écartés"}</div>
     <p class="hint">Même mise pour chaque ticket, pour ne mesurer que tes choix, sur les jours où tu as joué. ${enough ? "Il y a assez de tickets pour que l'écart commence à avoir un sens." : `Encore trop peu de tickets pour conclure (il en faut une quinzaine de chaque côté) : pour l'instant, la chance pèse plus que le flair.`}</p>

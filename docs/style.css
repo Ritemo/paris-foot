@@ -284,3 +284,17 @@ label.btn { display: inline-block; }
 .flair span { font-size: 12px; color: var(--sous); }
 .flair-verdict { margin-top: 10px; padding: 10px 12px; border-radius: 12px; background: var(--pelouse); color: #fff; font-size: 14px; }
 .flair-verdict b { font-family: var(--display); font-size: 16px; } .flair-verdict.pos b { color: #9ff0bf; } .flair-verdict.neg b { color: #ffb3b9; }
+
+/* ---------- jauge du flair */
+.gauge-flair { margin: 14px 0 4px; }
+.gf-track { position: relative; height: 16px; border-radius: 10px;
+  background: linear-gradient(90deg, #d62f3c 0%, #f08a24 38%, #f5c542 50%, #f08a24 62%, #8fd14f 80%, #1faa59 100%); }
+.gf-needle { position: absolute; top: -6px; width: 6px; height: 28px; margin-left: -3px; border-radius: 3px; background: var(--encre);
+  box-shadow: 0 0 0 2px var(--ticket); transition: left .6s cubic-bezier(.2, 1.2, .4, 1); }
+.gf-needle span { position: absolute; bottom: 32px; left: 0; font: 800 13px var(--display); color: var(--encre);
+  background: var(--ticket); border: 2px solid var(--encre); border-radius: 8px; padding: 1px 6px; white-space: nowrap; }
+.gauge-flair { padding-top: 26px; }
+.gf-scale { display: flex; justify-content: space-between; font-size: 11px; color: var(--sous); margin-top: 4px; }
+.gf-label { text-align: center; font: 800 16px var(--display); margin-top: 2px; }
+.gf-track::before { content: ""; position: absolute; inset: 0; border-radius: 10px; background: var(--ticket); opacity: 0; }
+.gauge-flair.early .gf-track::before { opacity: .45; }

@@ -307,3 +307,4 @@ label.btn { display: inline-block; }
 .bank-row b.pos { color: var(--vert); } .bank-row b.neg { color: var(--rouge); }
 .bank-line { margin-bottom: 8px; } .bank-line b { color: var(--jaune); }
 .bank-row b { white-space: nowrap; } .bank-btns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 10px; } .bank-btns .btn { padding: 10px 4px; }
+.bank-value.down { color: var(--rouge); }

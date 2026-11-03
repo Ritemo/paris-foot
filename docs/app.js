@@ -73,22 +73,22 @@ const bank = () => LS.get("pf_bank", null);   // { start: date, moves: [{date, a
 function bankroll() {
   const B = bank();
   if (!B) return null;
+  // tous tes paris comptent, depuis ton dépôt de départ
   const moves = B.moves.reduce((x, m) => x + m.amount, 0);
-  const pendingAtStart = new Set(B.pending || []);
-  let value = moves, engaged = 0;
+  let gains = 0, pertes = 0, engaged = 0;
   for (const [id, b] of Object.entries(bets())) {
     const c = findCombo(id);
     if (!c) continue;
-    const after = (b.ts || 0) >= (B.startTs || 0);
-    // un pari pris après le point de départ : sa mise sort de la bankroll ; un pari déjà en cours au départ : seul son gain éventuel compte
-    if (after) { value -= b.mise; if (c.status === "en attente") engaged += b.mise; }
-    if ((after || pendingAtStart.has(id)) && c.status === "gagne") value += b.mise * b.odds;
+    if (c.status === "en attente") engaged += b.mise;
+    else if (c.status === "gagne") gains += b.mise * (b.odds - 1);
+    else pertes += b.mise;
   }
-  const deposits = B.moves.filter((m) => m.amount > 0 && m.kind !== "ajust").reduce((x, m) => x + m.amount, 0);
-  return { value, engaged, result: value + engaged - moves, deposits, start: B.start, moves };
+  const first = B.moves.find((m) => m.kind === "depart");
+  return { value: moves + gains - pertes - engaged, engaged, gains, pertes, result: gains - pertes, moves,
+    depart: first ? first.amount : 0, flows: moves - (first ? first.amount : 0), start: B.start };
 }
 function addBankMove(kind, amount, note) {
-  const B = bank() || { start: isoDay(new Date()), startTs: Date.now(), pending: [], moves: [] };
+  const B = bank() || { start: isoDay(new Date()), moves: [] };
   B.moves.push({ date: isoDay(new Date()), kind, amount: +amount.toFixed(2), note });
   LS.set("pf_bank", B);
 }
@@ -256,18 +256,22 @@ function flairGauge(diff, enough) {
 function bankCard() {
   const br = bankroll();
   if (!br) return `<div class="panel bank" style="margin-top:14px"><b class="bank-title">Ta bankroll</b>
-    <p class="hint">Indique ton solde Unibet actuel : l'appli le fera évoluer avec tes paris, tes dépôts et tes retraits.</p>
-    <button class="btn" data-bank="init">Indiquer mon solde Unibet</button></div>`;
-  const perf = br.deposits ? br.result / br.deposits : 0;
+    <p class="hint">Indique ton dépôt de départ : l'appli calcule tes gains, tes pertes et ton montant disponible à partir de tous tes paris.</p>
+    <button class="btn" data-bank="init">Indiquer mon dépôt de départ</button></div>`;
+  const row = (label, val, cls = "") => `<div class="bank-row"><span>${label}</span><b class="${cls}">${val}</b></div>`;
   return `<div class="panel bank" style="margin-top:14px">
-    <div class="bank-head"><b class="bank-title">Ta bankroll</b><span>depuis le ${esc(new Date(br.start + "T12:00:00").toLocaleDateString("fr-FR", { day: "numeric", month: "long" }))}</span></div>
-    <div class="bank-value">${fmt(br.value)} €</div>
-    <p class="hint" style="margin:0">disponible${br.engaged ? `, plus ${fmt(br.engaged)} € en jeu sur tes tickets en cours` : ""}</p>
-    <div class="bank-row"><span>Apports (départ + dépôts − retraits)</span><b>${fmt(br.moves)} €</b></div>
-    <div class="bank-row"><span>Résultat des paris</span><b class="${br.result >= 0 ? "pos" : "neg"}">${eur(br.result)}${br.deposits ? ` (${roiTxt(perf)})` : ""}</b></div>
+    <div class="bank-head"><b class="bank-title">Ta bankroll</b><span>départ le ${esc(new Date(br.start + "T12:00:00").toLocaleDateString("fr-FR", { day: "numeric", month: "long" }))}</span></div>
+    <div class="bank-value ${br.value >= br.moves ? "" : "down"}">${fmt(br.value)} €</div>
+    <p class="hint" style="margin:0">disponible${br.engaged ? `, plus ${fmt(br.engaged)} € en jeu` : ""}</p>
+    ${row("Dépôt de départ", `${fmt(br.depart)} €`)}
+    ${br.flows ? row("Dépôts et retraits ensuite", `${br.flows > 0 ? "+" : "−"}${fmt(Math.abs(br.flows))} €`) : ""}
+    ${row("Gains", `+${fmt(br.gains)} €`, "pos")}
+    ${row("Pertes", `−${fmt(br.pertes)} €`, "neg")}
+    ${br.engaged ? row("En jeu", `−${fmt(br.engaged)} €`) : ""}
+    ${row("Résultat", `${eur(br.result)}${br.moves ? ` (${roiTxt(br.result / br.moves)})` : ""}`, br.result >= 0 ? "pos" : "neg")}
     <div class="bank-btns">
       <button class="btn ghost" data-bank="depot">Dépôt</button><button class="btn ghost" data-bank="retrait">Retrait</button>
-      <button class="btn ghost" data-bank="ajust">Corriger</button></div>
+      <button class="btn ghost" data-bank="init">Départ</button></div>
   </div>`;
 }
 
@@ -537,18 +541,17 @@ document.addEventListener("click", async (e) => {
   if (bk) {
     const k = bk.dataset.bank, br = bankroll();
     if (k === "init") {
-      const v = await ask("Ton solde Unibet", "Le solde disponible affiché aujourd'hui sur ton compte Unibet. Tes paris déjà en cours seront ajoutés s'ils gagnent.", "");
+      const B = bank();
+      const cur = B ? (B.moves.find((m) => m.kind === "depart") || {}).amount : 30;
+      const v = await ask("Dépôt de départ", "Ce que tu as mis sur Unibet au tout début. Tous tes paris sont comptés à partir de là.", cur ?? 30);
       if (v === null || isNaN(v) || v < 0) return;
-      const pending = Object.keys(bets()).filter((id) => findCombo(id)?.status === "en attente");
-      LS.set("pf_bank", { start: isoDay(new Date()), startTs: Date.now(), pending, moves: [{ date: isoDay(new Date()), kind: "depart", amount: +v.toFixed(2), note: "Solde de départ" }] });
+      const firstBet = Object.values(bets()).map((b) => b.date).filter(Boolean).sort()[0] || isoDay(new Date());
+      const others = B ? B.moves.filter((m) => m.kind !== "depart" && m.kind !== "ajust") : [];
+      LS.set("pf_bank", { start: firstBet, moves: [{ date: firstBet, kind: "depart", amount: +v.toFixed(2), note: "Dépôt de départ" }, ...others] });
     } else if (k === "depot" || k === "retrait") {
       const v = await ask(k === "depot" ? "Dépôt sur Unibet" : "Retrait d'Unibet", "Montant en euros.", "");
       if (!v || isNaN(v) || v <= 0) return;
       addBankMove(k, k === "depot" ? v : -v, k === "depot" ? "Dépôt" : "Retrait");
-    } else if (k === "ajust") {
-      const v = await ask("Solde réel sur Unibet", "Le solde disponible affiché par Unibet : l'appli corrige l'écart (cotes arrondies, bonus…).", br ? +br.value.toFixed(2) : "");
-      if (v === null || isNaN(v)) return;
-      addBankMove("ajust", v - br.value, "Correction");
     }
     renderAll(); return;
   }

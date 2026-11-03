@@ -175,6 +175,7 @@ async def main():
         await pg.wait_for_timeout(300)
         txt = await pg.inner_text("#tab-bilan")
         check("Gain réel" in txt and "Récupéré" in txt, "misé, récupéré et gain réel affichés")
+        check("Rentabilité" in txt and "Attendue" in txt, "rentabilité réelle et attendue affichées")
         await pg.click('[data-bview="robot"]')
         await pg.wait_for_timeout(200)
         check(await pg.locator("#tab-bilan .grp").count() >= 2, "qualité des tickets par étoiles")

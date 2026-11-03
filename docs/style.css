@@ -265,3 +265,13 @@ label.btn { display: inline-block; }
 .cash .net.pos b { color: #9ff0bf; } .cash .net.neg b { color: #ffb3b9; }
 .months td small { display: block; font-size: 11px; color: var(--sous); text-transform: none; }
 .tok { display: flex; gap: 6px; margin-top: 6px; } .tok input { margin-top: 0 !important; flex: 1; min-width: 0; } .tok .btn { padding: 8px 10px; font-size: 13px; }
+
+/* ---------- rentabilite */
+.roi { display: grid; grid-template-columns: 1.3fr 1fr; gap: 8px; margin: 8px 0 0; }
+.roi > div { border-radius: 12px; padding: 10px 12px; background: var(--ticket-2); }
+.roi small { display: block; font-size: 12px; font-weight: 700; color: var(--sous); }
+.roi b { display: block; font: 800 30px/1.05 var(--display); }
+.roi span { font-size: 12px; color: var(--sous); }
+.roi-main.pos b { color: var(--vert); } .roi-main.neg b { color: var(--rouge); }
+.roi-side b { font-size: 22px; }
+.months th:last-child, .months td:last-child { text-align: right; }

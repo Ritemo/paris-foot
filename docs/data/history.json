@@ -60,7 +60,70 @@
    "stars": 1,
    "stake": 1,
    "status": "en attente",
-   "proposed_at": "2026-11-03T06:31:04.736374+00:00"
+   "proposed_at": "2026-11-03T06:31:04.736374+00:00",
+   "replaced": true
+  },
+  {
+   "id": "2026-11-04|6d386ed81fabf67aa19fbd442c0d8c60:1|df7d2d81b9e2f3f11c6aeddaee6b7085:2|e901dbcdd6e2255fb24d84032b9d437a:2",
+   "day": "2026-11-04",
+   "kind": "x3",
+   "legs": [
+    {
+     "match_id": "df7d2d81b9e2f3f11c6aeddaee6b7085",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-04T20:00:00Z",
+     "home": "RB Leipzig",
+     "away": "Manchester City",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "market": "2",
+     "label": "Victoire Manchester City",
+     "odds": 1.46,
+     "src": "unibet",
+     "p": 0.6035,
+     "ev": -0.1189
+    },
+    {
+     "match_id": "e901dbcdd6e2255fb24d84032b9d437a",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-04T17:45:00Z",
+     "home": "Fenerbahce",
+     "away": "Liverpool",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "market": "2",
+     "label": "Victoire Liverpool",
+     "odds": 1.4,
+     "src": "unibet",
+     "p": 0.6247,
+     "ev": -0.1254
+    },
+    {
+     "match_id": "6d386ed81fabf67aa19fbd442c0d8c60",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-04T20:00:00Z",
+     "home": "Borussia Dortmund",
+     "away": "Real Betis",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "market": "1",
+     "label": "Victoire Borussia Dortmund",
+     "odds": 1.58,
+     "src": "unibet",
+     "p": 0.5597,
+     "ev": -0.1157
+    }
+   ],
+   "odds": 3.23,
+   "p": 0.211,
+   "cost": 0.3185,
+   "stars": 1,
+   "stake": 1,
+   "status": "en attente",
+   "proposed_at": "2026-11-03T15:31:05.547489+00:00"
   },
   {
    "id": "2026-11-04|013cecbf40f5b4530342632a80f35b00:-3.5|6277e639c064e641265fcb98a0e200b9:1",
@@ -230,7 +293,86 @@
    "stars": 0,
    "stake": 1,
    "status": "en attente",
-   "proposed_at": "2026-11-03T06:31:04.736374+00:00"
+   "proposed_at": "2026-11-03T06:31:04.736374+00:00",
+   "replaced": true
+  },
+  {
+   "id": "2026-11-04|a5910ae3b314876faea7f5c03b8aeaad:+3.5|ba82ee37f64a66a30d85f8b90082ec2f:-2.5|df7d2d81b9e2f3f11c6aeddaee6b7085:-3.5|f43ef699c987e112e115f7035114854e:-3.5",
+   "day": "2026-11-04",
+   "kind": "folie",
+   "legs": [
+    {
+     "match_id": "df7d2d81b9e2f3f11c6aeddaee6b7085",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-04T20:00:00Z",
+     "home": "RB Leipzig",
+     "away": "Manchester City",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.83,
+     "src": "pmu",
+     "p": 0.4879,
+     "ev": -0.1071
+    },
+    {
+     "match_id": "ba82ee37f64a66a30d85f8b90082ec2f",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-04T20:00:00Z",
+     "home": "Porto",
+     "away": "Napoli",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 2.0,
+     "src": "pmu",
+     "p": 0.4458,
+     "ev": -0.1084
+    },
+    {
+     "match_id": "f43ef699c987e112e115f7035114854e",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-04T17:45:00Z",
+     "home": "AEK Athens",
+     "away": "Real Madrid",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.92,
+     "src": "pmu",
+     "p": 0.463,
+     "ev": -0.111
+    },
+    {
+     "match_id": "a5910ae3b314876faea7f5c03b8aeaad",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-04T20:00:00Z",
+     "home": "Slavia Praha",
+     "away": "Arsenal",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "market": "+3.5",
+     "label": "Plus de 3,5 buts",
+     "odds": 2.15,
+     "src": "pmu",
+     "p": 0.413,
+     "ev": -0.1121
+    }
+   ],
+   "odds": 15.11,
+   "p": 0.0416,
+   "cost": 0.3716,
+   "stars": 0,
+   "stake": 1,
+   "status": "en attente",
+   "proposed_at": "2026-11-03T15:31:05.547489+00:00"
   },
   {
    "id": "2026-11-03|1a5a84045050d0d7baf1301909d3b465:-3.5|bc0b6614c9714816038d5a0ff8963144:-3.5|bd680c6ad693dae859030f86e1be2769:-4.5",
@@ -2341,5 +2483,5 @@
   "bilan_mise_suggeree": -9.31,
   "mise_suggeree_totale": 23
  },
- "updated": "2026-11-03T06:31:04.736374+00:00"
+ "updated": "2026-11-03T15:31:05.547489+00:00"
 }

@@ -60,7 +60,7 @@ def fixtures():
     old = []
     for i, st in enumerate(["gagne", "perdu", "perdu", "gagne"]):
         c = combo(f"old{i}", "x2", [leg_of(m3, "1"), leg_of(m4, "+2.5")], stars=1 + i % 3, status=st,
-                  d=day(NOW - timedelta(days=2 + i)))
+                  d=day(NOW - timedelta(days=2 + i // 2)))
         for l in c["legs"]:
             l["won"] = st == "gagne"; l["score"] = "2-1"
         old.append(c)
@@ -170,12 +170,14 @@ async def main():
         st = await pg.evaluate("findCombo('c-passe').status")
         check(st == "gagne", f"un ticket terminé passe en gagné sans attendre le robot ({st})")
 
+        await pg.evaluate("(c) => { const b = bets(); b[c.id] = {mise: 2, odds: c.odds, date: c.day, snap: c}; localStorage.setItem('pf_bets', JSON.stringify(b)); }", hist["combos"][3])
         print("Bilan")
         await pg.click('.tabs button[data-tab="bilan"]')
         await pg.wait_for_timeout(300)
         txt = await pg.inner_text("#tab-bilan")
         check("Gain réel" in txt and "Récupéré" in txt, "misé, récupéré et gain réel affichés")
         check("Rentabilité" in txt and "Attendue" in txt, "rentabilité réelle et attendue affichées")
+        check("Ton flair" in txt, "comparaison tickets joués / laissés (ton flair)")
         await pg.click('[data-bview="robot"]')
         await pg.wait_for_timeout(200)
         check(await pg.locator("#tab-bilan .grp").count() >= 2, "qualité des tickets par étoiles")
@@ -188,7 +190,7 @@ async def main():
             await pg.evaluate("navigator.canShare = () => false")
             await pg.click("#export")
         data = json.loads(open(await (await dl.value).path(), encoding="utf-8").read())
-        check(len(data["bets"]) == 3, "la sauvegarde contient les 3 paris")
+        check(len(data["bets"]) == 4, "la sauvegarde contient les 4 paris")
 
         print("Tous les onglets")
         for t in ("combos", "encours", "matchs", "bilan", "reglages"):

@@ -275,3 +275,12 @@ label.btn { display: inline-block; }
 .roi-main.pos b { color: var(--vert); } .roi-main.neg b { color: var(--rouge); }
 .roi-side b { font-size: 22px; }
 .months th:last-child, .months td:last-child { text-align: right; }
+
+/* ---------- flair */
+.flair { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.flair > div { background: var(--ticket-2); border-radius: 12px; padding: 10px 12px; }
+.flair small { display: block; font-size: 12px; font-weight: 700; color: var(--sous); }
+.flair b { display: block; font: 800 24px/1.1 var(--display); } .flair b.pos { color: var(--vert); } .flair b.neg { color: var(--rouge); }
+.flair span { font-size: 12px; color: var(--sous); }
+.flair-verdict { margin-top: 10px; padding: 10px 12px; border-radius: 12px; background: var(--pelouse); color: #fff; font-size: 14px; }
+.flair-verdict b { font-family: var(--display); font-size: 16px; } .flair-verdict.pos b { color: #9ff0bf; } .flair-verdict.neg b { color: #ffb3b9; }

@@ -210,9 +210,33 @@ function roiBlock(real, expected) {
   const luck = real - expected;
   return `<div class="roi">
     <div class="roi-main ${real >= 0 ? "pos" : "neg"}"><small>Rentabilité</small><b>${roiTxt(real)}</b><span>de ta mise</span></div>
-    <div class="roi-side"><small>Attendue</small><b>${roiTxt(expected)}</b><span>${luck >= 0 ? "Chance en ta faveur" : "Malchance"} : ${roiTxt(luck)}</span></div>
+    <div class="roi-side"><small>Attendue</small><b>${roiTxt(expected)}</b><span>Écart : ${roiTxt(luck)}</span></div>
   </div>
-  <p class="hint">La rentabilité attendue, c'est ce que tes tickets valaient en moyenne compte tenu de leurs chances et de leurs cotes (en général un peu négative, à cause de la marge des bookmakers). L'écart avec la rentabilité réelle, c'est la chance du moment.</p>`;
+  <p class="hint">La rentabilité attendue, c'est ce que tes tickets valaient d'après les chances du robot et les cotes (en général un peu négative, à cause de la marge des bookmakers). L'écart vient de la chance du moment et de tes choix : la partie « Ton flair » plus bas aide à faire la part des deux.</p>`;
+}
+
+/* ton flair : les tickets du robot que tu as choisis de jouer font-ils mieux que ceux que tu as laissés ? */
+function flair(mine) {
+  const playedIds = new Set(mine.map((x) => x.id));
+  const days = new Set(mine.map((x) => x.c.day));
+  const flat = (c) => (c.status === "gagne" ? c.odds - 1 : -1);   // même mise pour tous : seul le choix compte
+  const pool = (hist?.combos || []).filter((c) => days.has(c.day) && c.status !== "en attente" && (!c.replaced || playedIds.has(c.id)));
+  const played = pool.filter((c) => playedIds.has(c.id)).map((c) => findCombo(c.id) || c);
+  const left = pool.filter((c) => !playedIds.has(c.id));
+  if (!played.length || !left.length) return "";
+  const avg = (a) => a.reduce((s, c) => s + flat(c), 0) / a.length;
+  const rp = avg(played), rl = avg(left), diff = rp - rl;
+  const hp = played.filter((c) => c.status === "gagne").length, hl = left.filter((c) => c.status === "gagne").length;
+  const enough = played.length >= 15 && left.length >= 15;
+  return `<h2 class="section-title">Ton flair</h2><div class="panel">
+    <div class="flair">
+      <div><small>Tickets que tu as joués</small><b class="${rp >= 0 ? "pos" : "neg"}">${roiTxt(rp)}</b><span>${hp} gagné${hp > 1 ? "s" : ""} sur ${played.length}</span></div>
+      <div><small>Tickets que tu as laissés</small><b class="${rl >= 0 ? "pos" : "neg"}">${roiTxt(rl)}</b><span>${hl} gagné${hl > 1 ? "s" : ""} sur ${left.length}</span></div>
+    </div>
+    <div class="flair-verdict ${diff >= 0 ? "pos" : "neg"}">Ton tri vaut <b>${diff >= 0 ? "+" : "−"}${Math.abs(Math.round(diff * 100))} points</b> de rentabilité
+      ${diff >= 0 ? "par rapport aux tickets que tu as écartés" : "de moins que les tickets que tu as écartés"}</div>
+    <p class="hint">Même mise pour chaque ticket, pour ne mesurer que tes choix, sur les jours où tu as joué. ${enough ? "Il y a assez de tickets pour que l'écart commence à avoir un sens." : `Encore trop peu de tickets pour conclure (il en faut une quinzaine de chaque côté) : pour l'instant, la chance pèse plus que le flair.`}</p>
+  </div>`;
 }
 
 /* courbe du solde et bilan mensuel de mes paris */
@@ -299,7 +323,7 @@ function bilanMine() {
     ${mise ? roiBlock(gain / mise, done.reduce((s, x) => s + x.mise * (x.c.p * x.odds - 1), 0) / mise) : ""}
     <p class="hint">Récupéré = ce que les tickets gagnants t'ont rapporté, mise comprise. Gain réel = récupéré moins tout ce que tu as misé.</p>`;
   if (done.length) h += compare(done.reduce((s, x) => s + x.c.p, 0) / done.length, won / done.length);
-  h += `</div>` + myCharts(done);
+  h += `</div>` + flair(mine) + myCharts(done);
   h += marketStats(done.map((x) => x.c), "Sur les matchs de tes tickets joués.");
   if (done.length) {
     h += `<h2 class="section-title">Mes tickets terminés</h2><div class="panel">` + done.sort((a, b) => b.c.day.localeCompare(a.c.day)).map((x) => {

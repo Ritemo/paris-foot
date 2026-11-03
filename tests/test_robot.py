@@ -115,6 +115,12 @@ class Notifications(unittest.TestCase):
             run.http_get = old
 
 
+class ArrondiUnibet(unittest.TestCase):
+    def test_cote_totale(self):
+        legs = [dict(odds=1.70, p=.5, ev=0, match_id="a", market="1"), dict(odds=1.45, p=.5, ev=0, match_id="b", market="1")]
+        self.assertEqual(run.make_combo("2026-11-03", "x2", legs)["odds"], 2.47)
+
+
 class Combines(unittest.TestCase):
     def match(self, i, o1, oN, o2, p1, pN):
         sel = [dict(market="1", label="Victoire", odds=o1, src="unibet", p=p1),
@@ -135,7 +141,8 @@ class Combines(unittest.TestCase):
         self.assertIn("x2", kinds)
         for c in cs:
             self.assertEqual(len({l["match_id"] for l in c["legs"]}), len(c["legs"]), "deux selections du meme match")
-            self.assertAlmostEqual(c["odds"], round(float(__import__("numpy").prod([l["odds"] for l in c["legs"]])), 2), 2)
+            prod = float(__import__("numpy").prod([l["odds"] for l in c["legs"]]))
+            self.assertLessEqual(abs(c["odds"] - prod), 0.005 + 1e-9)
             if c["kind"] == "folie":
                 self.assertTrue(15 <= c["odds"] <= 40)
                 self.assertEqual(c["stake"], 1)

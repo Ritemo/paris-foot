@@ -54,14 +54,15 @@ function combo(c) {
   c.legs.forEach((l, i) => { const o = legOdds(c, i); odds *= o; ev *= l.p * o; });
   const cost = 1 - ev;
   const stars = c.p >= 0.35 && cost <= 0.12 ? 3 : c.p >= 0.28 && cost <= 0.18 ? 2 : 1;
-  return { odds, cost, stars };
+  // Unibet arrondit la cote totale au centième le plus proche (2,465 -> 2,47), puis gain = mise x cote totale
+  return { odds: Math.round(odds * 100 + 1e-6) / 100, cost, stars };
 }
 // un ticket joué garde la cote à laquelle tu l'as pris : si tu corriges une cote, on recalcule la cote du ticket joué
 function syncBetOdds(id) {
   const all = bets(), b = all[id], c = findCombo(id);
   if (!b || !c) return;
-  // cote du combiné = produit exact des cotes (Unibet ne l'arrondit pas avant de calculer le gain)
-  const odds = +combo(c).odds.toFixed(4);
+  // cote totale arrondie comme Unibet
+  const odds = combo(c).odds;
   if (Math.abs((b.odds || 0) - odds) > 1e-6) {
     b.odds = odds; LS.set("pf_bets", all);
     if (typeof publishPlayed === "function" && c.status === "en attente") publishPlayed("add", id, b);

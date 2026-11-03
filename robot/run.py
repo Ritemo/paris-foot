@@ -5,6 +5,7 @@ Variable d'environnement requise : ODDS_API_KEY.
 """
 import io
 import json
+import math
 import os
 import re
 import sys
@@ -271,7 +272,8 @@ def make_combo(day, kind, legs_list):
     odds = float(np.prod([l["odds"] for l in legs_list]))
     ev = float(np.prod([1 + l["ev"] for l in legs_list]) - 1)
     cid = day + "|" + "|".join(sorted(f"{l['match_id']}:{l['market']}" for l in legs_list))
-    return dict(id=cid, day=day, kind=kind, legs=legs_list, odds=round(odds, 2), p=round(p, 4),
+    odds_u = math.floor(odds * 100 + 0.5 + 1e-6) / 100  # cote totale arrondie comme Unibet (2,465 -> 2,47)
+    return dict(id=cid, day=day, kind=kind, legs=legs_list, odds=odds_u, p=round(p, 4),
                 cost=round(-ev, 4), stars=stars(p, -ev), stake=stake(p), status="en attente")
 
 

@@ -43,6 +43,88 @@
    "odds": 15.05,
    "t": 1793627019,
    "snap": null
+  },
+  "perso|2026-11-04|f43ef699c987e112e115f7035114854e:H2|a5910ae3b314876faea7f5c03b8aeaad:H2|013cecbf40f5b4530342632a80f35b00:-3.5|df7d2d81b9e2f3f11c6aeddaee6b7085:2": {
+   "mise": 2,
+   "odds": 5.15,
+   "t": 1793742178,
+   "snap": {
+    "id": "perso|2026-11-04|f43ef699c987e112e115f7035114854e:H2|a5910ae3b314876faea7f5c03b8aeaad:H2|013cecbf40f5b4530342632a80f35b00:-3.5|df7d2d81b9e2f3f11c6aeddaee6b7085:2",
+    "day": "2026-11-04",
+    "kind": "perso",
+    "legs": [
+     {
+      "match_id": "f43ef699c987e112e115f7035114854e",
+      "league": "Ligue des champions",
+      "kickoff": "2026-11-04T17:45:00Z",
+      "home": "AEK Athens",
+      "away": "Real Madrid",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "CL",
+      "market": "H2",
+      "label": "Real Madrid gagne par 2 buts ou +",
+      "odds": 1.58,
+      "src": "estimee",
+      "p": 0.5561,
+      "ev": -0.1214
+     },
+     {
+      "match_id": "a5910ae3b314876faea7f5c03b8aeaad",
+      "league": "Ligue des champions",
+      "kickoff": "2026-11-04T20:00:00Z",
+      "home": "Slavia Praha",
+      "away": "Arsenal",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "CL",
+      "market": "H2",
+      "label": "Arsenal gagne par 2 buts ou +",
+      "odds": 1.7,
+      "src": "estimee",
+      "p": 0.5162,
+      "ev": -0.1225
+     },
+     {
+      "match_id": "013cecbf40f5b4530342632a80f35b00",
+      "league": "Ligue des champions",
+      "kickoff": "2026-11-04T20:00:00Z",
+      "home": "RC Lens",
+      "away": "Como",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "CL",
+      "market": "-3.5",
+      "label": "Moins de 3,5 buts",
+      "odds": 1.5,
+      "src": "pmu",
+      "p": 0.5926,
+      "ev": -0.1111
+     },
+     {
+      "match_id": "df7d2d81b9e2f3f11c6aeddaee6b7085",
+      "league": "Ligue des champions",
+      "kickoff": "2026-11-04T20:00:00Z",
+      "home": "RB Leipzig",
+      "away": "Manchester City",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "CL",
+      "market": "2",
+      "label": "Victoire Manchester City",
+      "odds": 1.46,
+      "src": "unibet",
+      "p": 0.6035,
+      "ev": -0.1189
+     }
+    ],
+    "odds": 5.88,
+    "p": 0.10266202273776201,
+    "cost": 0.396167573389015,
+    "stars": 0,
+    "stake": 1,
+    "status": "en attente"
+   }
   }
  }
 }

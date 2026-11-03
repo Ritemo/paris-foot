@@ -68,6 +68,31 @@ function syncBetOdds(id) {
     if (typeof publishPlayed === "function" && c.status === "en attente") publishPlayed("add", id, b);
   }
 }
+/* bankroll : ton solde Unibet = point de départ + dépôts - retraits + résultat des paris depuis cette date - mises en jeu */
+const bank = () => LS.get("pf_bank", null);   // { start: date, moves: [{date, amount, note}] }
+function bankroll() {
+  const B = bank();
+  if (!B) return null;
+  const moves = B.moves.reduce((x, m) => x + m.amount, 0);
+  const pendingAtStart = new Set(B.pending || []);
+  let value = moves, engaged = 0;
+  for (const [id, b] of Object.entries(bets())) {
+    const c = findCombo(id);
+    if (!c) continue;
+    const after = (b.ts || 0) >= (B.startTs || 0);
+    // un pari pris après le point de départ : sa mise sort de la bankroll ; un pari déjà en cours au départ : seul son gain éventuel compte
+    if (after) { value -= b.mise; if (c.status === "en attente") engaged += b.mise; }
+    if ((after || pendingAtStart.has(id)) && c.status === "gagne") value += b.mise * b.odds;
+  }
+  const deposits = B.moves.filter((m) => m.amount > 0 && m.kind !== "ajust").reduce((x, m) => x + m.amount, 0);
+  return { value, engaged, result: value + engaged - moves, deposits, start: B.start, moves };
+}
+function addBankMove(kind, amount, note) {
+  const B = bank() || { start: isoDay(new Date()), startTs: Date.now(), pending: [], moves: [] };
+  B.moves.push({ date: isoDay(new Date()), kind, amount: +amount.toFixed(2), note });
+  LS.set("pf_bank", B);
+}
+
 function monthSpent() {
   const m = isoDay(new Date()).slice(0, 7);
   return Object.values(bets()).filter((b) => (b.date || "").slice(0, 7) === m).reduce((s, b) => s + b.mise, 0);
@@ -227,6 +252,25 @@ function flairGauge(diff, enough) {
   </div>`;
 }
 
+/* carte bankroll en tête du bilan */
+function bankCard() {
+  const br = bankroll();
+  if (!br) return `<div class="panel bank" style="margin-top:14px"><b class="bank-title">Ta bankroll</b>
+    <p class="hint">Indique ton solde Unibet actuel : l'appli le fera évoluer avec tes paris, tes dépôts et tes retraits.</p>
+    <button class="btn" data-bank="init">Indiquer mon solde Unibet</button></div>`;
+  const perf = br.deposits ? br.result / br.deposits : 0;
+  return `<div class="panel bank" style="margin-top:14px">
+    <div class="bank-head"><b class="bank-title">Ta bankroll</b><span>depuis le ${esc(new Date(br.start + "T12:00:00").toLocaleDateString("fr-FR", { day: "numeric", month: "long" }))}</span></div>
+    <div class="bank-value">${fmt(br.value)} €</div>
+    <p class="hint" style="margin:0">disponible${br.engaged ? `, plus ${fmt(br.engaged)} € en jeu sur tes tickets en cours` : ""}</p>
+    <div class="bank-row"><span>Apports (départ + dépôts − retraits)</span><b>${fmt(br.moves)} €</b></div>
+    <div class="bank-row"><span>Résultat des paris</span><b class="${br.result >= 0 ? "pos" : "neg"}">${eur(br.result)}${br.deposits ? ` (${roiTxt(perf)})` : ""}</b></div>
+    <div class="bank-btns">
+      <button class="btn ghost" data-bank="depot">Dépôt</button><button class="btn ghost" data-bank="retrait">Retrait</button>
+      <button class="btn ghost" data-bank="ajust">Corriger</button></div>
+  </div>`;
+}
+
 /* ton flair : les tickets du robot que tu as choisis de jouer font-ils mieux que ceux que tu as laissés ? */
 function flair(mine) {
   const playedIds = new Set(mine.map((x) => x.id));
@@ -322,7 +366,8 @@ function bilanMine() {
   const won = done.filter((x) => x.c.status === "gagne").length;
   const mise = done.reduce((s, x) => s + x.mise, 0);
   const gain = done.reduce((s, x) => s + (x.c.status === "gagne" ? x.mise * (x.odds - 1) : -x.mise), 0);
-  let h = backupDue() ? `<div class="panel backup-nudge"><b>Pense à sauvegarder tes paris</b><p class="hint">Ils ne sont stockés que sur ce téléphone. ${backupInfo()} Onglet Réglages, bouton « Sauvegarder ».</p></div>` : "";
+  let h = bankCard();
+  h += backupDue() ? `<div class="panel backup-nudge"><b>Pense à sauvegarder tes paris</b><p class="hint">Ils ne sont stockés que sur ce téléphone. ${backupInfo()} Onglet Réglages, bouton « Sauvegarder ».</p></div>` : "";
   h += `<div class="panel" style="margin-top:14px">`;
   if (!mine.length) return h + `<p class="hint" style="margin:0">Touche « Je le joue » sur un ticket : ton bilan se construira ici, pari après pari.</p></div>`;
   h += `<div class="scoreline"><div class="w"><b>${won}</b><small>gagnés</small></div><span class="sep">/</span>
@@ -407,7 +452,9 @@ function renderHeader() {
     ? `Cotes du ${new Date(g).toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", timeZone: "Europe/Paris" })} à ${hour(g)}, ${today.credits_remaining ?? "?"} crédits API`
     : "En attente du premier passage du robot";
   const s = settings(), spent = monthSpent();
-  document.getElementById("budget-strip").innerHTML = `<div class="line"><span>Budget du mois</span><span><b>${fmt(spent, 0)} €</b> sur ${fmt(s.budget, 0)} €</span></div>
+  const br = bankroll();
+  document.getElementById("budget-strip").innerHTML = (br ? `<div class="line bank-line"><span>Bankroll</span><span><b>${fmt(br.value)} €</b>${br.engaged ? ` + ${fmt(br.engaged)} € en jeu` : ""}</span></div>` : "") +
+    `<div class="line"><span>Budget du mois</span><span><b>${fmt(spent, 0)} €</b> sur ${fmt(s.budget, 0)} €</span></div>
     <div class="gauge ${spent > s.budget ? "over" : ""}"><i style="width:${Math.min(100, (100 * spent) / Math.max(s.budget, 1))}%"></i></div>`;
 }
 /* --------------------------------------------------------------- tickets joués en cours */
@@ -481,10 +528,29 @@ document.addEventListener("click", async (e) => {
         : `${c.stake} € conseillés. Il te reste ${fmt(Math.max(left, 0), 0)} € dans ton budget du mois.`, c.stake, { steps: c.kind === "folie" ? [1, 2] : [1, 2, 3, 4, 5] });
       if (!v || isNaN(v) || v <= 0) return;
       if (v > left && !confirm("Cette mise dépasse ton budget du mois. La garder quand même ?")) return;
-      all[c.id] = { mise: Math.min(v, 5), odds: +combo(c).odds.toFixed(2), date: isoDay(new Date()), snap: c };
+      all[c.id] = { mise: Math.min(v, 5), odds: +combo(c).odds.toFixed(2), date: isoDay(new Date()), ts: Date.now(), snap: c };
       freshStamp = c.id;
     }
     LS.set("pf_bets", all); renderAll(); scheduleLive(); syncPlayed(); return;
+  }
+  const bk = e.target.closest("[data-bank]");
+  if (bk) {
+    const k = bk.dataset.bank, br = bankroll();
+    if (k === "init") {
+      const v = await ask("Ton solde Unibet", "Le solde disponible affiché aujourd'hui sur ton compte Unibet. Tes paris déjà en cours seront ajoutés s'ils gagnent.", "");
+      if (v === null || isNaN(v) || v < 0) return;
+      const pending = Object.keys(bets()).filter((id) => findCombo(id)?.status === "en attente");
+      LS.set("pf_bank", { start: isoDay(new Date()), startTs: Date.now(), pending, moves: [{ date: isoDay(new Date()), kind: "depart", amount: +v.toFixed(2), note: "Solde de départ" }] });
+    } else if (k === "depot" || k === "retrait") {
+      const v = await ask(k === "depot" ? "Dépôt sur Unibet" : "Retrait d'Unibet", "Montant en euros.", "");
+      if (!v || isNaN(v) || v <= 0) return;
+      addBankMove(k, k === "depot" ? v : -v, k === "depot" ? "Dépôt" : "Retrait");
+    } else if (k === "ajust") {
+      const v = await ask("Solde réel sur Unibet", "Le solde disponible affiché par Unibet : l'appli corrige l'écart (cotes arrondies, bonus…).", br ? +br.value.toFixed(2) : "");
+      if (v === null || isNaN(v)) return;
+      addBankMove("ajust", v - br.value, "Correction");
+    }
+    renderAll(); return;
   }
   const bv = e.target.closest("[data-bview]");
   if (bv) { bilanView = bv.dataset.bview; LS.set("pf_bilan_view", bilanView); renderBilan(); return; }
@@ -523,7 +589,7 @@ function backupDue() {
 }
 document.getElementById("export").onclick = async () => {
   const s = settings();
-  const data = { app: "combines-foot", version: 1, date: new Date().toISOString(), bets: bets(), overrides: overrides(), budget: s.budget };
+  const data = { app: "combines-foot", version: 1, date: new Date().toISOString(), bets: bets(), overrides: overrides(), budget: s.budget, bank: bank() };
   const text = JSON.stringify(data, null, 1);
   const name = `combines-foot-sauvegarde-${isoDay(new Date())}.txt`;
   const done = () => {
@@ -558,6 +624,7 @@ document.getElementById("import-file").onchange = async (e) => {
     LS.set("pf_bets", merged);
     LS.set("pf_overrides", Object.assign({}, d.overrides || {}, overrides()));
     if (d.budget) LS.set("pf_settings", Object.assign(settings(), { budget: d.budget }));
+    if (d.bank && !bank()) LS.set("pf_bank", d.bank);
     loadSettings(); renderAll(); scheduleLive(); syncPlayed();
     document.getElementById("backup-msg").textContent = `Restauré : ${Object.keys(merged).length} paris au total.`;
   } catch (err) { toast("Restauration impossible : " + err.message); }

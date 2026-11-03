@@ -298,3 +298,12 @@ label.btn { display: inline-block; }
 .gf-label { text-align: center; font: 800 16px var(--display); margin-top: 2px; }
 .gf-track::before { content: ""; position: absolute; inset: 0; border-radius: 10px; background: var(--ticket); opacity: 0; }
 .gauge-flair.early .gf-track::before { opacity: .45; }
+
+/* ---------- bankroll */
+.bank-head { display: flex; justify-content: space-between; align-items: baseline; } .bank-head span { font-size: 12px; color: var(--sous); }
+.bank-title { font: 800 18px var(--display); }
+.bank-value { font: 800 40px/1.1 var(--display); margin-top: 6px; color: var(--pelouse-2); }
+.bank-row { display: flex; justify-content: space-between; gap: 10px; padding: 8px 0; border-top: 1px solid var(--trait); font-size: 14px; margin-top: 6px; }
+.bank-row b.pos { color: var(--vert); } .bank-row b.neg { color: var(--rouge); }
+.bank-line { margin-bottom: 8px; } .bank-line b { color: var(--jaune); }
+.bank-row b { white-space: nowrap; } .bank-btns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 10px; } .bank-btns .btn { padding: 10px 4px; }

@@ -171,6 +171,22 @@ async def main():
         check(st == "gagne", f"un ticket terminé passe en gagné sans attendre le robot ({st})")
 
         await pg.evaluate("(c) => { const b = bets(); b[c.id] = {mise: 2, odds: c.odds, date: c.day, snap: c}; localStorage.setItem('pf_bets', JSON.stringify(b)); renderAll(); }", hist["combos"][3])
+        print("Bankroll")
+        await pg.click('.tabs button[data-tab="bilan"]')
+        await pg.click('[data-bank="init"]'); await pg.fill("#dlg-input", "50"); await pg.click('#dlg button[value="ok"]')
+        await pg.wait_for_timeout(200)
+        await pg.click('[data-bank="depot"]'); await pg.fill("#dlg-input", "20"); await pg.click('#dlg button[value="ok"]')
+        await pg.wait_for_timeout(200)
+        br = await pg.evaluate("bankroll()")
+        check(abs(br["value"] - 70) < 0.01 and br["engaged"] == 0, f"au départ : solde + dépôt, paris déjà en cours non déduits ({br['value']:.2f})")
+        # un nouveau pari après le départ : sa mise sort de la bankroll
+        await pg.click('.tabs button[data-tab="combos"]')
+        await pg.click('#tab-combos [data-bet="c-folie"]'); await pg.click('#dlg-steps button[data-v="1"]'); await pg.click('#dlg button[value="ok"]')
+        await pg.wait_for_timeout(300)
+        br = await pg.evaluate("bankroll()")
+        check(abs(br["value"] - 69) < 0.01 and br["engaged"] == 1, f"nouveau pari : 1 € en jeu ({br['value']:.2f})")
+        check("Bankroll" in await pg.inner_text("#budget-strip"), "bankroll dans le bandeau")
+        await pg.click('.tabs button[data-tab="bilan"]')
         print("Bilan")
         await pg.click('.tabs button[data-tab="bilan"]')
         await pg.wait_for_timeout(300)
@@ -192,7 +208,7 @@ async def main():
             await pg.evaluate("navigator.canShare = () => false")
             await pg.click("#export")
         data = json.loads(open(await (await dl.value).path(), encoding="utf-8").read())
-        check(len(data["bets"]) == 4, "la sauvegarde contient les 4 paris")
+        check(len(data["bets"]) == 5 and data.get("bank"), "la sauvegarde contient les 5 paris et la bankroll")
 
         print("Tous les onglets")
         for t in ("combos", "encours", "matchs", "bilan", "reglages"):

@@ -1,4 +1,4 @@
-const V = "pf-9622aaf6";
+const V = "pf-60c3fcbb";
 const SHELL = ["./", "index.html", "manifest.webmanifest", "icon.svg", "icon-192.png", "icon-512.png"];
 self.addEventListener("install", (e) => { e.waitUntil(caches.open(V).then((c) => c.addAll(SHELL))); self.skipWaiting(); });
 self.addEventListener("activate", (e) => { e.waitUntil(caches.keys().then((ks) => Promise.all(ks.filter((k) => k !== V && k !== "pf-logos").map((k) => caches.delete(k))))); self.clients.claim(); });

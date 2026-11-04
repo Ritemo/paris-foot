@@ -70,7 +70,8 @@ def fixtures():
         old.append(c)
     hist = {"combos": [futur, passe, folie] + old, "bilan": {"n": 4, "gagnes": 2, "reussite_reelle": 0.5, "reussite_annoncee": 0.3,
                                                               "bilan_2eur": 1.0, "mise_2eur": 8, "bilan_mise_suggeree": 1.0, "mise_suggeree_totale": 8}}
-    today = {"generated_at": iso(NOW), "credits_remaining": 400, "combos": [futur, passe, folie], "matches": [m1, m2, m3, m4, m5, m6]}
+    alt = dict(combo("c-alt", "x2", [leg_of(m1, "+2.5"), leg_of(m2, "1")]), alt=True)
+    today = {"generated_at": iso(NOW), "credits_remaining": 400, "combos": [futur, passe, folie], "alts": [alt], "matches": [m1, m2, m3, m4, m5, m6]}
     espn = {"events": [
         {"date": m3["kickoff"], "status": {"type": {"state": "post", "shortDetail": "FT"}},
          "competitions": [{"competitors": [{"homeAway": "home", "score": "2", "team": {"displayName": "Stade Rennais"}},
@@ -148,9 +149,17 @@ async def main():
         ids = await pg.eval_on_selector_all("#tab-combos [data-bet]", "e => e.map(x => x.dataset.bet)")
         check("c-futur" in ids and "c-folie" in ids, "les tickets jouables s'affichent")
         check("c-passe" not in ids, "un ticket dont un match a commencé est masqué")
+        check("c-alt" in ids and await pg.locator("#tab-combos .alt-tag").count() == 1, "un autre candidat du robot est proposé selon la balance")
 
         check(await pg.locator("#tab-combos .rank").count() >= 1 and "du jour sur" in await pg.inner_text("#tab-combos"), "rang du jour affiché sur les tickets")
-        check("prix" in await pg.inner_text("#tab-combos .stars"), "étoiles avec leur libellé de prix")
+        check("intéressant" in await pg.inner_text("#tab-combos .stars >> nth=0"), "étoiles avec leur libellé d'intérêt")
+        check(await pg.locator("#tab-combos .mix").count() >= 1, "jauges prix et chance sur les tickets")
+        check(await pg.locator("#balance").count() == 1, "curseur de balance prix / chance")
+        await pg.evaluate("const r = document.getElementById('balance'); r.value = 100; r.dispatchEvent(new Event('input', {bubbles: true}))")
+        await pg.wait_for_timeout(300)
+        check(abs(await pg.evaluate("balance()") - 1) < 1e-9 and "chance" in await pg.inner_text("#bal-label"), "la balance se règle et s'enregistre")
+        await pg.evaluate("const r = document.getElementById('balance'); r.value = 50; r.dispatchEvent(new Event('input', {bubbles: true}))")
+        await pg.wait_for_timeout(300)
         print("Jouer un ticket")
         await pg.click('#tab-combos [data-bet="c-futur"]')
         await pg.click('#dlg-steps button[data-v="3"]')

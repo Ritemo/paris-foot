@@ -275,14 +275,22 @@ def build_matches(events, models):
     return matches
 
 
-def stars(p, cost, n=2):
-    """Note la qualite du prix, ramenee a une selection (comparable entre combines de 2, 3 ou plus).
-    Marge Unibet typique : 6 a 12 % par selection. 3 etoiles = le tiers le moins taxe."""
+BALANCE = 0.5  # 0 = seul le prix compte, 1 = seule la chance de passer compte (reglable dans l'appli)
+
+
+def interest(p, cost, n=2, w=BALANCE):
+    """Interet d'un ticket, de 0 a 1 : melange du prix (marge du bookmaker ramenee a une selection,
+    4 % = excellent, 13 % = cher) et de la chance de passer (15 % = faible, 50 % = forte). Meme formule que l'appli."""
     per_leg = 1 - (1 - max(cost, 0)) ** (1 / max(n, 1))
-    s = 3 if per_leg <= 0.07 else 2 if per_leg <= 0.10 else 1
-    if p < 0.15:  # trop improbable pour etre recommande, meme bien paye
-        s = min(s, 2)
-    return s
+    price = min(1.0, max(0.0, (0.13 - per_leg) / 0.09))
+    chance = min(1.0, max(0.0, (p - 0.15) / 0.35))
+    return (1 - w) * price + w * chance
+
+
+def stars(p, cost, n=2):
+    """3 etoiles = tres interessant (>= 0,55), 2 = interessant (>= 0,35), 1 = peu interessant."""
+    s = interest(p, cost, n)
+    return 3 if s >= 0.55 else 2 if s >= 0.35 else 1
 
 
 def stake(p):
@@ -299,7 +307,7 @@ def make_combo(day, kind, legs_list):
                 cost=round(-ev, 4), stars=stars(p, -ev, len(legs_list)), stake=stake(p), status="en attente")
 
 
-def combos_for_day(day, matches):
+def day_legs(day, matches):
     legs = []
     for m in matches:
         if m["day"] != day:
@@ -307,29 +315,54 @@ def combos_for_day(day, matches):
         for s in m["sel"]:
             legs.append(dict(match_id=m["id"], league=m["league"], kickoff=m["kickoff"], home=m["home"], away=m["away"],
                              fd_home=m["fd_home"], fd_away=m["fd_away"], div=m["div"], **s))
-    rules = [("x2", 2, 1.30, 1.90, (1.6, 3.6)), ("x2", 2, 1.30, 1.90, (1.6, 3.6)), ("x3", 3, 1.20, 1.60, (1.9, 4.2))]
-    chosen, used = [], set()
+    return legs
+
+
+def candidates(day, matches):
+    """Tous les combines possibles (2 ou 3 selections) du jour."""
+    legs = day_legs(day, matches)
+    rules = [("x2", 2, 1.30, 1.90, (1.6, 3.6)), ("x3", 3, 1.20, 1.60, (1.9, 4.2))]
+    cands = []
     for kind, n, lo, hi, rng in rules:
-        pool = [l for l in legs if lo <= l["odds"] <= hi and l["p"] >= 0.5 and (l["match_id"], l["market"]) not in used]
-        pool.sort(key=lambda l: -(l["ev"] + 0.3 * (l["p"] - 0.5) - (0.03 if l["src"] == "estimee" else 0)))
-        pool = pool[:12]
-        best = None
-        for c in combinations(pool, n):
+        pool = [l for l in legs if lo <= l["odds"] <= hi and l["p"] >= 0.5]
+        pool.sort(key=lambda l: -(interest(l["p"] ** n, -((1 + l["ev"]) ** n - 1), n) - (0.03 if l["src"] == "estimee" else 0)))
+        for c in combinations(pool[:16], n):
             if len({l["match_id"] for l in c}) < n or sum(l["src"] == "estimee" for l in c) > 1:
                 continue
             cb = make_combo(day, kind, list(c))
-            if not (rng[0] <= cb["odds"] <= rng[1]):
-                continue
-            score = -cb["cost"] + 0.3 * cb["p"]
-            if best is None or score > best[0]:
-                best = (score, cb)
-        if best:
-            chosen.append(best[1])
-            used |= {(l["match_id"], l["market"]) for l in best[1]["legs"]}
+            if rng[0] <= cb["odds"] <= rng[1]:
+                cands.append(cb)
+    return cands, legs
+
+
+def combos_for_day(day, matches):
+    """Les 3 meilleurs combines selon la balance prix / chance par defaut, sans selection en commun, plus la folie."""
+    cands, legs = candidates(day, matches)
+    cands = sorted(cands, key=lambda cb: -interest(cb["p"], cb["cost"], len(cb["legs"])))
+    chosen, used = [], set()
+    for cb in cands:
+        keys = {(l["match_id"], l["market"]) for l in cb["legs"]}
+        if keys & used:
+            continue
+        chosen.append(cb)
+        used |= keys
+        if len(chosen) == 3:
+            break
     folie = folie_for_day(day, legs)
     if folie:
         chosen.append(folie)
     return chosen
+
+
+def alts_for_day(day, matches, exclude):
+    """Autres bons candidats, pour que l'appli choisisse les meilleurs selon TA balance prix / chance."""
+    cands, _legs = candidates(day, matches)
+    out = {}
+    for w in (0, 0.25, 0.5, 0.75, 1):
+        for cb in sorted(cands, key=lambda cb: -interest(cb["p"], cb["cost"], len(cb["legs"]), w))[:8]:
+            if cb["id"] not in exclude:
+                out[cb["id"]] = dict(cb, alt=True)
+    return list(out.values())
 
 
 def folie_for_day(day, legs):
@@ -903,6 +936,7 @@ def main():
                 leagues=[v[1] for v in LEAGUES.values()])
     save("today.json", dict(generated_at=NOW.isoformat(), credits_remaining=credits["remaining"],
                             combos=sorted(current, key=lambda c: (c["day"], c["kind"] == "folie", c["kind"])),
+                            alts=[a for d in days for a in alts_for_day(d, matches, {c["id"] for c in current})],
                             matches=[m for m in matches if m["day"] <= (today + timedelta(days=2)).isoformat()]))
     save("history.json", history)
     try:

@@ -62,12 +62,19 @@ function combo(c) {
   let odds = 1, ev = 1;
   c.legs.forEach((l, i) => { const o = legOdds(c, i); odds *= o; ev *= l.p * o; });
   const cost = 1 - ev;
-  // étoiles : qualité du prix ramenée à une sélection (comparable entre combinés de 2, 3 ou plus)
-  const perLeg = 1 - Math.pow(1 - Math.max(cost, 0), 1 / Math.max(c.legs.length, 1));
-  let stars = perLeg <= 0.07 ? 3 : perLeg <= 0.10 ? 2 : 1;
-  if (c.p < 0.15) stars = Math.min(stars, 2);
+  // étoiles : intérêt du ticket = mélange du prix et de la chance de passer, selon ta balance (même formule que le robot)
+  const it = interest(c.p, cost, c.legs.length);
   // Unibet arrondit la cote totale au centième le plus proche (2,465 -> 2,47), puis gain = mise x cote totale
-  return { odds: Math.round(odds * 100 + 1e-6) / 100, cost, stars };
+  return { odds: Math.round(odds * 100 + 1e-6) / 100, cost, stars: it.stars, score: it.score, price: it.price, chance: it.chance };
+}
+// balance prix / chance : 0 = seul le prix compte, 1 = seule la chance de passer compte
+const balance = () => { const w = +LS.get("pf_balance", 0.5); return isNaN(w) ? 0.5 : Math.min(1, Math.max(0, w)); };
+function interest(p, cost, n = 2, w = balance()) {
+  const perLeg = 1 - Math.pow(1 - Math.max(cost, 0), 1 / Math.max(n, 1));
+  const price = Math.min(1, Math.max(0, (0.13 - perLeg) / 0.09));    // 4 % de marge par sélection = excellent, 13 % = cher
+  const chance = Math.min(1, Math.max(0, (p - 0.15) / 0.35));          // 15 % = faible, 50 % = forte
+  const score = (1 - w) * price + w * chance;
+  return { score, price, chance, stars: score >= 0.55 ? 3 : score >= 0.35 ? 2 : 1 };
 }
 // un ticket joué garde la cote à laquelle tu l'as pris : si tu corriges une cote, on recalcule la cote du ticket joué
 function syncBetOdds(id) {
@@ -119,21 +126,40 @@ function monthSpent() {
   return Object.values(bets()).filter((b) => (b.date || "").slice(0, 7) === m).reduce((s, b) => s + b.mise, 0);
 }
 function findCombo(id) {
-  const c = (today?.combos || []).find((x) => x.id === id) || (hist?.combos || []).find((x) => x.id === id);
+  const c = (today?.combos || []).find((x) => x.id === id) || (hist?.combos || []).find((x) => x.id === id)
+    || (bets()[id] ? null : (today?.alts || []).find((x) => x.id === id));
   const snap = bets()[id]?.snap;
   // résultat déjà connu par l'appli (scores ESPN) alors que le robot n'est pas encore repassé
   if (c && c.status === "en attente" && snap && snap.status !== "en attente") return snap;
   return c || snap;
 }
 
-/* deux notes : étoiles = qualité du prix dans l'absolu ; rang = place parmi les tickets du même jour */
-const PRICE = { 3: "très bon prix", 2: "bon prix", 1: "prix normal" };
+/* deux notes : étoiles = intérêt du ticket (prix et chance, selon ta balance) ; rang = place parmi les tickets du même jour */
+const PRICE = { 3: "très intéressant", 2: "intéressant", 1: "peu intéressant" };
 function starsHtml(n) {
   return `<span class="stars" aria-label="${n} étoile${n > 1 ? "s" : ""} sur 3, ${PRICE[n]}">${[1, 2, 3].map((i) => `<i class="${i <= n ? "on" : ""}"></i>`).join("")}<em>${PRICE[n]}</em></span>`;
 }
-const ticketScore = (c) => { const k = combo(c); return -k.cost + 0.3 * c.p; };   // même critère que le robot
+const ticketScore = (c) => combo(c).score;   // même critère que le robot, avec ta balance
+// les meilleurs tickets d'un jour selon ta balance : ceux du robot et ses autres candidats, sans sélection en commun
+function dayPicks(day, n = 3) {
+  const now = new Date().toISOString();
+  const seen = new Set(), pool = [];
+  for (const c of [...(today?.combos || []), ...(today?.alts || [])]) {
+    if (c.day !== day || c.kind === "folie" || c.replaced || seen.has(c.id) || c.status !== "en attente" || !c.legs.every((l) => l.kickoff > now)) continue;
+    seen.add(c.id); pool.push(c);
+  }
+  pool.sort((a, b) => ticketScore(b) - ticketScore(a));
+  const out = [], used = new Set();
+  for (const c of pool) {
+    const keys = c.legs.map((l) => l.match_id + ":" + l.market);
+    if (keys.some((k) => used.has(k))) continue;
+    out.push(c); keys.forEach((k) => used.add(k));
+    if (out.length === n) break;
+  }
+  return out;
+}
 function dayRank(c, extra = false) {
-  const pool = (today?.combos || []).filter((x) => x.day === c.day && x.kind !== "folie" && !x.replaced);
+  const pool = dayPicks(c.day);
   if (extra || !pool.some((x) => x.id === c.id)) pool.push(c);
   if (pool.length < 2) return null;
   const sc = ticketScore(c);
@@ -171,7 +197,9 @@ function ticketHtml(c) {
   const head = folie
     ? `<span class="kind">Folie du jour, ${c.legs.length} matchs</span><span class="fun">pour le fun</span>`
     : `<span class="kind">${c.kind === "perso" ? `Mon combiné de ${c.legs.length}` : `Combiné ${c.kind === "x3" ? "de 3" : "de 2"}`}</span>
-      ${starsHtml(k.stars)}${rk ? rankHtml(rk) : ""}`;
+      ${starsHtml(k.stars)}${rk ? rankHtml(rk) : ""}
+      <div class="mix" aria-label="Prix ${Math.round(k.price * 10)} sur 10, chance ${Math.round(k.chance * 10)} sur 10">
+        <span>Prix<i style="--v:${Math.round(k.price * 100)}%"></i></span><span>Chance<i style="--v:${Math.round(k.chance * 100)}%"></i></span>${c.alt ? `<em class="alt-tag">selon ta balance</em>` : ""}</div>`;
   return `<article class="ticket ${c.status} ${folie ? "folie" : ""} ${c.kind === "perso" ? "perso" : ""} ${b ? "is-played" : ""}">
     <div class="board">
       ${head}
@@ -193,7 +221,7 @@ function ticketHtml(c) {
 }
 
 function gainText(c, k, b, mise) {
-  if (c.status === "en attente") return `<b>${fmt(mise * k.odds)} €</b>à gagner pour ${fmt(mise, 0)} € ${b ? "misés" : "conseillés"}`;
+  if (c.status === "en attente") return `<b>${fmt(mise * k.odds)} €</b>à gagner pour ${fmt(mise, 0)} € ${b ? "misés" : "conseillés"}<span class="exp-loss">perte moyenne à la longue : ${fmt(mise * Math.max(k.cost, 0))} € par ticket</span>`;
   if (!b) return `<b>${c.status === "gagne" ? "Passé" : "Raté"}</b>ticket non joué`;
   return c.status === "gagne" ? `<b>${fmt(b.mise * b.odds)} €</b>récupérés pour ${fmt(b.mise, 0)} € misés` : `<b>${fmt(b.mise, 0)} € perdus</b>ce coup-ci`;
 }
@@ -204,21 +232,43 @@ function renderCombos() {
   const el = document.getElementById("tab-combos");
   const t = isoDay(new Date()), now = new Date().toISOString();
   // seuls les tickets encore jouables : aucun de leurs matchs n'a commencé (les tickets joués vivent dans « En cours »)
-  const all = (today?.combos || []).filter((c) => c.day >= t);
-  const current = all.filter((c) => c.status === "en attente" && c.legs.every((l) => l.kickoff > now));
-  const gone = all.length - current.length;
-  let h = "";
+  const all = (today?.combos || []).filter((c) => c.day >= t && !c.replaced);
+  const days = [...new Set(all.map((c) => c.day).concat((today?.alts || []).map((c) => c.day)))].filter((d) => d >= t).sort();
+  const playable = (c) => c.status === "en attente" && c.legs.every((l) => l.kickoff > now);
+  const current = days.flatMap((d) => [...dayPicks(d), ...all.filter((c) => c.day === d && c.kind === "folie" && playable(c))]);
+  const gone = all.filter((c) => !playable(c)).length;
+  const w = balance();
+  let h = `<div class="balance panel no-swipe"><div class="bal-head"><b>Ce qui compte pour toi</b><span id="bal-label">${balLabel(w)}</span></div>
+    <input id="balance" type="range" min="0" max="100" step="10" value="${Math.round(w * 100)}" aria-label="Balance entre le prix et la chance de passer">
+    <div class="bal-ends"><span>Le meilleur prix</span><span>La plus grande chance</span></div></div>`;
   if (!current.length) h += `<div class="empty">${EMPTY_BALL}<b>Plus de ticket jouable pour l'instant</b>
     <p>Les tickets disparaissent dès qu'un de leurs matchs commence. Les suivants arrivent vers 8h et 17h les jours de match.</p></div>`;
   for (const d of [...new Set(current.map((c) => c.day))].sort()) {
     const [a, b] = dayTitle(d);
-    h += `<div class="day"><h2>${esc(a)}</h2><span>${esc(b)}</span></div>` + current.filter((c) => c.day === d).sort((x, y) => kindOrder(x) - kindOrder(y)).map(ticketHtml).join("");
+    h += `<div class="day"><h2>${esc(a)}</h2><span>${esc(b)}</span></div>` + current.filter((c) => c.day === d).map(ticketHtml).join("");
   }
   if (gone) h += `<p class="hint" style="margin:14px 4px 24px">${gone} ticket${gone > 1 ? "s" : ""} retiré${gone > 1 ? "s" : ""} car un match a commencé : tes tickets joués sont dans « En cours », les résultats dans le Bilan.</p>`;
   el.innerHTML = h;
   freshStamp = null;
 }
-setInterval(() => { if (!document.hidden) renderCombos(); }, 60e3);
+setInterval(() => { if (!document.hidden && !document.activeElement?.matches?.("#balance")) renderCombos(); }, 60e3);
+function balLabel(w) {
+  return w <= 0.15 ? "surtout le prix" : w < 0.45 ? "plutôt le prix" : w <= 0.55 ? "équilibre" : w < 0.85 ? "plutôt la chance" : "surtout la chance";
+}
+// la balance se règle en direct : les tickets se reclassent pendant que tu bouges le curseur
+document.addEventListener("input", (e) => {
+  if (e.target.id !== "balance") return;
+  const w = +e.target.value / 100;
+  LS.set("pf_balance", w);
+  document.getElementById("bal-label").textContent = balLabel(w);
+  clearTimeout(window.__balT);
+  window.__balT = setTimeout(() => {
+    const y = window.scrollY;
+    renderCombos(); renderComposer();
+    const r = document.getElementById("balance"); if (r) r.focus({ preventScroll: true });
+    window.scrollTo(0, y);
+  }, 120);
+});
 
 /* --------------------------------------------------------------- matchs */
 function renderMatchs() {

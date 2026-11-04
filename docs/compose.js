@@ -84,7 +84,7 @@ document.addEventListener("click", async (e) => {
 // pour qu'il ne t'envoie que les résultats de TES tickets
 async function publishPlayed(action, id, b) {
   const msg = { action, id };
-  if (action === "add") { msg.mise = b.mise; msg.odds = b.odds; if (b.snap?.kind === "perso") msg.snap = b.snap; }
+  if (action === "add") { msg.mise = b.mise; msg.odds = b.odds; if (b.snap?.kind === "perso" || b.snap?.alt) msg.snap = b.snap; }
   try {
     const r = await fetch(`https://ntfy.sh/${NTFY_TOPIC}-joues`, { method: "POST", body: JSON.stringify(msg) });
     if (!r.ok) return false;

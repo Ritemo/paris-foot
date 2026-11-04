@@ -527,3 +527,20 @@ body { overscroll-behavior-y: contain; }
 .brief-item.cle { background: color-mix(in srgb, var(--jaune) 22%, transparent); border-radius: 14px; padding: 12px; margin: 2px -4px 0; }
 .brief-item.cle i { background: var(--jaune); color: #14261c; } .brief-item.cle i::before { content: "€"; }
 .brief-item.cle p { color: var(--encre); }
+
+/* ---------- balance prix / chance */
+.balance { margin-top: 16px; padding: 14px 16px 12px; }
+.bal-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.bal-head b { font-family: var(--display); font-size: 16px; }
+.bal-head span { font-weight: 800; color: var(--pelouse-2); font-size: 14px; }
+.balance input[type=range] { width: 100%; margin: 12px 0 4px; accent-color: var(--pelouse-2); height: 28px; }
+.bal-ends { display: flex; justify-content: space-between; font-size: 12px; color: var(--sous); }
+@media (prefers-color-scheme: dark) { .bal-head span { color: #7fd9a6; } .balance input[type=range] { accent-color: #7fd9a6; } }
+.mix { display: flex; gap: 14px; margin-top: 10px; font-size: 12px; font-weight: 700; opacity: .9; }
+.mix span { display: flex; align-items: center; gap: 6px; }
+.mix i { width: 54px; height: 6px; border-radius: 3px; background: rgba(255,255,255,.22); position: relative; overflow: hidden; }
+.mix i::after { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--v); background: var(--jaune); border-radius: 3px; transition: width .4s; }
+.alt-tag { margin-left: auto; font-style: normal; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 999px; background: rgba(255,255,255,.16); }
+.exp-loss { display: block; font-size: 11px; color: var(--sous); margin-top: 2px; }
+.board .mix { grid-column: 1 / -1; grid-row: 4; }
+

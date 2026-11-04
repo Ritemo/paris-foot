@@ -141,7 +141,8 @@ function ticketHtml(c) {
   const folie = c.kind === "folie";
   const head = folie
     ? `<span class="kind">Folie du jour, ${c.legs.length} matchs</span><span class="fun">pour le fun</span>`
-    : c.kind === "perso" ? `<span class="kind">Mon combiné de ${c.legs.length}</span><span class="fun perso">composé par toi</span>`
+    : c.kind === "perso" ? `<span class="kind">Mon combiné de ${c.legs.length}, composé par toi</span>
+      <span class="stars" aria-label="${k.stars} étoile${k.stars > 1 ? "s" : ""} sur 3">${[1, 2, 3].map((n) => `<i class="${n <= k.stars ? "on" : ""}"></i>`).join("")}</span>`
     : `<span class="kind">Combiné ${c.kind === "x3" ? "de 3" : "de 2"}</span>
       <span class="stars" aria-label="${k.stars} étoile${k.stars > 1 ? "s" : ""} sur 3">${[1, 2, 3].map((n) => `<i class="${n <= k.stars ? "on" : ""}"></i>`).join("")}</span>`;
   return `<article class="ticket ${c.status} ${folie ? "folie" : ""} ${c.kind === "perso" ? "perso" : ""}">

@@ -157,6 +157,7 @@ async def main():
         await pg.click('[data-pick="m5"][data-market="1"]')
         await pg.click('[data-pick="m6"][data-market="+2.5"]')
         check(await pg.is_visible("#composer"), "le bandeau Mon combiné apparaît")
+        check(await pg.locator("#composer .stars i").count() == 3, "le combiné composé est noté en étoiles")
         await pg.click('[data-compose="play"]')
         await pg.click('#dlg button[value="ok"]')
         await pg.wait_for_timeout(500)

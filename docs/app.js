@@ -238,9 +238,13 @@ function renderCombos() {
   const current = days.flatMap((d) => [...dayPicks(d), ...all.filter((c) => c.day === d && c.kind === "folie" && playable(c))]);
   const gone = all.filter((c) => !playable(c)).length;
   const w = balance();
-  let h = `<div class="balance panel no-swipe"><div class="bal-head"><b>Ce qui compte pour toi</b><span id="bal-label">${balLabel(w)}</span></div>
-    <input id="balance" type="range" min="0" max="100" step="10" value="${Math.round(w * 100)}" aria-label="Balance entre le prix et la chance de passer">
-    <div class="bal-ends"><span>Le meilleur prix</span><span>La plus grande chance</span></div></div>`;
+  // le curseur reste en place (et en haut de l'écran) : seule la liste des tickets est redessinée
+  if (!document.getElementById("balance")) {
+    el.innerHTML = `<div class="balance panel no-swipe"><div class="bal-head"><b>Ce qui compte pour toi</b><span id="bal-label">${balLabel(w)}</span></div>
+      <input id="balance" type="range" min="0" max="100" step="10" value="${Math.round(w * 100)}" aria-label="Balance entre le prix et la chance de passer">
+      <div class="bal-ends"><span>Le meilleur prix</span><span>La plus grande chance</span></div></div><div id="combos-list"></div>`;
+  }
+  let h = "";
   if (!current.length) h += `<div class="empty">${EMPTY_BALL}<b>Plus de ticket jouable pour l'instant</b>
     <p>Les tickets disparaissent dès qu'un de leurs matchs commence. Les suivants arrivent vers 8h et 17h les jours de match.</p></div>`;
   for (const d of [...new Set(current.map((c) => c.day))].sort()) {
@@ -248,10 +252,10 @@ function renderCombos() {
     h += `<div class="day"><h2>${esc(a)}</h2><span>${esc(b)}</span></div>` + current.filter((c) => c.day === d).map(ticketHtml).join("");
   }
   if (gone) h += `<p class="hint" style="margin:14px 4px 24px">${gone} ticket${gone > 1 ? "s" : ""} retiré${gone > 1 ? "s" : ""} car un match a commencé : tes tickets joués sont dans « En cours », les résultats dans le Bilan.</p>`;
-  el.innerHTML = h;
+  document.getElementById("combos-list").innerHTML = h;
   freshStamp = null;
 }
-setInterval(() => { if (!document.hidden && !document.activeElement?.matches?.("#balance")) renderCombos(); }, 60e3);
+setInterval(() => { if (!document.hidden) renderCombos(); }, 60e3);
 function balLabel(w) {
   return w <= 0.15 ? "surtout le prix" : w < 0.45 ? "plutôt le prix" : w <= 0.55 ? "équilibre" : w < 0.85 ? "plutôt la chance" : "surtout la chance";
 }
@@ -262,12 +266,7 @@ document.addEventListener("input", (e) => {
   LS.set("pf_balance", w);
   document.getElementById("bal-label").textContent = balLabel(w);
   clearTimeout(window.__balT);
-  window.__balT = setTimeout(() => {
-    const y = window.scrollY;
-    renderCombos(); renderComposer();
-    const r = document.getElementById("balance"); if (r) r.focus({ preventScroll: true });
-    window.scrollTo(0, y);
-  }, 120);
+  window.__balT = setTimeout(() => { renderCombos(); renderComposer(); }, 80);
 });
 
 /* --------------------------------------------------------------- matchs */

@@ -544,3 +544,7 @@ body { overscroll-behavior-y: contain; }
 .exp-loss { display: block; font-size: 11px; color: var(--sous); margin-top: 2px; }
 .board .mix { grid-column: 1 / -1; grid-row: 4; }
 
+/* curseur de balance toujours visible en haut de l'ecran */
+.balance { position: sticky; top: 8px; z-index: 6; margin-top: 12px; padding: 10px 14px 8px; box-shadow: 0 10px 24px -12px rgba(0,0,0,.35); }
+.balance input[type=range] { margin: 6px 0 2px; height: 24px; }
+.balance .bal-ends { font-size: 11px; }

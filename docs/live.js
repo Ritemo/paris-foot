@@ -24,7 +24,7 @@ function liveLegs() {
   const out = [];
   for (const id of Object.keys(bets())) {
     const c = findCombo(id);
-    if (c && c.status === "en attente") for (const l of c.legs) if (l.won === undefined) out.push({ ...l, played: true });
+    if (c) for (const l of c.legs) if (l.won === undefined) out.push({ ...l, played: true });   // même si le ticket est déjà perdu
   }
   return out;
 }
@@ -80,7 +80,7 @@ function settlePerso() {
   let changed = false;
   for (const [id, b] of Object.entries(all)) {
     const c = b.snap;
-    if (!c || c.status !== "en attente") continue;
+    if (!c || c.legs.every((l) => l.won !== undefined)) continue;
     // reprendre les résultats déjà posés par le robot
     const rc = (today?.combos || []).find((x) => x.id === id) || (hist?.combos || []).find((x) => x.id === id);
     for (const l of c.legs) {

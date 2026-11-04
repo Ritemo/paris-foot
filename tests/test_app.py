@@ -67,6 +67,8 @@ def fixtures():
                   d=day(NOW - timedelta(days=2 + i // 2)))
         for l in c["legs"]:
             l["won"] = st == "gagne"; l["score"] = "2-1"
+        if st == "perdu":
+            c["legs"][0]["won"] = True   # perdu à cause du 2e match seulement
         old.append(c)
     hist = {"combos": [futur, passe, folie] + old, "bilan": {"n": 4, "gagnes": 2, "reussite_reelle": 0.5, "reussite_annoncee": 0.3,
                                                               "bilan_2eur": 1.0, "mise_2eur": 8, "bilan_mise_suggeree": 1.0, "mise_suggeree_totale": 8}}
@@ -228,6 +230,13 @@ async def main():
         await pg.click('#tab-matchs .chip[data-league=""]')
         await pg.evaluate("showTab('bilan')")
         check(await pg.locator('.tabs button.active[data-tab="bilan"]').count() == 1, "changement d'onglet par code (glisser)")
+        print("Tickets terminés match par match")
+        await pg.evaluate("const b = bets(); b['old1'] = {mise: 2, odds: 2, date: 'x', ts: 1, snap: findCombo('old1')}; LS.set('pf_bets', b); renderAll()")
+        await pg.click('.tabs button[data-tab="bilan"]')
+        hl = pg.locator("#tab-bilan .hist-legs")
+        check(await hl.locator("li.w").count() >= 1 and await hl.locator("li.l").count() >= 1, "ticket perdu : chaque match avec bon ou mauvais")
+        check("2-1" in await pg.inner_text("#tab-bilan .hist-legs li.l >> nth=0"), "score de chaque match affiché")
+        await pg.evaluate("const b = bets(); delete b['old1']; LS.set('pf_bets', b); renderAll()")
         print("Animations")
         await pg.evaluate("window.__noCelebrate = false; LS.set('pf_celebrated', [])")
         await pg.evaluate("document.querySelectorAll('.celebrate').forEach(e => e.remove()); renderAll()")

@@ -175,7 +175,7 @@ function legHtml(c, l, i) {
   const res = l.won === true ? `<span class="tag win">✓ ${esc(l.score)}</span>` : l.won === false ? `<span class="tag loss">✗ ${esc(l.score)}</span>` : "";
   return `<div class="leg">
     <div class="pick"><b>${esc(l.label)}</b><span class="vs"><span class="vt">${crest(l.home, "mini")}${esc(l.home)}</span><i>contre</i><span class="vt">${crest(l.away, "mini")}${esc(l.away)}</span></span>
-      <div class="meta"><span class="tag">${esc(l.league)}</span><span class="tag">${when(l.kickoff)}</span><span class="tag">${pct(l.p)}</span>${res}</div>${bets()[c.id] && c.status === "en attente" ? liveLegHtml(l) : ""}</div>
+      <div class="meta"><span class="tag">${esc(l.league)}</span><span class="tag">${when(l.kickoff)}</span><span class="tag">${pct(l.p)}</span>${res}</div>${bets()[c.id] && l.won === undefined ? liveLegHtml(l) : ""}</div>
     <button class="odd ${esc(l.src)} ${ov ? "edited" : ""}" data-combo="${esc(c.id)}" data-leg="${i}" aria-label="Corriger la cote">
       ${fmt(ov || l.odds)}<small>${ov ? "ta cote" : esc(SRC[l.src] || l.src)}</small></button>
   </div>`;
@@ -488,7 +488,8 @@ function bilanMine() {
     h += `<h2 class="section-title">Mes tickets terminés</h2><div class="panel">` + done.sort((a, b) => b.c.day.localeCompare(a.c.day)).map((x) => {
       const g = x.c.status === "gagne" ? x.mise * (x.odds - 1) : -x.mise;
       return `<div class="hist"><span class="dot ${x.c.status}">${x.c.status === "gagne" ? "✓" : "✗"}</span>
-        <div>${x.c.legs.map((l) => esc(l.label)).join(" + ")}<small>${esc(longDate(x.c.day))}, ${fmt(x.mise, 0)} € misés à ${fmt(x.odds)}${x.c.status === "gagne" ? `, ${fmt(x.mise * x.odds)} € récupérés` : ""}</small></div>
+        <div><ul class="hist-legs">${x.c.legs.map((l) => `<li class="${l.won === true ? "w" : l.won === false ? "l" : "u"}"><i aria-hidden="true">${l.won === true ? "✓" : l.won === false ? "✗" : "…"}</i>
+          <span>${esc(l.label)}<small>${esc(l.home)} ${l.score ? `<b>${esc(l.score)}</b>` : "contre"} ${esc(l.away)}${l.won === undefined ? " · pas encore joué" : ""}</small></span></li>`).join("")}</ul><small>${esc(longDate(x.c.day))}, ${fmt(x.mise, 0)} € misés à ${fmt(x.odds)}${x.c.status === "gagne" ? `, ${fmt(x.mise * x.odds)} € récupérés` : ""}</small></div>
         <span class="o ${g >= 0 ? "pos" : "neg"}">${eur(g)}</span></div>`;
     }).join("") + `</div>`;
   }

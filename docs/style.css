@@ -548,3 +548,13 @@ body { overscroll-behavior-y: contain; }
 .balance { position: sticky; top: 8px; z-index: 6; margin-top: 12px; padding: 10px 14px 8px; box-shadow: 0 10px 24px -12px rgba(0,0,0,.35); }
 .balance input[type=range] { margin: 6px 0 2px; height: 24px; }
 .balance .bal-ends { font-size: 11px; }
+/* tickets terminés : le résultat de chaque match */
+.hist-legs { list-style: none; margin: 0 0 4px; padding: 0; display: grid; gap: 6px; }
+.hist-legs li { display: grid; grid-template-columns: 20px 1fr; gap: 6px; align-items: start; }
+.hist-legs i { width: 18px; height: 18px; border-radius: 50%; display: grid; place-items: center; font: 800 11px var(--display); font-style: normal; color: #fff; margin-top: 1px; }
+.hist-legs li.w i { background: var(--vert); } .hist-legs li.l i { background: var(--rouge); } .hist-legs li.u i { background: var(--trait); color: var(--sous); }
+.hist-legs span { font-weight: 700; } .hist-legs span small { display: block; font-weight: 400; color: var(--sous); margin-top: 1px; }
+.hist-legs b { color: var(--encre); }
+.hist-legs li.l span { text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--rouge) 60%, transparent); }
+.hist-legs li.l span small { text-decoration: none; }
+.hist .dot { align-self: start; margin-top: 2px; } .hist .o { align-self: start; }

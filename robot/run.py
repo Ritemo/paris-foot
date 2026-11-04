@@ -453,7 +453,7 @@ def espn_scores(history):
     """Scores finaux ESPN pour les selections terminees encore sans resultat : {(match_id): (buts dom, buts ext)}."""
     pending = []
     for c in history["combos"]:
-        if c["status"] != "en attente":
+        if all("won" in l for l in c["legs"]):  # un ticket perdu garde ses autres matchs a regler, pour l'affichage
             continue
         for l in c["legs"]:
             k = datetime.fromisoformat(l["kickoff"].replace("Z", "+00:00"))
@@ -549,7 +549,7 @@ def sync_played(meta):
 def settle_perso(meta):
     """Combines composes par toi : le robot les regle aussi, pour te prevenir."""
     played = meta.get("played", {})
-    persos = [v["snap"] for v in played.values() if v.get("snap") and v["snap"].get("status") == "en attente"]
+    persos = [v["snap"] for v in played.values() if v.get("snap") and not all("won" in l for l in v["snap"]["legs"])]
     if not persos:
         return False
     h = {"combos": persos}
@@ -631,7 +631,7 @@ def find_score_fd(fd, l):
 def settle(history, fd, api_scores, espn=None):
     espn = espn or {}
     for c in history["combos"]:
-        if c["status"] not in ("en attente",):
+        if all("won" in l for l in c["legs"]):
             continue
         for l in c["legs"]:
             if "won" in l:
@@ -646,7 +646,7 @@ def settle(history, fd, api_scores, espn=None):
             c["status"] = "perdu"
         elif all(l.get("won") for l in c["legs"]):
             c["status"] = "gagne"
-        if c["status"] != "en attente":
+        if c["status"] != "en attente" and not c.get("settled_at"):
             c["settled_at"] = NOW.isoformat()
 
 

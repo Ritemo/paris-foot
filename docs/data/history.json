@@ -448,7 +448,9 @@
      "odds": 1.36,
      "src": "unibet",
      "p": 0.6466,
-     "ev": -0.1206
+     "ev": -0.1206,
+     "score": "4-1",
+     "won": true
     },
     {
      "match_id": "013cecbf40f5b4530342632a80f35b00",
@@ -464,7 +466,9 @@
      "odds": 1.5,
      "src": "pmu",
      "p": 0.5948,
-     "ev": -0.1078
+     "ev": -0.1078,
+     "score": "1-9",
+     "won": false
     }
    ],
    "odds": 2.04,
@@ -472,9 +476,10 @@
    "cost": 0.2154,
    "stars": 1,
    "stake": 3,
-   "status": "en attente",
+   "status": "perdu",
    "proposed_at": "2026-11-03T06:31:04.736374+00:00",
-   "replaced": true
+   "replaced": true,
+   "settled_at": "2026-11-04T22:01:07.430989+00:00"
   },
   {
    "id": "2026-11-04|6d386ed81fabf67aa19fbd442c0d8c60:-3.5|a5910ae3b314876faea7f5c03b8aeaad:-3.5",
@@ -495,7 +500,9 @@
      "odds": 1.5,
      "src": "pmu",
      "p": 0.5914,
-     "ev": -0.1129
+     "ev": -0.1129,
+     "score": "1-2",
+     "won": true
     },
     {
      "match_id": "6d386ed81fabf67aa19fbd442c0d8c60",
@@ -511,7 +518,9 @@
      "odds": 1.56,
      "src": "pmu",
      "p": 0.5712,
-     "ev": -0.1089
+     "ev": -0.1089,
+     "score": "2-1",
+     "won": true
     }
    ],
    "odds": 2.34,
@@ -519,9 +528,10 @@
    "cost": 0.2095,
    "stars": 1,
    "stake": 2,
-   "status": "en attente",
+   "status": "gagne",
    "proposed_at": "2026-11-03T06:31:04.736374+00:00",
-   "replaced": true
+   "replaced": true,
+   "settled_at": "2026-11-04T22:01:07.430989+00:00"
   },
   {
    "id": "2026-11-04|6277e639c064e641265fcb98a0e200b9:1|f43ef699c987e112e115f7035114854e:H2",
@@ -591,7 +601,9 @@
      "odds": 1.53,
      "src": "pmu",
      "p": 0.5846,
-     "ev": -0.1056
+     "ev": -0.1056,
+     "score": "1-2",
+     "won": true
     },
     {
      "match_id": "6d386ed81fabf67aa19fbd442c0d8c60",
@@ -607,7 +619,9 @@
      "odds": 1.55,
      "src": "pmu",
      "p": 0.5755,
-     "ev": -0.108
+     "ev": -0.108,
+     "score": "2-1",
+     "won": true
     }
    ],
    "odds": 2.37,
@@ -615,8 +629,9 @@
    "cost": 0.2022,
    "stars": 1,
    "stake": 2,
-   "status": "en attente",
-   "proposed_at": "2026-11-04T06:31:00.690421+00:00"
+   "status": "gagne",
+   "proposed_at": "2026-11-04T06:31:00.690421+00:00",
+   "settled_at": "2026-11-04T22:01:07.430989+00:00"
   },
   {
    "id": "2026-11-04|013cecbf40f5b4530342632a80f35b00:+3.5|449d718632202f0e5997d2e4b7273483:+3.5|a5910ae3b314876faea7f5c03b8aeaad:+3.5|df7d2d81b9e2f3f11c6aeddaee6b7085:-3.5",
@@ -637,7 +652,9 @@
      "odds": 2.2,
      "src": "pmu",
      "p": 0.4052,
-     "ev": -0.1086
+     "ev": -0.1086,
+     "score": "1-9",
+     "won": true
     },
     {
      "match_id": "a5910ae3b314876faea7f5c03b8aeaad",
@@ -653,7 +670,9 @@
      "odds": 2.18,
      "src": "pmu",
      "p": 0.4086,
-     "ev": -0.1093
+     "ev": -0.1093,
+     "score": "1-2",
+     "won": false
     },
     {
      "match_id": "df7d2d81b9e2f3f11c6aeddaee6b7085",
@@ -669,7 +688,9 @@
      "odds": 1.83,
      "src": "pmu",
      "p": 0.4864,
-     "ev": -0.1099
+     "ev": -0.1099,
+     "score": "2-3",
+     "won": false
     },
     {
      "match_id": "449d718632202f0e5997d2e4b7273483",
@@ -685,7 +706,9 @@
      "odds": 1.74,
      "src": "pmu",
      "p": 0.5115,
-     "ev": -0.11
+     "ev": -0.11,
+     "score": "1-2",
+     "won": false
     }
    ],
    "odds": 15.27,
@@ -693,9 +716,10 @@
    "cost": 0.371,
    "stars": 0,
    "stake": 1,
-   "status": "en attente",
+   "status": "perdu",
    "proposed_at": "2026-11-03T06:31:04.736374+00:00",
-   "replaced": true
+   "replaced": true,
+   "settled_at": "2026-11-04T22:01:07.430989+00:00"
   },
   {
    "id": "2026-11-04|a5910ae3b314876faea7f5c03b8aeaad:+3.5|ba82ee37f64a66a30d85f8b90082ec2f:-2.5|df7d2d81b9e2f3f11c6aeddaee6b7085:-3.5|f43ef699c987e112e115f7035114854e:-3.5",
@@ -2998,13 +3022,13 @@
   }
  ],
  "bilan": {
-  "n": 15,
-  "gagnes": 3,
+  "n": 16,
+  "gagnes": 4,
   "x2": {
-   "n": 11,
-   "gagnes": 3,
-   "reussite_annoncee": 0.349,
-   "bilan": -7.51
+   "n": 12,
+   "gagnes": 4,
+   "reussite_annoncee": 0.348,
+   "bilan": -4.77
   },
   "x3": {
    "n": 4,
@@ -3018,12 +3042,12 @@
    "reussite_annoncee": 0.033,
    "bilan": -6
   },
-  "reussite_reelle": 0.2,
+  "reussite_reelle": 0.25,
   "reussite_annoncee": 0.326,
-  "bilan_2eur": -13.9,
-  "mise_2eur": 30,
-  "bilan_mise_suggeree": -13.51,
-  "mise_suggeree_totale": 32
+  "bilan_2eur": -11.16,
+  "mise_2eur": 32,
+  "bilan_mise_suggeree": -10.77,
+  "mise_suggeree_totale": 34
  },
- "updated": "2026-11-04T19:45:51.560735+00:00"
+ "updated": "2026-11-04T22:01:07.430989+00:00"
 }

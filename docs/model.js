@@ -96,11 +96,11 @@ function renderModele() {
   const p = m.params, c = m.counts, s = m.scores || {};
   const nCorr = Object.values(p.offsets || {}).filter((x) => Math.abs(x) >= 0.005).length;
   const early = (c.last_year || 0) < m.min_verdict;
-  let h = `<h2 class="section-title">Ce que le robot apprend</h2>
+  const lessons = `<h2 class="section-title">Ce que le robot apprend</h2>
     <div class="panel lessons"><ul>${(m.lessons || []).map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
     <p class="hint">Mis à jour ${when(m.updated)}. Le robot réapprend à chaque passage avec les cotes, sur tous les matchs terminés des cinq grands championnats et des coupes d'Europe, pas seulement sur tes tickets.</p></div>`;
 
-  h += `<div class="mkpis">
+  let h = `<h2 class="section-title">Les mesures</h2><div class="mkpis">
     ${mKpi("Matchs mesurés", fmt(c.last_year || 0, 0), `sur 12 mois${c.live ? `, dont ${c.live} en direct` : ""}`)}
     ${mKpi("Poids du modèle maison", Math.round(p.w_model * 100) + " %", `départ : ${Math.round(p.w_prior * 100)} %`)}
     ${mKpi("Corrections actives", nCorr + " sur 6", "types de pari")}
@@ -165,6 +165,7 @@ function renderModele() {
       `</tbody></table><p class="hint">Erreur moyenne, plus bas = mieux.</p></div>`;
   }
 
+  h += lessons;
   h += `<div class="panel legend"><h3>Comment il apprend</h3><dl>
     <dt>Sur quoi</dt><dd>Tous les matchs des championnats suivis${c.since ? `, depuis le ${new Date(c.since + "T12:00:00").toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}` : ""}. ${c.backtest ? `${fmt(c.backtest, 0)} matchs viennent d'un rejeu du passé avec les cotes moyennes des bookmakers, ` : ""}les suivants des vraies cotes du jour.</dd>
     <dt>Le mélange</dt><dd>Le poids du modèle maison est réajusté pour coller au mieux aux résultats, mais ramené vers ${Math.round(p.w_prior * 100)} % tant que les données sont peu nombreuses, et plafonné à 60 %.</dd>

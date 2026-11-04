@@ -137,6 +137,8 @@ async def main():
         check("c-futur" in ids and "c-folie" in ids, "les tickets jouables s'affichent")
         check("c-passe" not in ids, "un ticket dont un match a commencé est masqué")
 
+        check(await pg.locator("#tab-combos .rank").count() >= 1 and "du jour sur" in await pg.inner_text("#tab-combos"), "rang du jour affiché sur les tickets")
+        check("prix" in await pg.inner_text("#tab-combos .stars"), "étoiles avec leur libellé de prix")
         print("Jouer un ticket")
         await pg.click('#tab-combos [data-bet="c-futur"]')
         await pg.click('#dlg-steps button[data-v="3"]')

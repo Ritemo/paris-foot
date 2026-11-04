@@ -316,3 +316,16 @@ label.btn { display: inline-block; }
 .extras { display: block; }
 .extras .pick-btn { width: 100%; }
 .extras > .pick-btn + .pick-btn { margin-top: 6px; }
+
+/* ---------- note absolue + rang du jour */
+.board { grid-template-columns: 1fr auto; }
+.stars { flex-wrap: wrap; justify-content: flex-end; align-items: center; }
+.stars em { flex-basis: 100%; text-align: right; font-style: normal; font-size: 11px; font-weight: 700; color: rgba(255,255,255,.75); margin-top: 2px; }
+.rank { grid-column: 1; grid-row: 2; justify-self: start; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 20px;
+  background: rgba(255,255,255,.14); color: #fff; margin-top: 4px; }
+.rank.top { background: var(--jaune); color: #14261c; }
+.board .score { grid-row: 3; }
+.comp-notes { margin-left: 6px; display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.comp-notes .stars { position: static; flex-wrap: nowrap; } .comp-notes .stars i { width: 14px; height: 14px; }
+.comp-notes .stars em { flex-basis: auto; margin: 0 0 0 4px; } .comp-notes .rank { margin: 0; }
+.comp-head { flex-wrap: wrap; row-gap: 4px; } .comp-notes { order: 3; flex-basis: 100%; margin-left: 0; } .comp-notes .rank { white-space: nowrap; }

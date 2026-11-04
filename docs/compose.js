@@ -41,7 +41,7 @@ function renderComposer() {
   if (!bar) { bar = document.createElement("div"); bar.id = "composer"; document.body.appendChild(bar); }
   const k = combo(c);
   bar.innerHTML = `<div class="comp-head"><b>Mon combiné</b><span>${c.legs.length} sélection${c.legs.length > 1 ? "s" : ""}</span>
-      <span class="stars comp-stars" aria-label="${k.stars} étoile${k.stars > 1 ? "s" : ""} sur 3">${[1, 2, 3].map((n) => `<i class="${n <= k.stars ? "on" : ""}"></i>`).join("")}</span>
+      <span class="comp-notes">${starsHtml(k.stars)}${(() => { const r = dayRank(c, true); return r ? rankHtml(r, "ferait ") : ""; })()}</span>
       <button class="comp-clear" data-compose="clear">Vider</button></div>
     <div class="comp-stats"><div><b>${fmt(k.odds)}</b><small>cote</small></div><div><b>${c.p < 0.1 ? fmt(c.p * 100, 1) + " %" : pct(c.p)}</b><small>de chance</small></div>
       <div class="${k.cost <= 0.12 ? "cost-low" : k.cost > 0.18 ? "cost-high" : ""}"><b>${Math.round(k.cost * 100)} %</b><small>de coût</small></div>

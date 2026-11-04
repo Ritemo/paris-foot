@@ -117,6 +117,23 @@ function findCombo(id) {
   return c || snap;
 }
 
+/* deux notes : étoiles = qualité du prix dans l'absolu ; rang = place parmi les tickets du même jour */
+const PRICE = { 3: "très bon prix", 2: "bon prix", 1: "prix normal" };
+function starsHtml(n) {
+  return `<span class="stars" aria-label="${n} étoile${n > 1 ? "s" : ""} sur 3, ${PRICE[n]}">${[1, 2, 3].map((i) => `<i class="${i <= n ? "on" : ""}"></i>`).join("")}<em>${PRICE[n]}</em></span>`;
+}
+const ticketScore = (c) => { const k = combo(c); return -k.cost + 0.3 * c.p; };   // même critère que le robot
+function dayRank(c, extra = false) {
+  const pool = (today?.combos || []).filter((x) => x.day === c.day && x.kind !== "folie" && !x.replaced);
+  if (extra || !pool.some((x) => x.id === c.id)) pool.push(c);
+  if (pool.length < 2) return null;
+  const sc = ticketScore(c);
+  return { rank: 1 + pool.filter((x) => x.id !== c.id && ticketScore(x) > sc).length, of: pool.length };
+}
+function rankHtml(r, verb = "") {
+  return `<span class="rank ${r.rank === 1 ? "top" : ""}">${verb}${r.rank === 1 ? "1er" : r.rank + "e"} du jour sur ${r.of}</span>`;
+}
+
 /* --------------------------------------------------------------- tickets */
 function legHtml(c, l, i) {
   const ov = (overrides()[c.id] || {})[i];
@@ -142,12 +159,11 @@ function ticketHtml(c) {
   else if (c.status === "en attente") action = `<button class="btn" data-bet="${esc(c.id)}">Je le joue</button>`;
   else action = "";
   const folie = c.kind === "folie";
+  const rk = folie ? null : dayRank(c);
   const head = folie
     ? `<span class="kind">Folie du jour, ${c.legs.length} matchs</span><span class="fun">pour le fun</span>`
-    : c.kind === "perso" ? `<span class="kind">Mon combiné de ${c.legs.length}, composé par toi</span>
-      <span class="stars" aria-label="${k.stars} étoile${k.stars > 1 ? "s" : ""} sur 3">${[1, 2, 3].map((n) => `<i class="${n <= k.stars ? "on" : ""}"></i>`).join("")}</span>`
-    : `<span class="kind">Combiné ${c.kind === "x3" ? "de 3" : "de 2"}</span>
-      <span class="stars" aria-label="${k.stars} étoile${k.stars > 1 ? "s" : ""} sur 3">${[1, 2, 3].map((n) => `<i class="${n <= k.stars ? "on" : ""}"></i>`).join("")}</span>`;
+    : `<span class="kind">${c.kind === "perso" ? `Mon combiné de ${c.legs.length}` : `Combiné ${c.kind === "x3" ? "de 3" : "de 2"}`}</span>
+      ${starsHtml(k.stars)}${rk ? rankHtml(rk) : ""}`;
   return `<article class="ticket ${c.status} ${folie ? "folie" : ""} ${c.kind === "perso" ? "perso" : ""}">
     <div class="board">
       ${head}

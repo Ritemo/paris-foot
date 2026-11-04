@@ -9,8 +9,10 @@ function verdictChip(z) {
   return `<span class="vchip net" title="${fr1(z, 2)} écarts-types">■ Écart net</span>`;
 }
 
-function mKpi(label, value, sub) {
-  return `<div class="mkpi"><small>${label}</small><b>${value}</b><span>${sub}</span></div>`;
+/* petit bouton « i » qui ouvre une explication */
+const info = (text, label = "") => `<button type="button" class="info" data-info="${esc(text)}" aria-label="Explication${label ? " : " + esc(label) : ""}">i</button>`;
+function mKpi(label, value, sub, help) {
+  return `<div class="mkpi"><small>${label}${help ? info(help, label) : ""}</small><b>${value}</b><span>${sub}</span></div>`;
 }
 
 /* diagramme de calibration : annoncé (x) contre réel (y), la diagonale = parfait */
@@ -101,17 +103,21 @@ function renderModele() {
     <p class="hint">Mis à jour ${when(m.updated)}. Le robot réapprend à chaque passage avec les cotes, sur tous les matchs terminés des cinq grands championnats et des coupes d'Europe, pas seulement sur tes tickets.</p></div>`;
 
   let h = `<h2 class="section-title">Les mesures</h2><div class="mkpis">
-    ${mKpi("Matchs mesurés", fmt(c.last_year || 0, 0), `sur 12 mois${c.live ? `, dont ${c.live} en direct` : ""}`)}
-    ${mKpi("Poids du modèle maison", Math.round(p.w_model * 100) + " %", `départ : ${Math.round(p.w_prior * 100)} %`)}
-    ${mKpi("Corrections actives", nCorr + " sur 6", "types de pari")}
-    ${mKpi("En attente de score", fmt(c.pending || 0, 0), "matchs suivis")}
+    ${mKpi("Matchs mesurés", fmt(c.last_year || 0, 0), `sur 12 mois${c.live ? `, dont ${c.live} en direct` : ""}`,
+      `Le nombre de matchs terminés des 12 derniers mois sur lesquels le robot a comparé ses pourcentages au vrai résultat. C'est sa matière pour apprendre : plus il y en a, plus ses conclusions sont solides. Les matchs « en direct » sont ceux suivis avec les cotes réelles du jour ; les autres viennent d'un rejeu du passé avec les cotes moyennes des bookmakers.`)}
+    ${mKpi("Poids du modèle maison", Math.round(p.w_model * 100) + " %", `départ : ${Math.round(p.w_prior * 100)} %`,
+      `Les chances affichées mélangent deux avis : le modèle maison (calculé à partir des buts et des tirs récents des équipes) et les cotes des bookmakers, une fois leur marge retirée. À ${Math.round(p.w_model * 100)} %, le modèle maison compte pour ${Math.round(p.w_model * 100)} % et les cotes pour ${100 - Math.round(p.w_model * 100)} %. Le robot ajuste ce poids selon ce qui prédit le mieux les résultats : il était à ${Math.round(p.w_prior * 100)} % au départ${p.w_model < p.w_prior ? ", il a baissé parce que les cotes seules se sont montrées plus justes" : p.w_model > p.w_prior ? ", il a monté parce que le modèle maison apporte quelque chose aux cotes" : ""}. Il est plafonné à 60 %.`)}
+    ${mKpi("Corrections actives", nCorr + " sur " + Object.keys(p.offsets || {}).length, "types de pari",
+      `Le robot vérifie six types de pari (${(m.families || []).map((x) => x.name.toLowerCase()).join(", ")}). Si l'un est mal estimé, par exemple 28 % de nuls annoncés pour 25 % arrivés, il corrige ses pourcentages pour ce type. Il ne le fait que si l'écart dépasse nettement la marge du hasard, et avec un plafond. ${nCorr ? `${nCorr} type${nCorr > 1 ? "s sont" : " est"} corrigé${nCorr > 1 ? "s" : ""} en ce moment : le détail est dans « Par type de pari ».` : "0 veut dire que rien ne s'écarte assez pour justifier une correction : c'est plutôt bon signe."}`)}
+    ${mKpi("En attente de score", fmt(c.pending || 0, 0), "matchs suivis",
+      `Matchs dont le robot a déjà noté les cotes et ses pourcentages avant le coup d'envoi, mais dont le score n'est pas encore connu. Ils entreront dans l'apprentissage dès la fin du match. Noter avant le match garantit qu'il ne triche pas en connaissant le résultat.`)}
   </div>`;
 
   if (s.robot) {
     const rows = [["Modèle maison seul", s.modele], ["Bookmakers", s.marche], ["Robot (annoncé)", s.robot]].filter((r) => r[1]);
     const worst = Math.max(...rows.map((r) => r[1].brier)), best = Math.min(...rows.map((r) => r[1].brier));
     const pad = (worst - best) * 0.6 || 0.01;
-    h += `<h2 class="section-title">Qui voit le plus juste ?</h2><div class="panel">
+    h += `<h2 class="section-title">Qui voit le plus juste ? ${info("Le score de Brier mesure l'erreur d'une prévision. Pour chaque match, on compare les trois pourcentages annoncés (victoire, nul, défaite) à ce qui s'est passé : annoncer 70 % pour une victoire qui arrive coûte peu, annoncer 20 % pour elle coûte cher. On fait la moyenne sur tous les matchs. 0 serait parfait, 0,667 revient à répondre un tiers partout. Les bookmakers sont mesurés sur leurs cotes sans marge, le modèle maison seul sur ses calculs, et le robot sur le mélange des deux, celui que tu vois dans l'appli.", "score de Brier")}</h2><div class="panel">
       ${rows.map(([name, x]) => `<div class="brow ${name.startsWith("Robot") ? "me" : ""}"><span>${name}</span>
         <div class="bar"><i style="width:${Math.max(6, 100 * (1 - (worst + pad - x.brier) / (worst + pad - (best - pad))))}%"></i></div>
         <b>${fr1(x.brier, 3)}</b></div>`).join("")}
@@ -122,13 +128,13 @@ function renderModele() {
   }
 
   if (m.calibration?.length) {
-    h += `<h2 class="section-title">Ses pourcentages sont-ils honnêtes ?</h2><div class="panel">
+    h += `<h2 class="section-title">Ses pourcentages sont-ils honnêtes ? ${info("La calibration : on regroupe tous les cas où le robot annonçait à peu près la même chance, puis on compte combien sont vraiment arrivés. Un robot bien calibré a ses points sur la diagonale. Au-dessus, il était trop prudent ; en dessous, trop optimiste. C'est ce qui permet de faire confiance au pourcentage « chance » de tes tickets.", "calibration")}</h2><div class="panel">
       ${calibChart(m.calibration)}
       <p class="hint">Chaque point regroupe les annonces d'une même tranche (victoire, nul, plus de 2,5 buts). Sur la diagonale, le robot dit vrai : quand il annonce 40 %, ça arrive 4 fois sur 10. Plus le point est gros, plus il y a de cas.</p></div>`;
   }
 
   if (m.families?.length) {
-    h += `<h2 class="section-title">Par type de pari</h2><div class="panel">` + m.families.map((f) => {
+    h += `<h2 class="section-title">Par type de pari ${info("Pour chaque type de pari, la chance moyenne annoncée est comparée à la fréquence réelle. Les pastilles disent si l'écart compte : « Dans la marge du hasard » (moins de 2 écarts-types) se produit tout le temps par simple chance ; « À surveiller » (entre 2 et 3) est inhabituel ; « Écart net » (plus de 3) ne s'explique presque jamais par la chance. Seuls ces deux derniers cas peuvent déclencher une correction.", "écarts et corrections")}</h2><div class="panel">` + m.families.map((f) => {
       const corr = Math.abs(f.offset) >= 0.005 ? `<span class="corr">Corrigé ${f.offset < 0 ? "à la baisse" : "à la hausse"}</span>` : `<span class="corr off">Pas de correction</span>`;
       return `<div class="mstat"><div class="mstat-head"><b>${esc(f.name)}</b>${verdictChip(f.z)}</div>${compare(f.annonce, f.reel)}${corr}</div>`;
     }).join("") + `<p class="hint">Annoncée = moyenne des probabilités du robot, réelle = ce qui s'est passé, sur ${fmt(c.last_year || 0, 0)} matchs. Le robot ne corrige un type de pari que si l'écart sort nettement de la marge du hasard (plus de 2 écarts-types), et toujours avec prudence : de quoi éviter de courir après une mauvaise série.</p></div>`;
@@ -139,7 +145,7 @@ function renderModele() {
     const block = (name, x) => x ? `<div class="mstat"><div class="mstat-head"><b>${name}</b>${verdictChip(x.z)}</div>
       <p class="trap"><b>${x.observes}</b> gagnés sur ${x.n}, pour <b>${fr1(x.attendus)}</b> attendus.
       ${x.marge ? `Tant que l'écart reste sous <b>${fr1(x.marge)}</b>, c'est la chance du moment, pas un défaut du robot.` : ""}</p>${compare(x.annonce, x.reel)}</div>` : "";
-    h += `<h2 class="section-title">Le piège des petites séries</h2><div class="panel">
+    h += `<h2 class="section-title">Le piège des petites séries ${info("Avec peu de tickets, le hasard pèse lourd. Si 20 tickets ont chacun 35 % de chance, on en attend 7 gagnés, mais en gagner 4 ou 10 reste tout à fait normal. La marge indiquée est l'écart que le hasard seul produit couramment.", "petites séries")}</h2><div class="panel">
       ${block("Tickets proposés", t.tickets)}${block("Sélections de ces tickets", t.selections)}
       <p class="hint">Sur quelques dizaines de tickets, 3 ou 4 gagnés de plus ou de moins arrivent tout le temps. C'est pour cela que le robot apprend sur les centaines de matchs du journal, et que ton flair reste le bienvenu pour écarter ce qu'il ne voit pas : blessures, enjeu, météo, rotation.</p></div>`;
   }
@@ -160,7 +166,7 @@ function renderModele() {
   }
 
   if (m.leagues?.length) {
-    h += `<h2 class="section-title">Par championnat</h2><div class="panel"><table class="months"><thead><tr><th>Championnat</th><th>Robot</th><th>Bookm.</th></tr></thead><tbody>` +
+    h += `<h2 class="section-title">Par championnat ${info("Le même score de Brier, championnat par championnat, pour le robot et pour les bookmakers. En vert, les championnats où le robot a été plus juste. Les écarts sont minuscules : quelques millièmes ne suffisent pas à battre la marge des bookmakers.", "par championnat")}</h2><div class="panel"><table class="months"><thead><tr><th>Championnat</th><th>Robot</th><th>Bookm.</th></tr></thead><tbody>` +
       m.leagues.map((x) => `<tr><td>${esc(x.name)}<small>${x.n} matchs</small></td><td class="${x.robot < x.marche - 0.0005 ? "pos" : ""}">${fr1(x.robot, 3)}</td><td>${fr1(x.marche, 3)}</td></tr>`).join("") +
       `</tbody></table><p class="hint">Erreur moyenne, plus bas = mieux.</p></div>`;
   }
@@ -187,4 +193,24 @@ document.addEventListener("click", (e) => {
 document.addEventListener("mouseover", (e) => {
   const t = e.target.closest?.(".mchart [data-tip]");
   if (t) t.closest(".mchart").querySelector(".tip").textContent = t.dataset.tip;
+});
+
+/* bulle d'explication des boutons « i » */
+document.addEventListener("click", (e) => {
+  const b = e.target.closest(".info");
+  const old = document.querySelector(".info-pop");
+  if (old) { old.remove(); document.querySelectorAll(".info.on").forEach((x) => x.classList.remove("on")); if (old.dataset.for === b?.dataset.info) return; }
+  if (!b) return;
+  e.stopPropagation();
+  const pop = document.createElement("div");
+  pop.className = "info-pop"; pop.dataset.for = b.dataset.info; pop.setAttribute("role", "tooltip");
+  pop.textContent = b.dataset.info;
+  document.body.appendChild(pop); b.classList.add("on");
+  const r = b.getBoundingClientRect(), w = Math.min(320, window.innerWidth - 24);
+  pop.style.width = w + "px";
+  pop.style.left = Math.max(12, Math.min(r.left + r.width / 2 - w / 2, window.innerWidth - w - 12)) + "px";
+  const below = r.bottom + 8 + pop.offsetHeight < window.innerHeight - 90;
+  pop.style.top = (below ? r.bottom + 8 : r.top - 8 - pop.offsetHeight) + window.scrollY + "px";
+  pop.style.setProperty("--ax", (r.left + r.width / 2 - parseFloat(pop.style.left)) + "px");
+  pop.classList.add(below ? "below" : "above");
 });

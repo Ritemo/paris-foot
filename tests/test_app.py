@@ -257,6 +257,12 @@ async def main():
         check("Le piège des petites séries" in txt, "lecture des écarts sur les tickets")
         await pg.click("#tab-modele .mchart .hit >> nth=0")
         check("Annoncé" in await pg.inner_text("#tab-modele .mchart .tip >> nth=0"), "détail d'un point au toucher")
+        check(await pg.locator("#tab-modele .mkpi .info").count() == 4, "un bouton d'explication par métrique")
+        await pg.click("#tab-modele .mkpi .info >> nth=1")
+        check("mélangent" in await pg.inner_text(".info-pop"), "explication du poids du modèle maison")
+        if os.environ.get("SHOTS"): await pg.wait_for_timeout(400); await pg.screenshot(path=os.environ["SHOTS"] + "/info.png")
+        await pg.click("#tab-modele h2.section-title >> nth=0")
+        check(await pg.locator(".info-pop").count() == 0, "l'explication se ferme en touchant ailleurs")
         w = await pg.evaluate("document.documentElement.scrollWidth")
         check(w <= 390, f"pas de défilement horizontal ({w}px)")
 

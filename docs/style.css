@@ -502,3 +502,15 @@ body { overscroll-behavior-y: contain; }
 .mchart .gbar.up { fill: #13784c; } .mchart .gbar.down { fill: var(--sous); }
 .mchart .hit.on .gbar, .mchart .hit:hover .gbar { stroke: var(--encre); stroke-width: 1.5; }
 @media (prefers-color-scheme: dark) { .mchart .gbar.up { fill: #1faa59; } }
+
+/* ---------- explications « i » */
+.info { display: inline-grid; place-items: center; width: 18px; height: 18px; margin-left: 6px; vertical-align: 2px; border-radius: 50%; border: 0; padding: 0;
+  background: var(--ticket-2); color: var(--pelouse-2); font: 800 12px/1 Georgia, serif; font-style: italic; cursor: pointer; }
+.section-title .info { width: 22px; height: 22px; font-size: 14px; vertical-align: 3px; }
+.info.on, .info:hover { background: var(--pelouse-2); color: #fff; }
+
+.info-pop { position: absolute; z-index: 40; background: #14261c; color: #eef6f0; border-radius: 14px; padding: 12px 14px; font-size: 14px; line-height: 1.45;
+  box-shadow: 0 14px 34px -10px rgba(0,0,0,.5); animation: cardIn .2s ease-out; }
+.info-pop::after { content: ""; position: absolute; left: var(--ax); width: 12px; height: 12px; background: inherit; transform: translateX(-50%) rotate(45deg); }
+.info-pop.below::after { top: -5px; } .info-pop.above::after { bottom: -5px; }
+@media (prefers-color-scheme: dark) { .info-pop { background: #eef6f0; color: #14261c; } .info { color: #7fd9a6; } }

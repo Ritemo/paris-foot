@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-04T15:31:17.663469+00:00",
- "credits_remaining": 452,
+ "generated_at": "2026-11-04T17:51:01.679846+00:00",
+ "credits_remaining": 450,
  "combos": [
   {
    "id": "2026-11-04|6277e639c064e641265fcb98a0e200b9:1|f43ef699c987e112e115f7035114854e:H2",
@@ -237,138 +237,6 @@
  ],
  "matches": [
   {
-   "id": "f43ef699c987e112e115f7035114854e",
-   "league": "Ligue des champions",
-   "div": "CL",
-   "kickoff": "2026-11-04T17:45:00Z",
-   "day": "2026-11-04",
-   "home": "AEK Athens",
-   "away": "Real Madrid",
-   "fd_home": null,
-   "fd_away": null,
-   "lambdas": [
-    0.916,
-    3.03
-   ],
-   "model": false,
-   "sel": [
-    {
-     "market": "1",
-     "label": "Victoire AEK Athens",
-     "odds": 11.0,
-     "src": "unibet",
-     "p": 0.0782,
-     "ev": -0.1398
-    },
-    {
-     "market": "N",
-     "label": "Match nul",
-     "odds": 7.3,
-     "src": "unibet",
-     "p": 0.1304,
-     "ev": -0.0481
-    },
-    {
-     "market": "2",
-     "label": "Victoire Real Madrid",
-     "odds": 1.14,
-     "src": "unibet",
-     "p": 0.7914,
-     "ev": -0.0978
-    },
-    {
-     "market": "+3.5",
-     "label": "Plus de 3,5 buts",
-     "odds": 1.6,
-     "src": "pmu",
-     "p": 0.5559,
-     "ev": -0.1106
-    },
-    {
-     "market": "-3.5",
-     "label": "Moins de 3,5 buts",
-     "odds": 2.0,
-     "src": "pmu",
-     "p": 0.4441,
-     "ev": -0.1118
-    },
-    {
-     "market": "H2",
-     "label": "Real Madrid gagne par 2 buts ou + (handicap -1)",
-     "odds": 1.49,
-     "src": "estimee",
-     "p": 0.6071,
-     "ev": -0.0954
-    }
-   ]
-  },
-  {
-   "id": "e901dbcdd6e2255fb24d84032b9d437a",
-   "league": "Ligue des champions",
-   "div": "CL",
-   "kickoff": "2026-11-04T17:45:00Z",
-   "day": "2026-11-04",
-   "home": "Fenerbahce",
-   "away": "Liverpool",
-   "fd_home": null,
-   "fd_away": null,
-   "lambdas": [
-    1.177,
-    2.456
-   ],
-   "model": false,
-   "sel": [
-    {
-     "market": "1",
-     "label": "Victoire Fenerbahce",
-     "odds": 5.4,
-     "src": "unibet",
-     "p": 0.1616,
-     "ev": -0.1274
-    },
-    {
-     "market": "N",
-     "label": "Match nul",
-     "odds": 4.7,
-     "src": "unibet",
-     "p": 0.1886,
-     "ev": -0.1136
-    },
-    {
-     "market": "2",
-     "label": "Victoire Liverpool",
-     "odds": 1.35,
-     "src": "unibet",
-     "p": 0.6498,
-     "ev": -0.1228
-    },
-    {
-     "market": "+3.5",
-     "label": "Plus de 3,5 buts",
-     "odds": 1.81,
-     "src": "pmu",
-     "p": 0.4917,
-     "ev": -0.11
-    },
-    {
-     "market": "-3.5",
-     "label": "Moins de 3,5 buts",
-     "odds": 1.75,
-     "src": "pmu",
-     "p": 0.5083,
-     "ev": -0.1105
-    },
-    {
-     "market": "H2",
-     "label": "Liverpool gagne par 2 buts ou + (handicap -1)",
-     "odds": 2.01,
-     "src": "estimee",
-     "p": 0.4378,
-     "ev": -0.12
-    }
-   ]
-  },
-  {
    "id": "a5910ae3b314876faea7f5c03b8aeaad",
    "league": "Ligue des champions",
    "div": "CL",
@@ -379,8 +247,8 @@
    "fd_home": null,
    "fd_away": null,
    "lambdas": [
-    0.681,
-    2.41
+    0.637,
+    2.397
    ],
    "model": false,
    "sel": [
@@ -389,48 +257,112 @@
      "label": "Victoire Slavia Praha",
      "odds": 10.0,
      "src": "unibet",
-     "p": 0.0817,
-     "ev": -0.183
+     "p": 0.0757,
+     "ev": -0.243
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 5.6,
+     "odds": 6.0,
      "src": "unibet",
-     "p": 0.1658,
-     "ev": -0.0715
+     "p": 0.1637,
+     "ev": -0.0178
     },
     {
      "market": "2",
      "label": "Victoire Arsenal",
-     "odds": 1.16,
+     "odds": 1.14,
      "src": "unibet",
-     "p": 0.7525,
-     "ev": -0.1271
+     "p": 0.7605,
+     "ev": -0.133
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
-     "odds": 1.49,
+     "odds": 1.53,
      "src": "pmu",
-     "p": 0.597,
-     "ev": -0.1105
+     "p": 0.5845,
+     "ev": -0.1057
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
-     "odds": 2.2,
+     "odds": 2.14,
      "src": "pmu",
-     "p": 0.403,
-     "ev": -0.1134
+     "p": 0.4155,
+     "ev": -0.1108
+    },
+    {
+     "market": "1N",
+     "label": "Slavia Praha ou nul",
+     "odds": 3.65,
+     "src": "estimee",
+     "p": 0.2395,
+     "ev": -0.1258
+    },
+    {
+     "market": "12",
+     "label": "Pas de match nul",
+     "odds": 1.05,
+     "src": "estimee",
+     "p": 0.8363,
+     "ev": -0.1219
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odds": 2.02,
+     "src": "estimee",
+     "p": 0.4329,
+     "ev": -0.1255
+    },
+    {
+     "market": "NBTTS",
+     "label": "Une équipe au moins ne marque pas",
+     "odds": 1.54,
+     "src": "estimee",
+     "p": 0.5671,
+     "ev": -0.1267
+    },
+    {
+     "market": "+1.5",
+     "label": "Plus de 1,5 buts",
+     "odds": 1.08,
+     "src": "estimee",
+     "p": 0.8104,
+     "ev": -0.1248
+    },
+    {
+     "market": "-1.5",
+     "label": "Moins de 1,5 buts",
+     "odds": 4.61,
+     "src": "estimee",
+     "p": 0.1896,
+     "ev": -0.1259
+    },
+    {
+     "market": "+3.5",
+     "label": "Plus de 3,5 buts",
+     "odds": 2.42,
+     "src": "estimee",
+     "p": 0.3605,
+     "ev": -0.1276
+    },
+    {
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.37,
+     "src": "estimee",
+     "p": 0.6395,
+     "ev": -0.1239
     },
     {
      "market": "H2",
      "label": "Arsenal gagne par 2 buts ou + (handicap -1)",
-     "odds": 1.66,
+     "odds": 1.63,
      "src": "estimee",
-     "p": 0.5292,
-     "ev": -0.1215
+     "p": 0.5361,
+     "ev": -0.1262
     }
    ]
   },
@@ -445,8 +377,8 @@
    "fd_home": null,
    "fd_away": null,
    "lambdas": [
-    2.094,
-    1.249
+    2.148,
+    1.283
    ],
    "model": false,
    "sel": [
@@ -455,48 +387,112 @@
      "label": "Victoire Borussia Dortmund",
      "odds": 1.57,
      "src": "unibet",
-     "p": 0.5625,
-     "ev": -0.1169
+     "p": 0.5662,
+     "ev": -0.1111
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 3.9,
+     "odds": 3.8,
      "src": "unibet",
-     "p": 0.22,
-     "ev": -0.142
+     "p": 0.2161,
+     "ev": -0.1788
     },
     {
      "market": "2",
      "label": "Victoire Real Betis",
-     "odds": 4.1,
+     "odds": 4.2,
      "src": "unibet",
-     "p": 0.2176,
-     "ev": -0.1078
+     "p": 0.2177,
+     "ev": -0.0857
     },
     {
      "market": "+3.5",
      "label": "Plus de 3,5 buts",
-     "odds": 2.07,
+     "odds": 1.97,
      "src": "pmu",
-     "p": 0.4293,
-     "ev": -0.1113
+     "p": 0.4484,
+     "ev": -0.1167
     },
     {
      "market": "-3.5",
      "label": "Moins de 3,5 buts",
-     "odds": 1.56,
+     "odds": 1.61,
      "src": "pmu",
-     "p": 0.5707,
-     "ev": -0.1097
+     "p": 0.5516,
+     "ev": -0.1119
+    },
+    {
+     "market": "1N",
+     "label": "Borussia Dortmund ou nul",
+     "odds": 1.12,
+     "src": "estimee",
+     "p": 0.7823,
+     "ev": -0.1238
+    },
+    {
+     "market": "N2",
+     "label": "Real Betis ou nul",
+     "odds": 2.03,
+     "src": "estimee",
+     "p": 0.4338,
+     "ev": -0.1194
+    },
+    {
+     "market": "12",
+     "label": "Pas de match nul",
+     "odds": 1.12,
+     "src": "estimee",
+     "p": 0.7839,
+     "ev": -0.122
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odds": 1.36,
+     "src": "estimee",
+     "p": 0.6438,
+     "ev": -0.1244
+    },
+    {
+     "market": "NBTTS",
+     "label": "Une équipe au moins ne marque pas",
+     "odds": 2.47,
+     "src": "estimee",
+     "p": 0.3562,
+     "ev": -0.1202
+    },
+    {
+     "market": "-1.5",
+     "label": "Moins de 1,5 buts",
+     "odds": 6.37,
+     "src": "estimee",
+     "p": 0.138,
+     "ev": -0.1209
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.32,
+     "src": "estimee",
+     "p": 0.6662,
+     "ev": -0.1206
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 2.63,
+     "src": "estimee",
+     "p": 0.3338,
+     "ev": -0.1221
     },
     {
      "market": "H1",
      "label": "Borussia Dortmund gagne par 2 buts ou + (handicap -1)",
-     "odds": 2.55,
+     "odds": 2.51,
      "src": "estimee",
-     "p": 0.3446,
-     "ev": -0.1213
+     "p": 0.3507,
+     "ev": -0.1197
     }
    ]
   },
@@ -511,50 +507,114 @@
    "fd_home": null,
    "fd_away": null,
    "lambdas": [
-    2.104,
-    1.597
+    2.125,
+    1.653
    ],
    "model": false,
    "sel": [
     {
      "market": "1",
      "label": "Victoire PSV Eindhoven",
-     "odds": 1.78,
+     "odds": 1.8,
      "src": "unibet",
-     "p": 0.4907,
-     "ev": -0.1266
+     "p": 0.4839,
+     "ev": -0.129
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 4.1,
+     "odds": 4.2,
      "src": "unibet",
-     "p": 0.2197,
-     "ev": -0.0992
+     "p": 0.2179,
+     "ev": -0.0848
     },
     {
      "market": "2",
      "label": "Victoire Club Brugge",
-     "odds": 3.0,
+     "odds": 2.9,
      "src": "unibet",
-     "p": 0.2897,
-     "ev": -0.1309
+     "p": 0.2982,
+     "ev": -0.1352
     },
     {
      "market": "+3.5",
      "label": "Plus de 3,5 buts",
-     "odds": 1.76,
+     "odds": 1.7,
      "src": "pmu",
-     "p": 0.5061,
-     "ev": -0.1093
+     "p": 0.5219,
+     "ev": -0.1128
     },
     {
      "market": "-3.5",
      "label": "Moins de 3,5 buts",
-     "odds": 1.8,
+     "odds": 1.85,
      "src": "pmu",
-     "p": 0.4939,
-     "ev": -0.111
+     "p": 0.4781,
+     "ev": -0.1155
+    },
+    {
+     "market": "1N",
+     "label": "PSV Eindhoven ou nul",
+     "odds": 1.25,
+     "src": "estimee",
+     "p": 0.7018,
+     "ev": -0.1228
+    },
+    {
+     "market": "N2",
+     "label": "Club Brugge ou nul",
+     "odds": 1.7,
+     "src": "estimee",
+     "p": 0.5161,
+     "ev": -0.1226
+    },
+    {
+     "market": "12",
+     "label": "Pas de match nul",
+     "odds": 1.12,
+     "src": "estimee",
+     "p": 0.7821,
+     "ev": -0.124
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odds": 1.23,
+     "src": "estimee",
+     "p": 0.7167,
+     "ev": -0.1185
+    },
+    {
+     "market": "NBTTS",
+     "label": "Une équipe au moins ne marque pas",
+     "odds": 3.1,
+     "src": "estimee",
+     "p": 0.2833,
+     "ev": -0.1218
+    },
+    {
+     "market": "-1.5",
+     "label": "Moins de 1,5 buts",
+     "odds": 8.41,
+     "src": "estimee",
+     "p": 0.1045,
+     "ev": -0.1212
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.21,
+     "src": "estimee",
+     "p": 0.7274,
+     "ev": -0.1198
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 3.22,
+     "src": "estimee",
+     "p": 0.2726,
+     "ev": -0.1222
     }
    ]
   },
@@ -569,50 +629,122 @@
    "fd_home": null,
    "fd_away": null,
    "lambdas": [
-    1.286,
-    1.86
+    1.252,
+    1.861
    ],
    "model": false,
    "sel": [
     {
      "market": "1",
      "label": "Victoire RC Lens",
-     "odds": 3.5,
+     "odds": 3.6,
      "src": "unibet",
-     "p": 0.2585,
-     "ev": -0.0952
+     "p": 0.2507,
+     "ev": -0.0975
     },
     {
      "market": "N",
      "label": "Match nul",
      "odds": 3.9,
      "src": "unibet",
-     "p": 0.2389,
-     "ev": -0.0683
+     "p": 0.239,
+     "ev": -0.0679
     },
     {
      "market": "2",
      "label": "Victoire Como",
-     "odds": 1.81,
+     "odds": 1.78,
      "src": "unibet",
-     "p": 0.5026,
-     "ev": -0.0903
+     "p": 0.5103,
+     "ev": -0.0917
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.48,
+     "src": "pmu",
+     "p": 0.6016,
+     "ev": -0.1096
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 2.23,
+     "src": "pmu",
+     "p": 0.3984,
+     "ev": -0.1116
+    },
+    {
+     "market": "1N",
+     "label": "RC Lens ou nul",
+     "odds": 1.86,
+     "src": "estimee",
+     "p": 0.4897,
+     "ev": -0.0892
+    },
+    {
+     "market": "N2",
+     "label": "Como ou nul",
+     "odds": 1.22,
+     "src": "estimee",
+     "p": 0.7493,
+     "ev": -0.0859
+    },
+    {
+     "market": "12",
+     "label": "Pas de match nul",
+     "odds": 1.2,
+     "src": "estimee",
+     "p": 0.761,
+     "ev": -0.0868
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odds": 1.5,
+     "src": "estimee",
+     "p": 0.6092,
+     "ev": -0.0862
+    },
+    {
+     "market": "NBTTS",
+     "label": "Une équipe au moins ne marque pas",
+     "odds": 2.34,
+     "src": "estimee",
+     "p": 0.3908,
+     "ev": -0.0855
+    },
+    {
+     "market": "+1.5",
+     "label": "Plus de 1,5 buts",
+     "odds": 1.11,
+     "src": "estimee",
+     "p": 0.8233,
+     "ev": -0.0861
+    },
+    {
+     "market": "-1.5",
+     "label": "Moins de 1,5 buts",
+     "odds": 5.16,
+     "src": "estimee",
+     "p": 0.1767,
+     "ev": -0.0882
     },
     {
      "market": "+3.5",
      "label": "Plus de 3,5 buts",
-     "odds": 2.3,
-     "src": "pmu",
-     "p": 0.3855,
-     "ev": -0.1134
+     "odds": 2.41,
+     "src": "estimee",
+     "p": 0.3781,
+     "ev": -0.0888
     },
     {
      "market": "-3.5",
      "label": "Moins de 3,5 buts",
-     "odds": 1.44,
-     "src": "pmu",
-     "p": 0.6145,
-     "ev": -0.1151
+     "odds": 1.47,
+     "src": "estimee",
+     "p": 0.6219,
+     "ev": -0.0858
     }
    ]
   },
@@ -627,58 +759,122 @@
    "fd_home": null,
    "fd_away": null,
    "lambdas": [
-    1.298,
-    2.469
+    1.416,
+    2.54
    ],
    "model": false,
    "sel": [
     {
      "market": "1",
      "label": "Victoire RB Leipzig",
-     "odds": 4.8,
+     "odds": 4.5,
      "src": "unibet",
-     "p": 0.1823,
-     "ev": -0.125
+     "p": 0.196,
+     "ev": -0.118
     },
     {
      "market": "N",
      "label": "Match nul",
      "odds": 4.6,
      "src": "unibet",
-     "p": 0.1914,
-     "ev": -0.1196
+     "p": 0.1893,
+     "ev": -0.1292
     },
     {
      "market": "2",
      "label": "Victoire Manchester City",
-     "odds": 1.4,
+     "odds": 1.43,
      "src": "unibet",
-     "p": 0.6262,
-     "ev": -0.1233
+     "p": 0.6147,
+     "ev": -0.121
     },
     {
      "market": "+3.5",
      "label": "Plus de 3,5 buts",
-     "odds": 1.71,
+     "odds": 1.6,
      "src": "pmu",
-     "p": 0.5197,
-     "ev": -0.1113
+     "p": 0.5579,
+     "ev": -0.1074
     },
     {
      "market": "-3.5",
      "label": "Moins de 3,5 buts",
-     "odds": 1.85,
+     "odds": 2.02,
      "src": "pmu",
-     "p": 0.4803,
-     "ev": -0.1114
+     "p": 0.4421,
+     "ev": -0.107
+    },
+    {
+     "market": "1N",
+     "label": "RB Leipzig ou nul",
+     "odds": 2.28,
+     "src": "estimee",
+     "p": 0.3853,
+     "ev": -0.1215
+    },
+    {
+     "market": "N2",
+     "label": "Manchester City ou nul",
+     "odds": 1.09,
+     "src": "estimee",
+     "p": 0.804,
+     "ev": -0.1236
+    },
+    {
+     "market": "12",
+     "label": "Pas de match nul",
+     "odds": 1.08,
+     "src": "estimee",
+     "p": 0.8107,
+     "ev": -0.1244
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odds": 1.25,
+     "src": "estimee",
+     "p": 0.7017,
+     "ev": -0.1229
+    },
+    {
+     "market": "NBTTS",
+     "label": "Une équipe au moins ne marque pas",
+     "odds": 2.94,
+     "src": "estimee",
+     "p": 0.2983,
+     "ev": -0.123
+    },
+    {
+     "market": "-1.5",
+     "label": "Moins de 1,5 buts",
+     "odds": 9.68,
+     "src": "estimee",
+     "p": 0.0907,
+     "ev": -0.122
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.16,
+     "src": "estimee",
+     "p": 0.7554,
+     "ev": -0.1237
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 3.59,
+     "src": "estimee",
+     "p": 0.2446,
+     "ev": -0.1219
     },
     {
      "market": "H2",
      "label": "Manchester City gagne par 2 buts ou + (handicap -1)",
-     "odds": 2.1,
+     "odds": 2.13,
      "src": "estimee",
-     "p": 0.4179,
-     "ev": -0.1224
+     "p": 0.4114,
+     "ev": -0.1237
     }
    ]
   },
@@ -693,50 +889,122 @@
    "fd_home": null,
    "fd_away": null,
    "lambdas": [
-    1.727,
-    1.105
+    1.644,
+    1.145
    ],
    "model": false,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Porto",
-     "odds": 1.73,
+     "odds": 1.82,
      "src": "unibet",
-     "p": 0.5127,
-     "ev": -0.113
+     "p": 0.483,
+     "ev": -0.1209
     },
     {
      "market": "N",
      "label": "Match nul",
      "odds": 3.4,
      "src": "unibet",
-     "p": 0.2512,
-     "ev": -0.1459
+     "p": 0.2584,
+     "ev": -0.1214
     },
     {
      "market": "2",
      "label": "Victoire Napoli",
-     "odds": 3.8,
+     "odds": 3.4,
      "src": "unibet",
-     "p": 0.2361,
-     "ev": -0.1028
+     "p": 0.2586,
+     "ev": -0.1208
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
-     "odds": 1.65,
+     "odds": 1.68,
      "src": "pmu",
-     "p": 0.5382,
-     "ev": -0.112
+     "p": 0.5281,
+     "ev": -0.1128
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
-     "odds": 1.93,
+     "odds": 1.88,
      "src": "pmu",
-     "p": 0.4618,
-     "ev": -0.1087
+     "p": 0.4719,
+     "ev": -0.1128
+    },
+    {
+     "market": "1N",
+     "label": "Porto ou nul",
+     "odds": 1.19,
+     "src": "estimee",
+     "p": 0.7414,
+     "ev": -0.1177
+    },
+    {
+     "market": "N2",
+     "label": "Napoli ou nul",
+     "odds": 1.7,
+     "src": "estimee",
+     "p": 0.517,
+     "ev": -0.1211
+    },
+    {
+     "market": "12",
+     "label": "Pas de match nul",
+     "odds": 1.19,
+     "src": "estimee",
+     "p": 0.7416,
+     "ev": -0.1175
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odds": 1.58,
+     "src": "estimee",
+     "p": 0.5571,
+     "ev": -0.1198
+    },
+    {
+     "market": "NBTTS",
+     "label": "Une équipe au moins ne marque pas",
+     "odds": 1.98,
+     "src": "estimee",
+     "p": 0.4429,
+     "ev": -0.1231
+    },
+    {
+     "market": "+1.5",
+     "label": "Plus de 1,5 buts",
+     "odds": 1.14,
+     "src": "estimee",
+     "p": 0.7741,
+     "ev": -0.1175
+    },
+    {
+     "market": "-1.5",
+     "label": "Moins de 1,5 buts",
+     "odds": 3.89,
+     "src": "estimee",
+     "p": 0.2259,
+     "ev": -0.1212
+    },
+    {
+     "market": "+3.5",
+     "label": "Plus de 3,5 buts",
+     "odds": 2.87,
+     "src": "estimee",
+     "p": 0.3058,
+     "ev": -0.1224
+    },
+    {
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.27,
+     "src": "estimee",
+     "p": 0.6942,
+     "ev": -0.1184
     }
    ]
   },
@@ -751,58 +1019,122 @@
    "fd_home": null,
    "fd_away": null,
    "lambdas": [
-    2.62,
-    1.12
+    2.487,
+    1.279
    ],
    "model": false,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Viking FK",
-     "odds": 1.27,
+     "odds": 1.39,
      "src": "unibet",
-     "p": 0.6904,
-     "ev": -0.1232
+     "p": 0.6336,
+     "ev": -0.1193
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 5.1,
+     "odds": 4.6,
      "src": "unibet",
-     "p": 0.1731,
-     "ev": -0.1172
+     "p": 0.1895,
+     "ev": -0.1283
     },
     {
      "market": "2",
      "label": "Victoire Sabah FK",
-     "odds": 6.4,
+     "odds": 5.0,
      "src": "unibet",
-     "p": 0.1365,
-     "ev": -0.1264
+     "p": 0.1769,
+     "ev": -0.1155
     },
     {
      "market": "+3.5",
      "label": "Plus de 3,5 buts",
-     "odds": 1.73,
+     "odds": 1.71,
      "src": "pmu",
-     "p": 0.5141,
-     "ev": -0.1106
+     "p": 0.5195,
+     "ev": -0.1117
     },
     {
      "market": "-3.5",
      "label": "Moins de 3,5 buts",
-     "odds": 1.83,
+     "odds": 1.85,
      "src": "pmu",
-     "p": 0.4859,
-     "ev": -0.1108
+     "p": 0.4805,
+     "ev": -0.1111
+    },
+    {
+     "market": "1N",
+     "label": "Viking FK ou nul",
+     "odds": 1.07,
+     "src": "estimee",
+     "p": 0.8231,
+     "ev": -0.1193
+    },
+    {
+     "market": "N2",
+     "label": "Sabah FK ou nul",
+     "odds": 2.4,
+     "src": "estimee",
+     "p": 0.3664,
+     "ev": -0.1206
+    },
+    {
+     "market": "12",
+     "label": "Pas de match nul",
+     "odds": 1.09,
+     "src": "estimee",
+     "p": 0.8105,
+     "ev": -0.1166
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odds": 1.32,
+     "src": "estimee",
+     "p": 0.6661,
+     "ev": -0.1207
+    },
+    {
+     "market": "NBTTS",
+     "label": "Une équipe au moins ne marque pas",
+     "odds": 2.63,
+     "src": "estimee",
+     "p": 0.3339,
+     "ev": -0.1218
+    },
+    {
+     "market": "-1.5",
+     "label": "Moins de 1,5 buts",
+     "odds": 8.31,
+     "src": "estimee",
+     "p": 0.1059,
+     "ev": -0.12
+    },
+    {
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.21,
+     "src": "estimee",
+     "p": 0.7256,
+     "ev": -0.122
+    },
+    {
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 3.21,
+     "src": "estimee",
+     "p": 0.2744,
+     "ev": -0.1192
     },
     {
      "market": "H1",
      "label": "Viking FK gagne par 2 buts ou + (handicap -1)",
-     "odds": 1.81,
+     "odds": 2.07,
      "src": "estimee",
-     "p": 0.4837,
-     "ev": -0.1245
+     "p": 0.4252,
+     "ev": -0.1198
     }
    ]
   },
@@ -861,6 +1193,78 @@
      "src": "pmu",
      "p": 0.404,
      "ev": -0.0991
+    },
+    {
+     "market": "1N",
+     "label": "Hamburger SV ou nul",
+     "odds": 1.3,
+     "src": "estimee",
+     "p": 0.6793,
+     "ev": -0.1169
+    },
+    {
+     "market": "N2",
+     "label": "Borussia Monchengladbach ou nul",
+     "odds": 1.55,
+     "src": "estimee",
+     "p": 0.5704,
+     "ev": -0.1159
+    },
+    {
+     "market": "12",
+     "label": "Pas de match nul",
+     "odds": 1.18,
+     "src": "estimee",
+     "p": 0.7503,
+     "ev": -0.1146
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odds": 1.42,
+     "src": "estimee",
+     "p": 0.6209,
+     "ev": -0.1183
+    },
+    {
+     "market": "NBTTS",
+     "label": "Une équipe au moins ne marque pas",
+     "odds": 2.33,
+     "src": "estimee",
+     "p": 0.3791,
+     "ev": -0.1167
+    },
+    {
+     "market": "+1.5",
+     "label": "Plus de 1,5 buts",
+     "odds": 1.08,
+     "src": "estimee",
+     "p": 0.8199,
+     "ev": -0.1145
+    },
+    {
+     "market": "-1.5",
+     "label": "Moins de 1,5 buts",
+     "odds": 4.91,
+     "src": "estimee",
+     "p": 0.1801,
+     "ev": -0.1157
+    },
+    {
+     "market": "+3.5",
+     "label": "Plus de 3,5 buts",
+     "odds": 2.37,
+     "src": "estimee",
+     "p": 0.3723,
+     "ev": -0.1176
+    },
+    {
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.41,
+     "src": "estimee",
+     "p": 0.6277,
+     "ev": -0.1149
     }
    ]
   },
@@ -919,6 +1323,78 @@
      "src": "pmu",
      "p": 0.3996,
      "ev": -0.1089
+    },
+    {
+     "market": "1N",
+     "label": "Toulouse ou nul",
+     "odds": 1.23,
+     "src": "estimee",
+     "p": 0.7121,
+     "ev": -0.1241
+    },
+    {
+     "market": "N2",
+     "label": "Strasbourg ou nul",
+     "odds": 1.64,
+     "src": "estimee",
+     "p": 0.5334,
+     "ev": -0.1252
+    },
+    {
+     "market": "12",
+     "label": "Pas de match nul",
+     "odds": 1.16,
+     "src": "estimee",
+     "p": 0.7545,
+     "ev": -0.1248
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odds": 1.41,
+     "src": "estimee",
+     "p": 0.6189,
+     "ev": -0.1274
+    },
+    {
+     "market": "NBTTS",
+     "label": "Une équipe au moins ne marque pas",
+     "odds": 2.29,
+     "src": "estimee",
+     "p": 0.3811,
+     "ev": -0.1273
+    },
+    {
+     "market": "+1.5",
+     "label": "Plus de 1,5 buts",
+     "odds": 1.06,
+     "src": "estimee",
+     "p": 0.8227,
+     "ev": -0.1279
+    },
+    {
+     "market": "-1.5",
+     "label": "Moins de 1,5 buts",
+     "odds": 4.92,
+     "src": "estimee",
+     "p": 0.1773,
+     "ev": -0.1277
+    },
+    {
+     "market": "+3.5",
+     "label": "Plus de 3,5 buts",
+     "odds": 2.32,
+     "src": "estimee",
+     "p": 0.3768,
+     "ev": -0.1258
+    },
+    {
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.4,
+     "src": "estimee",
+     "p": 0.6232,
+     "ev": -0.1275
     }
    ]
   },
@@ -977,6 +1453,78 @@
      "src": "pmu",
      "p": 0.4523,
      "ev": -0.0773
+    },
+    {
+     "market": "1N",
+     "label": "Venezia ou nul",
+     "odds": 1.3,
+     "src": "estimee",
+     "p": 0.6768,
+     "ev": -0.1202
+    },
+    {
+     "market": "N2",
+     "label": "Udinese ou nul",
+     "odds": 1.51,
+     "src": "estimee",
+     "p": 0.5822,
+     "ev": -0.1209
+    },
+    {
+     "market": "12",
+     "label": "Pas de match nul",
+     "odds": 1.19,
+     "src": "estimee",
+     "p": 0.741,
+     "ev": -0.1182
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odds": 1.51,
+     "src": "estimee",
+     "p": 0.5806,
+     "ev": -0.1233
+    },
+    {
+     "market": "NBTTS",
+     "label": "Une équipe au moins ne marque pas",
+     "odds": 2.1,
+     "src": "estimee",
+     "p": 0.4194,
+     "ev": -0.1193
+    },
+    {
+     "market": "+1.5",
+     "label": "Plus de 1,5 buts",
+     "odds": 1.12,
+     "src": "estimee",
+     "p": 0.7873,
+     "ev": -0.1182
+    },
+    {
+     "market": "-1.5",
+     "label": "Moins de 1,5 buts",
+     "odds": 4.13,
+     "src": "estimee",
+     "p": 0.2127,
+     "ev": -0.1215
+    },
+    {
+     "market": "+3.5",
+     "label": "Plus de 3,5 buts",
+     "odds": 2.7,
+     "src": "estimee",
+     "p": 0.3251,
+     "ev": -0.1222
+    },
+    {
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.3,
+     "src": "estimee",
+     "p": 0.6749,
+     "ev": -0.1226
     }
    ]
   },
@@ -1035,6 +1583,78 @@
      "src": "pmu",
      "p": 0.469,
      "ev": -0.0808
+    },
+    {
+     "market": "1N",
+     "label": "Everton ou nul",
+     "odds": 1.11,
+     "src": "estimee",
+     "p": 0.7877,
+     "ev": -0.1257
+    },
+    {
+     "market": "N2",
+     "label": "Coventry City ou nul",
+     "odds": 1.91,
+     "src": "estimee",
+     "p": 0.4593,
+     "ev": -0.1227
+    },
+    {
+     "market": "12",
+     "label": "Pas de match nul",
+     "odds": 1.16,
+     "src": "estimee",
+     "p": 0.7531,
+     "ev": -0.1264
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odds": 1.62,
+     "src": "estimee",
+     "p": 0.5403,
+     "ev": -0.1247
+    },
+    {
+     "market": "NBTTS",
+     "label": "Une équipe au moins ne marque pas",
+     "odds": 1.91,
+     "src": "estimee",
+     "p": 0.4597,
+     "ev": -0.122
+    },
+    {
+     "market": "+1.5",
+     "label": "Plus de 1,5 buts",
+     "odds": 1.13,
+     "src": "estimee",
+     "p": 0.7754,
+     "ev": -0.1238
+    },
+    {
+     "market": "-1.5",
+     "label": "Moins de 1,5 buts",
+     "odds": 3.9,
+     "src": "estimee",
+     "p": 0.2246,
+     "ev": -0.1241
+    },
+    {
+     "market": "+3.5",
+     "label": "Plus de 3,5 buts",
+     "odds": 2.84,
+     "src": "estimee",
+     "p": 0.3091,
+     "ev": -0.1222
+    },
+    {
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.27,
+     "src": "estimee",
+     "p": 0.6909,
+     "ev": -0.1226
     }
    ]
   },
@@ -1093,6 +1713,78 @@
      "src": "pmu",
      "p": 0.5601,
      "ev": -0.1374
+    },
+    {
+     "market": "1N",
+     "label": "Sevilla ou nul",
+     "odds": 1.15,
+     "src": "estimee",
+     "p": 0.7628,
+     "ev": -0.1228
+    },
+    {
+     "market": "N2",
+     "label": "Alavés ou nul",
+     "odds": 1.7,
+     "src": "estimee",
+     "p": 0.5146,
+     "ev": -0.1252
+    },
+    {
+     "market": "12",
+     "label": "Pas de match nul",
+     "odds": 1.21,
+     "src": "estimee",
+     "p": 0.7226,
+     "ev": -0.1257
+    },
+    {
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odds": 1.81,
+     "src": "estimee",
+     "p": 0.4824,
+     "ev": -0.1269
+    },
+    {
+     "market": "NBTTS",
+     "label": "Une équipe au moins ne marque pas",
+     "odds": 1.69,
+     "src": "estimee",
+     "p": 0.5176,
+     "ev": -0.1253
+    },
+    {
+     "market": "+1.5",
+     "label": "Plus de 1,5 buts",
+     "odds": 1.24,
+     "src": "estimee",
+     "p": 0.7062,
+     "ev": -0.1243
+    },
+    {
+     "market": "-1.5",
+     "label": "Moins de 1,5 buts",
+     "odds": 2.98,
+     "src": "estimee",
+     "p": 0.2938,
+     "ev": -0.1245
+    },
+    {
+     "market": "+3.5",
+     "label": "Plus de 3,5 buts",
+     "odds": 3.81,
+     "src": "estimee",
+     "p": 0.2297,
+     "ev": -0.1248
+    },
+    {
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.13,
+     "src": "estimee",
+     "p": 0.7703,
+     "ev": -0.1296
     }
    ]
   }

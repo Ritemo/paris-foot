@@ -3,7 +3,7 @@ const LS = {
   get(k, d) { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } },
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
 };
-let today = null, hist = null, meta = null, freshStamp = null, LOGOS = {};
+let today = null, hist = null, meta = null, model = null, freshStamp = null, LOGOS = {};
 const overrides = () => LS.get("pf_overrides", {});
 const bets = () => LS.get("pf_bets", {});
 const settings = () => Object.assign({ budget: 40, token: "", repo: "" }, LS.get("pf_settings", {}));
@@ -532,7 +532,7 @@ function renderEncours() {
 }
 
 function renderAll() {
-  renderHeader(); renderEncours(); renderCombos(); renderMatchs(); renderBilan(); renderComposer();
+  renderHeader(); renderEncours(); renderCombos(); renderMatchs(); renderBilan(); renderModele(); renderComposer();
   animateCounters(); flashGoals(); animateGauge();
   if (!document.querySelector(".celebrate")) celebrate();
 }
@@ -631,7 +631,7 @@ document.addEventListener("click", async (e) => {
   if (lf) { LS.set("pf_league", lf.dataset.league); buzz(); renderMatchs(); }
 });
 
-const TABS = ["combos", "encours", "matchs", "bilan", "reglages"];
+const TABS = ["combos", "encours", "matchs", "bilan", "modele", "reglages"];
 const buzz = (ms = 8) => { try { if (!calm()) navigator.vibrate?.(ms); } catch {} };
 function currentTab() { return document.querySelector(".tabs button.active")?.dataset.tab || "combos"; }
 function showTab(name, dir = 0) {
@@ -794,9 +794,9 @@ document.getElementById("refresh").onclick = async () => {
 async function load(quiet) {
   const get = (f) => fetch(`data/${f}?t=${Date.now()}`, { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
   let logos;
-  [today, hist, meta, logos] = await Promise.all([get("today.json"), get("history.json"), get("meta.json"), get("logos.json")]);
+  [today, hist, meta, logos, model] = await Promise.all([get("today.json"), get("history.json"), get("meta.json"), get("logos.json"), get("model.json")]);
   if (logos) LOGOS = logos;
-  if (today) LS.set("pf_cache", { today, hist, logos: LOGOS }); else if (!quiet) ({ today, hist, logos: LOGOS = {} } = LS.get("pf_cache", {}));
+  if (today) LS.set("pf_cache", { today, hist, logos: LOGOS, model }); else if (!quiet) ({ today, hist, logos: LOGOS = {}, model = null } = LS.get("pf_cache", {}));
   for (const id of Object.keys(bets())) syncBetOdds(id);
   renderAll();
 }

@@ -29,10 +29,18 @@ Comme pour l'appli hand : coller l'adresse de l'appli sur pwabuilder.com, puis *
 
 ## Fonctionnement
 
-- Le modèle (Poisson pondéré, buts et tirs cadrés, données football-data.co.uk) est mélangé à 20 % avec les probabilités des bookmakers, réglage validé par le backtest sur 2 400 matchs.
+- Le modèle (Poisson pondéré, buts et tirs cadrés, données football-data.co.uk) est mélangé avec les probabilités des bookmakers. Le poids du modèle (20 % au départ) est **réappris à chaque passage** sur tous les matchs terminés (voir « Amélioration continue »).
 - Les combinés du jour J restent provisoires la veille, puis sont **figés au premier passage du jour J** pour que le bilan soit honnête.
 - Résultats : football-data.co.uk en priorité, sinon l'API (2 crédits) si assez de crédits restent.
 - Tes paris joués, tes cotes corrigées et ton budget sont enregistrés sur ton téléphone.
+
+## Amélioration continue (onglet Modèle)
+
+- Chaque match des championnats suivis est noté dans `docs/data/learning.json` avec trois jeux de probabilités : modèle maison seul, bookmakers, et ce que le robot a annoncé.
+- Une fois le score connu, le robot réapprend le poids du modèle maison (ramené vers 20 % tant que les données sont peu nombreuses, plafonné à 60 %) et, seulement si un type de pari est mal estimé au-delà de 2 écarts-types, une correction prudente et plafonnée pour ce type.
+- Il apprend sur des centaines de matchs, jamais sur les seuls tickets joués (trop peu nombreux : du bruit).
+- Au premier passage, il rejoue les 13 derniers mois semaine par semaine pour démarrer avec des mesures (cotes moyennes des bookmakers publiées par football-data) ; les matchs suivants utilisent les vraies cotes du jour.
+- L'onglet **Modèle** de l'appli affiche les leçons, qui voit le plus juste (robot, bookmakers, modèle seul), la calibration, les écarts par type de pari avec la marge du hasard, et l'évolution mois par mois (`docs/data/model.json`).
 
 Rappel du backtest : aucune stratégie testée ne bat durablement les bookmakers. Les combinés de 2 favoris sont simplement les moins coûteux. Joue pour le plaisir et dans ton budget.
 
@@ -47,9 +55,10 @@ Les mêmes tests tournent sur GitHub à chaque modification de l'appli ou du rob
 |---|---|
 | `robot/run.py` | Le robot : cotes, combinés du jour, résultats, historique et bilan. |
 | `robot/model.py` | Modèle de Poisson pondéré (scores probables). |
+| `robot/learn.py` | Amélioration continue : journal des prédictions, réapprentissage, métriques de l'onglet Modèle. |
 | `robot/teams.py` | Correspondance des noms d'équipes entre The Odds API et football-data. |
-| `docs/` | L'appli (servie par GitHub Pages) : `index.html`, `app.js`, `compose.js`, `live.js`, `style.css`, `sw.js`. |
-| `docs/data/` | Données écrites par le robot : `today.json` (combinés du jour), `history.json` (bilan), `meta.json` (crédits restants, derniers passages), `odds_cache.json`. |
+| `docs/` | L'appli (servie par GitHub Pages) : `index.html`, `app.js`, `compose.js`, `live.js`, `model.js` (onglet Modèle), `style.css`, `sw.js`. |
+| `docs/data/` | Données écrites par le robot : `today.json` (combinés du jour), `history.json` (bilan), `meta.json` (crédits restants, derniers passages), `odds_cache.json`, `learning.json` (journal des prédictions), `model.json` (mesures de l'onglet Modèle). |
 | `tools/check.sh` | Vérification complète avant publication. |
 | `tools/bump_version.py` | Change le numéro de version pour que les téléphones prennent la nouvelle appli. |
 | `.github/workflows/robot.yml` | Horaires du robot. |

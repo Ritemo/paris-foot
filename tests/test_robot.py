@@ -13,6 +13,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "robot"))
 os.environ["NO_NOTIFY"] = "1"
 import run  # noqa: E402
+import learn  # noqa: E402
 from teams import to_fd  # noqa: E402
 
 
@@ -167,6 +168,77 @@ class Combines(unittest.TestCase):
             if c["kind"] == "folie":
                 self.assertTrue(15 <= c["odds"] <= 40)
                 self.assertEqual(c["stake"], 1)
+
+
+class Apprentissage(unittest.TestCase):
+    """Amelioration continue (learn.py) : jeux synthetiques, aucun reseau."""
+
+    def store(self, n, pm_good, bias=0.0, seed=1):
+        import numpy as np
+        rng = np.random.default_rng(seed)
+        st = learn.new_store()
+        for i in range(n):
+            lh, la = rng.uniform(0.8, 2.2), rng.uniform(0.6, 1.8)
+            truth = learn.vec(run.score_matrix(lh, la))
+            noisy = learn.vec(run.score_matrix(lh * rng.uniform(0.75, 1.3), la * rng.uniform(0.75, 1.3)))
+            pk = noisy if pm_good else truth
+            pm = truth if pm_good else noisy
+            hg, ag = int(rng.poisson(lh)), int(rng.poisson(la))
+            if bias and rng.random() < bias and hg == ag:   # moins de nuls que prevu
+                hg += 1
+            d = (run.NOW - timedelta(days=int(rng.integers(1, 300)))).date().isoformat()
+            st["preds"][f"x{i}"] = dict(d=d, k=d + "T15:00:00Z", div="F1", lg="Ligue 1", h="A", a="B", pm=pm, pk=pk, pr=pk,
+                                        res=[hg, ag], src="backtest")
+        return st
+
+    def test_poids_suit_le_meilleur(self):
+        bon = learn.learn_params(self.store(1500, pm_good=True), run.NOW)
+        mauvais = learn.learn_params(self.store(1500, pm_good=False), run.NOW)
+        self.assertGreater(bon["w_model"], learn.W_PRIOR)
+        self.assertLess(mauvais["w_model"], learn.W_PRIOR)
+        self.assertLessEqual(bon["w_model"], learn.W_MAX)
+
+    def test_prudence_petit_echantillon(self):
+        p = learn.learn_params(self.store(60, pm_good=False), run.NOW)
+        self.assertGreater(p["w_model"], 0.12)                       # 60 matchs : on bouge a peine
+        self.assertTrue(all(v == 0 for v in p["offsets"].values()))  # pas de correction sur si peu
+
+    def test_correction_si_ecart_net(self):
+        p = learn.learn_params(self.store(2500, pm_good=False, bias=0.5), run.NOW)
+        self.assertLess(p["offsets"]["nul"], 0)                      # nuls surestimes : correction a la baisse
+        self.assertGreaterEqual(p["offsets"]["nul"], -learn.CAL_MAX)
+        sain = learn.learn_params(self.store(2500, pm_good=False), run.NOW)
+        self.assertEqual(sain["offsets"]["nul"], 0.0)                # pas d'ecart : pas de correction
+
+    def test_ajustement_coherent(self):
+        p = run.probs(run.score_matrix(1.5, 1.1))
+        q = learn.adjust_probs(p, {"nul": -0.2, "buts": 0.1, "hcp": -0.2})
+        self.assertAlmostEqual(q["p1"] + q["pN"] + q["p2"], 1, places=6)
+        self.assertLess(q["pN"], p["pN"]); self.assertGreater(q["pO"], p["pO"])
+        self.assertLessEqual(q["h1"], q["p1"])
+        self.assertIs(learn.adjust_probs(p, {}), p)
+
+    def test_metriques_et_tickets(self):
+        st = self.store(400, pm_good=False)
+        st["preds"]["futur"] = dict(d="2099-01-01", k="2099-01-01T15:00:00Z", div="F1", lg="Ligue 1", h="A", a="B",
+                                    pm=None, pk=[.4, .3, .3, .7, .5, .3, .5, .2, .1], pr=[.4, .3, .3, .7, .5, .3, .5, .2, .1], src="live")
+        prm = learn.learn_params(st, run.NOW)
+        h = {"combos": [dict(id=str(i), kind="x2", status="gagne" if i < 3 else "perdu", p=0.35, replaced=False,
+                             legs=[leg("1", won=i < 5), leg("+2.5", mid="m2", won=True)]) for i in range(13)]}
+        m = learn.metrics(st, prm, h, run.NOW)
+        self.assertEqual(m["counts"]["pending"], 1)
+        self.assertEqual(len(m["families"]), 6)
+        self.assertTrue(m["calibration"] and m["lessons"])
+        t = m["tickets"]["tickets"]
+        self.assertEqual((t["n"], t["observes"]), (13, 3))
+        self.assertEqual(learn.verdict(t["z"]), "hasard")             # 3 sur 13 pour 4,6 attendus : la chance
+        json.dumps(m)                                                 # ecrivable tel quel dans model.json
+
+    def test_journal_ne_reecrit_pas_un_match_regle(self):
+        st = learn.new_store()
+        st["preds"]["a"] = dict(d="2026-11-01", res=[1, 0])
+        learn.record(st, "a", dict(d="2026-11-01"), None, [.5] * 9, [.5] * 9)
+        self.assertEqual(st["preds"]["a"]["res"], [1, 0])
 
 
 if __name__ == "__main__":

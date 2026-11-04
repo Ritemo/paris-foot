@@ -81,6 +81,9 @@ def fixtures():
     return today, hist, {"credits_remaining": 400}, espn, passe
 
 
+MODEL = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "model_sample.json"), encoding="utf-8"))
+
+
 def serve():
     class Quiet(http.server.SimpleHTTPRequestHandler):
         def log_message(self, *a):
@@ -117,6 +120,8 @@ async def main():
                 return await r.fulfill(json=hist)
             if "/data/meta.json" in u:
                 return await r.fulfill(json=meta)
+            if "/data/model.json" in u:
+                return await r.fulfill(json=MODEL)
             if "/data/logos.json" in u:
                 return await r.fulfill(json={"Rennes": {"logo": "https://a.espncdn.com/i/teamlogos/soccer/500/169.png", "color": "#e13327"},
                                              "Nantes": {"logo": "https://a.espncdn.com/i/teamlogos/soccer/500/165.png", "color": "#fcd405"}})
@@ -242,6 +247,19 @@ async def main():
         await pg.wait_for_timeout(200)
         check(await pg.locator("#tab-bilan .grp").count() >= 2, "qualité des tickets par étoiles")
 
+        print("Onglet Modèle")
+        await pg.click('.tabs button[data-tab="modele"]')
+        await pg.wait_for_timeout(200)
+        txt = await pg.inner_text("#tab-modele")
+        check("Ce que le robot apprend" in txt and "Poids du modèle maison" in txt, "leçons et indicateurs affichés")
+        check(await pg.locator("#tab-modele .mchart svg").count() >= 2, "graphiques de calibration et d'évolution")
+        check(await pg.locator("#tab-modele .vchip").count() >= 6, "verdicts hasard / à surveiller par type de pari")
+        check("Le piège des petites séries" in txt, "lecture des écarts sur les tickets")
+        await pg.click("#tab-modele .mchart .hit >> nth=0")
+        check("Annoncé" in await pg.inner_text("#tab-modele .mchart .tip >> nth=0"), "détail d'un point au toucher")
+        w = await pg.evaluate("document.documentElement.scrollWidth")
+        check(w <= 390, f"pas de défilement horizontal ({w}px)")
+
         print("Réglages et sauvegarde")
         await pg.click('.tabs button[data-tab="reglages"]')
         v = await pg.inner_text("#app-version")
@@ -253,7 +271,7 @@ async def main():
         check(len(data["bets"]) == 4 and data.get("bank"), "la sauvegarde contient les 4 paris et la bankroll")
 
         print("Tous les onglets")
-        for t in ("combos", "encours", "matchs", "bilan", "reglages"):
+        for t in ("combos", "encours", "matchs", "bilan", "modele", "reglages"):
             n = await pg.eval_on_selector(f"#tab-{t}", "e => e.innerText.trim().length")
             check(n > 40, f"onglet {t} non vide")
 

@@ -8,7 +8,7 @@ import pathlib
 import re
 
 DOCS = pathlib.Path(__file__).resolve().parent.parent / "docs"
-FILES = ["app.js", "live.js", "compose.js", "fx.js", "style.css", "sw.js", "manifest.webmanifest"]
+FILES = ["app.js", "model.js", "live.js", "compose.js", "fx.js", "style.css", "sw.js", "manifest.webmanifest"]
 
 
 def main():

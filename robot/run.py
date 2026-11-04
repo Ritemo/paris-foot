@@ -20,6 +20,7 @@ import numpy as np
 import pandas as pd
 from scipy.optimize import minimize
 
+import learn
 from model import fit_poisson, score_matrix
 from teams import to_fd
 
@@ -46,6 +47,7 @@ CREDIT_FLOOR_ODDS = 12                     # en dessous : plus d'appel payant, o
 CREDIT_FLOOR_SCORES = 100                  # resultats via l'API seulement si assez de credits
 NOW = datetime.now(timezone.utc)
 credits = {"remaining": None, "used_run": 0}
+PARAMS = {"w_model": W_MODEL, "offsets": {}}   # remplace a chaque passage par ce que le robot a appris (learn.py)
 
 
 # ---------------------------------------------------------------- utilitaires
@@ -57,10 +59,13 @@ def load(name, default):
     return default
 
 
-def save(name, obj):
+def save(name, obj, compact=False):
     os.makedirs(DATA, exist_ok=True)
     with open(os.path.join(DATA, name), "w", encoding="utf-8") as f:
-        json.dump(obj, f, ensure_ascii=False, indent=1, default=str)
+        if compact:
+            json.dump(obj, f, ensure_ascii=False, separators=(",", ":"), default=str)
+        else:
+            json.dump(obj, f, ensure_ascii=False, indent=1, default=str)
 
 
 def http_get(url, timeout=40):
@@ -80,9 +85,9 @@ def odds_api(path, **params):
     return json.loads(body)
 
 
-def season_codes(d):
+def season_codes(d, n=2):
     y = d.year % 100 if d.month >= 7 else d.year % 100 - 1
-    return [f"{y - 1:02d}{y:02d}", f"{y:02d}{y + 1:02d}"]
+    return [f"{y - k:02d}{y - k + 1:02d}" for k in range(n - 1, -1, -1)]
 
 
 def paris_day(iso):
@@ -90,10 +95,10 @@ def paris_day(iso):
 
 
 # ---------------------------------------------------------------- historique et modele
-def load_history_fd():
+def load_history_fd(n_seasons=2):
     frames = []
     for div in FD_DIVS:
-        for s in season_codes(NOW):
+        for s in season_codes(NOW, n_seasons):
             try:
                 body, _h = http_get(f"https://www.football-data.co.uk/mmz4281/{s}/{div}.csv")
                 frames.append(pd.read_csv(io.BytesIO(body), encoding="utf-8-sig"))
@@ -107,11 +112,11 @@ def load_history_fd():
     return df
 
 
-def fit_league(g):
+def fit_league(g, ref=None):
     k = (g.FTHG.sum() + g.FTAG.sum()) / max(g.HST.sum() + g.AST.sum(), 1)
     teams = sorted(set(g.HomeTeam) | set(g.AwayTeam))
     idx = {t: i for i, t in enumerate(teams)}
-    w = np.exp(-XI * (pd.Timestamp(NOW.date()) - g.Date).dt.days.values)
+    w = np.exp(-XI * ((ref if ref is not None else pd.Timestamp(NOW.date())) - g.Date).dt.days.values)
     mu, home, att, de = fit_poisson(g.HomeTeam.map(idx).values, g.AwayTeam.map(idx).values,
                                     (1 - MIX) * g.FTHG.values + MIX * k * g.HST.values,
                                     (1 - MIX) * g.FTAG.values + MIX * k * g.AST.values, w, len(teams))
@@ -225,10 +230,11 @@ def build_matches(events, models):
             fO = (1 / oo) / (1 / oo + 1 / ou)
         lm = model_lambdas(mdl, h, a)
         lmk = market_lambdas(f1, f2, fO, line, lm or (1.4, 1.1))
-        mat = score_matrix(*lmk)
-        if lm:
-            mat = W_MODEL * score_matrix(*lm) + (1 - W_MODEL) * mat
-        p = probs(mat, line)
+        mk_mat = score_matrix(*lmk)
+        md_mat = score_matrix(*lm) if lm else None
+        w = PARAMS["w_model"]
+        mat = w * md_mat + (1 - w) * mk_mat if lm else mk_mat
+        p = learn.adjust_probs(probs(mat, line), PARAMS.get("offsets"))   # corrections apprises sur les matchs passes
         est = lambda pp: float(round(1 / (float(pp) * inv), 2))  # cote estimee avec la marge Unibet du match
         lt = f"{line:g}".replace(".", ",")
         H, A = e["home_team"], e["away_team"]
@@ -262,7 +268,9 @@ def build_matches(events, models):
             s["ev"] = round(s["p"] * s["odds"] - 1, 4)
         matches.append(dict(id=eid, league=lname, div=div, kickoff=e["commence_time"], day=paris_day(e["commence_time"]),
                             home=H, away=A, fd_home=h, fd_away=a, lambdas=[round(x, 3) for x in lmk],
-                            model=bool(lm), sel=sel))
+                            model=bool(lm), sel=sel,
+                            _lp=dict(pm=learn.vec(md_mat) if lm else None, pk=learn.vec(mk_mat),
+                                     pr=learn.adjust_vec(learn.vec(mat), PARAMS.get("offsets")).tolist())))
     matches.sort(key=lambda m: m["kickoff"])
     return matches
 
@@ -657,6 +665,98 @@ def bilan(history):
     return out
 
 
+# ---------------------------------------------------------------- amelioration continue (voir learn.py)
+FD_NAMES = {"F1": "Ligue 1", "E0": "Premier League", "SP1": "Liga", "I1": "Serie A", "D1": "Bundesliga"}
+
+
+def _fd_market(r):
+    """Probabilites du marche a partir des cotes moyennes publiees par football-data (marge retiree)."""
+    try:
+        o = [float(r[c]) for c in ("AvgH", "AvgD", "AvgA")]
+        inv = sum(1 / x for x in o)
+        f1, f2 = 1 / o[0] / inv, 1 / o[2] / inv
+        fO = None
+        if pd.notna(r.get("Avg>2.5")) and pd.notna(r.get("Avg<2.5")):
+            oo, ou = float(r["Avg>2.5"]), float(r["Avg<2.5"])
+            fO = (1 / oo) / (1 / oo + 1 / ou)
+        return f1, f2, fO
+    except (TypeError, ValueError, KeyError, ZeroDivisionError):
+        return None
+
+
+def seed_learning(store, days=400):
+    """Amorcage, une seule fois : rejoue les ~13 derniers mois semaine par semaine, comme si le robot avait tourne
+    (modele reentraine chaque semaine sur le passe seulement, reglages reappris chaque mois sur le passe seulement)."""
+    fd = load_history_fd(3)
+    start = pd.Timestamp(NOW.date()) - pd.Timedelta(days=days)
+    end = pd.Timestamp(NOW.date())
+    for div in FD_DIVS:
+        g = fd[fd.Div == div].sort_values("Date")
+        wk = start
+        while wk < end:
+            test = g[(g.Date >= wk) & (g.Date < wk + pd.Timedelta(days=7))]
+            train = g[g.Date < wk]
+            if len(test):
+                mdl = fit_league(train, ref=wk) if len(train) > 50 else None
+                for _i, r in test.iterrows():
+                    mk = _fd_market(r)
+                    if not mk:
+                        continue
+                    f1, f2, fO = mk
+                    lm = model_lambdas(mdl, r.HomeTeam, r.AwayTeam)
+                    lmk = market_lambdas(f1, f2, fO, 2.5, lm or (1.4, 1.1))
+                    mid = f"fd-{div}-{r.Date.date().isoformat()}-{r.HomeTeam}-{r.AwayTeam}"
+                    store["preds"][mid] = dict(d=r.Date.date().isoformat(), k=r.Date.date().isoformat() + "T15:00:00Z", div=div,
+                                               lg=FD_NAMES[div], h=r.HomeTeam, a=r.AwayTeam, fh=r.HomeTeam, fa=r.AwayTeam,
+                                               pm=learn.vec(score_matrix(*lm)) if lm else None, pk=learn.vec(score_matrix(*lmk)),
+                                               res=[int(r.FTHG), int(r.FTAG)], src="backtest")
+            wk += pd.Timedelta(days=7)
+    # probabilites "annoncees" : reglages appris chaque debut de mois sur les seuls matchs anterieurs
+    recs = sorted((r for r in store["preds"].values() if r.get("src") == "backtest"), key=lambda r: r["d"])
+    month, prm = None, None
+    for r in recs:
+        if r["d"][:7] != month:
+            month = r["d"][:7]
+            ref = datetime.fromisoformat(month + "-01").replace(tzinfo=timezone.utc)
+            prm = learn.learn_params(store, ref, before=month + "-01")
+            learn.log_params(store, ref, prm)
+        r["pr"] = learn.adjust_vec(learn.blend(r.get("pm"), r["pk"], prm["w_model"]), prm["offsets"]).round(4).tolist()
+    store["seeded"] = True
+    print(f"amorcage : {len(recs)} matchs rejoues", file=sys.stderr)
+
+
+def record_predictions(store, matches):
+    for m in matches:
+        lp = m.pop("_lp", None)
+        if lp:
+            learn.record(store, m["id"], dict(d=m["day"], k=m["kickoff"], div=m["div"], lg=m["league"], h=m["home"], a=m["away"],
+                                              fh=m["fd_home"], fa=m["fd_away"]), lp["pm"], lp["pk"], lp["pr"])
+
+
+def settle_predictions(store, fd):
+    """Scores des matchs du journal : football-data, sinon ESPN (gratuit)."""
+    late = (NOW - timedelta(hours=2, minutes=15)).isoformat()
+    todo = [(mid, r) for mid, r in store["preds"].items() if not r.get("res") and not r.get("lost") and r["k"] <= late]
+    if not todo:
+        return 0
+    legs = [dict(match_id=mid, kickoff=r["k"], div=r["div"], home=r["h"], away=r["a"]) for mid, r in todo]
+    try:
+        espn = espn_scores({"combos": [{"status": "en attente", "legs": legs}]})
+    except Exception as e:
+        print("espn journal", e, file=sys.stderr)
+        espn = {}
+    n = 0
+    for mid, r in todo:
+        sc = espn.get(mid) or find_score_fd(fd, dict(kickoff=r["k"], fd_home=r.get("fh"), fd_away=r.get("fa")))
+        if sc:
+            r["res"] = [int(sc[0]), int(sc[1])]
+            n += 1
+        elif r["k"] < (NOW - timedelta(days=10)).isoformat():
+            r["res"] = None
+            r["lost"] = True  # score introuvable : ignore dans les mesures
+    return n
+
+
 # ---------------------------------------------------------------- programme principal
 ODDS_SLOTS = ((7, 30), (16, 30))  # heures de Paris ou les cotes sont actualisees (credits)
 
@@ -719,6 +819,16 @@ def main():
         if len(g) > 50:
             models[div] = fit_league(g)
 
+    # 0. amelioration continue : reglages reappris sur les matchs passes (journal docs/data/learning.json)
+    store = load("learning.json", None) or learn.new_store()
+    if not store.get("seeded"):
+        try:
+            seed_learning(store)
+        except Exception as e:
+            print("amorcage impossible", e, file=sys.stderr)
+    params = learn.learn_params(store, NOW)
+    PARAMS.update(params)
+
     # 1. quels championnats jouent d'ici la fin de demain ? (appel gratuit)
     today = NOW.astimezone(PARIS).date()
     horizon = datetime.combine(today + timedelta(days=2), datetime.min.time(), PARIS).astimezone(timezone.utc)
@@ -736,6 +846,7 @@ def main():
     events = fetch_odds(needed, cache)
     cache = {k: v for k, v in events.items() if v["commence_time"] > (NOW - timedelta(days=1)).isoformat()}
     matches = build_matches(events, models)
+    record_predictions(store, matches)
 
     # 3. combines : provisoires jusqu'au premier passage du jour J, ensuite figes
     days = sorted({m["day"] for m in matches if m["day"] <= (today + timedelta(days=1)).isoformat()})
@@ -778,6 +889,13 @@ def main():
     history["combos"].sort(key=lambda c: (c["day"], c["kind"]), reverse=True)
     history["bilan"] = bilan(history)
     history["updated"] = NOW.isoformat()
+
+    # 5. journal des predictions : scores, puis mesures pour l'onglet Modele
+    settle_predictions(store, fd)
+    learn.prune(store, NOW)
+    learn.log_params(store, NOW, params)
+    save("model.json", learn.metrics(store, params, history, NOW))
+    save("learning.json", store, compact=True)
 
     current = [c for c in history["combos"] if c["day"] >= today.isoformat() and not c.get("replaced")]
     meta.update(credits_remaining=credits["remaining"], credits_used_last_run=credits["used_run"],

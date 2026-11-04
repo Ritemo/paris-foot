@@ -22,7 +22,7 @@ jobs:
       - run: pip install -r robot/requirements.txt playwright && python -m playwright install --with-deps chromium
       - name: Tests du robot et de l'appli
         run: |
-          for f in docs/app.js docs/live.js docs/compose.js docs/fx.js docs/sw.js; do node --check "$f"; done
+          for f in docs/app.js docs/model.js docs/live.js docs/compose.js docs/fx.js docs/sw.js; do node --check "$f"; done
           python tests/test_robot.py
           python tests/test_app.py
       - name: Prévenir en cas d'échec

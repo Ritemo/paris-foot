@@ -196,6 +196,57 @@
     "stake": 1,
     "status": "en attente"
    }
+  },
+  "2026-11-05|d6ef4964addd663baed90f8f19fda1d3:-3.5|e1c3625feeebcd65317e17a4e9a38c4f:1": {
+   "mise": 3,
+   "odds": 1.92,
+   "t": 1793825090,
+   "snap": {
+    "id": "2026-11-05|d6ef4964addd663baed90f8f19fda1d3:-3.5|e1c3625feeebcd65317e17a4e9a38c4f:1",
+    "day": "2026-11-05",
+    "kind": "x2",
+    "legs": [
+     {
+      "match_id": "e1c3625feeebcd65317e17a4e9a38c4f",
+      "league": "Ligue Europa",
+      "kickoff": "2026-11-05T20:00:00Z",
+      "home": "Bayer Leverkusen",
+      "away": "Marseille",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "EL",
+      "market": "1",
+      "label": "Victoire Bayer Leverkusen",
+      "odds": 1.3,
+      "src": "unibet",
+      "p": 0.6808,
+      "ev": -0.115
+     },
+     {
+      "match_id": "d6ef4964addd663baed90f8f19fda1d3",
+      "league": "Ligue Europa",
+      "kickoff": "2026-11-05T17:45:00Z",
+      "home": "Real Sociedad",
+      "away": "Lyon",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "EL",
+      "market": "-3.5",
+      "label": "Moins de 3,5 buts",
+      "odds": 1.48,
+      "src": "estimee",
+      "p": 0.6068,
+      "ev": -0.1019
+     }
+    ],
+    "odds": 1.92,
+    "p": 0.4131,
+    "cost": 0.2052,
+    "stars": 2,
+    "stake": 3,
+    "status": "en attente",
+    "alt": true
+   }
   }
  }
 }

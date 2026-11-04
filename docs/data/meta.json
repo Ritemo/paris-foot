@@ -127,6 +127,72 @@
     "stake": 1,
     "status": "en attente"
    }
+  },
+  "perso|2026-11-05|cb7170b1b0e68a09be62b7a0fcb8d268:+2.5|d6ef4964addd663baed90f8f19fda1d3:BTTS|402e102fa845ed84ab7e59b3b17f8c29:N": {
+   "mise": 1,
+   "odds": 7.61,
+   "t": 1793816521,
+   "snap": {
+    "id": "perso|2026-11-05|cb7170b1b0e68a09be62b7a0fcb8d268:+2.5|d6ef4964addd663baed90f8f19fda1d3:BTTS|402e102fa845ed84ab7e59b3b17f8c29:N",
+    "day": "2026-11-05",
+    "kind": "perso",
+    "legs": [
+     {
+      "match_id": "cb7170b1b0e68a09be62b7a0fcb8d268",
+      "league": "Ligue Europa",
+      "kickoff": "2026-11-05T17:45:00Z",
+      "home": "AC Milan",
+      "away": "Ferencváros TC",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "EL",
+      "market": "+2.5",
+      "label": "Plus de 2,5 buts",
+      "odds": 1.36,
+      "src": "estimee",
+      "p": 0.6454,
+      "ev": -0.1223
+     },
+     {
+      "match_id": "d6ef4964addd663baed90f8f19fda1d3",
+      "league": "Ligue Europa",
+      "kickoff": "2026-11-05T17:45:00Z",
+      "home": "Real Sociedad",
+      "away": "Lyon",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "EL",
+      "market": "BTTS",
+      "label": "Les deux équipes marquent",
+      "odds": 1.45,
+      "src": "estimee",
+      "p": 0.6173,
+      "ev": -0.1049
+     },
+     {
+      "match_id": "402e102fa845ed84ab7e59b3b17f8c29",
+      "league": "Ligue Europa",
+      "kickoff": "2026-11-05T20:00:00Z",
+      "home": "Torreense",
+      "away": "FC Ararat-Armenia",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "EL",
+      "market": "N",
+      "label": "Match nul",
+      "odds": 3.5,
+      "src": "unibet",
+      "p": 0.256,
+      "ev": -0.104
+     }
+    ],
+    "odds": 6.9,
+    "p": 0.10199178751999999,
+    "cost": 0.29607617408,
+    "stars": 0,
+    "stake": 1,
+    "status": "en attente"
+   }
   }
  }
 }

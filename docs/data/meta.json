@@ -87,7 +87,9 @@
       "odds": 1.7,
       "src": "estimee",
       "p": 0.5162,
-      "ev": -0.1225
+      "ev": -0.1225,
+      "score": "1-2",
+      "won": false
      },
      {
       "match_id": "013cecbf40f5b4530342632a80f35b00",
@@ -103,7 +105,9 @@
       "odds": 1.5,
       "src": "pmu",
       "p": 0.5926,
-      "ev": -0.1111
+      "ev": -0.1111,
+      "score": "1-9",
+      "won": false
      },
      {
       "match_id": "df7d2d81b9e2f3f11c6aeddaee6b7085",
@@ -119,7 +123,9 @@
       "odds": 1.46,
       "src": "unibet",
       "p": 0.6035,
-      "ev": -0.1189
+      "ev": -0.1189,
+      "score": "2-3",
+      "won": true
      }
     ],
     "odds": 5.88,

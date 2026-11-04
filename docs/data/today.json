@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-04T17:51:01.679846+00:00",
- "credits_remaining": 450,
+ "generated_at": "2026-11-04T17:52:57.211471+00:00",
+ "credits_remaining": 448,
  "combos": [
   {
    "id": "2026-11-04|6277e639c064e641265fcb98a0e200b9:1|f43ef699c987e112e115f7035114854e:H2",
@@ -889,122 +889,122 @@
    "fd_home": null,
    "fd_away": null,
    "lambdas": [
-    1.644,
-    1.145
+    1.627,
+    1.163
    ],
    "model": false,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Porto",
-     "odds": 1.82,
+     "odds": 1.85,
      "src": "unibet",
-     "p": 0.483,
-     "ev": -0.1209
+     "p": 0.4746,
+     "ev": -0.122
     },
     {
      "market": "N",
      "label": "Match nul",
      "odds": 3.4,
      "src": "unibet",
-     "p": 0.2584,
-     "ev": -0.1214
+     "p": 0.2596,
+     "ev": -0.1174
     },
     {
      "market": "2",
      "label": "Victoire Napoli",
-     "odds": 3.4,
+     "odds": 3.3,
      "src": "unibet",
-     "p": 0.2586,
-     "ev": -0.1208
+     "p": 0.2658,
+     "ev": -0.1229
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
      "odds": 1.68,
      "src": "pmu",
-     "p": 0.5281,
-     "ev": -0.1128
+     "p": 0.5282,
+     "ev": -0.1126
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
      "odds": 1.88,
      "src": "pmu",
-     "p": 0.4719,
-     "ev": -0.1128
+     "p": 0.4718,
+     "ev": -0.113
     },
     {
      "market": "1N",
      "label": "Porto ou nul",
-     "odds": 1.19,
+     "odds": 1.2,
      "src": "estimee",
-     "p": 0.7414,
-     "ev": -0.1177
+     "p": 0.7342,
+     "ev": -0.119
     },
     {
      "market": "N2",
      "label": "Napoli ou nul",
-     "odds": 1.7,
+     "odds": 1.67,
      "src": "estimee",
-     "p": 0.517,
-     "ev": -0.1211
+     "p": 0.5254,
+     "ev": -0.1226
     },
     {
      "market": "12",
      "label": "Pas de match nul",
      "odds": 1.19,
      "src": "estimee",
-     "p": 0.7416,
-     "ev": -0.1175
+     "p": 0.7404,
+     "ev": -0.1189
     },
     {
      "market": "BTTS",
      "label": "Les deux équipes marquent",
-     "odds": 1.58,
+     "odds": 1.57,
      "src": "estimee",
-     "p": 0.5571,
-     "ev": -0.1198
+     "p": 0.5594,
+     "ev": -0.1217
     },
     {
      "market": "NBTTS",
      "label": "Une équipe au moins ne marque pas",
-     "odds": 1.98,
+     "odds": 1.99,
      "src": "estimee",
-     "p": 0.4429,
-     "ev": -0.1231
+     "p": 0.4406,
+     "ev": -0.1232
     },
     {
      "market": "+1.5",
      "label": "Plus de 1,5 buts",
      "odds": 1.14,
      "src": "estimee",
-     "p": 0.7741,
-     "ev": -0.1175
+     "p": 0.7742,
+     "ev": -0.1174
     },
     {
      "market": "-1.5",
      "label": "Moins de 1,5 buts",
      "odds": 3.89,
      "src": "estimee",
-     "p": 0.2259,
-     "ev": -0.1212
+     "p": 0.2258,
+     "ev": -0.1216
     },
     {
      "market": "+3.5",
      "label": "Plus de 3,5 buts",
      "odds": 2.87,
      "src": "estimee",
-     "p": 0.3058,
-     "ev": -0.1224
+     "p": 0.3059,
+     "ev": -0.1221
     },
     {
      "market": "-3.5",
      "label": "Moins de 3,5 buts",
      "odds": 1.27,
      "src": "estimee",
-     "p": 0.6942,
-     "ev": -0.1184
+     "p": 0.6941,
+     "ev": -0.1185
     }
    ]
   },

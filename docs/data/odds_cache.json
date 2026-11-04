@@ -10,11 +10,11 @@
    {
     "key": "unibet_fr",
     "title": "Unibet (FR)",
-    "last_update": "2026-11-04T17:51:04Z",
+    "last_update": "2026-11-04T17:52:11Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:04Z",
+      "last_update": "2026-11-04T17:52:11Z",
       "outcomes": [
        {
         "name": "AEK Athens",
@@ -26,7 +26,7 @@
        },
        {
         "name": "Draw",
-        "price": 5.1
+        "price": 5.2
        }
       ]
      }
@@ -35,15 +35,15 @@
    {
     "key": "betclic_fr",
     "title": "Betclic (FR)",
-    "last_update": "2026-11-04T17:50:24Z",
+    "last_update": "2026-11-04T17:52:45Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:50:24Z",
+      "last_update": "2026-11-04T17:52:45Z",
       "outcomes": [
        {
         "name": "AEK Athens",
-        "price": 9.0
+        "price": 9.5
        },
        {
         "name": "Real Madrid",
@@ -51,7 +51,7 @@
        },
        {
         "name": "Draw",
-        "price": 5.5
+        "price": 5.4
        }
       ]
      }
@@ -60,15 +60,15 @@
    {
     "key": "winamax_fr",
     "title": "Winamax (FR)",
-    "last_update": "2026-11-04T17:51:03Z",
+    "last_update": "2026-11-04T17:52:35Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:03Z",
+      "last_update": "2026-11-04T17:52:35Z",
       "outcomes": [
        {
         "name": "AEK Athens",
-        "price": 9.0
+        "price": 9.5
        },
        {
         "name": "Real Madrid",
@@ -85,11 +85,11 @@
    {
     "key": "pmu_fr",
     "title": "PMU (FR)",
-    "last_update": "2026-11-04T17:51:02Z",
+    "last_update": "2026-11-04T17:52:34Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:02Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "AEK Athens",
@@ -101,22 +101,22 @@
        },
        {
         "name": "Draw",
-        "price": 6.5
+        "price": 6.25
        }
       ]
      },
      {
       "key": "totals",
-      "last_update": "2026-11-04T17:51:02Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Over",
-        "price": 1.61,
+        "price": 1.67,
         "point": 3.5
        },
        {
         "name": "Under",
-        "price": 1.88,
+        "price": 1.81,
         "point": 3.5
        }
       ]
@@ -166,7 +166,7 @@
    }
   ],
   "sport": "soccer_uefa_champs_league",
-  "fetched_at": "2026-11-04T17:51:01.679846+00:00"
+  "fetched_at": "2026-11-04T17:52:57.211471+00:00"
  },
  "e901dbcdd6e2255fb24d84032b9d437a": {
   "id": "e901dbcdd6e2255fb24d84032b9d437a",
@@ -179,11 +179,11 @@
    {
     "key": "winamax_fr",
     "title": "Winamax (FR)",
-    "last_update": "2026-11-04T17:51:03Z",
+    "last_update": "2026-11-04T17:52:35Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:03Z",
+      "last_update": "2026-11-04T17:52:35Z",
       "outcomes": [
        {
         "name": "Fenerbahce",
@@ -191,11 +191,11 @@
        },
        {
         "name": "Liverpool",
-        "price": 1.45
+        "price": 1.44
        },
        {
         "name": "Draw",
-        "price": 3.75
+        "price": 3.9
        }
       ]
      }
@@ -204,19 +204,19 @@
    {
     "key": "unibet_fr",
     "title": "Unibet (FR)",
-    "last_update": "2026-11-04T17:51:04Z",
+    "last_update": "2026-11-04T17:52:11Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:04Z",
+      "last_update": "2026-11-04T17:52:11Z",
       "outcomes": [
        {
         "name": "Fenerbahce",
-        "price": 4.5
+        "price": 4.55
        },
        {
         "name": "Liverpool",
-        "price": 1.45
+        "price": 1.42
        },
        {
         "name": "Draw",
@@ -229,19 +229,19 @@
    {
     "key": "betclic_fr",
     "title": "Betclic (FR)",
-    "last_update": "2026-11-04T17:50:24Z",
+    "last_update": "2026-11-04T17:52:45Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:50:24Z",
+      "last_update": "2026-11-04T17:52:45Z",
       "outcomes": [
        {
         "name": "Fenerbahce",
-        "price": 4.5
+        "price": 4.6
        },
        {
         "name": "Liverpool",
-        "price": 1.48
+        "price": 1.45
        },
        {
         "name": "Draw",
@@ -254,38 +254,38 @@
    {
     "key": "pmu_fr",
     "title": "PMU (FR)",
-    "last_update": "2026-11-04T17:51:02Z",
+    "last_update": "2026-11-04T17:52:34Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:02Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Fenerbahce",
-        "price": 4.8
+        "price": 5.5
        },
        {
         "name": "Liverpool",
-        "price": 1.44
+        "price": 1.36
        },
        {
         "name": "Draw",
-        "price": 4.1
+        "price": 4.4
        }
       ]
      },
      {
       "key": "totals",
-      "last_update": "2026-11-04T17:51:02Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Over",
-        "price": 1.94,
+        "price": 1.8,
         "point": 3.5
        },
        {
         "name": "Under",
-        "price": 1.56,
+        "price": 1.68,
         "point": 3.5
        }
       ]
@@ -335,7 +335,7 @@
    }
   ],
   "sport": "soccer_uefa_champs_league",
-  "fetched_at": "2026-11-04T17:51:01.679846+00:00"
+  "fetched_at": "2026-11-04T17:52:57.211471+00:00"
  },
  "a5910ae3b314876faea7f5c03b8aeaad": {
   "id": "a5910ae3b314876faea7f5c03b8aeaad",
@@ -348,11 +348,11 @@
    {
     "key": "betclic_fr",
     "title": "Betclic (FR)",
-    "last_update": "2026-11-04T17:50:24Z",
+    "last_update": "2026-11-04T17:52:45Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:50:24Z",
+      "last_update": "2026-11-04T17:52:45Z",
       "outcomes": [
        {
         "name": "Arsenal",
@@ -373,11 +373,11 @@
    {
     "key": "unibet_fr",
     "title": "Unibet (FR)",
-    "last_update": "2026-11-04T17:51:04Z",
+    "last_update": "2026-11-04T17:52:11Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:04Z",
+      "last_update": "2026-11-04T17:52:11Z",
       "outcomes": [
        {
         "name": "Arsenal",
@@ -398,11 +398,11 @@
    {
     "key": "winamax_fr",
     "title": "Winamax (FR)",
-    "last_update": "2026-11-04T17:51:03Z",
+    "last_update": "2026-11-04T17:52:35Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:03Z",
+      "last_update": "2026-11-04T17:52:35Z",
       "outcomes": [
        {
         "name": "Arsenal",
@@ -423,11 +423,11 @@
    {
     "key": "pmu_fr",
     "title": "PMU (FR)",
-    "last_update": "2026-11-04T17:51:02Z",
+    "last_update": "2026-11-04T17:52:34Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:02Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Arsenal",
@@ -445,7 +445,7 @@
      },
      {
       "key": "totals",
-      "last_update": "2026-11-04T17:51:02Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Over",
@@ -464,11 +464,11 @@
    {
     "key": "netbet_fr",
     "title": "NetBet",
-    "last_update": "2026-11-04T17:51:01Z",
+    "last_update": "2026-11-04T17:52:34Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:01Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Arsenal",
@@ -486,7 +486,7 @@
      },
      {
       "key": "totals",
-      "last_update": "2026-11-04T17:51:01Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Over",
@@ -504,7 +504,7 @@
    }
   ],
   "sport": "soccer_uefa_champs_league",
-  "fetched_at": "2026-11-04T17:51:01.679846+00:00"
+  "fetched_at": "2026-11-04T17:52:57.211471+00:00"
  },
  "6d386ed81fabf67aa19fbd442c0d8c60": {
   "id": "6d386ed81fabf67aa19fbd442c0d8c60",
@@ -517,11 +517,11 @@
    {
     "key": "winamax_fr",
     "title": "Winamax (FR)",
-    "last_update": "2026-11-04T17:51:03Z",
+    "last_update": "2026-11-04T17:52:35Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:03Z",
+      "last_update": "2026-11-04T17:52:35Z",
       "outcomes": [
        {
         "name": "Borussia Dortmund",
@@ -542,11 +542,11 @@
    {
     "key": "betclic_fr",
     "title": "Betclic (FR)",
-    "last_update": "2026-11-04T17:50:24Z",
+    "last_update": "2026-11-04T17:52:45Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:50:24Z",
+      "last_update": "2026-11-04T17:52:45Z",
       "outcomes": [
        {
         "name": "Borussia Dortmund",
@@ -567,11 +567,11 @@
    {
     "key": "unibet_fr",
     "title": "Unibet (FR)",
-    "last_update": "2026-11-04T17:51:04Z",
+    "last_update": "2026-11-04T17:52:11Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:04Z",
+      "last_update": "2026-11-04T17:52:11Z",
       "outcomes": [
        {
         "name": "Borussia Dortmund",
@@ -592,11 +592,11 @@
    {
     "key": "pmu_fr",
     "title": "PMU (FR)",
-    "last_update": "2026-11-04T17:51:02Z",
+    "last_update": "2026-11-04T17:52:34Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:02Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Borussia Dortmund",
@@ -614,7 +614,7 @@
      },
      {
       "key": "totals",
-      "last_update": "2026-11-04T17:51:02Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Over",
@@ -633,19 +633,19 @@
    {
     "key": "netbet_fr",
     "title": "NetBet",
-    "last_update": "2026-11-04T17:51:01Z",
+    "last_update": "2026-11-04T17:52:34Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:01Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Borussia Dortmund",
-        "price": 1.57
+        "price": 1.58
        },
        {
         "name": "Real Betis",
-        "price": 4.6
+        "price": 4.5
        },
        {
         "name": "Draw",
@@ -655,7 +655,7 @@
      },
      {
       "key": "totals",
-      "last_update": "2026-11-04T17:51:01Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Over",
@@ -673,7 +673,7 @@
    }
   ],
   "sport": "soccer_uefa_champs_league",
-  "fetched_at": "2026-11-04T17:51:01.679846+00:00"
+  "fetched_at": "2026-11-04T17:52:57.211471+00:00"
  },
  "449d718632202f0e5997d2e4b7273483": {
   "id": "449d718632202f0e5997d2e4b7273483",
@@ -686,11 +686,11 @@
    {
     "key": "unibet_fr",
     "title": "Unibet (FR)",
-    "last_update": "2026-11-04T17:51:04Z",
+    "last_update": "2026-11-04T17:52:11Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:03Z",
+      "last_update": "2026-11-04T17:52:11Z",
       "outcomes": [
        {
         "name": "Club Brugge",
@@ -711,11 +711,11 @@
    {
     "key": "winamax_fr",
     "title": "Winamax (FR)",
-    "last_update": "2026-11-04T17:51:03Z",
+    "last_update": "2026-11-04T17:52:35Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:03Z",
+      "last_update": "2026-11-04T17:52:35Z",
       "outcomes": [
        {
         "name": "Club Brugge",
@@ -736,11 +736,11 @@
    {
     "key": "betclic_fr",
     "title": "Betclic (FR)",
-    "last_update": "2026-11-04T17:50:24Z",
+    "last_update": "2026-11-04T17:52:45Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:50:24Z",
+      "last_update": "2026-11-04T17:52:45Z",
       "outcomes": [
        {
         "name": "Club Brugge",
@@ -761,11 +761,11 @@
    {
     "key": "pmu_fr",
     "title": "PMU (FR)",
-    "last_update": "2026-11-04T17:51:02Z",
+    "last_update": "2026-11-04T17:52:34Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:02Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Club Brugge",
@@ -783,7 +783,7 @@
      },
      {
       "key": "totals",
-      "last_update": "2026-11-04T17:51:02Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Over",
@@ -802,11 +802,11 @@
    {
     "key": "netbet_fr",
     "title": "NetBet",
-    "last_update": "2026-11-04T17:51:01Z",
+    "last_update": "2026-11-04T17:52:34Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:01Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Club Brugge",
@@ -824,7 +824,7 @@
      },
      {
       "key": "totals",
-      "last_update": "2026-11-04T17:51:01Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Over",
@@ -842,7 +842,7 @@
    }
   ],
   "sport": "soccer_uefa_champs_league",
-  "fetched_at": "2026-11-04T17:51:01.679846+00:00"
+  "fetched_at": "2026-11-04T17:52:57.211471+00:00"
  },
  "013cecbf40f5b4530342632a80f35b00": {
   "id": "013cecbf40f5b4530342632a80f35b00",
@@ -855,11 +855,11 @@
    {
     "key": "winamax_fr",
     "title": "Winamax (FR)",
-    "last_update": "2026-11-04T17:51:03Z",
+    "last_update": "2026-11-04T17:52:35Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:03Z",
+      "last_update": "2026-11-04T17:52:35Z",
       "outcomes": [
        {
         "name": "Como",
@@ -880,11 +880,11 @@
    {
     "key": "unibet_fr",
     "title": "Unibet (FR)",
-    "last_update": "2026-11-04T17:51:04Z",
+    "last_update": "2026-11-04T17:52:11Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:03Z",
+      "last_update": "2026-11-04T17:52:11Z",
       "outcomes": [
        {
         "name": "Como",
@@ -905,11 +905,11 @@
    {
     "key": "betclic_fr",
     "title": "Betclic (FR)",
-    "last_update": "2026-11-04T17:50:24Z",
+    "last_update": "2026-11-04T17:52:45Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:50:24Z",
+      "last_update": "2026-11-04T17:52:45Z",
       "outcomes": [
        {
         "name": "Como",
@@ -930,11 +930,11 @@
    {
     "key": "pmu_fr",
     "title": "PMU (FR)",
-    "last_update": "2026-11-04T17:51:02Z",
+    "last_update": "2026-11-04T17:52:34Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:02Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Como",
@@ -952,7 +952,7 @@
      },
      {
       "key": "totals",
-      "last_update": "2026-11-04T17:51:02Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Over",
@@ -971,11 +971,11 @@
    {
     "key": "netbet_fr",
     "title": "NetBet",
-    "last_update": "2026-11-04T17:51:01Z",
+    "last_update": "2026-11-04T17:52:34Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:01Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Como",
@@ -993,7 +993,7 @@
      },
      {
       "key": "totals",
-      "last_update": "2026-11-04T17:51:01Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Over",
@@ -1011,7 +1011,7 @@
    }
   ],
   "sport": "soccer_uefa_champs_league",
-  "fetched_at": "2026-11-04T17:51:01.679846+00:00"
+  "fetched_at": "2026-11-04T17:52:57.211471+00:00"
  },
  "df7d2d81b9e2f3f11c6aeddaee6b7085": {
   "id": "df7d2d81b9e2f3f11c6aeddaee6b7085",
@@ -1024,11 +1024,11 @@
    {
     "key": "winamax_fr",
     "title": "Winamax (FR)",
-    "last_update": "2026-11-04T17:51:03Z",
+    "last_update": "2026-11-04T17:52:35Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:03Z",
+      "last_update": "2026-11-04T17:52:35Z",
       "outcomes": [
        {
         "name": "Manchester City",
@@ -1049,11 +1049,11 @@
    {
     "key": "betclic_fr",
     "title": "Betclic (FR)",
-    "last_update": "2026-11-04T17:50:24Z",
+    "last_update": "2026-11-04T17:52:45Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:50:24Z",
+      "last_update": "2026-11-04T17:52:45Z",
       "outcomes": [
        {
         "name": "Manchester City",
@@ -1074,11 +1074,11 @@
    {
     "key": "unibet_fr",
     "title": "Unibet (FR)",
-    "last_update": "2026-11-04T17:51:04Z",
+    "last_update": "2026-11-04T17:52:11Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:04Z",
+      "last_update": "2026-11-04T17:52:11Z",
       "outcomes": [
        {
         "name": "Manchester City",
@@ -1099,11 +1099,11 @@
    {
     "key": "pmu_fr",
     "title": "PMU (FR)",
-    "last_update": "2026-11-04T17:51:02Z",
+    "last_update": "2026-11-04T17:52:34Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:02Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Manchester City",
@@ -1121,7 +1121,7 @@
      },
      {
       "key": "totals",
-      "last_update": "2026-11-04T17:51:02Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Over",
@@ -1140,11 +1140,11 @@
    {
     "key": "netbet_fr",
     "title": "NetBet",
-    "last_update": "2026-11-04T17:51:01Z",
+    "last_update": "2026-11-04T17:52:34Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:01Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Manchester City",
@@ -1162,7 +1162,7 @@
      },
      {
       "key": "totals",
-      "last_update": "2026-11-04T17:51:01Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Over",
@@ -1180,7 +1180,7 @@
    }
   ],
   "sport": "soccer_uefa_champs_league",
-  "fetched_at": "2026-11-04T17:51:01.679846+00:00"
+  "fetched_at": "2026-11-04T17:52:57.211471+00:00"
  },
  "ba82ee37f64a66a30d85f8b90082ec2f": {
   "id": "ba82ee37f64a66a30d85f8b90082ec2f",
@@ -1193,19 +1193,19 @@
    {
     "key": "unibet_fr",
     "title": "Unibet (FR)",
-    "last_update": "2026-11-04T17:51:04Z",
+    "last_update": "2026-11-04T17:52:11Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:04Z",
+      "last_update": "2026-11-04T17:52:11Z",
       "outcomes": [
        {
         "name": "Napoli",
-        "price": 3.4
+        "price": 3.3
        },
        {
         "name": "Porto",
-        "price": 1.82
+        "price": 1.85
        },
        {
         "name": "Draw",
@@ -1218,11 +1218,11 @@
    {
     "key": "betclic_fr",
     "title": "Betclic (FR)",
-    "last_update": "2026-11-04T17:50:24Z",
+    "last_update": "2026-11-04T17:52:45Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:50:24Z",
+      "last_update": "2026-11-04T17:52:45Z",
       "outcomes": [
        {
         "name": "Napoli",
@@ -1243,11 +1243,11 @@
    {
     "key": "winamax_fr",
     "title": "Winamax (FR)",
-    "last_update": "2026-11-04T17:51:03Z",
+    "last_update": "2026-11-04T17:52:35Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:03Z",
+      "last_update": "2026-11-04T17:52:35Z",
       "outcomes": [
        {
         "name": "Napoli",
@@ -1268,11 +1268,11 @@
    {
     "key": "pmu_fr",
     "title": "PMU (FR)",
-    "last_update": "2026-11-04T17:51:02Z",
+    "last_update": "2026-11-04T17:52:34Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:02Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Napoli",
@@ -1290,7 +1290,7 @@
      },
      {
       "key": "totals",
-      "last_update": "2026-11-04T17:51:02Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Over",
@@ -1309,11 +1309,11 @@
    {
     "key": "netbet_fr",
     "title": "NetBet",
-    "last_update": "2026-11-04T17:51:01Z",
+    "last_update": "2026-11-04T17:52:34Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:01Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Napoli",
@@ -1331,7 +1331,7 @@
      },
      {
       "key": "totals",
-      "last_update": "2026-11-04T17:51:01Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Over",
@@ -1349,7 +1349,7 @@
    }
   ],
   "sport": "soccer_uefa_champs_league",
-  "fetched_at": "2026-11-04T17:51:01.679846+00:00"
+  "fetched_at": "2026-11-04T17:52:57.211471+00:00"
  },
  "6277e639c064e641265fcb98a0e200b9": {
   "id": "6277e639c064e641265fcb98a0e200b9",
@@ -1362,11 +1362,11 @@
    {
     "key": "winamax_fr",
     "title": "Winamax (FR)",
-    "last_update": "2026-11-04T17:51:03Z",
+    "last_update": "2026-11-04T17:52:35Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:03Z",
+      "last_update": "2026-11-04T17:52:35Z",
       "outcomes": [
        {
         "name": "Sabah FK",
@@ -1387,11 +1387,11 @@
    {
     "key": "betclic_fr",
     "title": "Betclic (FR)",
-    "last_update": "2026-11-04T17:50:24Z",
+    "last_update": "2026-11-04T17:52:45Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:50:24Z",
+      "last_update": "2026-11-04T17:52:45Z",
       "outcomes": [
        {
         "name": "Sabah FK",
@@ -1412,11 +1412,11 @@
    {
     "key": "unibet_fr",
     "title": "Unibet (FR)",
-    "last_update": "2026-11-04T17:51:04Z",
+    "last_update": "2026-11-04T17:52:11Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:04Z",
+      "last_update": "2026-11-04T17:52:11Z",
       "outcomes": [
        {
         "name": "Sabah FK",
@@ -1437,11 +1437,11 @@
    {
     "key": "pmu_fr",
     "title": "PMU (FR)",
-    "last_update": "2026-11-04T17:51:02Z",
+    "last_update": "2026-11-04T17:52:34Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:02Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Sabah FK",
@@ -1459,7 +1459,7 @@
      },
      {
       "key": "totals",
-      "last_update": "2026-11-04T17:51:02Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Over",
@@ -1478,11 +1478,11 @@
    {
     "key": "netbet_fr",
     "title": "NetBet",
-    "last_update": "2026-11-04T17:51:01Z",
+    "last_update": "2026-11-04T17:52:34Z",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-04T17:51:01Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Sabah FK",
@@ -1500,7 +1500,7 @@
      },
      {
       "key": "totals",
-      "last_update": "2026-11-04T17:51:01Z",
+      "last_update": "2026-11-04T17:52:34Z",
       "outcomes": [
        {
         "name": "Over",
@@ -1518,7 +1518,7 @@
    }
   ],
   "sport": "soccer_uefa_champs_league",
-  "fetched_at": "2026-11-04T17:51:01.679846+00:00"
+  "fetched_at": "2026-11-04T17:52:57.211471+00:00"
  },
  "5e7d141f719835de18877ed95bedcb32": {
   "id": "5e7d141f719835de18877ed95bedcb32",

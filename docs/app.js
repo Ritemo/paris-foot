@@ -178,7 +178,7 @@ function ticketHtml(c) {
     <div class="legs">${c.legs.map((l, i) => legHtml(c, l, i)).join("")}</div>
     <div class="perf"><span class="notch"></span></div>
     <div class="stub">
-      <div class="gain">${gainText(c, k, b, mise)}</div>
+      <div class="gain">${gainText(c, k, b, mise)}${c.status === "en attente" ? `<button class="sim-btn" data-sim="${esc(c.id)}">Simuler 100 fois</button>` : ""}</div>
       ${action}
     </div>
   </article>`;
@@ -279,7 +279,7 @@ function flairGauge(diff, enough) {
   const pos = (v + 100) / 2;
   const label = v <= -40 ? "Tri à revoir" : v < -10 ? "Plutôt défavorable" : v <= 10 ? "Neutre" : v < 40 ? "Plutôt bon" : "Bon flair";
   return `<div class="gauge-flair ${enough ? "" : "early"}" role="img" aria-label="Jauge du flair : ${label}, ${v >= 0 ? "+" : ""}${v} points">
-    <div class="gf-track"><i class="gf-needle" style="left:${pos}%"><span style="transform:translateX(-${pos}%)">${real >= 0 ? "+" : "−"}${Math.abs(real)}</span></i></div>
+    <div class="gf-track"><i class="gf-needle" data-pos="${pos}" style="left:${pos}%"><span style="transform:translateX(-${pos}%)">${real >= 0 ? "+" : "−"}${Math.abs(real)}</span></i></div>
     <div class="gf-scale"><span>−100</span><span>0</span><span>+100</span></div>
     <div class="gf-label">${label}${enough ? "" : " (provisoire)"}</div>
   </div>`;
@@ -294,7 +294,7 @@ function bankCard() {
   const row = (label, val, cls = "") => `<div class="bank-row"><span>${label}</span><b class="${cls}">${val}</b></div>`;
   return `<div class="panel bank" style="margin-top:14px">
     <div class="bank-head"><b class="bank-title">Ta bankroll</b><span>départ le ${esc(new Date(br.start + "T12:00:00").toLocaleDateString("fr-FR", { day: "numeric", month: "long" }))}</span></div>
-    <div class="bank-value ${br.value >= br.moves ? "" : "down"}">${fmt(br.value)} €</div>
+    <div class="bank-value ${br.value >= br.moves ? "" : "down"}" data-count="${br.value.toFixed(2)}" data-count-key="bankcard">${fmt(br.value)} €</div>
     <p class="hint" style="margin:0">disponible${br.engaged ? `, plus ${fmt(br.engaged)} € en jeu` : ""}</p>
     ${row("Dépôt de départ", `${fmt(br.depart)} €`)}
     ${br.flows ? row("Dépôts et retraits ensuite", `${br.flows > 0 ? "+" : "−"}${fmt(Math.abs(br.flows))} €`) : ""}
@@ -413,7 +413,7 @@ function bilanMine() {
     <div class="cash">
       <div><small>Misé</small><b>${fmt(mise)} €</b></div>
       <div><small>Récupéré</small><b>${fmt(mise + gain)} €</b></div>
-      <div class="net ${gain >= 0 ? "pos" : "neg"}"><small>Gain réel</small><b>${eur(gain)}</b></div>
+      <div class="net ${gain >= 0 ? "pos" : "neg"}"><small>Gain réel</small><b data-count="${gain.toFixed(2)}" data-count-key="gain" data-sign="1">${eur(gain)}</b></div>
     </div>
     ${mise ? roiBlock(gain / mise, done.reduce((s, x) => s + x.mise * (x.c.p * x.odds - 1), 0) / mise) : ""}
     <p class="hint">Récupéré = ce que les tickets gagnants t'ont rapporté, mise comprise. Gain réel = récupéré moins tout ce que tu as misé.</p>`;
@@ -491,7 +491,7 @@ function renderHeader() {
     : "En attente du premier passage du robot";
   const s = settings(), spent = monthSpent();
   const br = bankroll();
-  document.getElementById("budget-strip").innerHTML = (br ? `<div class="line bank-line"><span>Bankroll</span><span><b>${fmt(br.value)} €</b>${br.engaged ? ` + ${fmt(br.engaged)} € en jeu` : ""}</span></div>` : "") +
+  document.getElementById("budget-strip").innerHTML = (br ? `<div class="line bank-line"><span>Bankroll</span><span><b data-count="${br.value.toFixed(2)}" data-count-key="bankhead">${fmt(br.value)} €</b>${br.engaged ? ` + ${fmt(br.engaged)} € en jeu` : ""}</span></div>` : "") +
     `<div class="line"><span>Budget du mois</span><span><b>${fmt(spent, 0)} €</b> sur ${fmt(s.budget, 0)} €</span></div>
     <div class="gauge ${spent > s.budget ? "over" : ""}"><i style="width:${Math.min(100, (100 * spent) / Math.max(s.budget, 1))}%"></i></div>`;
 }
@@ -516,7 +516,20 @@ function renderEncours() {
   el.innerHTML = h;
 }
 
-function renderAll() { renderHeader(); renderEncours(); renderCombos(); renderMatchs(); renderBilan(); renderComposer(); }
+function renderAll() {
+  renderHeader(); renderEncours(); renderCombos(); renderMatchs(); renderBilan(); renderComposer();
+  animateCounters(); flashGoals(); animateGauge();
+  if (!document.querySelector(".celebrate")) celebrate();
+}
+function animateGauge() {
+  document.querySelectorAll(".gf-needle[data-pos]").forEach((n) => {
+    if (n.dataset.done) return;
+    n.dataset.done = "1";
+    if (calm()) return;
+    n.style.left = "50%";
+    requestAnimationFrame(() => requestAnimationFrame(() => { n.style.left = n.dataset.pos + "%"; }));
+  });
+}
 
 /* --------------------------------------------------------------- dialogues */
 function ask(title, text, value, { clear = false, steps = null } = {}) {

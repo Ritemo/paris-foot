@@ -190,7 +190,7 @@ function liveLegHtml(l) {
   const x = legLive(l);
   if (!x) return "";
   const clock = x.end ? "terminé" : x.clock;
-  return `<div class="live ${x.state}"><b>${x.h} - ${x.a}</b><span>${esc(clock)}</span><em>${esc(x.note)}</em></div>`;
+  return `<div class="live ${x.state}" data-mid="${esc(l.match_id)}" data-score="${x.h}-${x.a}"><b>${x.h} - ${x.a}</b><span>${esc(clock)}</span><em>${esc(x.note)}</em></div>`;
 }
 function liveTicketHtml(c) {
   const t = ticketLive(c);

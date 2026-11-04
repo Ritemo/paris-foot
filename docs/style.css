@@ -329,3 +329,44 @@ label.btn { display: inline-block; }
 .comp-notes .stars { position: static; flex-wrap: nowrap; } .comp-notes .stars i { width: 14px; height: 14px; }
 .comp-notes .stars em { flex-basis: auto; margin: 0 0 0 4px; } .comp-notes .rank { margin: 0; }
 .comp-head { flex-wrap: wrap; row-gap: 4px; } .comp-notes { order: 3; flex-basis: 100%; margin-left: 0; } .comp-notes .rank { white-space: nowrap; }
+
+/* ---------- animations */
+[data-count].bump { animation: bump .9s ease-out; } [data-count].bump-down { animation: bumpd .9s ease-out; }
+@keyframes bump { 30% { transform: scale(1.12); color: #9ff0bf; } }
+@keyframes bumpd { 30% { transform: scale(.94); color: #ffb3b9; } }
+[data-count] { display: inline-block; }
+.live.goal { animation: goal 1s ease-in-out 3; position: relative; }
+@keyframes goal { 50% { background: var(--jaune); color: #14261c; } }
+.goal-tag { position: absolute; right: 8px; top: 6px; font: 800 13px var(--display); font-style: normal; color: var(--rouge); animation: pop .4s cubic-bezier(.2, 1.8, .4, 1); }
+@keyframes pop { from { transform: scale(0); } }
+.sim-btn { display: block; margin-top: 6px; background: none; border: 0; padding: 0; color: var(--pelouse-2); font-weight: 800; font-size: 13px; text-decoration: underline; cursor: pointer; }
+.comp-clear + .comp-clear { margin-left: 10px; }
+.comp-head .comp-clear:first-of-type { margin-left: auto; }
+
+/* ---------- ecran de celebration */
+.celebrate { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 20px; background: rgba(6, 30, 18, .82);
+  backdrop-filter: blur(3px); animation: fadein .3s ease-out; }
+.celebrate.out { animation: fadeout .3s ease-in forwards; }
+@keyframes fadein { from { opacity: 0; } } @keyframes fadeout { to { opacity: 0; } }
+.confetti { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.cel-card { position: relative; width: min(100%, 380px); max-height: 88vh; overflow: auto; background: var(--ticket); border-radius: 26px; padding: 26px 22px 20px;
+  text-align: center; box-shadow: 0 30px 80px -20px rgba(0,0,0,.6); animation: rise .5s cubic-bezier(.2, 1.4, .4, 1); }
+@keyframes rise { from { transform: translateY(40px) scale(.9); opacity: 0; } }
+.cel-ball { width: 78px; height: 78px; margin: 0 auto 8px; background: #fff; border-radius: 50%; display: grid; place-items: center;
+  box-shadow: 0 8px 0 rgba(0,0,0,.2); animation: bounce 1.2s cubic-bezier(.3, 0, .3, 1) infinite alternate; }
+.cel-ball svg { width: 64px; height: 64px; fill: none; stroke: #14261c; stroke-width: 2.4; } .cel-ball svg path:first-of-type { fill: #14261c; }
+@keyframes bounce { from { transform: translateY(-10px) rotate(-15deg); } to { transform: translateY(6px) rotate(25deg); } }
+.cel-kicker { margin: 0; font: 800 16px var(--display); color: var(--pelouse-2); }
+.cel-amount { font: 800 54px/1.05 var(--display); color: var(--vert); margin: 4px 0; }
+.cel-sub { color: var(--sous); font-size: 14px; margin: 0 0 12px; } .cel-sub b.pos { color: var(--vert); } .cel-sub b.neg { color: var(--rouge); }
+.cel-legs { text-align: left; display: grid; gap: 8px; margin-bottom: 16px; }
+.cel-ticket { background: var(--ticket-2); border-radius: 12px; padding: 10px 12px; font-size: 14px; }
+.cel-ticket b { display: block; font-family: var(--display); margin-bottom: 2px; } .cel-ticket span { display: block; }
+.cel-ticket small { color: var(--sous); }
+.cel-ok { width: 100%; font-size: 17px; padding: 14px; } .cel-lost { margin: 10px 0 0; font-size: 12px; color: var(--sous); }
+.sim .cel-card { padding-top: 22px; }
+.sim-grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 5px; margin: 14px 0; }
+.sim-grid i { aspect-ratio: 1; border-radius: 50%; background: var(--trait); animation: dot .3s ease-out both; }
+.sim-grid i.w { background: var(--vert); } .sim-grid i.l { background: color-mix(in srgb, var(--rouge) 70%, var(--ticket)); }
+@keyframes dot { from { transform: scale(0); } }
+.sim-res { font: 800 22px var(--display); margin: 0 0 6px; }

@@ -143,7 +143,8 @@ def probs(mat, line=2.5):
     diff = g[:, None] - g[None, :]
     tot = g[:, None] + g[None, :]
     return dict(p1=mat[diff > 0].sum(), pN=mat[diff == 0].sum(), p2=mat[diff < 0].sum(),
-                pO=mat[tot > line].sum(), h1=mat[diff >= 2].sum(), h2=mat[diff <= -2].sum())
+                pO=mat[tot > line].sum(), h1=mat[diff >= 2].sum(), h2=mat[diff <= -2].sum(),
+                btts=mat[1:, 1:].sum(), over={ln: mat[tot > ln].sum() for ln in (1.5, 2.5, 3.5)})
 
 
 # ---------------------------------------------------------------- cotes
@@ -226,7 +227,7 @@ def build_matches(events, models):
         if lm:
             mat = W_MODEL * score_matrix(*lm) + (1 - W_MODEL) * mat
         p = probs(mat, line)
-        est = lambda pp: round(1 / (pp * inv), 2)  # cote estimee avec la marge Unibet du match
+        est = lambda pp: float(round(1 / (float(pp) * inv), 2))  # cote estimee avec la marge Unibet du match
         lt = f"{line:g}".replace(".", ",")
         H, A = e["home_team"], e["away_team"]
         sel = [
@@ -237,9 +238,19 @@ def build_matches(events, models):
         if "totals" in o:
             sel += [dict(market=f"+{line:g}", label=f"Plus de {lt} buts", odds=o["totals"][1], src=o["totals_src"], p=p["pO"]),
                     dict(market=f"-{line:g}", label=f"Moins de {lt} buts", odds=o["totals"][2], src=o["totals_src"], p=1 - p["pO"])]
-        else:  # pas de cote : probabilite seule, cote estimee
-            for mk, lab, pp in (("+2.5", "Plus de 2,5 buts", p["pO"]), ("-2.5", "Moins de 2,5 buts", 1 - p["pO"])):
-                sel.append(dict(market=mk, label=lab, odds=est(pp), src="estimee", p=pp))
+        # double chance, les deux equipes marquent, autres seuils de buts : cotes estimees (marge Unibet du match)
+        sel += [dict(market="1N", label=f"{H} ou nul", odds=est(p["p1"] + p["pN"]), src="estimee", p=p["p1"] + p["pN"]),
+                dict(market="N2", label=f"{A} ou nul", odds=est(p["p2"] + p["pN"]), src="estimee", p=p["p2"] + p["pN"]),
+                dict(market="12", label="Pas de match nul", odds=est(p["p1"] + p["p2"]), src="estimee", p=p["p1"] + p["p2"]),
+                dict(market="BTTS", label="Les deux équipes marquent", odds=est(p["btts"]), src="estimee", p=p["btts"]),
+                dict(market="NBTTS", label="Une équipe au moins ne marque pas", odds=est(1 - p["btts"]), src="estimee", p=1 - p["btts"])]
+        for ln, po in p["over"].items():
+            if abs(ln - line) < 1e-6 and "totals" in o:
+                continue  # deja present avec une vraie cote
+            lab = f"{ln:g}".replace(".", ",")
+            sel += [dict(market=f"+{ln:g}", label=f"Plus de {lab} buts", odds=est(po), src="estimee", p=po),
+                    dict(market=f"-{ln:g}", label=f"Moins de {lab} buts", odds=est(1 - po), src="estimee", p=1 - po)]
+        sel = [x for x in sel if 0.03 < x["p"] < 0.97 and x["odds"] >= 1.04]
         for mk, team, pw, ph in (("H1", H, p["p1"], p["h1"]), ("H2", A, p["p2"], p["h2"])):
             if pw >= 0.55 and ph > 0.2:
                 sel.append(dict(market=mk, label=f"{team} gagne par 2 buts ou + (handicap -1)",
@@ -254,13 +265,14 @@ def build_matches(events, models):
     return matches
 
 
-def stars(p, cost):
-    # seuils cales sur les marges reelles d'Unibet France (10 a 13 % par selection)
-    if p >= 0.35 and cost <= 0.12:
-        return 3
-    if p >= 0.28 and cost <= 0.18:
-        return 2
-    return 1
+def stars(p, cost, n=2):
+    """Note la qualite du prix, ramenee a une selection (comparable entre combines de 2, 3 ou plus).
+    Marge Unibet typique : 6 a 12 % par selection. 3 etoiles = le tiers le moins taxe."""
+    per_leg = 1 - (1 - max(cost, 0)) ** (1 / max(n, 1))
+    s = 3 if per_leg <= 0.07 else 2 if per_leg <= 0.10 else 1
+    if p < 0.15:  # trop improbable pour etre recommande, meme bien paye
+        s = min(s, 2)
+    return s
 
 
 def stake(p):
@@ -274,7 +286,7 @@ def make_combo(day, kind, legs_list):
     cid = day + "|" + "|".join(sorted(f"{l['match_id']}:{l['market']}" for l in legs_list))
     odds_u = math.floor(odds * 100 + 0.5 + 1e-6) / 100  # cote totale arrondie comme Unibet (2,465 -> 2,47)
     return dict(id=cid, day=day, kind=kind, legs=legs_list, odds=odds_u, p=round(p, 4),
-                cost=round(-ev, 4), stars=stars(p, -ev), stake=stake(p), status="en attente")
+                cost=round(-ev, 4), stars=stars(p, -ev, len(legs_list)), stake=stake(p), status="en attente")
 
 
 def combos_for_day(day, matches):
@@ -502,6 +514,16 @@ def leg_result(l, hg, ag):
     if m[0] in "+-" and m[1:].replace(".", "").isdigit():
         ln = float(m[1:])
         return hg + ag > ln if m[0] == "+" else hg + ag < ln
+    if m == "1N":
+        return hg >= ag
+    if m == "N2":
+        return hg <= ag
+    if m == "12":
+        return hg != ag
+    if m == "BTTS":
+        return hg > 0 and ag > 0
+    if m == "NBTTS":
+        return hg == 0 or ag == 0
     if m == "H1":
         return hg - ag >= 2
     if m == "H2":

@@ -43,6 +43,20 @@ class Reglement(unittest.TestCase):
         self.assertFalse(run.leg_result(leg("H1"), 2, 1))
         self.assertTrue(run.leg_result(leg("H2"), 0, 2))
 
+    def test_double_chance_et_btts(self):
+        self.assertTrue(run.leg_result(leg("1N"), 1, 1)); self.assertFalse(run.leg_result(leg("1N"), 0, 1))
+        self.assertTrue(run.leg_result(leg("N2"), 0, 2)); self.assertTrue(run.leg_result(leg("12"), 3, 1))
+        self.assertFalse(run.leg_result(leg("12"), 2, 2))
+        self.assertTrue(run.leg_result(leg("BTTS"), 1, 1)); self.assertFalse(run.leg_result(leg("BTTS"), 2, 0))
+        self.assertTrue(run.leg_result(leg("NBTTS"), 2, 0))
+
+    def test_etoiles(self):
+        self.assertEqual(run.stars(0.40, 1 - 0.95 ** 2, 2), 3)   # 5 % de marge par selection
+        self.assertEqual(run.stars(0.23, 1 - 0.95 ** 3, 3), 3)   # un combine de 3 bien paye n'est plus penalise
+        self.assertEqual(run.stars(0.33, 1 - 0.91 ** 2, 2), 2)
+        self.assertEqual(run.stars(0.33, 1 - 0.88 ** 2, 2), 1)
+        self.assertEqual(run.stars(0.10, 0.05, 2), 2)            # trop improbable : 2 etoiles au mieux
+
     def test_settle_combine(self):
         legs = [leg("1", mid="a"), leg("-3.5", mid="b")]
         h = {"combos": [dict(id="t", status="en attente", legs=legs, kind="x2", odds=3, p=.3, stake=2, day="2026-10-25")]}

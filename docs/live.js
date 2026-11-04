@@ -160,6 +160,14 @@ function legLive(l) {
       state = tot > line ? "ko" : end ? "ok" : margin === 0 ? "risk" : "on";
       note = tot > line ? "perdu" : end ? "gagné" : margin === 0 ? "plus un seul but" : `encore ${margin} but${margin > 1 ? "s" : ""} de marge`;
     }
+  } else if (m === "1N" || m === "N2" || m === "12") {
+    const ok = m === "1N" ? h >= a : m === "N2" ? h <= a : h !== a;
+    state = end ? (ok ? "ok" : "ko") : ok ? "on" : "risk";
+    note = ok ? (end ? "gagné" : "ça passe pour l'instant") : end ? "perdu" : m === "12" ? "il faut un vainqueur" : `il faut 1 but de ${m === "1N" ? l.home : l.away}`;
+  } else if (m === "BTTS" || m === "NBTTS") {
+    const both = h > 0 && a > 0;
+    if (m === "BTTS") { state = both ? "ok" : end ? "ko" : "risk"; note = both ? "gagné" : end ? "perdu" : `il manque un but de ${h === 0 ? l.home : l.away}${h === 0 && a === 0 ? " et de " + l.away : ""}`; }
+    else { state = both ? "ko" : end ? "ok" : "on"; note = both ? "perdu" : end ? "gagné" : "ça tient tant qu'une équipe ne marque pas"; }
   } else if (m === "H1" || m === "H2") {
     const d = m === "H1" ? h - a : a - h;
     state = end ? (d >= 2 ? "ok" : "ko") : d >= 2 ? "on" : "risk";

@@ -53,7 +53,10 @@ function combo(c) {
   let odds = 1, ev = 1;
   c.legs.forEach((l, i) => { const o = legOdds(c, i); odds *= o; ev *= l.p * o; });
   const cost = 1 - ev;
-  const stars = c.p >= 0.35 && cost <= 0.12 ? 3 : c.p >= 0.28 && cost <= 0.18 ? 2 : 1;
+  // étoiles : qualité du prix ramenée à une sélection (comparable entre combinés de 2, 3 ou plus)
+  const perLeg = 1 - Math.pow(1 - Math.max(cost, 0), 1 / Math.max(c.legs.length, 1));
+  let stars = perLeg <= 0.07 ? 3 : perLeg <= 0.10 ? 2 : 1;
+  if (c.p < 0.15) stars = Math.min(stars, 2);
   // Unibet arrondit la cote totale au centième le plus proche (2,465 -> 2,47), puis gain = mise x cote totale
   return { odds: Math.round(odds * 100 + 1e-6) / 100, cost, stars };
 }
@@ -207,10 +210,14 @@ function renderMatchs() {
       for (const m of ms.filter((x) => x.day === d && x.league === lg)) {
         const s = Object.fromEntries(m.sel.map((x) => [x.market, x]));
         const p1 = s["1"]?.p || 0, pN = s["N"]?.p || 0, p2 = s["2"]?.p || 0;
-        const extras = m.sel.filter((x) => !["1", "N", "2"].includes(x.market)).map((x) => {
-          const lab = x.market.startsWith("H") ? `${x.market === "H1" ? m.home : m.away} par 2 buts ou +` : x.label;
-          return pickBtn(m, x, `${lab}, ${pct(x.p)}`);
-        }).join("");
+        const pb = (mk, txt) => (s[mk] ? pickBtn(m, s[mk], txt) : "");
+        const lines = m.sel.filter((x) => /^[+-]\d/.test(x.market)).sort((a, b) => parseFloat(a.market.slice(1)) - parseFloat(b.market.slice(1)) || (a.market[0] === "+" ? -1 : 1));
+        const hcp = m.sel.filter((x) => x.market === "H1" || x.market === "H2");
+        const extras = `
+          ${s["1N"] || s["12"] || s["N2"] ? `<div class="mk-title">Double chance</div><div class="picks3">${pb("1N", "1N")}${pb("12", "12")}${pb("N2", "N2")}</div>` : ""}
+          ${s.BTTS ? `<div class="mk-title">Les deux équipes marquent</div><div class="picks2">${pb("BTTS", `Oui, ${pct(s.BTTS.p)}`)}${pb("NBTTS", `Non, ${pct(s.NBTTS?.p || 0)}`)}</div>` : ""}
+          ${lines.length ? `<div class="mk-title">Nombre de buts</div><div class="picks2">${lines.map((x) => pickBtn(m, x, `${x.market[0] === "+" ? "Plus" : "Moins"} de ${x.market.slice(1).replace(".", ",")}, ${pct(x.p)}`)).join("")}</div>` : ""}
+          ${hcp.length ? `<div class="mk-title">Handicap</div>${hcp.map((x) => pickBtn(m, x, `${x.market === "H1" ? m.home : m.away} par 2 buts ou +, ${pct(x.p)}`)).join("")}` : ""}`;
         const started = new Date(m.kickoff) <= new Date();
         h += `<div class="match">
           <div class="mhead">
@@ -427,7 +434,7 @@ function missedWinners() {
   if (won.length) {
     h += won.map((c) => `<div class="hist"><span class="dot gagne">✓</span>
       <div>${c.legs.map((l) => esc(l.label) + (l.score ? ` <small style="display:inline">(${esc(l.home)} ${esc(l.score)} ${esc(l.away)})</small>` : "")).join(" + ")}
-        <small>${esc(longDate(c.day))}, ${c.kind === "folie" ? "Folie du jour" : "★".repeat(c.stars || 1)}, ${stake(c)} € auraient rapporté ${fmt(stake(c) * c.odds)} €</small></div>
+        <small>${esc(longDate(c.day))}, ${c.kind === "folie" ? "Folie du jour" : "★".repeat(combo(c).stars)}, ${stake(c)} € auraient rapporté ${fmt(stake(c) * c.odds)} €</small></div>
       <span class="o">${fmt(c.odds)}</span></div>`).join("");
   } else h += `<p class="hint" style="margin:0">Aucun ticket gagnant laissé de côté ces 14 derniers jours.</p>`;
   return h + `</div>`;
@@ -439,8 +446,9 @@ function bilanRobot() {
   const all = (hist?.combos || []).filter((c) => (!c.replaced || bets()[c.id]) && c.status !== "en attente")
     .map((c) => { const x = findCombo(c.id); return x && x.status !== "en attente" ? x : c; });
   if (!all.length) return `<div class="panel" style="margin-top:14px"><p class="hint" style="margin:0">Aucun ticket terminé pour l'instant.</p></div>`;
-  const groups = [["3 étoiles", (c) => c.kind !== "folie" && c.stars === 3, 2], ["2 étoiles", (c) => c.kind !== "folie" && c.stars === 2, 2],
-    ["1 étoile", (c) => c.kind !== "folie" && (c.stars || 1) <= 1, 2], ["Folies du jour", (c) => c.kind === "folie", 1]];
+  const st = (c) => combo(c).stars;  // même règle pour tous les tickets, anciens compris
+  const groups = [["3 étoiles", (c) => c.kind !== "folie" && st(c) === 3, 2], ["2 étoiles", (c) => c.kind !== "folie" && st(c) === 2, 2],
+    ["1 étoile", (c) => c.kind !== "folie" && st(c) <= 1, 2], ["Folies du jour", (c) => c.kind === "folie", 1]];
   const pending = (hist?.combos || []).filter((c) => !c.replaced && c.status === "en attente").length;
   let h = `<p class="hint" style="margin:14px 4px">Tickets proposés par le robot et terminés, joués ou non, pour juger si ses notes tiennent la route.${pending ? ` ${pending} ticket${pending > 1 ? "s" : ""} encore en cours ${pending > 1 ? "seront comptés" : "sera compté"} à la fin de leurs matchs.` : ""} Il faut plusieurs dizaines de tickets par groupe avant d'en tirer une conclusion.</p>`;
   for (const [name, f, stake] of groups) {

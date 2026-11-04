@@ -30,7 +30,11 @@ def match(i, k, home, away):
     return dict(id=f"m{i}", league="Ligue 1", div="F1", kickoff=iso(k), day=day(k), home=home, away=away, fd_home=None, fd_away=None,
                 lambdas=[1.5, 1.1], model=True,
                 sel=[sel("1", f"Victoire {home}", 1.6, 0.58), sel("N", "Match nul", 3.8, 0.24), sel("2", f"Victoire {away}", 5.5, 0.18),
-                     sel("+2.5", "Plus de 2,5 buts", 1.75, 0.53, "pmu"), sel("-2.5", "Moins de 2,5 buts", 2.05, 0.47, "pmu")])
+                     sel("+2.5", "Plus de 2,5 buts", 1.75, 0.53, "pmu"), sel("-2.5", "Moins de 2,5 buts", 2.05, 0.47, "pmu"),
+                     sel("1N", f"{home} ou nul", 1.22, 0.82, "estimee"), sel("12", "Pas de match nul", 1.18, 0.76, "estimee"),
+                     sel("N2", f"{away} ou nul", 2.3, 0.42, "estimee"), sel("BTTS", "Les deux équipes marquent", 1.8, 0.5, "estimee"),
+                     sel("NBTTS", "Une équipe au moins ne marque pas", 1.85, 0.5, "estimee"),
+                     sel("+1.5", "Plus de 1,5 buts", 1.25, 0.76, "estimee"), sel("-1.5", "Moins de 1,5 buts", 3.6, 0.24, "estimee")])
 
 
 def leg_of(m, mk):
@@ -59,7 +63,7 @@ def fixtures():
     folie = combo("c-folie", "folie", [leg_of(m1, "2"), leg_of(m2, "N"), leg_of(m5, "2"), leg_of(m6, "N")], stars=0)
     old = []
     for i, st in enumerate(["gagne", "perdu", "perdu", "gagne"]):
-        c = combo(f"old{i}", "x2", [leg_of(m3, "1"), leg_of(m4, "+2.5")], stars=1 + i % 3, status=st,
+        c = combo(f"old{i}", "x2", [leg_of(m3, "1"), leg_of(m4, ["+2.5", "1N", "N2", "12"][i])], stars=1 + i % 3, status=st,
                   d=day(NOW - timedelta(days=2 + i // 2)))
         for l in c["legs"]:
             l["won"] = st == "gagne"; l["score"] = "2-1"
@@ -155,7 +159,8 @@ async def main():
         print("Composer un combiné")
         await pg.click('.tabs button[data-tab="matchs"]')
         await pg.click('[data-pick="m5"][data-market="1"]')
-        await pg.click('[data-pick="m6"][data-market="+2.5"]')
+        await pg.click('[data-pick="m6"][data-market="BTTS"]')
+        check(await pg.locator('#tab-matchs .mk-title').count() >= 3, "double chance, les deux équipes marquent et seuils de buts affichés")
         check(await pg.is_visible("#composer"), "le bandeau Mon combiné apparaît")
         check(await pg.locator("#composer .stars i").count() == 3, "le combiné composé est noté en étoiles")
         await pg.click('[data-compose="play"]')

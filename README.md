@@ -2,7 +2,7 @@
 
 Appli (PWA) qui propose 2 à 3 combinés football par jour de match, avec la chance estimée de chaque combiné, son coût (marge des bookmakers), une note en étoiles, une mise conseillée de 1 à 5 € et le suivi juste/faux.
 
-- **Championnats** : Ligue 1, Premier League, Liga, Serie A, Bundesliga, et Ligue des champions (probabilités des bookmakers seules, pas d'historique football-data)
+- **Championnats** : Ligue 1, Premier League, Liga, Serie A, Bundesliga, Ligue des champions, Ligue Europa, et Ligue des champions (probabilités des bookmakers seules, pas d'historique football-data)
 - **Cotes** : 1N2 Unibet France, nombre de buts PMU (à vérifier sur Unibet), handicap estimé (à saisir dans l'appli)
 - **Robot** : GitHub Actions toutes les heures, de 6 h à minuit environ (résultats, gratuit) ; les cotes (payantes en crédits) seulement au premier passage après 7 h 30 et après 16 h 30, heure de Paris ; ou à la demande avec le bouton ↻ de l'appli
 - **Crédits The Odds API** : environ 10 par passage les jours de match, 0 les jours sans match. Le robot passe automatiquement en mode économe sous 40 crédits restants, et ne fait plus d'appel payant sous 12.

@@ -129,6 +129,13 @@ class Notifications(unittest.TestCase):
             run.http_get = old
 
 
+class Championnats(unittest.TestCase):
+    def test_coupes_europe(self):
+        self.assertIn("soccer_uefa_europa_league", run.LEAGUES)
+        self.assertEqual(run.ESPN_LEAGUE["EL"], "uefa.europa")
+        self.assertEqual(run.ESPN_LEAGUE["CL"], "uefa.champions")
+
+
 class ArrondiUnibet(unittest.TestCase):
     def test_cote_totale(self):
         legs = [dict(odds=1.70, p=.5, ev=0, match_id="a", market="1"), dict(odds=1.45, p=.5, ev=0, match_id="b", market="1")]

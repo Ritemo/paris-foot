@@ -35,6 +35,7 @@ LEAGUES = {  # cle The Odds API -> (code football-data, nom affiche)
     "soccer_italy_serie_a": ("I1", "Serie A"),
     "soccer_germany_bundesliga": ("D1", "Bundesliga"),
     "soccer_uefa_champs_league": ("CL", "Ligue des champions"),  # pas d'historique football-data : probabilites du marche seules
+    "soccer_uefa_europa_league": ("EL", "Ligue Europa"),
 }
 FD_DIVS = ("F1", "E0", "SP1", "I1", "D1")
 NTFY_TOPIC = os.environ.get("NTFY_TOPIC", "combines-foot-ritemo-7k3q9x")
@@ -347,7 +348,7 @@ def folie_for_day(day, legs):
 
 
 # ---------------------------------------------------------------- resultats ESPN (gratuit, des la fin du match)
-ESPN_LEAGUE = {"F1": "fra.1", "E0": "eng.1", "SP1": "esp.1", "I1": "ita.1", "D1": "ger.1", "CL": "uefa.champions"}
+ESPN_LEAGUE = {"F1": "fra.1", "E0": "eng.1", "SP1": "esp.1", "I1": "ita.1", "D1": "ger.1", "CL": "uefa.champions", "EL": "uefa.europa"}
 
 
 def _norm_team(s):

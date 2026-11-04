@@ -34,7 +34,7 @@ function dayTitle(day) {
 const SRC = { unibet: "Unibet", pmu: "PMU, à vérifier", netbet: "NetBet, à vérifier", betclic: "Betclic, à vérifier",
   winamax: "Winamax, à vérifier", estimee: "estimée" };
 const LEAGUE_COLOR = { "Ligue 1": "#1a3a8f", "Premier League": "#3d195b", "Liga": "#e0301e", "Serie A": "#008fd7", "Bundesliga": "#d20515",
-  "Ligue des champions": "#0b1f6b" };
+  "Ligue des champions": "#0b1f6b", "Ligue Europa": "#f26722" };
 const KIT = ["#c8102e", "#0057b8", "#e3a400", "#00843d", "#6c1d45", "#26323a", "#e35205", "#0095c8", "#7a2582", "#b5121b", "#1f6f50", "#3949ab"];
 
 function crest(name, cls) {

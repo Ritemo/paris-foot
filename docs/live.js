@@ -1,6 +1,6 @@
 /* Suivi en direct des tickets joués : scores ESPN (gratuit, sans clé), actualisés chaque minute pendant les matchs. */
 const ESPN_LEAGUE = { "Ligue 1": "fra.1", "Premier League": "eng.1", "Liga": "esp.1", "Serie A": "ita.1", "Bundesliga": "ger.1",
-  "Ligue des champions": "uefa.champions" };
+  "Ligue des champions": "uefa.champions", "Ligue Europa": "uefa.europa" };
 let LIVE = {};            // match_id -> { h, a, state: "pre" | "in" | "post", clock }
 let liveUpdated = null;   // date de la dernière mise à jour réussie
 let liveError = false;

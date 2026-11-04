@@ -514,3 +514,16 @@ body { overscroll-behavior-y: contain; }
 .info-pop::after { content: ""; position: absolute; left: var(--ax); width: 12px; height: 12px; background: inherit; transform: translateX(-50%) rotate(45deg); }
 .info-pop.below::after { top: -5px; } .info-pop.above::after { bottom: -5px; }
 @media (prefers-color-scheme: dark) { .info-pop { background: #eef6f0; color: #14261c; } .info { color: #7fd9a6; } }
+
+/* ---------- onglet Modèle : en bref */
+.brief { display: grid; gap: 14px; }
+.brief-item { display: grid; grid-template-columns: 26px 1fr; gap: 10px; align-items: start; }
+.brief-item b { font-family: var(--display); font-size: 16px; }
+.brief-item p { margin: 2px 0 0; color: var(--sous); font-size: 14px; line-height: 1.45; }
+.brief-item i { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font: 800 14px var(--display); font-style: normal; color: #fff; }
+.brief-item.ok i { background: var(--vert); } .brief-item.ok i::before { content: "✓"; }
+.brief-item.neutre i { background: var(--bleu); } .brief-item.neutre i::before { content: "="; }
+.brief-item.ko i { background: var(--rouge); } .brief-item.ko i::before { content: "!"; }
+.brief-item.cle { background: color-mix(in srgb, var(--jaune) 22%, transparent); border-radius: 14px; padding: 12px; margin: 2px -4px 0; }
+.brief-item.cle i { background: var(--jaune); color: #14261c; } .brief-item.cle i::before { content: "€"; }
+.brief-item.cle p { color: var(--encre); }

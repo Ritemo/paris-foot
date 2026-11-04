@@ -90,6 +90,36 @@ function gapBars(rows) {
 
 const monthLabel = (m) => new Date(m + "-15").toLocaleDateString("fr-FR", { month: "short", year: "2-digit" });
 
+/* « En bref » : la lecture des mesures en quelques phrases simples, recalculée à chaque passage du robot */
+function summaryPanel(m) {
+  const s = m.scores || {}, c = m.counts || {}, p = m.params || {}, t = (m.tickets || {}).tickets;
+  const items = [];
+  const big = (m.calibration || []).filter((b) => b.n >= 100).sort((a, b) => b.n - a.n)[0];
+  if (big) {
+    const gap = (m.calibration || []).filter((b) => b.n >= 100).reduce((x, b) => x + b.n * Math.abs(b.f - b.p), 0) / (m.calibration || []).filter((b) => b.n >= 100).reduce((x, b) => x + b.n, 0);
+    items.push(["ok", "Les pourcentages sont fiables", `Quand l'appli annonce ${pct(big.p)} de chance, c'est arrivé ${pct(big.f)} du temps (sur ${fmt(big.n, 0)} cas). En moyenne, l'écart entre annoncé et réel est de ${fr1(gap * 100)} point${gap * 100 >= 2 ? "s" : ""}. Le chiffre « chance » de tes tickets est donc à prendre au sérieux.`]);
+  }
+  if (s.robot) {
+    const z = s.z_vs_marche || 0;
+    items.push([Math.abs(z) < 2 ? "neutre" : z > 0 ? "ok" : "ko", Math.abs(z) < 2 ? "Pas plus malin que les bookmakers" : z > 0 ? "Un peu plus juste que les bookmakers" : "Moins juste que les bookmakers",
+      `Sur ${fmt(s.n || c.last_year || 0, 0)} matchs, le robot et les bookmakers se trompent ${Math.abs(z) < 2 ? "autant l'un que l'autre" : "avec un écart réel"}. Les cotes contiennent déjà presque tout ce qu'on peut savoir avant un match. Personne ne gagne à long terme en prévoyant mieux qu'elles.`]);
+  }
+  if (p.w_model !== undefined) {
+    const w = Math.round(p.w_model * 100), w0 = Math.round(p.w_prior * 100);
+    items.push(["neutre", w < w0 ? "Il écoute surtout les cotes" : "Son calcul maison compte", w < w0
+      ? `Son calcul maison (buts et tirs des équipes) n'apportait rien de plus que les cotes : il ne pèse plus que ${w} % dans les chances affichées, contre ${w0} % au départ. Le robot a appris à ne pas se croire plus fort que le marché.`
+      : `Son calcul maison (buts et tirs des équipes) améliore un peu les prévisions : il pèse ${w} % dans les chances affichées, contre ${w0} % au départ.`]);
+  }
+  const nCorr = Object.values(p.offsets || {}).filter((x) => Math.abs(x) >= 0.005).length;
+  items.push([nCorr ? "neutre" : "ok", nCorr ? `${nCorr} type${nCorr > 1 ? "s" : ""} de pari corrigé${nCorr > 1 ? "s" : ""}` : "Aucun type de pari mal estimé",
+    nCorr ? "Le robot a repéré un biais qui dépasse la marge du hasard et l'a corrigé. Le détail est plus bas, dans « Par type de pari »."
+      : "Victoires, nuls, buts, les deux équipes marquent, handicap : tout est estimé juste, à la marge du hasard près. Aucune correction n'est nécessaire."]);
+  if (t?.n) items.push([Math.abs(t.z) < 2 ? "neutre" : "ko", `Tickets : ${t.observes} gagnés sur ${t.n}`,
+    `On en attendait ${fr1(t.attendus)}. ${Math.abs(t.z) < 2 ? `L'écart est normal : sur si peu de tickets, la chance fait varier ce chiffre de ${fr1(t.marge || 0)} dans un sens ou dans l'autre. Il faudra plusieurs centaines de tickets pour juger.` : "L'écart dépasse ce que la chance explique d'habitude : à surveiller."}`]);
+  items.push(["cle", "Ce qui compte vraiment : le prix", "Puisque personne ne prévoit mieux que les cotes, ce qui décide de ton résultat à long terme, c'est la marge que prend le bookmaker. C'est ce que mesurent le coût et les étoiles : préfère les tickets les moins chers, garde de petites mises, et fie-toi à ton flair pour ce que les chiffres ignorent (blessures, enjeu, rotation)."]);
+  return `<h2 class="section-title">En bref</h2><div class="panel brief">${items.map(([k, title, txt]) => `<div class="brief-item ${k}"><i aria-hidden="true"></i><div><b>${esc(title)}</b><p>${esc(txt)}</p></div></div>`).join("")}</div>`;
+}
+
 function renderModele() {
   const el = document.getElementById("tab-modele");
   if (!el) return;
@@ -102,7 +132,8 @@ function renderModele() {
     <div class="panel lessons"><ul>${(m.lessons || []).map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
     <p class="hint">Mis à jour ${when(m.updated)}. Le robot réapprend à chaque passage avec les cotes, sur tous les matchs terminés des cinq grands championnats et des coupes d'Europe, pas seulement sur tes tickets.</p></div>`;
 
-  let h = `<h2 class="section-title">Les mesures</h2><div class="mkpis">
+  let h = summaryPanel(m);
+  h += `<h2 class="section-title">Les mesures</h2><div class="mkpis">
     ${mKpi("Matchs mesurés", fmt(c.last_year || 0, 0), `sur 12 mois${c.live ? `, dont ${c.live} en direct` : ""}`,
       `Le nombre de matchs terminés des 12 derniers mois sur lesquels le robot a comparé ses pourcentages au vrai résultat. C'est sa matière pour apprendre : plus il y en a, plus ses conclusions sont solides. Les matchs « en direct » sont ceux suivis avec les cotes réelles du jour ; les autres viennent d'un rejeu du passé avec les cotes moyennes des bookmakers.`)}
     ${mKpi("Poids du modèle maison", Math.round(p.w_model * 100) + " %", `départ : ${Math.round(p.w_prior * 100)} %`,

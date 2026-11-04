@@ -3,7 +3,7 @@ const LS = {
   get(k, d) { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } },
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
 };
-let today = null, hist = null, meta = null, freshStamp = null;
+let today = null, hist = null, meta = null, freshStamp = null, LOGOS = {};
 const overrides = () => LS.get("pf_overrides", {});
 const bets = () => LS.get("pf_bets", {});
 const settings = () => Object.assign({ budget: 40, token: "", repo: "" }, LS.get("pf_settings", {}));
@@ -37,11 +37,20 @@ const LEAGUE_COLOR = { "Ligue 1": "#1a3a8f", "Premier League": "#3d195b", "Liga"
   "Ligue des champions": "#0b1f6b", "Ligue Europa": "#f26722" };
 const KIT = ["#c8102e", "#0057b8", "#e3a400", "#00843d", "#6c1d45", "#26323a", "#e35205", "#0095c8", "#7a2582", "#b5121b", "#1f6f50", "#3949ab"];
 
+// logo du club (ESPN) si connu, sinon pastille aux initiales ; si l'image ne charge pas, on retombe sur les initiales
+const logoSmall = (u) => u.replace("https://a.espncdn.com/", "https://a.espncdn.com/combiner/i?img=/").replace(/\.png$/, ".png&w=96&h=96");
+function crestFail(img) {
+  if (!img.dataset.f) { img.dataset.f = "1"; img.src = img.dataset.raw; return; }
+  img.parentNode.classList.remove("has-logo"); img.remove();
+}
 function crest(name, cls) {
+  const lg = LOGOS[name];
   const words = String(name).replace(/\b(FC|AS|RC|SC|TSG|VfB|VfL|FSV|CA|CF|AC|BC|1\.)\b/g, "").replace(/[0-9.]/g, "").trim().split(/\s+/).filter(Boolean);
   const ini = words.length === 1 ? words[0].slice(0, 3) : words.slice(0, 3).map((w) => w[0]).join("");
   let h = 0; for (const c of String(name)) h = (h * 31 + c.charCodeAt(0)) >>> 0;
-  return `<span class="crest ${cls}" style="background:${KIT[h % KIT.length]}" aria-hidden="true">${esc(ini.toUpperCase())}</span>`;
+  const bg = lg?.color && lg.color.length === 7 ? lg.color : KIT[h % KIT.length];
+  const img = lg?.logo ? `<img src="${esc(logoSmall(lg.logo))}" data-raw="${esc(lg.logo)}" alt="" loading="lazy" decoding="async" onerror="crestFail(this)">` : "";
+  return `<span class="crest ${cls} ${img ? "has-logo" : ""}" style="--kit:${bg}" aria-hidden="true">${esc(ini.toUpperCase())}${img}</span>`;
 }
 
 /* --------------------------------------------------------------- calculs */
@@ -139,8 +148,7 @@ function legHtml(c, l, i) {
   const ov = (overrides()[c.id] || {})[i];
   const res = l.won === true ? `<span class="tag win">✓ ${esc(l.score)}</span>` : l.won === false ? `<span class="tag loss">✗ ${esc(l.score)}</span>` : "";
   return `<div class="leg">
-    <div class="crests">${crest(l.home, "h")}${crest(l.away, "a")}</div>
-    <div class="pick"><b>${esc(l.label)}</b><span class="vs">${esc(l.home)} contre ${esc(l.away)}</span>
+    <div class="pick"><b>${esc(l.label)}</b><span class="vs"><span class="vt">${crest(l.home, "mini")}${esc(l.home)}</span><i>contre</i><span class="vt">${crest(l.away, "mini")}${esc(l.away)}</span></span>
       <div class="meta"><span class="tag">${esc(l.league)}</span><span class="tag">${when(l.kickoff)}</span><span class="tag">${pct(l.p)}</span>${res}</div>${bets()[c.id] && c.status === "en attente" ? liveLegHtml(l) : ""}</div>
     <button class="odd ${esc(l.src)} ${ov ? "edited" : ""}" data-combo="${esc(c.id)}" data-leg="${i}" aria-label="Corriger la cote">
       ${fmt(ov || l.odds)}<small>${ov ? "ta cote" : esc(SRC[l.src] || l.src)}</small></button>
@@ -164,7 +172,7 @@ function ticketHtml(c) {
     ? `<span class="kind">Folie du jour, ${c.legs.length} matchs</span><span class="fun">pour le fun</span>`
     : `<span class="kind">${c.kind === "perso" ? `Mon combiné de ${c.legs.length}` : `Combiné ${c.kind === "x3" ? "de 3" : "de 2"}`}</span>
       ${starsHtml(k.stars)}${rk ? rankHtml(rk) : ""}`;
-  return `<article class="ticket ${c.status} ${folie ? "folie" : ""} ${c.kind === "perso" ? "perso" : ""}">
+  return `<article class="ticket ${c.status} ${folie ? "folie" : ""} ${c.kind === "perso" ? "perso" : ""} ${b ? "is-played" : ""}">
     <div class="board">
       ${head}
       <div class="score">
@@ -217,11 +225,15 @@ function renderMatchs() {
   const el = document.getElementById("tab-matchs");
   const ms = today?.matches || [];
   if (!ms.length) { el.innerHTML = `<div class="empty">${EMPTY_BALL}<b>Aucun match chargé</b><p>Les matchs des deux prochains jours apparaîtront après le passage du robot.</p></div>`; return; }
-  let h = "";
-  for (const d of [...new Set(ms.map((m) => m.day))].sort()) {
+  const leagues = [...new Set(ms.map((m) => m.league))];
+  let lf = LS.get("pf_league", "");
+  if (lf && !leagues.includes(lf)) lf = "";
+  const open = LS.get("pf_open", {}), dr = draft();
+  let h = `<div class="chips no-swipe" role="tablist">${["", ...leagues].map((lg) => `<button class="chip ${lg === lf ? "on" : ""}" data-league="${esc(lg)}" style="--lc:${LEAGUE_COLOR[lg] || "var(--pelouse-2)"}">${lg ? esc(lg) : "Tous"}<small>${ms.filter((m) => !lg || m.league === lg).length}</small></button>`).join("")}</div>`;
+  for (const d of [...new Set(ms.filter((m) => !lf || m.league === lf).map((m) => m.day))].sort()) {
     const [a, b] = dayTitle(d);
     h += `<div class="day"><h2>${esc(a)}</h2><span>${esc(b)}</span></div>`;
-    for (const lg of [...new Set(ms.filter((m) => m.day === d).map((m) => m.league))]) {
+    for (const lg of [...new Set(ms.filter((m) => m.day === d && (!lf || m.league === lf)).map((m) => m.league))]) {
       h += `<div class="league" style="--lc:${LEAGUE_COLOR[lg] || "var(--pelouse-2)"}">${esc(lg)}</div>`;
       for (const m of ms.filter((x) => x.day === d && x.league === lg)) {
         const s = Object.fromEntries(m.sel.map((x) => [x.market, x]));
@@ -235,7 +247,9 @@ function renderMatchs() {
           ${lines.length ? `<div class="mk-title">Nombre de buts</div><div class="picks2">${lines.map((x) => pickBtn(m, x, `${x.market[0] === "+" ? "Plus" : "Moins"} de ${x.market.slice(1).replace(".", ",")}, ${pct(x.p)}`)).join("")}</div>` : ""}
           ${hcp.length ? `<div class="mk-title">Handicap</div>${hcp.map((x) => pickBtn(m, x, `${x.market === "H1" ? m.home : m.away} par 2 buts ou +, ${pct(x.p)}`)).join("")}` : ""}`;
         const started = new Date(m.kickoff) <= new Date();
-        h += `<div class="match">
+        const nExtra = m.sel.filter((x) => !["1", "N", "2"].includes(x.market)).length;
+        const isOpen = open[m.id] || (dr[m.id] && !["1", "N", "2"].includes(dr[m.id]));
+        h += `<div class="match ${isOpen ? "open" : ""}">
           <div class="mhead">
             <div class="team">${crest(m.home, "")}<span>${esc(m.home)}</span></div>
             <div class="kick">${hour(m.kickoff)}<small>${esc(new Date(m.kickoff).toLocaleDateString("fr-FR", { weekday: "short", day: "numeric", month: "short", timeZone: "Europe/Paris" }))}</small></div>
@@ -245,6 +259,7 @@ function renderMatchs() {
             <div class="h" style="flex:${p1}">${pct(p1)}</div><div class="n" style="flex:${pN}">${pct(pN)}</div><div class="a" style="flex:${p2}">${pct(p2)}</div>
           </div>
           ${started ? `<p class="hint">Match commencé.</p>` : `<div class="picks3">${s["1"] ? pickBtn(m, s["1"], "1") : ""}${s["N"] ? pickBtn(m, s["N"], "Nul") : ""}${s["2"] ? pickBtn(m, s["2"], "2") : ""}</div>
+          ${nExtra ? `<button class="more" data-more="${esc(m.id)}" aria-expanded="${!!isOpen}"><span>Plus de paris</span><small>${nExtra}</small><i aria-hidden="true"></i></button>` : ""}
           <div class="extras">${extras}</div>`}
         </div>`;
       }
@@ -605,13 +620,65 @@ document.addEventListener("click", async (e) => {
   const bv = e.target.closest("[data-bview]");
   if (bv) { bilanView = bv.dataset.bview; LS.set("pf_bilan_view", bilanView); renderBilan(); return; }
   const tab = e.target.closest(".tabs button");
-  if (tab) {
-    document.querySelectorAll(".tabs button").forEach((b) => b.classList.toggle("active", b === tab));
-    document.querySelectorAll(".tab").forEach((s) => s.classList.toggle("active", s.id === "tab-" + tab.dataset.tab));
-    window.scrollTo(0, 0);
-    renderComposer();
+  if (tab) showTab(tab.dataset.tab);
+  const mt = e.target.closest("[data-more]");
+  if (mt) {
+    const open = LS.get("pf_open", {}); open[mt.dataset.more] = !open[mt.dataset.more]; LS.set("pf_open", open);
+    mt.closest(".match").classList.toggle("open", !!open[mt.dataset.more]);
+    mt.setAttribute("aria-expanded", !!open[mt.dataset.more]); buzz();
   }
+  const lf = e.target.closest("[data-league]");
+  if (lf) { LS.set("pf_league", lf.dataset.league); buzz(); renderMatchs(); }
 });
+
+const TABS = ["combos", "encours", "matchs", "bilan", "reglages"];
+const buzz = (ms = 8) => { try { if (!calm()) navigator.vibrate?.(ms); } catch {} };
+function currentTab() { return document.querySelector(".tabs button.active")?.dataset.tab || "combos"; }
+function showTab(name, dir = 0) {
+  const prev = currentTab();
+  if (!dir) dir = TABS.indexOf(name) > TABS.indexOf(prev) ? 1 : -1;
+  document.querySelectorAll(".tabs button").forEach((b) => b.classList.toggle("active", b.dataset.tab === name));
+  document.querySelectorAll(".tab").forEach((sec) => {
+    const on = sec.id === "tab-" + name;
+    sec.classList.toggle("active", on);
+    if (on && prev !== name && !calm()) {
+      sec.classList.remove("enter-l", "enter-r"); void sec.offsetWidth;
+      sec.classList.add(dir > 0 ? "enter-r" : "enter-l");
+    }
+  });
+  if (prev !== name) { window.scrollTo(0, 0); buzz(); }
+  renderComposer();
+}
+
+// glisser vers la gauche ou la droite pour changer d'onglet, tirer vers le bas en haut de page pour actualiser
+(() => {
+  let x0 = null, y0 = 0, t0 = 0, pull = 0, startTop = false;
+  const main = document.querySelector("main");
+  const ptr = document.createElement("div"); ptr.className = "ptr"; ptr.innerHTML = EMPTY_BALL; document.body.appendChild(ptr);
+  main.addEventListener("touchstart", (e) => {
+    if (e.touches.length !== 1 || e.target.closest("input, canvas, .no-swipe, .chips")) { x0 = null; return; }
+    x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; t0 = Date.now(); pull = 0; startTop = window.scrollY <= 0;
+  }, { passive: true });
+  main.addEventListener("touchmove", (e) => {
+    if (x0 === null || !startTop) return;
+    const dy = e.touches[0].clientY - y0, dx = Math.abs(e.touches[0].clientX - x0);
+    if (dy > 0 && dy > dx) { pull = Math.min(dy, 140); ptr.style.transform = `translate(-50%, ${pull * 0.6}px) rotate(${pull * 3}deg)`; ptr.classList.add("show"); ptr.classList.toggle("ready", pull > 90); }
+  }, { passive: true });
+  main.addEventListener("touchend", async (e) => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+    x0 = null;
+    if (pull > 90) {
+      ptr.classList.add("spin"); ptr.style.transform = "translate(-50%, 48px)";
+      buzz(15); await load(true); toast("Données à jour.", 1800);
+    }
+    ptr.classList.remove("show", "ready", "spin"); ptr.style.transform = ""; pull = 0;
+    if (Math.abs(dx) > 70 && Math.abs(dx) > 2 * Math.abs(dy) && Date.now() - t0 < 600) {
+      const i = TABS.indexOf(currentTab()) + (dx < 0 ? 1 : -1);
+      if (i >= 0 && i < TABS.length) showTab(TABS[i], dx < 0 ? 1 : -1);
+    }
+  }, { passive: true });
+})();
 
 /* --------------------------------------------------------------- réglages et actualisation */
 function repoGuess() {
@@ -726,8 +793,10 @@ document.getElementById("refresh").onclick = async () => {
 
 async function load(quiet) {
   const get = (f) => fetch(`data/${f}?t=${Date.now()}`, { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
-  [today, hist, meta] = await Promise.all([get("today.json"), get("history.json"), get("meta.json")]);
-  if (today) LS.set("pf_cache", { today, hist }); else if (!quiet) ({ today, hist } = LS.get("pf_cache", {}));
+  let logos;
+  [today, hist, meta, logos] = await Promise.all([get("today.json"), get("history.json"), get("meta.json"), get("logos.json")]);
+  if (logos) LOGOS = logos;
+  if (today) LS.set("pf_cache", { today, hist, logos: LOGOS }); else if (!quiet) ({ today, hist, logos: LOGOS = {} } = LS.get("pf_cache", {}));
   for (const id of Object.keys(bets())) syncBetOdds(id);
   renderAll();
 }

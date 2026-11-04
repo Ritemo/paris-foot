@@ -57,7 +57,7 @@ document.addEventListener("click", async (e) => {
       if (!d[mid] && Object.keys(d).length >= 8) { toast("8 sélections au maximum."); return; }
       d[mid] = mk;
     }
-    LS.set("pf_draft", d); renderMatchs(); renderComposer(); return;
+    LS.set("pf_draft", d); buzz(); renderMatchs(); renderComposer(); return;
   }
   const cb = e.target.closest("[data-compose]");
   if (!cb) return;
@@ -75,7 +75,7 @@ document.addEventListener("click", async (e) => {
   publishPlayed("add", c.id, all[c.id]);
   freshStamp = c.id;
   renderAll(); scheduleLive();
-  document.querySelector('.tabs button[data-tab="encours"]').click();
+  showTab("encours");
   toast("Combiné ajouté à tes tickets en cours.");
 });
 

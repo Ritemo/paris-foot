@@ -117,6 +117,12 @@ async def main():
                 return await r.fulfill(json=hist)
             if "/data/meta.json" in u:
                 return await r.fulfill(json=meta)
+            if "/data/logos.json" in u:
+                return await r.fulfill(json={"Rennes": {"logo": "https://a.espncdn.com/i/teamlogos/soccer/500/169.png", "color": "#e13327"},
+                                             "Nantes": {"logo": "https://a.espncdn.com/i/teamlogos/soccer/500/165.png", "color": "#fcd405"}})
+            if "a.espncdn.com" in u:
+                c = "#e13327" if "169" in u else "#fcd405"
+                return await r.fulfill(body=f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><path d="M1 1h8v5l-4 3-4-3z" fill="{c}"/></svg>', content_type="image/svg+xml")
             if "site.api.espn.com" in u:
                 return await r.fulfill(json=espn if "fra.1" in u else {"events": []}, headers={"access-control-allow-origin": "*"})
             if "ntfy.sh" in u:
@@ -162,6 +168,9 @@ async def main():
         print("Composer un combiné")
         await pg.click('.tabs button[data-tab="matchs"]')
         await pg.click('[data-pick="m5"][data-market="1"]')
+        check(await pg.locator('#tab-matchs .chip').count() >= 2, "filtres par championnat")
+        check(not await pg.is_visible('[data-pick="m6"][data-market="BTTS"]'), "les autres paris sont repliés")
+        await pg.click('[data-more="m6"]')
         await pg.click('[data-pick="m6"][data-market="BTTS"]')
         check(await pg.locator('#tab-matchs .mk-title').count() >= 3, "double chance, les deux équipes marquent et seuils de buts affichés")
         check(await pg.is_visible("#composer"), "le bandeau Mon combiné apparaît")
@@ -195,6 +204,16 @@ async def main():
         br2 = await pg.evaluate("bankroll()")
         check(abs(br2["value"] - br["value"] - 20) < 0.01, "un dépôt s'ajoute au disponible")
         check("Bankroll" in await pg.inner_text("#budget-strip"), "bankroll dans le bandeau")
+        print("Logos et navigation")
+        await pg.click('.tabs button[data-tab="matchs"]')
+        n_logo = await pg.evaluate("[...document.querySelectorAll('#tab-matchs .crest.has-logo img')].filter(i => i.complete && i.naturalWidth > 0).length")
+        check(n_logo >= 1, f"logos des clubs affichés ({n_logo})")
+        check(await pg.locator("#tab-matchs .crest:not(.has-logo)").count() >= 1, "initiales pour les clubs sans logo")
+        await pg.click('#tab-matchs .chip:not([data-league=""]) >> nth=0')
+        check(await pg.locator("#tab-matchs .chip.on").count() == 1, "un championnat filtré")
+        await pg.click('#tab-matchs .chip[data-league=""]')
+        await pg.evaluate("showTab('bilan')")
+        check(await pg.locator('.tabs button.active[data-tab="bilan"]').count() == 1, "changement d'onglet par code (glisser)")
         print("Animations")
         await pg.evaluate("window.__noCelebrate = false; LS.set('pf_celebrated', [])")
         await pg.evaluate("document.querySelectorAll('.celebrate').forEach(e => e.remove()); renderAll()")

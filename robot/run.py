@@ -10,6 +10,7 @@ import os
 import re
 import sys
 import unicodedata
+from difflib import SequenceMatcher
 import urllib.request
 from datetime import datetime, timedelta, timezone
 from itertools import combinations
@@ -352,6 +353,7 @@ ESPN_LEAGUE = {"F1": "fra.1", "E0": "eng.1", "SP1": "esp.1", "I1": "ita.1", "D1"
 
 
 def _norm_team(s):
+    s = s.translate(str.maketrans({"ø": "o", "Ø": "O", "ł": "l", "Ł": "L", "đ": "d", "æ": "ae", "ß": "ss", "/": " "}))
     s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode().lower()
     s = re.sub(r"[-'.]", " ", s)
     s = re.sub(r"\b(fc|ac|as|afc|sc|rc|cf|ca|bc|tsg|vfb|vfl|fsv|ogc|ssc|us|ud|rcd|1|04|05|07|29)\b", " ", s)
@@ -361,6 +363,49 @@ def _norm_team(s):
 def _team_score(a, b):
     x, y = _norm_team(a), _norm_team(b)
     return sum(1 for w in x if any(v == w or (len(w) >= 4 and len(v) >= 4 and (v.startswith(w[:4]) or w.startswith(v[:4]))) for v in y))
+
+
+def _team_match(name, team):
+    """Ressemblance entre un nom d'equipe (The Odds API) et une equipe ESPN."""
+    cands = [team.get(k) for k in ("displayName", "shortDisplayName", "name", "location") if team.get(k)]
+    a = " ".join(_norm_team(name))
+    return max(_team_score(name, c) + SequenceMatcher(None, a, " ".join(_norm_team(c))).ratio() for c in cands)
+
+
+def update_logos(history, today_data):
+    """Logos et couleurs des clubs (ESPN, gratuit) : docs/data/logos.json, {nom: {logo, color}}.
+    On ne contacte ESPN que pour les equipes encore inconnues (et une fois par jour au plus pour les introuvables)."""
+    logos = load("logos.json", {})
+    miss = logos.setdefault("_miss", {})
+    day = NOW.date().isoformat()
+    want = {}
+    for c in history.get("combos", []) + today_data.get("combos", []):
+        for l in c["legs"]:
+            for t in (l["home"], l["away"]):
+                want.setdefault(t, l.get("div"))
+    for m in today_data.get("matches", []):
+        for t in (m["home"], m["away"]):
+            want.setdefault(t, m.get("div"))
+    todo = {t: d for t, d in want.items() if t not in logos and miss.get(t) != day}
+    if not todo:
+        return False
+    teams = {}
+    for div in sorted({d for d in todo.values() if d in ESPN_LEAGUE}):
+        try:
+            body, _h = http_get(f"https://site.api.espn.com/apis/site/v2/sports/soccer/{ESPN_LEAGUE[div]}/teams")
+            teams[div] = [x["team"] for x in json.loads(body)["sports"][0]["leagues"][0]["teams"]]
+        except Exception as e:
+            print("logos", div, e, file=sys.stderr)
+    for t, div in todo.items():
+        pool = teams.get(div, [])
+        best = max(pool, key=lambda x: _team_match(t, x), default=None)
+        if best and _team_match(t, best) >= 1.5 and best.get("logos"):
+            logos[t] = {"logo": best["logos"][0]["href"].replace("/500/", "/500/"), "color": "#" + best.get("color", "1a7a4c"), "espn": best.get("displayName")}
+            miss.pop(t, None)
+        else:
+            miss[t] = day
+    save("logos.json", logos)
+    return True
 
 
 def espn_scores(history):
@@ -636,6 +681,10 @@ def results_only(meta, history):
     status_before = {c["id"]: c["status"] for c in history["combos"]}
     settle(history, None, {}, espn_scores(history))
     notify_settled(status_before, history, meta.get("played", {}))
+    try:
+        update_logos(history, load("today.json", {}))
+    except Exception as e:
+        print("logos", e, file=sys.stderr)
     if json.dumps(history, sort_keys=True, default=str) == before:
         if meta_changed:
             save("meta.json", meta)
@@ -738,6 +787,10 @@ def main():
                             combos=sorted(current, key=lambda c: (c["day"], c["kind"] == "folie", c["kind"])),
                             matches=[m for m in matches if m["day"] <= (today + timedelta(days=2)).isoformat()]))
     save("history.json", history)
+    try:
+        update_logos(history, load("today.json", {}))
+    except Exception as e:
+        print("logos", e, file=sys.stderr)
     save("odds_cache.json", cache)
     save("meta.json", meta)
     print(f"{len(matches)} matchs, {len(current)} combines, credits restants {credits['remaining']} "

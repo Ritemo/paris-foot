@@ -90,7 +90,8 @@
    "stars": 2,
    "stake": 3,
    "status": "en attente",
-   "proposed_at": "2026-11-05T06:31:01.775217+00:00"
+   "proposed_at": "2026-11-05T06:31:01.775217+00:00",
+   "replaced": true
   },
   {
    "id": "2026-11-06|295076c39e49863cb54db085ac3cd340:1N|9dd0014685fd62d9b2890d7c33a8c9ab:-2.5",
@@ -136,7 +137,100 @@
    "stars": 2,
    "stake": 3,
    "status": "en attente",
-   "proposed_at": "2026-11-05T06:31:01.775217+00:00"
+   "proposed_at": "2026-11-05T06:31:01.775217+00:00",
+   "replaced": true
+  },
+  {
+   "id": "2026-11-06|295076c39e49863cb54db085ac3cd340:1N|5e7d141f719835de18877ed95bedcb32:+2.5",
+   "day": "2026-11-06",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "5e7d141f719835de18877ed95bedcb32",
+     "league": "Ligue 1",
+     "kickoff": "2026-11-06T19:45:00Z",
+     "home": "Toulouse",
+     "away": "Strasbourg",
+     "fd_home": "Toulouse",
+     "fd_away": "Strasbourg",
+     "div": "F1",
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.49,
+     "src": "pmu",
+     "p": 0.5991,
+     "ev": -0.1073
+    },
+    {
+     "match_id": "295076c39e49863cb54db085ac3cd340",
+     "league": "Bundesliga",
+     "kickoff": "2026-11-06T19:30:00Z",
+     "home": "Hamburger SV",
+     "away": "Borussia Monchengladbach",
+     "fd_home": "Hamburg",
+     "fd_away": "M'gladbach",
+     "div": "D1",
+     "market": "1N",
+     "label": "Hamburger SV ou nul",
+     "odds": 1.32,
+     "src": "estimee",
+     "p": 0.662,
+     "ev": -0.1262
+    }
+   ],
+   "odds": 1.97,
+   "p": 0.3966,
+   "cost": 0.22,
+   "stars": 2,
+   "stake": 3,
+   "status": "en attente",
+   "proposed_at": "2026-11-05T15:31:07.605128+00:00"
+  },
+  {
+   "id": "2026-11-06|295076c39e49863cb54db085ac3cd340:BTTS|9dd0014685fd62d9b2890d7c33a8c9ab:-2.5",
+   "day": "2026-11-06",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "295076c39e49863cb54db085ac3cd340",
+     "league": "Bundesliga",
+     "kickoff": "2026-11-06T19:30:00Z",
+     "home": "Hamburger SV",
+     "away": "Borussia Monchengladbach",
+     "fd_home": "Hamburg",
+     "fd_away": "M'gladbach",
+     "div": "D1",
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odds": 1.4,
+     "src": "estimee",
+     "p": 0.6259,
+     "ev": -0.1237
+    },
+    {
+     "match_id": "9dd0014685fd62d9b2890d7c33a8c9ab",
+     "league": "Liga",
+     "kickoff": "2026-11-06T20:00:00Z",
+     "home": "Sevilla",
+     "away": "Alavés",
+     "fd_home": "Sevilla",
+     "fd_away": "Alaves",
+     "div": "SP1",
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 1.5,
+     "src": "pmu",
+     "p": 0.5871,
+     "ev": -0.1194
+    }
+   ],
+   "odds": 2.1,
+   "p": 0.3675,
+   "cost": 0.2283,
+   "stars": 2,
+   "stake": 3,
+   "status": "en attente",
+   "proposed_at": "2026-11-05T15:31:07.605128+00:00"
   },
   {
    "id": "2026-11-06|295076c39e49863cb54db085ac3cd340:+2.5|586bec023ee8ac2f0645d963bd2c9d25:-2.5|9dd0014685fd62d9b2890d7c33a8c9ab:+2.5|fa069801a5c9b49143447a1a1d173fd1:2",
@@ -214,7 +308,86 @@
    "stars": 0,
    "stake": 1,
    "status": "en attente",
-   "proposed_at": "2026-11-05T06:31:01.775217+00:00"
+   "proposed_at": "2026-11-05T06:31:01.775217+00:00",
+   "replaced": true
+  },
+  {
+   "id": "2026-11-06|295076c39e49863cb54db085ac3cd340:-2.5|586bec023ee8ac2f0645d963bd2c9d25:-2.5|5e7d141f719835de18877ed95bedcb32:+2.5|9dd0014685fd62d9b2890d7c33a8c9ab:N",
+   "day": "2026-11-06",
+   "kind": "folie",
+   "legs": [
+    {
+     "match_id": "9dd0014685fd62d9b2890d7c33a8c9ab",
+     "league": "Liga",
+     "kickoff": "2026-11-06T20:00:00Z",
+     "home": "Sevilla",
+     "away": "Alavés",
+     "fd_home": "Sevilla",
+     "fd_away": "Alaves",
+     "div": "SP1",
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.2,
+     "src": "unibet",
+     "p": 0.2822,
+     "ev": -0.097
+    },
+    {
+     "match_id": "586bec023ee8ac2f0645d963bd2c9d25",
+     "league": "Premier League",
+     "kickoff": "2026-11-06T20:00:00Z",
+     "home": "Everton",
+     "away": "Coventry City",
+     "fd_home": "Everton",
+     "fd_away": "Coventry",
+     "div": "E0",
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 1.97,
+     "src": "pmu",
+     "p": 0.4534,
+     "ev": -0.1068
+    },
+    {
+     "match_id": "295076c39e49863cb54db085ac3cd340",
+     "league": "Bundesliga",
+     "kickoff": "2026-11-06T19:30:00Z",
+     "home": "Hamburger SV",
+     "away": "Borussia Monchengladbach",
+     "fd_home": "Hamburg",
+     "fd_away": "M'gladbach",
+     "div": "D1",
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 2.23,
+     "src": "pmu",
+     "p": 0.4004,
+     "ev": -0.1071
+    },
+    {
+     "match_id": "5e7d141f719835de18877ed95bedcb32",
+     "league": "Ligue 1",
+     "kickoff": "2026-11-06T19:45:00Z",
+     "home": "Toulouse",
+     "away": "Strasbourg",
+     "fd_home": "Toulouse",
+     "fd_away": "Strasbourg",
+     "div": "F1",
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.49,
+     "src": "pmu",
+     "p": 0.5991,
+     "ev": -0.1073
+    }
+   ],
+   "odds": 20.95,
+   "p": 0.0307,
+   "cost": 0.3571,
+   "stars": 0,
+   "stake": 1,
+   "status": "en attente",
+   "proposed_at": "2026-11-05T15:31:07.605128+00:00"
   },
   {
    "id": "2026-11-05|402e102fa845ed84ab7e59b3b17f8c29:-3.5|5ecf6578ba030a1e99abaa3200319e37:+2.5|cb7170b1b0e68a09be62b7a0fcb8d268:1",
@@ -3557,5 +3730,5 @@
   "bilan_mise_suggeree": -10.77,
   "mise_suggeree_totale": 34
  },
- "updated": "2026-11-05T06:31:01.775217+00:00"
+ "updated": "2026-11-05T15:31:07.605128+00:00"
 }

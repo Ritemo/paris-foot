@@ -189,7 +189,7 @@ function ticketHtml(c) {
   const stampCls = c.status === "gagne" ? "gagne" : c.status === "perdu" ? "perdu" : "joue";
   const costCls = k.cost <= 0.12 ? "cost-low" : k.cost > 0.18 ? "cost-high" : "";
   let action;
-  if (b) action = `<button class="btn played" data-bet="${esc(c.id)}">${gain !== null ? eur(gain) : `Joué ${fmt(b.mise, 0)} €`}</button>`;
+  if (b) action = `<button class="btn played" data-bet="${esc(c.id)}">${gain !== null ? eur(gain) : `Joué ${fmtMise(b.mise)} €`}</button>`;
   else if (c.status === "en attente") action = `<button class="btn" data-bet="${esc(c.id)}">Je le joue</button>`;
   else action = "";
   const folie = c.kind === "folie";
@@ -221,9 +221,9 @@ function ticketHtml(c) {
 }
 
 function gainText(c, k, b, mise) {
-  if (c.status === "en attente") return `<b>${fmt(mise * k.odds)} €</b>à gagner pour ${fmt(mise, 0)} € ${b ? "misés" : "conseillés"}<span class="exp-loss">perte moyenne à la longue : ${fmt(mise * Math.max(k.cost, 0))} € par ticket</span>`;
+  if (c.status === "en attente") return `<b>${fmt(mise * k.odds)} €</b>à gagner pour ${fmtMise(mise)} € ${b ? "misés" : "conseillés"}<span class="exp-loss">perte moyenne à la longue : ${fmt(mise * Math.max(k.cost, 0))} € par ticket</span>`;
   if (!b) return `<b>${c.status === "gagne" ? "Passé" : "Raté"}</b>ticket non joué`;
-  return c.status === "gagne" ? `<b>${fmt(b.mise * b.odds)} €</b>récupérés pour ${fmt(b.mise, 0)} € misés` : `<b>${fmt(b.mise, 0)} € perdus</b>ce coup-ci`;
+  return c.status === "gagne" ? `<b>${fmt(b.mise * b.odds)} €</b>récupérés pour ${fmtMise(b.mise)} € misés` : `<b>${fmtMise(b.mise)} € perdus</b>ce coup-ci`;
 }
 
 const EMPTY_BALL = `<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="M24 13l8 6-3 9h-10l-3-9z"/><path d="M24 3v10M32 19l10-4M29 28l6 9M19 28l-6 9M16 19l-10-4"/></svg>`;
@@ -489,7 +489,7 @@ function bilanMine() {
       const g = x.c.status === "gagne" ? x.mise * (x.odds - 1) : -x.mise;
       return `<div class="hist"><span class="dot ${x.c.status}">${x.c.status === "gagne" ? "✓" : "✗"}</span>
         <div><ul class="hist-legs">${x.c.legs.map((l) => `<li class="${l.won === true ? "w" : l.won === false ? "l" : "u"}"><i aria-hidden="true">${l.won === true ? "✓" : l.won === false ? "✗" : "…"}</i>
-          <span>${esc(l.label)}<small>${esc(l.home)} ${l.score ? `<b>${esc(l.score)}</b>` : "contre"} ${esc(l.away)}${l.won === undefined ? " · pas encore joué" : ""}</small></span></li>`).join("")}</ul><small>${esc(longDate(x.c.day))}, ${fmt(x.mise, 0)} € misés à ${fmt(x.odds)}${x.c.status === "gagne" ? `, ${fmt(x.mise * x.odds)} € récupérés` : ""}</small></div>
+          <span>${esc(l.label)}<small>${esc(l.home)} ${l.score ? `<b>${esc(l.score)}</b>` : "contre"} ${esc(l.away)}${l.won === undefined ? " · pas encore joué" : ""}</small></span></li>`).join("")}</ul><small>${esc(longDate(x.c.day))}, ${fmtMise(x.mise)} € misés à ${fmt(x.odds)}${x.c.status === "gagne" ? `, ${fmt(x.mise * x.odds)} € récupérés` : ""}</small></div>
         <span class="o ${g >= 0 ? "pos" : "neg"}">${eur(g)}</span></div>`;
     }).join("") + `</div>`;
   }
@@ -602,18 +602,21 @@ function ask(title, text, value, { clear = false, steps = null } = {}) {
     const d = document.getElementById("dlg"), inp = document.getElementById("dlg-input"), st = document.getElementById("dlg-steps");
     document.getElementById("dlg-title").textContent = title;
     document.getElementById("dlg-text").textContent = text;
-    inp.value = value;
-    inp.step = steps ? "1" : "0.01";
+    inp.value = value === "" || value === null || value === undefined ? "" : String(value).replace(".", ",");
     st.innerHTML = steps ? steps.map((n) => `<button type="button" data-v="${n}" class="${n == value ? "sel" : ""}">${n} €</button>`).join("") : "";
-    st.onclick = (e) => { const b = e.target.closest("button"); if (!b) return; inp.value = b.dataset.v;
+    st.onclick = (e) => { const b = e.target.closest("button"); if (!b) return; inp.value = String(b.dataset.v).replace(".", ",");
       st.querySelectorAll("button").forEach((x) => x.classList.toggle("sel", x === b)); };
     document.getElementById("dlg-clear").style.display = clear ? "" : "none";
-    d.onclose = () => resolve(d.returnValue === "ok" ? parseFloat(String(inp.value).replace(",", ".")) : d.returnValue === "clear" ? "clear" : null);
+    inp.oninput = () => st.querySelectorAll("button").forEach((x) => x.classList.toggle("sel", parseNum(inp.value) === +x.dataset.v));
+    d.onclose = () => resolve(d.returnValue === "ok" ? parseNum(inp.value) : d.returnValue === "clear" ? "clear" : null);
     d.returnValue = "";
     d.showModal();
-    if (!steps) setTimeout(() => inp.select(), 50);
+    setTimeout(() => inp.select(), 50);
   });
 }
+// montants saisis au clavier français : « 1,31 » comme « 1.31 », arrondis au centime
+const parseNum = (t) => { const v = parseFloat(String(t).trim().replace(/\s|€/g, "").replace(",", ".")); return isNaN(v) ? NaN : Math.round(v * 100) / 100; };
+const fmtMise = (v) => (Math.abs(v - Math.round(v)) < 1e-9 ? fmt(v, 0) : fmt(v));
 function toast(msg, ms = 3500) {
   const t = document.createElement("div");
   t.className = "toast"; t.setAttribute("role", "status"); t.textContent = msg;
@@ -637,14 +640,14 @@ document.addEventListener("click", async (e) => {
       if (c.status !== "en attente") return;
       const v = await ask("Modifier la mise", "Mets 0 pour retirer ce pari de ton suivi.", all[c.id].mise, { steps: [0, 1, 2, 3, 4, 5] });
       if (v === null || isNaN(v)) return;
-      if (v <= 0) delete all[c.id]; else all[c.id].mise = Math.min(v, 5);
+      if (v <= 0) delete all[c.id]; else all[c.id].mise = v;
     } else {
       const left = settings().budget - monthSpent();
       const v = await ask("Combien tu mises ?", c.kind === "folie" ? `Pour le fun : 1 € suffit, ${fmt(combo(c).odds)} fois la mise si ça passe. Il te reste ${fmt(Math.max(left, 0), 0)} € dans ton budget du mois.`
         : `${c.stake} € conseillés. Il te reste ${fmt(Math.max(left, 0), 0)} € dans ton budget du mois.`, c.stake, { steps: c.kind === "folie" ? [1, 2] : [1, 2, 3, 4, 5] });
       if (!v || isNaN(v) || v <= 0) return;
       if (v > left && !confirm("Cette mise dépasse ton budget du mois. La garder quand même ?")) return;
-      all[c.id] = { mise: Math.min(v, 5), odds: +combo(c).odds.toFixed(4), date: isoDay(new Date()), ts: Date.now(), snap: c };
+      all[c.id] = { mise: v, odds: +combo(c).odds.toFixed(4), date: isoDay(new Date()), ts: Date.now(), snap: c };
       freshStamp = c.id;
     }
     LS.set("pf_bets", all); renderAll(); scheduleLive(); syncPlayed(); return;

@@ -70,7 +70,7 @@ document.addEventListener("click", async (e) => {
   if (!v || isNaN(v) || v <= 0) return;
   if (v > left && !confirm("Cette mise dépasse ton budget du mois. La garder quand même ?")) return;
   const all = bets();
-  all[c.id] = { mise: Math.min(v, 5), odds: +combo(c).odds.toFixed(4), date: isoDay(new Date()), ts: Date.now(), snap: c };
+  all[c.id] = { mise: v, odds: +combo(c).odds.toFixed(4), date: isoDay(new Date()), ts: Date.now(), snap: c };
   LS.set("pf_bets", all); LS.set("pf_draft", {});
   publishPlayed("add", c.id, all[c.id]);
   freshStamp = c.id;

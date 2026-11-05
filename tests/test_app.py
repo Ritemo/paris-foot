@@ -186,7 +186,11 @@ async def main():
         await pg.click('#tab-encours [data-act="edit"][data-id="c-futur"]')
         await pg.fill("#dlg-input", "2,5"); await pg.click('#dlg button[value="ok"]'); await pg.wait_for_timeout(300)
         check(await pg.evaluate("bets()['c-futur'].mise") == 2.5, "bouton Changer la mise")
-        if os.environ.get("SHOTS"): await pg.locator('#tab-encours .ticket >> nth=0').screenshot(path=os.environ["SHOTS"] + "/joue.png")
+        box = await pg.locator('#tab-encours .ticket >> nth=0').locator(".bet-actions").bounding_box()
+        check(box and box["height"] > 10, f"les boutons de correction sont visibles ({box})")
+        if os.environ.get("SHOTS"):
+            await pg.evaluate("document.querySelectorAll('.toast').forEach(t => t.remove())")
+            await pg.locator('#tab-encours .ticket >> nth=0').screenshot(path=os.environ["SHOTS"] + "/joue.png")
         await pg.click('#tab-encours [data-act="edit"][data-id="c-futur"]')
         await pg.click('#dlg-steps button[data-v="3"]'); await pg.click('#dlg button[value="ok"]'); await pg.wait_for_timeout(300)
         await pg.click('.tabs button[data-tab="combos"]')

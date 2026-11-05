@@ -192,6 +192,7 @@ function ticketHtml(c) {
   if (b) action = `<button class="btn played" data-bet="${esc(c.id)}">${gain !== null ? eur(gain) : `Joué ${fmtMise(b.mise)} €`}</button>`;
   else if (c.status === "en attente") action = `<button class="btn" data-bet="${esc(c.id)}">Je le joue</button>`;
   else action = "";
+  if (b) action += betActions(c);
   const folie = c.kind === "folie";
   const rk = folie ? null : dayRank(c);
   const head = folie
@@ -489,7 +490,8 @@ function bilanMine() {
       const g = x.c.status === "gagne" ? x.mise * (x.odds - 1) : -x.mise;
       return `<div class="hist"><span class="dot ${x.c.status}">${x.c.status === "gagne" ? "✓" : "✗"}</span>
         <div><ul class="hist-legs">${x.c.legs.map((l) => `<li class="${l.won === true ? "w" : l.won === false ? "l" : "u"}"><i aria-hidden="true">${l.won === true ? "✓" : l.won === false ? "✗" : "…"}</i>
-          <span>${esc(l.label)}<small>${esc(l.home)} ${l.score ? `<b>${esc(l.score)}</b>` : "contre"} ${esc(l.away)}${l.won === undefined ? " · pas encore joué" : ""}</small></span></li>`).join("")}</ul><small>${esc(longDate(x.c.day))}, ${fmtMise(x.mise)} € misés à ${fmt(x.odds)}${x.c.status === "gagne" ? `, ${fmt(x.mise * x.odds)} € récupérés` : ""}</small></div>
+          <span>${esc(l.label)}<small>${esc(l.home)} ${l.score ? `<b>${esc(l.score)}</b>` : "contre"} ${esc(l.away)}${l.won === undefined ? " · pas encore joué" : ""}</small></span></li>`).join("")}</ul><small>${esc(longDate(x.c.day))}, ${fmtMise(x.mise)} € misés à ${fmt(x.odds)}${x.c.status === "gagne" ? `, ${fmt(x.mise * x.odds)} € récupérés` : ""}</small>
+          <span class="hist-act"><button type="button" data-act="edit" data-id="${esc(x.c.id)}">Changer la mise</button><button type="button" class="danger" data-act="cancel" data-id="${esc(x.c.id)}">Annuler</button></span></div>
         <span class="o ${g >= 0 ? "pos" : "neg"}">${eur(g)}</span></div>`;
     }).join("") + `</div>`;
   }
@@ -574,7 +576,7 @@ function renderEncours() {
   else {
     const stake = live.reduce((s, c) => s + bets()[c.id].mise, 0);
     const pot = live.reduce((s, c) => s + bets()[c.id].mise * bets()[c.id].odds, 0);
-    h += `<div class="day"><h2>En cours</h2><span>${live.length} ticket${live.length > 1 ? "s" : ""}, ${fmt(stake, 0)} € misés, jusqu'à ${fmt(pot)} € à gagner</span></div>`;
+    h += `<div class="day"><h2>En cours</h2><span>${live.length} ticket${live.length > 1 ? "s" : ""}, ${fmtMise(stake)} € misés, jusqu'à ${fmt(pot)} € à gagner</span></div>`;
     h += liveStatusLine() + live.map(ticketHtml).join("");
   }
   if (done.length) h += `<div class="day"><h2>Derniers résultats</h2><span>sur 2 jours</span></div>` + done.map(ticketHtml).join("");
@@ -617,6 +619,51 @@ function ask(title, text, value, { clear = false, steps = null } = {}) {
 // montants saisis au clavier français : « 1,31 » comme « 1.31 », arrondis au centime
 const parseNum = (t) => { const v = parseFloat(String(t).trim().replace(/\s|€/g, "").replace(",", ".")); return isNaN(v) ? NaN : Math.round(v * 100) / 100; };
 const fmtMise = (v) => (Math.abs(v - Math.round(v)) < 1e-9 ? fmt(v, 0) : fmt(v));
+/* corriger une erreur : changer la mise, annuler le pari, ou (combiné perso pas commencé) changer ses sélections */
+function betActions(c) {
+  const id = esc(c.id), notStarted = c.status === "en attente" && c.legs.every((l) => new Date(l.kickoff) > new Date());
+  return `<div class="bet-actions">
+    <button type="button" data-act="edit" data-id="${id}">Changer la mise</button>
+    ${c.kind === "perso" && notStarted ? `<button type="button" data-act="change" data-id="${id}">Changer les sélections</button>` : ""}
+    <button type="button" class="danger" data-act="cancel" data-id="${id}">Annuler le pari</button></div>`;
+}
+async function editMise(id) {
+  const all = bets(); if (!all[id]) return;
+  const v = await ask("Changer la mise", "Le montant que tu as vraiment misé sur Unibet.", all[id].mise, { steps: [1, 2, 3, 4, 5] });
+  if (v === null || isNaN(v) || v <= 0) return;
+  all[id].mise = v; LS.set("pf_bets", all); renderAll(); syncPlayed(); toast(`Mise corrigée : ${fmtMise(v)} €.`);
+}
+function cancelBet(id, { quiet = false } = {}) {
+  const all = bets(), old = all[id]; if (!old) return;
+  delete all[id]; LS.set("pf_bets", all); renderAll(); syncPlayed();
+  if (!quiet) undoToast("Pari annulé : il sort de ton suivi et de ton bilan.", () => { const a = bets(); a[id] = old; LS.set("pf_bets", a); renderAll(); syncPlayed(); scheduleLive(); });
+}
+function undoToast(msg, undo, ms = 6000) {
+  document.querySelectorAll(".toast.undo").forEach((x) => x.remove());
+  const t = document.createElement("div");
+  t.className = "toast undo"; t.setAttribute("role", "status");
+  t.innerHTML = `<span>${esc(msg)}</span><button type="button">Rétablir</button>`;
+  t.querySelector("button").onclick = () => { t.remove(); undo(); toast("Pari rétabli."); };
+  document.body.appendChild(t); setTimeout(() => t.remove(), ms);
+}
+document.addEventListener("click", async (e) => {
+  const a = e.target.closest("[data-act]");
+  if (!a) return;
+  const id = a.dataset.id, c = findCombo(id), b = bets()[id];
+  if (!b) return;
+  if (a.dataset.act === "edit") return editMise(id);
+  if (a.dataset.act === "cancel") {
+    if (!confirm(`Annuler ce pari de ${fmtMise(b.mise)} € ?`)) return;
+    return cancelBet(id);
+  }
+  if (a.dataset.act === "change" && c) {
+    const d = {}; c.legs.forEach((l) => { d[l.match_id] = l.market; });
+    LS.set("pf_draft", d); cancelBet(id, { quiet: true });
+    showTab("matchs"); renderMatchs(); renderComposer();
+    toast("Tes sélections sont reprises : modifie-les puis touche « Je le joue ».", 5000);
+  }
+});
+
 function toast(msg, ms = 3500) {
   const t = document.createElement("div");
   t.className = "toast"; t.setAttribute("role", "status"); t.textContent = msg;

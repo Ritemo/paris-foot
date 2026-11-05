@@ -558,3 +558,12 @@ body { overscroll-behavior-y: contain; }
 .hist-legs li.l span { text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--rouge) 60%, transparent); }
 .hist-legs li.l span small { text-decoration: none; }
 .hist .dot { align-self: start; margin-top: 2px; } .hist .o { align-self: start; }
+/* corriger un pari */
+.bet-actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--trait); width: 100%; }
+.bet-actions button, .hist-act button { background: none; border: 0; padding: 4px 0; font: 700 13px var(--body, inherit); color: var(--pelouse-2); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.bet-actions .danger, .hist-act .danger { color: var(--rouge); margin-left: auto; }
+.hist-act { display: flex; gap: 14px; margin-top: 4px; } .hist-act .danger { margin-left: 0; }
+@media (prefers-color-scheme: dark) { .bet-actions button:not(.danger), .hist-act button:not(.danger) { color: #7fd9a6; } }
+.toast.undo { display: flex; align-items: center; gap: 12px; }
+.toast.undo span { flex: 1; } .toast.undo button { background: var(--jaune); color: #14261c; border: 0; border-radius: 999px; padding: 7px 14px; font-weight: 800; cursor: pointer; }
+.stub { flex-wrap: wrap; } .stub .gain { flex: 1; }

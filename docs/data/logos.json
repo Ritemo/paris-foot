@@ -579,5 +579,55 @@
   "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/2980.png",
   "color": "#FCEE33",
   "espn": "Bodo/Glimt"
+ },
+ "Leeds United": {
+  "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/357.png",
+  "color": "#ffffff",
+  "espn": "Leeds United"
+ },
+ "Tottenham Hotspur": {
+  "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/367.png",
+  "color": "#ffffff",
+  "espn": "Tottenham Hotspur"
+ },
+ "Cagliari": {
+  "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/2925.png",
+  "color": "#282846",
+  "espn": "Cagliari"
+ },
+ "Eintracht Frankfurt": {
+  "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/125.png",
+  "color": "#ffffff",
+  "espn": "Eintracht Frankfurt"
+ },
+ "Hull City": {
+  "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/306.png",
+  "color": "#f28800",
+  "espn": "Hull City"
+ },
+ "Fulham": {
+  "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/370.png",
+  "color": "#ffffff",
+  "espn": "Fulham"
+ },
+ "Nottingham Forest": {
+  "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/393.png",
+  "color": "#c8102e",
+  "espn": "Nottingham Forest"
+ },
+ "Athletic Bilbao": {
+  "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/93.png",
+  "color": "#C8142F",
+  "espn": "Athletic Club"
+ },
+ "Werder Bremen": {
+  "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/137.png",
+  "color": "#03915c",
+  "espn": "Werder Bremen"
+ },
+ "Paris FC": {
+  "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/6851.png",
+  "color": "#000000",
+  "espn": "Paris FC"
  }
 }

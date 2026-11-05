@@ -1,6 +1,222 @@
 {
  "combos": [
   {
+   "id": "2026-11-06|295076c39e49863cb54db085ac3cd340:+2.5|fa069801a5c9b49143447a1a1d173fd1:-3.5",
+   "day": "2026-11-06",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "295076c39e49863cb54db085ac3cd340",
+     "league": "Bundesliga",
+     "kickoff": "2026-11-06T19:30:00Z",
+     "home": "Hamburger SV",
+     "away": "Borussia Monchengladbach",
+     "fd_home": "Hamburg",
+     "fd_away": "M'gladbach",
+     "div": "D1",
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.47,
+     "src": "pmu",
+     "p": 0.6063,
+     "ev": -0.1087
+    },
+    {
+     "match_id": "fa069801a5c9b49143447a1a1d173fd1",
+     "league": "Serie A",
+     "kickoff": "2026-11-06T19:45:00Z",
+     "home": "Venezia",
+     "away": "Udinese",
+     "fd_home": "Venezia",
+     "fd_away": "Udinese",
+     "div": "I1",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.32,
+     "src": "estimee",
+     "p": 0.6643,
+     "ev": -0.1231
+    }
+   ],
+   "odds": 1.94,
+   "p": 0.4028,
+   "cost": 0.2184,
+   "stars": 2,
+   "stake": 3,
+   "status": "en attente",
+   "proposed_at": "2026-11-05T06:31:01.775217+00:00"
+  },
+  {
+   "id": "2026-11-06|586bec023ee8ac2f0645d963bd2c9d25:-3.5|5e7d141f719835de18877ed95bedcb32:+2.5",
+   "day": "2026-11-06",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "586bec023ee8ac2f0645d963bd2c9d25",
+     "league": "Premier League",
+     "kickoff": "2026-11-06T20:00:00Z",
+     "home": "Everton",
+     "away": "Coventry City",
+     "fd_home": "Everton",
+     "fd_away": "Coventry",
+     "div": "E0",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.3,
+     "src": "estimee",
+     "p": 0.6718,
+     "ev": -0.1267
+    },
+    {
+     "match_id": "5e7d141f719835de18877ed95bedcb32",
+     "league": "Ligue 1",
+     "kickoff": "2026-11-06T19:45:00Z",
+     "home": "Toulouse",
+     "away": "Strasbourg",
+     "fd_home": "Toulouse",
+     "fd_away": "Strasbourg",
+     "div": "F1",
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.48,
+     "src": "pmu",
+     "p": 0.6006,
+     "ev": -0.1111
+    }
+   ],
+   "odds": 1.92,
+   "p": 0.4035,
+   "cost": 0.2237,
+   "stars": 2,
+   "stake": 3,
+   "status": "en attente",
+   "proposed_at": "2026-11-05T06:31:01.775217+00:00"
+  },
+  {
+   "id": "2026-11-06|295076c39e49863cb54db085ac3cd340:1N|9dd0014685fd62d9b2890d7c33a8c9ab:-2.5",
+   "day": "2026-11-06",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "295076c39e49863cb54db085ac3cd340",
+     "league": "Bundesliga",
+     "kickoff": "2026-11-06T19:30:00Z",
+     "home": "Hamburger SV",
+     "away": "Borussia Monchengladbach",
+     "fd_home": "Hamburg",
+     "fd_away": "M'gladbach",
+     "div": "D1",
+     "market": "1N",
+     "label": "Hamburger SV ou nul",
+     "odds": 1.32,
+     "src": "estimee",
+     "p": 0.6579,
+     "ev": -0.1316
+    },
+    {
+     "match_id": "9dd0014685fd62d9b2890d7c33a8c9ab",
+     "league": "Liga",
+     "kickoff": "2026-11-06T20:00:00Z",
+     "home": "Sevilla",
+     "away": "Alavés",
+     "fd_home": "Sevilla",
+     "fd_away": "Alaves",
+     "div": "SP1",
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 1.51,
+     "src": "pmu",
+     "p": 0.5846,
+     "ev": -0.1173
+    }
+   ],
+   "odds": 1.99,
+   "p": 0.3846,
+   "cost": 0.2335,
+   "stars": 2,
+   "stake": 3,
+   "status": "en attente",
+   "proposed_at": "2026-11-05T06:31:01.775217+00:00"
+  },
+  {
+   "id": "2026-11-06|295076c39e49863cb54db085ac3cd340:+2.5|586bec023ee8ac2f0645d963bd2c9d25:-2.5|9dd0014685fd62d9b2890d7c33a8c9ab:+2.5|fa069801a5c9b49143447a1a1d173fd1:2",
+   "day": "2026-11-06",
+   "kind": "folie",
+   "legs": [
+    {
+     "match_id": "fa069801a5c9b49143447a1a1d173fd1",
+     "league": "Serie A",
+     "kickoff": "2026-11-06T19:45:00Z",
+     "home": "Venezia",
+     "away": "Udinese",
+     "fd_home": "Venezia",
+     "fd_away": "Udinese",
+     "div": "I1",
+     "market": "2",
+     "label": "Victoire Udinese",
+     "odds": 2.95,
+     "src": "unibet",
+     "p": 0.3053,
+     "ev": -0.0994
+    },
+    {
+     "match_id": "9dd0014685fd62d9b2890d7c33a8c9ab",
+     "league": "Liga",
+     "kickoff": "2026-11-06T20:00:00Z",
+     "home": "Sevilla",
+     "away": "Alavés",
+     "fd_home": "Sevilla",
+     "fd_away": "Alaves",
+     "div": "SP1",
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 2.16,
+     "src": "pmu",
+     "p": 0.4154,
+     "ev": -0.1027
+    },
+    {
+     "match_id": "586bec023ee8ac2f0645d963bd2c9d25",
+     "league": "Premier League",
+     "kickoff": "2026-11-06T20:00:00Z",
+     "home": "Everton",
+     "away": "Coventry City",
+     "fd_home": "Everton",
+     "fd_away": "Coventry",
+     "div": "E0",
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 2.0,
+     "src": "pmu",
+     "p": 0.4484,
+     "ev": -0.1032
+    },
+    {
+     "match_id": "295076c39e49863cb54db085ac3cd340",
+     "league": "Bundesliga",
+     "kickoff": "2026-11-06T19:30:00Z",
+     "home": "Hamburger SV",
+     "away": "Borussia Monchengladbach",
+     "fd_home": "Hamburg",
+     "fd_away": "M'gladbach",
+     "div": "D1",
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.47,
+     "src": "pmu",
+     "p": 0.6063,
+     "ev": -0.1087
+    }
+   ],
+   "odds": 18.73,
+   "p": 0.0345,
+   "cost": 0.3541,
+   "stars": 0,
+   "stake": 1,
+   "status": "en attente",
+   "proposed_at": "2026-11-05T06:31:01.775217+00:00"
+  },
+  {
    "id": "2026-11-05|402e102fa845ed84ab7e59b3b17f8c29:-3.5|5ecf6578ba030a1e99abaa3200319e37:+2.5|cb7170b1b0e68a09be62b7a0fcb8d268:1",
    "day": "2026-11-05",
    "kind": "x3",
@@ -60,7 +276,8 @@
    "stars": 1,
    "stake": 2,
    "status": "en attente",
-   "proposed_at": "2026-11-04T17:56:47.220942+00:00"
+   "proposed_at": "2026-11-04T17:56:47.220942+00:00",
+   "replaced": true
   },
   {
    "id": "2026-11-05|d6ef4964addd663baed90f8f19fda1d3:+2.5|e1c3625feeebcd65317e17a4e9a38c4f:1",
@@ -106,7 +323,8 @@
    "stars": 1,
    "stake": 3,
    "status": "en attente",
-   "proposed_at": "2026-11-04T17:56:47.220942+00:00"
+   "proposed_at": "2026-11-04T17:56:47.220942+00:00",
+   "replaced": true
   },
   {
    "id": "2026-11-05|9604c5b1c465435911e038db95ab2a7b:+2.5|d437cbfcee6b57ec58d464e6b459c56e:-3.5",
@@ -152,7 +370,146 @@
    "stars": 1,
    "stake": 3,
    "status": "en attente",
-   "proposed_at": "2026-11-04T17:56:47.220942+00:00"
+   "proposed_at": "2026-11-04T17:56:47.220942+00:00",
+   "replaced": true
+  },
+  {
+   "id": "2026-11-05|02228f9f6863e25c9538d6062932e155:-3.5|d6ef4964addd663baed90f8f19fda1d3:BTTS",
+   "day": "2026-11-05",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "d6ef4964addd663baed90f8f19fda1d3",
+     "league": "Ligue Europa",
+     "kickoff": "2026-11-05T17:45:00Z",
+     "home": "Real Sociedad",
+     "away": "Lyon",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "EL",
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odds": 1.47,
+     "src": "estimee",
+     "p": 0.6132,
+     "ev": -0.0986
+    },
+    {
+     "match_id": "02228f9f6863e25c9538d6062932e155",
+     "league": "Ligue Europa",
+     "kickoff": "2026-11-05T17:45:00Z",
+     "home": "NEC Nijmegen",
+     "away": "Omonoia FC",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "EL",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.48,
+     "src": "pmu",
+     "p": 0.6015,
+     "ev": -0.1098
+    }
+   ],
+   "odds": 2.18,
+   "p": 0.3688,
+   "cost": 0.1976,
+   "stars": 2,
+   "stake": 3,
+   "status": "en attente",
+   "proposed_at": "2026-11-05T06:31:01.775217+00:00"
+  },
+  {
+   "id": "2026-11-05|5ecf6578ba030a1e99abaa3200319e37:-3.5|d6ef4964addd663baed90f8f19fda1d3:+2.5",
+   "day": "2026-11-05",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "d6ef4964addd663baed90f8f19fda1d3",
+     "league": "Ligue Europa",
+     "kickoff": "2026-11-05T17:45:00Z",
+     "home": "Real Sociedad",
+     "away": "Lyon",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "EL",
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.43,
+     "src": "estimee",
+     "p": 0.6265,
+     "ev": -0.1041
+    },
+    {
+     "match_id": "5ecf6578ba030a1e99abaa3200319e37",
+     "league": "Ligue Europa",
+     "kickoff": "2026-11-05T20:00:00Z",
+     "home": "Celtic",
+     "away": "Besiktas JK",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "EL",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.48,
+     "src": "pmu",
+     "p": 0.6015,
+     "ev": -0.1098
+    }
+   ],
+   "odds": 2.12,
+   "p": 0.3768,
+   "cost": 0.2025,
+   "stars": 2,
+   "stake": 3,
+   "status": "en attente",
+   "proposed_at": "2026-11-05T06:31:01.775217+00:00"
+  },
+  {
+   "id": "2026-11-05|b828d43ba5fa1c8cdd2e34aabea9d0ce:-3.5|c50815d0a3cbc7dfe6b9f3a737ce4836:+2.5",
+   "day": "2026-11-05",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "b828d43ba5fa1c8cdd2e34aabea9d0ce",
+     "league": "Ligue Europa",
+     "kickoff": "2026-11-05T20:00:00Z",
+     "home": "Celta Vigo",
+     "away": "Union Saint-Gilloise",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "EL",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.3,
+     "src": "estimee",
+     "p": 0.6738,
+     "ev": -0.1241
+    },
+    {
+     "match_id": "c50815d0a3cbc7dfe6b9f3a737ce4836",
+     "league": "Ligue Europa",
+     "kickoff": "2026-11-05T17:45:00Z",
+     "home": "Lillestrom",
+     "away": "Viktoria Plzeň",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "EL",
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.48,
+     "src": "pmu",
+     "p": 0.6008,
+     "ev": -0.1108
+    }
+   ],
+   "odds": 1.92,
+   "p": 0.4048,
+   "cost": 0.2211,
+   "stars": 2,
+   "stake": 3,
+   "status": "en attente",
+   "proposed_at": "2026-11-05T06:31:01.775217+00:00"
   },
   {
    "id": "2026-11-05|402e102fa845ed84ab7e59b3b17f8c29:+2.5|9604c5b1c465435911e038db95ab2a7b:-2.5|bc4a4cc34a2219d9564b7b0c17ba2934:+3.5|c50815d0a3cbc7dfe6b9f3a737ce4836:-2.5",
@@ -230,7 +587,86 @@
    "stars": 0,
    "stake": 1,
    "status": "en attente",
-   "proposed_at": "2026-11-04T17:56:47.220942+00:00"
+   "proposed_at": "2026-11-04T17:56:47.220942+00:00",
+   "replaced": true
+  },
+  {
+   "id": "2026-11-05|2af127e906ae56f3543d283b85f7b54e:+2.5|3493023efb0aadbdffe37e74e528177c:2|d6ef4964addd663baed90f8f19fda1d3:1|e1c3625feeebcd65317e17a4e9a38c4f:+3.5",
+   "day": "2026-11-05",
+   "kind": "folie",
+   "legs": [
+    {
+     "match_id": "d6ef4964addd663baed90f8f19fda1d3",
+     "league": "Ligue Europa",
+     "kickoff": "2026-11-05T17:45:00Z",
+     "home": "Real Sociedad",
+     "away": "Lyon",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "EL",
+     "market": "1",
+     "label": "Victoire Real Sociedad",
+     "odds": 1.6,
+     "src": "unibet",
+     "p": 0.5592,
+     "ev": -0.1053
+    },
+    {
+     "match_id": "e1c3625feeebcd65317e17a4e9a38c4f",
+     "league": "Ligue Europa",
+     "kickoff": "2026-11-05T20:00:00Z",
+     "home": "Bayer Leverkusen",
+     "away": "Marseille",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "EL",
+     "market": "+3.5",
+     "label": "Plus de 3,5 buts",
+     "odds": 1.85,
+     "src": "pmu",
+     "p": 0.4826,
+     "ev": -0.1072
+    },
+    {
+     "match_id": "2af127e906ae56f3543d283b85f7b54e",
+     "league": "Ligue Europa",
+     "kickoff": "2026-11-05T20:00:00Z",
+     "home": "Hapoel Be'er Sheva",
+     "away": "OFI Crete",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "EL",
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.55,
+     "src": "pmu",
+     "p": 0.575,
+     "ev": -0.1088
+    },
+    {
+     "match_id": "3493023efb0aadbdffe37e74e528177c",
+     "league": "Ligue Europa",
+     "kickoff": "2026-11-05T17:45:00Z",
+     "home": "PFC Levski Sofia",
+     "away": "Jagiellonia Białystok",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "EL",
+     "market": "2",
+     "label": "Victoire Jagiellonia Białystok",
+     "odds": 3.4,
+     "src": "unibet",
+     "p": 0.2621,
+     "ev": -0.1089
+    }
+   ],
+   "odds": 15.6,
+   "p": 0.0407,
+   "cost": 0.3656,
+   "stars": 0,
+   "stake": 1,
+   "status": "en attente",
+   "proposed_at": "2026-11-05T06:31:01.775217+00:00"
   },
   {
    "id": "2026-11-04|ba82ee37f64a66a30d85f8b90082ec2f:+2.5|df7d2d81b9e2f3f11c6aeddaee6b7085:2|e901dbcdd6e2255fb24d84032b9d437a:-3.5",
@@ -3121,5 +3557,5 @@
   "bilan_mise_suggeree": -10.77,
   "mise_suggeree_totale": 34
  },
- "updated": "2026-11-04T22:01:07.430989+00:00"
+ "updated": "2026-11-05T06:31:01.775217+00:00"
 }

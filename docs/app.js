@@ -62,19 +62,23 @@ function combo(c) {
   let odds = 1, ev = 1;
   c.legs.forEach((l, i) => { const o = legOdds(c, i); odds *= o; ev *= l.p * o; });
   const cost = 1 - ev;
-  // étoiles : intérêt du ticket = mélange du prix et de la chance de passer, selon ta balance (même formule que le robot)
+  // étoiles : intérêt du ticket = son prix et sa ressemblance avec ton style de jeu (même formule que le robot)
   const it = interest(c.p, cost, c.legs.length);
   // Unibet arrondit la cote totale au centième le plus proche (2,465 -> 2,47), puis gain = mise x cote totale
-  return { odds: Math.round(odds * 100 + 1e-6) / 100, cost, stars: it.stars, score: it.score, price: it.price, chance: it.chance };
+  return { odds: Math.round(odds * 100 + 1e-6) / 100, cost, stars: it.stars, score: it.score, price: it.price, fit: it.fit };
 }
-// balance prix / chance : 0 = seul le prix compte, 1 = seule la chance de passer compte
-const balance = () => { const w = +LS.get("pf_balance", 0.5); return isNaN(w) ? 0.5 : Math.min(1, Math.max(0, w)); };
-function interest(p, cost, n = 2, w = balance()) {
+// ton style de jeu : 0 = petit gain sûr (cote visée ~1,7), 1 = gros gain (cote visée ~4,5) ; et le poids du prix dans la note
+const clamp01 = (x, d) => (isNaN(+x) ? d : Math.min(1, Math.max(0, +x)));
+const style = () => clamp01(LS.get("pf_style", 0.25), 0.25);
+const priceW = () => clamp01(LS.get("pf_pricew", 0.5), 0.5);
+const targetOdds = (st = style()) => Math.exp(Math.log(1.7) + st * Math.log(4.5 / 1.7));
+function interest(p, cost, n = 2, wp = priceW(), st = style()) {
   const perLeg = 1 - Math.pow(1 - Math.max(cost, 0), 1 / Math.max(n, 1));
   const price = Math.min(1, Math.max(0, (0.13 - perLeg) / 0.09));    // 4 % de marge par sélection = excellent, 13 % = cher
-  const chance = Math.min(1, Math.max(0, (p - 0.15) / 0.35));          // 15 % = faible, 50 % = forte
-  const score = (1 - w) * price + w * chance;
-  return { score, price, chance, stars: score >= 0.55 ? 3 : score >= 0.35 ? 2 : 1 };
+  const odds = (1 - cost) / Math.max(p, 1e-9);
+  const fit = Math.max(0, 1 - Math.abs(Math.log(odds / targetOdds(st))) / Math.log(2));   // 0 dès qu'on est 2 fois au-dessus ou en dessous de la cote visée
+  const score = wp * price + (1 - wp) * fit;
+  return { score, price, fit, stars: score >= 0.62 ? 3 : score >= 0.45 ? 2 : 1 };
 }
 // un ticket joué garde la cote à laquelle tu l'as pris : si tu corriges une cote, on recalcule la cote du ticket joué
 function syncBetOdds(id) {
@@ -199,8 +203,8 @@ function ticketHtml(c) {
     ? `<span class="kind">Folie du jour, ${c.legs.length} matchs</span><span class="fun">pour le fun</span>`
     : `<span class="kind">${c.kind === "perso" ? `Mon combiné de ${c.legs.length}` : `Combiné ${c.kind === "x3" ? "de 3" : "de 2"}`}</span>
       ${starsHtml(k.stars)}${rk ? rankHtml(rk) : ""}
-      <div class="mix" aria-label="Prix ${Math.round(k.price * 10)} sur 10, chance ${Math.round(k.chance * 10)} sur 10">
-        <span>Prix<i style="--v:${Math.round(k.price * 100)}%"></i></span><span>Chance<i style="--v:${Math.round(k.chance * 100)}%"></i></span>${c.alt ? `<em class="alt-tag">selon ta balance</em>` : ""}</div>`;
+      <div class="mix" aria-label="Prix ${Math.round(k.price * 10)} sur 10, proche de ton style ${Math.round(k.fit * 10)} sur 10">
+        <span>Prix<i style="--v:${Math.round(k.price * 100)}%"></i></span><span>Ton style<i style="--v:${Math.round(k.fit * 100)}%"></i></span>${c.alt ? `<em class="alt-tag">pour ton style</em>` : ""}</div>`;
   return `<article class="ticket ${c.status} ${folie ? "folie" : ""} ${c.kind === "perso" ? "perso" : ""} ${b ? "is-played" : ""}">
     <div class="board">
       ${head}
@@ -238,12 +242,14 @@ function renderCombos() {
   const playable = (c) => c.status === "en attente" && c.legs.every((l) => l.kickoff > now);
   const current = days.flatMap((d) => [...dayPicks(d), ...all.filter((c) => c.day === d && c.kind === "folie" && playable(c))]);
   const gone = all.filter((c) => !playable(c)).length;
-  const w = balance();
-  // le curseur reste en place (et en haut de l'écran) : seule la liste des tickets est redessinée
-  if (!document.getElementById("balance")) {
-    el.innerHTML = `<div class="balance panel no-swipe"><div class="bal-head"><b>Ce qui compte pour toi</b><span id="bal-label">${balLabel(w)}</span></div>
-      <input id="balance" type="range" min="0" max="100" step="10" value="${Math.round(w * 100)}" aria-label="Balance entre le prix et la chance de passer">
-      <div class="bal-ends"><span>Le meilleur prix</span><span>La plus grande chance</span></div></div><div id="combos-list"></div>`;
+  // les réglages restent en place (et en haut de l'écran) : seule la liste des tickets est redessinée
+  if (!document.getElementById("style")) {
+    const st = style(), wp = priceW();
+    el.innerHTML = `<div class="balance panel no-swipe"><div class="bal-head"><b>Ton style de jeu</b><span id="bal-label">${styleLabel(st)}</span></div>
+      <input id="style" type="range" min="0" max="100" step="5" value="${Math.round(st * 100)}" aria-label="Style de jeu, du petit gain sûr au gros gain">
+      <div class="bal-ends"><span>Petit gain sûr</span><span>Gros gain</span></div>
+      <div class="pw" role="radiogroup" aria-label="Importance du prix"><span>Poids du prix</span>${[[0.3, "faible"], [0.5, "normal"], [0.7, "fort"]]
+        .map(([v, t]) => `<button type="button" role="radio" data-pw="${v}" aria-checked="${Math.abs(wp - v) < 0.01}">${t}</button>`).join("")}</div></div><div id="combos-list"></div>`;
   }
   let h = "";
   if (!current.length) h += `<div class="empty">${EMPTY_BALL}<b>Plus de ticket jouable pour l'instant</b>
@@ -257,17 +263,25 @@ function renderCombos() {
   freshStamp = null;
 }
 setInterval(() => { if (!document.hidden) renderCombos(); }, 60e3);
-function balLabel(w) {
-  return w <= 0.15 ? "surtout le prix" : w < 0.45 ? "plutôt le prix" : w <= 0.55 ? "équilibre" : w < 0.85 ? "plutôt la chance" : "surtout la chance";
+function styleLabel(st) {
+  const t = targetOdds(st), p = Math.round(100 * 0.82 / t);   // chance typique à cette cote, marge comprise
+  return `vise une cote de ${fmt(t, 1)}, environ ${p} % de chance`;
 }
-// la balance se règle en direct : les tickets se reclassent pendant que tu bouges le curseur
+// le style se règle en direct : les tickets se reclassent pendant que tu bouges le curseur
 document.addEventListener("input", (e) => {
-  if (e.target.id !== "balance") return;
-  const w = +e.target.value / 100;
-  LS.set("pf_balance", w);
-  document.getElementById("bal-label").textContent = balLabel(w);
+  if (e.target.id !== "style") return;
+  const st = +e.target.value / 100;
+  LS.set("pf_style", st);
+  document.getElementById("bal-label").textContent = styleLabel(st);
   clearTimeout(window.__balT);
   window.__balT = setTimeout(() => { renderCombos(); renderComposer(); }, 80);
+});
+document.addEventListener("click", (e) => {
+  const b = e.target.closest("[data-pw]");
+  if (!b) return;
+  LS.set("pf_pricew", +b.dataset.pw);
+  document.querySelectorAll("[data-pw]").forEach((x) => x.setAttribute("aria-checked", x === b));
+  buzz(); renderCombos(); renderComposer();
 });
 
 /* --------------------------------------------------------------- matchs */

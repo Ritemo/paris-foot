@@ -567,3 +567,12 @@ body { overscroll-behavior-y: contain; }
 .toast.undo { display: flex; align-items: center; gap: 12px; }
 .toast.undo span { flex: 1; } .toast.undo button { background: var(--jaune); color: #14261c; border: 0; border-radius: 999px; padding: 7px 14px; font-weight: 800; cursor: pointer; }
 .stub { flex-wrap: wrap; } .stub .gain { flex: 1; }
+/* importance du prix */
+.pw { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 8px; font-size: 12px; color: var(--sous); }
+.pw span { margin-right: 2px; }
+.pw button { border: 1.5px solid var(--trait); background: none; border-radius: 999px; padding: 3px 10px; font: 700 12px inherit; color: var(--encre); cursor: pointer; }
+.pw button[aria-checked="true"] { background: var(--pelouse-2); border-color: var(--pelouse-2); color: #fff; }
+@media (prefers-color-scheme: dark) { .pw button[aria-checked="true"] { background: #7fd9a6; border-color: #7fd9a6; color: #14261c; } }
+.balance .bal-head { flex-direction: column; align-items: flex-start; gap: 0; }
+.balance .bal-head span { font-size: 13px; }
+.pw { flex-wrap: nowrap; }

@@ -275,22 +275,28 @@ def build_matches(events, models):
     return matches
 
 
-BALANCE = 0.5  # 0 = seul le prix compte, 1 = seule la chance de passer compte (reglable dans l'appli)
+STYLE = 0.25    # style de jeu : 0 = petit gain sur (cote ~1,7), 1 = gros gain (cote ~4,5) ; reglable dans l'appli
+PRICE_W = 0.5   # poids du prix dans la note (le reste va au style de jeu)
+STYLE_LO, STYLE_HI = 1.7, 4.5
 
 
-def interest(p, cost, n=2, w=BALANCE):
-    """Interet d'un ticket, de 0 a 1 : melange du prix (marge du bookmaker ramenee a une selection,
-    4 % = excellent, 13 % = cher) et de la chance de passer (15 % = faible, 50 % = forte). Meme formule que l'appli."""
+def interest(p, cost, n=2, wp=PRICE_W, style=STYLE):
+    """Interet d'un ticket, de 0 a 1. Meme formule que l'appli.
+    - prix : marge du bookmaker ramenee a une selection (4 % = excellent, 13 % = cher) ;
+    - style : la cote du ticket est-elle proche de celle que tu vises (petit gain sur ou gros gain) ?
+      La cote visee va de 1,7 a 4,5 ; une cote deux fois plus haute ou plus basse que la cible ne marque plus."""
     per_leg = 1 - (1 - max(cost, 0)) ** (1 / max(n, 1))
     price = min(1.0, max(0.0, (0.13 - per_leg) / 0.09))
-    chance = min(1.0, max(0.0, (p - 0.15) / 0.35))
-    return (1 - w) * price + w * chance
+    odds = (1 - cost) / max(p, 1e-9)
+    target = math.exp(math.log(STYLE_LO) + style * math.log(STYLE_HI / STYLE_LO))
+    fit = max(0.0, 1 - abs(math.log(odds / target)) / math.log(2))
+    return wp * price + (1 - wp) * fit
 
 
 def stars(p, cost, n=2):
-    """3 etoiles = tres interessant (>= 0,55), 2 = interessant (>= 0,35), 1 = peu interessant."""
+    """3 etoiles = tres interessant (>= 0,62), 2 = interessant (>= 0,45), 1 = peu interessant."""
     s = interest(p, cost, n)
-    return 3 if s >= 0.55 else 2 if s >= 0.35 else 1
+    return 3 if s >= 0.62 else 2 if s >= 0.45 else 1
 
 
 def stake(p):
@@ -321,12 +327,13 @@ def day_legs(day, matches):
 def candidates(day, matches):
     """Tous les combines possibles (2 ou 3 selections) du jour."""
     legs = day_legs(day, matches)
-    rules = [("x2", 2, 1.30, 1.90, (1.6, 3.6)), ("x3", 3, 1.20, 1.60, (1.9, 4.2))]
+    # cotes de 1,6 a 7 pour couvrir tous les styles de jeu, du petit gain sur au gros gain
+    rules = [("x2", 2, 1.25, 2.60, (1.6, 5.5)), ("x3", 3, 1.20, 2.00, (1.9, 7.0))]
     cands = []
     for kind, n, lo, hi, rng in rules:
-        pool = [l for l in legs if lo <= l["odds"] <= hi and l["p"] >= 0.5]
-        pool.sort(key=lambda l: -(interest(l["p"] ** n, -((1 + l["ev"]) ** n - 1), n) - (0.03 if l["src"] == "estimee" else 0)))
-        for c in combinations(pool[:16], n):
+        pool = [l for l in legs if lo <= l["odds"] <= hi and l["p"] >= 0.36]
+        pool.sort(key=lambda l: -(l["ev"] - (0.03 if l["src"] == "estimee" else 0)))   # les selections les moins taxees
+        for c in combinations(pool[:18], n):
             if len({l["match_id"] for l in c}) < n or sum(l["src"] == "estimee" for l in c) > 1:
                 continue
             cb = make_combo(day, kind, list(c))
@@ -336,7 +343,7 @@ def candidates(day, matches):
 
 
 def combos_for_day(day, matches):
-    """Les 3 meilleurs combines selon la balance prix / chance par defaut, sans selection en commun, plus la folie."""
+    """Les 3 meilleurs combines selon le style de jeu et le poids du prix par defaut, sans selection en commun, plus la folie."""
     cands, legs = candidates(day, matches)
     cands = sorted(cands, key=lambda cb: -interest(cb["p"], cb["cost"], len(cb["legs"])))
     chosen, used = [], set()
@@ -355,13 +362,14 @@ def combos_for_day(day, matches):
 
 
 def alts_for_day(day, matches, exclude):
-    """Autres bons candidats, pour que l'appli choisisse les meilleurs selon TA balance prix / chance."""
+    """Autres bons candidats, pour que l'appli choisisse les meilleurs selon TON style de jeu et le poids du prix."""
     cands, _legs = candidates(day, matches)
     out = {}
-    for w in (0, 0.25, 0.5, 0.75, 1):
-        for cb in sorted(cands, key=lambda cb: -interest(cb["p"], cb["cost"], len(cb["legs"]), w))[:8]:
-            if cb["id"] not in exclude:
-                out[cb["id"]] = dict(cb, alt=True)
+    for st in (0, 0.25, 0.5, 0.75, 1):
+        for wp in (0.3, 0.5, 0.7):
+            for cb in sorted(cands, key=lambda cb: -interest(cb["p"], cb["cost"], len(cb["legs"]), wp, st))[:5]:
+                if cb["id"] not in exclude:
+                    out[cb["id"]] = dict(cb, alt=True)
     return list(out.values())
 
 

@@ -328,6 +328,57 @@
     "status": "gagne",
     "settled_at": "2026-11-06T21:45:46.840725+00:00"
    }
+  },
+  "2026-11-07|716d6e3f3e91c47a6efaa2e93d570533:-3.5|f7b240389fa5ec055c58a48ab153dcdd:-3.5": {
+   "mise": 2,
+   "odds": 3.52,
+   "t": 1794003546,
+   "snap": {
+    "id": "2026-11-07|716d6e3f3e91c47a6efaa2e93d570533:-3.5|f7b240389fa5ec055c58a48ab153dcdd:-3.5",
+    "day": "2026-11-07",
+    "kind": "x2",
+    "legs": [
+     {
+      "match_id": "f7b240389fa5ec055c58a48ab153dcdd",
+      "league": "Ligue 1",
+      "kickoff": "2026-11-07T20:05:00Z",
+      "home": "Paris Saint Germain",
+      "away": "Troyes",
+      "fd_home": "Paris SG",
+      "fd_away": "Troyes",
+      "div": "F1",
+      "market": "-3.5",
+      "label": "Moins de 3,5 buts",
+      "odds": 1.91,
+      "src": "pmu",
+      "p": 0.4688,
+      "ev": -0.1046
+     },
+     {
+      "match_id": "716d6e3f3e91c47a6efaa2e93d570533",
+      "league": "Bundesliga",
+      "kickoff": "2026-11-07T17:30:00Z",
+      "home": "VfB Stuttgart",
+      "away": "Werder Bremen",
+      "fd_home": "Stuttgart",
+      "fd_away": "Werder Bremen",
+      "div": "D1",
+      "market": "-3.5",
+      "label": "Moins de 3,5 buts",
+      "odds": 1.83,
+      "src": "pmu",
+      "p": 0.488,
+      "ev": -0.107
+     }
+    ],
+    "odds": 3.5,
+    "p": 0.2288,
+    "cost": 0.2004,
+    "stars": 1,
+    "stake": 1,
+    "status": "en attente",
+    "alt": true
+   }
   }
  }
 }

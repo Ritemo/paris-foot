@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-05T15:31:07.605128+00:00",
+ "updated": "2026-11-06T06:30:56.307743+00:00",
  "params": {
   "w_model": 0.028,
   "w_prior": 0.2,
@@ -15,33 +15,33 @@
   }
  },
  "counts": {
-  "settled": 1926,
-  "last_year": 1714,
-  "live": 0,
-  "pending": 113,
+  "settled": 1943,
+  "last_year": 1731,
+  "live": 17,
+  "pending": 96,
   "backtest": 1926,
   "since": "2025-09-30",
-  "live_since": null
+  "live_since": "2026-11-05"
  },
  "min_verdict": 300,
  "tickets": {
   "tickets": {
-   "n": 16,
-   "annonce": 0.326,
-   "reel": 0.25,
-   "attendus": 5.2,
+   "n": 19,
+   "annonce": 0.335,
+   "reel": 0.211,
+   "attendus": 6.4,
    "observes": 4,
-   "z": -0.66,
-   "marge": 3.7
+   "z": -1.16,
+   "marge": 4.1
   },
   "selections": {
-   "n": 36,
-   "annonce": 0.606,
-   "reel": 0.611,
-   "attendus": 21.8,
-   "observes": 22,
-   "z": 0.07,
-   "marge": 5.8
+   "n": 42,
+   "annonce": 0.608,
+   "reel": 0.571,
+   "attendus": 25.5,
+   "observes": 24,
+   "z": -0.48,
+   "marge": 6.3
   }
  },
  "log": [
@@ -224,19 +224,31 @@
     "btts": 0.0,
     "hcp": 0.0
    }
+  },
+  {
+   "d": "2026-11-06",
+   "w": 0.028,
+   "off": {
+    "dom": 0.0,
+    "nul": 0.0,
+    "ext": 0.0,
+    "buts": 0.0,
+    "btts": 0.0,
+    "hcp": 0.0
+   }
   }
  ],
  "scores": {
-  "n": 1714,
+  "n": 1731,
   "robot": {
-   "brier": 0.583,
-   "logloss": 0.9793,
-   "acc": 0.535
+   "brier": 0.584,
+   "logloss": 0.9809,
+   "acc": 0.534
   },
   "marche": {
-   "brier": 0.5828,
-   "logloss": 0.9789,
-   "acc": 0.537
+   "brier": 0.5837,
+   "logloss": 0.9805,
+   "acc": 0.536
   },
   "modele": {
    "brier": 0.589,
@@ -249,7 +261,7 @@
    "logloss": 0.9758,
    "acc": 0.54
   },
-  "gain_vs_marche": -0.0004,
+  "gain_vs_marche": -0.0003,
   "z_vs_marche": -1.48,
   "z_modele_vs_marche": -3.56
  },
@@ -258,99 +270,99 @@
    "lo": 0.0,
    "p": 0.076,
    "f": 0.047,
-   "n": 127
+   "n": 128
   },
   {
    "lo": 0.1,
    "p": 0.159,
-   "f": 0.144,
-   "n": 658
+   "f": 0.148,
+   "n": 669
   },
   {
    "lo": 0.2,
    "p": 0.254,
    "f": 0.256,
-   "n": 2098
+   "n": 2117
   },
   {
    "lo": 0.3,
    "p": 0.348,
-   "f": 0.329,
-   "n": 934
+   "f": 0.33,
+   "n": 937
   },
   {
    "lo": 0.4,
    "p": 0.451,
-   "f": 0.474,
-   "n": 1149
+   "f": 0.475,
+   "n": 1157
   },
   {
    "lo": 0.5,
    "p": 0.547,
    "f": 0.552,
-   "n": 1076
+   "n": 1086
   },
   {
    "lo": 0.6,
    "p": 0.642,
-   "f": 0.663,
-   "n": 579
+   "f": 0.657,
+   "n": 591
   },
   {
    "lo": 0.7,
    "p": 0.74,
-   "f": 0.75,
-   "n": 192
+   "f": 0.744,
+   "n": 195
   },
   {
    "lo": 0.8,
    "p": 0.832,
-   "f": 0.929,
-   "n": 42
+   "f": 0.93,
+   "n": 43
   }
  ],
  "families": [
   {
    "key": "dom",
    "name": "Victoire à domicile",
-   "n": 1714,
-   "annonce": 0.436,
-   "reel": 0.439,
-   "z": 0.25,
+   "n": 1731,
+   "annonce": 0.437,
+   "reel": 0.438,
+   "z": 0.11,
    "offset": 0.0
   },
   {
    "key": "nul",
    "name": "Match nul",
-   "n": 1714,
+   "n": 1731,
    "annonce": 0.245,
-   "reel": 0.25,
-   "z": 0.43,
+   "reel": 0.248,
+   "z": 0.33,
    "offset": 0.0
   },
   {
    "key": "ext",
    "name": "Victoire à l'extérieur",
-   "n": 1714,
-   "annonce": 0.319,
-   "reel": 0.312,
-   "z": -0.68,
+   "n": 1731,
+   "annonce": 0.318,
+   "reel": 0.314,
+   "z": -0.44,
    "offset": 0.0
   },
   {
    "key": "buts",
    "name": "Nombre de buts",
-   "n": 1714,
+   "n": 1731,
    "annonce": 0.542,
    "reel": 0.548,
-   "z": 0.6,
+   "z": 0.55,
    "offset": 0.0
   },
   {
    "key": "btts",
    "name": "Les deux équipes marquent",
-   "n": 1714,
-   "annonce": 0.536,
+   "n": 1731,
+   "annonce": 0.537,
    "reel": 0.552,
    "z": 1.32,
    "offset": 0.0
@@ -358,10 +370,10 @@
   {
    "key": "hcp",
    "name": "Victoire par 2 buts ou +",
-   "n": 1714,
-   "annonce": 0.194,
-   "reel": 0.182,
-   "z": -1.33,
+   "n": 1731,
+   "annonce": 0.195,
+   "reel": 0.183,
+   "z": -1.34,
    "offset": 0.0
   }
  ],
@@ -428,9 +440,9 @@
   },
   {
    "m": "2026-11",
-   "n": 21,
-   "robot": 0.4925,
-   "marche": 0.4923
+   "n": 38,
+   "robot": 0.5774,
+   "marche": 0.5773
   }
  ],
  "leagues": [
@@ -470,6 +482,6 @@
   "Seul, le modèle maison prévoit nettement moins bien que les bookmakers sur ces matchs.",
   "Le poids du modèle maison est passé de 20 % à 3 % du mélange, car il apporte moins que prévu sur les matchs récents.",
   "Aucun type de pari n'est durablement mal estimé : pas de correction appliquée.",
-  "Tickets proposés : 4 gagnés sur 16 pour 5,2 attendus. Écart compatible avec le hasard, rien à corriger à ce stade."
+  "Tickets proposés : 4 gagnés sur 19 pour 6,4 attendus. Écart compatible avec le hasard, rien à corriger à ce stade."
  ]
 }

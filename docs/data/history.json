@@ -502,7 +502,9 @@
      "odds": 1.48,
      "src": "pmu",
      "p": 0.6037,
-     "ev": -0.1065
+     "ev": -0.1065,
+     "score": "1-0",
+     "won": false
     },
     {
      "match_id": "4ca4c7a2a1c15e9121f9a7eaa7f42ddb",
@@ -526,9 +528,10 @@
    "cost": 0.2183,
    "stars": 2,
    "stake": 3,
-   "status": "en attente",
+   "status": "perdu",
    "proposed_at": "2026-11-06T06:30:56.307743+00:00",
-   "replaced": true
+   "replaced": true,
+   "settled_at": "2026-11-07T16:01:13.922361+00:00"
   },
   {
    "id": "2026-11-07|4ca4c7a2a1c15e9121f9a7eaa7f42ddb:+2.5|de935794b7d93f3607ac9ad54d18f4c7:+2.5",
@@ -614,7 +617,9 @@
      "odds": 1.48,
      "src": "pmu",
      "p": 0.6057,
-     "ev": -0.1036
+     "ev": -0.1036,
+     "score": "1-0",
+     "won": false
     }
    ],
    "odds": 2.01,
@@ -622,9 +627,10 @@
    "cost": 0.1854,
    "stars": 2,
    "stake": 3,
-   "status": "en attente",
+   "status": "perdu",
    "proposed_at": "2026-11-06T15:31:07.350385+00:00",
-   "replaced": true
+   "replaced": true,
+   "settled_at": "2026-11-07T16:01:13.922361+00:00"
   },
   {
    "id": "2026-11-07|5c87852253fd11eea5d34ad723356607:N2|842fcc5b9feb8c63054a661ad1fc8926:-3.5",
@@ -758,7 +764,9 @@
      "odds": 1.43,
      "src": "pmu",
      "p": 0.6261,
-     "ev": -0.1047
+     "ev": -0.1047,
+     "score": "1-0",
+     "won": false
     }
    ],
    "odds": 2.15,
@@ -766,9 +774,10 @@
    "cost": 0.1968,
    "stars": 3,
    "stake": 3,
-   "status": "en attente",
+   "status": "perdu",
    "proposed_at": "2026-11-06T22:10:31.233135+00:00",
-   "replaced": true
+   "replaced": true,
+   "settled_at": "2026-11-07T16:01:13.922361+00:00"
   },
   {
    "id": "2026-11-07|4ca4c7a2a1c15e9121f9a7eaa7f42ddb:-3.5|de935794b7d93f3607ac9ad54d18f4c7:+2.5",
@@ -885,7 +894,9 @@
      "odds": 1.43,
      "src": "pmu",
      "p": 0.6271,
-     "ev": -0.1032
+     "ev": -0.1032,
+     "score": "1-0",
+     "won": false
     },
     {
      "match_id": "4ca4c7a2a1c15e9121f9a7eaa7f42ddb",
@@ -909,8 +920,9 @@
    "cost": 0.1971,
    "stars": 3,
    "stake": 3,
-   "status": "en attente",
-   "proposed_at": "2026-11-07T06:30:55.513246+00:00"
+   "status": "perdu",
+   "proposed_at": "2026-11-07T06:30:55.513246+00:00",
+   "settled_at": "2026-11-07T16:01:13.922361+00:00"
   },
   {
    "id": "2026-11-07|5b386dfdf6f76705116fbb4120ee8493:-3.5|de935794b7d93f3607ac9ad54d18f4c7:+2.5",
@@ -5309,13 +5321,13 @@
   }
  ],
  "bilan": {
-  "n": 22,
+  "n": 23,
   "gagnes": 6,
   "x2": {
-   "n": 18,
+   "n": 19,
    "gagnes": 6,
    "reussite_annoncee": 0.358,
-   "bilan": -11.28
+   "bilan": -14.28
   },
   "x3": {
    "n": 4,
@@ -5329,12 +5341,12 @@
    "reussite_annoncee": 0.035,
    "bilan": -8
   },
-  "reussite_reelle": 0.273,
-  "reussite_annoncee": 0.34,
-  "bilan_2eur": -14.64,
-  "mise_2eur": 44,
-  "bilan_mise_suggeree": -17.28,
-  "mise_suggeree_totale": 51
+  "reussite_reelle": 0.261,
+  "reussite_annoncee": 0.341,
+  "bilan_2eur": -16.64,
+  "mise_2eur": 46,
+  "bilan_mise_suggeree": -20.28,
+  "mise_suggeree_totale": 54
  },
- "updated": "2026-11-07T15:31:00.329451+00:00"
+ "updated": "2026-11-07T16:01:13.922361+00:00"
 }

@@ -120,7 +120,9 @@
      "odds": 1.67,
      "src": "pmu",
      "p": 0.5333,
-     "ev": -0.1094
+     "ev": -0.1094,
+     "score": "0-0",
+     "won": true
     },
     {
      "match_id": "fe97f5adf397dd6b0a8a9e0a5272f307",

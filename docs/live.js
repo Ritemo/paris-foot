@@ -125,7 +125,9 @@ function liveAlerts() {
     if (t && t.cls === "ko") fire(`ko|${id}`, "Ticket tombé", `Ton combiné à ${fmt(combo(c).odds)} est perdu.`);
     if (t && t.cls === "ok") fire(`ok|${id}`, "Ticket gagnant !", `Ton combiné à ${fmt(combo(c).odds)} est passé.`);
   }
-  for (const k of Object.keys(seen)) if (typeof seen[k] === "number" && Date.now() - seen[k] > 3 * 864e5) delete seen[k];
+  for (const k of Object.keys(seen)) {
+    if (typeof seen[k] === "number" ? Date.now() - seen[k] > 3 * 864e5 : !LIVE[k.slice(2)]) delete seen[k];   // scores mémorisés des matchs plus suivis
+  }
   LS.set("pf_alert_seen", seen);
 }
 

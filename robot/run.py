@@ -421,6 +421,10 @@ def _team_match(name, team):
     return max(_team_score(name, c) + SequenceMatcher(None, a, " ".join(_norm_team(c))).ratio() for c in cands)
 
 
+# noms que la ressemblance ne suffit pas a relier (The Odds API -> ESPN)
+LOGO_ALIAS = {"1. FC Köln": "FC Cologne"}
+
+
 def update_logos(history, today_data):
     """Logos et couleurs des clubs (ESPN, gratuit) : docs/data/logos.json, {nom: {logo, color}}.
     On ne contacte ESPN que pour les equipes encore inconnues (et une fois par jour au plus pour les introuvables)."""
@@ -447,8 +451,9 @@ def update_logos(history, today_data):
             print("logos", div, e, file=sys.stderr)
     for t, div in todo.items():
         pool = teams.get(div, [])
-        best = max(pool, key=lambda x: _team_match(t, x), default=None)
-        if best and _team_match(t, best) >= 1.5 and best.get("logos"):
+        alias = LOGO_ALIAS.get(t)
+        best = next((x for x in pool if alias and x.get("displayName") == alias), None) or max(pool, key=lambda x: _team_match(t, x), default=None)
+        if best and (alias == best.get("displayName") or _team_match(t, best) >= 1.5) and best.get("logos"):
             logos[t] = {"logo": best["logos"][0]["href"].replace("/500/", "/500/"), "color": "#" + best.get("color", "1a7a4c"), "espn": best.get("displayName")}
             miss.pop(t, None)
         else:
@@ -581,6 +586,41 @@ def notify_settled(before, history, played):
             lost = [l for l in c["legs"] if l.get("won") is False]
             why = ", ".join(f"{l['label']} ({l['home']} {l.get('score', '')} {l['away']})" for l in lost)
             notify(f"Ticket perdu, cote {fr(odds)}", f"{kind} : raté sur {why}", "x", 2)
+
+
+KICK_BEFORE, KICK_AFTER = timedelta(minutes=12), timedelta(minutes=30)
+
+
+def notify_kickoffs(meta, history):
+    """Une notification quand un match de tes tickets joues va commencer (le robot passe toutes les 15 min).
+    Un match present dans plusieurs tickets n'est annonce qu'une fois. Renvoie True si meta a change."""
+    played = meta.get("played", {})
+    sent = meta.setdefault("kick_sent", {})
+    hist = {c["id"]: c for c in history["combos"]}
+    due = {}
+    for cid, b in played.items():
+        c = hist.get(cid) or b.get("snap")
+        if not c or c.get("status") == "perdu":
+            continue
+        for l in c["legs"]:
+            k = datetime.fromisoformat(l["kickoff"].replace("Z", "+00:00"))
+            if "won" in l or l["match_id"] in sent or not (k - KICK_BEFORE <= NOW <= k + KICK_AFTER):
+                continue
+            due.setdefault(l["match_id"], {"leg": l, "k": k, "labels": []})["labels"].append(l["label"])
+    if not due:
+        return False
+    items = sorted(due.values(), key=lambda x: x["k"])
+    lines = [f"{x['k'].astimezone(PARIS):%Hh%M} {x['leg']['home']} - {x['leg']['away']} : {', '.join(dict.fromkeys(x['labels']))}" for x in items]
+    started = all(x["k"] <= NOW for x in items)
+    first = items[0]
+    head = "C'est parti" if started else "Coup d'envoi imminent"
+    what = f"{first['leg']['home']} - {first['leg']['away']}" if len(items) == 1 else f"{len(items)} de tes matchs"
+    notify(f"{head} : {what}", "\n".join(lines), "stopwatch,soccer", 3)
+    for mid in due:
+        sent[mid] = NOW.isoformat()
+    limit = (NOW - timedelta(days=3)).isoformat()
+    meta["kick_sent"] = {k: v for k, v in sent.items() if v > limit}
+    return True
 
 
 def notify_new_day(day, combos):
@@ -807,17 +847,35 @@ def odds_due(meta):
         return True
     last = meta.get("last_odds_run")
     now_p = NOW.astimezone(PARIS)
-    for h, m in ODDS_SLOTS:
+    for i, (h, m) in enumerate(ODDS_SLOTS):
         slot = now_p.replace(hour=h, minute=m, second=0, microsecond=0)
         if slot <= now_p and (not last or datetime.fromisoformat(last) < slot):
+            if i > 0 and not afternoon_affordable(meta, now_p):
+                print("creneau de l'apres-midi saute pour garder des credits jusqu'a la fin du mois")
+                return False
             return True
     return False
+
+
+RUN_COST = 12  # credits d'un passage avec cotes (environ 10 a 12)
+
+
+def afternoon_affordable(meta, now_p):
+    """Le passage de 16h30 n'a lieu que s'il reste de quoi faire celui de 7h30 tous les jours jusqu'a la fin du mois
+    (500 credits gratuits par mois, soit un peu moins que deux passages par jour)."""
+    rem = meta.get("credits_remaining")
+    if rem is None:
+        return True
+    nxt = (now_p.replace(day=28) + timedelta(days=4)).replace(day=1)
+    days_left = (nxt.date() - now_p.date()).days - 1
+    return rem - RUN_COST >= days_left * RUN_COST
 
 
 def results_only(meta, history):
     """Passage gratuit : resultats ESPN seulement, on n'ecrit que si quelque chose a change."""
     before = json.dumps(history, sort_keys=True, default=str)
     meta_changed = sync_played(meta)
+    meta_changed |= notify_kickoffs(meta, history)
     meta_changed |= settle_perso(meta)
     status_before = {c["id"]: c["status"] for c in history["combos"]}
     settle(history, None, {}, espn_scores(history))
@@ -923,6 +981,7 @@ def main():
     espn = espn_scores(history)
     api_scores = fetch_api_scores(history, fd, espn)
     sync_played(meta)
+    notify_kickoffs(meta, history)
     settle_perso(meta)
     status_before = {c["id"]: c["status"] for c in history["combos"]}
     settle(history, fd, api_scores, espn)

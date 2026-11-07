@@ -7,7 +7,7 @@ import os
 import sys
 import time
 import unittest
-from datetime import timedelta
+from datetime import datetime, timedelta
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "robot"))
@@ -243,6 +243,36 @@ class Apprentissage(unittest.TestCase):
         learn.record(st, "a", dict(d="2026-11-01"), None, [.5] * 9, [.5] * 9)
         self.assertEqual(st["preds"]["a"]["res"], [1, 0])
 
+
+
+class TestCredits(unittest.TestCase):
+    def test_apres_midi_selon_credits(self):
+        now = datetime(2026, 11, 7, 16, 45, tzinfo=run.PARIS)
+        self.assertTrue(run.afternoon_affordable({"credits_remaining": 380}, now))
+        self.assertFalse(run.afternoon_affordable({"credits_remaining": 200}, now))
+        self.assertTrue(run.afternoon_affordable({"credits_remaining": 40}, datetime(2026, 11, 29, 16, 45, tzinfo=run.PARIS)))
+
+
+class TestKickoff(unittest.TestCase):
+    def test_une_notif_par_match_joue(self):
+        now = run.NOW
+        leg = {"match_id": "mk", "home": "Toulouse", "away": "Strasbourg", "label": "Plus de 2,5 buts",
+               "kickoff": (now + timedelta(minutes=5)).isoformat().replace("+00:00", "Z")}
+        c1 = {"id": "t1", "status": "en attente", "legs": [dict(leg)]}
+        c2 = {"id": "t2", "status": "en attente", "legs": [dict(leg, label="Toulouse ou nul")]}
+        loin = {"id": "t3", "status": "en attente", "legs": [dict(leg, match_id="m2", kickoff=(now + timedelta(hours=3)).isoformat())]}
+        meta = {"played": {"t1": {"mise": 2}, "t2": {"mise": 1, "snap": c2}, "t3": {"mise": 1}}}
+        sent = []
+        old = run.notify
+        run.notify = lambda title, msg, *a, **k: sent.append((title, msg))
+        try:
+            self.assertTrue(run.notify_kickoffs(meta, {"combos": [c1, loin]}))
+            self.assertFalse(run.notify_kickoffs(meta, {"combos": [c1, loin]}))   # pas deux fois
+        finally:
+            run.notify = old
+        self.assertEqual(len(sent), 1)
+        self.assertIn("Toulouse - Strasbourg", sent[0][0])
+        self.assertIn("Plus de 2,5 buts, Toulouse ou nul", sent[0][1])
 
 if __name__ == "__main__":
     unittest.main(verbosity=1)

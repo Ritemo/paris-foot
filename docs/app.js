@@ -49,8 +49,10 @@ function crest(name, cls) {
   const ini = words.length === 1 ? words[0].slice(0, 3) : words.slice(0, 3).map((w) => w[0]).join("");
   let h = 0; for (const c of String(name)) h = (h * 31 + c.charCodeAt(0)) >>> 0;
   const bg = lg?.color && lg.color.length === 7 ? lg.color : KIT[h % KIT.length];
+  // couleur de club très claire (blanc, jaune pâle) : initiales en foncé et léger contour pour rester lisibles
+  const lum = (() => { const n = parseInt(bg.slice(1), 16); return isNaN(n) ? 0 : (0.299 * (n >> 16) + 0.587 * ((n >> 8) & 255) + 0.114 * (n & 255)) / 255; })();
   const img = lg?.logo ? `<img src="${esc(logoSmall(lg.logo))}" data-raw="${esc(lg.logo)}" alt="" loading="lazy" decoding="async" onerror="crestFail(this)">` : "";
-  return `<span class="crest ${cls} ${img ? "has-logo" : ""}" style="--kit:${bg}" aria-hidden="true">${esc(ini.toUpperCase())}${img}</span>`;
+  return `<span class="crest ${cls} ${img ? "has-logo" : ""} ${lum > 0.7 ? "light" : ""}" style="--kit:${bg}" aria-hidden="true">${esc(ini.toUpperCase())}${img}</span>`;
 }
 
 /* --------------------------------------------------------------- calculs */
@@ -215,10 +217,10 @@ function ticketHtml(c) {
       </div>
     </div>
     ${b && c.status === "en attente" ? liveTicketHtml(c) : ""}
-    ${stamp ? `<div class="stamp ${stampCls} ${freshStamp === c.id ? "fresh" : ""}">${stamp}</div>` : ""}
     <div class="legs">${c.legs.map((l, i) => legHtml(c, l, i)).join("")}</div>
     <div class="perf"><span class="notch"></span></div>
     <div class="stub">
+      ${stamp ? `<div class="stamp ${stampCls} ${freshStamp === c.id ? "fresh" : ""}">${stamp}</div>` : ""}
       <div class="gain">${gainText(c, k, b, mise)}${c.status === "en attente" ? `<button class="sim-btn" data-sim="${esc(c.id)}">Simuler 100 fois</button>` : ""}</div>
       ${action}
     </div>
@@ -372,7 +374,7 @@ function bankCard() {
     <button class="btn" data-bank="init">Indiquer mon dépôt de départ</button></div>`;
   const row = (label, val, cls = "") => `<div class="bank-row"><span>${label}</span><b class="${cls}">${val}</b></div>`;
   return `<div class="panel bank" style="margin-top:14px">
-    <div class="bank-head"><b class="bank-title">Ta bankroll</b><span>départ le ${esc(new Date(br.start + "T12:00:00").toLocaleDateString("fr-FR", { day: "numeric", month: "long" }))}</span></div>
+    <div class="bank-head"><b class="bank-title">Ta bankroll</b>${(() => { const d = new Date(String(br.start).slice(0, 10) + "T12:00:00"); return isNaN(d) ? "" : `<span>départ le ${esc(d.toLocaleDateString("fr-FR", { day: "numeric", month: "long" }))}</span>`; })()}</div>
     <div class="bank-value ${br.value >= br.moves ? "" : "down"}" data-count="${br.value.toFixed(2)}" data-count-key="bankcard">${fmt(br.value)} €</div>
     <p class="hint" style="margin:0">disponible${br.engaged ? `, plus ${fmt(br.engaged)} € en jeu` : ""}</p>
     ${row("Dépôt de départ", `${fmt(br.depart)} €`)}
@@ -935,4 +937,18 @@ liveBox.checked = LS.get("pf_live_alerts", false) && "Notification" in window &&
 liveBox.onchange = async () => { liveBox.checked = await toggleLiveAlerts(liveBox.checked); };
 load().then(() => { scheduleLive(); syncPlayed(); });
 document.addEventListener("visibilitychange", () => { if (!document.hidden) scheduleLive(); });
-if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});
+// mises à jour de l'appli : on vérifie à chaque retour sur l'appli, et on recharge tout seul quand une nouvelle version
+// est prête (sauf si une fenêtre de saisie est ouverte : ce sera au prochain retour)
+if ("serviceWorker" in navigator) {
+  const hadController = !!navigator.serviceWorker.controller;
+  let pendingReload = false;
+  const reloadIfIdle = () => { if (document.querySelector("dialog[open]")) { pendingReload = true; return; } location.reload(); };
+  navigator.serviceWorker.register("sw.js").then((reg) => {
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) return;
+      if (pendingReload) return reloadIfIdle();
+      reg.update().catch(() => {});
+    });
+  }).catch(() => {});
+  navigator.serviceWorker.addEventListener("controllerchange", () => { if (hadController) reloadIfIdle(); });
+}

@@ -1,7 +1,5 @@
 {
- "_miss": {
-  "1. FC Köln": "2026-11-07"
- },
+ "_miss": {},
  "AC Milan": {
   "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/103.png",
   "color": "#e4002b",
@@ -666,5 +664,10 @@
   "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/1538.png",
   "color": "#C8142F",
   "espn": "Levante"
+ },
+ "1. FC Köln": {
+  "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/122.png",
+  "color": "#ffffff",
+  "espn": "FC Cologne"
  }
 }

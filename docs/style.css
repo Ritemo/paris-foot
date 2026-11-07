@@ -576,3 +576,11 @@ body { overscroll-behavior-y: contain; }
 .balance .bal-head { flex-direction: column; align-items: flex-start; gap: 0; }
 .balance .bal-head span { font-size: 13px; }
 .pw { flex-wrap: nowrap; }
+/* tampon accroché au talon du ticket (ne recouvre plus les boutons de correction) */
+.stub { position: relative; }
+.stub .stamp { top: -30px; bottom: auto; right: 18px; }
+/* contrastes en mode sombre */
+@media (prefers-color-scheme: dark) {
+  .sim-btn, .bank-value:not(.down) { color: #7fd9a6; }
+}
+.crest.light:not(.has-logo) { color: #14261c; box-shadow: inset 0 0 0 1.5px rgba(20,38,28,.25); }

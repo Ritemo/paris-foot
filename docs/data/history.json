@@ -1,6 +1,222 @@
 {
  "combos": [
   {
+   "id": "2026-11-08|5ea6b7050b00fcc1832f7938794dd755:+2.5|657fd1ac35832f65fcc6feba93970e10:-3.5",
+   "day": "2026-11-08",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "657fd1ac35832f65fcc6feba93970e10",
+     "league": "Serie A",
+     "kickoff": "2026-11-08T17:00:00Z",
+     "home": "Inter Milan",
+     "away": "Como",
+     "fd_home": "Inter",
+     "fd_away": "Como",
+     "div": "I1",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.54,
+     "src": "pmu",
+     "p": 0.5828,
+     "ev": -0.1025
+    },
+    {
+     "match_id": "5ea6b7050b00fcc1832f7938794dd755",
+     "league": "Serie A",
+     "kickoff": "2026-11-08T14:00:00Z",
+     "home": "Monza",
+     "away": "Atalanta BC",
+     "fd_home": "Monza",
+     "fd_away": "Atalanta",
+     "div": "I1",
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.47,
+     "src": "pmu",
+     "p": 0.6085,
+     "ev": -0.1055
+    }
+   ],
+   "odds": 2.26,
+   "p": 0.3546,
+   "cost": 0.1972,
+   "stars": 2,
+   "stake": 3,
+   "status": "en attente",
+   "proposed_at": "2026-11-07T06:30:55.513246+00:00"
+  },
+  {
+   "id": "2026-11-08|0cfbab01e152f81e34f9014e02c7eb79:-3.5|8963081c3457212ee238b498bbc33a03:-3.5",
+   "day": "2026-11-08",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "8963081c3457212ee238b498bbc33a03",
+     "league": "Bundesliga",
+     "kickoff": "2026-11-08T18:30:00Z",
+     "home": "TSG Hoffenheim",
+     "away": "FC Schalke 04",
+     "fd_home": "Hoffenheim",
+     "fd_away": "Schalke 04",
+     "div": "D1",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.61,
+     "src": "pmu",
+     "p": 0.5598,
+     "ev": -0.0987
+    },
+    {
+     "match_id": "0cfbab01e152f81e34f9014e02c7eb79",
+     "league": "Premier League",
+     "kickoff": "2026-11-08T14:00:00Z",
+     "home": "Crystal Palace",
+     "away": "Liverpool",
+     "fd_home": "Crystal Palace",
+     "fd_away": "Liverpool",
+     "div": "E0",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.53,
+     "src": "pmu",
+     "p": 0.5848,
+     "ev": -0.1053
+    }
+   ],
+   "odds": 2.46,
+   "p": 0.3274,
+   "cost": 0.1936,
+   "stars": 2,
+   "stake": 2,
+   "status": "en attente",
+   "proposed_at": "2026-11-07T06:30:55.513246+00:00"
+  },
+  {
+   "id": "2026-11-08|7a68b099b47ed7724062b661cd9af464:-2.5|dd247b356d8fc53e4b4f9bfcfe09c924:2",
+   "day": "2026-11-08",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "dd247b356d8fc53e4b4f9bfcfe09c924",
+     "league": "Liga",
+     "kickoff": "2026-11-08T20:00:00Z",
+     "home": "Atlético Madrid",
+     "away": "Barcelona",
+     "fd_home": "Ath Madrid",
+     "fd_away": "Barcelona",
+     "div": "SP1",
+     "market": "2",
+     "label": "Victoire Barcelona",
+     "odds": 1.71,
+     "src": "betclic",
+     "p": 0.5345,
+     "ev": -0.086
+    },
+    {
+     "match_id": "7a68b099b47ed7724062b661cd9af464",
+     "league": "Serie A",
+     "kickoff": "2026-11-08T14:00:00Z",
+     "home": "Genoa",
+     "away": "AC Milan",
+     "fd_home": "Genoa",
+     "fd_away": "Milan",
+     "div": "I1",
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 1.67,
+     "src": "pmu",
+     "p": 0.5355,
+     "ev": -0.1057
+    }
+   ],
+   "odds": 2.86,
+   "p": 0.2862,
+   "cost": 0.1826,
+   "stars": 2,
+   "stake": 2,
+   "status": "en attente",
+   "proposed_at": "2026-11-07T06:30:55.513246+00:00"
+  },
+  {
+   "id": "2026-11-08|4e917e19b59093a02a0e12bcf9a5ecc4:1|657fd1ac35832f65fcc6feba93970e10:-3.5|8963081c3457212ee238b498bbc33a03:-3.5|dd247b356d8fc53e4b4f9bfcfe09c924:1",
+   "day": "2026-11-08",
+   "kind": "folie",
+   "legs": [
+    {
+     "match_id": "dd247b356d8fc53e4b4f9bfcfe09c924",
+     "league": "Liga",
+     "kickoff": "2026-11-08T20:00:00Z",
+     "home": "Atlético Madrid",
+     "away": "Barcelona",
+     "fd_home": "Ath Madrid",
+     "fd_away": "Barcelona",
+     "div": "SP1",
+     "market": "1",
+     "label": "Victoire Atlético Madrid",
+     "odds": 3.7,
+     "src": "betclic",
+     "p": 0.2544,
+     "ev": -0.0587
+    },
+    {
+     "match_id": "4e917e19b59093a02a0e12bcf9a5ecc4",
+     "league": "Ligue 1",
+     "kickoff": "2026-11-08T19:45:00Z",
+     "home": "RC Lens",
+     "away": "Marseille",
+     "fd_home": "Lens",
+     "fd_away": "Marseille",
+     "div": "F1",
+     "market": "1",
+     "label": "Victoire RC Lens",
+     "odds": 2.15,
+     "src": "unibet",
+     "p": 0.4231,
+     "ev": -0.0903
+    },
+    {
+     "match_id": "8963081c3457212ee238b498bbc33a03",
+     "league": "Bundesliga",
+     "kickoff": "2026-11-08T18:30:00Z",
+     "home": "TSG Hoffenheim",
+     "away": "FC Schalke 04",
+     "fd_home": "Hoffenheim",
+     "fd_away": "Schalke 04",
+     "div": "D1",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.61,
+     "src": "pmu",
+     "p": 0.5598,
+     "ev": -0.0987
+    },
+    {
+     "match_id": "657fd1ac35832f65fcc6feba93970e10",
+     "league": "Serie A",
+     "kickoff": "2026-11-08T17:00:00Z",
+     "home": "Inter Milan",
+     "away": "Como",
+     "fd_home": "Inter",
+     "fd_away": "Como",
+     "div": "I1",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.54,
+     "src": "pmu",
+     "p": 0.5828,
+     "ev": -0.1025
+    }
+   ],
+   "odds": 19.72,
+   "p": 0.0351,
+   "cost": 0.3073,
+   "stars": 0,
+   "stake": 1,
+   "status": "en attente",
+   "proposed_at": "2026-11-07T06:30:55.513246+00:00"
+  },
+  {
    "id": "2026-11-07|842fcc5b9feb8c63054a661ad1fc8926:-3.5|f7b240389fa5ec055c58a48ab153dcdd:H1",
    "day": "2026-11-07",
    "kind": "x2",
@@ -326,7 +542,8 @@
    "stars": 3,
    "stake": 3,
    "status": "en attente",
-   "proposed_at": "2026-11-06T22:10:31.233135+00:00"
+   "proposed_at": "2026-11-06T22:10:31.233135+00:00",
+   "replaced": true
   },
   {
    "id": "2026-11-07|4ca4c7a2a1c15e9121f9a7eaa7f42ddb:-3.5|de935794b7d93f3607ac9ad54d18f4c7:+2.5",
@@ -372,7 +589,8 @@
    "stars": 2,
    "stake": 2,
    "status": "en attente",
-   "proposed_at": "2026-11-06T22:10:31.233135+00:00"
+   "proposed_at": "2026-11-06T22:10:31.233135+00:00",
+   "replaced": true
   },
   {
    "id": "2026-11-07|262c2c99c38456b8a70cb9daa32f2f6d:-2.5|5b386dfdf6f76705116fbb4120ee8493:-3.5",
@@ -418,7 +636,146 @@
    "stars": 2,
    "stake": 2,
    "status": "en attente",
-   "proposed_at": "2026-11-06T22:10:31.233135+00:00"
+   "proposed_at": "2026-11-06T22:10:31.233135+00:00",
+   "replaced": true
+  },
+  {
+   "id": "2026-11-07|4ca4c7a2a1c15e9121f9a7eaa7f42ddb:-3.5|52b256088d29b4abb82e0c63ea9852fe:+2.5",
+   "day": "2026-11-07",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "52b256088d29b4abb82e0c63ea9852fe",
+     "league": "Serie A",
+     "kickoff": "2026-11-07T14:00:00Z",
+     "home": "Cagliari",
+     "away": "Frosinone",
+     "fd_home": "Cagliari",
+     "fd_away": "Frosinone",
+     "div": "I1",
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.43,
+     "src": "pmu",
+     "p": 0.6271,
+     "ev": -0.1032
+    },
+    {
+     "match_id": "4ca4c7a2a1c15e9121f9a7eaa7f42ddb",
+     "league": "Bundesliga",
+     "kickoff": "2026-11-07T14:30:00Z",
+     "home": "SC Paderborn",
+     "away": "Eintracht Frankfurt",
+     "fd_home": "Paderborn",
+     "fd_away": "Ein Frankfurt",
+     "div": "D1",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.56,
+     "src": "pmu",
+     "p": 0.5739,
+     "ev": -0.1047
+    }
+   ],
+   "odds": 2.23,
+   "p": 0.3599,
+   "cost": 0.1971,
+   "stars": 3,
+   "stake": 3,
+   "status": "en attente",
+   "proposed_at": "2026-11-07T06:30:55.513246+00:00"
+  },
+  {
+   "id": "2026-11-07|5b386dfdf6f76705116fbb4120ee8493:-3.5|de935794b7d93f3607ac9ad54d18f4c7:+2.5",
+   "day": "2026-11-07",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "5b386dfdf6f76705116fbb4120ee8493",
+     "league": "Liga",
+     "kickoff": "2026-11-07T20:00:00Z",
+     "home": "Valencia",
+     "away": "Real Madrid",
+     "fd_home": "Valencia",
+     "fd_away": "Real Madrid",
+     "div": "SP1",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.6,
+     "src": "pmu",
+     "p": 0.5592,
+     "ev": -0.1053
+    },
+    {
+     "match_id": "de935794b7d93f3607ac9ad54d18f4c7",
+     "league": "Liga",
+     "kickoff": "2026-11-07T13:00:00Z",
+     "home": "Málaga",
+     "away": "Real Racing Club de Santander",
+     "fd_home": "Malaga",
+     "fd_away": "Santander",
+     "div": "SP1",
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.55,
+     "src": "pmu",
+     "p": 0.5762,
+     "ev": -0.1069
+    }
+   ],
+   "odds": 2.48,
+   "p": 0.3222,
+   "cost": 0.2009,
+   "stars": 2,
+   "stake": 2,
+   "status": "en attente",
+   "proposed_at": "2026-11-07T06:30:55.513246+00:00"
+  },
+  {
+   "id": "2026-11-07|262c2c99c38456b8a70cb9daa32f2f6d:-2.5|fe97f5adf397dd6b0a8a9e0a5272f307:+3.5",
+   "day": "2026-11-07",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "262c2c99c38456b8a70cb9daa32f2f6d",
+     "league": "Liga",
+     "kickoff": "2026-11-07T15:15:00Z",
+     "home": "Espanyol",
+     "away": "Deportivo La Coruña",
+     "fd_home": "Espanol",
+     "fd_away": "La Coruna",
+     "div": "SP1",
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 1.67,
+     "src": "pmu",
+     "p": 0.5333,
+     "ev": -0.1094
+    },
+    {
+     "match_id": "fe97f5adf397dd6b0a8a9e0a5272f307",
+     "league": "Bundesliga",
+     "kickoff": "2026-11-07T14:30:00Z",
+     "home": "FSV Mainz 05",
+     "away": "Bayern Munich",
+     "fd_home": "Mainz",
+     "fd_away": "Bayern Munich",
+     "div": "D1",
+     "market": "+3.5",
+     "label": "Plus de 3,5 buts",
+     "odds": 1.57,
+     "src": "pmu",
+     "p": 0.5666,
+     "ev": -0.1104
+    }
+   ],
+   "odds": 2.62,
+   "p": 0.3022,
+   "cost": 0.2077,
+   "stars": 2,
+   "stake": 2,
+   "status": "en attente",
+   "proposed_at": "2026-11-07T06:30:55.513246+00:00"
   },
   {
    "id": "2026-11-07|3ef62ef56758041178c5280225fe5db7:-3.5|5b386dfdf6f76705116fbb4120ee8493:-3.5|813cc4970b2dcab8457490a332fb5a6c:N|842fcc5b9feb8c63054a661ad1fc8926:-3.5",
@@ -654,7 +1011,86 @@
    "stars": 0,
    "stake": 1,
    "status": "en attente",
-   "proposed_at": "2026-11-06T22:10:31.233135+00:00"
+   "proposed_at": "2026-11-06T22:10:31.233135+00:00",
+   "replaced": true
+  },
+  {
+   "id": "2026-11-07|4ca4c7a2a1c15e9121f9a7eaa7f42ddb:-3.5|5b386dfdf6f76705116fbb4120ee8493:-3.5|813cc4970b2dcab8457490a332fb5a6c:N|842fcc5b9feb8c63054a661ad1fc8926:-2.5",
+   "day": "2026-11-07",
+   "kind": "folie",
+   "legs": [
+    {
+     "match_id": "813cc4970b2dcab8457490a332fb5a6c",
+     "league": "Serie A",
+     "kickoff": "2026-11-07T17:00:00Z",
+     "home": "Parma",
+     "away": "Bologna",
+     "fd_home": "Parma",
+     "fd_away": "Bologna",
+     "div": "I1",
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.5,
+     "src": "unibet",
+     "p": 0.2647,
+     "ev": -0.0736
+    },
+    {
+     "match_id": "842fcc5b9feb8c63054a661ad1fc8926",
+     "league": "Premier League",
+     "kickoff": "2026-11-07T15:00:00Z",
+     "home": "Arsenal",
+     "away": "Hull City",
+     "fd_home": "Arsenal",
+     "fd_away": "Hull",
+     "div": "E0",
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 2.38,
+     "src": "pmu",
+     "p": 0.3799,
+     "ev": -0.0958
+    },
+    {
+     "match_id": "4ca4c7a2a1c15e9121f9a7eaa7f42ddb",
+     "league": "Bundesliga",
+     "kickoff": "2026-11-07T14:30:00Z",
+     "home": "SC Paderborn",
+     "away": "Eintracht Frankfurt",
+     "fd_home": "Paderborn",
+     "fd_away": "Ein Frankfurt",
+     "div": "D1",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.56,
+     "src": "pmu",
+     "p": 0.5739,
+     "ev": -0.1047
+    },
+    {
+     "match_id": "5b386dfdf6f76705116fbb4120ee8493",
+     "league": "Liga",
+     "kickoff": "2026-11-07T20:00:00Z",
+     "home": "Valencia",
+     "away": "Real Madrid",
+     "fd_home": "Valencia",
+     "fd_away": "Real Madrid",
+     "div": "SP1",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.6,
+     "src": "pmu",
+     "p": 0.5592,
+     "ev": -0.1053
+    }
+   ],
+   "odds": 20.79,
+   "p": 0.0323,
+   "cost": 0.329,
+   "stars": 0,
+   "stake": 1,
+   "status": "en attente",
+   "proposed_at": "2026-11-07T06:30:55.513246+00:00"
   },
   {
    "id": "2026-11-06|295076c39e49863cb54db085ac3cd340:+2.5|fa069801a5c9b49143447a1a1d173fd1:-3.5",
@@ -4671,5 +5107,5 @@
   "bilan_mise_suggeree": -17.28,
   "mise_suggeree_totale": 51
  },
- "updated": "2026-11-06T22:10:31.233135+00:00"
+ "updated": "2026-11-07T06:30:55.513246+00:00"
 }

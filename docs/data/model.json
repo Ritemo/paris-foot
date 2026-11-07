@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-07T06:30:55.513246+00:00",
+ "updated": "2026-11-07T15:31:00.329451+00:00",
  "params": {
   "w_model": 0.028,
   "w_prior": 0.2,
   "w_opt": 0.0,
-  "n_w": 1877,
+  "n_w": 1879,
   "offsets": {
    "dom": 0.0,
    "nul": 0.0,
@@ -15,10 +15,10 @@
   }
  },
  "counts": {
-  "settled": 1948,
-  "last_year": 1736,
-  "live": 22,
-  "pending": 91,
+  "settled": 1950,
+  "last_year": 1738,
+  "live": 24,
+  "pending": 89,
   "backtest": 1926,
   "since": "2025-09-30",
   "live_since": "2026-11-05"
@@ -251,31 +251,31 @@
   }
  ],
  "scores": {
-  "n": 1736,
+  "n": 1738,
   "robot": {
-   "brier": 0.5838,
-   "logloss": 0.9807,
+   "brier": 0.5839,
+   "logloss": 0.9808,
    "acc": 0.535
   },
   "marche": {
-   "brier": 0.5836,
-   "logloss": 0.9803,
-   "acc": 0.537
+   "brier": 0.5837,
+   "logloss": 0.9804,
+   "acc": 0.536
   },
   "modele": {
    "brier": 0.5889,
    "logloss": 0.9887,
    "acc": 0.53
   },
-  "n_modele": 1667,
+  "n_modele": 1669,
   "marche_sur_modele": {
-   "brier": 0.5804,
-   "logloss": 0.9756,
+   "brier": 0.5806,
+   "logloss": 0.9757,
    "acc": 0.54
   },
-  "gain_vs_marche": -0.0004,
-  "z_vs_marche": -1.49,
-  "z_modele_vs_marche": -3.6
+  "gain_vs_marche": -0.0003,
+  "z_vs_marche": -1.47,
+  "z_modele_vs_marche": -3.54
  },
  "calibration": [
   {
@@ -294,25 +294,25 @@
    "lo": 0.2,
    "p": 0.254,
    "f": 0.255,
-   "n": 2124
+   "n": 2126
   },
   {
    "lo": 0.3,
    "p": 0.348,
-   "f": 0.329,
-   "n": 940
+   "f": 0.33,
+   "n": 943
   },
   {
    "lo": 0.4,
    "p": 0.451,
    "f": 0.475,
-   "n": 1161
+   "n": 1163
   },
   {
    "lo": 0.5,
    "p": 0.547,
    "f": 0.554,
-   "n": 1092
+   "n": 1093
   },
   {
    "lo": 0.6,
@@ -337,55 +337,55 @@
   {
    "key": "dom",
    "name": "Victoire à domicile",
-   "n": 1736,
+   "n": 1738,
    "annonce": 0.437,
    "reel": 0.439,
-   "z": 0.2,
+   "z": 0.21,
    "offset": 0.0
   },
   {
    "key": "nul",
    "name": "Match nul",
-   "n": 1736,
+   "n": 1738,
    "annonce": 0.245,
    "reel": 0.248,
-   "z": 0.31,
+   "z": 0.28,
    "offset": 0.0
   },
   {
    "key": "ext",
    "name": "Victoire à l'extérieur",
-   "n": 1736,
+   "n": 1738,
    "annonce": 0.318,
    "reel": 0.313,
-   "z": -0.51,
+   "z": -0.5,
    "offset": 0.0
   },
   {
    "key": "buts",
    "name": "Nombre de buts",
-   "n": 1736,
+   "n": 1738,
    "annonce": 0.542,
    "reel": 0.549,
-   "z": 0.6,
+   "z": 0.58,
    "offset": 0.0
   },
   {
    "key": "btts",
    "name": "Les deux équipes marquent",
-   "n": 1736,
+   "n": 1738,
    "annonce": 0.537,
    "reel": 0.553,
-   "z": 1.38,
+   "z": 1.37,
    "offset": 0.0
   },
   {
    "key": "hcp",
    "name": "Victoire par 2 buts ou +",
-   "n": 1736,
-   "annonce": 0.195,
+   "n": 1738,
+   "annonce": 0.194,
    "reel": 0.183,
-   "z": -1.3,
+   "z": -1.32,
    "offset": 0.0
   }
  ],
@@ -452,12 +452,18 @@
   },
   {
    "m": "2026-11",
-   "n": 43,
-   "robot": 0.5716,
-   "marche": 0.5714
+   "n": 45,
+   "robot": 0.5763,
+   "marche": 0.5763
   }
  ],
  "leagues": [
+  {
+   "name": "Liga",
+   "n": 381,
+   "robot": 0.5682,
+   "marche": 0.5679
+  },
   {
    "name": "Serie A",
    "n": 381,
@@ -465,16 +471,10 @@
    "marche": 0.5626
   },
   {
-   "name": "Liga",
-   "n": 380,
-   "robot": 0.5679,
-   "marche": 0.5676
-  },
-  {
    "name": "Premier League",
-   "n": 371,
-   "robot": 0.6181,
-   "marche": 0.6183
+   "n": 372,
+   "robot": 0.6182,
+   "marche": 0.6184
   },
   {
    "name": "Bundesliga",

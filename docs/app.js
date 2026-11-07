@@ -485,7 +485,10 @@ function bilanMine() {
   const mise = done.reduce((s, x) => s + x.mise, 0);
   const gain = done.reduce((s, x) => s + (x.c.status === "gagne" ? x.mise * (x.odds - 1) : -x.mise), 0);
   let h = bankCard();
-  h += backupDue() ? `<div class="panel backup-nudge"><b>Pense à sauvegarder tes paris</b><p class="hint">Ils ne sont stockés que sur ce téléphone. ${backupInfo()} Onglet Réglages, bouton « Sauvegarder ».</p></div>` : "";
+  h += Object.keys(bets()).length && !LS.get("pf_backup_noted", false) ? `<div class="panel backup-nudge"><b>Note ton code de récupération</b>
+    <p class="hint">Tes paris sont sauvegardés tout seuls, chiffrés avec ce code. Sur un nouveau téléphone, il te suffira de le saisir (Réglages, « Récupérer mes paris »).</p>
+    <div class="code-box"><code>${esc(backupCode())}</code><button type="button" class="btn ghost" id="bk-copy">Copier</button></div>
+    <button type="button" class="btn" id="bk-noted">C'est noté</button></div>` : "";
   h += `<div class="panel" style="margin-top:14px">`;
   if (!mine.length) return h + `<p class="hint" style="margin:0">Touche « Je le joue » sur un ticket : ton bilan se construira ici, pari après pari.</p></div>`;
   h += `<div class="scoreline"><div class="w"><b>${won}</b><small>gagnés</small></div><span class="sep">/</span>
@@ -601,7 +604,7 @@ function renderEncours() {
 
 function renderAll() {
   renderHeader(); renderEncours(); renderCombos(); renderMatchs(); renderBilan(); renderModele(); renderComposer();
-  animateCounters(); flashGoals(); animateGauge();
+  animateCounters(); flashGoals(); animateGauge(); scheduleBackup(); renderBackupStatus();
   if (!document.querySelector(".celebrate")) celebrate();
 }
 function animateGauge() {
@@ -859,7 +862,7 @@ function backupDue() {
 }
 document.getElementById("export").onclick = async () => {
   const s = settings();
-  const data = { app: "combines-foot", version: 1, date: new Date().toISOString(), bets: bets(), overrides: overrides(), budget: s.budget, bank: bank() };
+  const data = Object.assign(backupData(), { date: new Date().toISOString(), bets: bets(), overrides: overrides(), code: backupCode() });
   const text = JSON.stringify(data, null, 1);
   const name = `combines-foot-sauvegarde-${isoDay(new Date())}.txt`;
   const done = () => {
@@ -889,14 +892,10 @@ document.getElementById("import-file").onchange = async (e) => {
   if (!f) return;
   try {
     const d = JSON.parse(await f.text());
-    if (d.app !== "combines-foot" || typeof d.bets !== "object") throw new Error("ce fichier n'est pas une sauvegarde Combinés Foot");
-    const merged = Object.assign({}, d.bets, bets());
-    LS.set("pf_bets", merged);
-    LS.set("pf_overrides", Object.assign({}, d.overrides || {}, overrides()));
-    if (d.budget) LS.set("pf_settings", Object.assign(settings(), { budget: d.budget }));
-    if (d.bank && !bank()) LS.set("pf_bank", d.bank);
+    const n = restoreData(d);
+    if (d.code && !Object.keys(LS.get("pf_backup_sent", {})).length) LS.set("pf_backup_code", d.code);
     loadSettings(); renderAll(); scheduleLive(); syncPlayed();
-    document.getElementById("backup-msg").textContent = `Restauré : ${Object.keys(merged).length} paris au total.`;
+    document.getElementById("backup-msg").textContent = `Restauré : ${n} paris au total.`;
   } catch (err) { toast("Restauration impossible : " + err.message); }
   e.target.value = "";
 };
@@ -947,6 +946,7 @@ document.getElementById("refresh").onclick = async () => {
 async function load(quiet) {
   const get = (f) => fetch(`data/${f}?t=${Date.now()}`, { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
   let logos;
+  fetchBackups().then(renderBackupStatus);
   [today, hist, meta, logos, model] = await Promise.all([get("today.json"), get("history.json"), get("meta.json"), get("logos.json"), get("model.json")]);
   if (logos) LOGOS = logos;
   if (today) LS.set("pf_cache", { today, hist, logos: LOGOS, model }); else if (!quiet) ({ today, hist, logos: LOGOS = {}, model = null } = LS.get("pf_cache", {}));

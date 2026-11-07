@@ -101,7 +101,7 @@ async def main():
     today, hist, meta, espn, passe = fixtures()
     srv = serve()
     url = f"http://127.0.0.1:{srv.server_port}/"
-    errors, posts, fails = [], [], []
+    errors, posts, fails, bk_posts = [], [], [], []
 
     def check(cond, msg):
         print(("  ok   " if cond else "  ECHEC ") + msg)
@@ -133,6 +133,16 @@ async def main():
                 return await r.fulfill(body=f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><path d="M1 1h8v5l-4 3-4-3z" fill="{c}"/></svg>', content_type="image/svg+xml")
             if "site.api.espn.com" in u:
                 return await r.fulfill(json=espn if "fra.1" in u else {"events": []}, headers={"access-control-allow-origin": "*"})
+            if "/data/backup.json" in u:   # le robot range les morceaux reçus
+                groups = {}
+                for x in bk_posts:
+                    d = json.loads(x); groups.setdefault(d["b"], {})[d["i"]] = (d["n"], d["d"])
+                saves = [{"id": k, "t": 1000 + n, "blob": "".join(v[i][1] for i in range(len(v)))} for n, (k, v) in enumerate(groups.items())
+                         if len(v) == list(v.values())[0][0]]
+                return await r.fulfill(json={"saves": saves})
+            if "ntfy.sh" in u and "-sauvegarde" in u:
+                bk_posts.append(r.request.post_data)
+                return await r.fulfill(body="{}", headers={"access-control-allow-origin": "*"})
             if "ntfy.sh" in u:
                 posts.append(r.request.post_data)
                 return await r.fulfill(body="{}", headers={"access-control-allow-origin": "*"})
@@ -278,6 +288,21 @@ async def main():
         check(await hl.locator("li.w").count() >= 1 and await hl.locator("li.l").count() >= 1, "ticket perdu : chaque match avec bon ou mauvais")
         check("2-1" in await pg.inner_text("#tab-bilan .hist-legs li.l >> nth=0"), "score de chaque match affiché")
         await pg.evaluate("const b = bets(); delete b['old1']; LS.set('pf_bets', b); renderAll()")
+        print("Sauvegarde automatique")
+        n_bets = await pg.evaluate("Object.keys(bets()).length")
+        await pg.evaluate("LS.set('pf_backup_sent', {})")
+        check(await pg.evaluate("sendBackup()"), "la sauvegarde part chiffrée vers le robot")
+        check(bk_posts and not any("c-futur" in (x or "") or '"mise"' in (x or "") for x in bk_posts), "rien n'est lisible en clair dans la sauvegarde")
+        check(not await pg.evaluate("sendBackup()"), "pas de renvoi si rien n'a changé")
+        code = await pg.evaluate("backupCode()")
+        check(len(code) == 19 and code.count("-") == 3, "code de récupération au format XXXX-XXXX-XXXX-XXXX")
+        await pg.evaluate("localStorage.removeItem('pf_bets'); localStorage.removeItem('pf_backup_code'); renderAll()")
+        pg.once("dialog", lambda d: asyncio.ensure_future(d.accept("FAUX-CODE-0000-0000")))
+        await pg.evaluate("restoreFromCloud()"); await pg.wait_for_timeout(300)
+        check(await pg.evaluate("Object.keys(bets()).length") == 0, "un mauvais code n'ouvre rien")
+        pg.once("dialog", lambda d: asyncio.ensure_future(d.accept(code.lower().replace("-", " "))))
+        await pg.evaluate("restoreFromCloud()"); await pg.wait_for_timeout(500)
+        check(await pg.evaluate("Object.keys(bets()).length") == n_bets and await pg.evaluate("backupCode()") == code, f"récupération de tous les paris avec le code ({n_bets})")
         print("Animations")
         await pg.evaluate("window.__noCelebrate = false; LS.set('pf_celebrated', [])")
         await pg.evaluate("document.querySelectorAll('.celebrate').forEach(e => e.remove()); renderAll()")

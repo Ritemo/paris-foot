@@ -274,5 +274,50 @@ class TestKickoff(unittest.TestCase):
         self.assertIn("Toulouse - Strasbourg", sent[0][0])
         self.assertIn("Plus de 2,5 buts, Toulouse ou nul", sent[0][1])
 
+
+class TestRecap(unittest.TestCase):
+    def test_recap_dimanche_soir(self):
+        old_now, old_notify = run.NOW, run.notify
+        sent = []
+        run.NOW = datetime(2026, 11, 8, 23, 20, tzinfo=run.PARIS)
+        run.notify = lambda title, msg, *a, **k: sent.append((title, msg))
+        try:
+            leg = {"label": "Plus de 2,5 buts", "home": "A", "away": "B"}
+            g = {"id": "g", "day": "2026-11-07", "kind": "x2", "status": "gagne", "odds": 2.5, "legs": [leg]}
+            p = {"id": "p", "day": "2026-11-08", "kind": "x2", "status": "perdu", "odds": 2.0, "legs": [leg]}
+            vieux = {"id": "v", "day": "2026-11-01", "kind": "x2", "status": "gagne", "odds": 3.0, "legs": [leg]}
+            meta = {"played": {"g": {"mise": 2, "odds": 2.5}, "p": {"mise": 1, "odds": 2.0}, "v": {"mise": 5, "odds": 3.0}}}
+            h = {"combos": [g, p, vieux]}
+            self.assertTrue(run.weekly_recap(meta, h))
+            self.assertFalse(run.weekly_recap(meta, h))   # une seule fois par semaine
+            run.NOW = datetime(2026, 11, 8, 20, 0, tzinfo=run.PARIS)
+            self.assertFalse(run.weekly_recap({"played": meta["played"]}, h))   # trop tot
+        finally:
+            run.NOW, run.notify = old_now, old_notify
+        self.assertEqual(len(sent), 1)
+        self.assertIn("du 2 au 8 novembre : +2,00 €", sent[0][0])
+        self.assertIn("Misé 3,00 €, récupéré 5,00 €", sent[0][1])
+        self.assertIn("robot : 1 gagné sur 2", sent[0][1])
+
+
+class TestBackup(unittest.TestCase):
+    def test_reassemble_les_morceaux(self):
+        import tempfile
+        old_get, old_data = run.http_get, run.DATA
+        run.DATA = tempfile.mkdtemp()
+        def ev(t, d):
+            return json.dumps({"event": "message", "time": t, "message": json.dumps(d) if isinstance(d, dict) else d})
+        msgs = [ev(10, {"b": "aa", "i": 1, "n": 2, "d": "CD=="}), ev(9, {"b": "aa", "i": 0, "n": 2, "d": "1.AB"}),
+                ev(11, {"b": "bb", "i": 0, "n": 3, "d": "1.XX"}),          # incomplete
+                ev(12, "pas du json"), ev(13, {"b": "cc", "i": 0, "n": 1, "d": "<script>"})]   # rejete
+        run.http_get = lambda url, **k: ("\n".join(msgs).encode(), {})
+        try:
+            self.assertTrue(run.sync_backup())
+            self.assertFalse(run.sync_backup())   # deja range
+            saves = run.load("backup.json", {})["saves"]
+        finally:
+            run.http_get, run.DATA = old_get, old_data
+        self.assertEqual([(s["id"], s["blob"]) for s in saves], [("aa", "1.ABCD==")])
+
 if __name__ == "__main__":
     unittest.main(verbosity=1)

@@ -592,3 +592,9 @@ body { overscroll-behavior-y: contain; }
 .odds-total { display: flex; justify-content: space-between; align-items: baseline; margin: 12px 0 14px; font-weight: 700; }
 .odds-total b { font: 800 26px var(--display); color: var(--pelouse-2); }
 @media (prefers-color-scheme: dark) { .odds-total b { color: #7fd9a6; } }
+/* code de recuperation */
+.code-box { display: flex; align-items: center; gap: 10px; margin: 8px 0 10px; }
+.code-box code { flex: 1; font: 800 17px/1.2 ui-monospace, "SFMono-Regular", Menlo, monospace; letter-spacing: 1px; background: var(--ticket-2);
+  border: 2px dashed var(--trait); border-radius: 12px; padding: 10px 12px; text-align: center; user-select: all; overflow-wrap: anywhere; }
+.backup-nudge .btn#bk-noted { width: 100%; }
+.code-box code { font-size: 15px; letter-spacing: .5px; white-space: nowrap; overflow-wrap: normal; padding: 10px 8px; }

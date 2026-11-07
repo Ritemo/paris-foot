@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=d447feb0">
+<link rel="stylesheet" href="style.css?v=edc69894">
 </head>
 <body>
 <header class="pitch">
@@ -63,8 +63,15 @@
       <label class="switch"><input id="live-alerts" type="checkbox"> <span>Alertes pendant les matchs (buts, ticket gagné ou tombé) quand l'appli est ouverte ou en arrière-plan</span></label>
     </div>
     <div class="panel">
-      <h3>Sauvegarde de mes paris</h3>
-      <p class="hint" style="margin:0 0 12px">Tes paris, tes cotes corrigées et ton budget ne sont enregistrés que sur ce téléphone. Garde une copie : elle se restaure en un geste, même sur un autre téléphone.</p>
+      <h3>Sauvegarde automatique</h3>
+      <p class="hint" style="margin:0 0 10px">À chaque changement, tes paris, ta bankroll et tes cotes corrigées sont chiffrés sur ce téléphone avec ton code, puis rangés par le robot. Sans ce code, personne ne peut les lire : note-le, il sert à tout récupérer sur un nouveau téléphone.</p>
+      <div class="code-box"><code id="bk-code"></code><button type="button" class="btn ghost" id="bk-copy">Copier</button></div>
+      <p id="bk-status" class="hint"></p>
+      <button type="button" id="bk-restore" class="btn ghost">Récupérer mes paris avec un code</button>
+    </div>
+    <div class="panel">
+      <h3>Sauvegarde dans un fichier</h3>
+      <p class="hint" style="margin:0 0 12px">Une copie de plus, dans un fichier que tu ranges où tu veux. Elle se restaure en un geste, même sur un autre téléphone, et contient aussi ton code de récupération.</p>
       <div class="row" style="justify-content:flex-start">
         <button id="export" class="btn">Sauvegarder</button>
         <label class="btn ghost" for="import-file">Restaurer</label>
@@ -129,10 +136,11 @@
   </form>
 </dialog>
 
-<script src="live.js?v=d447feb0"></script>
-<script src="compose.js?v=d447feb0"></script>
-<script src="fx.js?v=d447feb0"></script>
-<script src="model.js?v=d447feb0"></script>
-<script src="app.js?v=d447feb0"></script>
+<script src="live.js?v=edc69894"></script>
+<script src="compose.js?v=edc69894"></script>
+<script src="cloud.js?v=edc69894"></script>
+<script src="fx.js?v=edc69894"></script>
+<script src="model.js?v=edc69894"></script>
+<script src="app.js?v=edc69894"></script>
 </body>
 </html>

@@ -559,6 +559,50 @@ def sync_played(meta):
     return json.dumps(played, sort_keys=True) != before
 
 
+BACKUP_KEEP = 6
+
+
+def sync_backup():
+    """Sauvegardes de l'appli : chiffrees sur le telephone (le robot ne peut pas les lire), envoyees en morceaux
+    sur ntfy (qui ne garde les messages que 12 h). Le robot les reassemble et les range dans docs/data/backup.json."""
+    store = load("backup.json", {"saves": []})
+    known = {x["id"] for x in store["saves"]}
+    try:
+        body, _h = http_get(f"https://ntfy.sh/{NTFY_TOPIC}-sauvegarde/json?poll=1&since=all")
+    except Exception as e:
+        print("ntfy sauvegarde", e, file=sys.stderr)
+        return False
+    groups = {}
+    for line in body.decode("utf-8").splitlines():
+        try:
+            ev = json.loads(line)
+            if ev.get("event") != "message":
+                continue
+            d = json.loads(ev["message"])
+            bid, i, n, part = str(d["b"])[:16], int(d["i"]), int(d["n"]), str(d["d"])
+        except Exception:
+            continue
+        if not (0 <= i < n <= 200) or not re.fullmatch(r"[A-Za-z0-9+/=.]*", part):
+            continue
+        g = groups.setdefault(bid, {"n": n, "parts": {}, "t": 0})
+        g["parts"][i] = part
+        g["t"] = max(g["t"], ev.get("time", 0))
+    added = False
+    for bid, g in groups.items():
+        if bid in known or len(g["parts"]) != g["n"]:
+            continue
+        blob = "".join(g["parts"][i] for i in range(g["n"]))
+        if not blob.startswith("1.") or len(blob) > 600_000:
+            continue
+        store["saves"].append({"id": bid, "t": g["t"], "blob": blob})
+        added = True
+    if not added:
+        return False
+    store["saves"] = sorted(store["saves"], key=lambda x: x["t"])[-BACKUP_KEEP:]
+    save("backup.json", store)
+    return True
+
+
 def settle_perso(meta):
     """Combines composes par toi : le robot les regle aussi, pour te prevenir."""
     played = meta.get("played", {})
@@ -620,6 +664,55 @@ def notify_kickoffs(meta, history):
         sent[mid] = NOW.isoformat()
     limit = (NOW - timedelta(days=3)).isoformat()
     meta["kick_sent"] = {k: v for k, v in sent.items() if v > limit}
+    return True
+
+
+def weekly_recap(meta, history, force=False):
+    """Le dimanche soir (a partir de 23h15, ou le lundi matin en rattrapage) : le bilan de ta semaine. Renvoie True si envoye."""
+    now_p = NOW.astimezone(PARIS)
+    if now_p.weekday() == 6 and (now_p.hour, now_p.minute) >= (23, 15):
+        monday = (now_p - timedelta(days=6)).date()
+    elif now_p.weekday() == 0 and now_p.hour < 12:
+        monday = (now_p - timedelta(days=7)).date()
+    elif not force:
+        return False
+    else:
+        monday = (now_p - timedelta(days=now_p.weekday())).date()
+    week = f"{monday.isocalendar()[0]}-W{monday.isocalendar()[1]:02d}"
+    if meta.get("recap_week") == week and not force:
+        return False
+    days = {(monday + timedelta(days=i)).isoformat() for i in range(7)}
+    hist = {c["id"]: c for c in history["combos"]}
+    mine = []
+    for cid, b in meta.get("played", {}).items():
+        c = hist.get(cid) or b.get("snap")
+        if c and c.get("day") in days:
+            mine.append((c, b.get("mise") or 0, b.get("odds") or c["odds"]))
+    meta["recap_week"] = week
+    if not mine:
+        return False
+    done = [x for x in mine if x[0]["status"] != "en attente"]
+    won = [x for x in done if x[0]["status"] == "gagne"]
+    mise = sum(m for _c, m, _o in done)
+    back = sum(m * o for _c, m, o in won)
+    net = back - mise
+    mois = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
+    sunday = monday + timedelta(days=6)
+    lines = [f"{len(done)} ticket{'s' if len(done) > 1 else ''} terminé{'s' if len(done) > 1 else ''}, {len(won)} gagné{'s' if len(won) > 1 else ''}."]
+    if done:
+        lines.append(f"Misé {fr(mise)} €, récupéré {fr(back)} €, résultat {'+' if net >= 0 else '−'}{fr(abs(net))} €.")
+    if won:
+        c, m, o = max(won, key=lambda x: x[1] * x[2])
+        lines.append(f"Meilleur ticket : cote {fr(o)}, {fr(m * o)} € récupérés ({short(c)}).")
+    pending = len(mine) - len(done)
+    if pending:
+        lines.append(f"Encore en cours : {pending}.")
+    robot = [c for c in history["combos"] if c["day"] in days and c["kind"] != "folie" and not c.get("replaced") and c["status"] != "en attente"]
+    if robot:
+        rw = sum(c["status"] == "gagne" for c in robot)
+        lines.append(f"Les tickets proposés par le robot : {rw} gagné{'s' if rw > 1 else ''} sur {len(robot)}.")
+    title = f"Ta semaine du {monday.day} au {sunday.day} {mois[sunday.month - 1]} : {'+' if net >= 0 else '−'}{fr(abs(net))} €"
+    notify(title, "\n".join(lines), "bar_chart", 3)
     return True
 
 
@@ -875,11 +968,15 @@ def results_only(meta, history):
     """Passage gratuit : resultats ESPN seulement, on n'ecrit que si quelque chose a change."""
     before = json.dumps(history, sort_keys=True, default=str)
     meta_changed = sync_played(meta)
+    sync_backup()
     meta_changed |= notify_kickoffs(meta, history)
     meta_changed |= settle_perso(meta)
     status_before = {c["id"]: c["status"] for c in history["combos"]}
     settle(history, None, {}, espn_scores(history))
     notify_settled(status_before, history, meta.get("played", {}))
+    week_before = meta.get("recap_week")
+    weekly_recap(meta, history)
+    meta_changed |= meta.get("recap_week") != week_before
     try:
         update_logos(history, load("today.json", {}))
     except Exception as e:
@@ -981,11 +1078,13 @@ def main():
     espn = espn_scores(history)
     api_scores = fetch_api_scores(history, fd, espn)
     sync_played(meta)
+    sync_backup()
     notify_kickoffs(meta, history)
     settle_perso(meta)
     status_before = {c["id"]: c["status"] for c in history["combos"]}
     settle(history, fd, api_scores, espn)
     notify_settled(status_before, history, meta.get("played", {}))
+    weekly_recap(meta, history)
     history["combos"].sort(key=lambda c: (c["day"], c["kind"]), reverse=True)
     history["bilan"] = bilan(history)
     history["updated"] = NOW.isoformat()

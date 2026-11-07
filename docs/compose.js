@@ -65,6 +65,7 @@ document.addEventListener("click", async (e) => {
   const c = draftCombo();
   if (!c) return;
   if (bets()[c.id]) { toast("Tu as déjà joué exactement ce combiné."); return; }
+  if (!(await checkOdds(c))) return;
   const left = settings().budget - monthSpent();
   const v = await ask("Combien tu mises ?", `Ton combiné à ${fmt(combo(c).odds)}, ${pct(c.p)} de chance. Il te reste ${fmt(Math.max(left, 0), 0)} € dans ton budget du mois.`, c.stake, { steps: [1, 2, 3, 4, 5] });
   if (!v || isNaN(v) || v <= 0) return;

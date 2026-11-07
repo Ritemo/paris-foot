@@ -680,6 +680,42 @@ document.addEventListener("click", async (e) => {
   }
 });
 
+// touche Entrée dans une fenêtre de saisie = Valider (et non le premier bouton, « Annuler »)
+document.addEventListener("keydown", (e) => {
+  if (e.key !== "Enter" || !e.target.matches("dialog[open] input")) return;
+  e.preventDefault(); e.target.closest("dialog").close("ok");
+});
+
+/* avant de jouer : les cotes qui ne viennent pas d'Unibet (PMU, Betclic, estimées) sont à vérifier sur ton ticket Unibet */
+const SRC_NAME = { pmu: "cote PMU", betclic: "cote Betclic", estimee: "cote estimée" };
+function checkOdds(c) {
+  const ov = overrides()[c.id] || {};
+  const idx = c.legs.map((l, i) => i).filter((i) => c.legs[i].src !== "unibet" && !ov[i]);
+  if (!idx.length) return Promise.resolve(true);
+  const d = document.getElementById("dlg-odds"), rows = document.getElementById("odds-rows"), tot = document.getElementById("odds-total");
+  rows.innerHTML = idx.map((i) => { const l = c.legs[i]; return `<label class="odds-row"><span><b>${esc(l.label)}</b><small>${esc(l.home)} - ${esc(l.away)} · ${SRC_NAME[l.src] || l.src}</small></span>
+    <input type="text" inputmode="decimal" autocomplete="off" data-i="${i}" value="${String(legOdds(c, i)).replace(".", ",")}" aria-label="Cote Unibet : ${esc(l.label)}"></label>`; }).join("");
+  const total = () => {
+    let o = 1;
+    c.legs.forEach((l, i) => { const inp = rows.querySelector(`[data-i="${i}"]`); const v = inp ? parseNum(inp.value) : legOdds(c, i); o *= v > 1 ? v : legOdds(c, i); });
+    return Math.round(o * 100 + 1e-6) / 100;
+  };
+  const upd = () => { tot.textContent = fmt(total()); };
+  rows.oninput = upd; upd();
+  return new Promise((resolve) => {
+    d.onclose = () => {
+      if (d.returnValue === "cancel") return resolve(false);
+      if (d.returnValue === "skip") return resolve(true);
+      const all = overrides(), o = Object.assign({}, all[c.id] || {});
+      rows.querySelectorAll("[data-i]").forEach((inp) => { const v = parseNum(inp.value); if (v > 1 && v < 100) o[inp.dataset.i] = v; });
+      all[c.id] = o; LS.set("pf_overrides", all);
+      resolve(true);
+    };
+    d.returnValue = ""; d.showModal();
+    setTimeout(() => rows.querySelector("input")?.select(), 50);
+  });
+}
+
 function toast(msg, ms = 3500) {
   const t = document.createElement("div");
   t.className = "toast"; t.setAttribute("role", "status"); t.textContent = msg;
@@ -705,6 +741,7 @@ document.addEventListener("click", async (e) => {
       if (v === null || isNaN(v)) return;
       if (v <= 0) delete all[c.id]; else all[c.id].mise = v;
     } else {
+      if (!(await checkOdds(c))) return;
       const left = settings().budget - monthSpent();
       const v = await ask("Combien tu mises ?", c.kind === "folie" ? `Pour le fun : 1 € suffit, ${fmt(combo(c).odds)} fois la mise si ça passe. Il te reste ${fmt(Math.max(left, 0), 0)} € dans ton budget du mois.`
         : `${c.stake} € conseillés. Il te reste ${fmt(Math.max(left, 0), 0)} € dans ton budget du mois.`, c.stake, { steps: c.kind === "folie" ? [1, 2] : [1, 2, 3, 4, 5] });

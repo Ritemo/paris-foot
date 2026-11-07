@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=4655ea49">
+<link rel="stylesheet" href="style.css?v=d447feb0">
 </head>
 <body>
 <header class="pitch">
@@ -101,6 +101,20 @@
     <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1L7 17M17 7l2.1-2.1"/></svg>Réglages</button>
 </nav>
 
+<dialog id="dlg-odds">
+  <form method="dialog">
+    <h3>Vérifie les cotes sur Unibet</h3>
+    <p class="hint">Ces cotes ne viennent pas d'Unibet. Mets celles de ton ticket Unibet : la note, le gain et ton bilan seront justes.</p>
+    <div id="odds-rows"></div>
+    <p class="odds-total">Cote totale <b id="odds-total"></b></p>
+    <div class="row">
+      <button value="cancel" class="btn ghost">Annuler</button>
+      <button value="skip" class="btn ghost">Garder</button>
+      <button value="ok" class="btn">Valider</button>
+    </div>
+  </form>
+</dialog>
+
 <dialog id="dlg">
   <form method="dialog" id="dlg-form">
     <h3 id="dlg-title"></h3>
@@ -115,10 +129,10 @@
   </form>
 </dialog>
 
-<script src="live.js?v=4655ea49"></script>
-<script src="compose.js?v=4655ea49"></script>
-<script src="fx.js?v=4655ea49"></script>
-<script src="model.js?v=4655ea49"></script>
-<script src="app.js?v=4655ea49"></script>
+<script src="live.js?v=d447feb0"></script>
+<script src="compose.js?v=d447feb0"></script>
+<script src="fx.js?v=d447feb0"></script>
+<script src="model.js?v=d447feb0"></script>
+<script src="app.js?v=d447feb0"></script>
 </body>
 </html>

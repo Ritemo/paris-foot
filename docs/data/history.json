@@ -123,7 +123,9 @@
      "odds": 1.71,
      "src": "betclic",
      "p": 0.5345,
-     "ev": -0.086
+     "ev": -0.086,
+     "score": "1-2",
+     "won": true
     },
     {
      "match_id": "7a68b099b47ed7724062b661cd9af464",
@@ -276,7 +278,9 @@
      "odds": 1.71,
      "src": "betclic",
      "p": 0.5277,
-     "ev": -0.0976
+     "ev": -0.0976,
+     "score": "1-2",
+     "won": true
     },
     {
      "match_id": "8963081c3457212ee238b498bbc33a03",
@@ -302,9 +306,10 @@
    "cost": 0.1867,
    "stars": 2,
    "stake": 2,
-   "status": "en attente",
+   "status": "gagne",
    "proposed_at": "2026-11-07T15:31:00.329451+00:00",
-   "replaced": true
+   "replaced": true,
+   "settled_at": "2026-11-08T22:01:16.275641+00:00"
   },
   {
    "id": "2026-11-08|339a6465fa5153fd8f31e487cf557cf0:+2.5|657fd1ac35832f65fcc6feba93970e10:-3.5",
@@ -427,7 +432,9 @@
      "odds": 3.7,
      "src": "betclic",
      "p": 0.2544,
-     "ev": -0.0587
+     "ev": -0.0587,
+     "score": "1-2",
+     "won": false
     },
     {
      "match_id": "4e917e19b59093a02a0e12bcf9a5ecc4",
@@ -513,7 +520,9 @@
      "odds": 3.55,
      "src": "betclic",
      "p": 0.2601,
-     "ev": -0.0766
+     "ev": -0.0766,
+     "score": "1-2",
+     "won": false
     },
     {
      "match_id": "4e917e19b59093a02a0e12bcf9a5ecc4",
@@ -5654,5 +5663,5 @@
   "bilan_mise_suggeree": -22.42,
   "mise_suggeree_totale": 66
  },
- "updated": "2026-11-08T21:45:44.959485+00:00"
+ "updated": "2026-11-08T22:01:16.275641+00:00"
 }

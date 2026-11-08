@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-07T15:31:00.329451+00:00",
+ "updated": "2026-11-08T06:31:00.594627+00:00",
  "params": {
   "w_model": 0.028,
   "w_prior": 0.2,
   "w_opt": 0.0,
-  "n_w": 1879,
+  "n_w": 1881,
   "offsets": {
    "dom": 0.0,
    "nul": 0.0,
@@ -15,10 +15,10 @@
   }
  },
  "counts": {
-  "settled": 1950,
-  "last_year": 1738,
-  "live": 24,
-  "pending": 89,
+  "settled": 1967,
+  "last_year": 1751,
+  "live": 41,
+  "pending": 72,
   "backtest": 1926,
   "since": "2025-09-30",
   "live_since": "2026-11-05"
@@ -26,22 +26,22 @@
  "min_verdict": 300,
  "tickets": {
   "tickets": {
-   "n": 22,
-   "annonce": 0.34,
-   "reel": 0.273,
-   "attendus": 7.5,
-   "observes": 6,
-   "z": -0.67,
-   "marge": 4.4
+   "n": 25,
+   "annonce": 0.339,
+   "reel": 0.28,
+   "attendus": 8.5,
+   "observes": 7,
+   "z": -0.62,
+   "marge": 4.7
   },
   "selections": {
-   "n": 48,
-   "annonce": 0.608,
-   "reel": 0.604,
-   "attendus": 29.2,
-   "observes": 29,
-   "z": -0.05,
-   "marge": 6.7
+   "n": 54,
+   "annonce": 0.604,
+   "reel": 0.593,
+   "attendus": 32.6,
+   "observes": 32,
+   "z": -0.17,
+   "marge": 7.2
   }
  },
  "log": [
@@ -248,153 +248,165 @@
     "btts": 0.0,
     "hcp": 0.0
    }
+  },
+  {
+   "d": "2026-11-08",
+   "w": 0.028,
+   "off": {
+    "dom": 0.0,
+    "nul": 0.0,
+    "ext": 0.0,
+    "buts": 0.0,
+    "btts": 0.0,
+    "hcp": 0.0
+   }
   }
  ],
  "scores": {
-  "n": 1738,
+  "n": 1751,
   "robot": {
-   "brier": 0.5839,
-   "logloss": 0.9808,
+   "brier": 0.5825,
+   "logloss": 0.9788,
    "acc": 0.535
   },
   "marche": {
-   "brier": 0.5837,
-   "logloss": 0.9804,
-   "acc": 0.536
+   "brier": 0.5823,
+   "logloss": 0.9785,
+   "acc": 0.537
   },
   "modele": {
-   "brier": 0.5889,
-   "logloss": 0.9887,
-   "acc": 0.53
+   "brier": 0.5876,
+   "logloss": 0.9868,
+   "acc": 0.531
   },
-  "n_modele": 1669,
+  "n_modele": 1682,
   "marche_sur_modele": {
-   "brier": 0.5806,
-   "logloss": 0.9757,
+   "brier": 0.5792,
+   "logloss": 0.9737,
    "acc": 0.54
   },
   "gain_vs_marche": -0.0003,
-  "z_vs_marche": -1.47,
-  "z_modele_vs_marche": -3.54
+  "z_vs_marche": -1.42,
+  "z_modele_vs_marche": -3.58
  },
  "calibration": [
   {
    "lo": 0.0,
    "p": 0.076,
-   "f": 0.047,
-   "n": 128
+   "f": 0.046,
+   "n": 131
   },
   {
    "lo": 0.1,
    "p": 0.159,
-   "f": 0.148,
-   "n": 669
+   "f": 0.145,
+   "n": 681
   },
   {
    "lo": 0.2,
    "p": 0.254,
-   "f": 0.255,
-   "n": 2126
+   "f": 0.256,
+   "n": 2138
   },
   {
    "lo": 0.3,
    "p": 0.348,
-   "f": 0.33,
-   "n": 943
+   "f": 0.331,
+   "n": 940
   },
   {
    "lo": 0.4,
-   "p": 0.451,
-   "f": 0.475,
-   "n": 1163
+   "p": 0.452,
+   "f": 0.472,
+   "n": 1168
   },
   {
    "lo": 0.5,
    "p": 0.547,
-   "f": 0.554,
-   "n": 1093
+   "f": 0.555,
+   "n": 1100
   },
   {
    "lo": 0.6,
    "p": 0.642,
-   "f": 0.657,
-   "n": 591
+   "f": 0.656,
+   "n": 596
   },
   {
    "lo": 0.7,
    "p": 0.74,
-   "f": 0.744,
-   "n": 195
+   "f": 0.745,
+   "n": 204
   },
   {
    "lo": 0.8,
-   "p": 0.832,
-   "f": 0.93,
-   "n": 43
+   "p": 0.831,
+   "f": 0.933,
+   "n": 45
   }
  ],
  "families": [
   {
    "key": "dom",
    "name": "Victoire à domicile",
-   "n": 1738,
+   "n": 1751,
    "annonce": 0.437,
    "reel": 0.439,
-   "z": 0.21,
+   "z": 0.22,
    "offset": 0.0
   },
   {
    "key": "nul",
    "name": "Match nul",
-   "n": 1738,
+   "n": 1751,
    "annonce": 0.245,
    "reel": 0.248,
-   "z": 0.28,
+   "z": 0.37,
    "offset": 0.0
   },
   {
    "key": "ext",
    "name": "Victoire à l'extérieur",
-   "n": 1738,
-   "annonce": 0.318,
-   "reel": 0.313,
-   "z": -0.5,
+   "n": 1751,
+   "annonce": 0.319,
+   "reel": 0.312,
+   "z": -0.6,
    "offset": 0.0
   },
   {
    "key": "buts",
    "name": "Nombre de buts",
-   "n": 1738,
-   "annonce": 0.542,
-   "reel": 0.549,
-   "z": 0.58,
+   "n": 1751,
+   "annonce": 0.543,
+   "reel": 0.548,
+   "z": 0.46,
    "offset": 0.0
   },
   {
    "key": "btts",
    "name": "Les deux équipes marquent",
-   "n": 1738,
+   "n": 1751,
    "annonce": 0.537,
    "reel": 0.553,
-   "z": 1.37,
+   "z": 1.34,
    "offset": 0.0
   },
   {
    "key": "hcp",
    "name": "Victoire par 2 buts ou +",
-   "n": 1738,
-   "annonce": 0.194,
-   "reel": 0.183,
-   "z": -1.32,
+   "n": 1751,
+   "annonce": 0.195,
+   "reel": 0.182,
+   "z": -1.4,
    "offset": 0.0
   }
  ],
  "months": [
   {
    "m": "2025-11",
-   "n": 142,
-   "robot": 0.5707,
-   "marche": 0.5698
+   "n": 138,
+   "robot": 0.5692,
+   "marche": 0.5685
   },
   {
    "m": "2025-12",
@@ -452,41 +464,41 @@
   },
   {
    "m": "2026-11",
-   "n": 45,
-   "robot": 0.5763,
-   "marche": 0.5763
+   "n": 62,
+   "robot": 0.5419,
+   "marche": 0.5418
   }
  ],
  "leagues": [
   {
-   "name": "Liga",
-   "n": 381,
-   "robot": 0.5682,
-   "marche": 0.5679
+   "name": "Serie A",
+   "n": 384,
+   "robot": 0.5623,
+   "marche": 0.5622
   },
   {
-   "name": "Serie A",
-   "n": 381,
-   "robot": 0.5628,
-   "marche": 0.5626
+   "name": "Liga",
+   "n": 383,
+   "robot": 0.5677,
+   "marche": 0.5674
   },
   {
    "name": "Premier League",
-   "n": 372,
-   "robot": 0.6182,
-   "marche": 0.6184
+   "n": 375,
+   "robot": 0.6185,
+   "marche": 0.6187
   },
   {
    "name": "Bundesliga",
-   "n": 298,
-   "robot": 0.5817,
-   "marche": 0.5811
+   "n": 302,
+   "robot": 0.5779,
+   "marche": 0.5773
   },
   {
    "name": "Ligue 1",
-   "n": 289,
-   "robot": 0.5847,
-   "marche": 0.5846
+   "n": 290,
+   "robot": 0.5814,
+   "marche": 0.5812
   }
  ],
  "lessons": [
@@ -494,6 +506,6 @@
   "Seul, le modèle maison prévoit nettement moins bien que les bookmakers sur ces matchs.",
   "Le poids du modèle maison est passé de 20 % à 3 % du mélange, car il apporte moins que prévu sur les matchs récents.",
   "Aucun type de pari n'est durablement mal estimé : pas de correction appliquée.",
-  "Tickets proposés : 6 gagnés sur 22 pour 7,5 attendus. Écart compatible avec le hasard, rien à corriger à ce stade."
+  "Tickets proposés : 7 gagnés sur 25 pour 8,5 attendus. Écart compatible avec le hasard, rien à corriger à ce stade."
  ]
 }

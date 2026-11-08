@@ -231,7 +231,8 @@
    "stars": 2,
    "stake": 2,
    "status": "en attente",
-   "proposed_at": "2026-11-07T15:31:00.329451+00:00"
+   "proposed_at": "2026-11-07T15:31:00.329451+00:00",
+   "replaced": true
   },
   {
    "id": "2026-11-08|8963081c3457212ee238b498bbc33a03:-3.5|dd247b356d8fc53e4b4f9bfcfe09c924:2",
@@ -277,7 +278,100 @@
    "stars": 2,
    "stake": 2,
    "status": "en attente",
-   "proposed_at": "2026-11-07T15:31:00.329451+00:00"
+   "proposed_at": "2026-11-07T15:31:00.329451+00:00",
+   "replaced": true
+  },
+  {
+   "id": "2026-11-08|339a6465fa5153fd8f31e487cf557cf0:+2.5|657fd1ac35832f65fcc6feba93970e10:-3.5",
+   "day": "2026-11-08",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "339a6465fa5153fd8f31e487cf557cf0",
+     "league": "Liga",
+     "kickoff": "2026-11-08T15:15:00Z",
+     "home": "Real Sociedad",
+     "away": "Rayo Vallecano",
+     "fd_home": "Sociedad",
+     "fd_away": "Vallecano",
+     "div": "SP1",
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.5,
+     "src": "pmu",
+     "p": 0.5951,
+     "ev": -0.1074
+    },
+    {
+     "match_id": "657fd1ac35832f65fcc6feba93970e10",
+     "league": "Serie A",
+     "kickoff": "2026-11-08T17:00:00Z",
+     "home": "Inter Milan",
+     "away": "Como",
+     "fd_home": "Inter",
+     "fd_away": "Como",
+     "div": "I1",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.51,
+     "src": "pmu",
+     "p": 0.5909,
+     "ev": -0.1077
+    }
+   ],
+   "odds": 2.27,
+   "p": 0.3516,
+   "cost": 0.2035,
+   "stars": 2,
+   "stake": 3,
+   "status": "en attente",
+   "proposed_at": "2026-11-08T06:31:00.594627+00:00"
+  },
+  {
+   "id": "2026-11-08|79ed3df594d7b352ef027128b1ba5d0a:+2.5|8963081c3457212ee238b498bbc33a03:-3.5",
+   "day": "2026-11-08",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "8963081c3457212ee238b498bbc33a03",
+     "league": "Bundesliga",
+     "kickoff": "2026-11-08T18:30:00Z",
+     "home": "TSG Hoffenheim",
+     "away": "FC Schalke 04",
+     "fd_home": "Hoffenheim",
+     "fd_away": "Schalke 04",
+     "div": "D1",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.57,
+     "src": "pmu",
+     "p": 0.5723,
+     "ev": -0.1015
+    },
+    {
+     "match_id": "79ed3df594d7b352ef027128b1ba5d0a",
+     "league": "Premier League",
+     "kickoff": "2026-11-08T14:00:00Z",
+     "home": "Ipswich Town",
+     "away": "Bournemouth",
+     "fd_home": "Ipswich",
+     "fd_away": "Bournemouth",
+     "div": "E0",
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.56,
+     "src": "pmu",
+     "p": 0.5735,
+     "ev": -0.1053
+    }
+   ],
+   "odds": 2.45,
+   "p": 0.3282,
+   "cost": 0.1961,
+   "stars": 2,
+   "stake": 2,
+   "status": "en attente",
+   "proposed_at": "2026-11-08T06:31:00.594627+00:00"
   },
   {
    "id": "2026-11-08|4e917e19b59093a02a0e12bcf9a5ecc4:1|657fd1ac35832f65fcc6feba93970e10:-3.5|8963081c3457212ee238b498bbc33a03:-3.5|dd247b356d8fc53e4b4f9bfcfe09c924:1",
@@ -434,7 +528,86 @@
    "stars": 0,
    "stake": 1,
    "status": "en attente",
-   "proposed_at": "2026-11-07T15:31:00.329451+00:00"
+   "proposed_at": "2026-11-07T15:31:00.329451+00:00",
+   "replaced": true
+  },
+  {
+   "id": "2026-11-08|23bf8ea47358ef82f65aa7398a2b3921:-2.5|4e917e19b59093a02a0e12bcf9a5ecc4:1|8963081c3457212ee238b498bbc33a03:-3.5|8e3ca98e29be84dd4a882ed05f50fa79:-2.5",
+   "day": "2026-11-08",
+   "kind": "folie",
+   "legs": [
+    {
+     "match_id": "4e917e19b59093a02a0e12bcf9a5ecc4",
+     "league": "Ligue 1",
+     "kickoff": "2026-11-08T19:45:00Z",
+     "home": "RC Lens",
+     "away": "Marseille",
+     "fd_home": "Lens",
+     "fd_away": "Marseille",
+     "div": "F1",
+     "market": "1",
+     "label": "Victoire RC Lens",
+     "odds": 2.15,
+     "src": "unibet",
+     "p": 0.4189,
+     "ev": -0.0994
+    },
+    {
+     "match_id": "23bf8ea47358ef82f65aa7398a2b3921",
+     "league": "Serie A",
+     "kickoff": "2026-11-08T11:30:00Z",
+     "home": "Napoli",
+     "away": "Lazio",
+     "fd_home": "Napoli",
+     "fd_away": "Lazio",
+     "div": "I1",
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 2.08,
+     "src": "pmu",
+     "p": 0.4329,
+     "ev": -0.0996
+    },
+    {
+     "match_id": "8963081c3457212ee238b498bbc33a03",
+     "league": "Bundesliga",
+     "kickoff": "2026-11-08T18:30:00Z",
+     "home": "TSG Hoffenheim",
+     "away": "FC Schalke 04",
+     "fd_home": "Hoffenheim",
+     "fd_away": "Schalke 04",
+     "div": "D1",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.57,
+     "src": "pmu",
+     "p": 0.5723,
+     "ev": -0.1015
+    },
+    {
+     "match_id": "8e3ca98e29be84dd4a882ed05f50fa79",
+     "league": "Premier League",
+     "kickoff": "2026-11-08T14:00:00Z",
+     "home": "Brighton and Hove Albion",
+     "away": "Brentford",
+     "fd_home": "Brighton",
+     "fd_away": "Brentford",
+     "div": "E0",
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 2.23,
+     "src": "pmu",
+     "p": 0.4014,
+     "ev": -0.1049
+    }
+   ],
+   "odds": 15.66,
+   "p": 0.0417,
+   "cost": 0.3478,
+   "stars": 0,
+   "stake": 1,
+   "status": "en attente",
+   "proposed_at": "2026-11-08T06:31:00.594627+00:00"
   },
   {
    "id": "2026-11-07|842fcc5b9feb8c63054a661ad1fc8926:-3.5|f7b240389fa5ec055c58a48ab153dcdd:H1",
@@ -5423,5 +5596,5 @@
   "bilan_mise_suggeree": -19.32,
   "mise_suggeree_totale": 58
  },
- "updated": "2026-11-07T22:01:08.794505+00:00"
+ "updated": "2026-11-08T06:31:00.594627+00:00"
 }

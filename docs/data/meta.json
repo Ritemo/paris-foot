@@ -439,6 +439,63 @@
     "status": "perdu",
     "settled_at": "2026-11-07T22:01:08.794505+00:00"
    }
+  },
+  "2026-11-08|657fd1ac35832f65fcc6feba93970e10:-3.5|79ed3df594d7b352ef027128b1ba5d0a:+2.5": {
+   "mise": 2,
+   "odds": 2.48,
+   "t": 1794095436,
+   "snap": null
+  },
+  "2026-11-08|4e917e19b59093a02a0e12bcf9a5ecc4:1|54fae64b1421d836e07a17cad0536c73:-2.5": {
+   "mise": 1,
+   "odds": 4.29,
+   "t": 1794095819,
+   "snap": {
+    "id": "2026-11-08|4e917e19b59093a02a0e12bcf9a5ecc4:1|54fae64b1421d836e07a17cad0536c73:-2.5",
+    "day": "2026-11-08",
+    "kind": "x2",
+    "legs": [
+     {
+      "match_id": "4e917e19b59093a02a0e12bcf9a5ecc4",
+      "league": "Ligue 1",
+      "kickoff": "2026-11-08T19:45:00Z",
+      "home": "RC Lens",
+      "away": "Marseille",
+      "fd_home": "Lens",
+      "fd_away": "Marseille",
+      "div": "F1",
+      "market": "1",
+      "label": "Victoire RC Lens",
+      "odds": 2.2,
+      "src": "unibet",
+      "p": 0.415,
+      "ev": -0.087
+     },
+     {
+      "match_id": "54fae64b1421d836e07a17cad0536c73",
+      "league": "Ligue 1",
+      "kickoff": "2026-11-08T16:15:00Z",
+      "home": "Angers",
+      "away": "Nice",
+      "fd_home": "Angers",
+      "fd_away": "Nice",
+      "div": "F1",
+      "market": "-2.5",
+      "label": "Moins de 2,5 buts",
+      "odds": 1.94,
+      "src": "pmu",
+      "p": 0.4607,
+      "ev": -0.1062
+     }
+    ],
+    "odds": 4.27,
+    "p": 0.1912,
+    "cost": 0.184,
+    "stars": 1,
+    "stake": 1,
+    "status": "en attente",
+    "alt": true
+   }
   }
  },
  "kick_sent": {

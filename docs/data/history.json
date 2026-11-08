@@ -19,7 +19,9 @@
      "odds": 1.54,
      "src": "pmu",
      "p": 0.5828,
-     "ev": -0.1025
+     "ev": -0.1025,
+     "score": "2-0",
+     "won": true
     },
     {
      "match_id": "5ea6b7050b00fcc1832f7938794dd755",
@@ -220,7 +222,9 @@
      "odds": 1.54,
      "src": "pmu",
      "p": 0.5811,
-     "ev": -0.1051
+     "ev": -0.1051,
+     "score": "2-0",
+     "won": true
     },
     {
      "match_id": "79ed3df594d7b352ef027128b1ba5d0a",
@@ -246,9 +250,10 @@
    "cost": 0.1992,
    "stars": 2,
    "stake": 2,
-   "status": "en attente",
+   "status": "gagne",
    "proposed_at": "2026-11-07T15:31:00.329451+00:00",
-   "replaced": true
+   "replaced": true,
+   "settled_at": "2026-11-08T19:01:14.925991+00:00"
   },
   {
    "id": "2026-11-08|8963081c3457212ee238b498bbc33a03:-3.5|dd247b356d8fc53e4b4f9bfcfe09c924:2",
@@ -334,7 +339,9 @@
      "odds": 1.51,
      "src": "pmu",
      "p": 0.5909,
-     "ev": -0.1077
+     "ev": -0.1077,
+     "score": "2-0",
+     "won": true
     }
    ],
    "odds": 2.27,
@@ -461,7 +468,9 @@
      "odds": 1.54,
      "src": "pmu",
      "p": 0.5828,
-     "ev": -0.1025
+     "ev": -0.1025,
+     "score": "2-0",
+     "won": true
     }
    ],
    "odds": 19.72,
@@ -5624,5 +5633,5 @@
   "bilan_mise_suggeree": -25.32,
   "mise_suggeree_totale": 64
  },
- "updated": "2026-11-08T17:15:44.611114+00:00"
+ "updated": "2026-11-08T19:01:14.925991+00:00"
 }

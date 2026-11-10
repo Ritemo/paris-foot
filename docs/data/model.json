@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-09T15:31:08.542089+00:00",
+ "updated": "2026-11-10T06:31:03.049328+00:00",
  "params": {
   "w_model": 0.027,
   "w_prior": 0.2,
@@ -16,7 +16,7 @@
  },
  "counts": {
   "settled": 1991,
-  "last_year": 1754,
+  "last_year": 1731,
   "live": 65,
   "pending": 48,
   "backtest": 1926,
@@ -272,34 +272,46 @@
     "btts": 0.0,
     "hcp": 0.0
    }
+  },
+  {
+   "d": "2026-11-10",
+   "w": 0.027,
+   "off": {
+    "dom": 0.0,
+    "nul": 0.0,
+    "ext": 0.0,
+    "buts": 0.0,
+    "btts": 0.0,
+    "hcp": 0.0
+   }
   }
  ],
  "scores": {
-  "n": 1754,
+  "n": 1731,
   "robot": {
-   "brier": 0.5809,
-   "logloss": 0.977,
+   "brier": 0.5812,
+   "logloss": 0.9773,
    "acc": 0.537
   },
   "marche": {
-   "brier": 0.5807,
-   "logloss": 0.9765,
-   "acc": 0.539
+   "brier": 0.581,
+   "logloss": 0.9769,
+   "acc": 0.538
   },
   "modele": {
-   "brier": 0.5867,
+   "brier": 0.5868,
    "logloss": 0.9858,
-   "acc": 0.534
+   "acc": 0.533
   },
-  "n_modele": 1685,
+  "n_modele": 1662,
   "marche_sur_modele": {
-   "brier": 0.5775,
-   "logloss": 0.9717,
+   "brier": 0.5778,
+   "logloss": 0.9721,
    "acc": 0.542
   },
-  "gain_vs_marche": -0.0004,
-  "z_vs_marche": -1.82,
-  "z_modele_vs_marche": -3.97
+  "gain_vs_marche": -0.0003,
+  "z_vs_marche": -1.6,
+  "z_modele_vs_marche": -3.84
  },
  "calibration": [
   {
@@ -310,39 +322,39 @@
   },
   {
    "lo": 0.1,
-   "p": 0.159,
+   "p": 0.16,
    "f": 0.145,
-   "n": 675
+   "n": 668
   },
   {
    "lo": 0.2,
    "p": 0.254,
-   "f": 0.253,
-   "n": 2152
+   "f": 0.254,
+   "n": 2124
   },
   {
    "lo": 0.3,
    "p": 0.348,
    "f": 0.332,
-   "n": 937
+   "n": 917
   },
   {
    "lo": 0.4,
    "p": 0.452,
-   "f": 0.473,
-   "n": 1168
+   "f": 0.474,
+   "n": 1155
   },
   {
    "lo": 0.5,
    "p": 0.547,
-   "f": 0.551,
-   "n": 1114
+   "f": 0.55,
+   "n": 1100
   },
   {
    "lo": 0.6,
    "p": 0.642,
-   "f": 0.657,
-   "n": 592
+   "f": 0.656,
+   "n": 582
   },
   {
    "lo": 0.7,
@@ -361,64 +373,64 @@
   {
    "key": "dom",
    "name": "Victoire à domicile",
-   "n": 1754,
+   "n": 1731,
    "annonce": 0.436,
-   "reel": 0.437,
-   "z": 0.13,
+   "reel": 0.434,
+   "z": -0.15,
    "offset": 0.0
   },
   {
    "key": "nul",
    "name": "Match nul",
-   "n": 1754,
+   "n": 1731,
    "annonce": 0.245,
    "reel": 0.246,
-   "z": 0.1,
+   "z": 0.15,
    "offset": 0.0
   },
   {
    "key": "ext",
    "name": "Victoire à l'extérieur",
-   "n": 1754,
+   "n": 1731,
    "annonce": 0.319,
-   "reel": 0.317,
-   "z": -0.23,
+   "reel": 0.319,
+   "z": 0.02,
    "offset": 0.0
   },
   {
    "key": "buts",
    "name": "Nombre de buts",
-   "n": 1754,
+   "n": 1731,
    "annonce": 0.544,
-   "reel": 0.546,
+   "reel": 0.547,
    "z": 0.24,
    "offset": 0.0
   },
   {
    "key": "btts",
    "name": "Les deux équipes marquent",
-   "n": 1754,
+   "n": 1731,
    "annonce": 0.538,
-   "reel": 0.552,
-   "z": 1.23,
+   "reel": 0.554,
+   "z": 1.35,
    "offset": 0.0
   },
   {
    "key": "hcp",
    "name": "Victoire par 2 buts ou +",
-   "n": 1754,
+   "n": 1731,
    "annonce": 0.195,
-   "reel": 0.182,
-   "z": -1.42,
+   "reel": 0.181,
+   "z": -1.51,
    "offset": 0.0
   }
  ],
  "months": [
   {
    "m": "2025-11",
-   "n": 117,
-   "robot": 0.5553,
-   "marche": 0.554
+   "n": 94,
+   "robot": 0.5543,
+   "marche": 0.5534
   },
   {
    "m": "2025-12",
@@ -484,33 +496,33 @@
  "leagues": [
   {
    "name": "Serie A",
-   "n": 385,
-   "robot": 0.559,
-   "marche": 0.5587
+   "n": 380,
+   "robot": 0.5584,
+   "marche": 0.5582
   },
   {
    "name": "Liga",
-   "n": 384,
-   "robot": 0.5678,
-   "marche": 0.5674
+   "n": 379,
+   "robot": 0.5677,
+   "marche": 0.5673
   },
   {
    "name": "Premier League",
-   "n": 375,
-   "robot": 0.6179,
-   "marche": 0.618
+   "n": 370,
+   "robot": 0.6186,
+   "marche": 0.6188
   },
   {
    "name": "Bundesliga",
-   "n": 300,
-   "robot": 0.5722,
-   "marche": 0.5717
+   "n": 297,
+   "robot": 0.5749,
+   "marche": 0.5744
   },
   {
    "name": "Ligue 1",
-   "n": 293,
-   "robot": 0.5826,
-   "marche": 0.5824
+   "n": 288,
+   "robot": 0.5817,
+   "marche": 0.5816
   }
  ],
  "lessons": [

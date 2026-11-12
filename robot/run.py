@@ -208,6 +208,181 @@ def extract(e):
     return out
 
 
+# ---------------------------------------------------------------- NBA et tennis
+# Chances : cotes peu margees (DraftKings via ESPN pour la NBA, moyenne des bookmakers FR pour le tennis), marge retiree.
+# Cote Unibet : la vraie quand The Odds API la donne (vainqueur), sinon estimee avec la marge habituelle d'unibet.fr,
+# repartie comme le fait le bookmaker (davantage sur l'outsider : methode « puissance »).
+FR_OVERROUND = {"basket": 1.139, "tennis": 1.144}   # mesure du 12/11/2026 : 12,2 % et 12,6 % de marge Unibet
+OTHER_MAX_TOURNAMENTS = 2                           # tennis : 1 credit par tournoi et par releve
+
+
+def am2dec(a):
+    v = float(str(a).replace("+", ""))
+    return 1 + v / 100 if v > 0 else 1 + 100 / abs(v)
+
+
+def fair(odds_list):
+    inv = [1 / o for o in odds_list]
+    t = sum(inv)
+    return [x / t for x in inv]
+
+
+def fr_estimate(ps, overround):
+    """Cotes estimees : p_i^a dont la somme vaut la marge totale d'Unibet (a < 1 charge davantage l'outsider)."""
+    lo, hi = 0.3, 1.0
+    for _ in range(50):
+        mid = (lo + hi) / 2
+        if sum(p ** mid for p in ps) > overround:
+            lo = mid
+        else:
+            hi = mid
+    a = (lo + hi) / 2
+    return [float(round(1 / p ** a, 2)) for p in ps]
+
+
+def _sel(market, label, odds, src, p):
+    return dict(market=market, label=label, odds=float(odds), src=src, p=round(float(p), 4), ev=round(float(p) * float(odds) - 1, 4))
+
+
+def _lt(x):
+    return f"{x:g}".replace(".", ",")
+
+
+def nba_matches(horizon, unibet):
+    """Matchs NBA a venir avec cotes DraftKings (ESPN, gratuit). unibet : {(dom, ext): (cote dom, cote ext)}."""
+    out, seen = [], set()
+    for d in sorted({(NOW + timedelta(days=i)).strftime("%Y%m%d") for i in (0, 1)}):
+        try:
+            body, _h = http_get(f"https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates={d}")
+            evs = json.loads(body).get("events", [])
+        except Exception as e:
+            print("espn nba", d, e, file=sys.stderr)
+            continue
+        for e in evs:
+            try:
+                comp = e["competitions"][0]
+                k = datetime.fromisoformat(e["date"].replace("Z", "+00:00"))
+                if e["id"] in seen or not (NOW < k < horizon) or comp["status"]["type"]["state"] != "pre":
+                    continue
+                H = next(t for t in comp["competitors"] if t["homeAway"] == "home")["team"]
+                A = next(t for t in comp["competitors"] if t["homeAway"] == "away")["team"]
+                o = (comp.get("odds") or [{}])[0]
+                ml = o.get("moneyline", {})
+                pf = fair([am2dec(ml["home"]["close"]["odds"]), am2dec(ml["away"]["close"]["odds"])])
+            except Exception:
+                continue
+            seen.add(e["id"])
+            h, a = H["displayName"], A["displayName"]
+            hs, as_ = H.get("shortDisplayName") or h, A.get("shortDisplayName") or a
+            ub = unibet.get((h, a))
+            est = fr_estimate(pf, FR_OVERROUND["basket"])
+            sel = [_sel("1", f"Victoire {h}", ub[0] if ub else est[0], "unibet" if ub else "estimee", pf[0]),
+                   _sel("2", f"Victoire {a}", ub[1] if ub else est[1], "unibet" if ub else "estimee", pf[1])]
+            try:  # handicap principal
+                sp = o["pointSpread"]
+                lh, la = float(sp["home"]["close"]["line"]), float(sp["away"]["close"]["line"])
+                ps = fair([am2dec(sp["home"]["close"]["odds"]), am2dec(sp["away"]["close"]["odds"])])
+                es = fr_estimate(ps, FR_OVERROUND["basket"])
+                sel += [_sel(f"HC1:{lh:+g}", f"{hs} handicap {lh:+g}".replace(".", ","), es[0], "estimee", ps[0]),
+                        _sel(f"HC2:{la:+g}", f"{as_} handicap {la:+g}".replace(".", ","), es[1], "estimee", ps[1])]
+            except Exception:
+                pass
+            try:  # total de points principal
+                tt = o["total"]
+                ln = float(str(tt["over"]["close"]["line"]).lstrip("ou"))
+                pt = fair([am2dec(tt["over"]["close"]["odds"]), am2dec(tt["under"]["close"]["odds"])])
+                et = fr_estimate(pt, FR_OVERROUND["basket"])
+                sel += [_sel(f"+{ln:g}", f"Plus de {_lt(ln)} points", et[0], "estimee", pt[0]),
+                        _sel(f"-{ln:g}", f"Moins de {_lt(ln)} points", et[1], "estimee", pt[1])]
+            except Exception:
+                pass
+            sel = [x for x in sel if 0.03 < x["p"] < 0.97 and x["odds"] >= 1.04]
+            out.append(dict(id=f"nba-{e['id']}", sport="basket", league="NBA", div="NBA", kickoff=k.isoformat().replace("+00:00", "Z"),
+                            day=paris_day(k.isoformat()), home=h, away=a, fd_home=None, fd_away=None, sel=sel))
+    return out
+
+
+def nba_unibet():
+    """Vraie cote Unibet du vainqueur NBA (1 credit)."""
+    out = {}
+    try:
+        for e in odds_api("/sports/basketball_nba/odds", regions="fr", markets="h2h", oddsFormat="decimal", bookmakers="unibet_fr"):
+            for b in e.get("bookmakers", []):
+                o = {x["name"]: x["price"] for x in b["markets"][0]["outcomes"]}
+                if e["home_team"] in o and e["away_team"] in o:
+                    out[(e["home_team"], e["away_team"])] = (o[e["home_team"]], o[e["away_team"]])
+    except Exception as ex:
+        print("nba unibet", ex, file=sys.stderr)
+    return out
+
+
+def tennis_matches(horizon):
+    """Tournois ATP / WTA en cours : vainqueur du match (1 credit par tournoi)."""
+    try:
+        sports = odds_api("/sports")
+    except Exception as e:
+        print("sports", e, file=sys.stderr)
+        return []
+    keys = [x for x in sports if x["key"].startswith(("tennis_atp", "tennis_wta")) and x.get("active") and not x.get("has_outrights")
+            and "doubles" not in x["key"]]
+    picked = []
+    for x in keys:
+        try:
+            ev = odds_api(f"/sports/{x['key']}/events")   # gratuit
+        except Exception:
+            continue
+        n = sum(NOW.isoformat() < y["commence_time"] < horizon.isoformat() for y in ev)
+        if n:
+            picked.append((n, x))
+    out = []
+    for _n, x in sorted(picked, key=lambda t: -t[0])[:OTHER_MAX_TOURNAMENTS]:
+        if (credits["remaining"] or 0) < CREDIT_FLOOR_TOTALS:
+            break
+        try:
+            data = odds_api(f"/sports/{x['key']}/odds", regions="fr", markets="h2h", oddsFormat="decimal")
+        except Exception as e:
+            print("tennis", x["key"], e, file=sys.stderr)
+            continue
+        tour = "ATP" if x["key"].startswith("tennis_atp") else "WTA"
+        for e in data:
+            if not (NOW.isoformat() < e["commence_time"] < horizon.isoformat()):
+                continue
+            h, a = e["home_team"], e["away_team"]
+            prs, ub = [], None
+            for b in e.get("bookmakers", []):
+                o = {y["name"]: y["price"] for y in b["markets"][0]["outcomes"]}
+                if h in o and a in o:
+                    prs.append(fair([o[h], o[a]]))
+                    if b["key"] == "unibet_fr":
+                        ub = (o[h], o[a])
+            if not prs:
+                continue
+            pf = [sum(q[0] for q in prs) / len(prs), sum(q[1] for q in prs) / len(prs)]
+            est = fr_estimate(pf, FR_OVERROUND["tennis"])
+            sel = [_sel("1", f"Victoire {h}", ub[0] if ub else est[0], "unibet" if ub else "estimee", pf[0]),
+                   _sel("2", f"Victoire {a}", ub[1] if ub else est[1], "unibet" if ub else "estimee", pf[1])]
+            sel = [s_ for s_ in sel if 0.03 < s_["p"] < 0.97 and s_["odds"] >= 1.04]
+            out.append(dict(id=e["id"], sport="tennis", league=tour, event=x["title"], div=tour, kickoff=e["commence_time"],
+                            day=paris_day(e["commence_time"]), home=h, away=a, fd_home=None, fd_away=None, sel=sel))
+    return out
+
+
+def other_sports(prev_matches, horizon, paid):
+    """NBA et tennis. paid=False : on reprend les matchs du releve precedent (aucun credit)."""
+    if not paid or (credits["remaining"] or 0) < CREDIT_FLOOR_TOTALS:
+        return [m for m in prev_matches if m.get("sport") in ("basket", "tennis") and m["kickoff"] > NOW.isoformat()]
+    out = []
+    try:
+        out += nba_matches(horizon, nba_unibet())
+    except Exception as e:
+        print("nba", e, file=sys.stderr)
+    try:
+        out += tennis_matches(horizon)
+    except Exception as e:
+        print("tennis", e, file=sys.stderr)
+    return out
+
+
 # ---------------------------------------------------------------- selections et combines
 def build_matches(events, models):
     matches = []
@@ -320,7 +495,7 @@ def day_legs(day, matches):
             continue
         for s in m["sel"]:
             legs.append(dict(match_id=m["id"], league=m["league"], kickoff=m["kickoff"], home=m["home"], away=m["away"],
-                             fd_home=m["fd_home"], fd_away=m["fd_away"], div=m["div"], **s))
+                             fd_home=m["fd_home"], fd_away=m["fd_away"], div=m["div"], sport=m.get("sport", "foot"), **s))
     return legs
 
 
@@ -330,11 +505,13 @@ def candidates(day, matches):
     # cotes de 1,6 a 7 pour couvrir tous les styles de jeu, du petit gain sur au gros gain
     rules = [("x2", 2, 1.25, 2.60, (1.6, 5.5)), ("x3", 3, 1.20, 2.00, (1.9, 7.0))]
     cands = []
-    for kind, n, lo, hi, rng in rules:
-        pool = [l for l in legs if lo <= l["odds"] <= hi and l["p"] >= 0.36]
+    for (kind, n, lo, hi, rng), sport in [(r, sp) for r in rules for sp in sorted({l["sport"] for l in legs})]:
+        # un sport par ticket (le melange se fait sur demande, en composant soi-meme dans l'appli)
+        pool = [l for l in legs if l["sport"] == sport and lo <= l["odds"] <= hi and l["p"] >= 0.36]
         pool.sort(key=lambda l: -(l["ev"] - (0.03 if l["src"] == "estimee" else 0)))   # les selections les moins taxees
         for c in combinations(pool[:18], n):
-            if len({l["match_id"] for l in c}) < n or sum(l["src"] == "estimee" for l in c) > 1:
+            # foot : une seule cote estimee par ticket (estimee par notre modele) ; NBA et tennis : estimees depuis des cotes du marche
+            if len({l["match_id"] for l in c}) < n or (sport == "foot" and sum(l["src"] == "estimee" for l in c) > 1):
                 continue
             cb = make_combo(day, kind, list(c))
             if rng[0] <= cb["odds"] <= rng[1]:
@@ -375,7 +552,7 @@ def alts_for_day(day, matches, exclude):
 
 def folie_for_day(day, legs):
     """Pari 'folie' : grosse cote (15 a 40) pour le fun, en choisissant les selections les moins taxees."""
-    pool = [l for l in legs if 1.45 <= l["odds"] <= 4.5 and l["src"] != "estimee" and l["p"] >= 0.25]
+    pool = [l for l in legs if 1.45 <= l["odds"] <= 4.5 and l["src"] != "estimee" and l["p"] >= 0.25 and l.get("sport", "foot") == "foot"]
     pool.sort(key=lambda l: -l["ev"])
     pool = pool[:14]
     best = None
@@ -443,9 +620,10 @@ def update_logos(history, today_data):
     if not todo:
         return False
     teams = {}
-    for div in sorted({d for d in todo.values() if d in ESPN_LEAGUE}):
+    for div in sorted({d for d in todo.values() if d in ESPN_LEAGUE or d == "NBA"}):
         try:
-            body, _h = http_get(f"https://site.api.espn.com/apis/site/v2/sports/soccer/{ESPN_LEAGUE[div]}/teams")
+            path = "basketball/nba" if div == "NBA" else f"soccer/{ESPN_LEAGUE[div]}"
+            body, _h = http_get(f"https://site.api.espn.com/apis/site/v2/sports/{path}/teams")
             teams[div] = [x["team"] for x in json.loads(body)["sports"][0]["leagues"][0]["teams"]]
         except Exception as e:
             print("logos", div, e, file=sys.stderr)
@@ -462,6 +640,72 @@ def update_logos(history, today_data):
     return True
 
 
+ESPN_OTHER = {"NBA": "basketball/nba", "ATP": "tennis/atp", "WTA": "tennis/wta"}
+
+
+def _board(path, d, boards):
+    if (path, d) not in boards:
+        try:
+            body, _h = http_get(f"https://site.api.espn.com/apis/site/v2/sports/{path}/scoreboard?dates={d}")
+            boards[(path, d)] = json.loads(body).get("events", [])
+        except Exception as e:
+            print("espn", path, d, e, file=sys.stderr)
+            boards[(path, d)] = []
+    return boards[(path, d)]
+
+
+def _name_of(c):
+    return (c.get("athlete") or {}).get("displayName") or (c.get("team") or {}).get("displayName") or c.get("displayName") or ""
+
+
+def espn_other_score(l, boards):
+    """Score final NBA (points) ou tennis (sets gagnes) d'une selection, ou None si pas encore termine."""
+    path = ESPN_OTHER[l["div"]]
+    k = datetime.fromisoformat(l["kickoff"].replace("Z", "+00:00"))
+    days = sorted({(k + timedelta(days=i)).strftime("%Y%m%d") for i in (-1, 0, 1)})
+    comps = []
+    for d in days:
+        for e in _board(path, d, boards):
+            if path.startswith("tennis"):
+                for g in e.get("groupings", []):
+                    if "Singles" in (g.get("grouping") or {}).get("displayName", ""):
+                        comps += g.get("competitions", [])
+            else:
+                comps += e.get("competitions", [])[:1]
+    best, best_s = None, 0
+    for c in comps:
+        try:
+            ck = datetime.fromisoformat(c["date"].replace("Z", "+00:00"))
+        except Exception:
+            continue
+        if abs((ck - k).total_seconds()) > (36 * 3600 if path.startswith("tennis") else 3 * 3600):
+            continue
+        cs = c.get("competitors", [])
+        if len(cs) != 2:
+            continue
+        # chaque joueur ou equipe de la selection avec son adversaire ESPN, dans un sens ou dans l'autre
+        n0, n1 = _name_of(cs[0]), _name_of(cs[1])
+        direct = _team_score(l["home"], n0) + _team_score(l["away"], n1)
+        swap = _team_score(l["home"], n1) + _team_score(l["away"], n0)
+        sc = max(direct, swap)
+        if sc > best_s and min(_team_score(l["home"], n1 if swap > direct else n0), _team_score(l["away"], n0 if swap > direct else n1)) > 0:
+            best, best_s = (c, (cs[1], cs[0]) if swap > direct else (cs[0], cs[1])), sc
+    if not best:
+        return None
+    c, (H, A) = best
+    if not (c.get("status", {}).get("type", {}).get("completed") or c.get("status", {}).get("type", {}).get("state") == "post"):
+        return None
+    if path.startswith("tennis"):
+        h = sum(1 for x in H.get("linescores", []) if x.get("winner"))
+        a = sum(1 for x in A.get("linescores", []) if x.get("winner"))
+        if H.get("winner") and h <= a:   # abandon : le vainqueur designe compte
+            h = a + 1
+        if A.get("winner") and a <= h:
+            a = h + 1
+        return h, a
+    return int(float(H["score"])), int(float(A["score"]))
+
+
 def espn_scores(history):
     """Scores finaux ESPN pour les selections terminees encore sans resultat : {(match_id): (buts dom, buts ext)}."""
     pending = []
@@ -474,6 +718,15 @@ def espn_scores(history):
                 pending.append(l)
     boards, out = {}, {}
     for l in pending:
+        if l.get("div") in ESPN_OTHER:
+            try:
+                sc = espn_other_score(l, boards)
+            except Exception as e:
+                print("espn", l.get("div"), e, file=sys.stderr)
+                sc = None
+            if sc:
+                out[l["match_id"]] = sc
+            continue
         lg = ESPN_LEAGUE.get(l.get("div"))
         if not lg:
             continue
@@ -756,6 +1009,9 @@ def leg_result(l, hg, ag):
         return hg - ag >= 2
     if m == "H2":
         return ag - hg >= 2
+    if m.startswith(("HC1:", "HC2:")):   # handicap en points (NBA) : l'equipe gagne avec le handicap ajoute a son score
+        ln = float(m[4:])
+        return hg + ln > ag if m[2] == "1" else ag + ln > hg
     return None
 
 
@@ -802,8 +1058,9 @@ def fetch_api_scores(history, fd, espn=None):
         for l in c["legs"]:
             ended = l["kickoff"] <= (NOW - timedelta(hours=2, minutes=15)).isoformat()
             recent = l["kickoff"] >= (NOW - timedelta(days=3)).isoformat()
-            if "won" not in l and ended and recent and l["match_id"] not in (espn or {}) and find_score_fd(fd, l) is None:
-                need.add(next(k for k, v in LEAGUES.items() if v[0] == l["div"]))
+            sport = next((k for k, v in LEAGUES.items() if v[0] == l["div"]), None)   # foot seulement (NBA, tennis : ESPN)
+            if sport and "won" not in l and ended and recent and l["match_id"] not in (espn or {}) and find_score_fd(fd, l) is None:
+                need.add(sport)
     out = {}
     for sport in need:
         try:
@@ -950,7 +1207,7 @@ def odds_due(meta):
     return False
 
 
-RUN_COST = 12  # credits d'un passage avec cotes (environ 10 a 12)
+RUN_COST = 14  # credits d'un passage avec cotes (environ 10 a 12 pour le foot, plus 1 a 3 le matin pour NBA et tennis)
 
 
 def afternoon_affordable(meta, now_p):
@@ -1043,6 +1300,14 @@ def main():
     cache = {k: v for k, v in events.items() if v["commence_time"] > (NOW - timedelta(days=1)).isoformat()}
     matches = build_matches(events, models)
     record_predictions(store, matches)
+    now_p = NOW.astimezone(PARIS)
+    prev = load("today.json", {}).get("matches", [])
+    # NBA et tennis : un seul releve payant par jour (1 a 3 credits), les autres passages reprennent ces matchs
+    paid = meta.get("other_day") != today.isoformat()
+    matches += other_sports(prev, horizon, paid=paid)
+    if paid:
+        meta["other_day"] = today.isoformat()
+    matches.sort(key=lambda m: m["kickoff"])
 
     # 3. combines : provisoires jusqu'au premier passage du jour J, ensuite figes
     days = sorted({m["day"] for m in matches if m["day"] <= (today + timedelta(days=1)).isoformat()})

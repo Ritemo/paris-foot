@@ -34,7 +34,10 @@ function dayTitle(day) {
 const SRC = { unibet: "Unibet", pmu: "PMU, à vérifier", netbet: "NetBet, à vérifier", betclic: "Betclic, à vérifier",
   winamax: "Winamax, à vérifier", estimee: "estimée" };
 const LEAGUE_COLOR = { "Ligue 1": "#1a3a8f", "Premier League": "#3d195b", "Liga": "#e0301e", "Serie A": "#008fd7", "Bundesliga": "#d20515",
-  "Ligue des champions": "#0b1f6b", "Ligue Europa": "#f26722" };
+  "Ligue des champions": "#0b1f6b", "Ligue Europa": "#f26722", NBA: "#c9082a", ATP: "#1d6fb8", WTA: "#7b2d8e" };
+const SPORT_ICON = { basket: "🏀 ", tennis: "🎾 " };
+// nom court pour les boutons (« 76ers », « Sinner ») : le dernier mot
+const short = (n) => { const w = String(n).trim().split(/\s+/); return w.length > 1 ? w[w.length - 1] : n; };
 const KIT = ["#c8102e", "#0057b8", "#e3a400", "#00843d", "#6c1d45", "#26323a", "#e35205", "#0095c8", "#7a2582", "#b5121b", "#1f6f50", "#3949ab"];
 
 // logo du club (ESPN) si connu, sinon pastille aux initiales ; si l'image ne charge pas, on retombe sur les initiales
@@ -300,18 +303,22 @@ function renderMatchs() {
     const [a, b] = dayTitle(d);
     h += `<div class="day"><h2>${esc(a)}</h2><span>${esc(b)}</span></div>`;
     for (const lg of [...new Set(ms.filter((m) => m.day === d && (!lf || m.league === lf)).map((m) => m.league))]) {
-      h += `<div class="league" style="--lc:${LEAGUE_COLOR[lg] || "var(--pelouse-2)"}">${esc(lg)}</div>`;
+      const evs = [...new Set(ms.filter((x) => x.day === d && x.league === lg && x.event).map((x) => x.event))];
+      h += `<div class="league" style="--lc:${LEAGUE_COLOR[lg] || "var(--pelouse-2)"}">${SPORT_ICON[ms.find((x) => x.league === lg)?.sport] || ""}${esc(lg)}${evs.length ? ` · ${esc(evs.join(", "))}` : ""}</div>`;
       for (const m of ms.filter((x) => x.day === d && x.league === lg)) {
         const s = Object.fromEntries(m.sel.map((x) => [x.market, x]));
+        const sport = m.sport || "foot";
         const p1 = s["1"]?.p || 0, pN = s["N"]?.p || 0, p2 = s["2"]?.p || 0;
         const pb = (mk, txt) => (s[mk] ? pickBtn(m, s[mk], txt) : "");
         const lines = m.sel.filter((x) => /^[+-]\d/.test(x.market)).sort((a, b) => parseFloat(a.market.slice(1)) - parseFloat(b.market.slice(1)) || (a.market[0] === "+" ? -1 : 1));
         const hcp = m.sel.filter((x) => x.market === "H1" || x.market === "H2");
+        const hcpts = m.sel.filter((x) => x.market.startsWith("HC"));
         const extras = `
           ${s["1N"] || s["12"] || s["N2"] ? `<div class="mk-title">Double chance</div><div class="picks3">${pb("1N", "1N")}${pb("12", "12")}${pb("N2", "N2")}</div>` : ""}
           ${s.BTTS ? `<div class="mk-title">Les deux équipes marquent</div><div class="picks2">${pb("BTTS", `Oui, ${pct(s.BTTS.p)}`)}${pb("NBTTS", `Non, ${pct(s.NBTTS?.p || 0)}`)}</div>` : ""}
-          ${lines.length ? `<div class="mk-title">Nombre de buts</div><div class="picks2">${lines.map((x) => pickBtn(m, x, `${x.market[0] === "+" ? "Plus" : "Moins"} de ${x.market.slice(1).replace(".", ",")}, ${pct(x.p)}`)).join("")}</div>` : ""}
-          ${hcp.length ? `<div class="mk-title">Handicap</div>${hcp.map((x) => pickBtn(m, x, `${x.market === "H1" ? m.home : m.away} par 2 buts ou +, ${pct(x.p)}`)).join("")}` : ""}`;
+          ${lines.length ? `<div class="mk-title">${sport === "basket" ? "Total de points" : "Nombre de buts"}</div><div class="picks2">${lines.map((x) => pickBtn(m, x, `${x.market[0] === "+" ? "Plus" : "Moins"} de ${x.market.slice(1).replace(".", ",")}, ${pct(x.p)}`)).join("")}</div>` : ""}
+          ${hcp.length ? `<div class="mk-title">Handicap</div>${hcp.map((x) => pickBtn(m, x, `${x.market === "H1" ? m.home : m.away} par 2 buts ou +, ${pct(x.p)}`)).join("")}` : ""}
+          ${hcpts.length ? `<div class="mk-title">Handicap en points</div><div class="picks2">${hcpts.map((x) => pickBtn(m, x, `${x.label.replace(" handicap", "")}, ${pct(x.p)}`)).join("")}</div>` : ""}`;
         const started = new Date(m.kickoff) <= new Date();
         const nExtra = m.sel.filter((x) => !["1", "N", "2"].includes(x.market)).length;
         const isOpen = open[m.id] || (dr[m.id] && !["1", "N", "2"].includes(dr[m.id]));
@@ -321,10 +328,10 @@ function renderMatchs() {
             <div class="kick">${hour(m.kickoff)}<small>${esc(new Date(m.kickoff).toLocaleDateString("fr-FR", { weekday: "short", day: "numeric", month: "short", timeZone: "Europe/Paris" }))}</small></div>
             <div class="team away">${crest(m.away, "")}<span>${esc(m.away)}</span></div>
           </div>
-          <div class="tri" role="img" aria-label="Victoire ${esc(m.home)} ${pct(p1)}, nul ${pct(pN)}, victoire ${esc(m.away)} ${pct(p2)}">
-            <div class="h" style="flex:${p1}">${pct(p1)}</div><div class="n" style="flex:${pN}">${pct(pN)}</div><div class="a" style="flex:${p2}">${pct(p2)}</div>
+          <div class="tri" role="img" aria-label="Victoire ${esc(m.home)} ${pct(p1)}${s.N ? `, nul ${pct(pN)}` : ""}, victoire ${esc(m.away)} ${pct(p2)}">
+            <div class="h" style="flex:${p1}">${pct(p1)}</div>${s.N ? `<div class="n" style="flex:${pN}">${pct(pN)}</div>` : ""}<div class="a" style="flex:${p2}">${pct(p2)}</div>
           </div>
-          ${started ? `<p class="hint">Match commencé.</p>` : `<div class="picks3">${s["1"] ? pickBtn(m, s["1"], "1") : ""}${s["N"] ? pickBtn(m, s["N"], "Nul") : ""}${s["2"] ? pickBtn(m, s["2"], "2") : ""}</div>
+          ${started ? `<p class="hint">Match commencé.</p>` : `<div class="${s.N ? "picks3" : "picks2"}">${s["1"] ? pickBtn(m, s["1"], s.N ? "1" : short(m.home)) : ""}${s["N"] ? pickBtn(m, s["N"], "Nul") : ""}${s["2"] ? pickBtn(m, s["2"], s.N ? "2" : short(m.away)) : ""}</div>
           ${nExtra ? `<button class="more" data-more="${esc(m.id)}" aria-expanded="${!!isOpen}"><span>Plus de paris</span><small>${nExtra}</small><i aria-hidden="true"></i></button>` : ""}
           <div class="extras">${extras}</div>`}
         </div>`;
@@ -332,7 +339,7 @@ function renderMatchs() {
     }
   }
   el.innerHTML = `<p class="hint" style="margin:16px 4px 0">Touche les cotes pour composer ton propre combiné.</p>` + h
-    + `<p class="hint" style="margin:6px 4px 20px">Cotes Unibet pour la victoire et le nul, PMU pour les buts, * = estimée.</p>`;
+    + `<p class="hint" style="margin:6px 4px 20px">Foot : cotes Unibet pour la victoire et le nul, PMU pour les buts. NBA et tennis : cote Unibet du vainqueur quand elle est connue, sinon estimée à partir des cotes du marché. * = estimée : vérifie-la sur Unibet en jouant.</p>`;
 }
 
 /* --------------------------------------------------------------- bilan */
@@ -448,8 +455,8 @@ function myCharts(done) {
 
 /* réussite par type de sélection, sur une liste de tickets */
 function marketStats(combos, note) {
-  const cats = { "Victoire": (m) => m === "1" || m === "2", "Match nul": (m) => m === "N", "Plus de buts": (m) => m[0] === "+",
-    "Moins de buts": (m) => m[0] === "-", "Handicap": (m) => m[0] === "H" };
+  const cats = { "Victoire": (m) => m === "1" || m === "2", "Match nul": (m) => m === "N", "Plus de buts ou points": (m) => m[0] === "+",
+    "Moins de buts ou points": (m) => m[0] === "-", "Handicap": (m) => m[0] === "H" };
   const acc = {};
   for (const c of combos) {
     for (const l of c.legs) {

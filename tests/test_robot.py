@@ -319,5 +319,62 @@ class TestBackup(unittest.TestCase):
             run.http_get, run.DATA = old_get, old_data
         self.assertEqual([(s["id"], s["blob"]) for s in saves], [("aa", "1.ABCD==")])
 
+
+class TestAutresSports(unittest.TestCase):
+    def test_cote_estimee_charge_l_outsider(self):
+        est = run.fr_estimate([0.788, 0.212], 1.139)
+        self.assertAlmostEqual(sum(1 / x for x in est), 1.139, delta=0.01)
+        self.assertLess(est[0], 1 / 0.788)               # favori un peu moins paye
+        self.assertLess(est[1] / (1 / 0.212), est[0] / (1 / 0.788))   # outsider bien plus taxe (comme unibet.fr)
+
+    def test_handicap_points(self):
+        self.assertTrue(run.leg_result({"market": "HC1:-7.5"}, 110, 100))
+        self.assertFalse(run.leg_result({"market": "HC1:-7.5"}, 105, 100))
+        self.assertTrue(run.leg_result({"market": "HC2:+7.5"}, 105, 100))
+        self.assertTrue(run.leg_result({"market": "+220.5"}, 112, 110))
+
+    def test_nba_depuis_espn(self):
+        k = (run.NOW + timedelta(hours=5)).strftime("%Y-%m-%dT%H:%MZ")
+        ev = {"events": [{"id": "1", "date": k, "competitions": [{"status": {"type": {"state": "pre"}}, "competitors": [
+            {"homeAway": "home", "team": {"displayName": "Philadelphia 76ers", "shortDisplayName": "76ers"}},
+            {"homeAway": "away", "team": {"displayName": "Toronto Raptors", "shortDisplayName": "Raptors"}}],
+            "odds": [{"moneyline": {"home": {"close": {"odds": "-270"}}, "away": {"close": {"odds": "+221"}}},
+                      "pointSpread": {"home": {"close": {"line": "-7.5", "odds": "-103"}}, "away": {"close": {"line": "+7.5", "odds": "-118"}}},
+                      "total": {"over": {"close": {"line": "o223.5", "odds": "-112"}}, "under": {"close": {"line": "u223.5", "odds": "-108"}}}}]}]}]}
+        old = run.http_get
+        run.http_get = lambda url, **kw: (json.dumps(ev).encode(), {})
+        try:
+            ms = run.nba_matches(run.NOW + timedelta(days=2), {("Philadelphia 76ers", "Toronto Raptors"): (1.34, 2.85)})
+        finally:
+            run.http_get = old
+        self.assertEqual(len(ms), 1)
+        sel = {s["market"]: s for s in ms[0]["sel"]}
+        self.assertEqual((sel["1"]["odds"], sel["1"]["src"]), (1.34, "unibet"))
+        self.assertIn("HC1:-7.5", sel)
+        self.assertIn("+223.5", sel)
+        self.assertEqual(sel["HC1:-7.5"]["src"], "estimee")
+        self.assertEqual(ms[0]["sport"], "basket")
+
+    def test_tennis_resultat_espn(self):
+        k = "2026-11-11T10:00Z"
+        comp = {"date": k, "status": {"type": {"completed": True, "state": "post"}}, "competitors": [
+            {"athlete": {"displayName": "Ugo Humbert"}, "winner": False, "linescores": [{"winner": True}, {"winner": False}, {"winner": False}]},
+            {"athlete": {"displayName": "Lorenzo Musetti"}, "winner": True, "linescores": [{"winner": False}, {"winner": True}, {"winner": True}]}]}
+        boards = {("tennis/atp", d): [{"groupings": [{"grouping": {"displayName": "Men's Singles"}, "competitions": [comp]}]}] for d in ("20261110", "20261111", "20261112")}
+        l = {"div": "ATP", "kickoff": "2026-11-11T09:30:00Z", "home": "Lorenzo Musetti", "away": "Ugo Humbert", "market": "1"}
+        self.assertEqual(run.espn_other_score(l, boards), (2, 1))
+
+    def test_un_sport_par_ticket(self):
+        k = (run.NOW + timedelta(hours=5)).isoformat()
+        day = run.paris_day(k)
+        def m(i, sport, odds):
+            return {"id": f"m{i}", "sport": sport, "league": sport, "div": sport, "kickoff": k, "day": day, "home": f"H{i}", "away": f"A{i}",
+                    "fd_home": None, "fd_away": None, "sel": [{"market": "1", "label": "x", "odds": odds, "src": "unibet", "p": 0.97 / odds, "ev": -0.03}]}
+        ms = [m(1, "foot", 1.5), m(2, "foot", 1.6), m(3, "basket", 1.5), m(4, "basket", 1.55), m(5, "tennis", 1.45)]
+        cands, _ = run.candidates(day, ms)
+        self.assertTrue(cands)
+        for c in cands:
+            self.assertEqual(len({l["sport"] for l in c["legs"]}), 1)
+
 if __name__ == "__main__":
     unittest.main(verbosity=1)

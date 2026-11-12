@@ -11,7 +11,7 @@ function draftLegs() {
     const s = m && m.sel.find((x) => x.market === mk);
     if (!m || !s || new Date(m.kickoff) <= new Date()) continue;   // match commencé : sélection retirée
     out.push({ match_id: m.id, league: m.league, kickoff: m.kickoff, home: m.home, away: m.away, fd_home: m.fd_home, fd_away: m.fd_away,
-      div: m.div, market: s.market, label: s.market.startsWith("H") ? `${s.market === "H1" ? m.home : m.away} gagne par 2 buts ou +` : s.label,
+      div: m.div, sport: m.sport || "foot", market: s.market, label: s.market.startsWith("H") ? `${s.market === "H1" ? m.home : m.away} gagne par 2 buts ou +` : s.label,
       odds: s.odds, src: s.src, p: s.p, ev: s.ev });
   }
   return out.sort((a, b) => a.kickoff.localeCompare(b.kickoff));

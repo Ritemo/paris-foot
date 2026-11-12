@@ -37,10 +37,22 @@ def match(i, k, home, away):
                      sel("+1.5", "Plus de 1,5 buts", 1.25, 0.76, "estimee"), sel("-1.5", "Moins de 1,5 buts", 3.6, 0.24, "estimee")])
 
 
+def nba(i, k, home, away):
+    return dict(id=f"nba-{i}", sport="basket", league="NBA", div="NBA", kickoff=iso(k), day=day(k), home=home, away=away, fd_home=None, fd_away=None,
+                sel=[sel("1", f"Victoire {home}", 1.34, 0.70), sel("2", f"Victoire {away}", 2.85, 0.30),
+                     sel("HC1:-7.5", "76ers handicap -7,5", 1.80, 0.50, "estimee"), sel("HC2:+7.5", "Raptors handicap +7,5", 1.75, 0.50, "estimee"),
+                     sel("+220.5", "Plus de 220,5 points", 1.78, 0.51, "estimee"), sel("-220.5", "Moins de 220,5 points", 1.76, 0.49, "estimee")])
+
+
+def tennis(i, k, home, away):
+    return dict(id=f"ten-{i}", sport="tennis", league="ATP", event="Stockholm Open", div="ATP", kickoff=iso(k), day=day(k), home=home, away=away,
+                fd_home=None, fd_away=None, sel=[sel("1", f"Victoire {home}", 1.62, 0.56), sel("2", f"Victoire {away}", 2.20, 0.44, "estimee")])
+
+
 def leg_of(m, mk):
     s = next(x for x in m["sel"] if x["market"] == mk)
     return dict(match_id=m["id"], league=m["league"], kickoff=m["kickoff"], home=m["home"], away=m["away"], fd_home=None, fd_away=None,
-                div="F1", **s)
+                div=m["div"], sport=m.get("sport", "foot"), **s)
 
 
 def combo(cid, kind, legs, stars=2, status="en attente", d=None):
@@ -73,7 +85,11 @@ def fixtures():
     hist = {"combos": [futur, passe, folie] + old, "bilan": {"n": 4, "gagnes": 2, "reussite_reelle": 0.5, "reussite_annoncee": 0.3,
                                                               "bilan_2eur": 1.0, "mise_2eur": 8, "bilan_mise_suggeree": 1.0, "mise_suggeree_totale": 8}}
     alt = dict(combo("c-alt", "x2", [leg_of(m1, "+2.5"), leg_of(m2, "1")]), alt=True)
-    today = {"generated_at": iso(NOW), "credits_remaining": 400, "combos": [futur, passe, folie], "alts": [alt], "matches": [m1, m2, m3, m4, m5, m6]}
+    m7 = nba(7, NOW - timedelta(minutes=40), "Philadelphia 76ers", "Toronto Raptors")   # en cours
+    m8 = nba(8, NOW + timedelta(hours=6), "Boston Celtics", "Miami Heat")
+    m9 = tennis(9, NOW + timedelta(hours=2, minutes=30), "Lorenzo Musetti", "Ugo Humbert")
+    today = {"generated_at": iso(NOW), "credits_remaining": 400, "combos": [futur, passe, folie], "alts": [alt],
+             "matches": [m1, m2, m3, m4, m5, m6, m7, m8, m9]}
     espn = {"events": [
         {"date": m3["kickoff"], "status": {"type": {"state": "post", "shortDetail": "FT"}},
          "competitions": [{"competitors": [{"homeAway": "home", "score": "2", "team": {"displayName": "Stade Rennais"}},
@@ -81,6 +97,11 @@ def fixtures():
         {"date": m4["kickoff"], "status": {"type": {"state": "post", "shortDetail": "FT"}},
          "competitions": [{"competitors": [{"homeAway": "home", "score": "1", "team": {"displayName": "Brest"}},
                                            {"homeAway": "away", "score": "0", "team": {"displayName": "Metz"}}]}]}]}
+    espn_nba = {"events": [{"date": m7["kickoff"], "status": {"type": {"state": "in", "shortDetail": "Q3 5:12"}},
+        "competitions": [{"competitors": [{"homeAway": "home", "score": "88", "team": {"displayName": "Philadelphia 76ers"}},
+                                          {"homeAway": "away", "score": "80", "team": {"displayName": "Toronto Raptors"}}]}]}]}
+    espn["nba"] = espn_nba
+    espn["m7"] = m7
     return today, hist, {"credits_remaining": 400}, espn, passe
 
 
@@ -132,7 +153,8 @@ async def main():
                 c = "#e13327" if "169" in u else "#fcd405"
                 return await r.fulfill(body=f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><path d="M1 1h8v5l-4 3-4-3z" fill="{c}"/></svg>', content_type="image/svg+xml")
             if "site.api.espn.com" in u:
-                return await r.fulfill(json=espn if "fra.1" in u else {"events": []}, headers={"access-control-allow-origin": "*"})
+                body = espn if "fra.1" in u else espn["nba"] if "basketball/nba" in u else {"events": []}
+                return await r.fulfill(json={"events": body["events"]}, headers={"access-control-allow-origin": "*"})
             if "/data/backup.json" in u:   # le robot range les morceaux reçus
                 groups = {}
                 for x in bk_posts:
@@ -303,6 +325,31 @@ async def main():
         pg.once("dialog", lambda d: asyncio.ensure_future(d.accept(code.lower().replace("-", " "))))
         await pg.evaluate("restoreFromCloud()"); await pg.wait_for_timeout(500)
         check(await pg.evaluate("Object.keys(bets()).length") == n_bets and await pg.evaluate("backupCode()") == code, f"récupération de tous les paris avec le code ({n_bets})")
+        print("NBA et tennis")
+        await pg.click('.tabs button[data-tab="matchs"]')
+        chips = await pg.locator("#tab-matchs .chip").all_inner_texts()
+        check(any("NBA" in c for c in chips) and any("ATP" in c for c in chips), "filtres NBA et tennis dans Matchs")
+        check("Stockholm Open" in await pg.inner_text("#tab-matchs"), "nom du tournoi de tennis affiché")
+        await pg.click('[data-more="nba-8"]')
+        check("Handicap en points" in await pg.inner_text("#tab-matchs") and "Total de points" in await pg.inner_text("#tab-matchs"), "marchés NBA : handicap et total de points")
+        await pg.evaluate("LS.set('pf_draft', {}); renderAll()")
+        await pg.click('[data-pick="nba-8"][data-market="1"]')
+        await pg.click('[data-pick="ten-9"][data-market="1"]')
+        await pg.click('[data-pick="m5"][data-market="1"]')
+        check("3 sélections" in await pg.inner_text("#composer"), "combiné mélangeant foot, NBA et tennis sur demande")
+        await pg.evaluate("LS.set('pf_draft', {}); renderAll()")
+        m7 = espn["m7"]
+        await pg.evaluate("""(m) => { const l = { match_id: m.id, league: m.league, kickoff: m.kickoff, home: m.home, away: m.away, div: m.div, sport: m.sport,
+            market: '+220.5', label: 'Plus de 220,5 points', odds: 1.78, src: 'estimee', p: 0.51, ev: -0.09 };
+            const c = { id: 'perso|nba', day: m.day, kind: 'perso', legs: [l], odds: 1.78, p: 0.51, cost: 0.09, stars: 0, stake: 1, status: 'en attente' };
+            const b = bets(); b[c.id] = { mise: 1, odds: 1.78, date: 'x', ts: Date.now(), snap: c }; LS.set('pf_bets', b); }""", m7)
+        await pg.evaluate("refreshLive()"); await pg.wait_for_timeout(500)
+        await pg.click('.tabs button[data-tab="encours"]')
+        txt = await pg.inner_text("#tab-encours")
+        check("88 - 80" in txt and "points" in txt, "suivi en direct d'un match NBA, en points")
+        check(await pg.locator('#tab-encours .live[data-score]').count() == 0 or "88-80" not in await pg.evaluate("[...document.querySelectorAll('.live[data-score]')].map(x => x.dataset.score).join()"),
+              "pas de flash « BUT ! » au basket")
+        await pg.evaluate("const b = bets(); delete b['perso|nba']; LS.set('pf_bets', b); renderAll()")
         print("Animations")
         await pg.evaluate("window.__noCelebrate = false; LS.set('pf_celebrated', [])")
         await pg.evaluate("document.querySelectorAll('.celebrate').forEach(e => e.remove()); renderAll()")

@@ -34,6 +34,15 @@ Comme pour l'appli hand : coller l'adresse de l'appli sur pwabuilder.com, puis *
 - Résultats : football-data.co.uk en priorité, sinon l'API (2 crédits) si assez de crédits restent.
 - Tes paris joués, tes cotes corrigées et ton budget sont enregistrés sur ton téléphone.
 
+### NBA et tennis
+
+- **NBA** : chances calculées à partir des cotes DraftKings publiées par ESPN (gratuit, marge retirée). Cote Unibet du vainqueur : la vraie (The Odds API, 1 crédit par jour). Handicap et total de points : cote Unibet **estimée** (marge habituelle d'unibet.fr, environ 12 %, répartie davantage sur l'outsider comme le fait le bookmaker).
+- **Tennis** : tournois ATP et WTA en cours (2 au maximum), vainqueur du match via The Odds API (1 crédit par tournoi et par jour). Vraie cote Unibet quand elle existe, sinon estimée.
+- Un seul relevé payant par jour pour ces sports ; les autres passages reprennent les mêmes matchs. Résultats et direct : ESPN.
+- Les tickets proposés par le robot ne mélangent pas les sports ; tu peux les mélanger toi-même en composant ton combiné dans l'onglet Matchs.
+- Les cotes estimées (*) sont à vérifier sur Unibet : l'appli te les demande quand tu joues.
+- Pas de récupération directe chez Unibet (conditions d'utilisation).
+
 ## Amélioration continue (onglet Modèle)
 
 - Chaque match des championnats suivis est noté dans `docs/data/learning.json` avec trois jeux de probabilités : modèle maison seul, bookmakers, et ce que le robot a annoncé.
@@ -93,6 +102,6 @@ Notifications d'échec des tests : sujet ntfy `combines-foot-ritemo-7k3q9x`.
 
 ## Limites gratuites
 
-- **The Odds API** : quota mensuel de l'offre gratuite. Le robot passe en mode économe sous 40 crédits et s'arrête sous 12.
+- **The Odds API** : 500 crédits par mois (offre gratuite). Le robot passe en mode économe sous 40 crédits et s'arrête sous 12. Le relevé de 16h30 est sauté s'il menace celui de 7h30 des jours suivants. Mesure des marges par sport à la demande : atelier « Marges par sport » dans *Actions* (1 crédit par compétition).
 - **GitHub Actions** : illimité pour un dépôt public.
 - **GitHub** désactive les tâches programmées d'un dépôt sans activité pendant 60 jours ; les commits du robot gardent le dépôt actif tant qu'il y a des matchs. Après une longue pause, réactiver le robot dans *Actions*.

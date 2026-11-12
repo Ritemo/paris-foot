@@ -1,6 +1,12 @@
 /* Suivi en direct des tickets joués : scores ESPN (gratuit, sans clé), actualisés chaque minute pendant les matchs. */
 const ESPN_LEAGUE = { "Ligue 1": "fra.1", "Premier League": "eng.1", "Liga": "esp.1", "Serie A": "ita.1", "Bundesliga": "ger.1",
   "Ligue des champions": "uefa.champions", "Ligue Europa": "uefa.europa" };
+// NBA et tennis : tableaux ESPN par sport
+const ESPN_OTHER = { NBA: "basketball/nba", ATP: "tennis/atp", WTA: "tennis/wta" };
+const sportOf = (l) => l.sport || (l.div === "NBA" ? "basket" : l.div === "ATP" || l.div === "WTA" ? "tennis" : "foot");
+const UNIT = { foot: ["but", "buts"], basket: ["point", "points"], tennis: ["set", "sets"] };
+const unit = (l, n) => UNIT[sportOf(l)][n > 1 ? 1 : 0];
+const espnPath = (l) => ESPN_OTHER[l.div] || (ESPN_LEAGUE[l.league] ? `soccer/${ESPN_LEAGUE[l.league]}` : null);
 let LIVE = {};            // match_id -> { h, a, state: "pre" | "in" | "post", clock }
 let liveUpdated = null;   // date de la dernière mise à jour réussie
 let liveError = false;
@@ -34,36 +40,54 @@ function liveWindow(legs) {
   const now = Date.now();
   return legs.some((l) => {
     const k = new Date(l.kickoff).getTime();
-    return (now > k - 15 * 6e4 && now < k + 150 * 6e4) || (l.played && now > k + 105 * 6e4 && now < k + 4 * 864e5);
+    const dur = { foot: 150, basket: 190, tennis: 300 }[sportOf(l)];
+    return (now > k - 15 * 6e4 && now < k + dur * 6e4) || (l.played && now > k + 105 * 6e4 && now < k + 4 * 864e5);
   });
 }
 
 async function refreshLive() {
   const legs = liveLegs();
   if (!legs.length) return;
-  const wanted = new Set(legs.map((l) => `${ESPN_LEAGUE[l.league]}|${ymd(l.kickoff)}`).filter((k) => !k.startsWith("undefined")));
+  const wanted = new Set();
+  for (const l of legs) {
+    const p = espnPath(l);
+    if (!p) continue;
+    wanted.add(`${p}|${ymd(l.kickoff)}`);
+    if (sportOf(l) === "basket") wanted.add(`${p}|${ymd(new Date(new Date(l.kickoff).getTime() - 12 * 36e5).toISOString())}`);   // date américaine
+  }
   try {
     const boards = await Promise.all([...wanted].map(async (k) => {
-      const [lg, d] = k.split("|");
-      const r = await fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/${lg}/scoreboard?dates=${d}`, { cache: "no-store" });
+      const [p, d] = k.split("|");
+      const r = await fetch(`https://site.api.espn.com/apis/site/v2/sports/${p}/scoreboard?dates=${d}`, { cache: "no-store" });
       if (!r.ok) throw new Error(r.status);
-      return (await r.json()).events || [];
+      // une « compétition » = un match : foot et NBA, la première de chaque événement ; tennis, tous les simples du tournoi
+      return ((await r.json()).events || []).flatMap((e) => p.startsWith("tennis")
+        ? (e.groupings || []).filter((g) => /Singles/.test(g.grouping?.displayName || "")).flatMap((g) => (g.competitions || []).map((c) => ({ c, path: p })))
+        : (e.competitions || []).slice(0, 1).map((c) => ({ c, path: p, date: e.date, status: e.status })));
     }));
-    const events = boards.flat();
+    const comps = boards.flat();
+    const nameOf = (t) => t.athlete?.displayName || t.team?.displayName || t.displayName || "";
     for (const l of legs) {
-      const k = new Date(l.kickoff).getTime();
-      let best = null, bestScore = -1;
-      for (const e of events) {
-        if (Math.abs(new Date(e.date).getTime() - k) > 20 * 6e4) continue;
-        const comp = e.competitions?.[0]?.competitors || [];
-        const H = comp.find((t) => t.homeAway === "home"), A = comp.find((t) => t.homeAway === "away");
+      const k = new Date(l.kickoff).getTime(), p = espnPath(l), tennis = sportOf(l) === "tennis";
+      let best = null, bestScore = 0;
+      for (const x of comps) {
+        if (x.path !== p || Math.abs(new Date(x.c.date || x.date).getTime() - k) > (tennis ? 8 * 36e5 : 20 * 6e4)) continue;
+        const cs = x.c.competitors || [];
+        let H = cs.find((t) => t.homeAway === "home"), A = cs.find((t) => t.homeAway === "away");
+        if (tennis || !H || !A) {   // tennis : pas de domicile, on cherche chaque joueur
+          [H, A] = teamScore(l.home, nameOf(cs[0] || {})) >= teamScore(l.home, nameOf(cs[1] || {})) ? [cs[0], cs[1]] : [cs[1], cs[0]];
+        }
         if (!H || !A) continue;
-        const sc = teamScore(l.home, H.team.displayName) + teamScore(l.away, A.team.displayName);
-        if (sc > bestScore) { best = { e, H, A }; bestScore = sc; }
+        const sc = Math.min(teamScore(l.home, nameOf(H)), teamScore(l.away, nameOf(A))) > 0 ? teamScore(l.home, nameOf(H)) + teamScore(l.away, nameOf(A)) : 0;
+        if (sc > bestScore) { best = { x, H, A }; bestScore = sc; }
       }
-      if (best && bestScore > 0) {
-        const st = best.e.status?.type || {};
-        LIVE[l.match_id] = { h: +best.H.score || 0, a: +best.A.score || 0, state: st.state, clock: st.shortDetail || "" };
+      if (best) {
+        const st = best.x.c.status?.type || best.x.status?.type || {};
+        const sets = (t) => (t.linescores || []).filter((s) => s.winner).length;
+        let h = tennis ? sets(best.H) : +best.H.score || 0, a = tennis ? sets(best.A) : +best.A.score || 0;
+        if (tennis && st.state === "post") { if (best.H.winner && h <= a) h = a + 1; if (best.A.winner && a <= h) a = h + 1; }
+        const games = tennis ? (best.H.linescores || []).map((s, i) => `${s.value ?? 0}-${best.A.linescores?.[i]?.value ?? 0}`).join(" ") : "";
+        LIVE[l.match_id] = { h, a, state: st.state, clock: tennis && games ? games : st.shortDetail || "" };
       }
     }
     liveUpdated = new Date(); liveError = false;
@@ -118,7 +142,7 @@ function liveAlerts() {
       if (!s || s.state === "pre") continue;
       const x = legLive(l);
       const sk = `s|${l.match_id}`, now = `${s.h}-${s.a}`;
-      if (seen[sk] && seen[sk] !== now) fire(`but|${l.match_id}|${now}`, `But ! ${l.home} ${now} ${l.away}`, `${l.label} : ${x.note} (${s.clock})`);
+      if (sportOf(l) === "foot" && seen[sk] && seen[sk] !== now) fire(`but|${l.match_id}|${now}`, `But ! ${l.home} ${now} ${l.away}`, `${l.label} : ${x.note} (${s.clock})`);
       seen[sk] = now;
     }
     const t = ticketLive(c);
@@ -151,16 +175,20 @@ function legLive(l) {
     state = end ? (ok ? "ok" : "ko") : ok ? "on" : "risk";
     const gap = m === "1" ? a - h + 1 : m === "2" ? h - a + 1 : Math.abs(h - a);
     const who = m === "1" ? l.home : m === "2" ? l.away : "l'équipe menée";
-    note = ok ? (end ? "gagné" : "ça passe pour l'instant") : end ? "perdu" : `il faut ${gap} but${gap > 1 ? "s" : ""} de ${who}`;
+    note = ok ? (end ? "gagné" : "ça passe pour l'instant") : end ? "perdu" : `il faut ${gap} ${unit(l, gap)} de ${who}`;
+  } else if (m.startsWith("HC1:") || m.startsWith("HC2:")) {   // handicap en points (NBA)
+    const line = parseFloat(m.slice(4)), d = (m[2] === "1" ? h - a : a - h) + line;
+    state = end ? (d > 0 ? "ok" : "ko") : d > 0 ? "on" : "risk";
+    note = d > 0 ? (end ? "gagné" : `${Math.floor(d) + 1} points de marge`) : end ? "perdu" : `il manque ${Math.ceil(-d)} points`;
   } else if (m[0] === "+" || m[0] === "-") {
     const line = parseFloat(m.slice(1)), need = Math.floor(line) + 1 - tot;
     if (m[0] === "+") {
       state = tot > line ? "ok" : end ? "ko" : "risk";
-      note = tot > line ? "gagné" : end ? "perdu" : `encore ${need} but${need > 1 ? "s" : ""}`;
+      note = tot > line ? "gagné" : end ? "perdu" : `encore ${need} ${unit(l, need)}`;
     } else {
       const margin = Math.floor(line) - tot;
       state = tot > line ? "ko" : end ? "ok" : margin === 0 ? "risk" : "on";
-      note = tot > line ? "perdu" : end ? "gagné" : margin === 0 ? "plus un seul but" : `encore ${margin} but${margin > 1 ? "s" : ""} de marge`;
+      note = tot > line ? "perdu" : end ? "gagné" : margin === 0 ? `plus un seul ${unit(l, 1)}` : `encore ${margin} ${unit(l, margin)} de marge`;
     }
   } else if (m === "1N" || m === "N2" || m === "12") {
     const ok = m === "1N" ? h >= a : m === "N2" ? h <= a : h !== a;
@@ -192,7 +220,9 @@ function liveLegHtml(l) {
   const x = legLive(l);
   if (!x) return "";
   const clock = x.end ? "terminé" : x.clock;
-  return `<div class="live ${x.state}" data-mid="${esc(l.match_id)}" data-score="${x.h}-${x.a}"><b>${x.h} - ${x.a}</b><span>${esc(clock)}</span><em>${esc(x.note)}</em></div>`;
+  // le flash « BUT ! » ne concerne que le foot (au basket, le score bouge sans arrêt)
+  const goal = sportOf(l) === "foot" ? ` data-mid="${esc(l.match_id)}" data-score="${x.h}-${x.a}"` : "";
+  return `<div class="live ${x.state}"${goal}><b>${x.h} - ${x.a}</b><span>${esc(clock)}</span><em>${esc(x.note)}</em></div>`;
 }
 function liveTicketHtml(c) {
   const t = ticketLive(c);

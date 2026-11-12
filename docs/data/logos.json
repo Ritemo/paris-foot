@@ -1,5 +1,12 @@
 {
- "_miss": {},
+ "_miss": {
+  "Jessica Pegula": "2026-11-12",
+  "Linda Noskova": "2026-11-12",
+  "Mirra Andreeva": "2026-11-12",
+  "Karolina Muchova": "2026-11-12",
+  "Aryna Sabalenka": "2026-11-12",
+  "Elina Svitolina": "2026-11-12"
+ },
  "AC Milan": {
   "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/103.png",
   "color": "#e4002b",
@@ -669,5 +676,45 @@
   "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/122.png",
   "color": "#ffffff",
   "espn": "FC Cologne"
+ },
+ "Philadelphia 76ers": {
+  "logo": "https://a.espncdn.com/i/teamlogos/nba/500/phi.png",
+  "color": "#1d428a",
+  "espn": "Philadelphia 76ers"
+ },
+ "Toronto Raptors": {
+  "logo": "https://a.espncdn.com/i/teamlogos/nba/500/tor.png",
+  "color": "#d91244",
+  "espn": "Toronto Raptors"
+ },
+ "Washington Wizards": {
+  "logo": "https://a.espncdn.com/i/teamlogos/nba/500/wsh.png",
+  "color": "#e31837",
+  "espn": "Washington Wizards"
+ },
+ "Detroit Pistons": {
+  "logo": "https://a.espncdn.com/i/teamlogos/nba/500/det.png",
+  "color": "#1d428a",
+  "espn": "Detroit Pistons"
+ },
+ "Minnesota Timberwolves": {
+  "logo": "https://a.espncdn.com/i/teamlogos/nba/500/min.png",
+  "color": "#266092",
+  "espn": "Minnesota Timberwolves"
+ },
+ "Dallas Mavericks": {
+  "logo": "https://a.espncdn.com/i/teamlogos/nba/500/dal.png",
+  "color": "#0064b1",
+  "espn": "Dallas Mavericks"
+ },
+ "Phoenix Suns": {
+  "logo": "https://a.espncdn.com/i/teamlogos/nba/500/phx.png",
+  "color": "#29127a",
+  "espn": "Phoenix Suns"
+ },
+ "Charlotte Hornets": {
+  "logo": "https://a.espncdn.com/i/teamlogos/nba/500/cha.png",
+  "color": "#008ca8",
+  "espn": "Charlotte Hornets"
  }
 }

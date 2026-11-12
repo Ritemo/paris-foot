@@ -373,8 +373,12 @@ class TestAutresSports(unittest.TestCase):
         ms = [m(1, "foot", 1.5), m(2, "foot", 1.6), m(3, "basket", 1.5), m(4, "basket", 1.55), m(5, "tennis", 1.45)]
         cands, _ = run.candidates(day, ms)
         self.assertTrue(cands)
-        for c in cands:
-            self.assertEqual(len({l["sport"] for l in c["legs"]}), 1)
+        for c in cands:   # chaque ticket : un seul sport, sauf ceux marques « mix »
+            self.assertEqual(len({l["sport"] for l in c["legs"]}) > 1, bool(c.get("mix")))
+        self.assertTrue(any(c.get("mix") for c in cands))
+        for c in run.combos_for_day(day, ms):   # les tickets du robot restent d'un seul sport
+            self.assertFalse(c.get("mix"))
+        self.assertTrue(any(c.get("mix") for c in run.alts_for_day(day, ms, set())))
 
 if __name__ == "__main__":
     unittest.main(verbosity=1)

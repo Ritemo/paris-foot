@@ -505,15 +505,20 @@ def candidates(day, matches):
     # cotes de 1,6 a 7 pour couvrir tous les styles de jeu, du petit gain sur au gros gain
     rules = [("x2", 2, 1.25, 2.60, (1.6, 5.5)), ("x3", 3, 1.20, 2.00, (1.9, 7.0))]
     cands = []
-    for (kind, n, lo, hi, rng), sport in [(r, sp) for r in rules for sp in sorted({l["sport"] for l in legs})]:
-        # un sport par ticket (le melange se fait sur demande, en composant soi-meme dans l'appli)
-        pool = [l for l in legs if l["sport"] == sport and lo <= l["odds"] <= hi and l["p"] >= 0.36]
+    sports = sorted({l["sport"] for l in legs})
+    groups = sports + (["mix"] if len(sports) > 1 else [])   # « mix » : tickets melangeant les sports, proposes seulement si tu le demandes
+    for (kind, n, lo, hi, rng), sport in [(r, sp) for r in rules for sp in groups]:
+        pool = [l for l in legs if (sport == "mix" or l["sport"] == sport) and lo <= l["odds"] <= hi and l["p"] >= 0.36]
         pool.sort(key=lambda l: -(l["ev"] - (0.03 if l["src"] == "estimee" else 0)))   # les selections les moins taxees
         for c in combinations(pool[:18], n):
             # foot : une seule cote estimee par ticket (estimee par notre modele) ; NBA et tennis : estimees depuis des cotes du marche
-            if len({l["match_id"] for l in c}) < n or (sport == "foot" and sum(l["src"] == "estimee" for l in c) > 1):
+            if len({l["match_id"] for l in c}) < n or sum(l["src"] == "estimee" and l["sport"] == "foot" for l in c) > 1:
+                continue
+            if sport == "mix" and len({l["sport"] for l in c}) < 2:
                 continue
             cb = make_combo(day, kind, list(c))
+            if sport == "mix":
+                cb["mix"] = True
             if rng[0] <= cb["odds"] <= rng[1]:
                 cands.append(cb)
     return cands, legs
@@ -522,7 +527,7 @@ def candidates(day, matches):
 def combos_for_day(day, matches):
     """Les 3 meilleurs combines selon le style de jeu et le poids du prix par defaut, sans selection en commun, plus la folie."""
     cands, legs = candidates(day, matches)
-    cands = sorted(cands, key=lambda cb: -interest(cb["p"], cb["cost"], len(cb["legs"])))
+    cands = sorted([c for c in cands if not c.get("mix")], key=lambda cb: -interest(cb["p"], cb["cost"], len(cb["legs"])))
     chosen, used = [], set()
     for cb in cands:
         keys = {(l["match_id"], l["market"]) for l in cb["legs"]}
@@ -542,11 +547,13 @@ def alts_for_day(day, matches, exclude):
     """Autres bons candidats, pour que l'appli choisisse les meilleurs selon TON style de jeu et le poids du prix."""
     cands, _legs = candidates(day, matches)
     out = {}
-    for st in (0, 0.25, 0.5, 0.75, 1):
-        for wp in (0.3, 0.5, 0.7):
-            for cb in sorted(cands, key=lambda cb: -interest(cb["p"], cb["cost"], len(cb["legs"]), wp, st))[:5]:
-                if cb["id"] not in exclude:
-                    out[cb["id"]] = dict(cb, alt=True)
+    for group in (False, True):   # tickets d'un seul sport, puis tickets melanges (affiches si tu le demandes)
+        pool = [c for c in cands if bool(c.get("mix")) == group]
+        for st in (0, 0.25, 0.5, 0.75, 1):
+            for wp in (0.3, 0.5, 0.7):
+                for cb in sorted(pool, key=lambda cb: -interest(cb["p"], cb["cost"], len(cb["legs"]), wp, st))[:5]:
+                    if cb["id"] not in exclude:
+                        out[cb["id"]] = dict(cb, alt=True)
     return list(out.values())
 
 

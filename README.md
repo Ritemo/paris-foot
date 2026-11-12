@@ -39,7 +39,7 @@ Comme pour l'appli hand : coller l'adresse de l'appli sur pwabuilder.com, puis *
 - **NBA** : chances calculées à partir des cotes DraftKings publiées par ESPN (gratuit, marge retirée). Cote Unibet du vainqueur : la vraie (The Odds API, 1 crédit par jour). Handicap et total de points : cote Unibet **estimée** (marge habituelle d'unibet.fr, environ 12 %, répartie davantage sur l'outsider comme le fait le bookmaker).
 - **Tennis** : tournois ATP et WTA en cours (2 au maximum), vainqueur du match via The Odds API (1 crédit par tournoi et par jour). Vraie cote Unibet quand elle existe, sinon estimée.
 - Un seul relevé payant par jour pour ces sports ; les autres passages reprennent les mêmes matchs. Résultats et direct : ESPN.
-- Les tickets proposés par le robot ne mélangent pas les sports ; tu peux les mélanger toi-même en composant ton combiné dans l'onglet Matchs.
+- Les tickets proposés par le robot sont d'un seul sport. Interrupteur « Mélanger les sports » en haut des tickets : l'appli ajoute alors le meilleur ticket multisport du jour (calculé par le robot). Tu peux aussi mélanger toi-même en composant ton combiné dans l'onglet Matchs.
 - Les cotes estimées (*) sont à vérifier sur Unibet : l'appli te les demande quand tu joues.
 - Pas de récupération directe chez Unibet (conditions d'utilisation).
 

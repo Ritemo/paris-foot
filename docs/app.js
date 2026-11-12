@@ -150,14 +150,19 @@ function starsHtml(n) {
 }
 const ticketScore = (c) => combo(c).score;   // même critère que le robot, avec ta balance
 // les meilleurs tickets d'un jour selon ta balance : ceux du robot et ses autres candidats, sans sélection en commun
+const mixOn = () => !!LS.get("pf_mix", false);
 function dayPicks(day, n = 3) {
   const now = new Date().toISOString();
   const seen = new Set(), pool = [];
   for (const c of [...(today?.combos || []), ...(today?.alts || [])]) {
     if (c.day !== day || c.kind === "folie" || c.replaced || seen.has(c.id) || c.status !== "en attente" || !c.legs.every((l) => l.kickoff > now)) continue;
+    if (c.mix && !mixOn()) continue;   // tickets mélangeant les sports : seulement si tu les demandes
     seen.add(c.id); pool.push(c);
   }
   pool.sort((a, b) => ticketScore(b) - ticketScore(a));
+  // sports mélangés demandés : le meilleur ticket mélangé passe en tête de la sélection, s'il existe
+  const bestMix = mixOn() && pool.find((c) => c.mix);
+  if (bestMix) { pool.splice(pool.indexOf(bestMix), 1); pool.unshift(bestMix); }
   const out = [], used = new Set();
   for (const c of pool) {
     const keys = c.legs.map((l) => l.match_id + ":" + l.market);
@@ -165,7 +170,7 @@ function dayPicks(day, n = 3) {
     out.push(c); keys.forEach((k) => used.add(k));
     if (out.length === n) break;
   }
-  return out;
+  return out.sort((a, b) => ticketScore(b) - ticketScore(a));
 }
 function dayRank(c, extra = false) {
   const pool = dayPicks(c.day);
@@ -206,11 +211,11 @@ function ticketHtml(c) {
   const rk = folie ? null : dayRank(c);
   const head = folie
     ? `<span class="kind">Folie du jour, ${c.legs.length} matchs</span><span class="fun">pour le fun</span>`
-    : `<span class="kind">${c.kind === "perso" ? `Mon combiné de ${c.legs.length}` : `Combiné ${c.kind === "x3" ? "de 3" : "de 2"}`}</span>
+    : `<span class="kind">${c.kind === "perso" ? `Mon combiné de ${c.legs.length}` : `Combiné ${c.kind === "x3" ? "de 3" : "de 2"}${c.mix ? " multisport" : ""}`}</span>
       ${starsHtml(k.stars)}${rk ? rankHtml(rk) : ""}
       <div class="mix" aria-label="Prix ${Math.round(k.price * 10)} sur 10, proche de ton style ${Math.round(k.fit * 10)} sur 10">
         <span>Prix<i style="--v:${Math.round(k.price * 100)}%"></i></span><span>Ton style<i style="--v:${Math.round(k.fit * 100)}%"></i></span>${c.alt ? `<em class="alt-tag">pour ton style</em>` : ""}</div>`;
-  return `<article class="ticket ${c.status} ${folie ? "folie" : ""} ${c.kind === "perso" ? "perso" : ""} ${b ? "is-played" : ""}">
+  return `<article class="ticket ${c.status} ${folie ? "folie" : ""} ${c.kind === "perso" ? "perso" : ""} ${b ? "is-played" : ""} ${c.mix ? "mixed" : ""}">
     <div class="board">
       ${head}
       <div class="score">
@@ -254,7 +259,8 @@ function renderCombos() {
       <input id="style" type="range" min="0" max="100" step="5" value="${Math.round(st * 100)}" aria-label="Style de jeu, du petit gain sûr au gros gain">
       <div class="bal-ends"><span>Petit gain sûr</span><span>Gros gain</span></div>
       <div class="pw" role="radiogroup" aria-label="Importance du prix"><span>Poids du prix</span>${[[0.3, "faible"], [0.5, "normal"], [0.7, "fort"]]
-        .map(([v, t]) => `<button type="button" role="radio" data-pw="${v}" aria-checked="${Math.abs(wp - v) < 0.01}">${t}</button>`).join("")}</div></div><div id="combos-list"></div>`;
+        .map(([v, t]) => `<button type="button" role="radio" data-pw="${v}" aria-checked="${Math.abs(wp - v) < 0.01}">${t}</button>`).join("")}</div>
+      <div class="pw"><span>Mélanger les sports</span><button type="button" id="mix-toggle" role="switch" aria-checked="${mixOn()}">${mixOn() ? "oui" : "non"}</button></div></div><div id="combos-list"></div>`;
   }
   let h = "";
   if (!current.length) h += `<div class="empty">${EMPTY_BALL}<b>Plus de ticket jouable pour l'instant</b>
@@ -280,6 +286,14 @@ document.addEventListener("input", (e) => {
   document.getElementById("bal-label").textContent = styleLabel(st);
   clearTimeout(window.__balT);
   window.__balT = setTimeout(() => { renderCombos(); renderComposer(); }, 80);
+});
+document.addEventListener("click", (e) => {
+  const t = e.target.closest("#mix-toggle");
+  if (!t) return;
+  LS.set("pf_mix", !mixOn());
+  t.setAttribute("aria-checked", mixOn()); t.textContent = mixOn() ? "oui" : "non";
+  buzz(); renderCombos();
+  if (mixOn() && !document.querySelector("#combos-list .ticket.mixed")) toast("Pas de ticket mélangé intéressant pour l'instant : il faut des matchs de plusieurs sports le même jour.", 4500);
 });
 document.addEventListener("click", (e) => {
   const b = e.target.closest("[data-pw]");

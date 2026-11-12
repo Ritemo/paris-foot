@@ -88,7 +88,8 @@ def fixtures():
     m7 = nba(7, NOW - timedelta(minutes=40), "Philadelphia 76ers", "Toronto Raptors")   # en cours
     m8 = nba(8, NOW + timedelta(hours=6), "Boston Celtics", "Miami Heat")
     m9 = tennis(9, NOW + timedelta(hours=2, minutes=30), "Lorenzo Musetti", "Ugo Humbert")
-    today = {"generated_at": iso(NOW), "credits_remaining": 400, "combos": [futur, passe, folie], "alts": [alt],
+    mix = dict(combo("c-mix", "x2", [leg_of(m5, "1"), leg_of(m9, "1")]), alt=True, mix=True)
+    today = {"generated_at": iso(NOW), "credits_remaining": 400, "combos": [futur, passe, folie], "alts": [alt, mix],
              "matches": [m1, m2, m3, m4, m5, m6, m7, m8, m9]}
     espn = {"events": [
         {"date": m3["kickoff"], "status": {"type": {"state": "post", "shortDetail": "FT"}},
@@ -326,6 +327,13 @@ async def main():
         await pg.evaluate("restoreFromCloud()"); await pg.wait_for_timeout(500)
         check(await pg.evaluate("Object.keys(bets()).length") == n_bets and await pg.evaluate("backupCode()") == code, f"récupération de tous les paris avec le code ({n_bets})")
         print("NBA et tennis")
+        await pg.click('.tabs button[data-tab="combos"]')
+        ids = await pg.evaluate("[...document.querySelectorAll('#tab-combos [data-bet]')].map(b => b.dataset.bet)")
+        check("c-mix" not in ids, "pas de ticket multisport sans le demander")
+        await pg.click("#mix-toggle"); await pg.wait_for_timeout(300)
+        ids = await pg.evaluate("[...document.querySelectorAll('#tab-combos [data-bet]')].map(b => b.dataset.bet)")
+        check("c-mix" in ids and "multisport" in await pg.inner_text("#tab-combos"), "ticket multisport proposé quand on le demande")
+        await pg.click("#mix-toggle"); await pg.wait_for_timeout(200)
         await pg.click('.tabs button[data-tab="matchs"]')
         chips = await pg.locator("#tab-matchs .chip").all_inner_texts()
         check(any("NBA" in c for c in chips) and any("ATP" in c for c in chips), "filtres NBA et tennis dans Matchs")

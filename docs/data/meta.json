@@ -474,6 +474,76 @@
     "alt": true,
     "settled_at": "2026-11-08T21:45:44.959485+00:00"
    }
+  },
+  "2026-11-13|nba-401909976:1|nba-401909977:HC1:+10.5|nba-401909978:1": {
+   "mise": 2,
+   "odds": 3.08,
+   "t": 1794521793,
+   "snap": {
+    "id": "2026-11-13|nba-401909976:1|nba-401909977:HC1:+10.5|nba-401909978:1",
+    "day": "2026-11-13",
+    "kind": "x3",
+    "legs": [
+     {
+      "match_id": "nba-401909976",
+      "league": "NBA",
+      "kickoff": "2026-11-13T00:00:00Z",
+      "home": "Philadelphia 76ers",
+      "away": "Toronto Raptors",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "NBA",
+      "sport": "basket",
+      "market": "1",
+      "label": "Victoire Philadelphia 76ers",
+      "odds": 1.34,
+      "src": "unibet",
+      "p": 0.7008,
+      "ev": -0.0609
+     },
+     {
+      "match_id": "nba-401909978",
+      "league": "NBA",
+      "kickoff": "2026-11-13T01:00:00Z",
+      "home": "Minnesota Timberwolves",
+      "away": "Dallas Mavericks",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "NBA",
+      "sport": "basket",
+      "market": "1",
+      "label": "Victoire Minnesota Timberwolves",
+      "odds": 1.35,
+      "src": "unibet",
+      "p": 0.663,
+      "ev": -0.1049
+     },
+     {
+      "match_id": "nba-401909977",
+      "league": "NBA",
+      "kickoff": "2026-11-13T00:00:00Z",
+      "home": "Washington Wizards",
+      "away": "Detroit Pistons",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "NBA",
+      "sport": "basket",
+      "market": "HC1:+10.5",
+      "label": "Wizards handicap +10,5",
+      "odds": 1.71,
+      "src": "estimee",
+      "p": 0.5152,
+      "ev": -0.119
+     }
+    ],
+    "odds": 3.09,
+    "p": 0.2394,
+    "cost": 0.2594,
+    "stars": 1,
+    "stake": 1,
+    "status": "en attente",
+    "alt": true
+   }
   }
  },
  "kick_sent": {

@@ -2,6 +2,10 @@ name: Marges par sport
 
 on:
   workflow_dispatch:        # mesure a la demande (1 credit par competition)
+    inputs:
+      script:
+        description: "outil a lancer (marges ou sonde_sources)"
+        default: "marges"
 
 jobs:
   mesure:
@@ -15,4 +19,4 @@ jobs:
       - name: Mesure
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
-        run: python tools/marges.py
+        run: python tools/${{ inputs.script || 'marges' }}.py

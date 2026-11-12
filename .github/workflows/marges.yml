@@ -20,3 +20,9 @@ jobs:
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
         run: python tools/${{ inputs.script || 'marges' }}.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sonde
+          path: sonde/
+          if-no-files-found: ignore

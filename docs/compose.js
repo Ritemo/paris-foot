@@ -4,6 +4,8 @@ const draft = () => LS.get("pf_draft", {});   // match_id -> market
 
 function matchById(id) { return (today?.matches || []).find((m) => m.id === id); }
 
+// cote d'une sélection : celle que tu as saisie (Unibet) si elle existe, sinon celle du robot
+const mySel = (mid, s) => selOdds()[`${mid}|${s.market}`]?.v || s.odds;
 function draftLegs() {
   const out = [];
   for (const [mid, mk] of Object.entries(draft())) {
@@ -12,7 +14,7 @@ function draftLegs() {
     if (!m || !s || new Date(m.kickoff) <= new Date()) continue;   // match commencé : sélection retirée
     out.push({ match_id: m.id, league: m.league, kickoff: m.kickoff, home: m.home, away: m.away, fd_home: m.fd_home, fd_away: m.fd_away,
       div: m.div, sport: m.sport || "foot", link: m.link, market: s.market, label: s.market.startsWith("H") ? `${s.market === "H1" ? m.home : m.away} gagne par 2 buts ou +` : s.label,
-      odds: s.odds, raw_odds: s.raw_odds, adj: s.adj, src: s.src, p: s.p, ev: s.ev });
+      odds: mySel(m.id, s), raw_odds: s.raw_odds, adj: s.adj, src: s.src, p: s.p, ev: s.ev });
   }
   return out.sort((a, b) => a.kickoff.localeCompare(b.kickoff));
 }
@@ -30,7 +32,7 @@ function draftCombo() {
 function pickBtn(m, s, text) {
   const on = draft()[m.id] === s.market;
   return `<button class="pick-btn ${on ? "on" : ""}" data-pick="${esc(m.id)}" data-market="${esc(s.market)}" aria-pressed="${on}">
-    <span>${esc(text)}</span><b>${fmt(s.odds)}${s.src === "estimee" ? "*" : ""}</b></button>`;
+    <span>${esc(text)}</span><b>${fmt(mySel(m.id, s))}${selOdds()[`${m.id}|${s.market}`] ? "" : s.src === "estimee" ? "*" : ""}</b></button>`;
 }
 
 function renderComposer() {

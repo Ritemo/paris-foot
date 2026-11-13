@@ -213,6 +213,10 @@ async def main():
         check("," in await pg.inner_text("#odds-total"), "cote totale recalculée pendant la saisie")
         await pg.click('#dlg-odds button[value="ok"]'); await pg.wait_for_timeout(200)
         check(await pg.evaluate(f"overrides()['c-futur'][{nonuni[0]}]") == orig, "la cote Unibet saisie est enregistrée")
+        same = await pg.evaluate(f"""(() => {{ const l = findCombo('c-futur').legs[{nonuni[0]}];
+            const autre = {{ id: 'autre-ticket', legs: [Object.assign({{}}, l, {{ odds: 9.99 }})] }};
+            return [!!selOdds()[selKey(l)], legOdds(autre, 0)]; }})()""")
+        check(same[0] and same[1] == orig, "la cote saisie vaut aussi pour les autres tickets avec le même match et le même pari")
         await pg.click('#dlg-steps button[data-v="3"]')
         await pg.click('#dlg button[value="ok"]')
         await pg.wait_for_timeout(500)

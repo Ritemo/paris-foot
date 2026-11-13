@@ -59,9 +59,22 @@ function crest(name, cls) {
 }
 
 /* --------------------------------------------------------------- calculs */
-function legOdds(c, i) {
+// une cote Unibet saisie vaut pour la sélection (match + pari), donc pour tous les tickets qui la contiennent ;
+// pour un ticket déjà joué, seulement si elle a été saisie avant (sa cote de l'époque ne change pas)
+const selKey = (l) => `${l.match_id}|${l.market}`;
+const selOdds = () => LS.get("pf_sel_odds", {});
+function legOverride(c, i) {
   const o = overrides()[c.id];
-  return o && o[i] ? o[i] : c.legs[i].odds;
+  if (o && o[i]) return o[i];
+  const s = selOdds()[selKey(c.legs[i])], b = bets()[c.id];
+  return s && (!b || !b.ts || s.t <= b.ts) ? s.v : null;
+}
+function legOdds(c, i) { return legOverride(c, i) || c.legs[i].odds; }
+function setSelOdds(l, v) {
+  const all = selOdds(), lim = Date.now() - 7 * 864e5;
+  for (const k of Object.keys(all)) if (all[k].t < lim) delete all[k];
+  if (v) all[selKey(l)] = { v, t: Date.now() }; else delete all[selKey(l)];
+  LS.set("pf_sel_odds", all);
 }
 function combo(c) {
   let odds = 1, ev = 1;
@@ -227,7 +240,7 @@ function stakeWarning(v) {
   return lost3 && v >= 1.5 * med && v - med >= 1 ? `Tes 3 derniers tickets sont perdus et cette mise (${fmtMise(v)} €) est bien au-dessus de ta mise habituelle (${fmtMise(med)} €). Se refaire après des pertes est le piège le plus courant.` : "";
 }
 function legHtml(c, l, i) {
-  const ov = (overrides()[c.id] || {})[i];
+  const ov = legOverride(c, i);
   const res = l.won === true ? `<span class="tag win">✓ ${esc(l.score)}</span>` : l.won === false ? `<span class="tag loss">✗ ${esc(l.score)}</span>` : "";
   return `<div class="leg">
     <div class="pick"><b>${esc(l.label)}</b><span class="vs"><span class="vt">${crest(l.home, "mini")}${esc(l.home)}</span><i>contre</i><span class="vt">${crest(l.away, "mini")}${esc(l.away)}</span></span>
@@ -756,7 +769,7 @@ document.addEventListener("keydown", (e) => {
 const SRC_NAME = { pmu: "cote PMU", betclic: "cote Betclic", estimee: "cote estimée" };
 function checkOdds(c) {
   const ov = overrides()[c.id] || {};
-  const idx = c.legs.map((l, i) => i).filter((i) => c.legs[i].src !== "unibet" && !ov[i]);
+  const idx = c.legs.map((l, i) => i).filter((i) => c.legs[i].src !== "unibet" && !ov[i] && !selOdds()[selKey(c.legs[i])]);
   if (!idx.length) return Promise.resolve(true);
   const d = document.getElementById("dlg-odds"), rows = document.getElementById("odds-rows"), tot = document.getElementById("odds-total");
   rows.innerHTML = idx.map((i) => { const l = c.legs[i]; return `<label class="odds-row"><span><b>${esc(l.label)}</b><small>${esc(l.home)} - ${esc(l.away)} · ${SRC_NAME[l.src] || l.src}</small></span>
@@ -774,7 +787,7 @@ function checkOdds(c) {
       if (d.returnValue === "cancel") return resolve(false);
       if (d.returnValue === "skip") return resolve(true);
       const all = overrides(), o = Object.assign({}, all[c.id] || {});
-      rows.querySelectorAll("[data-i]").forEach((inp) => { const v = parseNum(inp.value); if (v > 1 && v < 100) { o[inp.dataset.i] = v; reportCorrection(c, +inp.dataset.i, v); } });
+      rows.querySelectorAll("[data-i]").forEach((inp) => { const v = parseNum(inp.value); if (v > 1 && v < 100) { o[inp.dataset.i] = v; setSelOdds(c.legs[+inp.dataset.i], v); reportCorrection(c, +inp.dataset.i, v); } });
       all[c.id] = o; LS.set("pf_overrides", all);
       resolve(true);
     };
@@ -795,8 +808,8 @@ document.addEventListener("click", async (e) => {
     const c = findCombo(odd.dataset.combo), i = +odd.dataset.leg;
     const v = await ask("Cote Unibet", `${c.legs[i].label}, ${c.legs[i].home} contre ${c.legs[i].away}`, legOdds(c, i), { clear: true });
     const ov = overrides();
-    if (v === "clear") { if (ov[c.id]) delete ov[c.id][i]; }
-    else if (v && v > 1) { ov[c.id] = ov[c.id] || {}; ov[c.id][i] = v; reportCorrection(c, i, v); }
+    if (v === "clear") { if (ov[c.id]) delete ov[c.id][i]; setSelOdds(c.legs[i], null); }
+    else if (v && v > 1) { ov[c.id] = ov[c.id] || {}; ov[c.id][i] = v; setSelOdds(c.legs[i], v); reportCorrection(c, i, v); }
     LS.set("pf_overrides", ov); syncBetOdds(c.id); renderAll(); return;
   }
   const bt = e.target.closest("[data-bet]");

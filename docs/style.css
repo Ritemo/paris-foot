@@ -605,3 +605,4 @@ body { overscroll-behavior-y: contain; }
 .odds-row .ub-open { grid-column: 1 / -1; font-size: 13px; font-weight: 800; color: var(--pelouse-2); margin-top: -2px; }
 @media (prefers-color-scheme: dark) { .odds-row .ub-open { color: #7fd9a6; } }
 .kick .odds-age { display: block; font-style: normal; font-size: 10px; color: var(--sous); margin-top: 4px; font-weight: 600; }
+.hint.warn { color: var(--rouge); font-weight: 700; }

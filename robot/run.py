@@ -921,6 +921,60 @@ def short(c):
     return " + ".join(f"{l['label']} ({l['home']}-{l['away']})" for l in c["legs"])
 
 
+# ---------------------------------------------------------------- chiffrement des paris joues
+# Avec le secret CODE_RECUPERATION (ton code de recuperation), les paris joues ne sont plus lisibles par
+# tout le monde : l'appli les envoie chiffres sur ntfy et le robot les range chiffres dans meta.json.
+# Meme format que la sauvegarde de l'appli : "1." + base64(sel 16 octets | iv 12 | AES-GCM(gzip(json))).
+CODE = re.sub(r"[^A-Z0-9]", "", os.environ.get("CODE_RECUPERATION", "").upper())
+
+
+def _key(salt):
+    from cryptography.hazmat.primitives import hashes
+    from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
+    return PBKDF2HMAC(algorithm=hashes.SHA256(), length=32, salt=salt, iterations=150000).derive(CODE.encode())
+
+
+def seal(obj):
+    import base64, gzip
+    from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+    salt, iv = os.urandom(16), os.urandom(12)
+    ct = AESGCM(_key(salt)).encrypt(iv, gzip.compress(json.dumps(obj).encode()), None)
+    return "1." + base64.b64encode(salt + iv + ct).decode()
+
+
+def unseal(blob):
+    import base64, gzip
+    from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+    raw = base64.b64decode(str(blob)[2:])
+    return json.loads(gzip.decompress(AESGCM(_key(raw[:16])).decrypt(raw[16:28], raw[28:], None)))
+
+
+def code_check():
+    """Empreinte courte du code (8 caracteres) : l'appli verifie qu'elle utilise le meme code que le robot."""
+    import hashlib
+    return hashlib.sha256(("verif|" + CODE).encode()).hexdigest()[:8]
+
+
+def load_meta():
+    meta = load("meta.json", {})
+    if CODE and meta.get("played_blob"):
+        try:
+            meta["played"] = unseal(meta["played_blob"])
+        except Exception as e:
+            print("paris joues illisibles (code different ?)", e, file=sys.stderr)
+            meta["played"] = {}
+    return meta
+
+
+def save_meta(meta):
+    m = dict(meta)
+    if CODE:
+        m["played_blob"] = seal(m.pop("played", {}))
+        m["played_enc"], m["code_check"] = True, code_check()
+        m.setdefault("enc_since", NOW.isoformat())
+    save("meta.json", m)
+
+
 def sync_played(meta):
     """Tickets que tu as joues : l'appli les publie sur un canal ntfy prive, le robot les relit a chaque passage."""
     played = meta.get("played", {})
@@ -931,6 +985,10 @@ def sync_played(meta):
         for ev in sorted((e for e in evs if e.get("event") == "message"), key=lambda e: e.get("time", 0)):
             try:
                 d = json.loads(ev["message"])
+                if "enc" in d:
+                    d = unseal(d["enc"]) if CODE else {}
+                elif CODE and meta.get("enc_since") and ev.get("time", 0) > datetime.fromisoformat(meta["enc_since"]).timestamp() + 2 * 86400:
+                    continue   # en clair alors que le chiffrement est actif depuis plus de 2 jours : ignore
             except Exception:
                 continue
             if d.get("action") == "add" and d.get("id"):
@@ -1448,7 +1506,7 @@ def results_only(meta, history):
         print("logos", e, file=sys.stderr)
     if json.dumps(history, sort_keys=True, default=str) == before:
         if meta_changed:
-            save("meta.json", meta)
+            save_meta(meta)
         print("rien de nouveau")
         return
     history["bilan"] = bilan(history)
@@ -1459,12 +1517,12 @@ def results_only(meta, history):
     save("history.json", history)
     save("today.json", today_data)
     meta["last_results_run"] = NOW.isoformat()
-    save("meta.json", meta)
+    save_meta(meta)
     print("resultats mis a jour")
 
 
 def main():
-    meta = load("meta.json", {})
+    meta = load_meta()
     history = load("history.json", {"combos": []})
     if not odds_due(meta):
         return results_only(meta, history)
@@ -1601,7 +1659,7 @@ def main():
     except Exception as e:
         print("logos", e, file=sys.stderr)
     save("odds_cache.json", cache)
-    save("meta.json", meta)
+    save_meta(meta)
     print(f"{len(matches)} matchs, {len(current)} combines, credits restants {credits['remaining']} "
           f"(utilises : {credits['used_run']})")
 

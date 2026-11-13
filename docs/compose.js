@@ -88,7 +88,9 @@ async function publishPlayed(action, id, b) {
   const msg = { action, id };
   if (action === "add") { msg.mise = b.mise; msg.odds = b.odds; if (b.snap?.kind === "perso" || b.snap?.alt) msg.snap = b.snap; }
   try {
-    const r = await fetch(`https://ntfy.sh/${NTFY_TOPIC}-joues`, { method: "POST", body: JSON.stringify(msg) });
+    // chiffré avec ton code de récupération quand le robot le connaît (secret CODE_RECUPERATION)
+    const body = (await codeMatchesRobot()) ? JSON.stringify({ enc: await sealBackup(msg, backupCode()) }) : JSON.stringify(msg);
+    const r = await fetch(`https://ntfy.sh/${NTFY_TOPIC}-joues`, { method: "POST", body });
     if (!r.ok) return false;
     const synced = LS.get("pf_synced", {});
     if (action === "add") synced[id] = b.mise; else delete synced[id];

@@ -369,6 +369,16 @@ async def main():
             b['x4'] = { mise: 2, odds: 2, ts: 1 };
             LS.set('pf_bets', b); const r = [stakeWarning(5), stakeWarning(2)]; LS.set('pf_bets', save); return r; })()""")
         check("3 derniers tickets sont perdus" in w[0] and w[1] == "", "rappel si la mise grimpe après 3 pertes, rien sinon")
+        print("Paris joués chiffrés")
+        n0 = len(posts)
+        await pg.evaluate("(async () => { meta.played_enc = true; meta.code_check = await codeCheck(); await publishPlayed('add', 'c-futur', bets()['c-futur']); })()")
+        await pg.wait_for_timeout(500)
+        last = posts[-1] if len(posts) > n0 else ""
+        check('"enc"' in last and "c-futur" not in last, "pari joué envoyé chiffré quand le robot a le même code")
+        await pg.evaluate("meta.code_check = 'xxxxxxxx'; renderBackupStatus()")
+        await pg.wait_for_timeout(200)
+        check("ne correspond pas" in await pg.inner_text("#bk-robot"), "alerte si le code du téléphone diffère de celui du robot")
+        await pg.evaluate("meta.played_enc = false")
         print("Animations")
         await pg.evaluate("window.__noCelebrate = false; LS.set('pf_celebrated', [])")
         await pg.evaluate("document.querySelectorAll('.celebrate').forEach(e => e.remove()); renderAll()")

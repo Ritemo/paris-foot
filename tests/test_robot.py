@@ -445,5 +445,33 @@ class TestJournalAutres(unittest.TestCase):
         self.assertEqual(s["basket"]["fav"], 0.75)
         self.assertEqual(s["basket"]["bins"][0]["f"], 0.75)
 
+
+class TestChiffrement(unittest.TestCase):
+    def test_paris_joues_chiffres(self):
+        import tempfile
+        old = (run.CODE, run.DATA, run.http_get)
+        run.CODE, run.DATA = "4X8DQ9NE7SR7F6JK", tempfile.mkdtemp()
+        try:
+            meta = {"played": {"t1": {"mise": 2, "odds": 2.1, "t": run.NOW.timestamp()}}}
+            run.save_meta(meta)
+            raw = run.load("meta.json", {})
+            self.assertNotIn("played", raw)
+            self.assertNotIn("2.1", json.dumps(raw))
+            self.assertTrue(raw["played_enc"])
+            m2 = run.load_meta()
+            self.assertEqual(m2["played"]["t1"]["mise"], 2)
+            # message chiffre accepte, message en clair ignore une fois le chiffrement installe depuis plus de 2 jours
+            enc = json.dumps({"enc": run.seal({"action": "add", "id": "t2", "mise": 1.31, "odds": 2})})
+            clair = json.dumps({"action": "add", "id": "faux", "mise": 50, "odds": 2})
+            t = run.NOW.timestamp()
+            evs = [json.dumps({"event": "message", "time": t, "message": enc}), json.dumps({"event": "message", "time": t, "message": clair})]
+            run.http_get = lambda url, **k: ("\n".join(evs).encode(), {})
+            m2["enc_since"] = (run.NOW - timedelta(days=5)).isoformat()
+            run.sync_played(m2)
+            self.assertIn("t2", m2["played"])
+            self.assertNotIn("faux", m2["played"])
+        finally:
+            run.CODE, run.DATA, run.http_get = old
+
 if __name__ == "__main__":
     unittest.main(verbosity=1)

@@ -102,6 +102,13 @@ Notifications d'échec des tests : sujet ntfy `combines-foot-ritemo-7k3q9x`.
 | Résultats manquants | football-data.co.uk publie parfois avec un jour de retard ; le robot réessaie à chaque passage. |
 | Le téléphone garde une ancienne version | Fermer et rouvrir l'appli ; si besoin, vérifier que `tools/bump_version.py` a bien été lancé avant la publication. |
 
+## Confidentialité
+
+- Le dépôt est public. Avec le secret GitHub `CODE_RECUPERATION` (ton code de récupération, celui affiché dans Réglages), tes paris joués sont chiffrés : sur ntfy et dans `docs/data/meta.json`. Sans ce secret, ils restent lisibles par tous.
+- La sauvegarde automatique est toujours chiffrée avec ce code.
+- Les notifications ntfy (tickets du jour, résultats, coups d'envoi) passent par un canal dont le nom est dans le code : quelqu'un qui le connaît peut les lire pendant 12 h.
+- Les cotes que tu corriges sont envoyées au robot pour qu'il apprenne, sans ta mise.
+
 ## Limites gratuites
 
 - **OddsPapi** (secret `ODDSPAPI_KEY`) : 250 requêtes par mois (offre gratuite), le robot s'arrête à 230. Ne donne chez Unibet FR que le 1N2 : il actualise ces cotes au relevé de 16h30, quand tu touches le ballon, ou si les crédits The Odds API sont trop bas. Le premier relevé du jour reste sur The Odds API (cotes de buts). Consommation visible dans `docs/data/meta.json` (`oddspapi`).

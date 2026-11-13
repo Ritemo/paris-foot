@@ -88,6 +88,7 @@ async function fetchBackups() {
   return BACKUPS;
 }
 function renderBackupStatus() {
+  renderCodeCheck();
   const el = document.getElementById("bk-status"), code = document.getElementById("bk-code");
   if (code) code.textContent = backupCode();
   if (!el) return;
@@ -124,3 +125,21 @@ document.addEventListener("click", (e) => {
   if (e.target.closest("#bk-restore")) restoreFromCloud();
   if (e.target.closest("#bk-noted")) { LS.set("pf_backup_noted", true); renderAll(); }
 });
+
+/* le robot connaît-il le même code ? (empreinte courte publiée dans meta.json) */
+async function codeCheck(code = backupCode()) {
+  const h = new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode("verif|" + normCode(code))));
+  return [...h].map((x) => x.toString(16).padStart(2, "0")).join("").slice(0, 8);
+}
+async function codeMatchesRobot() {
+  if (!meta?.played_enc || !meta?.code_check) return false;
+  try { return (await codeCheck()) === meta.code_check; } catch { return false; }
+}
+async function renderCodeCheck() {
+  const el = document.getElementById("bk-robot");
+  if (!el) return;
+  if (!meta?.played_enc) { el.textContent = "Paris joués : envoyés en clair au robot (ajoute le secret CODE_RECUPERATION sur GitHub pour les chiffrer)."; el.className = "hint"; return; }
+  const ok = await codeMatchesRobot();
+  el.textContent = ok ? "Paris joués : chiffrés avec ton code, le robot les lit bien." : "Attention : ce code ne correspond pas à celui du robot. Récupère tes paris avec le bon code, ou mets ce code dans le secret CODE_RECUPERATION sur GitHub.";
+  el.className = ok ? "hint" : "hint warn";
+}

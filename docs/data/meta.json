@@ -551,6 +551,79 @@
     "alt": true,
     "settled_at": "2026-11-13T03:32:23.821556+00:00"
    }
+  },
+  "2026-11-14|nba-401909298:1|nba-401909299:2|nba-401909304:2": {
+   "mise": 3,
+   "odds": 2.81,
+   "t": 1794584055,
+   "snap": {
+    "id": "2026-11-14|nba-401909298:1|nba-401909299:2|nba-401909304:2",
+    "day": "2026-11-14",
+    "kind": "x3",
+    "legs": [
+     {
+      "match_id": "nba-401909299",
+      "league": "NBA",
+      "kickoff": "2026-11-14T01:00:00Z",
+      "home": "Chicago Bulls",
+      "away": "Atlanta Hawks",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "NBA",
+      "sport": "basket",
+      "link": null,
+      "market": "2",
+      "label": "Victoire Atlanta Hawks",
+      "odds": 1.3,
+      "src": "unibet",
+      "p": 0.7061,
+      "ev": -0.0821
+     },
+     {
+      "match_id": "nba-401909304",
+      "league": "NBA",
+      "kickoff": "2026-11-14T03:30:00Z",
+      "home": "LA Clippers",
+      "away": "Oklahoma City Thunder",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "NBA",
+      "sport": "basket",
+      "link": null,
+      "market": "2",
+      "label": "Victoire Oklahoma City Thunder",
+      "odds": 1.31,
+      "src": "estimee",
+      "p": 0.7098,
+      "ev": -0.0702
+     },
+     {
+      "match_id": "nba-401909298",
+      "league": "NBA",
+      "kickoff": "2026-11-14T01:00:00Z",
+      "home": "Miami Heat",
+      "away": "Cleveland Cavaliers",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "NBA",
+      "sport": "basket",
+      "link": null,
+      "market": "1",
+      "label": "Victoire Miami Heat",
+      "odds": 1.6,
+      "src": "unibet",
+      "p": 0.5514,
+      "ev": -0.1177
+     }
+    ],
+    "odds": 2.72,
+    "p": 0.2764,
+    "cost": 0.247,
+    "stars": 2,
+    "stake": 2,
+    "status": "en attente",
+    "alt": true
+   }
   }
  },
  "kick_sent": {

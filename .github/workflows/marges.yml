@@ -19,4 +19,5 @@ jobs:
       - name: Mesure
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          ODDSPAPI_KEY: ${{ secrets.ODDSPAPI_KEY }}
         run: python tools/${{ inputs.script || 'marges' }}.py

@@ -33,6 +33,7 @@ jobs:
       - name: Combinés et résultats
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          ODDSPAPI_KEY: ${{ secrets.ODDSPAPI_KEY }}
           FORCE: ${{ github.event_name == 'workflow_dispatch' && inputs.force || '0' }}
         run: python robot/run.py
       - name: Enregistrer les données

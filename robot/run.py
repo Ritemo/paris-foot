@@ -9,7 +9,9 @@ import math
 import os
 import re
 import sys
+import time
 import unicodedata
+import urllib.parse
 from difflib import SequenceMatcher
 import urllib.request
 from datetime import datetime, timedelta, timezone
@@ -178,6 +180,88 @@ def fetch_odds(leagues_needed, cache):
         if eid not in events and e["commence_time"] > NOW.isoformat():
             events[eid] = e
     return events
+
+
+# ---------------------------------------------------------------- OddsPapi (2e source, gratuite : 250 requetes par mois)
+# Ne donne chez Unibet FR que le 1N2. Sert a actualiser ces cotes sans depenser de credits The Odds API :
+# releve de 16h30, ballon de l'appli, ou credits The Odds API trop bas.
+OP_KEY = os.environ.get("ODDSPAPI_KEY", "")
+OP_TOURN = {"soccer_france_ligue_one": 34, "soccer_epl": 17, "soccer_spain_la_liga": 8, "soccer_italy_serie_a": 23,
+            "soccer_germany_bundesliga": 35, "soccer_uefa_champs_league": 7, "soccer_uefa_europa_league": 679}
+OP_LIMIT = 230   # on garde une marge sous les 250 requetes du mois
+
+
+def op_get(meta, path, **q):
+    use = meta.setdefault("oddspapi", {})
+    month = NOW.strftime("%Y-%m")
+    if use.get("month") != month:
+        use.update(month=month, used=0)
+    if use["used"] >= OP_LIMIT:
+        raise RuntimeError("quota OddsPapi du mois atteint")
+    time.sleep(1.2)   # limite de vitesse d'OddsPapi
+    q["apiKey"] = OP_KEY
+    use["used"] += 1
+    body, _h = http_get(f"https://api.oddspapi.io/v4{path}?" + urllib.parse.urlencode(q, safe=","))
+    return json.loads(body)
+
+
+def op_unibet(meta, sports):
+    """Cotes Unibet FR 1N2 des prochains matchs : [{start, home, away, odds: (1, N, 2)}] (1 requete, 2 ou 3 la premiere fois)."""
+    tids = sorted({OP_TOURN[s] for s in sports if s in OP_TOURN})
+    if not tids:
+        return []
+    data = op_get(meta, "/odds-by-tournaments", bookmaker="unibet.fr", tournamentIds=",".join(map(str, tids)), oddsFormat="decimal")
+    names = load("oddspapi_teams.json", {})
+    if any(str(f.get(k)) not in names for f in data for k in ("participant1Id", "participant2Id")):
+        names.update(op_get(meta, "/participants", sportId=10))
+        save("oddspapi_teams.json", names)
+    outs = load("oddspapi_1x2.json", {})   # identifiants des issues 1, N, 2 du marche 101
+    if not outs:
+        for m in op_get(meta, "/markets", sportId=10):
+            if str(m.get("marketId")) == "101":
+                outs = {str(o["outcomeId"]): o.get("outcomeName") for o in m.get("outcomes", [])}
+        save("oddspapi_1x2.json", outs)
+    res = []
+    for f in data:
+        bk = (f.get("bookmakerOdds") or {}).get("unibet.fr") or {}
+        m = (bk.get("markets") or {}).get("101") or {}
+        o = {}
+        for oid, x in (m.get("outcomes") or {}).items():
+            price = ((x.get("players") or {}).get("0") or x).get("price")
+            if price:
+                o[outs.get(str(oid))] = float(price)
+        if all(k in o for k in ("1", "X", "2")):
+            res.append(dict(start=f["startTime"], home=names.get(str(f["participant1Id"]), ""), away=names.get(str(f["participant2Id"]), ""),
+                            odds=(o["1"], o["X"], o["2"])))
+    return res
+
+
+def apply_op(events, ops):
+    """Remplace la cote Unibet 1N2 des matchs (format The Odds API) par celle, plus recente, d'OddsPapi. Renvoie le nombre de matchs actualises."""
+    n = 0
+    for e in events.values():
+        k = datetime.fromisoformat(e["commence_time"].replace("Z", "+00:00"))
+        best, bs = None, 0
+        for x in ops:
+            xk = datetime.fromisoformat(x["start"].replace("Z", "+00:00"))
+            if abs((xk - k).total_seconds()) > 15 * 60:
+                continue
+            sc = min(_team_score(e["home_team"], x["home"]), _team_score(e["away_team"], x["away"]))
+            if sc > bs:
+                best, bs = x, sc
+        if not best:
+            continue
+        o1, oN, o2 = best["odds"]
+        h2h = {"key": "h2h", "outcomes": [{"name": e["home_team"], "price": o1}, {"name": "Draw", "price": oN}, {"name": e["away_team"], "price": o2}]}
+        books = e.setdefault("bookmakers", [])
+        ub = next((b for b in books if b["key"] == "unibet_fr"), None)
+        if ub is None:
+            ub = {"key": "unibet_fr", "markets": []}
+            books.insert(0, ub)
+        ub["markets"] = [m for m in ub.get("markets", []) if m["key"] != "h2h"] + [h2h]
+        e["fetched_at"] = NOW.isoformat()
+        n += 1
+    return n
 
 
 def extract(e):
@@ -1211,7 +1295,7 @@ def odds_due(meta):
     for i, (h, m) in enumerate(ODDS_SLOTS):
         slot = now_p.replace(hour=h, minute=m, second=0, microsecond=0)
         if slot <= now_p and (not last or datetime.fromisoformat(last) < slot):
-            if i > 0 and not afternoon_affordable(meta, now_p):
+            if i > 0 and not OP_KEY and not afternoon_affordable(meta, now_p):
                 print("creneau de l'apres-midi saute pour garder des credits jusqu'a la fin du mois")
                 return False
             return True
@@ -1306,8 +1390,18 @@ def main():
         if any(NOW.isoformat() < x["commence_time"] < horizon.isoformat() for x in ev):
             needed.append(sport)
 
-    # 2. cotes (payant, seulement si necessaire)
-    events = fetch_odds(needed, cache)
+    # 2. cotes. Premier releve du jour : The Odds API (payant, avec les cotes de buts).
+    #    Releves suivants (16h30, ballon) ou credits trop bas : cotes Unibet 1N2 actualisees par OddsPapi, sans credit.
+    light = bool(OP_KEY) and (meta.get("full_day") == today.isoformat()
+                              or (credits["remaining"] is not None and credits["remaining"] < CREDIT_FLOOR_ODDS))
+    events = fetch_odds([] if light else needed, cache)
+    if light:
+        try:
+            print("OddsPapi :", apply_op(events, op_unibet(meta, needed)), "matchs actualises")
+        except Exception as e:
+            print("oddspapi", e, file=sys.stderr)
+    else:
+        meta["full_day"] = today.isoformat()
     cache = {k: v for k, v in events.items() if v["commence_time"] > (NOW - timedelta(days=1)).isoformat()}
     matches = build_matches(events, models)
     record_predictions(store, matches)

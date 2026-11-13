@@ -104,6 +104,7 @@ Notifications d'échec des tests : sujet ntfy `combines-foot-ritemo-7k3q9x`.
 
 ## Limites gratuites
 
+- **OddsPapi** (secret `ODDSPAPI_KEY`) : 250 requêtes par mois (offre gratuite), le robot s'arrête à 230. Ne donne chez Unibet FR que le 1N2 : il actualise ces cotes au relevé de 16h30, quand tu touches le ballon, ou si les crédits The Odds API sont trop bas. Le premier relevé du jour reste sur The Odds API (cotes de buts). Consommation visible dans `docs/data/meta.json` (`oddspapi`).
 - **The Odds API** : 500 crédits par mois (offre gratuite). Le robot passe en mode économe sous 40 crédits et s'arrête sous 12. Le relevé de 16h30 est sauté s'il menace celui de 7h30 des jours suivants. Mesure des marges par sport à la demande : atelier « Marges par sport » dans *Actions* (1 crédit par compétition).
 - **GitHub Actions** : illimité pour un dépôt public.
 - **GitHub** désactive les tâches programmées d'un dépôt sans activité pendant 60 jours ; les commits du robot gardent le dépôt actif tant qu'il y a des matchs. Après une longue pause, réactiver le robot dans *Actions*.

@@ -380,5 +380,29 @@ class TestAutresSports(unittest.TestCase):
             self.assertFalse(c.get("mix"))
         self.assertTrue(any(c.get("mix") for c in run.alts_for_day(day, ms, set())))
 
+
+class TestOddsPapi(unittest.TestCase):
+    def test_actualise_le_1n2_unibet(self):
+        k = "2026-11-21T15:00:00Z"
+        events = {"a": {"home_team": "Paris Saint Germain", "away_team": "Le Havre", "commence_time": k,
+                        "bookmakers": [{"key": "unibet_fr", "markets": [{"key": "h2h", "outcomes": [{"name": "Paris Saint Germain", "price": 1.2}]},
+                                                                         {"key": "totals", "outcomes": []}]}]},
+                  "b": {"home_team": "Lyon", "away_team": "Nice", "commence_time": k, "bookmakers": []},
+                  "c": {"home_team": "Brest", "away_team": "Metz", "commence_time": k, "bookmakers": []}}
+        ops = [{"start": "2026-11-21T15:00:00.000Z", "home": "Paris Saint-Germain", "away": "Le Havre AC", "odds": (1.27, 4.5, 5.8)},
+               {"start": "2026-11-21T15:05:00.000Z", "home": "Olympique Lyonnais", "away": "OGC Nice", "odds": (2.0, 3.3, 2.65)}]
+        self.assertEqual(run.apply_op(events, ops), 2)
+        o = run.extract(events["a"])
+        self.assertEqual(o["h2h"], (1.27, 4.5, 5.8))
+        self.assertEqual(o["h2h_src"], "unibet")
+        self.assertIn("totals", [m["key"] for m in events["a"]["bookmakers"][0]["markets"]])   # les buts restent
+        self.assertEqual(run.extract(events["b"])["h2h"], (2.0, 3.3, 2.65))
+        self.assertNotIn("h2h", run.extract(events["c"]))   # pas trouve : inchange
+
+    def test_quota_du_mois(self):
+        meta = {"oddspapi": {"month": run.NOW.strftime("%Y-%m"), "used": run.OP_LIMIT}}
+        with self.assertRaises(RuntimeError):
+            run.op_get(meta, "/sports")
+
 if __name__ == "__main__":
     unittest.main(verbosity=1)

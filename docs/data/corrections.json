@@ -1,0 +1,45 @@
+{
+ "items": [
+  {
+   "id": "HoEVxlJsmPuz",
+   "t": 1794582575,
+   "key": "basket|1n2|estimee",
+   "est": 1.31,
+   "real": 1.31
+  },
+  {
+   "id": "YW4E2YUyFld4",
+   "t": 1794582630,
+   "key": "basket|total|estimee",
+   "est": 1.76,
+   "real": 1.7
+  },
+  {
+   "id": "wadZ2920tgVZ",
+   "t": 1794582709,
+   "key": "basket|total|estimee",
+   "est": 1.76,
+   "real": 1.7
+  },
+  {
+   "id": "fGFfVmU8x9Cy",
+   "t": 1794583808,
+   "key": "basket|hcpts|estimee",
+   "est": 1.76,
+   "real": 1.7
+  },
+  {
+   "id": "5ROXWSsPLaLa",
+   "t": 1794583879,
+   "key": "basket|total|estimee",
+   "est": 1.73,
+   "real": 1.65
+  }
+ ],
+ "adj": {},
+ "counts": {
+  "basket|1n2|estimee": 1,
+  "basket|total|estimee": 3,
+  "basket|hcpts|estimee": 1
+ }
+}

@@ -404,5 +404,46 @@ class TestOddsPapi(unittest.TestCase):
         with self.assertRaises(RuntimeError):
             run.op_get(meta, "/sports")
 
+
+class TestCorrections(unittest.TestCase):
+    def test_apprend_des_cotes_saisies(self):
+        import tempfile
+        old_get, old_data = run.http_get, run.DATA
+        run.DATA = tempfile.mkdtemp()
+        msgs = [json.dumps({"event": "message", "id": f"e{i}", "time": i, "message": json.dumps(
+            {"sport": "foot", "k": "total", "src": "pmu", "est": 1.80, "real": 1.72})}) for i in range(6)]
+        msgs.append(json.dumps({"event": "message", "id": "faux", "time": 9, "message": json.dumps(
+            {"sport": "foot", "k": "total", "src": "pmu", "est": 1.80, "real": 9.0})}))   # aberrant : ignore
+        run.http_get = lambda url, **k: ("\n".join(msgs).encode(), {})
+        try:
+            adj = run.sync_corrections()
+        finally:
+            run.http_get, run.DATA = old_get, old_data
+        self.assertAlmostEqual(adj["foot|total|pmu"], round(1.72 / 1.80, 3))
+        m = {"sport": "foot", "sel": [{"market": "+2.5", "odds": 1.80, "src": "pmu", "p": 0.53, "ev": 0},
+                                      {"market": "1", "odds": 1.60, "src": "unibet", "p": 0.6, "ev": 0}]}
+        run.apply_adjust([m], adj)
+        self.assertEqual(m["sel"][0]["odds"], 1.72)
+        self.assertEqual(m["sel"][0]["raw_odds"], 1.80)
+        self.assertEqual(m["sel"][1]["odds"], 1.60)   # les cotes Unibet ne bougent pas
+
+
+class TestJournalAutres(unittest.TestCase):
+    def test_journal_et_resume(self):
+        import tempfile
+        old_data, old_score = run.DATA, run.espn_other_score
+        run.DATA = tempfile.mkdtemp()
+        k = (run.NOW - timedelta(hours=5)).isoformat().replace("+00:00", "Z")
+        ms = [{"id": f"nba-{i}", "sport": "basket", "div": "NBA", "kickoff": k, "home": f"H{i}", "away": f"A{i}",
+               "sel": [{"market": "1", "p": 0.7, "odds": 1.35}]} for i in range(4)]
+        run.espn_other_score = lambda l, boards: (110, 100) if l["home"] != "H3" else (90, 100)
+        try:
+            s = run.other_journal(ms)
+        finally:
+            run.DATA, run.espn_other_score = old_data, old_score
+        self.assertEqual(s["basket"]["n"], 4)
+        self.assertEqual(s["basket"]["fav"], 0.75)
+        self.assertEqual(s["basket"]["bins"][0]["f"], 0.75)
+
 if __name__ == "__main__":
     unittest.main(verbosity=1)

@@ -202,6 +202,7 @@ function renderModele() {
       `</tbody></table><p class="hint">Erreur moyenne, plus bas = mieux.</p></div>`;
   }
 
+  h += otherSportsPanel();
   h += lessons;
   h += `<div class="panel legend"><h3>Comment il apprend</h3><dl>
     <dt>Sur quoi</dt><dd>Tous les matchs des championnats suivis${c.since ? `, depuis le ${new Date(c.since + "T12:00:00").toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}` : ""}. ${c.backtest ? `${fmt(c.backtest, 0)} matchs viennent d'un rejeu du passé avec les cotes moyennes des bookmakers, ` : ""}les suivants des vraies cotes du jour.</dd>
@@ -245,3 +246,16 @@ document.addEventListener("click", (e) => {
   pop.style.setProperty("--ax", (r.left + r.width / 2 - parseFloat(pop.style.left)) + "px");
   pop.classList.add(below ? "below" : "above");
 });
+
+/* NBA et tennis : les chances de victoire annoncées se vérifient-elles ? (journal du robot, docs/data/other_learning.json) */
+function otherSportsPanel() {
+  const S = other?.summary || {};
+  const names = { basket: "NBA", tennis: "Tennis" };
+  const rows = Object.entries(S).filter(([, v]) => v.n);
+  if (!rows.length) return `<h2 class="section-title">NBA et tennis</h2><div class="panel"><p class="hint" style="margin:0">Le robot note les chances annoncées pour chaque match NBA et de tennis, puis les compare aux résultats. Les premiers chiffres arrivent dès que des matchs suivis sont terminés.</p></div>`;
+  return `<h2 class="section-title">NBA et tennis ${info("Pour chaque match, le robot garde la chance de victoire annoncée (tirée des cotes du marché, marge retirée), puis la compare au résultat. Score de Brier : 0 serait parfait, 0,25 revient à dire 50 % partout. Le tableau regroupe les matchs par chance annoncée et montre combien ont vraiment été gagnés.", "NBA et tennis")}</h2>`
+    + rows.map(([sp, v]) => `<div class="panel"><h3 style="margin:0 0 6px">${names[sp] || sp} · ${v.n} match${v.n > 1 ? "s" : ""}</h3>
+      <p class="hint" style="margin:0 0 8px">Le favori annoncé a gagné ${pct(v.fav)} des matchs. Score de Brier ${fmt(v.brier, 3)} (0,25 = au hasard).</p>
+      <table class="months"><thead><tr><th>Annoncé</th><th>Arrivé</th><th>Matchs</th></tr></thead><tbody>${v.bins.map((b) => `<tr><td>${pct(b.p)}</td><td>${pct(b.f)}</td><td>${b.n}</td></tr>`).join("")}</tbody></table>
+      ${v.n < 30 ? `<p class="hint" style="margin:8px 0 0">Encore peu de matchs : les écarts sont surtout dus au hasard.</p>` : ""}</div>`).join("");
+}

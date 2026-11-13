@@ -3,7 +3,7 @@ const LS = {
   get(k, d) { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } },
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
 };
-let today = null, hist = null, meta = null, model = null, freshStamp = null, LOGOS = {};
+let today = null, hist = null, meta = null, model = null, other = null, freshStamp = null, LOGOS = {};
 const overrides = () => LS.get("pf_overrides", {});
 const bets = () => LS.get("pf_bets", {});
 const settings = () => Object.assign({ budget: 40, token: "", repo: "" }, LS.get("pf_settings", {}));
@@ -191,6 +191,41 @@ function unibetLink(l, c) {
   if (!okLink(l.link) || l.won !== undefined || (c && c.status !== "en attente") || new Date(l.kickoff) <= new Date()) return "";
   return `<a class="tag ub-link" href="${esc(l.link)}" target="_blank" rel="noopener">Unibet ↗</a>`;
 }
+// heure de relevé des cotes (le 1N2 peut être plus récent que les cotes de buts)
+function oddsAge(m) {
+  if (!m?.odds_at) return "";
+  const t = (x) => { const d = new Date(x); return `${isoDay(d) === isoDay(new Date()) ? "" : d.toLocaleDateString("fr-FR", { weekday: "short", timeZone: "Europe/Paris" }) + " "}${hour(x)}`; };
+  const g = m.goals_at && Math.abs(new Date(m.goals_at) - new Date(m.odds_at)) > 30 * 6e4 ? ` · buts ${t(m.goals_at)}` : "";
+  return `<em class="odds-age">cotes ${t(m.odds_at)}${g}</em>`;
+}
+// le robot apprend des vraies cotes Unibet que tu saisis : type de pari, cote affichée et cote réelle, jamais ta mise
+function oddsFamily(m) {
+  if (["1", "N", "2"].includes(m)) return "1n2";
+  if (["1N", "N2", "12"].includes(m)) return "dc";
+  if (m === "BTTS" || m === "NBTTS") return "btts";
+  if (m.startsWith("HC")) return "hcpts";
+  if (m === "H1" || m === "H2") return "hcp";
+  if (m[0] === "+" || m[0] === "-") return "total";
+  return "autre";
+}
+function reportCorrection(c, i, v) {
+  const l = c.legs[i];
+  if (!l || l.src === "unibet" || !(l.odds > 1) || Math.abs(v - l.odds) > l.odds * 0.5) return;   // écart énorme : sans doute une faute de frappe
+  const done = LS.get("pf_reported", {}), key = `${l.match_id}|${l.market}`;
+  if (done[key] === v) return;
+  done[key] = v; LS.set("pf_reported", done);
+  const msg = { sport: sportOf(l), k: oddsFamily(l.market), src: l.src, est: l.raw_odds || l.odds, real: v };
+  fetch(`https://ntfy.sh/${NTFY_TOPIC}-cotes`, { method: "POST", body: JSON.stringify(msg) }).catch(() => {});
+}
+// mise qui grimpe juste après des pertes : un rappel, jamais un blocage
+function stakeWarning(v) {
+  const done = Object.entries(bets()).map(([id, b]) => ({ b, c: findCombo(id) })).filter((x) => x.c && x.c.status !== "en attente").sort((a, z) => (z.b.ts || 0) - (a.b.ts || 0));
+  const prev = Object.values(bets()).map((b) => b.mise).filter((x) => x > 0).sort((a, z) => a - z);
+  if (done.length < 3 || prev.length < 4) return "";
+  const lost3 = done.slice(0, 3).every((x) => x.c.status === "perdu");
+  const med = prev[Math.floor(prev.length / 2)];
+  return lost3 && v >= 1.5 * med && v - med >= 1 ? `Tes 3 derniers tickets sont perdus et cette mise (${fmtMise(v)} €) est bien au-dessus de ta mise habituelle (${fmtMise(med)} €). Se refaire après des pertes est le piège le plus courant.` : "";
+}
 function legHtml(c, l, i) {
   const ov = (overrides()[c.id] || {})[i];
   const res = l.won === true ? `<span class="tag win">✓ ${esc(l.score)}</span>` : l.won === false ? `<span class="tag loss">✗ ${esc(l.score)}</span>` : "";
@@ -198,7 +233,7 @@ function legHtml(c, l, i) {
     <div class="pick"><b>${esc(l.label)}</b><span class="vs"><span class="vt">${crest(l.home, "mini")}${esc(l.home)}</span><i>contre</i><span class="vt">${crest(l.away, "mini")}${esc(l.away)}</span></span>
       <div class="meta"><span class="tag">${esc(l.league)}</span><span class="tag">${when(l.kickoff)}</span><span class="tag">${pct(l.p)}</span>${res}${unibetLink(l, c)}</div>${bets()[c.id] && l.won === undefined ? liveLegHtml(l) : ""}</div>
     <button class="odd ${esc(l.src)} ${ov ? "edited" : ""}" data-combo="${esc(c.id)}" data-leg="${i}" aria-label="Corriger la cote">
-      ${fmt(ov || l.odds)}<small>${ov ? "ta cote" : esc(SRC[l.src] || l.src)}</small></button>
+      ${fmt(ov || l.odds)}<small>${ov ? "ta cote" : esc(SRC[l.src] || l.src) + (l.adj ? " ajustée" : "")}</small></button>
   </div>`;
 }
 
@@ -346,7 +381,7 @@ function renderMatchs() {
         h += `<div class="match ${isOpen ? "open" : ""}">
           <div class="mhead">
             <div class="team">${crest(m.home, "")}<span>${esc(m.home)}</span></div>
-            <div class="kick">${hour(m.kickoff)}<small>${esc(new Date(m.kickoff).toLocaleDateString("fr-FR", { weekday: "short", day: "numeric", month: "short", timeZone: "Europe/Paris" }))}</small></div>
+            <div class="kick">${hour(m.kickoff)}<small>${esc(new Date(m.kickoff).toLocaleDateString("fr-FR", { weekday: "short", day: "numeric", month: "short", timeZone: "Europe/Paris" }))}</small>${oddsAge(m)}</div>
             <div class="team away">${crest(m.away, "")}<span>${esc(m.away)}</span></div>
           </div>
           <div class="tri" role="img" aria-label="Victoire ${esc(m.home)} ${pct(p1)}${s.N ? `, nul ${pct(pN)}` : ""}, victoire ${esc(m.away)} ${pct(p2)}">
@@ -739,7 +774,7 @@ function checkOdds(c) {
       if (d.returnValue === "cancel") return resolve(false);
       if (d.returnValue === "skip") return resolve(true);
       const all = overrides(), o = Object.assign({}, all[c.id] || {});
-      rows.querySelectorAll("[data-i]").forEach((inp) => { const v = parseNum(inp.value); if (v > 1 && v < 100) o[inp.dataset.i] = v; });
+      rows.querySelectorAll("[data-i]").forEach((inp) => { const v = parseNum(inp.value); if (v > 1 && v < 100) { o[inp.dataset.i] = v; reportCorrection(c, +inp.dataset.i, v); } });
       all[c.id] = o; LS.set("pf_overrides", all);
       resolve(true);
     };
@@ -761,7 +796,7 @@ document.addEventListener("click", async (e) => {
     const v = await ask("Cote Unibet", `${c.legs[i].label}, ${c.legs[i].home} contre ${c.legs[i].away}`, legOdds(c, i), { clear: true });
     const ov = overrides();
     if (v === "clear") { if (ov[c.id]) delete ov[c.id][i]; }
-    else if (v && v > 1) { ov[c.id] = ov[c.id] || {}; ov[c.id][i] = v; }
+    else if (v && v > 1) { ov[c.id] = ov[c.id] || {}; ov[c.id][i] = v; reportCorrection(c, i, v); }
     LS.set("pf_overrides", ov); syncBetOdds(c.id); renderAll(); return;
   }
   const bt = e.target.closest("[data-bet]");
@@ -779,6 +814,7 @@ document.addEventListener("click", async (e) => {
         : `${c.stake} € conseillés. Il te reste ${fmt(Math.max(left, 0), 0)} € dans ton budget du mois.`, c.stake, { steps: c.kind === "folie" ? [1, 2] : [1, 2, 3, 4, 5] });
       if (!v || isNaN(v) || v <= 0) return;
       if (v > left && !confirm("Cette mise dépasse ton budget du mois. La garder quand même ?")) return;
+      { const w = stakeWarning(v); if (w && !confirm(w + "\n\nGarder cette mise ?")) return; }
       all[c.id] = { mise: v, odds: +combo(c).odds.toFixed(4), date: isoDay(new Date()), ts: Date.now(), snap: c };
       freshStamp = c.id;
     }
@@ -976,7 +1012,7 @@ async function load(quiet) {
   const get = (f) => fetch(`data/${f}?t=${Date.now()}`, { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
   let logos;
   fetchBackups().then(renderBackupStatus);
-  [today, hist, meta, logos, model] = await Promise.all([get("today.json"), get("history.json"), get("meta.json"), get("logos.json"), get("model.json")]);
+  [today, hist, meta, logos, model, other] = await Promise.all([get("today.json"), get("history.json"), get("meta.json"), get("logos.json"), get("model.json"), get("other_learning.json")]);
   if (logos) LOGOS = logos;
   if (today) LS.set("pf_cache", { today, hist, logos: LOGOS, model }); else if (!quiet) ({ today, hist, logos: LOGOS = {}, model = null } = LS.get("pf_cache", {}));
   for (const id of Object.keys(bets())) syncBetOdds(id);

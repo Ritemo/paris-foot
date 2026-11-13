@@ -147,6 +147,8 @@ async def main():
                 return await r.fulfill(json=meta)
             if "/data/model.json" in u:
                 return await r.fulfill(json=MODEL)
+            if "/data/other_learning.json" in u:
+                return await r.fulfill(json={"summary": {"basket": {"n": 12, "brier": 0.21, "fav": 0.667, "bins": [{"p": 0.7, "f": 0.75, "n": 8}, {"p": 0.3, "f": 0.25, "n": 4}]}}})
             if "/data/logos.json" in u:
                 return await r.fulfill(json={"Rennes": {"logo": "https://a.espncdn.com/i/teamlogos/soccer/500/169.png", "color": "#e13327"},
                                              "Nantes": {"logo": "https://a.espncdn.com/i/teamlogos/soccer/500/165.png", "color": "#fcd405"}})
@@ -360,6 +362,13 @@ async def main():
         check(await pg.locator('#tab-encours .live[data-score]').count() == 0 or "88-80" not in await pg.evaluate("[...document.querySelectorAll('.live[data-score]')].map(x => x.dataset.score).join()"),
               "pas de flash « BUT ! » au basket")
         await pg.evaluate("const b = bets(); delete b['perso|nba']; LS.set('pf_bets', b); renderAll()")
+        print("Mise inhabituelle")
+        w = await pg.evaluate("""(() => { const save = LS.get('pf_bets', {}); const b = {};
+            ['old1', 'old2'].forEach((id, i) => b[id] = { mise: 2, odds: 2, ts: 100 + i, snap: findCombo(id) });
+            b['c-passe'] = { mise: 2, odds: 2, ts: 99, snap: Object.assign({}, findCombo('c-passe'), { status: 'perdu' }) };
+            b['x4'] = { mise: 2, odds: 2, ts: 1 };
+            LS.set('pf_bets', b); const r = [stakeWarning(5), stakeWarning(2)]; LS.set('pf_bets', save); return r; })()""")
+        check("3 derniers tickets sont perdus" in w[0] and w[1] == "", "rappel si la mise grimpe après 3 pertes, rien sinon")
         print("Animations")
         await pg.evaluate("window.__noCelebrate = false; LS.set('pf_celebrated', [])")
         await pg.evaluate("document.querySelectorAll('.celebrate').forEach(e => e.remove()); renderAll()")
@@ -399,6 +408,7 @@ async def main():
         await pg.click("#tab-modele .mchart .hit >> nth=0")
         check("Annoncé" in await pg.inner_text("#tab-modele .mchart .tip >> nth=0"), "détail d'un point au toucher")
         check(await pg.locator("#tab-modele .brief-item").count() >= 4, "résumé En bref en tête de l'onglet")
+        check("Le favori annoncé a gagné 67 %" in await pg.inner_text("#tab-modele"), "NBA et tennis dans l'onglet Modèle")
         check(await pg.locator("#tab-modele .mkpi .info").count() == 4, "un bouton d'explication par métrique")
         await pg.click("#tab-modele .mkpi .info >> nth=1")
         check("mélangent" in await pg.inner_text(".info-pop"), "explication du poids du modèle maison")

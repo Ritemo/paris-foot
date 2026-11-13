@@ -12,7 +12,7 @@ function draftLegs() {
     if (!m || !s || new Date(m.kickoff) <= new Date()) continue;   // match commencé : sélection retirée
     out.push({ match_id: m.id, league: m.league, kickoff: m.kickoff, home: m.home, away: m.away, fd_home: m.fd_home, fd_away: m.fd_away,
       div: m.div, sport: m.sport || "foot", link: m.link, market: s.market, label: s.market.startsWith("H") ? `${s.market === "H1" ? m.home : m.away} gagne par 2 buts ou +` : s.label,
-      odds: s.odds, src: s.src, p: s.p, ev: s.ev });
+      odds: s.odds, raw_odds: s.raw_odds, adj: s.adj, src: s.src, p: s.p, ev: s.ev });
   }
   return out.sort((a, b) => a.kickoff.localeCompare(b.kickoff));
 }
@@ -70,6 +70,7 @@ document.addEventListener("click", async (e) => {
   const v = await ask("Combien tu mises ?", `Ton combiné à ${fmt(combo(c).odds)}, ${pct(c.p)} de chance. Il te reste ${fmt(Math.max(left, 0), 0)} € dans ton budget du mois.`, c.stake, { steps: [1, 2, 3, 4, 5] });
   if (!v || isNaN(v) || v <= 0) return;
   if (v > left && !confirm("Cette mise dépasse ton budget du mois. La garder quand même ?")) return;
+  { const w = stakeWarning(v); if (w && !confirm(w + "\n\nGarder cette mise ?")) return; }
   const all = bets();
   all[c.id] = { mise: v, odds: +combo(c).odds.toFixed(4), date: isoDay(new Date()), ts: Date.now(), snap: c };
   LS.set("pf_bets", all); LS.set("pf_draft", {});

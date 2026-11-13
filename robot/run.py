@@ -174,7 +174,7 @@ def fetch_odds(leagues_needed, cache):
         remaining = credits["remaining"]
         for e in data:
             e["sport"] = sport
-            e["fetched_at"] = NOW.isoformat()
+            e["fetched_at"] = e["full_at"] = NOW.isoformat()   # full_at : heure des cotes de buts (releve complet)
             events[e["id"]] = e
     for eid, e in cache.items():  # completer avec le cache pour les matchs non actualises
         if eid not in events and e["commence_time"] > NOW.isoformat():
@@ -384,7 +384,8 @@ def nba_matches(horizon, unibet):
                 pass
             sel = [x for x in sel if 0.03 < x["p"] < 0.97 and x["odds"] >= 1.04]
             out.append(dict(id=f"nba-{e['id']}", sport="basket", league="NBA", div="NBA", kickoff=k.isoformat().replace("+00:00", "Z"),
-                            day=paris_day(k.isoformat()), home=h, away=a, fd_home=None, fd_away=None, sel=sel, link=ub[2] if ub and len(ub) > 2 else None))
+                            day=paris_day(k.isoformat()), home=h, away=a, fd_home=None, fd_away=None, sel=sel, link=ub[2] if ub and len(ub) > 2 else None,
+                            odds_at=NOW.isoformat()))
     return out
 
 
@@ -449,8 +450,47 @@ def tennis_matches(horizon):
                    _sel("2", f"Victoire {a}", ub[1] if ub else est[1], "unibet" if ub else "estimee", pf[1])]
             sel = [s_ for s_ in sel if 0.03 < s_["p"] < 0.97 and s_["odds"] >= 1.04]
             out.append(dict(id=e["id"], sport="tennis", league=tour, event=x["title"], div=tour, kickoff=e["commence_time"],
-                            day=paris_day(e["commence_time"]), home=h, away=a, fd_home=None, fd_away=None, sel=sel, link=link))
+                            day=paris_day(e["commence_time"]), home=h, away=a, fd_home=None, fd_away=None, sel=sel, link=link, odds_at=NOW.isoformat()))
     return out
+
+
+# ---------------------------------------------------------------- NBA et tennis : les chances annoncees se verifient-elles ?
+def other_journal(matches=None):
+    """Journal des chances de victoire annoncees (NBA, tennis) et des resultats ESPN ; resume pour l'onglet Modele."""
+    j = load("other_learning.json", {"items": {}})
+    items = j["items"]
+    for m in matches or []:
+        s1 = next((x for x in m["sel"] if x["market"] == "1"), None)
+        if s1 and m["id"] not in items:
+            items[m["id"]] = dict(sport=m["sport"], div=m["div"], kickoff=m["kickoff"], home=m["home"], away=m["away"], p=s1["p"], odds=s1["odds"])
+    boards = {}
+    for it in items.values():
+        k = datetime.fromisoformat(it["kickoff"].replace("Z", "+00:00"))
+        if "won" in it or not (NOW - timedelta(days=4) < k < NOW - timedelta(hours=2)):
+            continue
+        try:
+            sc = espn_other_score(dict(it, market="1"), boards)
+        except Exception:
+            sc = None
+        if sc:
+            it["won"] = sc[0] > sc[1]
+    limit = (NOW - timedelta(days=400)).isoformat()
+    j["items"] = items = {k: v for k, v in items.items() if v["kickoff"] > limit}
+    summ = {}
+    for sport in ("basket", "tennis"):
+        done = [v for v in items.values() if v["sport"] == sport and "won" in v]
+        if not done:
+            continue
+        bins = []
+        for lo in (0.0, 0.2, 0.4, 0.6, 0.8):
+            b = [v for v in done if lo <= v["p"] < lo + 0.2 or (lo == 0.8 and v["p"] == 1)]
+            if b:
+                bins.append(dict(p=round(sum(v["p"] for v in b) / len(b), 3), f=round(sum(v["won"] for v in b) / len(b), 3), n=len(b)))
+        summ[sport] = dict(n=len(done), brier=round(sum((v["p"] - v["won"]) ** 2 for v in done) / len(done), 4),
+                           fav=round(sum((v["p"] >= 0.5) == v["won"] for v in done) / len(done), 3), bins=bins)
+    j["summary"], j["updated"] = summ, NOW.isoformat()
+    save("other_learning.json", j)
+    return summ
 
 
 def other_sports(prev_matches, horizon, paid):
@@ -529,7 +569,7 @@ def build_matches(events, models):
             s["ev"] = round(s["p"] * s["odds"] - 1, 4)
         matches.append(dict(id=eid, league=lname, div=div, kickoff=e["commence_time"], day=paris_day(e["commence_time"]),
                             home=H, away=A, fd_home=h, fd_away=a, lambdas=[round(x, 3) for x in lmk],
-                            model=bool(lm), sel=sel, link=o.get("link"),
+                            model=bool(lm), sel=sel, link=o.get("link"), odds_at=e.get("fetched_at"), goals_at=e.get("full_at") or e.get("fetched_at"),
                             _lp=dict(pm=learn.vec(md_mat) if lm else None, pk=learn.vec(mk_mat),
                                      pr=learn.adjust_vec(learn.vec(mat), PARAMS.get("offsets")).tolist())))
     matches.sort(key=lambda m: m["kickoff"])
@@ -951,6 +991,75 @@ def sync_backup():
     return True
 
 
+# ---------------------------------------------------------------- apprendre des cotes saisies dans l'appli
+# Quand tu tapes la vraie cote Unibet d'une selection PMU ou estimee, l'appli l'envoie (sans ta mise).
+# Le robot en tire un coefficient par sport, type de pari et source (mediane, au moins 5 cas, entre 0,85 et 1,15)
+# et l'applique aux cotes non Unibet suivantes : elles se rapprochent peu a peu des vraies cotes Unibet.
+ADJ_MIN, ADJ_LO, ADJ_HI = 5, 0.85, 1.15
+
+
+def odds_family(m):
+    if m in ("1", "N", "2"):
+        return "1n2"
+    if m in ("1N", "N2", "12"):
+        return "dc"
+    if m in ("BTTS", "NBTTS"):
+        return "btts"
+    if m.startswith("HC"):
+        return "hcpts"
+    if m in ("H1", "H2"):
+        return "hcp"
+    if m[:1] in "+-":
+        return "total"
+    return "autre"
+
+
+def sync_corrections():
+    store = load("corrections.json", {"items": [], "adj": {}})
+    seen = {x["id"] for x in store["items"]}
+    try:
+        body, _h = http_get(f"https://ntfy.sh/{NTFY_TOPIC}-cotes/json?poll=1&since=all")
+    except Exception as e:
+        print("ntfy cotes", e, file=sys.stderr)
+        return store["adj"]
+    new = 0
+    for line in body.decode("utf-8").splitlines():
+        try:
+            ev = json.loads(line)
+            if ev.get("event") != "message" or ev["id"] in seen:
+                continue
+            d = json.loads(ev["message"])
+            est, real = float(d["est"]), float(d["real"])
+            if not (1.01 < est < 50 and 1.01 < real < 50 and abs(real / est - 1) < 0.5):
+                continue
+            store["items"].append({"id": ev["id"], "t": ev.get("time", 0), "key": f"{d['sport']}|{d['k']}|{d['src']}"[:40], "est": est, "real": real})
+            new += 1
+        except Exception:
+            continue
+    if not new:
+        return store["adj"]
+    store["items"] = sorted(store["items"], key=lambda x: x["t"])[-600:]
+    groups = {}
+    for x in store["items"]:
+        groups.setdefault(x["key"], []).append(x["real"] / x["est"])
+    store["adj"] = {k: round(min(ADJ_HI, max(ADJ_LO, float(np.median(v)))), 3) for k, v in groups.items() if len(v) >= ADJ_MIN}
+    store["counts"] = {k: len(v) for k, v in groups.items()}
+    save("corrections.json", store)
+    return store["adj"]
+
+
+def apply_adjust(matches, adj):
+    """Applique les coefficients appris aux cotes non Unibet (la cote d'origine reste dans raw_odds)."""
+    for m in matches:
+        for x in m["sel"]:
+            f = adj.get(f"{m.get('sport', 'foot')}|{odds_family(x['market'])}|{x['src']}")
+            if f and x["src"] != "unibet":
+                x["raw_odds"] = x["odds"]
+                x["odds"] = float(round(max(1.01, x["odds"] * f), 2))
+                x["ev"] = round(x["p"] * x["odds"] - 1, 4)
+                x["adj"] = f
+
+
 def settle_perso(meta):
     """Combines composes par toi : le robot les regle aussi, pour te prevenir."""
     played = meta.get("played", {})
@@ -1321,6 +1430,10 @@ def results_only(meta, history):
     before = json.dumps(history, sort_keys=True, default=str)
     meta_changed = sync_played(meta)
     sync_backup()
+    try:
+        other_journal()
+    except Exception as e:
+        print("journal nba tennis", e, file=sys.stderr)
     meta_changed |= notify_kickoffs(meta, history)
     meta_changed |= settle_perso(meta)
     status_before = {c["id"]: c["status"] for c in history["combos"]}
@@ -1410,6 +1523,14 @@ def main():
     # NBA et tennis : un seul releve payant par jour (1 a 3 credits), les autres passages reprennent ces matchs
     paid = meta.get("other_day") != today.isoformat()
     matches += other_sports(prev, horizon, paid=paid)
+    try:
+        other_journal([m for m in matches if m.get("sport") in ("basket", "tennis")])
+    except Exception as e:
+        print("journal nba tennis", e, file=sys.stderr)
+    try:
+        apply_adjust(matches, sync_corrections())
+    except Exception as e:
+        print("corrections", e, file=sys.stderr)
     if paid:
         meta["other_day"] = today.isoformat()
     matches.sort(key=lambda m: m["kickoff"])

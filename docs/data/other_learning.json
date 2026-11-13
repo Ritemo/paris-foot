@@ -16,7 +16,8 @@
    "home": "Aryna Sabalenka",
    "away": "Elina Svitolina",
    "p": 0.6318,
-   "odds": 1.44
+   "odds": 1.44,
+   "won": false
   },
   "nba-401909296": {
    "sport": "basket",
@@ -100,6 +101,19 @@
    "odds": 2.66
   }
  },
- "summary": {},
- "updated": "2026-11-13T23:15:45.985411+00:00"
+ "summary": {
+  "tennis": {
+   "n": 1,
+   "brier": 0.3992,
+   "fav": 0.0,
+   "bins": [
+    {
+     "p": 0.632,
+     "f": 0.0,
+     "n": 1
+    }
+   ]
+  }
+ },
+ "updated": "2026-11-13T23:30:59.003031+00:00"
 }

@@ -165,7 +165,7 @@ def fetch_odds(leagues_needed, cache):
             continue
         markets = "h2h,totals" if (remaining is None or remaining >= CREDIT_FLOOR_TOTALS) else "h2h"
         try:
-            data = odds_api(f"/sports/{sport}/odds", regions="fr", markets=markets, oddsFormat="decimal")
+            data = odds_api(f"/sports/{sport}/odds", regions="fr", markets=markets, oddsFormat="decimal", includeLinks="true")
         except Exception as e:
             print("odds", sport, e, file=sys.stderr)
             continue
@@ -185,6 +185,8 @@ def extract(e):
     out = {}
     books = {b["key"]: b for b in e.get("bookmakers", [])}
     src = "unibet" if "unibet_fr" in books else None
+    if books.get("unibet_fr", {}).get("link"):   # page du match sur unibet.fr (fournie par The Odds API)
+        out["link"] = books["unibet_fr"]["link"]
     order = ["unibet_fr", "betclic_fr", "winamax_fr", "pmu_fr", "netbet_fr"]
     for k in order:
         if k in books:
@@ -298,7 +300,7 @@ def nba_matches(horizon, unibet):
                 pass
             sel = [x for x in sel if 0.03 < x["p"] < 0.97 and x["odds"] >= 1.04]
             out.append(dict(id=f"nba-{e['id']}", sport="basket", league="NBA", div="NBA", kickoff=k.isoformat().replace("+00:00", "Z"),
-                            day=paris_day(k.isoformat()), home=h, away=a, fd_home=None, fd_away=None, sel=sel))
+                            day=paris_day(k.isoformat()), home=h, away=a, fd_home=None, fd_away=None, sel=sel, link=ub[2] if ub and len(ub) > 2 else None))
     return out
 
 
@@ -306,11 +308,11 @@ def nba_unibet():
     """Vraie cote Unibet du vainqueur NBA (1 credit)."""
     out = {}
     try:
-        for e in odds_api("/sports/basketball_nba/odds", regions="fr", markets="h2h", oddsFormat="decimal", bookmakers="unibet_fr"):
+        for e in odds_api("/sports/basketball_nba/odds", regions="fr", markets="h2h", oddsFormat="decimal", bookmakers="unibet_fr", includeLinks="true"):
             for b in e.get("bookmakers", []):
                 o = {x["name"]: x["price"] for x in b["markets"][0]["outcomes"]}
                 if e["home_team"] in o and e["away_team"] in o:
-                    out[(e["home_team"], e["away_team"])] = (o[e["home_team"]], o[e["away_team"]])
+                    out[(e["home_team"], e["away_team"])] = (o[e["home_team"]], o[e["away_team"]], b.get("link"))
     except Exception as ex:
         print("nba unibet", ex, file=sys.stderr)
     return out
@@ -339,7 +341,7 @@ def tennis_matches(horizon):
         if (credits["remaining"] or 0) < CREDIT_FLOOR_TOTALS:
             break
         try:
-            data = odds_api(f"/sports/{x['key']}/odds", regions="fr", markets="h2h", oddsFormat="decimal")
+            data = odds_api(f"/sports/{x['key']}/odds", regions="fr", markets="h2h", oddsFormat="decimal", includeLinks="true")
         except Exception as e:
             print("tennis", x["key"], e, file=sys.stderr)
             continue
@@ -348,13 +350,13 @@ def tennis_matches(horizon):
             if not (NOW.isoformat() < e["commence_time"] < horizon.isoformat()):
                 continue
             h, a = e["home_team"], e["away_team"]
-            prs, ub = [], None
+            prs, ub, link = [], None, None
             for b in e.get("bookmakers", []):
                 o = {y["name"]: y["price"] for y in b["markets"][0]["outcomes"]}
                 if h in o and a in o:
                     prs.append(fair([o[h], o[a]]))
                     if b["key"] == "unibet_fr":
-                        ub = (o[h], o[a])
+                        ub, link = (o[h], o[a]), b.get("link")
             if not prs:
                 continue
             pf = [sum(q[0] for q in prs) / len(prs), sum(q[1] for q in prs) / len(prs)]
@@ -363,7 +365,7 @@ def tennis_matches(horizon):
                    _sel("2", f"Victoire {a}", ub[1] if ub else est[1], "unibet" if ub else "estimee", pf[1])]
             sel = [s_ for s_ in sel if 0.03 < s_["p"] < 0.97 and s_["odds"] >= 1.04]
             out.append(dict(id=e["id"], sport="tennis", league=tour, event=x["title"], div=tour, kickoff=e["commence_time"],
-                            day=paris_day(e["commence_time"]), home=h, away=a, fd_home=None, fd_away=None, sel=sel))
+                            day=paris_day(e["commence_time"]), home=h, away=a, fd_home=None, fd_away=None, sel=sel, link=link))
     return out
 
 
@@ -443,7 +445,7 @@ def build_matches(events, models):
             s["ev"] = round(s["p"] * s["odds"] - 1, 4)
         matches.append(dict(id=eid, league=lname, div=div, kickoff=e["commence_time"], day=paris_day(e["commence_time"]),
                             home=H, away=A, fd_home=h, fd_away=a, lambdas=[round(x, 3) for x in lmk],
-                            model=bool(lm), sel=sel,
+                            model=bool(lm), sel=sel, link=o.get("link"),
                             _lp=dict(pm=learn.vec(md_mat) if lm else None, pk=learn.vec(mk_mat),
                                      pr=learn.adjust_vec(learn.vec(mat), PARAMS.get("offsets")).tolist())))
     matches.sort(key=lambda m: m["kickoff"])
@@ -495,7 +497,7 @@ def day_legs(day, matches):
             continue
         for s in m["sel"]:
             legs.append(dict(match_id=m["id"], league=m["league"], kickoff=m["kickoff"], home=m["home"], away=m["away"],
-                             fd_home=m["fd_home"], fd_away=m["fd_away"], div=m["div"], sport=m.get("sport", "foot"), **s))
+                             fd_home=m["fd_home"], fd_away=m["fd_away"], div=m["div"], sport=m.get("sport", "foot"), link=m.get("link"), **s))
     return legs
 
 
@@ -527,7 +529,9 @@ def candidates(day, matches):
 def combos_for_day(day, matches):
     """Les 3 meilleurs combines selon le style de jeu et le poids du prix par defaut, sans selection en commun, plus la folie."""
     cands, legs = candidates(day, matches)
-    cands = sorted([c for c in cands if not c.get("mix")], key=lambda cb: -interest(cb["p"], cb["cost"], len(cb["legs"])))
+    # a note egale, les tickets aux cotes Unibet passent devant (moins de cotes a verifier a la main), comme dans l'appli
+    uni = lambda cb: 0.03 * sum(l["src"] == "unibet" for l in cb["legs"]) / len(cb["legs"])
+    cands = sorted([c for c in cands if not c.get("mix")], key=lambda cb: -(interest(cb["p"], cb["cost"], len(cb["legs"])) + uni(cb)))
     chosen, used = [], set()
     for cb in cands:
         keys = {(l["match_id"], l["market"]) for l in cb["legs"]}

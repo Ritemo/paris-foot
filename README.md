@@ -41,6 +41,8 @@ Comme pour l'appli hand : coller l'adresse de l'appli sur pwabuilder.com, puis *
 - Un seul relevé payant par jour pour ces sports ; les autres passages reprennent les mêmes matchs. Résultats et direct : ESPN.
 - Les tickets proposés par le robot sont d'un seul sport. Interrupteur « Mélanger les sports » en haut des tickets : l'appli ajoute alors le meilleur ticket multisport du jour (calculé par le robot). Tu peux aussi mélanger toi-même en composant ton combiné dans l'onglet Matchs.
 - Les cotes estimées (*) sont à vérifier sur Unibet : l'appli te les demande quand tu joues.
+- Bouton « Unibet ↗ » sur chaque match dont la page Unibet est connue (adresse fournie par The Odds API, sans crédit en plus) : ouvre le match dans l'appli Unibet. Pas de ticket pré-rempli : Unibet ne le permet pas.
+- À note égale, les tickets dont toutes les cotes viennent d'Unibet passent devant (moins de cotes à vérifier).
 - Pas de récupération directe chez Unibet (conditions d'utilisation).
 
 ## Amélioration continue (onglet Modèle)

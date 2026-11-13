@@ -28,7 +28,7 @@ def sel(mk, label, odds, p, src="unibet"):
 
 def match(i, k, home, away):
     return dict(id=f"m{i}", league="Ligue 1", div="F1", kickoff=iso(k), day=day(k), home=home, away=away, fd_home=None, fd_away=None,
-                lambdas=[1.5, 1.1], model=True,
+                lambdas=[1.5, 1.1], model=True, link=f"https://www.unibet.fr/paris-football/france/ligue-1/{i}/match",
                 sel=[sel("1", f"Victoire {home}", 1.6, 0.58), sel("N", "Match nul", 3.8, 0.24), sel("2", f"Victoire {away}", 5.5, 0.18),
                      sel("+2.5", "Plus de 2,5 buts", 1.75, 0.53, "pmu"), sel("-2.5", "Moins de 2,5 buts", 2.05, 0.47, "pmu"),
                      sel("1N", f"{home} ou nul", 1.22, 0.82, "estimee"), sel("12", "Pas de match nul", 1.18, 0.76, "estimee"),
@@ -52,7 +52,7 @@ def tennis(i, k, home, away):
 def leg_of(m, mk):
     s = next(x for x in m["sel"] if x["market"] == mk)
     return dict(match_id=m["id"], league=m["league"], kickoff=m["kickoff"], home=m["home"], away=m["away"], fd_home=None, fd_away=None,
-                div=m["div"], sport=m.get("sport", "foot"), **s)
+                div=m["div"], sport=m.get("sport", "foot"), link=m.get("link"), **s)
 
 
 def combo(cid, kind, legs, stars=2, status="en attente", d=None):
@@ -184,6 +184,7 @@ async def main():
         ids = await pg.eval_on_selector_all("#tab-combos [data-bet]", "e => e.map(x => x.dataset.bet)")
         check("c-futur" in ids and "c-folie" in ids, "les tickets jouables s'affichent")
         check("c-passe" not in ids, "un ticket dont un match a commencé est masqué")
+        check(await pg.locator("#tab-combos a.ub-link[target=_blank]").count() >= 2, "bouton Unibet sur les matchs des tickets")
         check("c-alt" in ids and await pg.locator("#tab-combos .alt-tag").count() == 1, "un autre candidat du robot est proposé selon ton style")
 
         check(await pg.locator("#tab-combos .rank").count() >= 1 and "du jour sur" in await pg.inner_text("#tab-combos"), "rang du jour affiché sur les tickets")
@@ -201,6 +202,7 @@ async def main():
         print("Jouer un ticket")
         await pg.click('#tab-combos [data-bet="c-futur"]')
         check(await pg.is_visible("#dlg-odds") and await pg.locator("#odds-rows input").count() >= 1, "les cotes non Unibet sont à vérifier avant de jouer")
+        check(await pg.locator("#odds-rows a.ub-open[href^='https://www.unibet.fr/']").count() >= 1, "lien vers le match sur Unibet dans la vérification des cotes")
         nonuni = await pg.evaluate("findCombo('c-futur').legs.map((l, i) => l.src !== 'unibet' ? i : -1).filter(i => i >= 0)")
         orig = await pg.evaluate(f"findCombo('c-futur').legs[{nonuni[0]}].odds")
         await pg.fill("#odds-rows input >> nth=0", "9,99")

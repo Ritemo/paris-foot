@@ -148,7 +148,8 @@ const PRICE = { 3: "très intéressant", 2: "intéressant", 1: "peu intéressant
 function starsHtml(n) {
   return `<span class="stars" aria-label="${n} étoile${n > 1 ? "s" : ""} sur 3, ${PRICE[n]}">${[1, 2, 3].map((i) => `<i class="${i <= n ? "on" : ""}"></i>`).join("")}<em>${PRICE[n]}</em></span>`;
 }
-const ticketScore = (c) => combo(c).score;   // même critère que le robot, avec ta balance
+// à note égale, les tickets dont les cotes viennent d'Unibet passent devant : moins de cotes à vérifier à la main
+const ticketScore = (c) => combo(c).score + 0.03 * c.legs.filter((l) => l.src === "unibet").length / c.legs.length;   // même critère que le robot, avec ta balance
 // les meilleurs tickets d'un jour selon ta balance : ceux du robot et ses autres candidats, sans sélection en commun
 const mixOn = () => !!LS.get("pf_mix", false);
 function dayPicks(day, n = 3) {
@@ -184,12 +185,18 @@ function rankHtml(r, verb = "") {
 }
 
 /* --------------------------------------------------------------- tickets */
+// page du match sur unibet.fr (adresse fournie par The Odds API) : s'ouvre dans l'appli Unibet si elle est installée
+const okLink = (u) => /^https:\/\/www\.unibet\.fr\//.test(u || "");
+function unibetLink(l, c) {
+  if (!okLink(l.link) || l.won !== undefined || (c && c.status !== "en attente") || new Date(l.kickoff) <= new Date()) return "";
+  return `<a class="tag ub-link" href="${esc(l.link)}" target="_blank" rel="noopener">Unibet ↗</a>`;
+}
 function legHtml(c, l, i) {
   const ov = (overrides()[c.id] || {})[i];
   const res = l.won === true ? `<span class="tag win">✓ ${esc(l.score)}</span>` : l.won === false ? `<span class="tag loss">✗ ${esc(l.score)}</span>` : "";
   return `<div class="leg">
     <div class="pick"><b>${esc(l.label)}</b><span class="vs"><span class="vt">${crest(l.home, "mini")}${esc(l.home)}</span><i>contre</i><span class="vt">${crest(l.away, "mini")}${esc(l.away)}</span></span>
-      <div class="meta"><span class="tag">${esc(l.league)}</span><span class="tag">${when(l.kickoff)}</span><span class="tag">${pct(l.p)}</span>${res}</div>${bets()[c.id] && l.won === undefined ? liveLegHtml(l) : ""}</div>
+      <div class="meta"><span class="tag">${esc(l.league)}</span><span class="tag">${when(l.kickoff)}</span><span class="tag">${pct(l.p)}</span>${res}${unibetLink(l, c)}</div>${bets()[c.id] && l.won === undefined ? liveLegHtml(l) : ""}</div>
     <button class="odd ${esc(l.src)} ${ov ? "edited" : ""}" data-combo="${esc(c.id)}" data-leg="${i}" aria-label="Corriger la cote">
       ${fmt(ov || l.odds)}<small>${ov ? "ta cote" : esc(SRC[l.src] || l.src)}</small></button>
   </div>`;
@@ -718,7 +725,8 @@ function checkOdds(c) {
   if (!idx.length) return Promise.resolve(true);
   const d = document.getElementById("dlg-odds"), rows = document.getElementById("odds-rows"), tot = document.getElementById("odds-total");
   rows.innerHTML = idx.map((i) => { const l = c.legs[i]; return `<label class="odds-row"><span><b>${esc(l.label)}</b><small>${esc(l.home)} - ${esc(l.away)} · ${SRC_NAME[l.src] || l.src}</small></span>
-    <input type="text" inputmode="decimal" autocomplete="off" data-i="${i}" value="${String(legOdds(c, i)).replace(".", ",")}" aria-label="Cote Unibet : ${esc(l.label)}"></label>`; }).join("");
+    <input type="text" inputmode="decimal" autocomplete="off" data-i="${i}" value="${String(legOdds(c, i)).replace(".", ",")}" aria-label="Cote Unibet : ${esc(l.label)}">
+    ${okLink(l.link) ? `<a class="ub-open" href="${esc(l.link)}" target="_blank" rel="noopener">Ouvrir le match dans Unibet ↗</a>` : ""}</label>`; }).join("");
   const total = () => {
     let o = 1;
     c.legs.forEach((l, i) => { const inp = rows.querySelector(`[data-i="${i}"]`); const v = inp ? parseNum(inp.value) : legOdds(c, i); o *= v > 1 ? v : legOdds(c, i); });

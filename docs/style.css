@@ -600,3 +600,7 @@ body { overscroll-behavior-y: contain; }
 .code-box code { font-size: 15px; letter-spacing: .5px; white-space: nowrap; overflow-wrap: normal; padding: 10px 8px; }
 #mix-toggle[aria-checked="true"] { background: var(--pelouse-2); border-color: var(--pelouse-2); color: #fff; }
 @media (prefers-color-scheme: dark) { #mix-toggle[aria-checked="true"] { background: #7fd9a6; border-color: #7fd9a6; color: #14261c; } }
+/* lien vers la page du match sur Unibet */
+.tag.ub-link { background: #147b45; color: #fff; text-decoration: none; font-weight: 800; }
+.odds-row .ub-open { grid-column: 1 / -1; font-size: 13px; font-weight: 800; color: var(--pelouse-2); margin-top: -2px; }
+@media (prefers-color-scheme: dark) { .odds-row .ub-open { color: #7fd9a6; } }

@@ -4,7 +4,7 @@ on:
   workflow_dispatch:        # mesure a la demande (1 credit par competition)
     inputs:
       script:
-        description: "outil a lancer : marges ou liens"
+        description: "outil a lancer (dossier tools)"
         default: "marges"
 
 jobs:

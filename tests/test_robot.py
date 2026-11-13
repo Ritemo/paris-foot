@@ -473,5 +473,66 @@ class TestChiffrement(unittest.TestCase):
         finally:
             run.CODE, run.DATA, run.http_get = old
 
+
+class TestPassageComplet(unittest.TestCase):
+    """Un passage complet du robot (cotes, matchs, combines, fichiers), avec des API simulees : aucun appel reseau."""
+
+    def test_passage_complet(self):
+        import tempfile
+        import numpy as np
+        import pandas as pd
+        rng = np.random.default_rng(1)
+        teams = ["Lyon", "Nice", "Lens", "Lille", "Rennes", "Nantes", "Brest", "Metz"]
+        rows = []
+        for i in range(140):
+            h, a = rng.choice(teams, 2, replace=False)
+            rows.append(dict(Div="F1", Date=pd.Timestamp(run.NOW.date()) - pd.Timedelta(days=3 + i), HomeTeam=h, AwayTeam=a,
+                             FTHG=int(rng.poisson(1.5)), FTAG=int(rng.poisson(1.1)), HST=int(rng.poisson(5)), AST=int(rng.poisson(4))))
+        fd = pd.DataFrame(rows)
+        k1 = (run.NOW + timedelta(hours=6)).strftime("%Y-%m-%dT%H:%M:%SZ")
+        k2 = (run.NOW + timedelta(hours=7)).strftime("%Y-%m-%dT%H:%M:%SZ")
+        def ev(i, h, a, k):
+            return {"id": f"ev{i}", "sport_key": "soccer_france_ligue_one", "commence_time": k, "home_team": h, "away_team": a, "bookmakers": [
+                {"key": "unibet_fr", "link": "https://www.unibet.fr/paris-football/x", "markets": [{"key": "h2h", "outcomes": [
+                    {"name": h, "price": 1.75}, {"name": "Draw", "price": 3.6}, {"name": a, "price": 4.4}]}]},
+                {"key": "pmu_fr", "markets": [{"key": "totals", "outcomes": [{"name": "Over", "point": 2.5, "price": 1.8}, {"name": "Under", "point": 2.5, "price": 1.95}]}]}]}
+        events = [ev(1, "Lyon", "Nice", k1), ev(2, "Lens", "Lille", k2), ev(3, "Rennes", "Nantes", k2), ev(4, "Brest", "Metz", k1)]
+        calls = []
+        def fake_get(url, **kw):
+            calls.append(url)
+            h = {"x-requests-remaining": "300", "x-requests-last": "2"}
+            if "the-odds-api.com" in url:
+                if "/soccer_france_ligue_one/events" in url:
+                    return json.dumps([{"commence_time": k1}]).encode(), h
+                if "/soccer_france_ligue_one/odds" in url:
+                    return json.dumps(events).encode(), h
+                return b"[]", h
+            if "espn.com" in url:
+                return json.dumps({"events": [], "sports": [{"leagues": [{"teams": []}]}]}).encode(), {}
+            return b"", {}
+        old = (run.DATA, run.http_get, run.load_history_fd, run.seed_learning, os.environ.get("FORCE"), run.KEY, run.OP_KEY)
+        run.DATA = tempfile.mkdtemp()
+        run.http_get, run.load_history_fd = fake_get, (lambda n=2: fd)
+        run.seed_learning = lambda store: store.update(seeded=True)
+        run.KEY, run.OP_KEY = "test", ""
+        os.environ["FORCE"] = "1"
+        try:
+            run.main()
+            today = run.load("today.json", {})
+            meta = run.load("meta.json", {})
+        finally:
+            run.DATA, run.http_get, run.load_history_fd, run.seed_learning, force, run.KEY, run.OP_KEY = old
+            if force is None:
+                os.environ.pop("FORCE", None)
+            else:
+                os.environ["FORCE"] = force
+        self.assertEqual(len([m for m in today["matches"] if m.get("league") == "Ligue 1"]), 4)
+        m = today["matches"][0]
+        self.assertTrue(m["link"].startswith("https://www.unibet.fr/") and m["odds_at"])
+        self.assertTrue({"1", "N", "2", "+2.5"} <= {s["market"] for s in m["sel"]})
+        self.assertTrue(today["combos"] or today.get("alts"))
+        self.assertEqual(meta.get("full_day"), run.NOW.astimezone(run.PARIS).date().isoformat())
+        self.assertFalse(any("api.oddspapi.io" in u for u in calls))
+
 if __name__ == "__main__":
     unittest.main(verbosity=1)

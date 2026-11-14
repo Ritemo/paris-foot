@@ -18,7 +18,7 @@
   "Ligue des champions",
   "Ligue Europa"
  ],
- "last_results_run": "2026-11-14T05:31:05.463709+00:00",
+ "last_results_run": "2026-11-14T06:01:08.390455+00:00",
  "last_odds_run": "2026-11-14T03:42:45.932148+00:00",
  "played": {
   "perso|2026-11-05|cb7170b1b0e68a09be62b7a0fcb8d268:+2.5|d6ef4964addd663baed90f8f19fda1d3:BTTS|402e102fa845ed84ab7e59b3b17f8c29:N": {
@@ -506,7 +506,9 @@
       "odds": 1.31,
       "src": "estimee",
       "p": 0.7098,
-      "ev": -0.0702
+      "ev": -0.0702,
+      "score": "113-112",
+      "won": false
      },
      {
       "match_id": "nba-401909298",

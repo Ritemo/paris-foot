@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-14T03:42:45.932148+00:00",
+ "updated": "2026-11-14T06:30:54.316414+00:00",
  "params": {
   "w_model": 0.027,
   "w_prior": 0.2,
@@ -35,13 +35,13 @@
    "marge": 5.4
   },
   "selections": {
-   "n": 68,
-   "annonce": 0.604,
-   "reel": 0.588,
-   "attendus": 41.0,
+   "n": 70,
+   "annonce": 0.607,
+   "reel": 0.571,
+   "attendus": 42.5,
    "observes": 40,
-   "z": -0.26,
-   "marge": 8.0
+   "z": -0.61,
+   "marge": 8.1
   }
  },
  "log": [

@@ -194,7 +194,9 @@
      "odds": 1.73,
      "src": "estimee",
      "p": 0.5108,
-     "ev": -0.1163
+     "ev": -0.1163,
+     "score": "107-120",
+     "won": false
     },
     {
      "match_id": "nba-401909301",
@@ -6149,5 +6151,5 @@
   "bilan_mise_suggeree": -23.99,
   "mise_suggeree_totale": 79
  },
- "updated": "2026-11-14T04:15:51.023256+00:00"
+ "updated": "2026-11-14T05:31:05.463709+00:00"
 }

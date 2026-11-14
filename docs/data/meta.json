@@ -18,7 +18,7 @@
   "Ligue des champions",
   "Ligue Europa"
  ],
- "last_results_run": "2026-11-14T06:01:08.390455+00:00",
+ "last_results_run": "2026-11-14T21:45:43.704705+00:00",
  "last_odds_run": "2026-11-14T15:31:02.797068+00:00",
  "played": {
   "2026-11-06|295076c39e49863cb54db085ac3cd340:+2.5|fa069801a5c9b49143447a1a1d173fd1:-3.5": {
@@ -437,7 +437,9 @@
       "odds": 1.33,
       "src": "unibet",
       "p": 0.6818,
-      "ev": -0.0932
+      "ev": -0.0932,
+      "score": "0-2",
+      "won": true
      },
      {
       "match_id": "57cede457aa62785e8460c5b2a052ac6",

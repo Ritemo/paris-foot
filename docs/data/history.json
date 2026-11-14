@@ -157,7 +157,9 @@
      "odds": 1.6,
      "src": "unibet",
      "p": 0.5514,
-     "ev": -0.1177
+     "ev": -0.1177,
+     "score": "133-121",
+     "won": true
     }
    ],
    "odds": 2.42,
@@ -165,9 +167,10 @@
    "cost": 0.2167,
    "stars": 2,
    "stake": 2,
-   "status": "en attente",
+   "status": "gagne",
    "proposed_at": "2026-11-13T06:31:03.345065+00:00",
-   "replaced": true
+   "replaced": true,
+   "settled_at": "2026-11-14T03:45:49.557710+00:00"
   },
   {
    "id": "2026-11-14|nba-401909301:HC1:-16.5|nba-401909303:+228.5",
@@ -6141,5 +6144,5 @@
   "bilan_mise_suggeree": -23.99,
   "mise_suggeree_totale": 79
  },
- "updated": "2026-11-14T03:42:45.932148+00:00"
+ "updated": "2026-11-14T03:45:49.557710+00:00"
 }

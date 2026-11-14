@@ -18,7 +18,7 @@
   "Ligue des champions",
   "Ligue Europa"
  ],
- "last_results_run": "2026-11-14T02:45:46.634427+00:00",
+ "last_results_run": "2026-11-14T03:45:49.557710+00:00",
  "last_odds_run": "2026-11-14T03:42:45.932148+00:00",
  "played": {
   "perso|2026-11-05|cb7170b1b0e68a09be62b7a0fcb8d268:+2.5|d6ef4964addd663baed90f8f19fda1d3:BTTS|402e102fa845ed84ab7e59b3b17f8c29:N": {
@@ -522,13 +522,70 @@
       "odds": 1.6,
       "src": "unibet",
       "p": 0.5514,
-      "ev": -0.1177
+      "ev": -0.1177,
+      "score": "133-121",
+      "won": true
      }
     ],
     "odds": 2.72,
     "p": 0.2764,
     "cost": 0.247,
     "stars": 2,
+    "stake": 2,
+    "status": "en attente",
+    "alt": true
+   }
+  },
+  "2026-11-14|53d87628f7d7ae2c16b9b10ab1be03ab:2|57cede457aa62785e8460c5b2a052ac6:2": {
+   "mise": 2,
+   "odds": 2.93,
+   "t": 1794627876,
+   "snap": {
+    "id": "2026-11-14|53d87628f7d7ae2c16b9b10ab1be03ab:2|57cede457aa62785e8460c5b2a052ac6:2",
+    "day": "2026-11-14",
+    "kind": "x2",
+    "legs": [
+     {
+      "match_id": "53d87628f7d7ae2c16b9b10ab1be03ab",
+      "league": "WTA",
+      "kickoff": "2026-11-14T20:00:00Z",
+      "home": "Jessica Pegula",
+      "away": "Mirra Andreeva",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "WTA",
+      "sport": "tennis",
+      "link": "https://www.unibet.fr/paris-tennis/wta/wta-finals/3399843/j.pegula-vs-m.andreeva",
+      "market": "2",
+      "label": "Victoire Mirra Andreeva",
+      "odds": 1.33,
+      "src": "unibet",
+      "p": 0.6818,
+      "ev": -0.0932
+     },
+     {
+      "match_id": "57cede457aa62785e8460c5b2a052ac6",
+      "league": "WTA",
+      "kickoff": "2026-11-14T21:30:00Z",
+      "home": "Linda Noskova",
+      "away": "Elina Svitolina",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "WTA",
+      "sport": "tennis",
+      "link": "https://www.unibet.fr/paris-tennis/wta/wta-finals/3399919/l.noskova-vs-e.svitolina",
+      "market": "2",
+      "label": "Victoire Elina Svitolina",
+      "odds": 2.2,
+      "src": "unibet",
+      "p": 0.4046,
+      "ev": -0.1099
+     }
+    ],
+    "odds": 2.93,
+    "p": 0.2759,
+    "cost": 0.1929,
+    "stars": 1,
     "stake": 2,
     "status": "en attente",
     "alt": true

@@ -35,7 +35,8 @@
    "home": "Orlando Magic",
    "away": "Milwaukee Bucks",
    "p": 0.7598,
-   "odds": 1.2
+   "odds": 1.2,
+   "won": true
   },
   "nba-401909298": {
    "sport": "basket",
@@ -102,6 +103,18 @@
   }
  },
  "summary": {
+  "basket": {
+   "n": 1,
+   "brier": 0.0577,
+   "fav": 1.0,
+   "bins": [
+    {
+     "p": 0.76,
+     "f": 1.0,
+     "n": 1
+    }
+   ]
+  },
   "tennis": {
    "n": 1,
    "brier": 0.3992,
@@ -115,5 +128,5 @@
    ]
   }
  },
- "updated": "2026-11-14T02:15:44.656091+00:00"
+ "updated": "2026-11-14T02:30:59.103964+00:00"
 }

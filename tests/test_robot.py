@@ -457,7 +457,7 @@ class TestChiffrement(unittest.TestCase):
             run.save_meta(meta)
             raw = run.load("meta.json", {})
             self.assertNotIn("played", raw)
-            self.assertNotIn("2.1", json.dumps(raw))
+            self.assertNotIn("mise", json.dumps(raw))   # ni les mises ni les cotes en clair
             self.assertTrue(raw["played_enc"])
             m2 = run.load_meta()
             self.assertEqual(m2["played"]["t1"]["mise"], 2)

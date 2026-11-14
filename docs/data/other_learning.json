@@ -64,7 +64,8 @@
    "home": "New Orleans Pelicans",
    "away": "Memphis Grizzlies",
    "p": 0.412,
-   "odds": 2.1
+   "odds": 2.1,
+   "won": false
   },
   "nba-401909301": {
    "sport": "basket",
@@ -101,17 +102,58 @@
    "away": "Oklahoma City Thunder",
    "p": 0.2902,
    "odds": 2.66
+  },
+  "a09dfd51fadc5c32dd0adb4f799b8628": {
+   "sport": "tennis",
+   "div": "ATP",
+   "kickoff": "2026-11-15T13:00:00Z",
+   "home": "Alexander Zverev",
+   "away": "Rafael Jodar",
+   "p": 0.6709,
+   "odds": 1.33
+  },
+  "2e7a66dfb5caacad9c224d3eaf230dee": {
+   "sport": "tennis",
+   "div": "ATP",
+   "kickoff": "2026-11-15T19:30:00Z",
+   "home": "Ben Shelton",
+   "away": "Arthur Fils",
+   "p": 0.6022,
+   "odds": 1.45
+  },
+  "53d87628f7d7ae2c16b9b10ab1be03ab": {
+   "sport": "tennis",
+   "div": "WTA",
+   "kickoff": "2026-11-14T20:00:00Z",
+   "home": "Jessica Pegula",
+   "away": "Mirra Andreeva",
+   "p": 0.3182,
+   "odds": 2.85
+  },
+  "57cede457aa62785e8460c5b2a052ac6": {
+   "sport": "tennis",
+   "div": "WTA",
+   "kickoff": "2026-11-14T21:30:00Z",
+   "home": "Linda Noskova",
+   "away": "Elina Svitolina",
+   "p": 0.5954,
+   "odds": 1.47
   }
  },
  "summary": {
   "basket": {
-   "n": 2,
-   "brier": 0.2738,
-   "fav": 0.5,
+   "n": 3,
+   "brier": 0.2391,
+   "fav": 0.667,
    "bins": [
     {
      "p": 0.3,
      "f": 1.0,
+     "n": 1
+    },
+    {
+     "p": 0.412,
+     "f": 0.0,
      "n": 1
     },
     {
@@ -134,5 +176,5 @@
    ]
   }
  },
- "updated": "2026-11-14T03:31:00.394740+00:00"
+ "updated": "2026-11-14T03:42:45.932148+00:00"
 }

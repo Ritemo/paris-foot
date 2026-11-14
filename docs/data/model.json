@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-13T15:31:11.643448+00:00",
+ "updated": "2026-11-14T03:42:45.932148+00:00",
  "params": {
   "w_model": 0.027,
   "w_prior": 0.2,
@@ -26,22 +26,22 @@
  "min_verdict": 300,
  "tickets": {
   "tickets": {
-   "n": 31,
-   "annonce": 0.34,
-   "reel": 0.323,
-   "attendus": 10.5,
+   "n": 33,
+   "annonce": 0.344,
+   "reel": 0.303,
+   "attendus": 11.3,
    "observes": 10,
-   "z": -0.21,
-   "marge": 5.2
+   "z": -0.49,
+   "marge": 5.4
   },
   "selections": {
-   "n": 66,
-   "annonce": 0.602,
-   "reel": 0.606,
-   "attendus": 39.7,
+   "n": 68,
+   "annonce": 0.604,
+   "reel": 0.588,
+   "attendus": 41.0,
    "observes": 40,
-   "z": 0.07,
-   "marge": 7.9
+   "z": -0.26,
+   "marge": 8.0
   }
  },
  "log": [
@@ -320,6 +320,18 @@
     "btts": 0.0,
     "hcp": 0.0
    }
+  },
+  {
+   "d": "2026-11-14",
+   "w": 0.027,
+   "off": {
+    "dom": 0.0,
+    "nul": 0.0,
+    "ext": 0.0,
+    "buts": 0.0,
+    "btts": 0.0,
+    "hcp": 0.0
+   }
   }
  ],
  "scores": {
@@ -566,6 +578,6 @@
   "Seul, le modèle maison prévoit nettement moins bien que les bookmakers sur ces matchs.",
   "Le poids du modèle maison est passé de 20 % à 3 % du mélange, car il apporte moins que prévu sur les matchs récents.",
   "Aucun type de pari n'est durablement mal estimé : pas de correction appliquée.",
-  "Tickets proposés : 10 gagnés sur 31 pour 10,5 attendus. Écart compatible avec le hasard, rien à corriger à ce stade."
+  "Tickets proposés : 10 gagnés sur 33 pour 11,3 attendus. Écart compatible avec le hasard, rien à corriger à ce stade."
  ]
 }

@@ -1,6 +1,56 @@
 {
  "combos": [
   {
+   "id": "2026-11-15|2e7a66dfb5caacad9c224d3eaf230dee:1|a09dfd51fadc5c32dd0adb4f799b8628:1",
+   "day": "2026-11-15",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "a09dfd51fadc5c32dd0adb4f799b8628",
+     "league": "ATP",
+     "kickoff": "2026-11-15T13:00:00Z",
+     "home": "Alexander Zverev",
+     "away": "Rafael Jodar",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "ATP",
+     "sport": "tennis",
+     "link": "https://www.unibet.fr/paris-tennis/atp/atp-finals/3399459/a.zverev-vs-r.jodar",
+     "market": "1",
+     "label": "Victoire Alexander Zverev",
+     "odds": 1.33,
+     "src": "unibet",
+     "p": 0.6709,
+     "ev": -0.1077
+    },
+    {
+     "match_id": "2e7a66dfb5caacad9c224d3eaf230dee",
+     "league": "ATP",
+     "kickoff": "2026-11-15T19:30:00Z",
+     "home": "Ben Shelton",
+     "away": "Arthur Fils",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "ATP",
+     "sport": "tennis",
+     "link": "https://www.unibet.fr/paris-tennis/atp/atp-finals/3399455/b.shelton-vs-a.fils",
+     "market": "1",
+     "label": "Victoire Ben Shelton",
+     "odds": 1.45,
+     "src": "unibet",
+     "p": 0.6022,
+     "ev": -0.1269
+    }
+   ],
+   "odds": 1.93,
+   "p": 0.404,
+   "cost": 0.2209,
+   "stars": 2,
+   "stake": 3,
+   "status": "en attente",
+   "proposed_at": "2026-11-14T03:42:45.932148+00:00"
+  },
+  {
    "id": "2026-11-14|nba-401909296:2|nba-401909299:2|nba-401909304:2",
    "day": "2026-11-14",
    "kind": "x3",
@@ -88,7 +138,9 @@
      "odds": 1.51,
      "src": "unibet",
      "p": 0.588,
-     "ev": -0.1122
+     "ev": -0.1122,
+     "score": "111-142",
+     "won": true
     },
     {
      "match_id": "nba-401909298",
@@ -114,7 +166,8 @@
    "stars": 2,
    "stake": 2,
    "status": "en attente",
-   "proposed_at": "2026-11-13T06:31:03.345065+00:00"
+   "proposed_at": "2026-11-13T06:31:03.345065+00:00",
+   "replaced": true
   },
   {
    "id": "2026-11-14|nba-401909301:HC1:-16.5|nba-401909303:+228.5",
@@ -162,7 +215,58 @@
    "stars": 1,
    "stake": 2,
    "status": "en attente",
-   "proposed_at": "2026-11-13T06:31:03.345065+00:00"
+   "proposed_at": "2026-11-13T06:31:03.345065+00:00",
+   "replaced": true
+  },
+  {
+   "id": "2026-11-14|53d87628f7d7ae2c16b9b10ab1be03ab:2|57cede457aa62785e8460c5b2a052ac6:1",
+   "day": "2026-11-14",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "53d87628f7d7ae2c16b9b10ab1be03ab",
+     "league": "WTA",
+     "kickoff": "2026-11-14T20:00:00Z",
+     "home": "Jessica Pegula",
+     "away": "Mirra Andreeva",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "WTA",
+     "sport": "tennis",
+     "link": "https://www.unibet.fr/paris-tennis/wta/wta-finals/3399843/j.pegula-vs-m.andreeva",
+     "market": "2",
+     "label": "Victoire Mirra Andreeva",
+     "odds": 1.33,
+     "src": "unibet",
+     "p": 0.6818,
+     "ev": -0.0932
+    },
+    {
+     "match_id": "57cede457aa62785e8460c5b2a052ac6",
+     "league": "WTA",
+     "kickoff": "2026-11-14T21:30:00Z",
+     "home": "Linda Noskova",
+     "away": "Elina Svitolina",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "WTA",
+     "sport": "tennis",
+     "link": "https://www.unibet.fr/paris-tennis/wta/wta-finals/3399919/l.noskova-vs-e.svitolina",
+     "market": "1",
+     "label": "Victoire Linda Noskova",
+     "odds": 1.47,
+     "src": "unibet",
+     "p": 0.5954,
+     "ev": -0.1247
+    }
+   ],
+   "odds": 1.96,
+   "p": 0.4059,
+   "cost": 0.2063,
+   "stars": 2,
+   "stake": 3,
+   "status": "en attente",
+   "proposed_at": "2026-11-14T03:42:45.932148+00:00"
   },
   {
    "id": "2026-11-13|nba-401909976:1|nba-401909977:HC1:+10.5",
@@ -6037,5 +6141,5 @@
   "bilan_mise_suggeree": -23.99,
   "mise_suggeree_totale": 79
  },
- "updated": "2026-11-14T02:45:46.634427+00:00"
+ "updated": "2026-11-14T03:42:45.932148+00:00"
 }

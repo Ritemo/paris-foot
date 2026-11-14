@@ -18,7 +18,7 @@
   "Ligue des champions",
   "Ligue Europa"
  ],
- "last_results_run": "2026-11-14T03:45:49.557710+00:00",
+ "last_results_run": "2026-11-14T04:01:10.622857+00:00",
  "last_odds_run": "2026-11-14T03:42:45.932148+00:00",
  "played": {
   "perso|2026-11-05|cb7170b1b0e68a09be62b7a0fcb8d268:+2.5|d6ef4964addd663baed90f8f19fda1d3:BTTS|402e102fa845ed84ab7e59b3b17f8c29:N": {
@@ -486,7 +486,9 @@
       "odds": 1.3,
       "src": "unibet",
       "p": 0.7061,
-      "ev": -0.0821
+      "ev": -0.0821,
+      "score": "125-117",
+      "won": false
      },
      {
       "match_id": "nba-401909304",
@@ -532,8 +534,9 @@
     "cost": 0.247,
     "stars": 2,
     "stake": 2,
-    "status": "en attente",
-    "alt": true
+    "status": "perdu",
+    "alt": true,
+    "settled_at": "2026-11-14T04:01:10.622857+00:00"
    }
   },
   "2026-11-14|53d87628f7d7ae2c16b9b10ab1be03ab:2|57cede457aa62785e8460c5b2a052ac6:2": {

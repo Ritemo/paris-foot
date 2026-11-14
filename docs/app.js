@@ -69,7 +69,7 @@ function legOverride(c, i) {
   const s = selOdds()[selKey(c.legs[i])], b = bets()[c.id];
   return s && (!b || !b.ts || s.t <= b.ts) ? s.v : null;
 }
-function legOdds(c, i) { return legOverride(c, i) || c.legs[i].odds; }
+function legOdds(c, i) { return c.legs[i].void ? 1 : legOverride(c, i) || c.legs[i].odds; }   // match annulé : cote 1, comme chez Unibet
 function setSelOdds(l, v) {
   const all = selOdds(), lim = Date.now() - 7 * 864e5;
   for (const k of Object.keys(all)) if (all[k].t < lim) delete all[k];
@@ -241,7 +241,7 @@ function stakeWarning(v) {
 }
 function legHtml(c, l, i) {
   const ov = legOverride(c, i);
-  const res = l.won === true ? `<span class="tag win">✓ ${esc(l.score)}</span>` : l.won === false ? `<span class="tag loss">✗ ${esc(l.score)}</span>` : "";
+  const res = l.void ? `<span class="tag">match annulé, cote 1</span>` : l.won === true ? `<span class="tag win">✓ ${esc(l.score)}</span>` : l.won === false ? `<span class="tag loss">✗ ${esc(l.score)}</span>` : "";
   return `<div class="leg">
     <div class="pick"><b>${esc(l.label)}</b><span class="vs"><span class="vt">${crest(l.home, "mini")}${esc(l.home)}</span><i>contre</i><span class="vt">${crest(l.away, "mini")}${esc(l.away)}</span></span>
       <div class="meta"><span class="tag">${esc(l.league)}</span><span class="tag">${when(l.kickoff)}</span><span class="tag">${pct(l.p)}</span>${res}${unibetLink(l, c)}</div>${bets()[c.id] && l.won === undefined ? liveLegHtml(l) : ""}</div>
@@ -584,7 +584,7 @@ function bilanMine() {
     h += `<h2 class="section-title">Mes tickets terminés</h2><div class="panel">` + done.sort((a, b) => b.c.day.localeCompare(a.c.day)).map((x) => {
       const g = x.c.status === "gagne" ? x.mise * (x.odds - 1) : -x.mise;
       return `<div class="hist"><span class="dot ${x.c.status}">${x.c.status === "gagne" ? "✓" : "✗"}</span>
-        <div><ul class="hist-legs">${x.c.legs.map((l) => `<li class="${l.won === true ? "w" : l.won === false ? "l" : "u"}"><i aria-hidden="true">${l.won === true ? "✓" : l.won === false ? "✗" : "…"}</i>
+        <div><ul class="hist-legs">${x.c.legs.map((l) => `<li class="${l.void ? "u" : l.won === true ? "w" : l.won === false ? "l" : "u"}"><i aria-hidden="true">${l.void ? "–" : l.won === true ? "✓" : l.won === false ? "✗" : "…"}</i>
           <span>${esc(l.label)}<small>${esc(l.home)} ${l.score ? `<b>${esc(l.score)}</b>` : "contre"} ${esc(l.away)}${l.won === undefined ? " · pas encore joué" : ""}</small></span></li>`).join("")}</ul><small>${esc(longDate(x.c.day))}, ${fmtMise(x.mise)} € misés à ${fmt(x.odds)}${x.c.status === "gagne" ? `, ${fmt(x.mise * x.odds)} € récupérés` : ""}</small>
           <span class="hist-act"><button type="button" data-act="edit" data-id="${esc(x.c.id)}">Changer la mise</button><button type="button" class="danger" data-act="cancel" data-id="${esc(x.c.id)}">Annuler</button></span></div>
         <span class="o ${g >= 0 ? "pos" : "neg"}">${eur(g)}</span></div>`;

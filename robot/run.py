@@ -1287,6 +1287,9 @@ def find_score_fd(fd, l):
     return None
 
 
+VOID_AFTER = {"tennis": timedelta(hours=36), "basket": timedelta(hours=36), "foot": timedelta(hours=72)}
+
+
 def settle(history, fd, api_scores, espn=None):
     espn = espn or {}
     for c in history["combos"]:
@@ -1301,10 +1304,19 @@ def settle(history, fd, api_scores, espn=None):
             if sc:
                 l["score"] = f"{sc[0]}-{sc[1]}"
                 l["won"] = bool(leg_result(l, *sc))
+            elif l["kickoff"] <= (NOW - VOID_AFTER.get(l.get("sport", "foot"), timedelta(hours=72))).isoformat():
+                # match jamais joue (forfait, report) : chez Unibet la selection est annulee et compte pour une cote de 1
+                l["won"], l["void"], l["score"] = True, True, "annulé"
         if any(l.get("won") is False for l in c["legs"]):
             c["status"] = "perdu"
         elif all(l.get("won") for l in c["legs"]):
             c["status"] = "gagne"
+        if any(l.get("void") for l in c["legs"]) and "odds_before_void" not in c:
+            c["odds_before_void"] = c["odds"]
+            o = 1.0
+            for l in c["legs"]:
+                o *= 1.0 if l.get("void") else l["odds"]
+            c["odds"] = math.floor(o * 100 + 0.5 + 1e-6) / 100
         if c["status"] != "en attente" and not c.get("settled_at"):
             c["settled_at"] = NOW.isoformat()
 

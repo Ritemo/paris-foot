@@ -74,6 +74,7 @@ class Reglement(unittest.TestCase):
 
     def test_settle_partiel(self):
         legs = [leg("1", mid="a"), leg("+2.5", mid="b")]
+        legs[1]["kickoff"] = (run.NOW - timedelta(hours=3)).isoformat()   # match recent, pas encore de resultat
         h = {"combos": [dict(id="t", status="en attente", legs=legs, kind="x2", odds=3, p=.3, stake=2, day="2026-10-25")]}
         run.settle(h, None, {}, {"a": (2, 0)})
         self.assertEqual(h["combos"][0]["status"], "en attente")
@@ -533,6 +534,18 @@ class TestPassageComplet(unittest.TestCase):
         self.assertTrue(today["combos"] or today.get("alts"))
         self.assertEqual(meta.get("full_day"), run.NOW.astimezone(run.PARIS).date().isoformat())
         self.assertFalse(any("api.oddspapi.io" in u for u in calls))
+
+
+class TestAnnule(unittest.TestCase):
+    def test_match_jamais_joue(self):
+        old = (run.NOW - timedelta(hours=40)).isoformat()
+        c = {"id": "t", "status": "en attente", "odds": 2.47, "legs": [
+            {"match_id": "a", "sport": "tennis", "kickoff": old, "market": "1", "odds": 1.30, "home": "Andreeva", "away": "Muchova"},
+            {"match_id": "b", "sport": "tennis", "kickoff": old, "market": "1", "odds": 1.90, "home": "X", "away": "Y"}]}
+        run.settle({"combos": [c]}, None, {}, {"b": (2, 0)})
+        self.assertTrue(c["legs"][0]["void"])
+        self.assertEqual(c["status"], "gagne")
+        self.assertEqual(c["odds"], 1.90)   # la selection annulee compte pour 1
 
 if __name__ == "__main__":
     unittest.main(verbosity=1)

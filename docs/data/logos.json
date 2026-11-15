@@ -9,7 +9,11 @@
   "Alexander Zverev": "2026-11-15",
   "Rafael Jodar": "2026-11-15",
   "Ben Shelton": "2026-11-15",
-  "Arthur Fils": "2026-11-15"
+  "Arthur Fils": "2026-11-15",
+  "Carlos Alcaraz": "2026-11-15",
+  "Frances Tiafoe": "2026-11-15",
+  "Daniil Medvedev": "2026-11-15",
+  "Flavio Cobolli": "2026-11-15"
  },
  "AC Milan": {
   "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/103.png",
@@ -810,5 +814,15 @@
   "logo": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png",
   "color": "#fdb927",
   "espn": "Golden State Warriors"
+ },
+ "Boston Celtics": {
+  "logo": "https://a.espncdn.com/i/teamlogos/nba/500/bos.png",
+  "color": "#008348",
+  "espn": "Boston Celtics"
+ },
+ "Los Angeles Lakers": {
+  "logo": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
+  "color": "#552583",
+  "espn": "Los Angeles Lakers"
  }
 }

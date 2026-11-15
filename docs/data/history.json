@@ -374,6 +374,84 @@
    "proposed_at": "2026-11-15T06:30:59.985517+00:00"
   },
   {
+   "id": "2026-11-15|2e7a66dfb5caacad9c224d3eaf230dee:2|db0cf55e0c26bfbf59d91c22de428d25:1|nba-401909985:2|nba-401909986:2",
+   "day": "2026-11-15",
+   "kind": "folie",
+   "legs": [
+    {
+     "match_id": "2e7a66dfb5caacad9c224d3eaf230dee",
+     "league": "ATP",
+     "kickoff": "2026-11-15T19:30:00Z",
+     "home": "Ben Shelton",
+     "away": "Arthur Fils",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "ATP",
+     "market": "2",
+     "label": "Victoire Arthur Fils",
+     "odds": 2.45,
+     "src": "unibet",
+     "p": 0.3807,
+     "ev": -0.0672
+    },
+    {
+     "match_id": "db0cf55e0c26bfbf59d91c22de428d25",
+     "league": "WTA",
+     "kickoff": "2026-11-15T20:00:00Z",
+     "home": "Elina Svitolina",
+     "away": "Mirra Andreeva",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "WTA",
+     "market": "1",
+     "label": "Victoire Elina Svitolina",
+     "odds": 3.05,
+     "src": "unibet",
+     "p": 0.3035,
+     "ev": -0.0744
+    },
+    {
+     "match_id": "nba-401909986",
+     "league": "NBA",
+     "kickoff": "2026-11-15T21:00:00Z",
+     "home": "Phoenix Suns",
+     "away": "Los Angeles Lakers",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "NBA",
+     "market": "2",
+     "label": "Victoire Los Angeles Lakers",
+     "odds": 1.57,
+     "src": "unibet",
+     "p": 0.5721,
+     "ev": -0.1019
+    },
+    {
+     "match_id": "nba-401909985",
+     "league": "NBA",
+     "kickoff": "2026-11-15T18:00:00Z",
+     "home": "Philadelphia 76ers",
+     "away": "Indiana Pacers",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "NBA",
+     "market": "2",
+     "label": "Victoire Indiana Pacers",
+     "odds": 2.85,
+     "src": "unibet",
+     "p": 0.2868,
+     "ev": -0.1826
+    }
+   ],
+   "odds": 33.44,
+   "p": 0.019,
+   "cost": 0.3662,
+   "stars": 0,
+   "stake": 1,
+   "status": "en attente",
+   "proposed_at": "2026-11-15T15:30:57.645213+00:00"
+  },
+  {
    "id": "2026-11-14|nba-401909296:2|nba-401909299:2|nba-401909304:2",
    "day": "2026-11-14",
    "kind": "x3",
@@ -6485,5 +6563,5 @@
   "bilan_mise_suggeree": -26.99,
   "mise_suggeree_totale": 82
  },
- "updated": "2026-11-15T15:01:10.640068+00:00"
+ "updated": "2026-11-15T15:30:57.645213+00:00"
 }

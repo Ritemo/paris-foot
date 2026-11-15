@@ -125,7 +125,9 @@
      "odds": 1.46,
      "src": "unibet",
      "p": 0.6193,
-     "ev": -0.0959
+     "ev": -0.0959,
+     "score": "2-1",
+     "won": true
     },
     {
      "match_id": "db0cf55e0c26bfbf59d91c22de428d25",
@@ -193,7 +195,9 @@
      "odds": 2.45,
      "src": "unibet",
      "p": 0.3807,
-     "ev": -0.0672
+     "ev": -0.0672,
+     "score": "2-1",
+     "won": false
     },
     {
      "match_id": "db0cf55e0c26bfbf59d91c22de428d25",

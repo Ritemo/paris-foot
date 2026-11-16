@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T06:31:08.664376+00:00",
+ "generated_at": "2026-11-16T15:31:04.333402+00:00",
  "credits_remaining": 331,
  "combos": [
   {
@@ -2253,39 +2253,6 @@
   }
  ],
  "matches": [
-  {
-   "id": "c81851847baf5e3a479993ec167a8e2a",
-   "sport": "tennis",
-   "league": "ATP",
-   "event": "ATP Finals",
-   "div": "ATP",
-   "kickoff": "2026-11-16T13:00:00Z",
-   "day": "2026-11-16",
-   "home": "Carlos Alcaraz",
-   "away": "Frances Tiafoe",
-   "fd_home": null,
-   "fd_away": null,
-   "sel": [
-    {
-     "market": "1",
-     "label": "Victoire Carlos Alcaraz",
-     "odds": 1.06,
-     "src": "unibet",
-     "p": 0.8588,
-     "ev": -0.0897
-    },
-    {
-     "market": "2",
-     "label": "Victoire Frances Tiafoe",
-     "odds": 6.8,
-     "src": "unibet",
-     "p": 0.1412,
-     "ev": -0.0398
-    }
-   ],
-   "link": "https://www.unibet.fr/paris-tennis/atp/atp-finals/3399463/c.alcaraz-vs-f.tiafoe",
-   "odds_at": "2026-11-16T06:31:08.664376+00:00"
-  },
   {
    "id": "7ac3bf138012785e65835d1481524d5c",
    "sport": "tennis",

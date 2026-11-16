@@ -395,7 +395,9 @@
      "odds": 1.76,
      "src": "estimee",
      "p": 0.5,
-     "ev": -0.12
+     "ev": -0.12,
+     "score": "131-94",
+     "won": true
     },
     {
      "match_id": "nba-401909990",

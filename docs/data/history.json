@@ -41,7 +41,9 @@
      "odds": 1.73,
      "src": "estimee",
      "p": 0.5108,
-     "ev": -0.1163
+     "ev": -0.1163,
+     "score": "103-125",
+     "won": false
     }
    ],
    "odds": 2.18,
@@ -49,8 +51,9 @@
    "cost": 0.1912,
    "stars": 3,
    "stake": 3,
-   "status": "en attente",
-   "proposed_at": "2026-11-15T06:30:59.985517+00:00"
+   "status": "perdu",
+   "proposed_at": "2026-11-15T06:30:59.985517+00:00",
+   "settled_at": "2026-11-16T04:31:00.177727+00:00"
   },
   {
    "id": "2026-11-16|nba-401909990:2|nba-401909993:HC1:+10.5",
@@ -93,7 +96,9 @@
      "odds": 1.75,
      "src": "estimee",
      "p": 0.5033,
-     "ev": -0.1193
+     "ev": -0.1193,
+     "score": "103-125",
+     "won": false
     }
    ],
    "odds": 2.52,
@@ -101,8 +106,9 @@
    "cost": 0.1998,
    "stars": 2,
    "stake": 2,
-   "status": "en attente",
-   "proposed_at": "2026-11-15T06:30:59.985517+00:00"
+   "status": "perdu",
+   "proposed_at": "2026-11-15T06:30:59.985517+00:00",
+   "settled_at": "2026-11-16T04:31:00.177727+00:00"
   },
   {
    "id": "2026-11-16|nba-401909989:+217.5|nba-401909990:HC1:+4.5",
@@ -6572,13 +6578,13 @@
   }
  ],
  "bilan": {
-  "n": 38,
+  "n": 40,
   "gagnes": 14,
   "x2": {
-   "n": 32,
+   "n": 34,
    "gagnes": 13,
-   "reussite_annoncee": 0.352,
-   "bilan": -6.87
+   "reussite_annoncee": 0.351,
+   "bilan": -11.87
   },
   "x3": {
    "n": 6,
@@ -6592,12 +6598,12 @@
    "reussite_annoncee": 0.034,
    "bilan": -11
   },
-  "reussite_reelle": 0.368,
+  "reussite_reelle": 0.35,
   "reussite_annoncee": 0.341,
-  "bilan_2eur": -6.86,
-  "mise_2eur": 76,
-  "bilan_mise_suggeree": -13.05,
-  "mise_suggeree_totale": 91
+  "bilan_2eur": -10.86,
+  "mise_2eur": 80,
+  "bilan_mise_suggeree": -18.05,
+  "mise_suggeree_totale": 96
  },
- "updated": "2026-11-16T03:30:58.507468+00:00"
+ "updated": "2026-11-16T04:31:00.177727+00:00"
 }

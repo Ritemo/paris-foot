@@ -1,6 +1,156 @@
 {
  "combos": [
   {
+   "id": "2026-11-17|nba-401909996:2|nba-401909997:2",
+   "day": "2026-11-17",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "nba-401909996",
+     "league": "NBA",
+     "kickoff": "2026-11-17T00:00:00Z",
+     "home": "Washington Wizards",
+     "away": "Memphis Grizzlies",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "NBA",
+     "sport": "basket",
+     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3396827/was-wizards-vs-mem-grizzlies",
+     "market": "2",
+     "label": "Victoire Memphis Grizzlies",
+     "odds": 1.51,
+     "src": "unibet",
+     "p": 0.6092,
+     "ev": -0.0801
+    },
+    {
+     "match_id": "nba-401909997",
+     "league": "NBA",
+     "kickoff": "2026-11-17T00:30:00Z",
+     "home": "Brooklyn Nets",
+     "away": "Philadelphia 76ers",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "NBA",
+     "sport": "basket",
+     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3396831/bkn-nets-vs-phi-76ers",
+     "market": "2",
+     "label": "Victoire Philadelphia 76ers",
+     "odds": 1.35,
+     "src": "unibet",
+     "p": 0.6698,
+     "ev": -0.0958
+    }
+   ],
+   "odds": 2.04,
+   "p": 0.408,
+   "cost": 0.1682,
+   "stars": 3,
+   "stake": 3,
+   "status": "en attente",
+   "proposed_at": "2026-11-16T06:31:08.664376+00:00"
+  },
+  {
+   "id": "2026-11-17|nba-401909998:2|nba-401909999:1",
+   "day": "2026-11-17",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "nba-401909999",
+     "league": "NBA",
+     "kickoff": "2026-11-17T01:00:00Z",
+     "home": "Minnesota Timberwolves",
+     "away": "Portland Trail Blazers",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "NBA",
+     "sport": "basket",
+     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3396809/min-twolves-vs-por-tblazers",
+     "market": "1",
+     "label": "Victoire Minnesota Timberwolves",
+     "odds": 1.59,
+     "src": "unibet",
+     "p": 0.5635,
+     "ev": -0.104
+    },
+    {
+     "match_id": "nba-401909998",
+     "league": "NBA",
+     "kickoff": "2026-11-17T00:30:00Z",
+     "home": "Miami Heat",
+     "away": "Houston Rockets",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "NBA",
+     "sport": "basket",
+     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3396796/mia-heat-vs-hou-rockets",
+     "market": "2",
+     "label": "Victoire Houston Rockets",
+     "odds": 1.57,
+     "src": "unibet",
+     "p": 0.5635,
+     "ev": -0.1153
+    }
+   ],
+   "odds": 2.5,
+   "p": 0.3175,
+   "cost": 0.2073,
+   "stars": 2,
+   "stake": 2,
+   "status": "en attente",
+   "proposed_at": "2026-11-16T06:31:08.664376+00:00"
+  },
+  {
+   "id": "2026-11-17|nba-401909994:HC1:-8.5|nba-401910000:2",
+   "day": "2026-11-17",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "nba-401910000",
+     "league": "NBA",
+     "kickoff": "2026-11-17T01:00:00Z",
+     "home": "New Orleans Pelicans",
+     "away": "Golden State Warriors",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "NBA",
+     "sport": "basket",
+     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3396818/no-pelicans-vs-gs-warriors",
+     "market": "2",
+     "label": "Victoire Golden State Warriors",
+     "odds": 1.51,
+     "src": "unibet",
+     "p": 0.579,
+     "ev": -0.1257
+    },
+    {
+     "match_id": "nba-401909994",
+     "league": "NBA",
+     "kickoff": "2026-11-17T00:00:00Z",
+     "home": "Boston Celtics",
+     "away": "Orlando Magic",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "NBA",
+     "sport": "basket",
+     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3396808/bos-celtics-vs-orl-magic",
+     "market": "HC1:-8.5",
+     "label": "Celtics handicap -8,5",
+     "odds": 1.71,
+     "src": "estimee",
+     "p": 0.5183,
+     "ev": -0.1137
+    }
+   ],
+   "odds": 2.58,
+   "p": 0.3001,
+   "cost": 0.2251,
+   "stars": 1,
+   "stake": 2,
+   "status": "en attente",
+   "proposed_at": "2026-11-16T06:31:08.664376+00:00"
+  },
+  {
    "id": "2026-11-16|nba-401909992:2|nba-401909993:-222.5",
    "day": "2026-11-16",
    "kind": "x2",
@@ -6605,5 +6755,5 @@
   "bilan_mise_suggeree": -18.05,
   "mise_suggeree_totale": 96
  },
- "updated": "2026-11-16T04:31:00.177727+00:00"
+ "updated": "2026-11-16T06:31:08.664376+00:00"
 }

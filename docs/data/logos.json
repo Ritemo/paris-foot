@@ -824,5 +824,15 @@
   "logo": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
   "color": "#552583",
   "espn": "Los Angeles Lakers"
+ },
+ "Brooklyn Nets": {
+  "logo": "https://a.espncdn.com/i/teamlogos/nba/500/bkn.png",
+  "color": "#000000",
+  "espn": "Brooklyn Nets"
+ },
+ "Denver Nuggets": {
+  "logo": "https://a.espncdn.com/i/teamlogos/nba/500/den.png",
+  "color": "#0e2240",
+  "espn": "Denver Nuggets"
  }
 }

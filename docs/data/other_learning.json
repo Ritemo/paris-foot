@@ -276,7 +276,8 @@
    "home": "Boston Celtics",
    "away": "Orlando Magic",
    "p": 0.7598,
-   "odds": 1.2
+   "odds": 1.2,
+   "won": false
   },
   "nba-401909995": {
    "sport": "basket",
@@ -285,7 +286,8 @@
    "home": "Cleveland Cavaliers",
    "away": "Chicago Bulls",
    "p": 0.7668,
-   "odds": 1.19
+   "odds": 1.19,
+   "won": true
   },
   "nba-401909996": {
    "sport": "basket",
@@ -345,9 +347,9 @@
  },
  "summary": {
   "basket": {
-   "n": 19,
-   "brier": 0.1564,
-   "fav": 0.842,
+   "n": 21,
+   "brier": 0.1716,
+   "fav": 0.81,
    "bins": [
     {
      "p": 0.145,
@@ -365,9 +367,9 @@
      "n": 4
     },
     {
-     "p": 0.736,
-     "f": 1.0,
-     "n": 2
+     "p": 0.75,
+     "f": 0.75,
+     "n": 4
     },
     {
      "p": 0.868,
@@ -404,5 +406,5 @@
    ]
   }
  },
- "updated": "2026-11-17T02:31:04.198577+00:00"
+ "updated": "2026-11-17T02:45:50.089228+00:00"
 }

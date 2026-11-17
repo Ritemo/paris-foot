@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T06:31:04.746948+00:00",
+ "generated_at": "2026-11-17T14:36:14.141907+00:00",
  "credits_remaining": 329,
  "combos": [
   {
@@ -387,56 +387,6 @@
   }
  ],
  "alts": [
-  {
-   "id": "2026-11-17|b347b8bd2e85f10eca7dc7160026443b:1|f0a6612a0e894025a58459b04ecd02c9:1",
-   "day": "2026-11-17",
-   "kind": "x2",
-   "legs": [
-    {
-     "match_id": "f0a6612a0e894025a58459b04ecd02c9",
-     "league": "ATP",
-     "kickoff": "2026-11-17T19:30:00Z",
-     "home": "Alexander Zverev",
-     "away": "Ben Shelton",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "ATP",
-     "sport": "tennis",
-     "link": "https://www.unibet.fr/paris-tennis/atp/atp-finals/3399457/a.zverev-vs-b.shelton",
-     "market": "1",
-     "label": "Victoire Alexander Zverev",
-     "odds": 1.41,
-     "src": "unibet",
-     "p": 0.6428,
-     "ev": -0.0937
-    },
-    {
-     "match_id": "b347b8bd2e85f10eca7dc7160026443b",
-     "league": "ATP",
-     "kickoff": "2026-11-17T13:00:00Z",
-     "home": "Arthur Fils",
-     "away": "Rafael Jodar",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "ATP",
-     "sport": "tennis",
-     "link": "https://www.unibet.fr/paris-tennis/atp/atp-finals/3399458/a.fils-vs-r.jodar",
-     "market": "1",
-     "label": "Victoire Arthur Fils",
-     "odds": 1.77,
-     "src": "unibet",
-     "p": 0.5074,
-     "ev": -0.102
-    }
-   ],
-   "odds": 2.5,
-   "p": 0.3262,
-   "cost": 0.1861,
-   "stars": 2,
-   "stake": 2,
-   "status": "en attente",
-   "alt": true
-  },
   {
    "id": "2026-11-18|nba-401910004:1|nba-401910005:1|nba-401910006:1",
    "day": "2026-11-18",
@@ -3276,39 +3226,6 @@
   }
  ],
  "matches": [
-  {
-   "id": "b347b8bd2e85f10eca7dc7160026443b",
-   "sport": "tennis",
-   "league": "ATP",
-   "event": "ATP Finals",
-   "div": "ATP",
-   "kickoff": "2026-11-17T13:00:00Z",
-   "day": "2026-11-17",
-   "home": "Arthur Fils",
-   "away": "Rafael Jodar",
-   "fd_home": null,
-   "fd_away": null,
-   "sel": [
-    {
-     "market": "1",
-     "label": "Victoire Arthur Fils",
-     "odds": 1.77,
-     "src": "unibet",
-     "p": 0.5074,
-     "ev": -0.102
-    },
-    {
-     "market": "2",
-     "label": "Victoire Rafael Jodar",
-     "odds": 1.91,
-     "src": "unibet",
-     "p": 0.4926,
-     "ev": -0.059
-    }
-   ],
-   "link": "https://www.unibet.fr/paris-tennis/atp/atp-finals/3399458/a.fils-vs-r.jodar",
-   "odds_at": "2026-11-17T06:31:04.746948+00:00"
-  },
   {
    "id": "f0a6612a0e894025a58459b04ecd02c9",
    "sport": "tennis",

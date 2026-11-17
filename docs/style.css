@@ -151,7 +151,7 @@ main { max-width: 640px; margin: 0 auto; padding: 0 14px; }
 
 /* ---------- reglages */
 .field { display: block; margin: 0 0 14px; font-size: 14px; font-weight: 600; }
-.field input { display: block; width: 100%; margin-top: 6px; padding: 12px; border-radius: 12px; border: 2px solid var(--trait);
+.field input, .field select { display: block; width: 100%; margin-top: 6px; padding: 12px; border-radius: 12px; border: 2px solid var(--trait);
   background: var(--ticket-2); color: var(--encre); font-size: 16px; }
 .legend dl { margin: 0; } .legend dt { font: 800 15px var(--display); margin-top: 10px; } .legend dd { margin: 2px 0 0; font-size: 14px; color: var(--sous); }
 
@@ -606,3 +606,6 @@ body { overscroll-behavior-y: contain; }
 @media (prefers-color-scheme: dark) { .odds-row .ub-open { color: #7fd9a6; } }
 .kick .odds-age { display: block; font-style: normal; font-size: 10px; color: var(--sous); margin-top: 4px; font-weight: 600; }
 .hint.warn { color: var(--rouge); font-weight: 700; }
+.add-manual { display: block; width: 100%; margin: 18px 0 8px; }
+#dlg-manual { width: min(92vw, 420px); }
+#dlg-manual .field select, #dlg-manual .field input { width: 100%; }

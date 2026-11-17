@@ -250,7 +250,22 @@ function legHtml(c, l, i) {
   </div>`;
 }
 
+// pari ajouté à la main : une carte simple (pas de note ni de chance, l'appli ne connaît pas ses matchs)
+function manualTicketHtml(c) {
+  const b = bets()[c.id] || { mise: c.stake, odds: c.odds };
+  const st = c.status === "gagne" ? "GAGNÉ" : c.status === "perdu" ? "PERDU" : "JOUÉ";
+  const day = new Date(c.day + "T12:00:00").toLocaleDateString("fr-FR", { weekday: "short", day: "numeric", month: "short" });
+  return `<article class="ticket ${c.status} perso is-played manual">
+    <div class="board"><span class="kind">Pari ajouté à la main</span>
+      <div class="score"><div class="cote"><b>${fmt(b.odds)}</b><small>cote totale</small></div></div></div>
+    <div class="legs"><div class="leg"><div class="pick"><b>${esc(c.legs[0].label)}</b>
+      <div class="meta"><span class="tag">Unibet</span><span class="tag">${esc(day)}</span></div></div></div></div>
+    <div class="stub"><div class="stamp ${c.status === "en attente" ? "joue" : c.status}">${st}</div>
+      <div class="gain">${gainText(c, { odds: b.odds, cost: 0 }, b, b.mise).replace(/<span class="exp-loss">.*?<\/span>/, "")}</div>
+      ${betActions(c)}</div></article>`;
+}
 function ticketHtml(c) {
+  if (c.kind === "manuel") return manualTicketHtml(c);
   const k = combo(c), b = bets()[c.id];
   const mise = b ? b.mise : c.stake;
   const gain = b && c.status !== "en attente" ? (c.status === "gagne" ? b.mise * (b.odds - 1) : -b.mise) : null;
@@ -266,7 +281,7 @@ function ticketHtml(c) {
   const rk = folie ? null : dayRank(c);
   const head = folie
     ? `<span class="kind">Folie du jour, ${c.legs.length} matchs</span><span class="fun">pour le fun</span>`
-    : `<span class="kind">${c.kind === "perso" ? `Mon combiné de ${c.legs.length}` : `Combiné ${c.kind === "x3" ? "de 3" : "de 2"}${c.mix ? " multisport" : ""}`}</span>
+    : `<span class="kind">${c.kind === "manuel" ? "Pari ajouté à la main" : c.kind === "perso" ? `Mon combiné de ${c.legs.length}` : `Combiné ${c.kind === "x3" ? "de 3" : "de 2"}${c.mix ? " multisport" : ""}`}</span>
       ${starsHtml(k.stars)}${rk ? rankHtml(rk) : ""}
       <div class="mix" aria-label="Prix ${Math.round(k.price * 10)} sur 10, proche de ton style ${Math.round(k.fit * 10)} sur 10">
         <span>Prix<i style="--v:${Math.round(k.price * 100)}%"></i></span><span>Ton style<i style="--v:${Math.round(k.fit * 100)}%"></i></span>${c.alt ? `<em class="alt-tag">pour ton style</em>` : ""}</div>`;
@@ -585,7 +600,7 @@ function bilanMine() {
       const g = x.c.status === "gagne" ? x.mise * (x.odds - 1) : -x.mise;
       return `<div class="hist"><span class="dot ${x.c.status}">${x.c.status === "gagne" ? "✓" : "✗"}</span>
         <div><ul class="hist-legs">${x.c.legs.map((l) => `<li class="${l.void ? "u" : l.won === true ? "w" : l.won === false ? "l" : "u"}"><i aria-hidden="true">${l.void ? "–" : l.won === true ? "✓" : l.won === false ? "✗" : "…"}</i>
-          <span>${esc(l.label)}<small>${esc(l.home)} ${l.score ? `<b>${esc(l.score)}</b>` : "contre"} ${esc(l.away)}${l.won === undefined ? " · pas encore joué" : ""}</small></span></li>`).join("")}</ul><small>${esc(longDate(x.c.day))}, ${fmtMise(x.mise)} € misés à ${fmt(x.odds)}${x.c.status === "gagne" ? `, ${fmt(x.mise * x.odds)} € récupérés` : ""}</small>
+          <span>${esc(l.label)}${l.market === "manuel" ? "<small>ajouté à la main</small>" : `<small>${esc(l.home)} ${l.score ? `<b>${esc(l.score)}</b>` : "contre"} ${esc(l.away)}${l.won === undefined ? " · pas encore joué" : ""}</small>`}</span></li>`).join("")}</ul><small>${esc(longDate(x.c.day))}, ${fmtMise(x.mise)} € misés à ${fmt(x.odds)}${x.c.status === "gagne" ? `, ${fmt(x.mise * x.odds)} € récupérés` : ""}</small>
           <span class="hist-act"><button type="button" data-act="edit" data-id="${esc(x.c.id)}">Changer la mise</button><button type="button" class="danger" data-act="cancel" data-id="${esc(x.c.id)}">Annuler</button></span></div>
         <span class="o ${g >= 0 ? "pos" : "neg"}">${eur(g)}</span></div>`;
     }).join("") + `</div>`;
@@ -675,8 +690,51 @@ function renderEncours() {
     h += liveStatusLine() + live.map(ticketHtml).join("");
   }
   if (done.length) h += `<div class="day"><h2>Derniers résultats</h2><span>sur 2 jours</span></div>` + done.map(ticketHtml).join("");
+  h += `<button type="button" class="btn ghost add-manual" data-manual="1">+ Ajouter un pari fait sur Unibet</button>`;
   el.innerHTML = h;
 }
+
+/* pari oublié ou fait hors de l'appli : tu le saisis à la main (texte, cote totale, mise, résultat) */
+function openManual() {
+  const d = document.getElementById("dlg-manual");
+  d.querySelector("#man-text").value = "";
+  d.querySelector("#man-date").value = isoDay(new Date());
+  d.querySelector("#man-odds").value = "";
+  d.querySelector("#man-mise").value = "2";
+  d.querySelector("#man-status").value = "en attente";
+  d.returnValue = ""; d.showModal();
+  d.onclose = () => {
+    if (d.returnValue !== "ok") return;
+    const text = d.querySelector("#man-text").value.trim() || "Pari Unibet";
+    const day = d.querySelector("#man-date").value || isoDay(new Date());
+    const odds = parseNum(d.querySelector("#man-odds").value), mise = parseNum(d.querySelector("#man-mise").value);
+    const status = d.querySelector("#man-status").value;
+    if (!(odds > 1) || !(mise > 0)) { toast("Il faut une cote totale (plus de 1) et une mise."); return; }
+    const id = `manuel|${day}|${Date.now().toString(36)}`;
+    const won = status === "gagne" ? true : status === "perdu" ? false : undefined;
+    const leg = { match_id: id, league: "Unibet", kickoff: `${day}T20:00:00Z`, home: text, away: "", market: "manuel", label: text,
+      odds, src: "unibet", p: Math.min(0.95, 0.88 / odds), ev: -0.12, sport: "autre" };
+    if (won !== undefined) { leg.won = won; leg.score = won ? "gagné" : "perdu"; }
+    const snap = { id, day, kind: "manuel", legs: [leg], odds, p: leg.p, cost: 0.12, stars: 0, stake: mise, status };
+    const all = bets();
+    all[id] = { mise, odds, date: isoDay(new Date()), ts: Date.now(), snap };
+    LS.set("pf_bets", all);
+    renderAll();
+    toast(status === "en attente" ? "Pari ajouté à tes tickets en cours : indique son résultat quand il est connu." : "Pari ajouté à ton bilan.");
+  };
+}
+function setManualResult(id, won) {
+  const all = bets(), b = all[id];
+  if (!b?.snap) return;
+  b.snap.status = won ? "gagne" : "perdu";
+  b.snap.legs.forEach((l) => { l.won = won; l.score = won ? "gagné" : "perdu"; });
+  LS.set("pf_bets", all); renderAll();
+}
+document.addEventListener("click", (e) => {
+  if (e.target.closest("[data-manual]")) openManual();
+  const r = e.target.closest("[data-manres]");
+  if (r) setManualResult(r.dataset.id, r.dataset.manres === "gagne");
+});
 
 function renderAll() {
   renderHeader(); renderEncours(); renderCombos(); renderMatchs(); renderBilan(); renderModele(); renderComposer();
@@ -720,6 +778,7 @@ function betActions(c) {
   return `<div class="bet-actions">
     <button type="button" data-act="edit" data-id="${id}">Changer la mise</button>
     ${c.kind === "perso" && notStarted ? `<button type="button" data-act="change" data-id="${id}">Changer les sélections</button>` : ""}
+    ${c.kind === "manuel" && c.status === "en attente" ? `<button type="button" data-manres="gagne" data-id="${id}">Il est gagné</button><button type="button" data-manres="perdu" data-id="${id}">Il est perdu</button>` : ""}
     <button type="button" class="danger" data-act="cancel" data-id="${id}">Annuler le pari</button></div>`;
 }
 async function editMise(id) {

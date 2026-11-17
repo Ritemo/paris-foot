@@ -1177,6 +1177,74 @@ def record_closing(meta):
     return True
 
 
+def _fd_close(row):
+    """Probabilites de cloture d'un match a partir des cotes de cloture publiees par football-data."""
+    out = {}
+    for pre in ("AvgC", "PSC", "B365C"):
+        try:
+            o = [float(row[f"{pre}{x}"]) for x in "HDA"]
+        except (KeyError, TypeError, ValueError):
+            continue
+        if all(v > 1 for v in o):
+            p1, pn, p2 = fair(o)
+            out.update({"1": p1, "N": pn, "2": p2, "1N": p1 + pn, "N2": pn + p2, "12": p1 + p2})
+            break
+    for pre in ("AvgC", "PC", "B365C"):
+        try:
+            o = [float(row[f"{pre}>2.5"]), float(row[f"{pre}<2.5"])]
+        except (KeyError, TypeError, ValueError):
+            continue
+        if all(v > 1 for v in o):
+            pp, pm = fair(o)
+            out.update({"+2.5": pp, "-2.5": pm})
+            break
+    return out
+
+
+def backfill_closing(fd, history, meta):
+    """Rattrapage des tickets deja joues : cotes de cloture du foot (football-data) et du vainqueur NBA (ESPN)."""
+    close = load("closing.json", {"p": {}, "summary": {}})
+    limit = (NOW - timedelta(days=60)).isoformat()
+    legs = [l for c in history["combos"] for l in c["legs"]]
+    legs += [l for v in meta.get("played", {}).values() if v.get("snap") for l in v["snap"].get("legs", [])]
+    todo = {}
+    for l in legs:
+        k = l.get("kickoff", "")
+        if limit < k < (NOW - timedelta(hours=3)).isoformat() and f"{l.get('match_id')}|{l.get('market')}" not in close["p"]:
+            if l.get("match_id"):
+                todo.setdefault(l["match_id"], l)
+    got = 0
+    nba_done = 0
+    for mid, l in todo.items():
+        sport = l.get("sport", "foot")
+        if sport == "foot" and fd is not None and l.get("div") and l.get("fd_home"):
+            day = pd.Timestamp(paris_day(l["kickoff"]))
+            g = fd[(fd.Div == l["div"]) & (fd.HomeTeam == l["fd_home"]) & (fd.AwayTeam == l["fd_away"])]
+            g = g[(g.Date - day).abs() <= pd.Timedelta(days=1)]
+            if len(g):
+                for mk, p in _fd_close(g.iloc[0]).items():
+                    close["p"][f"{mid}|{mk}"] = {"p": round(p, 4), "t": l["kickoff"], "src": "fd"}
+                    got += 1
+        elif sport == "basket" and mid.startswith("nba-") and nba_done < 40:
+            nba_done += 1
+            try:
+                body, _h = http_get(f"https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event={mid[4:]}")
+                ml = json.loads(body)["pickcenter"][0]["moneyline"]
+                pf = fair([am2dec(ml["home"]["close"]["odds"]), am2dec(ml["away"]["close"]["odds"])])
+            except Exception:
+                continue
+            close["p"][f"{mid}|1"] = {"p": round(pf[0], 4), "t": l["kickoff"], "src": "espn"}
+            close["p"][f"{mid}|2"] = {"p": round(pf[1], 4), "t": l["kickoff"], "src": "espn"}
+            got += 1
+    if not got:
+        return False
+    close["p"] = {k: v for k, v in close["p"].items() if v["t"] > limit}
+    close["summary"] = closing_summary(history, close["p"])
+    close["updated"] = NOW.isoformat()
+    save("closing.json", close)
+    return True
+
+
 def closing_summary(history, cp):
     """Entre la proposition du ticket (matin) et le coup d'envoi, la chance des selections proposees a-t-elle monte ?"""
     out = {}
@@ -1577,6 +1645,15 @@ def results_only(meta, history):
         meta_changed |= record_closing(meta)
     except Exception as e:
         print("cloture", e, file=sys.stderr)
+    today = NOW.date().isoformat()
+    if meta.get("closing_backfill") != today and NOW.astimezone(PARIS).hour >= 12:
+        # une fois par jour : football-data publie les cotes de cloture quelques jours apres les matchs
+        meta["closing_backfill"] = today
+        meta_changed = True
+        try:
+            backfill_closing(load_history_fd(1), history, meta)
+        except Exception as e:
+            print("cloture rattrapage", e, file=sys.stderr)
     try:
         other_journal()
     except Exception as e:
@@ -1719,6 +1796,7 @@ def main():
     sync_backup()
     try:
         record_closing(meta)
+        backfill_closing(fd, history, meta)
     except Exception as e:
         print("cloture", e, file=sys.stderr)
     notify_kickoffs(meta, history)

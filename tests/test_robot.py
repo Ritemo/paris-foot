@@ -572,5 +572,29 @@ class TestCloture(unittest.TestCase):
         self.assertIn("nba-77|1", c["p"])
         self.assertGreater(c["summary"]["foot"]["avg"], 0)   # 0,51 de chance a la cloture contre 0,50 annonce
 
+    def test_rattrapage_tickets_passes(self):
+        import tempfile, pandas as pd
+        old = (run.DATA, run.http_get)
+        run.DATA = tempfile.mkdtemp()
+        k = (run.NOW - timedelta(days=3)).isoformat().replace("+00:00", "Z")
+        hist = {"combos": [{"kind": "x2", "legs": [
+            {"match_id": "ev9", "market": "+2.5", "p": 0.55, "sport": "foot", "kickoff": k, "div": "F1", "fd_home": "Lyon", "fd_away": "Nice"},
+            {"match_id": "nba-88", "market": "2", "p": 0.40, "sport": "basket", "kickoff": k}]}]}
+        meta = {"played": {"perso1": {"snap": {"legs": [{"match_id": "ev9", "market": "1N", "p": 0.7, "kickoff": k}]}}}}
+        fd = pd.DataFrame([{"Div": "F1", "HomeTeam": "Lyon", "AwayTeam": "Nice", "Date": pd.Timestamp(run.paris_day(k)),
+                            "AvgCH": 2.0, "AvgCD": 3.5, "AvgCA": 3.8, "AvgC>2.5": 1.8, "AvgC<2.5": 2.05}])
+        run.http_get = lambda url, *a, **kw: (json.dumps({"pickcenter": [{"moneyline": {
+            "home": {"close": {"odds": "-150"}}, "away": {"close": {"odds": "+130"}}}}]}).encode(), {})
+        try:
+            self.assertTrue(run.backfill_closing(fd, hist, meta))
+            self.assertFalse(run.backfill_closing(fd, hist, meta))   # deja rattrape
+            c = run.load("closing.json", {})
+        finally:
+            run.DATA, run.http_get = old
+        for key in ("ev9|1", "ev9|1N", "ev9|+2.5", "ev9|-2.5", "nba-88|2"):
+            self.assertIn(key, c["p"])
+        self.assertAlmostEqual(c["p"]["ev9|1N"]["p"], c["p"]["ev9|1"]["p"] + c["p"]["ev9|N"]["p"], places=3)
+        self.assertIn("basket", c["summary"])
+
 if __name__ == "__main__":
     unittest.main(verbosity=1)

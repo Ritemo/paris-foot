@@ -482,26 +482,44 @@ function bankCard() {
 
 /* ton flair : les tickets du robot que tu as choisis de jouer font-ils mieux que ceux que tu as laissés ? */
 /* valeur de clôture : la chance de tes sélections a-t-elle monté entre ton pari et le coup d'envoi ? */
+/* Quand jouer ? Le matin (proposition) ou juste avant le match : d'après l'évolution des cotes des tickets du robot */
+function timingAdvice() {
+  const cs = closing?.summary || {};
+  return Object.entries(cs).filter(([, v]) => v.n >= 10).map(([sp, v]) => {
+    const name = sp === "basket" ? "NBA" : sp === "tennis" ? "Tennis" : "Foot";
+    const ex = fmt(2 / (1 + v.avg), 2);
+    const what = v.avg > 0.005 ? `les cotes baissent avant le match (une cote de 2,00 le matin vaut ${ex} au coup d'envoi) : joue dès le matin`
+      : v.avg < -0.005 ? `les cotes montent avant le match (une cote de 2,00 le matin vaut ${ex} au coup d'envoi) : attends le plus tard possible`
+      : "les cotes bougent très peu entre le matin et le match : l'heure ne change rien, joue quand tu veux";
+    return `${name} : ${what} (${v.n} sélections mesurées).`;
+  }).join(" ");
+}
+
 function closingBlock(mine) {
   const cp = closing?.p || {};
   const legs = [];
   for (const x of mine) {
     x.c.legs.forEach((l, i) => {
       const k = cp[`${l.match_id}|${l.market}`];
-      if (k && l.p && !l.void) legs.push({ move: k.p / l.p - 1, price: legOdds(x.c, i) * k.p - 1 });
+      if (k && l.p && !l.void) legs.push({ move: k.p / l.p - 1 });
     });
   }
-  const help = info("La cote juste avant le coup d'envoi (la « clôture ») est la plus juste : le marché a intégré toutes les nouvelles. Si la chance de tes sélections monte entre ton pari et le coup d'envoi, tu as pris un bon prix, même si le ticket perd. C'est le meilleur signe d'un vrai avantage, visible en 20 à 30 sélections au lieu de centaines de tickets. Mesuré sur le 1N2 du foot (cote Unibet) et le vainqueur NBA.", "valeur de clôture");
-  if (!legs.length) return `<h2 class="section-title">Valeur de clôture ${help}</h2><div class="panel"><p class="hint" style="margin:0">Le robot note la cote juste avant chaque match. Tes premières sélections mesurées (foot 1N2, vainqueur NBA) apparaîtront ici après leur coup d'envoi.</p></div>`;
+  const help = info("Juste avant le coup d'envoi, la cote est la plus juste : toutes les nouvelles (blessures, compositions) sont connues. Si la cote de ta sélection baisse après ton pari, c'est que le marché te donne raison : tu as eu un meilleur prix que ceux qui jouent après toi, même si le ticket perd. Sur une vingtaine de sélections, c'est le signe le plus fiable que tes choix ont de la valeur. Mesuré sur le 1N2, la double chance et plus/moins de 2,5 buts du foot, et le vainqueur NBA.", "valeur de clôture");
+  const when = timingAdvice();
+  const whenHtml = when ? `<p class="hint"><b>Quand jouer ?</b> ${esc(when)}</p>` : "";
+  if (!legs.length) return `<h2 class="section-title">Valeur de clôture ${help}</h2><div class="panel"><p class="hint" style="margin:0">Le robot note la cote juste avant chaque match. Tes sélections mesurées apparaîtront ici après leur coup d'envoi.</p>${whenHtml}</div>`;
   const avg = (a) => a.reduce((x, y) => x + y, 0) / a.length;
-  const mv = avg(legs.map((x) => x.move)), pr = avg(legs.map((x) => x.price)), up = legs.filter((x) => x.move > 0.005).length;
-  const sign = (v) => `${v >= 0 ? "+" : "−"}${fmt(Math.abs(v * 100), 1)} %`;
-  const verdict = legs.length < 20 ? "Trop tôt pour conclure : il faut une vingtaine de sélections."
-    : mv > 0.01 ? "Le marché va dans ton sens : tu prends de bons prix." : mv < -0.01 ? "Le marché va plutôt contre tes choix : tes prix ne sont pas bons." : "Ni mieux ni moins bien que le marché.";
+  const mv = avg(legs.map((x) => x.move)), up = legs.filter((x) => x.move > 0.005).length, down = legs.filter((x) => x.move < -0.005).length;
+  const ex = fmt(2 / (1 + mv), 2);
+  const story = Math.abs(mv) <= 0.005 ? `En moyenne, une cote de 2,00 prise par toi valait toujours 2,00 au coup d'envoi : tu as joué au prix du marché.`
+    : mv > 0 ? `En moyenne, une cote de 2,00 prise par toi ne valait plus que ${ex} au coup d'envoi : tu as eu un meilleur prix que ceux qui ont joué après toi.`
+    : `En moyenne, une cote de 2,00 prise par toi valait ${ex} au coup d'envoi : en attendant, tu aurais eu un meilleur prix.`;
+  const verdict = legs.length < 20 ? `Trop tôt pour conclure : ${legs.length} sélections mesurées, il en faut une vingtaine.`
+    : mv > 0.01 ? "Le marché te donne raison : tes choix ont de la valeur." : mv < -0.01 ? "Le marché part souvent contre tes choix : méfie-toi de tes paris d'intuition." : "Ni mieux ni moins bien que le marché.";
   return `<h2 class="section-title">Valeur de clôture ${help}</h2><div class="panel">
-    <div class="cash"><div><small>Chance au coup d'envoi</small><b class="${mv >= 0 ? "pos" : "neg"}">${sign(mv)}</b></div><div><small>Sélections qui ont monté</small><b>${up} sur ${legs.length}</b></div></div>
-    <p class="hint">En moyenne, la chance de tes sélections a ${mv >= 0 ? "monté" : "baissé"} de ${sign(Math.abs(mv)).slice(1)} entre ton pari et le coup d'envoi. Ta cote valait ${sign(pr)} par rapport au prix juste de clôture (la marge d'Unibet tourne autour de −10 % : au-dessus, tu as bien acheté).</p>
-    <p class="hint"><b>${verdict}</b></p></div>`;
+    <div class="cash"><div><small>Bons prix pris</small><b class="pos">${up} sur ${legs.length}</b></div><div><small>Ta cote de 2,00 au coup d'envoi</small><b class="${mv >= 0 ? "pos" : "neg"}">${ex}</b></div></div>
+    <p class="hint">Bon prix = la cote a baissé entre ton pari et le coup d'envoi. ${story} ${down ? `${down} sélection${down > 1 ? "s ont" : " a"} vu sa cote monter (moins bon prix).` : ""}</p>
+    <p class="hint"><b>${verdict}</b></p>${whenHtml}</div>`;
 }
 
 function flair(mine) {

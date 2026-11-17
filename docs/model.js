@@ -124,9 +124,8 @@ function summaryPanel(m) {
       : "Victoires, nuls, buts, les deux équipes marquent, handicap : tout est estimé juste, à la marge du hasard près. Aucune correction n'est nécessaire."]);
   if (t?.n) items.push([Math.abs(t.z) < 2 ? "neutre" : "ko", `Tickets : ${t.observes} gagnés sur ${t.n}`,
     `On en attendait ${fr1(t.attendus)}. ${Math.abs(t.z) < 2 ? `L'écart est normal : sur si peu de tickets, la chance fait varier ce chiffre de ${fr1(t.marge || 0)} dans un sens ou dans l'autre. Il faudra plusieurs centaines de tickets pour juger.` : "L'écart dépasse ce que la chance explique d'habitude : à surveiller."}`]);
-  const cs = closing?.summary || {};
-  const timing = Object.entries(cs).filter(([, v]) => v.n >= 10);
-  if (timing.length) items.push(["neutre", "Quand jouer ?", timing.map(([sp, v]) => `${sp === "basket" ? "NBA" : "Foot"} : entre la proposition du matin et le coup d'envoi, la chance des sélections proposées ${v.avg >= 0 ? "monte" : "baisse"} de ${fmt(Math.abs(v.avg * 100), 1)} % en moyenne (${v.n} sélections) : ${v.avg > 0.005 ? "mieux vaut jouer tôt" : v.avg < -0.005 ? "mieux vaut attendre le soir" : "l'heure ne change rien"}.`).join(" ")]);
+  const when = timingAdvice();
+  if (when) items.push(["neutre", "Quand jouer ?", when]);
   items.push(["cle", "Ce qui compte vraiment : le prix", "Puisque personne ne prévoit mieux que les cotes, ce qui décide de ton résultat à long terme, c'est la marge que prend le bookmaker. C'est ce que mesure le coût. Les étoiles le mélangent avec ton style de jeu, réglé en haut des tickets : petit gain sûr ou gros gain, un ticket un peu plus cher peut te convenir s'il correspond à ce que tu cherches. Garde de petites mises, et fie-toi à ton flair pour ce que les chiffres ignorent (blessures, enjeu, rotation)."]);
   return `<h2 class="section-title">En bref</h2><div class="panel brief">${items.map(([k, title, txt]) => `<div class="brief-item ${k}"><i aria-hidden="true"></i><div><b>${esc(title)}</b><p>${esc(txt)}</p></div></div>`).join("")}</div>`;
 }

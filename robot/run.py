@@ -1118,6 +1118,79 @@ def apply_adjust(matches, adj):
                 x["adj"] = f
 
 
+# ---------------------------------------------------------------- valeur de cloture
+# Juste avant chaque match (moins de 25 min), le robot note la chance donnee par le marche (cote de cloture, marge retiree) :
+# foot 1N2 via OddsPapi (cote Unibet), NBA vainqueur via ESPN (cote DraftKings de cloture).
+# Si la chance d'une selection a monte entre la proposition (ou ton pari) et le coup d'envoi, le prix pris etait bon.
+CLOSE_BEFORE = timedelta(minutes=25)
+OP_CLOSE_MAX = 200   # au-dela, on garde les requetes OddsPapi pour les actualisations de cotes
+
+
+def record_closing(meta):
+    t = load("today.json", {})
+    soon = [m for m in t.get("matches", []) if NOW.isoformat() < m["kickoff"] <= (NOW + CLOSE_BEFORE).isoformat()]
+    close = load("closing.json", {"p": {}, "summary": {}})
+    todo = [m for m in soon if f"{m['id']}|1" not in close["p"] and m.get("sport", "foot") in ("foot", "basket")]
+    if not todo:
+        return False
+    got = 0
+    foot = [m for m in todo if m.get("sport", "foot") == "foot"]
+    if foot and OP_KEY and meta.get("oddspapi", {}).get("used", 0) < OP_CLOSE_MAX:
+        keys = {k for k, v in LEAGUES.items() if v[1] in {m["league"] for m in foot}}
+        try:
+            ops = op_unibet(meta, keys)
+        except Exception as e:
+            print("cloture oddspapi", e, file=sys.stderr)
+            ops = []
+        for m in foot:
+            ev = {"x": {"home_team": m["home"], "away_team": m["away"], "commence_time": m["kickoff"], "bookmakers": []}}
+            if apply_op(ev, ops):
+                o = {x["name"]: x["price"] for x in ev["x"]["bookmakers"][0]["markets"][-1]["outcomes"]}
+                pf = fair([o[m["home"]], o["Draw"], o[m["away"]]])
+                for mk, p in zip(("1", "N", "2"), pf):
+                    close["p"][f"{m['id']}|{mk}"] = {"p": round(p, 4), "t": NOW.isoformat()}
+                got += 1
+    nba = [m for m in todo if m.get("sport") == "basket" and m["id"].startswith("nba-")]
+    if nba:
+        boards = {}
+        for m in nba:
+            k = datetime.fromisoformat(m["kickoff"].replace("Z", "+00:00"))
+            for d in sorted({(k + timedelta(hours=h)).strftime("%Y%m%d") for h in (-12, 0)}):
+                for e in _board("basketball/nba", d, boards):
+                    if e.get("id") != m["id"][4:]:
+                        continue
+                    try:
+                        ml = e["competitions"][0]["odds"][0]["moneyline"]
+                        pf = fair([am2dec(ml["home"]["close"]["odds"]), am2dec(ml["away"]["close"]["odds"])])
+                    except Exception:
+                        continue
+                    close["p"][f"{m['id']}|1"] = {"p": round(pf[0], 4), "t": NOW.isoformat()}
+                    close["p"][f"{m['id']}|2"] = {"p": round(pf[1], 4), "t": NOW.isoformat()}
+                    got += 1
+    if not got:
+        return False
+    limit = (NOW - timedelta(days=60)).isoformat()
+    close["p"] = {k: v for k, v in close["p"].items() if v["t"] > limit}
+    close["summary"] = closing_summary(load("history.json", {"combos": []}), close["p"])
+    close["updated"] = NOW.isoformat()
+    save("closing.json", close)
+    return True
+
+
+def closing_summary(history, cp):
+    """Entre la proposition du ticket (matin) et le coup d'envoi, la chance des selections proposees a-t-elle monte ?"""
+    out = {}
+    for c in history["combos"]:
+        if c["kind"] == "folie" or c.get("replaced"):
+            continue
+        for l in c["legs"]:
+            x = cp.get(f"{l['match_id']}|{l['market']}")
+            if x and l.get("p"):
+                s = out.setdefault(l.get("sport", "foot"), [])
+                s.append(x["p"] / l["p"] - 1)
+    return {k: {"n": len(v), "avg": round(sum(v) / len(v), 4), "up": round(sum(1 for x in v if x > 0.005) / len(v), 3)} for k, v in out.items()}
+
+
 def settle_perso(meta):
     """Combines composes par toi : le robot les regle aussi, pour te prevenir."""
     played = meta.get("played", {})
@@ -1501,6 +1574,10 @@ def results_only(meta, history):
     meta_changed = sync_played(meta)
     sync_backup()
     try:
+        meta_changed |= record_closing(meta)
+    except Exception as e:
+        print("cloture", e, file=sys.stderr)
+    try:
         other_journal()
     except Exception as e:
         print("journal nba tennis", e, file=sys.stderr)
@@ -1640,6 +1717,10 @@ def main():
     api_scores = fetch_api_scores(history, fd, espn)
     sync_played(meta)
     sync_backup()
+    try:
+        record_closing(meta)
+    except Exception as e:
+        print("cloture", e, file=sys.stderr)
     notify_kickoffs(meta, history)
     settle_perso(meta)
     status_before = {c["id"]: c["status"] for c in history["combos"]}

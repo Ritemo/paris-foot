@@ -609,3 +609,6 @@ body { overscroll-behavior-y: contain; }
 .add-manual { display: block; width: 100%; margin: 18px 0 8px; }
 #dlg-manual { width: min(92vw, 420px); }
 #dlg-manual .field select, #dlg-manual .field input { width: 100%; }
+.one-line { border-left: 5px solid var(--jaune); margin-top: 16px; }
+.one-line small { font-weight: 800; color: var(--sous); text-transform: uppercase; letter-spacing: .5px; font-size: 11px; }
+.one-line p { margin: 4px 0 0; font: 700 16px/1.4 var(--display); }

@@ -3,7 +3,7 @@ const LS = {
   get(k, d) { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } },
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
 };
-let today = null, hist = null, meta = null, model = null, other = null, freshStamp = null, LOGOS = {};
+let today = null, hist = null, meta = null, model = null, other = null, closing = null, freshStamp = null, LOGOS = {};
 const overrides = () => LS.get("pf_overrides", {});
 const bets = () => LS.get("pf_bets", {});
 const settings = () => Object.assign({ budget: 40, token: "", repo: "" }, LS.get("pf_settings", {}));
@@ -481,6 +481,29 @@ function bankCard() {
 }
 
 /* ton flair : les tickets du robot que tu as choisis de jouer font-ils mieux que ceux que tu as laissés ? */
+/* valeur de clôture : la chance de tes sélections a-t-elle monté entre ton pari et le coup d'envoi ? */
+function closingBlock(mine) {
+  const cp = closing?.p || {};
+  const legs = [];
+  for (const x of mine) {
+    x.c.legs.forEach((l, i) => {
+      const k = cp[`${l.match_id}|${l.market}`];
+      if (k && l.p && !l.void) legs.push({ move: k.p / l.p - 1, price: legOdds(x.c, i) * k.p - 1 });
+    });
+  }
+  const help = info("La cote juste avant le coup d'envoi (la « clôture ») est la plus juste : le marché a intégré toutes les nouvelles. Si la chance de tes sélections monte entre ton pari et le coup d'envoi, tu as pris un bon prix, même si le ticket perd. C'est le meilleur signe d'un vrai avantage, visible en 20 à 30 sélections au lieu de centaines de tickets. Mesuré sur le 1N2 du foot (cote Unibet) et le vainqueur NBA.", "valeur de clôture");
+  if (!legs.length) return `<h2 class="section-title">Valeur de clôture ${help}</h2><div class="panel"><p class="hint" style="margin:0">Le robot note la cote juste avant chaque match. Tes premières sélections mesurées (foot 1N2, vainqueur NBA) apparaîtront ici après leur coup d'envoi.</p></div>`;
+  const avg = (a) => a.reduce((x, y) => x + y, 0) / a.length;
+  const mv = avg(legs.map((x) => x.move)), pr = avg(legs.map((x) => x.price)), up = legs.filter((x) => x.move > 0.005).length;
+  const sign = (v) => `${v >= 0 ? "+" : "−"}${fmt(Math.abs(v * 100), 1)} %`;
+  const verdict = legs.length < 20 ? "Trop tôt pour conclure : il faut une vingtaine de sélections."
+    : mv > 0.01 ? "Le marché va dans ton sens : tu prends de bons prix." : mv < -0.01 ? "Le marché va plutôt contre tes choix : tes prix ne sont pas bons." : "Ni mieux ni moins bien que le marché.";
+  return `<h2 class="section-title">Valeur de clôture ${help}</h2><div class="panel">
+    <div class="cash"><div><small>Chance au coup d'envoi</small><b class="${mv >= 0 ? "pos" : "neg"}">${sign(mv)}</b></div><div><small>Sélections qui ont monté</small><b>${up} sur ${legs.length}</b></div></div>
+    <p class="hint">En moyenne, la chance de tes sélections a ${mv >= 0 ? "monté" : "baissé"} de ${sign(Math.abs(mv)).slice(1)} entre ton pari et le coup d'envoi. Ta cote valait ${sign(pr)} par rapport au prix juste de clôture (la marge d'Unibet tourne autour de −10 % : au-dessus, tu as bien acheté).</p>
+    <p class="hint"><b>${verdict}</b></p></div>`;
+}
+
 function flair(mine) {
   const playedIds = new Set(mine.map((x) => x.id));
   const days = new Set(mine.map((x) => x.c.day));
@@ -593,7 +616,7 @@ function bilanMine() {
     ${mise ? roiBlock(gain / mise, done.reduce((s, x) => s + x.mise * (x.c.p * x.odds - 1), 0) / mise) : ""}
     <p class="hint">Récupéré = ce que les tickets gagnants t'ont rapporté, mise comprise. Gain réel = récupéré moins tout ce que tu as misé.</p>`;
   if (done.length) h += compare(done.reduce((s, x) => s + x.c.p, 0) / done.length, won / done.length);
-  h += `</div>` + flair(mine) + myCharts(done);
+  h += `</div>` + flair(mine) + closingBlock(mine) + myCharts(done);
   h += marketStats(done.map((x) => x.c), "Sur les matchs de tes tickets joués.");
   if (done.length) {
     h += `<h2 class="section-title">Mes tickets terminés</h2><div class="panel">` + done.sort((a, b) => b.c.day.localeCompare(a.c.day)).map((x) => {
@@ -1084,7 +1107,7 @@ async function load(quiet) {
   const get = (f) => fetch(`data/${f}?t=${Date.now()}`, { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
   let logos;
   fetchBackups().then(renderBackupStatus);
-  [today, hist, meta, logos, model, other] = await Promise.all([get("today.json"), get("history.json"), get("meta.json"), get("logos.json"), get("model.json"), get("other_learning.json")]);
+  [today, hist, meta, logos, model, other, closing] = await Promise.all([get("today.json"), get("history.json"), get("meta.json"), get("logos.json"), get("model.json"), get("other_learning.json"), get("closing.json")]);
   if (logos) LOGOS = logos;
   if (today) LS.set("pf_cache", { today, hist, logos: LOGOS, model }); else if (!quiet) ({ today, hist, logos: LOGOS = {}, model = null } = LS.get("pf_cache", {}));
   for (const id of Object.keys(bets())) syncBetOdds(id);

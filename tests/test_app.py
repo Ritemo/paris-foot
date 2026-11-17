@@ -147,6 +147,8 @@ async def main():
                 return await r.fulfill(json=meta)
             if "/data/model.json" in u:
                 return await r.fulfill(json=MODEL)
+            if "/data/closing.json" in u:
+                return await r.fulfill(json={"p": {"m1|1": {"p": 0.60, "t": iso(NOW)}}, "summary": {"foot": {"n": 12, "avg": 0.012, "up": 0.6}}})
             if "/data/other_learning.json" in u:
                 return await r.fulfill(json={"summary": {"basket": {"n": 12, "brier": 0.21, "fav": 0.667, "bins": [{"p": 0.7, "f": 0.75, "n": 8}, {"p": 0.3, "f": 0.25, "n": 4}]}}})
             if "/data/logos.json" in u:
@@ -397,6 +399,9 @@ async def main():
         check(await pg.evaluate(f"findCombo('{mid}').status") == "gagne", "résultat du pari ajouté à la main")
         await pg.evaluate("document.querySelectorAll('.celebrate').forEach(e => e.remove())")
         await pg.evaluate(f"const b = bets(); delete b['{mid}']; LS.set('pf_bets', b); renderAll(); document.querySelectorAll('.celebrate').forEach(e => e.remove())")
+        await pg.click('.tabs button[data-tab="bilan"]')
+        txt = await pg.inner_text("#tab-bilan")
+        check("Valeur de clôture" in txt and "Chance au coup d'envoi" in txt, "valeur de clôture de mes sélections dans le Bilan")
         print("Animations")
         await pg.evaluate("window.__noCelebrate = false; LS.set('pf_celebrated', [])")
         await pg.evaluate("document.querySelectorAll('.celebrate').forEach(e => e.remove()); renderAll()")
@@ -436,6 +441,9 @@ async def main():
         await pg.click("#tab-modele .mchart .hit >> nth=0")
         check("Annoncé" in await pg.inner_text("#tab-modele .mchart .tip >> nth=0"), "détail d'un point au toucher")
         check(await pg.locator("#tab-modele .brief-item").count() >= 4, "résumé En bref en tête de l'onglet")
+        check("en une phrase" in (await pg.inner_text("#tab-modele")).lower(), "conclusion en une phrase en tête du Modèle")
+        check("mieux vaut jouer tôt" in await pg.inner_text("#tab-modele"), "conseil sur l'heure à laquelle jouer")
+        check("plus il est bas, mieux c'est" in await pg.inner_text("#tab-modele"), "erreur de prévision expliquée simplement")
         check("Le favori annoncé a gagné 67 %" in await pg.inner_text("#tab-modele"), "NBA et tennis dans l'onglet Modèle")
         check(await pg.locator("#tab-modele .mkpi .info").count() == 4, "un bouton d'explication par métrique")
         await pg.click("#tab-modele .mkpi .info >> nth=1")

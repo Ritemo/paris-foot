@@ -547,5 +547,30 @@ class TestAnnule(unittest.TestCase):
         self.assertEqual(c["status"], "gagne")
         self.assertEqual(c["odds"], 1.90)   # la selection annulee compte pour 1
 
+
+class TestCloture(unittest.TestCase):
+    def test_cote_de_cloture(self):
+        import tempfile
+        old = (run.DATA, run.OP_KEY, run.op_unibet, run._board)
+        run.DATA, run.OP_KEY = tempfile.mkdtemp(), "x"
+        k = (run.NOW + timedelta(minutes=10)).isoformat().replace("+00:00", "Z")
+        run.save("today.json", {"matches": [
+            {"id": "ev1", "sport": "foot", "league": "Ligue 1", "home": "Lyon", "away": "Nice", "kickoff": k, "sel": []},
+            {"id": "nba-77", "sport": "basket", "league": "NBA", "home": "Boston Celtics", "away": "Miami Heat", "kickoff": k, "sel": []}]})
+        run.save("history.json", {"combos": [{"kind": "x2", "legs": [{"match_id": "ev1", "market": "1", "p": 0.50, "sport": "foot"},
+                                                                      {"match_id": "nba-77", "market": "1", "p": 0.60, "sport": "basket"}]}]})
+        run.op_unibet = lambda meta, keys: [{"start": k, "home": "Olympique Lyonnais", "away": "OGC Nice", "odds": (1.75, 3.6, 4.4)}]
+        run._board = lambda path, d, boards: [{"id": "77", "competitions": [{"odds": [{"moneyline": {
+            "home": {"close": {"odds": "-200"}}, "away": {"close": {"odds": "+170"}}}}]}]}]
+        try:
+            self.assertTrue(run.record_closing({}))
+            self.assertFalse(run.record_closing({}))   # deja note
+            c = run.load("closing.json", {})
+        finally:
+            run.DATA, run.OP_KEY, run.op_unibet, run._board = old
+        self.assertAlmostEqual(c["p"]["ev1|1"]["p"], round((1 / 1.75) / (1 / 1.75 + 1 / 3.6 + 1 / 4.4), 4))
+        self.assertIn("nba-77|1", c["p"])
+        self.assertGreater(c["summary"]["foot"]["avg"], 0)   # 0,51 de chance a la cloture contre 0,50 annonce
+
 if __name__ == "__main__":
     unittest.main(verbosity=1)

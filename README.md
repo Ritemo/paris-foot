@@ -52,7 +52,9 @@ Comme pour l'appli hand : coller l'adresse de l'appli sur pwabuilder.com, puis *
 - Une fois le score connu, le robot réapprend le poids du modèle maison (ramené vers 20 % tant que les données sont peu nombreuses, plafonné à 60 %) et, seulement si un type de pari est mal estimé au-delà de 2 écarts-types, une correction prudente et plafonnée pour ce type.
 - Il apprend sur des centaines de matchs, jamais sur les seuls tickets joués (trop peu nombreux : du bruit).
 - Au premier passage, il rejoue les 13 derniers mois semaine par semaine pour démarrer avec des mesures (cotes moyennes des bookmakers publiées par football-data) ; les matchs suivants utilisent les vraies cotes du jour.
-- L'onglet **Modèle** de l'appli affiche les leçons, qui voit le plus juste (robot, bookmakers, modèle seul), la calibration, les écarts par type de pari avec la marge du hasard, et l'évolution mois par mois (`docs/data/model.json`).
+- L'onglet **Modèle** de l'appli affiche les leçons, qui voit le plus juste (robot, bookmakers, modèle seul), la calibration, les écarts par type de pari avec la marge du hasard, et l'évolution mois par mois (`docs/data/model.json`). En tête : une conclusion « en une phrase » et le résumé « En bref ». Le « score de Brier » y est appelé « erreur de prévision » : plus il est bas, mieux c'est.
+- **Valeur de clôture** (onglet Bilan) : 25 minutes avant chaque match, le robot relève la chance de la sélection au dernier moment (1N2 foot via OddsPapi, vainqueur NBA via ESPN, au plus 200 requêtes OddsPapi par mois pour ça) dans `docs/data/closing.json`. Si les sélections jouées gagnent en probabilité avant le coup d'envoi, on prend en général de bons prix : c'est le meilleur signal disponible sur peu de tickets. Verdict à partir de 20 sélections ; le conseil « Quand jouer ? » du Modèle apparaît à partir de 10 sélections mesurées.
+- Les « Folies du jour » sont comptées à part dans le bilan du robot.
 
 Rappel du backtest : aucune stratégie testée ne bat durablement les bookmakers. Les combinés de 2 favoris sont simplement les moins coûteux. Joue pour le plaisir et dans ton budget.
 

@@ -90,6 +90,14 @@ function gapBars(rows) {
 
 const monthLabel = (m) => new Date(m + "-15").toLocaleDateString("fr-FR", { month: "short", year: "2-digit" });
 
+/* la conclusion du moment en une phrase */
+function oneLine(m) {
+  const s = m.scores || {}, z = s.z_vs_marche || 0, t = (m.tickets || {}).tickets;
+  const calib = t && Math.abs(t.z) < 2 ? "les chances annoncées sont fiables" : "les chances annoncées s'écartent un peu de la réalité";
+  const vs = Math.abs(z) < 2 ? "personne ne prévoit mieux que les bookmakers" : z > 0 ? "le robot prévoit un peu mieux que les bookmakers" : "le robot prévoit moins bien que les bookmakers";
+  return `<div class="panel one-line"><small>En une phrase</small><p>${calib.charAt(0).toUpperCase() + calib.slice(1)}, et ${vs} : ce qui fait la différence, c'est le prix payé (étoiles, coût) et la valeur de clôture dans ton Bilan.</p></div>`;
+}
+
 /* « En bref » : la lecture des mesures en quelques phrases simples, recalculée à chaque passage du robot */
 function summaryPanel(m) {
   const s = m.scores || {}, c = m.counts || {}, p = m.params || {}, t = (m.tickets || {}).tickets;
@@ -116,6 +124,9 @@ function summaryPanel(m) {
       : "Victoires, nuls, buts, les deux équipes marquent, handicap : tout est estimé juste, à la marge du hasard près. Aucune correction n'est nécessaire."]);
   if (t?.n) items.push([Math.abs(t.z) < 2 ? "neutre" : "ko", `Tickets : ${t.observes} gagnés sur ${t.n}`,
     `On en attendait ${fr1(t.attendus)}. ${Math.abs(t.z) < 2 ? `L'écart est normal : sur si peu de tickets, la chance fait varier ce chiffre de ${fr1(t.marge || 0)} dans un sens ou dans l'autre. Il faudra plusieurs centaines de tickets pour juger.` : "L'écart dépasse ce que la chance explique d'habitude : à surveiller."}`]);
+  const cs = closing?.summary || {};
+  const timing = Object.entries(cs).filter(([, v]) => v.n >= 10);
+  if (timing.length) items.push(["neutre", "Quand jouer ?", timing.map(([sp, v]) => `${sp === "basket" ? "NBA" : "Foot"} : entre la proposition du matin et le coup d'envoi, la chance des sélections proposées ${v.avg >= 0 ? "monte" : "baisse"} de ${fmt(Math.abs(v.avg * 100), 1)} % en moyenne (${v.n} sélections) : ${v.avg > 0.005 ? "mieux vaut jouer tôt" : v.avg < -0.005 ? "mieux vaut attendre le soir" : "l'heure ne change rien"}.`).join(" ")]);
   items.push(["cle", "Ce qui compte vraiment : le prix", "Puisque personne ne prévoit mieux que les cotes, ce qui décide de ton résultat à long terme, c'est la marge que prend le bookmaker. C'est ce que mesure le coût. Les étoiles le mélangent avec ton style de jeu, réglé en haut des tickets : petit gain sûr ou gros gain, un ticket un peu plus cher peut te convenir s'il correspond à ce que tu cherches. Garde de petites mises, et fie-toi à ton flair pour ce que les chiffres ignorent (blessures, enjeu, rotation)."]);
   return `<h2 class="section-title">En bref</h2><div class="panel brief">${items.map(([k, title, txt]) => `<div class="brief-item ${k}"><i aria-hidden="true"></i><div><b>${esc(title)}</b><p>${esc(txt)}</p></div></div>`).join("")}</div>`;
 }
@@ -132,7 +143,7 @@ function renderModele() {
     <div class="panel lessons"><ul>${(m.lessons || []).map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
     <p class="hint">Mis à jour ${when(m.updated)}. Le robot réapprend à chaque passage avec les cotes, sur tous les matchs terminés des cinq grands championnats et des coupes d'Europe, pas seulement sur tes tickets.</p></div>`;
 
-  let h = summaryPanel(m);
+  let h = oneLine(m) + summaryPanel(m);
   h += `<h2 class="section-title">Les mesures</h2><div class="mkpis">
     ${mKpi("Matchs mesurés", fmt(c.last_year || 0, 0), `sur 12 mois${c.live ? `, dont ${c.live} en direct` : ""}`,
       `Le nombre de matchs terminés des 12 derniers mois sur lesquels le robot a comparé ses pourcentages au vrai résultat. C'est sa matière pour apprendre : plus il y en a, plus ses conclusions sont solides. Les matchs « en direct » sont ceux suivis avec les cotes réelles du jour ; les autres viennent d'un rejeu du passé avec les cotes moyennes des bookmakers.`)}
@@ -148,13 +159,13 @@ function renderModele() {
     const rows = [["Modèle maison seul", s.modele], ["Bookmakers", s.marche], ["Robot (annoncé)", s.robot]].filter((r) => r[1]);
     const worst = Math.max(...rows.map((r) => r[1].brier)), best = Math.min(...rows.map((r) => r[1].brier));
     const pad = (worst - best) * 0.6 || 0.01;
-    h += `<h2 class="section-title">Qui voit le plus juste ? ${info("Le score de Brier mesure l'erreur d'une prévision. Pour chaque match, on compare les trois pourcentages annoncés (victoire, nul, défaite) à ce qui s'est passé : annoncer 70 % pour une victoire qui arrive coûte peu, annoncer 20 % pour elle coûte cher. On fait la moyenne sur tous les matchs. 0 serait parfait, 0,667 revient à répondre un tiers partout. Les bookmakers sont mesurés sur leurs cotes sans marge, le modèle maison seul sur ses calculs, et le robot sur le mélange des deux, celui que tu vois dans l'appli.", "score de Brier")}</h2><div class="panel">
+    h += `<h2 class="section-title">Qui voit le plus juste ? ${info("L'erreur de prévision (appelée « score de Brier ») mesure à quel point les pourcentages annoncés étaient loin de la réalité. Pour chaque match, on compare les trois pourcentages annoncés (victoire, nul, défaite) à ce qui s'est passé : annoncer 70 % pour une victoire qui arrive coûte peu, annoncer 20 % pour elle coûte cher. On fait la moyenne sur tous les matchs. 0 serait parfait, 0,667 revient à répondre un tiers partout. Les bookmakers sont mesurés sur leurs cotes sans marge, le modèle maison seul sur ses calculs, et le robot sur le mélange des deux, celui que tu vois dans l'appli.", "score de Brier")}</h2><div class="panel">
       ${rows.map(([name, x]) => `<div class="brow ${name.startsWith("Robot") ? "me" : ""}"><span>${name}</span>
         <div class="bar"><i style="width:${Math.max(6, 100 * (1 - (worst + pad - x.brier) / (worst + pad - (best - pad))))}%"></i></div>
         <b>${fr1(x.brier, 3)}</b></div>`).join("")}
       <div class="verdict-line">Robot contre bookmakers : ${verdictChip(s.z_vs_marche)}</div>
       ${s.z_modele_vs_marche !== undefined ? `<div class="verdict-line">Modèle maison seul contre bookmakers : ${verdictChip(s.z_modele_vs_marche)}</div>` : ""}
-      <p class="hint">Erreur moyenne sur le résultat 1N2 (score de Brier) : <b>plus la barre est courte, mieux c'est</b>. 0,667 correspond à un tirage au hasard entre 1, N et 2. Le favori annoncé par le robot a gagné ${pct(s.robot.acc)} des matchs. Battre les bookmakers de peu ne suffit pas à couvrir leur marge.</p>
+      <p class="hint"><b>${Math.abs(s.z_vs_marche || 0) < 2 ? "Le robot et les bookmakers se trompent autant l'un que l'autre." : (s.z_vs_marche > 0 ? "Le robot se trompe un peu moins que les bookmakers." : "Le robot se trompe un peu plus que les bookmakers.")}</b> Chiffre = erreur de prévision sur le résultat 1N2 : <b>plus il est bas, mieux c'est</b>. 0,667 revient à dire « un tiers chacun » à chaque match ; les meilleurs pronostics du foot tournent autour de 0,58. Le favori annoncé par le robot a gagné ${pct(s.robot.acc)} des matchs. Battre les bookmakers de peu ne suffit pas à couvrir leur marge.</p>
     </div>`;
   }
 
@@ -197,7 +208,7 @@ function renderModele() {
   }
 
   if (m.leagues?.length) {
-    h += `<h2 class="section-title">Par championnat ${info("Le même score de Brier, championnat par championnat, pour le robot et pour les bookmakers. En vert, les championnats où le robot a été plus juste. Les écarts sont minuscules : quelques millièmes ne suffisent pas à battre la marge des bookmakers.", "par championnat")}</h2><div class="panel"><table class="months"><thead><tr><th>Championnat</th><th>Robot</th><th>Bookm.</th></tr></thead><tbody>` +
+    h += `<h2 class="section-title">Par championnat ${info("La même erreur de prévision (plus bas = mieux), championnat par championnat, pour le robot et pour les bookmakers. En vert, les championnats où le robot a été plus juste. Les écarts sont minuscules : quelques millièmes ne suffisent pas à battre la marge des bookmakers.", "par championnat")}</h2><div class="panel"><table class="months"><thead><tr><th>Championnat</th><th>Robot</th><th>Bookm.</th></tr></thead><tbody>` +
       m.leagues.map((x) => `<tr><td>${esc(x.name)}<small>${x.n} matchs</small></td><td class="${x.robot < x.marche - 0.0005 ? "pos" : ""}">${fr1(x.robot, 3)}</td><td>${fr1(x.marche, 3)}</td></tr>`).join("") +
       `</tbody></table><p class="hint">Erreur moyenne, plus bas = mieux.</p></div>`;
   }
@@ -255,7 +266,7 @@ function otherSportsPanel() {
   if (!rows.length) return `<h2 class="section-title">NBA et tennis</h2><div class="panel"><p class="hint" style="margin:0">Le robot note les chances annoncées pour chaque match NBA et de tennis, puis les compare aux résultats. Les premiers chiffres arrivent dès que des matchs suivis sont terminés.</p></div>`;
   return `<h2 class="section-title">NBA et tennis ${info("Pour chaque match, le robot garde la chance de victoire annoncée (tirée des cotes du marché, marge retirée), puis la compare au résultat. Score de Brier : 0 serait parfait, 0,25 revient à dire 50 % partout. Le tableau regroupe les matchs par chance annoncée et montre combien ont vraiment été gagnés.", "NBA et tennis")}</h2>`
     + rows.map(([sp, v]) => `<div class="panel"><h3 style="margin:0 0 6px">${names[sp] || sp} · ${v.n} match${v.n > 1 ? "s" : ""}</h3>
-      <p class="hint" style="margin:0 0 8px">Le favori annoncé a gagné ${pct(v.fav)} des matchs. Score de Brier ${fmt(v.brier, 3)} (0,25 = au hasard).</p>
+      <p class="hint" style="margin:0 0 8px">Le favori annoncé a gagné ${pct(v.fav)} des matchs. Erreur de prévision ${fmt(v.brier, 3)} : plus bas = mieux, 0,25 revient à dire 50 % partout.</p>
       <table class="months"><thead><tr><th>Annoncé</th><th>Arrivé</th><th>Matchs</th></tr></thead><tbody>${v.bins.map((b) => `<tr><td>${pct(b.p)}</td><td>${pct(b.f)}</td><td>${b.n}</td></tr>`).join("")}</tbody></table>
       ${v.n < 30 ? `<p class="hint" style="margin:8px 0 0">Encore peu de matchs : les écarts sont surtout dus au hasard.</p>` : ""}</div>`).join("");
 }

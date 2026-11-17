@@ -381,6 +381,80 @@
     "alt": true,
     "settled_at": "2026-11-15T23:45:46.594917+00:00"
    }
+  },
+  "2026-11-18|5f11f792535a031c557f8a33a8093f18:1|nba-401910005:1|nba-401910006:1": {
+   "mise": 2,
+   "odds": 3.49,
+   "t": 1794939084,
+   "snap": {
+    "id": "2026-11-18|5f11f792535a031c557f8a33a8093f18:1|nba-401910005:1|nba-401910006:1",
+    "day": "2026-11-18",
+    "kind": "x3",
+    "legs": [
+     {
+      "match_id": "nba-401910005",
+      "league": "NBA",
+      "kickoff": "2026-11-18T04:00:00Z",
+      "home": "Los Angeles Lakers",
+      "away": "Charlotte Hornets",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "NBA",
+      "sport": "basket",
+      "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399039/la-lakers-vs-cha-hornets",
+      "market": "1",
+      "label": "Victoire Los Angeles Lakers",
+      "odds": 1.24,
+      "src": "unibet",
+      "p": 0.7295,
+      "ev": -0.0954
+     },
+     {
+      "match_id": "5f11f792535a031c557f8a33a8093f18",
+      "league": "ATP",
+      "kickoff": "2026-11-18T19:30:00Z",
+      "home": "Flavio Cobolli",
+      "away": "Frances Tiafoe",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "ATP",
+      "sport": "tennis",
+      "link": "https://www.unibet.fr/paris-tennis/atp/atp-finals/3399465/f.cobolli-vs-f.tiafoe",
+      "market": "1",
+      "label": "Victoire Flavio Cobolli",
+      "odds": 1.91,
+      "src": "unibet",
+      "p": 0.4697,
+      "ev": -0.103
+     },
+     {
+      "match_id": "nba-401910006",
+      "league": "NBA",
+      "kickoff": "2026-11-18T03:30:00Z",
+      "home": "LA Clippers",
+      "away": "Utah Jazz",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "NBA",
+      "sport": "basket",
+      "link": null,
+      "market": "1",
+      "label": "Victoire LA Clippers",
+      "odds": 1.37,
+      "src": "estimee",
+      "p": 0.6765,
+      "ev": -0.0732
+     }
+    ],
+    "odds": 3.24,
+    "p": 0.2318,
+    "cost": 0.248,
+    "stars": 1,
+    "stake": 1,
+    "status": "en attente",
+    "mix": true,
+    "alt": true
+   }
   }
  },
  "kick_sent": {

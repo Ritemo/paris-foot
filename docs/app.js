@@ -1130,6 +1130,7 @@ async function load(quiet) {
   if (today) LS.set("pf_cache", { today, hist, logos: LOGOS, model }); else if (!quiet) ({ today, hist, logos: LOGOS = {}, model = null } = LS.get("pf_cache", {}));
   for (const id of Object.keys(bets())) syncBetOdds(id);
   renderAll();
+  importAdded();
 }
 
 loadSettings();

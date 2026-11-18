@@ -143,3 +143,26 @@ async function renderCodeCheck() {
   el.textContent = ok ? "Paris joués : chiffrés avec ton code, le robot les lit bien." : "Attention : ce code ne correspond pas à celui du robot. Récupère tes paris avec le bon code, ou mets ce code dans le secret CODE_RECUPERATION sur GitHub.";
   el.className = ok ? "hint" : "hint warn";
 }
+
+/* Paris ajoutés pour toi (data/ajouts.json, chiffrés avec ton code) : un ticket validé sur Unibet mais oublié dans l'appli */
+async function importAdded() {
+  let d;
+  try { const r = await fetch(`data/ajouts.json?t=${Date.now()}`, { cache: "no-store" }); if (!r.ok) return; d = await r.json(); } catch { return; }
+  const done = LS.get("pf_ajouts_done", {});
+  const added = [];
+  for (const it of d.items || []) {
+    if (done[it.id]) continue;
+    try {
+      const b = await openBackup(it.blob, backupCode());
+      done[it.id] = Date.now();
+      if (bets()[b.id]) continue;
+      const all = bets(); all[b.id] = b.bet; LS.set("pf_bets", all);
+      added.push(b.bet.snap?.legs?.length || 0);
+    } catch { /* pas ouvrable avec ce code : on ne touche à rien */ }
+  }
+  LS.set("pf_ajouts_done", done);
+  if (added.length) {
+    renderAll(); scheduleLive?.(); syncPlayed(); scheduleBackup();
+    toast(added.length > 1 ? `${added.length} paris ajoutés pour toi.` : "Ton pari validé sur Unibet a été ajouté dans En cours.", 5000);
+  }
+}

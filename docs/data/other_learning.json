@@ -435,6 +435,123 @@
    "away": "Frances Tiafoe",
    "p": 0.4697,
    "odds": 1.91
+  },
+  "nba-401910007": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-19T00:00:00Z",
+   "home": "Cleveland Cavaliers",
+   "away": "Memphis Grizzlies",
+   "p": 0.6456,
+   "odds": 1.4
+  },
+  "nba-401910008": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-19T00:00:00Z",
+   "home": "Indiana Pacers",
+   "away": "Houston Rockets",
+   "p": 0.2929,
+   "odds": 2.65
+  },
+  "nba-401910009": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-19T00:00:00Z",
+   "home": "Miami Heat",
+   "away": "Milwaukee Bucks",
+   "p": 0.854,
+   "odds": 1.09
+  },
+  "nba-401910010": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-19T00:00:00Z",
+   "home": "Orlando Magic",
+   "away": "Philadelphia 76ers",
+   "p": 0.4824,
+   "odds": 1.82
+  },
+  "nba-401910011": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-19T00:30:00Z",
+   "home": "Brooklyn Nets",
+   "away": "Chicago Bulls",
+   "p": 0.579,
+   "odds": 1.58
+  },
+  "nba-401910012": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-19T00:30:00Z",
+   "home": "Toronto Raptors",
+   "away": "Washington Wizards",
+   "p": 0.7053,
+   "odds": 1.29
+  },
+  "nba-401910013": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-19T01:00:00Z",
+   "home": "New Orleans Pelicans",
+   "away": "Detroit Pistons",
+   "p": 0.2939,
+   "odds": 2.8
+  },
+  "nba-401910014": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-19T01:00:00Z",
+   "home": "Oklahoma City Thunder",
+   "away": "Atlanta Hawks",
+   "p": 0.7098,
+   "odds": 1.28
+  },
+  "nba-401910016": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-19T01:00:00Z",
+   "home": "Dallas Mavericks",
+   "away": "Golden State Warriors",
+   "p": 0.6698,
+   "odds": 1.35
+  },
+  "nba-401910015": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-19T02:30:00Z",
+   "home": "Denver Nuggets",
+   "away": "Boston Celtics",
+   "p": 0.4486,
+   "odds": 1.92
+  },
+  "nba-401910018": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-19T03:00:00Z",
+   "home": "Sacramento Kings",
+   "away": "Phoenix Suns",
+   "p": 0.3,
+   "odds": 2.65
+  },
+  "91d621e106bf38d41c61739852993840": {
+   "sport": "tennis",
+   "div": "ATP",
+   "kickoff": "2026-11-19T13:00:00Z",
+   "home": "Ben Shelton",
+   "away": "Rafael Jodar",
+   "p": 0.6439,
+   "odds": 1.35
+  },
+  "66cc3b98e9e67560a34198715ee78d75": {
+   "sport": "tennis",
+   "div": "ATP",
+   "kickoff": "2026-11-19T19:30:00Z",
+   "home": "Alexander Zverev",
+   "away": "Arthur Fils",
+   "p": 0.6944,
+   "odds": 1.25
   }
  },
  "summary": {
@@ -498,5 +615,5 @@
    ]
   }
  },
- "updated": "2026-11-18T06:15:45.425427+00:00"
+ "updated": "2026-11-18T06:31:01.714612+00:00"
 }

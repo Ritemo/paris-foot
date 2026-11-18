@@ -399,6 +399,84 @@
     "alt": true,
     "settled_at": "2026-11-18T06:01:12.322368+00:00"
    }
+  },
+  "perso|2026-11-19|nba-401910011:1|nba-401910018:2|91d621e106bf38d41c61739852993840:1": {
+   "mise": 2,
+   "odds": 2.83,
+   "t": 1795028675,
+   "snap": {
+    "id": "perso|2026-11-19|nba-401910011:1|nba-401910018:2|91d621e106bf38d41c61739852993840:1",
+    "day": "2026-11-19",
+    "kind": "perso",
+    "legs": [
+     {
+      "match_id": "nba-401910011",
+      "league": "NBA",
+      "kickoff": "2026-11-19T00:30:00Z",
+      "home": "Brooklyn Nets",
+      "away": "Chicago Bulls",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "NBA",
+      "sport": "basket",
+      "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399048/bkn-nets-vs-chi-bulls",
+      "market": "1",
+      "label": "Victoire Brooklyn Nets",
+      "odds": 1.58,
+      "raw_odds": null,
+      "adj": null,
+      "src": "unibet",
+      "p": 0.579,
+      "ev": -0.0852
+     },
+     {
+      "match_id": "nba-401910018",
+      "league": "NBA",
+      "kickoff": "2026-11-19T03:00:00Z",
+      "home": "Sacramento Kings",
+      "away": "Phoenix Suns",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "NBA",
+      "sport": "basket",
+      "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399055/sac-kings-vs-phx-suns",
+      "market": "2",
+      "label": "Victoire Phoenix Suns",
+      "odds": 1.3,
+      "raw_odds": null,
+      "adj": null,
+      "src": "unibet",
+      "p": 0.7,
+      "ev": -0.09
+     },
+     {
+      "match_id": "91d621e106bf38d41c61739852993840",
+      "league": "ATP",
+      "kickoff": "2026-11-19T13:00:00Z",
+      "home": "Ben Shelton",
+      "away": "Rafael Jodar",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "ATP",
+      "sport": "tennis",
+      "link": "https://www.unibet.fr/paris-tennis/atp/atp-finals/3399456/b.shelton-vs-r.jodar",
+      "market": "1",
+      "label": "Victoire Ben Shelton",
+      "odds": 1.38,
+      "raw_odds": null,
+      "adj": null,
+      "src": "unibet",
+      "p": 0.6439,
+      "ev": -0.1114
+     }
+    ],
+    "odds": 2.83,
+    "p": 0.26097266999999996,
+    "cost": 0.26026893519999983,
+    "stars": 0,
+    "stake": 2,
+    "status": "en attente"
+   }
   }
  },
  "kick_sent": {

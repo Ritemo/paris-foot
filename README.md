@@ -105,6 +105,8 @@ Notifications d'échec des tests : sujet ntfy `combines-foot-ritemo-7k3q9x`.
 | Résultats manquants | football-data.co.uk publie parfois avec un jour de retard ; le robot réessaie à chaque passage. |
 | Le téléphone garde une ancienne version | Fermer et rouvrir l'appli ; si besoin, vérifier que `tools/bump_version.py` a bien été lancé avant la publication. |
 
+Paris ajoutés à distance : `docs/data/ajouts.json` contient des paris chiffrés avec le code de récupération (par exemple un ticket validé sur Unibet mais oublié dans l'appli). À l'ouverture, l'appli les ajoute une seule fois dans En cours, puis les envoie au robot comme les autres.
+
 ## Confidentialité
 
 - Le dépôt est public. Avec le secret GitHub `CODE_RECUPERATION` (ton code de récupération, celui affiché dans Réglages), tes paris joués sont chiffrés : sur ntfy et dans `docs/data/meta.json`. Sans ce secret, ils restent lisibles par tous.

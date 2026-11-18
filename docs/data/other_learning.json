@@ -366,7 +366,8 @@
    "home": "Minnesota Timberwolves",
    "away": "Portland Trail Blazers",
    "p": 0.5514,
-   "odds": 1.59
+   "odds": 1.59,
+   "won": true
   },
   "nba-401910004": {
    "sport": "basket",
@@ -375,7 +376,8 @@
    "home": "San Antonio Spurs",
    "away": "Detroit Pistons",
    "p": 0.7568,
-   "odds": 1.2
+   "odds": 1.2,
+   "won": false
   },
   "nba-401910006": {
    "sport": "basket",
@@ -436,9 +438,9 @@
  },
  "summary": {
   "basket": {
-   "n": 27,
-   "brier": 0.1979,
-   "fav": 0.741,
+   "n": 29,
+   "brier": 0.211,
+   "fav": 0.724,
    "bins": [
     {
      "p": 0.145,
@@ -451,14 +453,14 @@
      "n": 9
     },
     {
-     "p": 0.469,
-     "f": 0.625,
-     "n": 8
+     "p": 0.478,
+     "f": 0.667,
+     "n": 9
     },
     {
      "p": 0.756,
-     "f": 0.6,
-     "n": 5
+     "f": 0.5,
+     "n": 6
     },
     {
      "p": 0.868,
@@ -495,5 +497,5 @@
    ]
   }
  },
- "updated": "2026-11-18T03:30:58.711213+00:00"
+ "updated": "2026-11-18T03:45:44.600028+00:00"
 }

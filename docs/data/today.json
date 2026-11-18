@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T06:31:01.714612+00:00",
+ "generated_at": "2026-11-18T15:31:17.462299+00:00",
  "credits_remaining": 327,
  "combos": [
   {
@@ -4737,39 +4737,6 @@
   }
  ],
  "matches": [
-  {
-   "id": "a3e64105988f48f4c6447c9ca6de0030",
-   "sport": "tennis",
-   "league": "ATP",
-   "event": "ATP Finals",
-   "div": "ATP",
-   "kickoff": "2026-11-18T13:00:00Z",
-   "day": "2026-11-18",
-   "home": "Carlos Alcaraz",
-   "away": "Daniil Medvedev",
-   "fd_home": null,
-   "fd_away": null,
-   "sel": [
-    {
-     "market": "1",
-     "label": "Victoire Carlos Alcaraz",
-     "odds": 1.19,
-     "src": "unibet",
-     "p": 0.7622,
-     "ev": -0.0929
-    },
-    {
-     "market": "2",
-     "label": "Victoire Daniil Medvedev",
-     "odds": 4.0,
-     "src": "unibet",
-     "p": 0.2378,
-     "ev": -0.049
-    }
-   ],
-   "link": "https://www.unibet.fr/paris-tennis/atp/atp-finals/3399466/c.alcaraz-vs-d.medvedev",
-   "odds_at": "2026-11-18T06:31:01.714612+00:00"
-  },
   {
    "id": "5f11f792535a031c557f8a33a8093f18",
    "sport": "tennis",

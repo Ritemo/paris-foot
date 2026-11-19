@@ -466,7 +466,8 @@
    "home": "Miami Heat",
    "away": "Milwaukee Bucks",
    "p": 0.854,
-   "odds": 1.09
+   "odds": 1.09,
+   "won": true
   },
   "nba-401910010": {
    "sport": "basket",
@@ -485,7 +486,8 @@
    "home": "Brooklyn Nets",
    "away": "Chicago Bulls",
    "p": 0.579,
-   "odds": 1.58
+   "odds": 1.58,
+   "won": false
   },
   "nba-401910012": {
    "sport": "basket",
@@ -494,7 +496,8 @@
    "home": "Toronto Raptors",
    "away": "Washington Wizards",
    "p": 0.7053,
-   "odds": 1.29
+   "odds": 1.29,
+   "won": false
   },
   "nba-401910013": {
    "sport": "basket",
@@ -562,9 +565,9 @@
  },
  "summary": {
   "basket": {
-   "n": 34,
-   "brier": 0.2172,
-   "fav": 0.706,
+   "n": 37,
+   "brier": 0.2227,
+   "fav": 0.676,
    "bins": [
     {
      "p": 0.145,
@@ -577,19 +580,19 @@
      "n": 10
     },
     {
-     "p": 0.479,
-     "f": 0.6,
+     "p": 0.488,
+     "f": 0.545,
+     "n": 11
+    },
+    {
+     "p": 0.73,
+     "f": 0.4,
      "n": 10
     },
     {
-     "p": 0.732,
-     "f": 0.444,
-     "n": 9
-    },
-    {
-     "p": 0.868,
+     "p": 0.865,
      "f": 1.0,
-     "n": 3
+     "n": 4
     }
    ]
   },
@@ -621,5 +624,5 @@
    ]
   }
  },
- "updated": "2026-11-19T02:45:44.754406+00:00"
+ "updated": "2026-11-19T03:01:20.589630+00:00"
 }

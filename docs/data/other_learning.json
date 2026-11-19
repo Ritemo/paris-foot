@@ -515,7 +515,8 @@
    "home": "Oklahoma City Thunder",
    "away": "Atlanta Hawks",
    "p": 0.7098,
-   "odds": 1.28
+   "odds": 1.28,
+   "won": false
   },
   "nba-401910016": {
    "sport": "basket",
@@ -524,7 +525,8 @@
    "home": "Dallas Mavericks",
    "away": "Golden State Warriors",
    "p": 0.6698,
-   "odds": 1.35
+   "odds": 1.35,
+   "won": true
   },
   "nba-401910015": {
    "sport": "basket",
@@ -565,9 +567,9 @@
  },
  "summary": {
   "basket": {
-   "n": 37,
-   "brier": 0.2227,
-   "fav": 0.676,
+   "n": 39,
+   "brier": 0.227,
+   "fav": 0.667,
    "bins": [
     {
      "p": 0.145,
@@ -585,9 +587,9 @@
      "n": 11
     },
     {
-     "p": 0.73,
-     "f": 0.4,
-     "n": 10
+     "p": 0.723,
+     "f": 0.417,
+     "n": 12
     },
     {
      "p": 0.865,
@@ -624,5 +626,5 @@
    ]
   }
  },
- "updated": "2026-11-19T03:15:43.397399+00:00"
+ "updated": "2026-11-19T03:31:06.209096+00:00"
 }

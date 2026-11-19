@@ -59,7 +59,9 @@
      "odds": 1.28,
      "src": "unibet",
      "p": 0.7098,
-     "ev": -0.0915
+     "ev": -0.0915,
+     "score": "112-117",
+     "won": false
     }
    ],
    "odds": 2.2,
@@ -67,8 +69,9 @@
    "cost": 0.2284,
    "stars": 3,
    "stake": 3,
-   "status": "en attente",
-   "proposed_at": "2026-11-18T06:31:01.714612+00:00"
+   "status": "perdu",
+   "proposed_at": "2026-11-18T06:31:01.714612+00:00",
+   "settled_at": "2026-11-19T03:31:06.209096+00:00"
   },
   {
    "id": "2026-11-19|nba-401910007:1|nba-401910012:1|nba-401910013:2",
@@ -184,7 +187,9 @@
      "odds": 1.35,
      "src": "unibet",
      "p": 0.6698,
-     "ev": -0.0958
+     "ev": -0.0958,
+     "score": "116-94",
+     "won": true
     }
    ],
    "odds": 2.13,
@@ -7179,7 +7184,7 @@
   }
  ],
  "bilan": {
-  "n": 49,
+  "n": 50,
   "gagnes": 16,
   "x2": {
    "n": 41,
@@ -7188,10 +7193,10 @@
    "bilan": -16.83
   },
   "x3": {
-   "n": 8,
+   "n": 9,
    "gagnes": 1,
-   "reussite_annoncee": 0.29,
-   "bilan": -10.18
+   "reussite_annoncee": 0.297,
+   "bilan": -13.18
   },
   "folie": {
    "n": 11,
@@ -7199,12 +7204,12 @@
    "reussite_annoncee": 0.034,
    "bilan": -11
   },
-  "reussite_reelle": 0.327,
+  "reussite_reelle": 0.32,
   "reussite_annoncee": 0.34,
-  "bilan_2eur": -18.86,
-  "mise_2eur": 98,
-  "bilan_mise_suggeree": -27.01,
-  "mise_suggeree_totale": 117
+  "bilan_2eur": -20.86,
+  "mise_2eur": 100,
+  "bilan_mise_suggeree": -30.01,
+  "mise_suggeree_totale": 120
  },
- "updated": "2026-11-19T03:01:20.589630+00:00"
+ "updated": "2026-11-19T03:31:06.209096+00:00"
 }

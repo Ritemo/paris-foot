@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T06:30:59.922251+00:00",
+ "generated_at": "2026-11-19T15:31:34.111879+00:00",
  "credits_remaining": 319,
  "combos": [
   {
@@ -78,7 +78,9 @@
      "odds": 1.39,
      "src": "unibet",
      "p": 0.6658,
-     "ev": -0.0746
+     "ev": -0.0746,
+     "score": "2-0",
+     "won": true
     },
     {
      "match_id": "66cc3b98e9e67560a34198715ee78d75",
@@ -258,56 +260,6 @@
    "settled_at": "2026-11-19T02:45:44.754406+00:00"
   },
   {
-   "id": "2026-11-20|5dcc9d2b0da87770a4f49e924275be39:1N|cae480fb1195f0032554a268cb80eb44:-4.5",
-   "day": "2026-11-20",
-   "kind": "x2",
-   "legs": [
-    {
-     "match_id": "cae480fb1195f0032554a268cb80eb44",
-     "league": "Bundesliga",
-     "kickoff": "2026-11-20T19:30:00Z",
-     "home": "Bayern Munich",
-     "away": "1. FC Köln",
-     "fd_home": "Bayern Munich",
-     "fd_away": "FC Koln",
-     "div": "D1",
-     "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
-     "market": "-4.5",
-     "label": "Moins de 4,5 buts",
-     "odds": 1.67,
-     "src": "pmu",
-     "p": 0.5327,
-     "ev": -0.1104
-    },
-    {
-     "match_id": "5dcc9d2b0da87770a4f49e924275be39",
-     "league": "Ligue 1",
-     "kickoff": "2026-11-20T19:45:00Z",
-     "home": "Troyes",
-     "away": "Le Havre",
-     "fd_home": "Troyes",
-     "fd_away": "Le Havre",
-     "div": "F1",
-     "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395788/troyes-vs-le-havre",
-     "market": "1N",
-     "label": "Troyes ou nul",
-     "odds": 1.25,
-     "src": "estimee",
-     "p": 0.7005,
-     "ev": -0.1244
-    }
-   ],
-   "odds": 2.09,
-   "p": 0.3732,
-   "cost": 0.2211,
-   "stars": 2,
-   "stake": 3,
-   "status": "en attente",
-   "proposed_at": "2026-11-19T06:30:59.922251+00:00"
-  },
-  {
    "id": "2026-11-20|5dcc9d2b0da87770a4f49e924275be39:N2|dcee36f9b8a9989972b6d4ddde76c4c7:1",
    "day": "2026-11-20",
    "kind": "x2",
@@ -356,6 +308,56 @@
    "stake": 3,
    "status": "en attente",
    "proposed_at": "2026-11-19T06:30:59.922251+00:00"
+  },
+  {
+   "id": "2026-11-20|cae480fb1195f0032554a268cb80eb44:-4.5|dcee36f9b8a9989972b6d4ddde76c4c7:-3.5",
+   "day": "2026-11-20",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "cae480fb1195f0032554a268cb80eb44",
+     "league": "Bundesliga",
+     "kickoff": "2026-11-20T19:30:00Z",
+     "home": "Bayern Munich",
+     "away": "1. FC Köln",
+     "fd_home": "Bayern Munich",
+     "fd_away": "FC Koln",
+     "div": "D1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
+     "market": "-4.5",
+     "label": "Moins de 4,5 buts",
+     "odds": 1.67,
+     "src": "pmu",
+     "p": 0.5327,
+     "ev": -0.1104
+    },
+    {
+     "match_id": "dcee36f9b8a9989972b6d4ddde76c4c7",
+     "league": "Liga",
+     "kickoff": "2026-11-20T20:00:00Z",
+     "home": "Athletic Bilbao",
+     "away": "Espanyol",
+     "fd_home": "Ath Bilbao",
+     "fd_away": "Espanol",
+     "div": "SP1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.26,
+     "src": "estimee",
+     "p": 0.6981,
+     "ev": -0.1204
+    }
+   ],
+   "odds": 2.1,
+   "p": 0.3719,
+   "cost": 0.2175,
+   "stars": 2,
+   "stake": 3,
+   "status": "en attente",
+   "proposed_at": "2026-11-19T15:31:34.111879+00:00"
   },
   {
    "id": "2026-11-20|nba-401910019:1|nba-401910020:2|nba-401910021:2",
@@ -428,56 +430,6 @@
  ],
  "alts": [
   {
-   "id": "2026-11-20|5dcc9d2b0da87770a4f49e924275be39:1N|dcee36f9b8a9989972b6d4ddde76c4c7:1",
-   "day": "2026-11-20",
-   "kind": "x2",
-   "legs": [
-    {
-     "match_id": "dcee36f9b8a9989972b6d4ddde76c4c7",
-     "league": "Liga",
-     "kickoff": "2026-11-20T20:00:00Z",
-     "home": "Athletic Bilbao",
-     "away": "Espanyol",
-     "fd_home": "Ath Bilbao",
-     "fd_away": "Espanol",
-     "div": "SP1",
-     "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
-     "market": "1",
-     "label": "Victoire Athletic Bilbao",
-     "odds": 1.39,
-     "src": "unibet",
-     "p": 0.6249,
-     "ev": -0.1314
-    },
-    {
-     "match_id": "5dcc9d2b0da87770a4f49e924275be39",
-     "league": "Ligue 1",
-     "kickoff": "2026-11-20T19:45:00Z",
-     "home": "Troyes",
-     "away": "Le Havre",
-     "fd_home": "Troyes",
-     "fd_away": "Le Havre",
-     "div": "F1",
-     "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395788/troyes-vs-le-havre",
-     "market": "1N",
-     "label": "Troyes ou nul",
-     "odds": 1.25,
-     "src": "estimee",
-     "p": 0.7005,
-     "ev": -0.1244
-    }
-   ],
-   "odds": 1.74,
-   "p": 0.4377,
-   "cost": 0.2395,
-   "stars": 1,
-   "stake": 3,
-   "status": "en attente",
-   "alt": true
-  },
-  {
    "id": "2026-11-20|cae480fb1195f0032554a268cb80eb44:H1|dcee36f9b8a9989972b6d4ddde76c4c7:1",
    "day": "2026-11-20",
    "kind": "x2",
@@ -495,10 +447,10 @@
      "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
      "market": "1",
      "label": "Victoire Athletic Bilbao",
-     "odds": 1.39,
+     "odds": 1.36,
      "src": "unibet",
-     "p": 0.6249,
-     "ev": -0.1314
+     "p": 0.6391,
+     "ev": -0.1308
     },
     {
      "match_id": "cae480fb1195f0032554a268cb80eb44",
@@ -519,59 +471,9 @@
      "ev": -0.1231
     }
    ],
-   "odds": 1.77,
-   "p": 0.4315,
-   "cost": 0.2383,
-   "stars": 1,
-   "stake": 3,
-   "status": "en attente",
-   "alt": true
-  },
-  {
-   "id": "2026-11-20|cae480fb1195f0032554a268cb80eb44:+3.5|dcee36f9b8a9989972b6d4ddde76c4c7:1",
-   "day": "2026-11-20",
-   "kind": "x2",
-   "legs": [
-    {
-     "match_id": "dcee36f9b8a9989972b6d4ddde76c4c7",
-     "league": "Liga",
-     "kickoff": "2026-11-20T20:00:00Z",
-     "home": "Athletic Bilbao",
-     "away": "Espanyol",
-     "fd_home": "Ath Bilbao",
-     "fd_away": "Espanol",
-     "div": "SP1",
-     "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
-     "market": "1",
-     "label": "Victoire Athletic Bilbao",
-     "odds": 1.39,
-     "src": "unibet",
-     "p": 0.6249,
-     "ev": -0.1314
-    },
-    {
-     "match_id": "cae480fb1195f0032554a268cb80eb44",
-     "league": "Bundesliga",
-     "kickoff": "2026-11-20T19:30:00Z",
-     "home": "Bayern Munich",
-     "away": "1. FC Köln",
-     "fd_home": "Bayern Munich",
-     "fd_away": "FC Koln",
-     "div": "D1",
-     "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
-     "market": "+3.5",
-     "label": "Plus de 3,5 buts",
-     "odds": 1.33,
-     "src": "estimee",
-     "p": 0.6573,
-     "ev": -0.1258
-    }
-   ],
-   "odds": 1.85,
-   "p": 0.4107,
-   "cost": 0.2407,
+   "odds": 1.73,
+   "p": 0.4413,
+   "cost": 0.2378,
    "stars": 1,
    "stake": 3,
    "status": "en attente",
@@ -595,10 +497,10 @@
      "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
      "market": "1",
      "label": "Victoire Athletic Bilbao",
-     "odds": 1.39,
+     "odds": 1.36,
      "src": "unibet",
-     "p": 0.6249,
-     "ev": -0.1314
+     "p": 0.6391,
+     "ev": -0.1308
     },
     {
      "match_id": "cae480fb1195f0032554a268cb80eb44",
@@ -619,9 +521,59 @@
      "ev": -0.1231
     }
    ],
-   "odds": 2.04,
-   "p": 0.3728,
-   "cost": 0.2383,
+   "odds": 2.0,
+   "p": 0.3812,
+   "cost": 0.2378,
+   "stars": 2,
+   "stake": 3,
+   "status": "en attente",
+   "alt": true
+  },
+  {
+   "id": "2026-11-20|cae480fb1195f0032554a268cb80eb44:H1|dcee36f9b8a9989972b6d4ddde76c4c7:+2.5",
+   "day": "2026-11-20",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "dcee36f9b8a9989972b6d4ddde76c4c7",
+     "league": "Liga",
+     "kickoff": "2026-11-20T20:00:00Z",
+     "home": "Athletic Bilbao",
+     "away": "Espanyol",
+     "fd_home": "Ath Bilbao",
+     "fd_away": "Espanol",
+     "div": "SP1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.65,
+     "src": "netbet",
+     "p": 0.5238,
+     "ev": -0.1357
+    },
+    {
+     "match_id": "cae480fb1195f0032554a268cb80eb44",
+     "league": "Bundesliga",
+     "kickoff": "2026-11-20T19:30:00Z",
+     "home": "Bayern Munich",
+     "away": "1. FC Köln",
+     "fd_home": "Bayern Munich",
+     "fd_away": "FC Koln",
+     "div": "D1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
+     "market": "H1",
+     "label": "Bayern Munich gagne par 2 buts ou + (handicap -1)",
+     "odds": 1.27,
+     "src": "estimee",
+     "p": 0.6905,
+     "ev": -0.1231
+    }
+   ],
+   "odds": 2.1,
+   "p": 0.3617,
+   "cost": 0.2421,
    "stars": 2,
    "stake": 3,
    "status": "en attente",
@@ -917,10 +869,10 @@
      "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
      "market": "1",
      "label": "Victoire Athletic Bilbao",
-     "odds": 1.39,
+     "odds": 1.36,
      "src": "unibet",
-     "p": 0.6249,
-     "ev": -0.1314
+     "p": 0.6391,
+     "ev": -0.1308
     },
     {
      "match_id": "5dcc9d2b0da87770a4f49e924275be39",
@@ -935,72 +887,22 @@
      "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395788/troyes-vs-le-havre",
      "market": "BTTS",
      "label": "Les deux équipes marquent",
-     "odds": 1.59,
+     "odds": 1.6,
      "src": "estimee",
-     "p": 0.5511,
-     "ev": -0.1238
+     "p": 0.5497,
+     "ev": -0.1205
     }
    ],
-   "odds": 2.21,
-   "p": 0.3444,
-   "cost": 0.2389,
+   "odds": 2.18,
+   "p": 0.3513,
+   "cost": 0.2355,
    "stars": 2,
-   "stake": 2,
+   "stake": 3,
    "status": "en attente",
    "alt": true
   },
   {
-   "id": "2026-11-20|cae480fb1195f0032554a268cb80eb44:+3.5|dcee36f9b8a9989972b6d4ddde76c4c7:+2.5",
-   "day": "2026-11-20",
-   "kind": "x2",
-   "legs": [
-    {
-     "match_id": "dcee36f9b8a9989972b6d4ddde76c4c7",
-     "league": "Liga",
-     "kickoff": "2026-11-20T20:00:00Z",
-     "home": "Athletic Bilbao",
-     "away": "Espanyol",
-     "fd_home": "Ath Bilbao",
-     "fd_away": "Espanol",
-     "div": "SP1",
-     "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
-     "market": "+2.5",
-     "label": "Plus de 2,5 buts",
-     "odds": 1.65,
-     "src": "netbet",
-     "p": 0.5234,
-     "ev": -0.1364
-    },
-    {
-     "match_id": "cae480fb1195f0032554a268cb80eb44",
-     "league": "Bundesliga",
-     "kickoff": "2026-11-20T19:30:00Z",
-     "home": "Bayern Munich",
-     "away": "1. FC Köln",
-     "fd_home": "Bayern Munich",
-     "fd_away": "FC Koln",
-     "div": "D1",
-     "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
-     "market": "+3.5",
-     "label": "Plus de 3,5 buts",
-     "odds": 1.33,
-     "src": "estimee",
-     "p": 0.6573,
-     "ev": -0.1258
-    }
-   ],
-   "odds": 2.19,
-   "p": 0.344,
-   "cost": 0.245,
-   "stars": 2,
-   "stake": 2,
-   "status": "en attente",
-   "alt": true
-  },
-  {
-   "id": "2026-11-20|5dcc9d2b0da87770a4f49e924275be39:+2.5|cae480fb1195f0032554a268cb80eb44:H1",
+   "id": "2026-11-20|5dcc9d2b0da87770a4f49e924275be39:-2.5|dcee36f9b8a9989972b6d4ddde76c4c7:-3.5",
    "day": "2026-11-20",
    "kind": "x2",
    "legs": [
@@ -1015,13 +917,45 @@
      "div": "F1",
      "sport": "foot",
      "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395788/troyes-vs-le-havre",
-     "market": "+2.5",
-     "label": "Plus de 2,5 buts",
-     "odds": 1.68,
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 1.77,
      "src": "netbet",
-     "p": 0.5072,
-     "ev": -0.1479
+     "p": 0.4922,
+     "ev": -0.1288
     },
+    {
+     "match_id": "dcee36f9b8a9989972b6d4ddde76c4c7",
+     "league": "Liga",
+     "kickoff": "2026-11-20T20:00:00Z",
+     "home": "Athletic Bilbao",
+     "away": "Espanyol",
+     "fd_home": "Ath Bilbao",
+     "fd_away": "Espanol",
+     "div": "SP1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.26,
+     "src": "estimee",
+     "p": 0.6981,
+     "ev": -0.1204
+    }
+   ],
+   "odds": 2.23,
+   "p": 0.3436,
+   "cost": 0.2337,
+   "stars": 2,
+   "stake": 2,
+   "status": "en attente",
+   "alt": true
+  },
+  {
+   "id": "2026-11-20|cae480fb1195f0032554a268cb80eb44:-4.5|dcee36f9b8a9989972b6d4ddde76c4c7:1",
+   "day": "2026-11-20",
+   "kind": "x2",
+   "legs": [
     {
      "match_id": "cae480fb1195f0032554a268cb80eb44",
      "league": "Bundesliga",
@@ -1033,19 +967,37 @@
      "div": "D1",
      "sport": "foot",
      "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
-     "market": "H1",
-     "label": "Bayern Munich gagne par 2 buts ou + (handicap -1)",
-     "odds": 1.27,
-     "src": "estimee",
-     "p": 0.6905,
-     "ev": -0.1231
+     "market": "-4.5",
+     "label": "Moins de 4,5 buts",
+     "odds": 1.67,
+     "src": "pmu",
+     "p": 0.5327,
+     "ev": -0.1104
+    },
+    {
+     "match_id": "dcee36f9b8a9989972b6d4ddde76c4c7",
+     "league": "Liga",
+     "kickoff": "2026-11-20T20:00:00Z",
+     "home": "Athletic Bilbao",
+     "away": "Espanyol",
+     "fd_home": "Ath Bilbao",
+     "fd_away": "Espanol",
+     "div": "SP1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
+     "market": "1",
+     "label": "Victoire Athletic Bilbao",
+     "odds": 1.36,
+     "src": "unibet",
+     "p": 0.6391,
+     "ev": -0.1308
     }
    ],
-   "odds": 2.13,
-   "p": 0.3502,
-   "cost": 0.2528,
+   "odds": 2.27,
+   "p": 0.3404,
+   "cost": 0.2268,
    "stars": 2,
-   "stake": 3,
+   "stake": 2,
    "status": "en attente",
    "alt": true
   },
@@ -1730,10 +1682,28 @@
    "alt": true
   },
   {
-   "id": "2026-11-20|5dcc9d2b0da87770a4f49e924275be39:1|cae480fb1195f0032554a268cb80eb44:NBTTS",
+   "id": "2026-11-20|5dcc9d2b0da87770a4f49e924275be39:1|cae480fb1195f0032554a268cb80eb44:-4.5|dcee36f9b8a9989972b6d4ddde76c4c7:1",
    "day": "2026-11-20",
-   "kind": "x2",
+   "kind": "x3",
    "legs": [
+    {
+     "match_id": "cae480fb1195f0032554a268cb80eb44",
+     "league": "Bundesliga",
+     "kickoff": "2026-11-20T19:30:00Z",
+     "home": "Bayern Munich",
+     "away": "1. FC Köln",
+     "fd_home": "Bayern Munich",
+     "fd_away": "FC Koln",
+     "div": "D1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
+     "market": "-4.5",
+     "label": "Moins de 4,5 buts",
+     "odds": 1.67,
+     "src": "pmu",
+     "p": 0.5327,
+     "ev": -0.1104
+    },
     {
      "match_id": "5dcc9d2b0da87770a4f49e924275be39",
      "league": "Ligue 1",
@@ -1747,33 +1717,33 @@
      "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395788/troyes-vs-le-havre",
      "market": "1",
      "label": "Victoire Troyes",
-     "odds": 2.05,
+     "odds": 2.0,
      "src": "unibet",
-     "p": 0.431,
-     "ev": -0.1165
+     "p": 0.4421,
+     "ev": -0.1158
     },
     {
-     "match_id": "cae480fb1195f0032554a268cb80eb44",
-     "league": "Bundesliga",
-     "kickoff": "2026-11-20T19:30:00Z",
-     "home": "Bayern Munich",
-     "away": "1. FC Köln",
-     "fd_home": "Bayern Munich",
-     "fd_away": "FC Koln",
-     "div": "D1",
+     "match_id": "dcee36f9b8a9989972b6d4ddde76c4c7",
+     "league": "Liga",
+     "kickoff": "2026-11-20T20:00:00Z",
+     "home": "Athletic Bilbao",
+     "away": "Espanyol",
+     "fd_home": "Ath Bilbao",
+     "fd_away": "Espanol",
+     "div": "SP1",
      "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
-     "market": "NBTTS",
-     "label": "Une équipe au moins ne marque pas",
-     "odds": 2.17,
-     "src": "estimee",
-     "p": 0.4035,
-     "ev": -0.1244
+     "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
+     "market": "1",
+     "label": "Victoire Athletic Bilbao",
+     "odds": 1.36,
+     "src": "unibet",
+     "p": 0.6391,
+     "ev": -0.1308
     }
    ],
-   "odds": 4.45,
-   "p": 0.1739,
-   "cost": 0.2264,
+   "odds": 4.54,
+   "p": 0.1505,
+   "cost": 0.3163,
    "stars": 1,
    "stake": 1,
    "status": "en attente",
@@ -1815,10 +1785,10 @@
      "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
      "market": "1",
      "label": "Victoire Athletic Bilbao",
-     "odds": 1.39,
+     "odds": 1.36,
      "src": "unibet",
-     "p": 0.6249,
-     "ev": -0.1314
+     "p": 0.6391,
+     "ev": -0.1308
     },
     {
      "match_id": "5dcc9d2b0da87770a4f49e924275be39",
@@ -1833,15 +1803,183 @@
      "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395788/troyes-vs-le-havre",
      "market": "NBTTS",
      "label": "Une équipe au moins ne marque pas",
-     "odds": 1.95,
+     "odds": 1.96,
      "src": "estimee",
-     "p": 0.4489,
-     "ev": -0.1246
+     "p": 0.4503,
+     "ev": -0.1174
     }
    ],
-   "odds": 4.53,
-   "p": 0.1494,
-   "cost": 0.3236,
+   "odds": 4.45,
+   "p": 0.1533,
+   "cost": 0.3175,
+   "stars": 1,
+   "stake": 1,
+   "status": "en attente",
+   "alt": true
+  },
+  {
+   "id": "2026-11-20|5dcc9d2b0da87770a4f49e924275be39:1|dcee36f9b8a9989972b6d4ddde76c4c7:H1",
+   "day": "2026-11-20",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "5dcc9d2b0da87770a4f49e924275be39",
+     "league": "Ligue 1",
+     "kickoff": "2026-11-20T19:45:00Z",
+     "home": "Troyes",
+     "away": "Le Havre",
+     "fd_home": "Troyes",
+     "fd_away": "Le Havre",
+     "div": "F1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395788/troyes-vs-le-havre",
+     "market": "1",
+     "label": "Victoire Troyes",
+     "odds": 2.0,
+     "src": "unibet",
+     "p": 0.4421,
+     "ev": -0.1158
+    },
+    {
+     "match_id": "dcee36f9b8a9989972b6d4ddde76c4c7",
+     "league": "Liga",
+     "kickoff": "2026-11-20T20:00:00Z",
+     "home": "Athletic Bilbao",
+     "away": "Espanyol",
+     "fd_home": "Ath Bilbao",
+     "fd_away": "Espanol",
+     "div": "SP1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
+     "market": "H1",
+     "label": "Athletic Bilbao gagne par 2 buts ou + (handicap -1)",
+     "odds": 2.22,
+     "src": "estimee",
+     "p": 0.3956,
+     "ev": -0.1218
+    }
+   ],
+   "odds": 4.44,
+   "p": 0.1749,
+   "cost": 0.2235,
+   "stars": 1,
+   "stake": 1,
+   "status": "en attente",
+   "alt": true
+  },
+  {
+   "id": "2026-11-20|cae480fb1195f0032554a268cb80eb44:+4.5|dcee36f9b8a9989972b6d4ddde76c4c7:N2",
+   "day": "2026-11-20",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "cae480fb1195f0032554a268cb80eb44",
+     "league": "Bundesliga",
+     "kickoff": "2026-11-20T19:30:00Z",
+     "home": "Bayern Munich",
+     "away": "1. FC Köln",
+     "fd_home": "Bayern Munich",
+     "fd_away": "FC Koln",
+     "div": "D1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
+     "market": "+4.5",
+     "label": "Plus de 4,5 buts",
+     "odds": 1.91,
+     "src": "pmu",
+     "p": 0.4673,
+     "ev": -0.1075
+    },
+    {
+     "match_id": "dcee36f9b8a9989972b6d4ddde76c4c7",
+     "league": "Liga",
+     "kickoff": "2026-11-20T20:00:00Z",
+     "home": "Athletic Bilbao",
+     "away": "Espanyol",
+     "fd_home": "Ath Bilbao",
+     "fd_away": "Espanol",
+     "div": "SP1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
+     "market": "N2",
+     "label": "Espanyol ou nul",
+     "odds": 2.44,
+     "src": "estimee",
+     "p": 0.3609,
+     "ev": -0.1194
+    }
+   ],
+   "odds": 4.66,
+   "p": 0.1686,
+   "cost": 0.2141,
+   "stars": 1,
+   "stake": 1,
+   "status": "en attente",
+   "alt": true
+  },
+  {
+   "id": "2026-11-20|5dcc9d2b0da87770a4f49e924275be39:BTTS|cae480fb1195f0032554a268cb80eb44:-4.5|dcee36f9b8a9989972b6d4ddde76c4c7:+2.5",
+   "day": "2026-11-20",
+   "kind": "x3",
+   "legs": [
+    {
+     "match_id": "cae480fb1195f0032554a268cb80eb44",
+     "league": "Bundesliga",
+     "kickoff": "2026-11-20T19:30:00Z",
+     "home": "Bayern Munich",
+     "away": "1. FC Köln",
+     "fd_home": "Bayern Munich",
+     "fd_away": "FC Koln",
+     "div": "D1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
+     "market": "-4.5",
+     "label": "Moins de 4,5 buts",
+     "odds": 1.67,
+     "src": "pmu",
+     "p": 0.5327,
+     "ev": -0.1104
+    },
+    {
+     "match_id": "dcee36f9b8a9989972b6d4ddde76c4c7",
+     "league": "Liga",
+     "kickoff": "2026-11-20T20:00:00Z",
+     "home": "Athletic Bilbao",
+     "away": "Espanyol",
+     "fd_home": "Ath Bilbao",
+     "fd_away": "Espanol",
+     "div": "SP1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.65,
+     "src": "netbet",
+     "p": 0.5238,
+     "ev": -0.1357
+    },
+    {
+     "match_id": "5dcc9d2b0da87770a4f49e924275be39",
+     "league": "Ligue 1",
+     "kickoff": "2026-11-20T19:45:00Z",
+     "home": "Troyes",
+     "away": "Le Havre",
+     "fd_home": "Troyes",
+     "fd_away": "Le Havre",
+     "div": "F1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395788/troyes-vs-le-havre",
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odds": 1.6,
+     "src": "estimee",
+     "p": 0.5497,
+     "ev": -0.1205
+    }
+   ],
+   "odds": 4.41,
+   "p": 0.1534,
+   "cost": 0.3238,
    "stars": 1,
    "stake": 1,
    "status": "en attente",
@@ -1883,90 +2021,22 @@
      "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
      "market": "H1",
      "label": "Athletic Bilbao gagne par 2 buts ou + (handicap -1)",
-     "odds": 2.29,
+     "odds": 2.22,
      "src": "estimee",
-     "p": 0.3818,
-     "ev": -0.1257
+     "p": 0.3956,
+     "ev": -0.1218
     }
    ],
-   "odds": 4.37,
-   "p": 0.1784,
-   "cost": 0.2197,
+   "odds": 4.24,
+   "p": 0.1849,
+   "cost": 0.2162,
    "stars": 1,
    "stake": 1,
    "status": "en attente",
    "alt": true
   },
   {
-   "id": "2026-11-20|5dcc9d2b0da87770a4f49e924275be39:+2.5|cae480fb1195f0032554a268cb80eb44:BTTS|dcee36f9b8a9989972b6d4ddde76c4c7:-2.5",
-   "day": "2026-11-20",
-   "kind": "x3",
-   "legs": [
-    {
-     "match_id": "dcee36f9b8a9989972b6d4ddde76c4c7",
-     "league": "Liga",
-     "kickoff": "2026-11-20T20:00:00Z",
-     "home": "Athletic Bilbao",
-     "away": "Espanyol",
-     "fd_home": "Ath Bilbao",
-     "fd_away": "Espanol",
-     "div": "SP1",
-     "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
-     "market": "-2.5",
-     "label": "Moins de 2,5 buts",
-     "odds": 1.82,
-     "src": "netbet",
-     "p": 0.4766,
-     "ev": -0.1326
-    },
-    {
-     "match_id": "5dcc9d2b0da87770a4f49e924275be39",
-     "league": "Ligue 1",
-     "kickoff": "2026-11-20T19:45:00Z",
-     "home": "Troyes",
-     "away": "Le Havre",
-     "fd_home": "Troyes",
-     "fd_away": "Le Havre",
-     "div": "F1",
-     "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395788/troyes-vs-le-havre",
-     "market": "+2.5",
-     "label": "Plus de 2,5 buts",
-     "odds": 1.68,
-     "src": "netbet",
-     "p": 0.5072,
-     "ev": -0.1479
-    },
-    {
-     "match_id": "cae480fb1195f0032554a268cb80eb44",
-     "league": "Bundesliga",
-     "kickoff": "2026-11-20T19:30:00Z",
-     "home": "Bayern Munich",
-     "away": "1. FC Köln",
-     "fd_home": "Bayern Munich",
-     "fd_away": "FC Koln",
-     "div": "D1",
-     "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
-     "market": "BTTS",
-     "label": "Les deux équipes marquent",
-     "odds": 1.47,
-     "src": "estimee",
-     "p": 0.5965,
-     "ev": -0.1231
-    }
-   ],
-   "odds": 4.49,
-   "p": 0.1442,
-   "cost": 0.3519,
-   "stars": 1,
-   "stake": 1,
-   "status": "en attente",
-   "alt": true
-  },
-  {
-   "id": "2026-11-20|5dcc9d2b0da87770a4f49e924275be39:+2.5|cae480fb1195f0032554a268cb80eb44:+4.5|dcee36f9b8a9989972b6d4ddde76c4c7:1",
+   "id": "2026-11-20|5dcc9d2b0da87770a4f49e924275be39:1|cae480fb1195f0032554a268cb80eb44:+4.5|dcee36f9b8a9989972b6d4ddde76c4c7:-3.5",
    "day": "2026-11-20",
    "kind": "x3",
    "legs": [
@@ -1988,124 +2058,6 @@
      "p": 0.4673,
      "ev": -0.1075
     },
-    {
-     "match_id": "dcee36f9b8a9989972b6d4ddde76c4c7",
-     "league": "Liga",
-     "kickoff": "2026-11-20T20:00:00Z",
-     "home": "Athletic Bilbao",
-     "away": "Espanyol",
-     "fd_home": "Ath Bilbao",
-     "fd_away": "Espanol",
-     "div": "SP1",
-     "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
-     "market": "1",
-     "label": "Victoire Athletic Bilbao",
-     "odds": 1.39,
-     "src": "unibet",
-     "p": 0.6249,
-     "ev": -0.1314
-    },
-    {
-     "match_id": "5dcc9d2b0da87770a4f49e924275be39",
-     "league": "Ligue 1",
-     "kickoff": "2026-11-20T19:45:00Z",
-     "home": "Troyes",
-     "away": "Le Havre",
-     "fd_home": "Troyes",
-     "fd_away": "Le Havre",
-     "div": "F1",
-     "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395788/troyes-vs-le-havre",
-     "market": "+2.5",
-     "label": "Plus de 2,5 buts",
-     "odds": 1.68,
-     "src": "netbet",
-     "p": 0.5072,
-     "ev": -0.1479
-    }
-   ],
-   "odds": 4.46,
-   "p": 0.1481,
-   "cost": 0.3394,
-   "stars": 1,
-   "stake": 1,
-   "status": "en attente",
-   "alt": true
-  },
-  {
-   "id": "2026-11-20|5dcc9d2b0da87770a4f49e924275be39:1N|cae480fb1195f0032554a268cb80eb44:+4.5|dcee36f9b8a9989972b6d4ddde76c4c7:-2.5",
-   "day": "2026-11-20",
-   "kind": "x3",
-   "legs": [
-    {
-     "match_id": "cae480fb1195f0032554a268cb80eb44",
-     "league": "Bundesliga",
-     "kickoff": "2026-11-20T19:30:00Z",
-     "home": "Bayern Munich",
-     "away": "1. FC Köln",
-     "fd_home": "Bayern Munich",
-     "fd_away": "FC Koln",
-     "div": "D1",
-     "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
-     "market": "+4.5",
-     "label": "Plus de 4,5 buts",
-     "odds": 1.91,
-     "src": "pmu",
-     "p": 0.4673,
-     "ev": -0.1075
-    },
-    {
-     "match_id": "dcee36f9b8a9989972b6d4ddde76c4c7",
-     "league": "Liga",
-     "kickoff": "2026-11-20T20:00:00Z",
-     "home": "Athletic Bilbao",
-     "away": "Espanyol",
-     "fd_home": "Ath Bilbao",
-     "fd_away": "Espanol",
-     "div": "SP1",
-     "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
-     "market": "-2.5",
-     "label": "Moins de 2,5 buts",
-     "odds": 1.82,
-     "src": "netbet",
-     "p": 0.4766,
-     "ev": -0.1326
-    },
-    {
-     "match_id": "5dcc9d2b0da87770a4f49e924275be39",
-     "league": "Ligue 1",
-     "kickoff": "2026-11-20T19:45:00Z",
-     "home": "Troyes",
-     "away": "Le Havre",
-     "fd_home": "Troyes",
-     "fd_away": "Le Havre",
-     "div": "F1",
-     "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395788/troyes-vs-le-havre",
-     "market": "1N",
-     "label": "Troyes ou nul",
-     "odds": 1.25,
-     "src": "estimee",
-     "p": 0.7005,
-     "ev": -0.1244
-    }
-   ],
-   "odds": 4.35,
-   "p": 0.156,
-   "cost": 0.3222,
-   "stars": 1,
-   "stake": 1,
-   "status": "en attente",
-   "alt": true
-  },
-  {
-   "id": "2026-11-20|5dcc9d2b0da87770a4f49e924275be39:1|dcee36f9b8a9989972b6d4ddde76c4c7:H1",
-   "day": "2026-11-20",
-   "kind": "x2",
-   "legs": [
     {
      "match_id": "5dcc9d2b0da87770a4f49e924275be39",
      "league": "Ligue 1",
@@ -2119,10 +2071,10 @@
      "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395788/troyes-vs-le-havre",
      "market": "1",
      "label": "Victoire Troyes",
-     "odds": 2.05,
+     "odds": 2.0,
      "src": "unibet",
-     "p": 0.431,
-     "ev": -0.1165
+     "p": 0.4421,
+     "ev": -0.1158
     },
     {
      "match_id": "dcee36f9b8a9989972b6d4ddde76c4c7",
@@ -2135,17 +2087,17 @@
      "div": "SP1",
      "sport": "foot",
      "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
-     "market": "H1",
-     "label": "Athletic Bilbao gagne par 2 buts ou + (handicap -1)",
-     "odds": 2.29,
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.26,
      "src": "estimee",
-     "p": 0.3818,
-     "ev": -0.1257
+     "p": 0.6981,
+     "ev": -0.1204
     }
    ],
-   "odds": 4.69,
-   "p": 0.1646,
-   "cost": 0.2276,
+   "odds": 4.81,
+   "p": 0.1442,
+   "cost": 0.3059,
    "stars": 1,
    "stake": 1,
    "status": "en attente",
@@ -2288,142 +2240,6 @@
    "alt": true
   },
   {
-   "id": "2026-11-20|nba-401910019:HC1:-8.5|nba-401910020:2|nba-401910022:+226.5",
-   "day": "2026-11-20",
-   "kind": "x3",
-   "legs": [
-    {
-     "match_id": "nba-401910020",
-     "league": "NBA",
-     "kickoff": "2026-11-20T01:00:00Z",
-     "home": "Milwaukee Bucks",
-     "away": "Portland Trail Blazers",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "NBA",
-     "sport": "basket",
-     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399057/mil-bucks-vs-por-tblazers",
-     "market": "2",
-     "label": "Victoire Portland Trail Blazers",
-     "odds": 1.22,
-     "src": "unibet",
-     "p": 0.7484,
-     "ev": -0.0869
-    },
-    {
-     "match_id": "nba-401910019",
-     "league": "NBA",
-     "kickoff": "2026-11-20T01:00:00Z",
-     "home": "Memphis Grizzlies",
-     "away": "Golden State Warriors",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "NBA",
-     "sport": "basket",
-     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399056/mem-grizzlies-vs-gs-warriors",
-     "market": "HC1:-8.5",
-     "label": "Grizzlies handicap -8,5",
-     "odds": 1.76,
-     "src": "estimee",
-     "p": 0.5,
-     "ev": -0.12
-    },
-    {
-     "match_id": "nba-401910022",
-     "league": "NBA",
-     "kickoff": "2026-11-20T01:00:00Z",
-     "home": "San Antonio Spurs",
-     "away": "LA Clippers",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "NBA",
-     "sport": "basket",
-     "link": null,
-     "market": "+226.5",
-     "label": "Plus de 226,5 points",
-     "odds": 1.76,
-     "src": "estimee",
-     "p": 0.5,
-     "ev": -0.12
-    }
-   ],
-   "odds": 3.78,
-   "p": 0.1871,
-   "cost": 0.2929,
-   "stars": 1,
-   "stake": 1,
-   "status": "en attente",
-   "alt": true
-  },
-  {
-   "id": "2026-11-20|nba-401910019:HC1:-8.5|nba-401910020:2|nba-401910022:-226.5",
-   "day": "2026-11-20",
-   "kind": "x3",
-   "legs": [
-    {
-     "match_id": "nba-401910020",
-     "league": "NBA",
-     "kickoff": "2026-11-20T01:00:00Z",
-     "home": "Milwaukee Bucks",
-     "away": "Portland Trail Blazers",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "NBA",
-     "sport": "basket",
-     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399057/mil-bucks-vs-por-tblazers",
-     "market": "2",
-     "label": "Victoire Portland Trail Blazers",
-     "odds": 1.22,
-     "src": "unibet",
-     "p": 0.7484,
-     "ev": -0.0869
-    },
-    {
-     "match_id": "nba-401910019",
-     "league": "NBA",
-     "kickoff": "2026-11-20T01:00:00Z",
-     "home": "Memphis Grizzlies",
-     "away": "Golden State Warriors",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "NBA",
-     "sport": "basket",
-     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399056/mem-grizzlies-vs-gs-warriors",
-     "market": "HC1:-8.5",
-     "label": "Grizzlies handicap -8,5",
-     "odds": 1.76,
-     "src": "estimee",
-     "p": 0.5,
-     "ev": -0.12
-    },
-    {
-     "match_id": "nba-401910022",
-     "league": "NBA",
-     "kickoff": "2026-11-20T01:00:00Z",
-     "home": "San Antonio Spurs",
-     "away": "LA Clippers",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "NBA",
-     "sport": "basket",
-     "link": null,
-     "market": "-226.5",
-     "label": "Moins de 226,5 points",
-     "odds": 1.76,
-     "src": "estimee",
-     "p": 0.5,
-     "ev": -0.12
-    }
-   ],
-   "odds": 3.78,
-   "p": 0.1871,
-   "cost": 0.2929,
-   "stars": 1,
-   "stake": 1,
-   "status": "en attente",
-   "alt": true
-  },
-  {
    "id": "2026-11-20|1acdb2047defbe0439ef3b1961a60010:1|dcee36f9b8a9989972b6d4ddde76c4c7:1",
    "day": "2026-11-20",
    "kind": "x2",
@@ -2459,15 +2275,15 @@
      "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
      "market": "1",
      "label": "Victoire Athletic Bilbao",
-     "odds": 1.39,
+     "odds": 1.36,
      "src": "unibet",
-     "p": 0.6249,
-     "ev": -0.1314
+     "p": 0.6391,
+     "ev": -0.1308
     }
    ],
-   "odds": 1.81,
-   "p": 0.4327,
-   "cost": 0.2181,
+   "odds": 1.77,
+   "p": 0.4425,
+   "cost": 0.2175,
    "stars": 1,
    "stake": 3,
    "status": "en attente",
@@ -2544,6 +2360,144 @@
    "alt": true
   },
   {
+   "id": "2026-11-20|1acdb2047defbe0439ef3b1961a60010:1|5dcc9d2b0da87770a4f49e924275be39:-3.5|nba-401910020:2",
+   "day": "2026-11-20",
+   "kind": "x3",
+   "legs": [
+    {
+     "match_id": "nba-401910020",
+     "league": "NBA",
+     "kickoff": "2026-11-20T01:00:00Z",
+     "home": "Milwaukee Bucks",
+     "away": "Portland Trail Blazers",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "NBA",
+     "sport": "basket",
+     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399057/mil-bucks-vs-por-tblazers",
+     "market": "2",
+     "label": "Victoire Portland Trail Blazers",
+     "odds": 1.22,
+     "src": "unibet",
+     "p": 0.7484,
+     "ev": -0.0869
+    },
+    {
+     "match_id": "1acdb2047defbe0439ef3b1961a60010",
+     "league": "ATP",
+     "kickoff": "2026-11-20T19:30:00Z",
+     "home": "Daniil Medvedev",
+     "away": "Frances Tiafoe",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "ATP",
+     "sport": "tennis",
+     "link": "https://www.unibet.fr/paris-tennis/atp/atp-finals/3399462/d.medvedev-vs-f.tiafoe",
+     "market": "1",
+     "label": "Victoire Daniil Medvedev",
+     "odds": 1.3,
+     "src": "unibet",
+     "p": 0.6924,
+     "ev": -0.0998
+    },
+    {
+     "match_id": "5dcc9d2b0da87770a4f49e924275be39",
+     "league": "Ligue 1",
+     "kickoff": "2026-11-20T19:45:00Z",
+     "home": "Troyes",
+     "away": "Le Havre",
+     "fd_home": "Troyes",
+     "fd_away": "Le Havre",
+     "div": "F1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395788/troyes-vs-le-havre",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.24,
+     "src": "estimee",
+     "p": 0.7124,
+     "ev": -0.1166
+    }
+   ],
+   "odds": 1.97,
+   "p": 0.3692,
+   "cost": 0.2739,
+   "stars": 2,
+   "stake": 3,
+   "status": "en attente",
+   "mix": true,
+   "alt": true
+  },
+  {
+   "id": "2026-11-20|1acdb2047defbe0439ef3b1961a60010:1|5dcc9d2b0da87770a4f49e924275be39:-3.5|nba-401910019:1",
+   "day": "2026-11-20",
+   "kind": "x3",
+   "legs": [
+    {
+     "match_id": "nba-401910019",
+     "league": "NBA",
+     "kickoff": "2026-11-20T01:00:00Z",
+     "home": "Memphis Grizzlies",
+     "away": "Golden State Warriors",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "NBA",
+     "sport": "basket",
+     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399056/mem-grizzlies-vs-gs-warriors",
+     "market": "1",
+     "label": "Victoire Memphis Grizzlies",
+     "odds": 1.23,
+     "src": "unibet",
+     "p": 0.739,
+     "ev": -0.091
+    },
+    {
+     "match_id": "1acdb2047defbe0439ef3b1961a60010",
+     "league": "ATP",
+     "kickoff": "2026-11-20T19:30:00Z",
+     "home": "Daniil Medvedev",
+     "away": "Frances Tiafoe",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "ATP",
+     "sport": "tennis",
+     "link": "https://www.unibet.fr/paris-tennis/atp/atp-finals/3399462/d.medvedev-vs-f.tiafoe",
+     "market": "1",
+     "label": "Victoire Daniil Medvedev",
+     "odds": 1.3,
+     "src": "unibet",
+     "p": 0.6924,
+     "ev": -0.0998
+    },
+    {
+     "match_id": "5dcc9d2b0da87770a4f49e924275be39",
+     "league": "Ligue 1",
+     "kickoff": "2026-11-20T19:45:00Z",
+     "home": "Troyes",
+     "away": "Le Havre",
+     "fd_home": "Troyes",
+     "fd_away": "Le Havre",
+     "div": "F1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395788/troyes-vs-le-havre",
+     "market": "-3.5",
+     "label": "Moins de 3,5 buts",
+     "odds": 1.24,
+     "src": "estimee",
+     "p": 0.7124,
+     "ev": -0.1166
+    }
+   ],
+   "odds": 1.98,
+   "p": 0.3645,
+   "cost": 0.2771,
+   "stars": 2,
+   "stake": 3,
+   "status": "en attente",
+   "mix": true,
+   "alt": true
+  },
+  {
    "id": "2026-11-20|dcee36f9b8a9989972b6d4ddde76c4c7:1|nba-401910019:1|nba-401910020:2",
    "day": "2026-11-20",
    "kind": "x3",
@@ -2597,16 +2551,85 @@
      "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
      "market": "1",
      "label": "Victoire Athletic Bilbao",
-     "odds": 1.39,
+     "odds": 1.36,
      "src": "unibet",
-     "p": 0.6249,
-     "ev": -0.1314
+     "p": 0.6391,
+     "ev": -0.1308
     }
    ],
-   "odds": 2.09,
-   "p": 0.3456,
-   "cost": 0.2791,
-   "stars": 3,
+   "odds": 2.04,
+   "p": 0.3535,
+   "cost": 0.2786,
+   "stars": 2,
+   "stake": 3,
+   "status": "en attente",
+   "mix": true,
+   "alt": true
+  },
+  {
+   "id": "2026-11-20|5dcc9d2b0da87770a4f49e924275be39:N2|nba-401910019:1|nba-401910020:2",
+   "day": "2026-11-20",
+   "kind": "x3",
+   "legs": [
+    {
+     "match_id": "nba-401910020",
+     "league": "NBA",
+     "kickoff": "2026-11-20T01:00:00Z",
+     "home": "Milwaukee Bucks",
+     "away": "Portland Trail Blazers",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "NBA",
+     "sport": "basket",
+     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399057/mil-bucks-vs-por-tblazers",
+     "market": "2",
+     "label": "Victoire Portland Trail Blazers",
+     "odds": 1.22,
+     "src": "unibet",
+     "p": 0.7484,
+     "ev": -0.0869
+    },
+    {
+     "match_id": "nba-401910019",
+     "league": "NBA",
+     "kickoff": "2026-11-20T01:00:00Z",
+     "home": "Memphis Grizzlies",
+     "away": "Golden State Warriors",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "NBA",
+     "sport": "basket",
+     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399056/mem-grizzlies-vs-gs-warriors",
+     "market": "1",
+     "label": "Victoire Memphis Grizzlies",
+     "odds": 1.23,
+     "src": "unibet",
+     "p": 0.739,
+     "ev": -0.091
+    },
+    {
+     "match_id": "5dcc9d2b0da87770a4f49e924275be39",
+     "league": "Ligue 1",
+     "kickoff": "2026-11-20T19:45:00Z",
+     "home": "Troyes",
+     "away": "Le Havre",
+     "fd_home": "Troyes",
+     "fd_away": "Le Havre",
+     "div": "F1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395788/troyes-vs-le-havre",
+     "market": "N2",
+     "label": "Le Havre ou nul",
+     "odds": 1.58,
+     "src": "estimee",
+     "p": 0.5579,
+     "ev": -0.1185
+    }
+   ],
+   "odds": 2.37,
+   "p": 0.3086,
+   "cost": 0.2683,
+   "stars": 2,
    "stake": 2,
    "status": "en attente",
    "mix": true,
@@ -2715,6 +2738,195 @@
    "alt": true
   },
   {
+   "id": "2026-11-20|1acdb2047defbe0439ef3b1961a60010:1|dcee36f9b8a9989972b6d4ddde76c4c7:1|nba-401910020:2",
+   "day": "2026-11-20",
+   "kind": "x3",
+   "legs": [
+    {
+     "match_id": "nba-401910020",
+     "league": "NBA",
+     "kickoff": "2026-11-20T01:00:00Z",
+     "home": "Milwaukee Bucks",
+     "away": "Portland Trail Blazers",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "NBA",
+     "sport": "basket",
+     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399057/mil-bucks-vs-por-tblazers",
+     "market": "2",
+     "label": "Victoire Portland Trail Blazers",
+     "odds": 1.22,
+     "src": "unibet",
+     "p": 0.7484,
+     "ev": -0.0869
+    },
+    {
+     "match_id": "1acdb2047defbe0439ef3b1961a60010",
+     "league": "ATP",
+     "kickoff": "2026-11-20T19:30:00Z",
+     "home": "Daniil Medvedev",
+     "away": "Frances Tiafoe",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "ATP",
+     "sport": "tennis",
+     "link": "https://www.unibet.fr/paris-tennis/atp/atp-finals/3399462/d.medvedev-vs-f.tiafoe",
+     "market": "1",
+     "label": "Victoire Daniil Medvedev",
+     "odds": 1.3,
+     "src": "unibet",
+     "p": 0.6924,
+     "ev": -0.0998
+    },
+    {
+     "match_id": "dcee36f9b8a9989972b6d4ddde76c4c7",
+     "league": "Liga",
+     "kickoff": "2026-11-20T20:00:00Z",
+     "home": "Athletic Bilbao",
+     "away": "Espanyol",
+     "fd_home": "Ath Bilbao",
+     "fd_away": "Espanol",
+     "div": "SP1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
+     "market": "1",
+     "label": "Victoire Athletic Bilbao",
+     "odds": 1.36,
+     "src": "unibet",
+     "p": 0.6391,
+     "ev": -0.1308
+    }
+   ],
+   "odds": 2.16,
+   "p": 0.3312,
+   "cost": 0.2855,
+   "stars": 3,
+   "stake": 2,
+   "status": "en attente",
+   "mix": true,
+   "alt": true
+  },
+  {
+   "id": "2026-11-20|1acdb2047defbe0439ef3b1961a60010:1|dcee36f9b8a9989972b6d4ddde76c4c7:1|nba-401910019:1",
+   "day": "2026-11-20",
+   "kind": "x3",
+   "legs": [
+    {
+     "match_id": "nba-401910019",
+     "league": "NBA",
+     "kickoff": "2026-11-20T01:00:00Z",
+     "home": "Memphis Grizzlies",
+     "away": "Golden State Warriors",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "NBA",
+     "sport": "basket",
+     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399056/mem-grizzlies-vs-gs-warriors",
+     "market": "1",
+     "label": "Victoire Memphis Grizzlies",
+     "odds": 1.23,
+     "src": "unibet",
+     "p": 0.739,
+     "ev": -0.091
+    },
+    {
+     "match_id": "1acdb2047defbe0439ef3b1961a60010",
+     "league": "ATP",
+     "kickoff": "2026-11-20T19:30:00Z",
+     "home": "Daniil Medvedev",
+     "away": "Frances Tiafoe",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "ATP",
+     "sport": "tennis",
+     "link": "https://www.unibet.fr/paris-tennis/atp/atp-finals/3399462/d.medvedev-vs-f.tiafoe",
+     "market": "1",
+     "label": "Victoire Daniil Medvedev",
+     "odds": 1.3,
+     "src": "unibet",
+     "p": 0.6924,
+     "ev": -0.0998
+    },
+    {
+     "match_id": "dcee36f9b8a9989972b6d4ddde76c4c7",
+     "league": "Liga",
+     "kickoff": "2026-11-20T20:00:00Z",
+     "home": "Athletic Bilbao",
+     "away": "Espanyol",
+     "fd_home": "Ath Bilbao",
+     "fd_away": "Espanol",
+     "div": "SP1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
+     "market": "1",
+     "label": "Victoire Athletic Bilbao",
+     "odds": 1.36,
+     "src": "unibet",
+     "p": 0.6391,
+     "ev": -0.1308
+    }
+   ],
+   "odds": 2.17,
+   "p": 0.327,
+   "cost": 0.2887,
+   "stars": 3,
+   "stake": 2,
+   "status": "en attente",
+   "mix": true,
+   "alt": true
+  },
+  {
+   "id": "2026-11-20|1acdb2047defbe0439ef3b1961a60010:1|dcee36f9b8a9989972b6d4ddde76c4c7:NBTTS",
+   "day": "2026-11-20",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "1acdb2047defbe0439ef3b1961a60010",
+     "league": "ATP",
+     "kickoff": "2026-11-20T19:30:00Z",
+     "home": "Daniil Medvedev",
+     "away": "Frances Tiafoe",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "ATP",
+     "sport": "tennis",
+     "link": "https://www.unibet.fr/paris-tennis/atp/atp-finals/3399462/d.medvedev-vs-f.tiafoe",
+     "market": "1",
+     "label": "Victoire Daniil Medvedev",
+     "odds": 1.3,
+     "src": "unibet",
+     "p": 0.6924,
+     "ev": -0.0998
+    },
+    {
+     "match_id": "dcee36f9b8a9989972b6d4ddde76c4c7",
+     "league": "Liga",
+     "kickoff": "2026-11-20T20:00:00Z",
+     "home": "Athletic Bilbao",
+     "away": "Espanyol",
+     "fd_home": "Ath Bilbao",
+     "fd_away": "Espanol",
+     "div": "SP1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
+     "market": "NBTTS",
+     "label": "Une équipe au moins ne marque pas",
+     "odds": 1.7,
+     "src": "estimee",
+     "p": 0.5181,
+     "ev": -0.1192
+    }
+   ],
+   "odds": 2.21,
+   "p": 0.3587,
+   "cost": 0.2071,
+   "stars": 2,
+   "stake": 3,
+   "status": "en attente",
+   "mix": true,
+   "alt": true
+  },
+  {
    "id": "2026-11-20|cae480fb1195f0032554a268cb80eb44:-4.5|nba-401910019:1|nba-401910020:2",
    "day": "2026-11-20",
    "kind": "x3",
@@ -2777,144 +2989,6 @@
    "odds": 2.51,
    "p": 0.2946,
    "cost": 0.2616,
-   "stars": 2,
-   "stake": 2,
-   "status": "en attente",
-   "mix": true,
-   "alt": true
-  },
-  {
-   "id": "2026-11-20|1acdb2047defbe0439ef3b1961a60010:1|dcee36f9b8a9989972b6d4ddde76c4c7:1|nba-401910020:2",
-   "day": "2026-11-20",
-   "kind": "x3",
-   "legs": [
-    {
-     "match_id": "nba-401910020",
-     "league": "NBA",
-     "kickoff": "2026-11-20T01:00:00Z",
-     "home": "Milwaukee Bucks",
-     "away": "Portland Trail Blazers",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "NBA",
-     "sport": "basket",
-     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399057/mil-bucks-vs-por-tblazers",
-     "market": "2",
-     "label": "Victoire Portland Trail Blazers",
-     "odds": 1.22,
-     "src": "unibet",
-     "p": 0.7484,
-     "ev": -0.0869
-    },
-    {
-     "match_id": "1acdb2047defbe0439ef3b1961a60010",
-     "league": "ATP",
-     "kickoff": "2026-11-20T19:30:00Z",
-     "home": "Daniil Medvedev",
-     "away": "Frances Tiafoe",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "ATP",
-     "sport": "tennis",
-     "link": "https://www.unibet.fr/paris-tennis/atp/atp-finals/3399462/d.medvedev-vs-f.tiafoe",
-     "market": "1",
-     "label": "Victoire Daniil Medvedev",
-     "odds": 1.3,
-     "src": "unibet",
-     "p": 0.6924,
-     "ev": -0.0998
-    },
-    {
-     "match_id": "dcee36f9b8a9989972b6d4ddde76c4c7",
-     "league": "Liga",
-     "kickoff": "2026-11-20T20:00:00Z",
-     "home": "Athletic Bilbao",
-     "away": "Espanyol",
-     "fd_home": "Ath Bilbao",
-     "fd_away": "Espanol",
-     "div": "SP1",
-     "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
-     "market": "1",
-     "label": "Victoire Athletic Bilbao",
-     "odds": 1.39,
-     "src": "unibet",
-     "p": 0.6249,
-     "ev": -0.1314
-    }
-   ],
-   "odds": 2.2,
-   "p": 0.3238,
-   "cost": 0.286,
-   "stars": 3,
-   "stake": 2,
-   "status": "en attente",
-   "mix": true,
-   "alt": true
-  },
-  {
-   "id": "2026-11-20|1acdb2047defbe0439ef3b1961a60010:1|dcee36f9b8a9989972b6d4ddde76c4c7:1|nba-401910019:1",
-   "day": "2026-11-20",
-   "kind": "x3",
-   "legs": [
-    {
-     "match_id": "nba-401910019",
-     "league": "NBA",
-     "kickoff": "2026-11-20T01:00:00Z",
-     "home": "Memphis Grizzlies",
-     "away": "Golden State Warriors",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "NBA",
-     "sport": "basket",
-     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399056/mem-grizzlies-vs-gs-warriors",
-     "market": "1",
-     "label": "Victoire Memphis Grizzlies",
-     "odds": 1.23,
-     "src": "unibet",
-     "p": 0.739,
-     "ev": -0.091
-    },
-    {
-     "match_id": "1acdb2047defbe0439ef3b1961a60010",
-     "league": "ATP",
-     "kickoff": "2026-11-20T19:30:00Z",
-     "home": "Daniil Medvedev",
-     "away": "Frances Tiafoe",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "ATP",
-     "sport": "tennis",
-     "link": "https://www.unibet.fr/paris-tennis/atp/atp-finals/3399462/d.medvedev-vs-f.tiafoe",
-     "market": "1",
-     "label": "Victoire Daniil Medvedev",
-     "odds": 1.3,
-     "src": "unibet",
-     "p": 0.6924,
-     "ev": -0.0998
-    },
-    {
-     "match_id": "dcee36f9b8a9989972b6d4ddde76c4c7",
-     "league": "Liga",
-     "kickoff": "2026-11-20T20:00:00Z",
-     "home": "Athletic Bilbao",
-     "away": "Espanyol",
-     "fd_home": "Ath Bilbao",
-     "fd_away": "Espanol",
-     "div": "SP1",
-     "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
-     "market": "1",
-     "label": "Victoire Athletic Bilbao",
-     "odds": 1.39,
-     "src": "unibet",
-     "p": 0.6249,
-     "ev": -0.1314
-    }
-   ],
-   "odds": 2.22,
-   "p": 0.3198,
-   "cost": 0.2892,
    "stars": 2,
    "stake": 2,
    "status": "en attente",
@@ -3060,144 +3134,6 @@
    "alt": true
   },
   {
-   "id": "2026-11-20|1acdb2047defbe0439ef3b1961a60010:1|nba-401910019:HC1:-8.5|nba-401910020:2",
-   "day": "2026-11-20",
-   "kind": "x3",
-   "legs": [
-    {
-     "match_id": "nba-401910020",
-     "league": "NBA",
-     "kickoff": "2026-11-20T01:00:00Z",
-     "home": "Milwaukee Bucks",
-     "away": "Portland Trail Blazers",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "NBA",
-     "sport": "basket",
-     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399057/mil-bucks-vs-por-tblazers",
-     "market": "2",
-     "label": "Victoire Portland Trail Blazers",
-     "odds": 1.22,
-     "src": "unibet",
-     "p": 0.7484,
-     "ev": -0.0869
-    },
-    {
-     "match_id": "1acdb2047defbe0439ef3b1961a60010",
-     "league": "ATP",
-     "kickoff": "2026-11-20T19:30:00Z",
-     "home": "Daniil Medvedev",
-     "away": "Frances Tiafoe",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "ATP",
-     "sport": "tennis",
-     "link": "https://www.unibet.fr/paris-tennis/atp/atp-finals/3399462/d.medvedev-vs-f.tiafoe",
-     "market": "1",
-     "label": "Victoire Daniil Medvedev",
-     "odds": 1.3,
-     "src": "unibet",
-     "p": 0.6924,
-     "ev": -0.0998
-    },
-    {
-     "match_id": "nba-401910019",
-     "league": "NBA",
-     "kickoff": "2026-11-20T01:00:00Z",
-     "home": "Memphis Grizzlies",
-     "away": "Golden State Warriors",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "NBA",
-     "sport": "basket",
-     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399056/mem-grizzlies-vs-gs-warriors",
-     "market": "HC1:-8.5",
-     "label": "Grizzlies handicap -8,5",
-     "odds": 1.76,
-     "src": "estimee",
-     "p": 0.5,
-     "ev": -0.12
-    }
-   ],
-   "odds": 2.79,
-   "p": 0.2591,
-   "cost": 0.2767,
-   "stars": 2,
-   "stake": 2,
-   "status": "en attente",
-   "mix": true,
-   "alt": true
-  },
-  {
-   "id": "2026-11-20|1acdb2047defbe0439ef3b1961a60010:1|nba-401910019:HC2:+8.5|nba-401910020:2",
-   "day": "2026-11-20",
-   "kind": "x3",
-   "legs": [
-    {
-     "match_id": "nba-401910020",
-     "league": "NBA",
-     "kickoff": "2026-11-20T01:00:00Z",
-     "home": "Milwaukee Bucks",
-     "away": "Portland Trail Blazers",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "NBA",
-     "sport": "basket",
-     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399057/mil-bucks-vs-por-tblazers",
-     "market": "2",
-     "label": "Victoire Portland Trail Blazers",
-     "odds": 1.22,
-     "src": "unibet",
-     "p": 0.7484,
-     "ev": -0.0869
-    },
-    {
-     "match_id": "1acdb2047defbe0439ef3b1961a60010",
-     "league": "ATP",
-     "kickoff": "2026-11-20T19:30:00Z",
-     "home": "Daniil Medvedev",
-     "away": "Frances Tiafoe",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "ATP",
-     "sport": "tennis",
-     "link": "https://www.unibet.fr/paris-tennis/atp/atp-finals/3399462/d.medvedev-vs-f.tiafoe",
-     "market": "1",
-     "label": "Victoire Daniil Medvedev",
-     "odds": 1.3,
-     "src": "unibet",
-     "p": 0.6924,
-     "ev": -0.0998
-    },
-    {
-     "match_id": "nba-401910019",
-     "league": "NBA",
-     "kickoff": "2026-11-20T01:00:00Z",
-     "home": "Memphis Grizzlies",
-     "away": "Golden State Warriors",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "NBA",
-     "sport": "basket",
-     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399056/mem-grizzlies-vs-gs-warriors",
-     "market": "HC2:+8.5",
-     "label": "Warriors handicap +8,5",
-     "odds": 1.76,
-     "src": "estimee",
-     "p": 0.5,
-     "ev": -0.12
-    }
-   ],
-   "odds": 2.79,
-   "p": 0.2591,
-   "cost": 0.2767,
-   "stars": 2,
-   "stake": 2,
-   "status": "en attente",
-   "mix": true,
-   "alt": true
-  },
-  {
    "id": "2026-11-20|cae480fb1195f0032554a268cb80eb44:+4.5|nba-401910019:1|nba-401910020:2",
    "day": "2026-11-20",
    "kind": "x3",
@@ -3260,6 +3196,144 @@
    "odds": 2.87,
    "p": 0.2584,
    "cost": 0.2592,
+   "stars": 2,
+   "stake": 2,
+   "status": "en attente",
+   "mix": true,
+   "alt": true
+  },
+  {
+   "id": "2026-11-20|dcee36f9b8a9989972b6d4ddde76c4c7:-2.5|nba-401910019:1|nba-401910020:2",
+   "day": "2026-11-20",
+   "kind": "x3",
+   "legs": [
+    {
+     "match_id": "nba-401910020",
+     "league": "NBA",
+     "kickoff": "2026-11-20T01:00:00Z",
+     "home": "Milwaukee Bucks",
+     "away": "Portland Trail Blazers",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "NBA",
+     "sport": "basket",
+     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399057/mil-bucks-vs-por-tblazers",
+     "market": "2",
+     "label": "Victoire Portland Trail Blazers",
+     "odds": 1.22,
+     "src": "unibet",
+     "p": 0.7484,
+     "ev": -0.0869
+    },
+    {
+     "match_id": "nba-401910019",
+     "league": "NBA",
+     "kickoff": "2026-11-20T01:00:00Z",
+     "home": "Memphis Grizzlies",
+     "away": "Golden State Warriors",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "NBA",
+     "sport": "basket",
+     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399056/mem-grizzlies-vs-gs-warriors",
+     "market": "1",
+     "label": "Victoire Memphis Grizzlies",
+     "odds": 1.23,
+     "src": "unibet",
+     "p": 0.739,
+     "ev": -0.091
+    },
+    {
+     "match_id": "dcee36f9b8a9989972b6d4ddde76c4c7",
+     "league": "Liga",
+     "kickoff": "2026-11-20T20:00:00Z",
+     "home": "Athletic Bilbao",
+     "away": "Espanyol",
+     "fd_home": "Ath Bilbao",
+     "fd_away": "Espanol",
+     "div": "SP1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 1.82,
+     "src": "netbet",
+     "p": 0.4762,
+     "ev": -0.1333
+    }
+   ],
+   "odds": 2.73,
+   "p": 0.2634,
+   "cost": 0.2806,
+   "stars": 2,
+   "stake": 2,
+   "status": "en attente",
+   "mix": true,
+   "alt": true
+  },
+  {
+   "id": "2026-11-20|1acdb2047defbe0439ef3b1961a60010:1|5dcc9d2b0da87770a4f49e924275be39:-2.5|nba-401910020:2",
+   "day": "2026-11-20",
+   "kind": "x3",
+   "legs": [
+    {
+     "match_id": "nba-401910020",
+     "league": "NBA",
+     "kickoff": "2026-11-20T01:00:00Z",
+     "home": "Milwaukee Bucks",
+     "away": "Portland Trail Blazers",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "NBA",
+     "sport": "basket",
+     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399057/mil-bucks-vs-por-tblazers",
+     "market": "2",
+     "label": "Victoire Portland Trail Blazers",
+     "odds": 1.22,
+     "src": "unibet",
+     "p": 0.7484,
+     "ev": -0.0869
+    },
+    {
+     "match_id": "1acdb2047defbe0439ef3b1961a60010",
+     "league": "ATP",
+     "kickoff": "2026-11-20T19:30:00Z",
+     "home": "Daniil Medvedev",
+     "away": "Frances Tiafoe",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "ATP",
+     "sport": "tennis",
+     "link": "https://www.unibet.fr/paris-tennis/atp/atp-finals/3399462/d.medvedev-vs-f.tiafoe",
+     "market": "1",
+     "label": "Victoire Daniil Medvedev",
+     "odds": 1.3,
+     "src": "unibet",
+     "p": 0.6924,
+     "ev": -0.0998
+    },
+    {
+     "match_id": "5dcc9d2b0da87770a4f49e924275be39",
+     "league": "Ligue 1",
+     "kickoff": "2026-11-20T19:45:00Z",
+     "home": "Troyes",
+     "away": "Le Havre",
+     "fd_home": "Troyes",
+     "fd_away": "Le Havre",
+     "div": "F1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395788/troyes-vs-le-havre",
+     "market": "-2.5",
+     "label": "Moins de 2,5 buts",
+     "odds": 1.77,
+     "src": "netbet",
+     "p": 0.4922,
+     "ev": -0.1288
+    }
+   ],
+   "odds": 2.81,
+   "p": 0.2551,
+   "cost": 0.2839,
    "stars": 2,
    "stake": 2,
    "status": "en attente",
@@ -3331,6 +3405,144 @@
    "cost": 0.2688,
    "stars": 2,
    "stake": 2,
+   "status": "en attente",
+   "mix": true,
+   "alt": true
+  },
+  {
+   "id": "2026-11-20|1acdb2047defbe0439ef3b1961a60010:1|cae480fb1195f0032554a268cb80eb44:-4.5|nba-401910019:1",
+   "day": "2026-11-20",
+   "kind": "x3",
+   "legs": [
+    {
+     "match_id": "nba-401910019",
+     "league": "NBA",
+     "kickoff": "2026-11-20T01:00:00Z",
+     "home": "Memphis Grizzlies",
+     "away": "Golden State Warriors",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "NBA",
+     "sport": "basket",
+     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399056/mem-grizzlies-vs-gs-warriors",
+     "market": "1",
+     "label": "Victoire Memphis Grizzlies",
+     "odds": 1.23,
+     "src": "unibet",
+     "p": 0.739,
+     "ev": -0.091
+    },
+    {
+     "match_id": "1acdb2047defbe0439ef3b1961a60010",
+     "league": "ATP",
+     "kickoff": "2026-11-20T19:30:00Z",
+     "home": "Daniil Medvedev",
+     "away": "Frances Tiafoe",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "ATP",
+     "sport": "tennis",
+     "link": "https://www.unibet.fr/paris-tennis/atp/atp-finals/3399462/d.medvedev-vs-f.tiafoe",
+     "market": "1",
+     "label": "Victoire Daniil Medvedev",
+     "odds": 1.3,
+     "src": "unibet",
+     "p": 0.6924,
+     "ev": -0.0998
+    },
+    {
+     "match_id": "cae480fb1195f0032554a268cb80eb44",
+     "league": "Bundesliga",
+     "kickoff": "2026-11-20T19:30:00Z",
+     "home": "Bayern Munich",
+     "away": "1. FC Köln",
+     "fd_home": "Bayern Munich",
+     "fd_away": "FC Koln",
+     "div": "D1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
+     "market": "-4.5",
+     "label": "Moins de 4,5 buts",
+     "odds": 1.67,
+     "src": "pmu",
+     "p": 0.5327,
+     "ev": -0.1104
+    }
+   ],
+   "odds": 2.67,
+   "p": 0.2726,
+   "cost": 0.2721,
+   "stars": 2,
+   "stake": 2,
+   "status": "en attente",
+   "mix": true,
+   "alt": true
+  },
+  {
+   "id": "2026-11-20|5dcc9d2b0da87770a4f49e924275be39:NBTTS|nba-401910019:1|nba-401910020:2",
+   "day": "2026-11-20",
+   "kind": "x3",
+   "legs": [
+    {
+     "match_id": "nba-401910020",
+     "league": "NBA",
+     "kickoff": "2026-11-20T01:00:00Z",
+     "home": "Milwaukee Bucks",
+     "away": "Portland Trail Blazers",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "NBA",
+     "sport": "basket",
+     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399057/mil-bucks-vs-por-tblazers",
+     "market": "2",
+     "label": "Victoire Portland Trail Blazers",
+     "odds": 1.22,
+     "src": "unibet",
+     "p": 0.7484,
+     "ev": -0.0869
+    },
+    {
+     "match_id": "nba-401910019",
+     "league": "NBA",
+     "kickoff": "2026-11-20T01:00:00Z",
+     "home": "Memphis Grizzlies",
+     "away": "Golden State Warriors",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "NBA",
+     "sport": "basket",
+     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399056/mem-grizzlies-vs-gs-warriors",
+     "market": "1",
+     "label": "Victoire Memphis Grizzlies",
+     "odds": 1.23,
+     "src": "unibet",
+     "p": 0.739,
+     "ev": -0.091
+    },
+    {
+     "match_id": "5dcc9d2b0da87770a4f49e924275be39",
+     "league": "Ligue 1",
+     "kickoff": "2026-11-20T19:45:00Z",
+     "home": "Troyes",
+     "away": "Le Havre",
+     "fd_home": "Troyes",
+     "fd_away": "Le Havre",
+     "div": "F1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395788/troyes-vs-le-havre",
+     "market": "NBTTS",
+     "label": "Une équipe au moins ne marque pas",
+     "odds": 1.96,
+     "src": "estimee",
+     "p": 0.4503,
+     "ev": -0.1174
+    }
+   ],
+   "odds": 2.94,
+   "p": 0.249,
+   "cost": 0.2674,
+   "stars": 2,
+   "stake": 1,
    "status": "en attente",
    "mix": true,
    "alt": true
@@ -3543,144 +3755,6 @@
    "alt": true
   },
   {
-   "id": "2026-11-20|cae480fb1195f0032554a268cb80eb44:-4.5|nba-401910019:HC1:-8.5|nba-401910020:2",
-   "day": "2026-11-20",
-   "kind": "x3",
-   "legs": [
-    {
-     "match_id": "nba-401910020",
-     "league": "NBA",
-     "kickoff": "2026-11-20T01:00:00Z",
-     "home": "Milwaukee Bucks",
-     "away": "Portland Trail Blazers",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "NBA",
-     "sport": "basket",
-     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399057/mil-bucks-vs-por-tblazers",
-     "market": "2",
-     "label": "Victoire Portland Trail Blazers",
-     "odds": 1.22,
-     "src": "unibet",
-     "p": 0.7484,
-     "ev": -0.0869
-    },
-    {
-     "match_id": "cae480fb1195f0032554a268cb80eb44",
-     "league": "Bundesliga",
-     "kickoff": "2026-11-20T19:30:00Z",
-     "home": "Bayern Munich",
-     "away": "1. FC Köln",
-     "fd_home": "Bayern Munich",
-     "fd_away": "FC Koln",
-     "div": "D1",
-     "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
-     "market": "-4.5",
-     "label": "Moins de 4,5 buts",
-     "odds": 1.67,
-     "src": "pmu",
-     "p": 0.5327,
-     "ev": -0.1104
-    },
-    {
-     "match_id": "nba-401910019",
-     "league": "NBA",
-     "kickoff": "2026-11-20T01:00:00Z",
-     "home": "Memphis Grizzlies",
-     "away": "Golden State Warriors",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "NBA",
-     "sport": "basket",
-     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399056/mem-grizzlies-vs-gs-warriors",
-     "market": "HC1:-8.5",
-     "label": "Grizzlies handicap -8,5",
-     "odds": 1.76,
-     "src": "estimee",
-     "p": 0.5,
-     "ev": -0.12
-    }
-   ],
-   "odds": 3.59,
-   "p": 0.1993,
-   "cost": 0.2852,
-   "stars": 1,
-   "stake": 1,
-   "status": "en attente",
-   "mix": true,
-   "alt": true
-  },
-  {
-   "id": "2026-11-20|cae480fb1195f0032554a268cb80eb44:-4.5|nba-401910019:HC2:+8.5|nba-401910020:2",
-   "day": "2026-11-20",
-   "kind": "x3",
-   "legs": [
-    {
-     "match_id": "nba-401910020",
-     "league": "NBA",
-     "kickoff": "2026-11-20T01:00:00Z",
-     "home": "Milwaukee Bucks",
-     "away": "Portland Trail Blazers",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "NBA",
-     "sport": "basket",
-     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399057/mil-bucks-vs-por-tblazers",
-     "market": "2",
-     "label": "Victoire Portland Trail Blazers",
-     "odds": 1.22,
-     "src": "unibet",
-     "p": 0.7484,
-     "ev": -0.0869
-    },
-    {
-     "match_id": "cae480fb1195f0032554a268cb80eb44",
-     "league": "Bundesliga",
-     "kickoff": "2026-11-20T19:30:00Z",
-     "home": "Bayern Munich",
-     "away": "1. FC Köln",
-     "fd_home": "Bayern Munich",
-     "fd_away": "FC Koln",
-     "div": "D1",
-     "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
-     "market": "-4.5",
-     "label": "Moins de 4,5 buts",
-     "odds": 1.67,
-     "src": "pmu",
-     "p": 0.5327,
-     "ev": -0.1104
-    },
-    {
-     "match_id": "nba-401910019",
-     "league": "NBA",
-     "kickoff": "2026-11-20T01:00:00Z",
-     "home": "Memphis Grizzlies",
-     "away": "Golden State Warriors",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "NBA",
-     "sport": "basket",
-     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399056/mem-grizzlies-vs-gs-warriors",
-     "market": "HC2:+8.5",
-     "label": "Warriors handicap +8,5",
-     "odds": 1.76,
-     "src": "estimee",
-     "p": 0.5,
-     "ev": -0.12
-    }
-   ],
-   "odds": 3.59,
-   "p": 0.1993,
-   "cost": 0.2852,
-   "stars": 1,
-   "stake": 1,
-   "status": "en attente",
-   "mix": true,
-   "alt": true
-  },
-  {
    "id": "2026-11-20|cae480fb1195f0032554a268cb80eb44:-4.5|nba-401910019:1|nba-401910021:2",
    "day": "2026-11-20",
    "kind": "x3",
@@ -3743,6 +3817,75 @@
    "odds": 3.43,
    "p": 0.2093,
    "cost": 0.2822,
+   "stars": 1,
+   "stake": 1,
+   "status": "en attente",
+   "mix": true,
+   "alt": true
+  },
+  {
+   "id": "2026-11-20|1acdb2047defbe0439ef3b1961a60010:1|5dcc9d2b0da87770a4f49e924275be39:N2|nba-401910020:-226.5",
+   "day": "2026-11-20",
+   "kind": "x3",
+   "legs": [
+    {
+     "match_id": "1acdb2047defbe0439ef3b1961a60010",
+     "league": "ATP",
+     "kickoff": "2026-11-20T19:30:00Z",
+     "home": "Daniil Medvedev",
+     "away": "Frances Tiafoe",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "ATP",
+     "sport": "tennis",
+     "link": "https://www.unibet.fr/paris-tennis/atp/atp-finals/3399462/d.medvedev-vs-f.tiafoe",
+     "market": "1",
+     "label": "Victoire Daniil Medvedev",
+     "odds": 1.3,
+     "src": "unibet",
+     "p": 0.6924,
+     "ev": -0.0998
+    },
+    {
+     "match_id": "nba-401910020",
+     "league": "NBA",
+     "kickoff": "2026-11-20T01:00:00Z",
+     "home": "Milwaukee Bucks",
+     "away": "Portland Trail Blazers",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "NBA",
+     "sport": "basket",
+     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399057/mil-bucks-vs-por-tblazers",
+     "market": "-226.5",
+     "label": "Moins de 226,5 points",
+     "odds": 1.73,
+     "src": "estimee",
+     "p": 0.5108,
+     "ev": -0.1163
+    },
+    {
+     "match_id": "5dcc9d2b0da87770a4f49e924275be39",
+     "league": "Ligue 1",
+     "kickoff": "2026-11-20T19:45:00Z",
+     "home": "Troyes",
+     "away": "Le Havre",
+     "fd_home": "Troyes",
+     "fd_away": "Le Havre",
+     "div": "F1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395788/troyes-vs-le-havre",
+     "market": "N2",
+     "label": "Le Havre ou nul",
+     "odds": 1.58,
+     "src": "estimee",
+     "p": 0.5579,
+     "ev": -0.1185
+    }
+   ],
+   "odds": 3.55,
+   "p": 0.1973,
+   "cost": 0.2988,
    "stars": 1,
    "stake": 1,
    "status": "en attente",
@@ -3819,6 +3962,75 @@
    "alt": true
   },
   {
+   "id": "2026-11-20|5dcc9d2b0da87770a4f49e924275be39:N2|cae480fb1195f0032554a268cb80eb44:+4.5|nba-401910020:2",
+   "day": "2026-11-20",
+   "kind": "x3",
+   "legs": [
+    {
+     "match_id": "nba-401910020",
+     "league": "NBA",
+     "kickoff": "2026-11-20T01:00:00Z",
+     "home": "Milwaukee Bucks",
+     "away": "Portland Trail Blazers",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "NBA",
+     "sport": "basket",
+     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399057/mil-bucks-vs-por-tblazers",
+     "market": "2",
+     "label": "Victoire Portland Trail Blazers",
+     "odds": 1.22,
+     "src": "unibet",
+     "p": 0.7484,
+     "ev": -0.0869
+    },
+    {
+     "match_id": "cae480fb1195f0032554a268cb80eb44",
+     "league": "Bundesliga",
+     "kickoff": "2026-11-20T19:30:00Z",
+     "home": "Bayern Munich",
+     "away": "1. FC Köln",
+     "fd_home": "Bayern Munich",
+     "fd_away": "FC Koln",
+     "div": "D1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
+     "market": "+4.5",
+     "label": "Plus de 4,5 buts",
+     "odds": 1.91,
+     "src": "pmu",
+     "p": 0.4673,
+     "ev": -0.1075
+    },
+    {
+     "match_id": "5dcc9d2b0da87770a4f49e924275be39",
+     "league": "Ligue 1",
+     "kickoff": "2026-11-20T19:45:00Z",
+     "home": "Troyes",
+     "away": "Le Havre",
+     "fd_home": "Troyes",
+     "fd_away": "Le Havre",
+     "div": "F1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395788/troyes-vs-le-havre",
+     "market": "N2",
+     "label": "Le Havre ou nul",
+     "odds": 1.58,
+     "src": "estimee",
+     "p": 0.5579,
+     "ev": -0.1185
+    }
+   ],
+   "odds": 3.68,
+   "p": 0.1951,
+   "cost": 0.2816,
+   "stars": 1,
+   "stake": 1,
+   "status": "en attente",
+   "mix": true,
+   "alt": true
+  },
+  {
    "id": "2026-11-20|1acdb2047defbe0439ef3b1961a60010:1|cae480fb1195f0032554a268cb80eb44:+4.5|nba-401910020:2",
    "day": "2026-11-20",
    "kind": "x3",
@@ -3888,253 +4100,10 @@
    "alt": true
   },
   {
-   "id": "2026-11-20|1acdb2047defbe0439ef3b1961a60010:1|cae480fb1195f0032554a268cb80eb44:+4.5|dcee36f9b8a9989972b6d4ddde76c4c7:-2.5",
+   "id": "2026-11-20|5dcc9d2b0da87770a4f49e924275be39:NBTTS|cae480fb1195f0032554a268cb80eb44:+4.5|nba-401910020:2",
    "day": "2026-11-20",
    "kind": "x3",
    "legs": [
-    {
-     "match_id": "1acdb2047defbe0439ef3b1961a60010",
-     "league": "ATP",
-     "kickoff": "2026-11-20T19:30:00Z",
-     "home": "Daniil Medvedev",
-     "away": "Frances Tiafoe",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "ATP",
-     "sport": "tennis",
-     "link": "https://www.unibet.fr/paris-tennis/atp/atp-finals/3399462/d.medvedev-vs-f.tiafoe",
-     "market": "1",
-     "label": "Victoire Daniil Medvedev",
-     "odds": 1.3,
-     "src": "unibet",
-     "p": 0.6924,
-     "ev": -0.0998
-    },
-    {
-     "match_id": "cae480fb1195f0032554a268cb80eb44",
-     "league": "Bundesliga",
-     "kickoff": "2026-11-20T19:30:00Z",
-     "home": "Bayern Munich",
-     "away": "1. FC Köln",
-     "fd_home": "Bayern Munich",
-     "fd_away": "FC Koln",
-     "div": "D1",
-     "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
-     "market": "+4.5",
-     "label": "Plus de 4,5 buts",
-     "odds": 1.91,
-     "src": "pmu",
-     "p": 0.4673,
-     "ev": -0.1075
-    },
-    {
-     "match_id": "dcee36f9b8a9989972b6d4ddde76c4c7",
-     "league": "Liga",
-     "kickoff": "2026-11-20T20:00:00Z",
-     "home": "Athletic Bilbao",
-     "away": "Espanyol",
-     "fd_home": "Ath Bilbao",
-     "fd_away": "Espanol",
-     "div": "SP1",
-     "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
-     "market": "-2.5",
-     "label": "Moins de 2,5 buts",
-     "odds": 1.82,
-     "src": "netbet",
-     "p": 0.4766,
-     "ev": -0.1326
-    }
-   ],
-   "odds": 4.52,
-   "p": 0.1542,
-   "cost": 0.3031,
-   "stars": 1,
-   "stake": 1,
-   "status": "en attente",
-   "mix": true,
-   "alt": true
-  },
-  {
-   "id": "2026-11-20|1acdb2047defbe0439ef3b1961a60010:1|cae480fb1195f0032554a268cb80eb44:+4.5|nba-401910019:HC1:-8.5",
-   "day": "2026-11-20",
-   "kind": "x3",
-   "legs": [
-    {
-     "match_id": "1acdb2047defbe0439ef3b1961a60010",
-     "league": "ATP",
-     "kickoff": "2026-11-20T19:30:00Z",
-     "home": "Daniil Medvedev",
-     "away": "Frances Tiafoe",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "ATP",
-     "sport": "tennis",
-     "link": "https://www.unibet.fr/paris-tennis/atp/atp-finals/3399462/d.medvedev-vs-f.tiafoe",
-     "market": "1",
-     "label": "Victoire Daniil Medvedev",
-     "odds": 1.3,
-     "src": "unibet",
-     "p": 0.6924,
-     "ev": -0.0998
-    },
-    {
-     "match_id": "cae480fb1195f0032554a268cb80eb44",
-     "league": "Bundesliga",
-     "kickoff": "2026-11-20T19:30:00Z",
-     "home": "Bayern Munich",
-     "away": "1. FC Köln",
-     "fd_home": "Bayern Munich",
-     "fd_away": "FC Koln",
-     "div": "D1",
-     "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
-     "market": "+4.5",
-     "label": "Plus de 4,5 buts",
-     "odds": 1.91,
-     "src": "pmu",
-     "p": 0.4673,
-     "ev": -0.1075
-    },
-    {
-     "match_id": "nba-401910019",
-     "league": "NBA",
-     "kickoff": "2026-11-20T01:00:00Z",
-     "home": "Memphis Grizzlies",
-     "away": "Golden State Warriors",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "NBA",
-     "sport": "basket",
-     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399056/mem-grizzlies-vs-gs-warriors",
-     "market": "HC1:-8.5",
-     "label": "Grizzlies handicap -8,5",
-     "odds": 1.76,
-     "src": "estimee",
-     "p": 0.5,
-     "ev": -0.12
-    }
-   ],
-   "odds": 4.37,
-   "p": 0.1618,
-   "cost": 0.293,
-   "stars": 1,
-   "stake": 1,
-   "status": "en attente",
-   "mix": true,
-   "alt": true
-  },
-  {
-   "id": "2026-11-20|1acdb2047defbe0439ef3b1961a60010:1|cae480fb1195f0032554a268cb80eb44:+4.5|nba-401910019:HC2:+8.5",
-   "day": "2026-11-20",
-   "kind": "x3",
-   "legs": [
-    {
-     "match_id": "1acdb2047defbe0439ef3b1961a60010",
-     "league": "ATP",
-     "kickoff": "2026-11-20T19:30:00Z",
-     "home": "Daniil Medvedev",
-     "away": "Frances Tiafoe",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "ATP",
-     "sport": "tennis",
-     "link": "https://www.unibet.fr/paris-tennis/atp/atp-finals/3399462/d.medvedev-vs-f.tiafoe",
-     "market": "1",
-     "label": "Victoire Daniil Medvedev",
-     "odds": 1.3,
-     "src": "unibet",
-     "p": 0.6924,
-     "ev": -0.0998
-    },
-    {
-     "match_id": "cae480fb1195f0032554a268cb80eb44",
-     "league": "Bundesliga",
-     "kickoff": "2026-11-20T19:30:00Z",
-     "home": "Bayern Munich",
-     "away": "1. FC Köln",
-     "fd_home": "Bayern Munich",
-     "fd_away": "FC Koln",
-     "div": "D1",
-     "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
-     "market": "+4.5",
-     "label": "Plus de 4,5 buts",
-     "odds": 1.91,
-     "src": "pmu",
-     "p": 0.4673,
-     "ev": -0.1075
-    },
-    {
-     "match_id": "nba-401910019",
-     "league": "NBA",
-     "kickoff": "2026-11-20T01:00:00Z",
-     "home": "Memphis Grizzlies",
-     "away": "Golden State Warriors",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "NBA",
-     "sport": "basket",
-     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399056/mem-grizzlies-vs-gs-warriors",
-     "market": "HC2:+8.5",
-     "label": "Warriors handicap +8,5",
-     "odds": 1.76,
-     "src": "estimee",
-     "p": 0.5,
-     "ev": -0.12
-    }
-   ],
-   "odds": 4.37,
-   "p": 0.1618,
-   "cost": 0.293,
-   "stars": 1,
-   "stake": 1,
-   "status": "en attente",
-   "mix": true,
-   "alt": true
-  },
-  {
-   "id": "2026-11-20|1acdb2047defbe0439ef3b1961a60010:1|cae480fb1195f0032554a268cb80eb44:+4.5|nba-401910020:HC1:+9.5",
-   "day": "2026-11-20",
-   "kind": "x3",
-   "legs": [
-    {
-     "match_id": "1acdb2047defbe0439ef3b1961a60010",
-     "league": "ATP",
-     "kickoff": "2026-11-20T19:30:00Z",
-     "home": "Daniil Medvedev",
-     "away": "Frances Tiafoe",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "ATP",
-     "sport": "tennis",
-     "link": "https://www.unibet.fr/paris-tennis/atp/atp-finals/3399462/d.medvedev-vs-f.tiafoe",
-     "market": "1",
-     "label": "Victoire Daniil Medvedev",
-     "odds": 1.3,
-     "src": "unibet",
-     "p": 0.6924,
-     "ev": -0.0998
-    },
-    {
-     "match_id": "cae480fb1195f0032554a268cb80eb44",
-     "league": "Bundesliga",
-     "kickoff": "2026-11-20T19:30:00Z",
-     "home": "Bayern Munich",
-     "away": "1. FC Köln",
-     "fd_home": "Bayern Munich",
-     "fd_away": "FC Koln",
-     "div": "D1",
-     "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
-     "market": "+4.5",
-     "label": "Plus de 4,5 buts",
-     "odds": 1.91,
-     "src": "pmu",
-     "p": 0.4673,
-     "ev": -0.1075
-    },
     {
      "match_id": "nba-401910020",
      "league": "NBA",
@@ -4146,17 +4115,53 @@
      "div": "NBA",
      "sport": "basket",
      "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399057/mil-bucks-vs-por-tblazers",
-     "market": "HC1:+9.5",
-     "label": "Bucks handicap +9,5",
-     "odds": 1.76,
+     "market": "2",
+     "label": "Victoire Portland Trail Blazers",
+     "odds": 1.22,
+     "src": "unibet",
+     "p": 0.7484,
+     "ev": -0.0869
+    },
+    {
+     "match_id": "cae480fb1195f0032554a268cb80eb44",
+     "league": "Bundesliga",
+     "kickoff": "2026-11-20T19:30:00Z",
+     "home": "Bayern Munich",
+     "away": "1. FC Köln",
+     "fd_home": "Bayern Munich",
+     "fd_away": "FC Koln",
+     "div": "D1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
+     "market": "+4.5",
+     "label": "Plus de 4,5 buts",
+     "odds": 1.91,
+     "src": "pmu",
+     "p": 0.4673,
+     "ev": -0.1075
+    },
+    {
+     "match_id": "5dcc9d2b0da87770a4f49e924275be39",
+     "league": "Ligue 1",
+     "kickoff": "2026-11-20T19:45:00Z",
+     "home": "Troyes",
+     "away": "Le Havre",
+     "fd_home": "Troyes",
+     "fd_away": "Le Havre",
+     "div": "F1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395788/troyes-vs-le-havre",
+     "market": "NBTTS",
+     "label": "Une équipe au moins ne marque pas",
+     "odds": 1.96,
      "src": "estimee",
-     "p": 0.5,
-     "ev": -0.12
+     "p": 0.4503,
+     "ev": -0.1174
     }
    ],
-   "odds": 4.37,
-   "p": 0.1618,
-   "cost": 0.293,
+   "odds": 4.57,
+   "p": 0.1575,
+   "cost": 0.2807,
    "stars": 1,
    "stake": 1,
    "status": "en attente",
@@ -4164,7 +4169,7 @@
    "alt": true
   },
   {
-   "id": "2026-11-20|1acdb2047defbe0439ef3b1961a60010:1|cae480fb1195f0032554a268cb80eb44:+4.5|nba-401910020:HC2:-9.5",
+   "id": "2026-11-20|1acdb2047defbe0439ef3b1961a60010:1|5dcc9d2b0da87770a4f49e924275be39:1|nba-401910020:-226.5",
    "day": "2026-11-20",
    "kind": "x3",
    "legs": [
@@ -4187,91 +4192,22 @@
      "ev": -0.0998
     },
     {
-     "match_id": "cae480fb1195f0032554a268cb80eb44",
-     "league": "Bundesliga",
-     "kickoff": "2026-11-20T19:30:00Z",
-     "home": "Bayern Munich",
-     "away": "1. FC Köln",
-     "fd_home": "Bayern Munich",
-     "fd_away": "FC Koln",
-     "div": "D1",
+     "match_id": "5dcc9d2b0da87770a4f49e924275be39",
+     "league": "Ligue 1",
+     "kickoff": "2026-11-20T19:45:00Z",
+     "home": "Troyes",
+     "away": "Le Havre",
+     "fd_home": "Troyes",
+     "fd_away": "Le Havre",
+     "div": "F1",
      "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
-     "market": "+4.5",
-     "label": "Plus de 4,5 buts",
-     "odds": 1.91,
-     "src": "pmu",
-     "p": 0.4673,
-     "ev": -0.1075
-    },
-    {
-     "match_id": "nba-401910020",
-     "league": "NBA",
-     "kickoff": "2026-11-20T01:00:00Z",
-     "home": "Milwaukee Bucks",
-     "away": "Portland Trail Blazers",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "NBA",
-     "sport": "basket",
-     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399057/mil-bucks-vs-por-tblazers",
-     "market": "HC2:-9.5",
-     "label": "Trail Blazers handicap -9,5",
-     "odds": 1.76,
-     "src": "estimee",
-     "p": 0.5,
-     "ev": -0.12
-    }
-   ],
-   "odds": 4.37,
-   "p": 0.1618,
-   "cost": 0.293,
-   "stars": 1,
-   "stake": 1,
-   "status": "en attente",
-   "mix": true,
-   "alt": true
-  },
-  {
-   "id": "2026-11-20|1acdb2047defbe0439ef3b1961a60010:1|cae480fb1195f0032554a268cb80eb44:+4.5|nba-401910020:-226.5",
-   "day": "2026-11-20",
-   "kind": "x3",
-   "legs": [
-    {
-     "match_id": "1acdb2047defbe0439ef3b1961a60010",
-     "league": "ATP",
-     "kickoff": "2026-11-20T19:30:00Z",
-     "home": "Daniil Medvedev",
-     "away": "Frances Tiafoe",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "ATP",
-     "sport": "tennis",
-     "link": "https://www.unibet.fr/paris-tennis/atp/atp-finals/3399462/d.medvedev-vs-f.tiafoe",
+     "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395788/troyes-vs-le-havre",
      "market": "1",
-     "label": "Victoire Daniil Medvedev",
-     "odds": 1.3,
+     "label": "Victoire Troyes",
+     "odds": 2.0,
      "src": "unibet",
-     "p": 0.6924,
-     "ev": -0.0998
-    },
-    {
-     "match_id": "cae480fb1195f0032554a268cb80eb44",
-     "league": "Bundesliga",
-     "kickoff": "2026-11-20T19:30:00Z",
-     "home": "Bayern Munich",
-     "away": "1. FC Köln",
-     "fd_home": "Bayern Munich",
-     "fd_away": "FC Koln",
-     "div": "D1",
-     "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
-     "market": "+4.5",
-     "label": "Plus de 4,5 buts",
-     "odds": 1.91,
-     "src": "pmu",
-     "p": 0.4673,
-     "ev": -0.1075
+     "p": 0.4421,
+     "ev": -0.1158
     },
     {
      "match_id": "nba-401910020",
@@ -4292,9 +4228,9 @@
      "ev": -0.1163
     }
    ],
-   "odds": 4.3,
-   "p": 0.1653,
-   "cost": 0.29,
+   "odds": 4.5,
+   "p": 0.1564,
+   "cost": 0.2966,
    "stars": 1,
    "stake": 1,
    "status": "en attente",
@@ -4302,252 +4238,45 @@
    "alt": true
   },
   {
-   "id": "2026-11-20|cae480fb1195f0032554a268cb80eb44:+4.5|nba-401910019:HC1:-8.5|nba-401910020:2",
+   "id": "2026-11-20|1acdb2047defbe0439ef3b1961a60010:1|5dcc9d2b0da87770a4f49e924275be39:1|nba-401910019:+225.5",
    "day": "2026-11-20",
    "kind": "x3",
    "legs": [
     {
-     "match_id": "nba-401910020",
-     "league": "NBA",
-     "kickoff": "2026-11-20T01:00:00Z",
-     "home": "Milwaukee Bucks",
-     "away": "Portland Trail Blazers",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "NBA",
-     "sport": "basket",
-     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399057/mil-bucks-vs-por-tblazers",
-     "market": "2",
-     "label": "Victoire Portland Trail Blazers",
-     "odds": 1.22,
-     "src": "unibet",
-     "p": 0.7484,
-     "ev": -0.0869
-    },
-    {
-     "match_id": "cae480fb1195f0032554a268cb80eb44",
-     "league": "Bundesliga",
+     "match_id": "1acdb2047defbe0439ef3b1961a60010",
+     "league": "ATP",
      "kickoff": "2026-11-20T19:30:00Z",
-     "home": "Bayern Munich",
-     "away": "1. FC Köln",
-     "fd_home": "Bayern Munich",
-     "fd_away": "FC Koln",
-     "div": "D1",
-     "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
-     "market": "+4.5",
-     "label": "Plus de 4,5 buts",
-     "odds": 1.91,
-     "src": "pmu",
-     "p": 0.4673,
-     "ev": -0.1075
-    },
-    {
-     "match_id": "nba-401910019",
-     "league": "NBA",
-     "kickoff": "2026-11-20T01:00:00Z",
-     "home": "Memphis Grizzlies",
-     "away": "Golden State Warriors",
+     "home": "Daniil Medvedev",
+     "away": "Frances Tiafoe",
      "fd_home": null,
      "fd_away": null,
-     "div": "NBA",
-     "sport": "basket",
-     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399056/mem-grizzlies-vs-gs-warriors",
-     "market": "HC1:-8.5",
-     "label": "Grizzlies handicap -8,5",
-     "odds": 1.76,
-     "src": "estimee",
-     "p": 0.5,
-     "ev": -0.12
-    }
-   ],
-   "odds": 4.1,
-   "p": 0.1749,
-   "cost": 0.2829,
-   "stars": 1,
-   "stake": 1,
-   "status": "en attente",
-   "mix": true,
-   "alt": true
-  },
-  {
-   "id": "2026-11-20|cae480fb1195f0032554a268cb80eb44:+4.5|nba-401910019:HC2:+8.5|nba-401910020:2",
-   "day": "2026-11-20",
-   "kind": "x3",
-   "legs": [
-    {
-     "match_id": "nba-401910020",
-     "league": "NBA",
-     "kickoff": "2026-11-20T01:00:00Z",
-     "home": "Milwaukee Bucks",
-     "away": "Portland Trail Blazers",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "NBA",
-     "sport": "basket",
-     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399057/mil-bucks-vs-por-tblazers",
-     "market": "2",
-     "label": "Victoire Portland Trail Blazers",
-     "odds": 1.22,
+     "div": "ATP",
+     "sport": "tennis",
+     "link": "https://www.unibet.fr/paris-tennis/atp/atp-finals/3399462/d.medvedev-vs-f.tiafoe",
+     "market": "1",
+     "label": "Victoire Daniil Medvedev",
+     "odds": 1.3,
      "src": "unibet",
-     "p": 0.7484,
-     "ev": -0.0869
+     "p": 0.6924,
+     "ev": -0.0998
     },
     {
-     "match_id": "cae480fb1195f0032554a268cb80eb44",
-     "league": "Bundesliga",
-     "kickoff": "2026-11-20T19:30:00Z",
-     "home": "Bayern Munich",
-     "away": "1. FC Köln",
-     "fd_home": "Bayern Munich",
-     "fd_away": "FC Koln",
-     "div": "D1",
+     "match_id": "5dcc9d2b0da87770a4f49e924275be39",
+     "league": "Ligue 1",
+     "kickoff": "2026-11-20T19:45:00Z",
+     "home": "Troyes",
+     "away": "Le Havre",
+     "fd_home": "Troyes",
+     "fd_away": "Le Havre",
+     "div": "F1",
      "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
-     "market": "+4.5",
-     "label": "Plus de 4,5 buts",
-     "odds": 1.91,
-     "src": "pmu",
-     "p": 0.4673,
-     "ev": -0.1075
-    },
-    {
-     "match_id": "nba-401910019",
-     "league": "NBA",
-     "kickoff": "2026-11-20T01:00:00Z",
-     "home": "Memphis Grizzlies",
-     "away": "Golden State Warriors",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "NBA",
-     "sport": "basket",
-     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399056/mem-grizzlies-vs-gs-warriors",
-     "market": "HC2:+8.5",
-     "label": "Warriors handicap +8,5",
-     "odds": 1.76,
-     "src": "estimee",
-     "p": 0.5,
-     "ev": -0.12
-    }
-   ],
-   "odds": 4.1,
-   "p": 0.1749,
-   "cost": 0.2829,
-   "stars": 1,
-   "stake": 1,
-   "status": "en attente",
-   "mix": true,
-   "alt": true
-  },
-  {
-   "id": "2026-11-20|cae480fb1195f0032554a268cb80eb44:+4.5|nba-401910020:2|nba-401910021:2",
-   "day": "2026-11-20",
-   "kind": "x3",
-   "legs": [
-    {
-     "match_id": "nba-401910020",
-     "league": "NBA",
-     "kickoff": "2026-11-20T01:00:00Z",
-     "home": "Milwaukee Bucks",
-     "away": "Portland Trail Blazers",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "NBA",
-     "sport": "basket",
-     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399057/mil-bucks-vs-por-tblazers",
-     "market": "2",
-     "label": "Victoire Portland Trail Blazers",
-     "odds": 1.22,
+     "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395788/troyes-vs-le-havre",
+     "market": "1",
+     "label": "Victoire Troyes",
+     "odds": 2.0,
      "src": "unibet",
-     "p": 0.7484,
-     "ev": -0.0869
-    },
-    {
-     "match_id": "cae480fb1195f0032554a268cb80eb44",
-     "league": "Bundesliga",
-     "kickoff": "2026-11-20T19:30:00Z",
-     "home": "Bayern Munich",
-     "away": "1. FC Köln",
-     "fd_home": "Bayern Munich",
-     "fd_away": "FC Koln",
-     "div": "D1",
-     "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
-     "market": "+4.5",
-     "label": "Plus de 4,5 buts",
-     "odds": 1.91,
-     "src": "pmu",
-     "p": 0.4673,
-     "ev": -0.1075
-    },
-    {
-     "match_id": "nba-401910021",
-     "league": "NBA",
-     "kickoff": "2026-11-20T01:00:00Z",
-     "home": "Minnesota Timberwolves",
-     "away": "New York Knicks",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "NBA",
-     "sport": "basket",
-     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399058/min-twolves-vs-ny-knicks",
-     "market": "2",
-     "label": "Victoire New York Knicks",
-     "odds": 1.67,
-     "src": "unibet",
-     "p": 0.5316,
-     "ev": -0.1123
-    }
-   ],
-   "odds": 3.89,
-   "p": 0.1859,
-   "cost": 0.2766,
-   "stars": 1,
-   "stake": 1,
-   "status": "en attente",
-   "mix": true,
-   "alt": true
-  },
-  {
-   "id": "2026-11-20|cae480fb1195f0032554a268cb80eb44:+4.5|nba-401910019:+225.5|nba-401910020:2",
-   "day": "2026-11-20",
-   "kind": "x3",
-   "legs": [
-    {
-     "match_id": "nba-401910020",
-     "league": "NBA",
-     "kickoff": "2026-11-20T01:00:00Z",
-     "home": "Milwaukee Bucks",
-     "away": "Portland Trail Blazers",
-     "fd_home": null,
-     "fd_away": null,
-     "div": "NBA",
-     "sport": "basket",
-     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399057/mil-bucks-vs-por-tblazers",
-     "market": "2",
-     "label": "Victoire Portland Trail Blazers",
-     "odds": 1.22,
-     "src": "unibet",
-     "p": 0.7484,
-     "ev": -0.0869
-    },
-    {
-     "match_id": "cae480fb1195f0032554a268cb80eb44",
-     "league": "Bundesliga",
-     "kickoff": "2026-11-20T19:30:00Z",
-     "home": "Bayern Munich",
-     "away": "1. FC Köln",
-     "fd_home": "Bayern Munich",
-     "fd_away": "FC Koln",
-     "div": "D1",
-     "sport": "foot",
-     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
-     "market": "+4.5",
-     "label": "Plus de 4,5 buts",
-     "odds": 1.91,
-     "src": "pmu",
-     "p": 0.4673,
-     "ev": -0.1075
+     "p": 0.4421,
+     "ev": -0.1158
     },
     {
      "match_id": "nba-401910019",
@@ -4568,9 +4297,354 @@
      "ev": -0.1183
     }
    ],
-   "odds": 4.03,
-   "p": 0.1783,
-   "cost": 0.2815,
+   "odds": 4.5,
+   "p": 0.156,
+   "cost": 0.2982,
+   "stars": 1,
+   "stake": 1,
+   "status": "en attente",
+   "mix": true,
+   "alt": true
+  },
+  {
+   "id": "2026-11-20|5dcc9d2b0da87770a4f49e924275be39:NBTTS|cae480fb1195f0032554a268cb80eb44:+4.5|nba-401910019:1",
+   "day": "2026-11-20",
+   "kind": "x3",
+   "legs": [
+    {
+     "match_id": "nba-401910019",
+     "league": "NBA",
+     "kickoff": "2026-11-20T01:00:00Z",
+     "home": "Memphis Grizzlies",
+     "away": "Golden State Warriors",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "NBA",
+     "sport": "basket",
+     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399056/mem-grizzlies-vs-gs-warriors",
+     "market": "1",
+     "label": "Victoire Memphis Grizzlies",
+     "odds": 1.23,
+     "src": "unibet",
+     "p": 0.739,
+     "ev": -0.091
+    },
+    {
+     "match_id": "cae480fb1195f0032554a268cb80eb44",
+     "league": "Bundesliga",
+     "kickoff": "2026-11-20T19:30:00Z",
+     "home": "Bayern Munich",
+     "away": "1. FC Köln",
+     "fd_home": "Bayern Munich",
+     "fd_away": "FC Koln",
+     "div": "D1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
+     "market": "+4.5",
+     "label": "Plus de 4,5 buts",
+     "odds": 1.91,
+     "src": "pmu",
+     "p": 0.4673,
+     "ev": -0.1075
+    },
+    {
+     "match_id": "5dcc9d2b0da87770a4f49e924275be39",
+     "league": "Ligue 1",
+     "kickoff": "2026-11-20T19:45:00Z",
+     "home": "Troyes",
+     "away": "Le Havre",
+     "fd_home": "Troyes",
+     "fd_away": "Le Havre",
+     "div": "F1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395788/troyes-vs-le-havre",
+     "market": "NBTTS",
+     "label": "Une équipe au moins ne marque pas",
+     "odds": 1.96,
+     "src": "estimee",
+     "p": 0.4503,
+     "ev": -0.1174
+    }
+   ],
+   "odds": 4.6,
+   "p": 0.1555,
+   "cost": 0.284,
+   "stars": 1,
+   "stake": 1,
+   "status": "en attente",
+   "mix": true,
+   "alt": true
+  },
+  {
+   "id": "2026-11-20|5dcc9d2b0da87770a4f49e924275be39:1|nba-401910020:2|nba-401910021:1",
+   "day": "2026-11-20",
+   "kind": "x3",
+   "legs": [
+    {
+     "match_id": "nba-401910020",
+     "league": "NBA",
+     "kickoff": "2026-11-20T01:00:00Z",
+     "home": "Milwaukee Bucks",
+     "away": "Portland Trail Blazers",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "NBA",
+     "sport": "basket",
+     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399057/mil-bucks-vs-por-tblazers",
+     "market": "2",
+     "label": "Victoire Portland Trail Blazers",
+     "odds": 1.22,
+     "src": "unibet",
+     "p": 0.7484,
+     "ev": -0.0869
+    },
+    {
+     "match_id": "5dcc9d2b0da87770a4f49e924275be39",
+     "league": "Ligue 1",
+     "kickoff": "2026-11-20T19:45:00Z",
+     "home": "Troyes",
+     "away": "Le Havre",
+     "fd_home": "Troyes",
+     "fd_away": "Le Havre",
+     "div": "F1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395788/troyes-vs-le-havre",
+     "market": "1",
+     "label": "Victoire Troyes",
+     "odds": 2.0,
+     "src": "unibet",
+     "p": 0.4421,
+     "ev": -0.1158
+    },
+    {
+     "match_id": "nba-401910021",
+     "league": "NBA",
+     "kickoff": "2026-11-20T01:00:00Z",
+     "home": "Minnesota Timberwolves",
+     "away": "New York Knicks",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "NBA",
+     "sport": "basket",
+     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399058/min-twolves-vs-ny-knicks",
+     "market": "1",
+     "label": "Victoire Minnesota Timberwolves",
+     "odds": 1.85,
+     "src": "unibet",
+     "p": 0.4684,
+     "ev": -0.1334
+    }
+   ],
+   "odds": 4.51,
+   "p": 0.155,
+   "cost": 0.3003,
+   "stars": 1,
+   "stake": 1,
+   "status": "en attente",
+   "mix": true,
+   "alt": true
+  },
+  {
+   "id": "2026-11-20|5dcc9d2b0da87770a4f49e924275be39:1|cae480fb1195f0032554a268cb80eb44:+4.5|nba-401910020:2",
+   "day": "2026-11-20",
+   "kind": "x3",
+   "legs": [
+    {
+     "match_id": "nba-401910020",
+     "league": "NBA",
+     "kickoff": "2026-11-20T01:00:00Z",
+     "home": "Milwaukee Bucks",
+     "away": "Portland Trail Blazers",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "NBA",
+     "sport": "basket",
+     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399057/mil-bucks-vs-por-tblazers",
+     "market": "2",
+     "label": "Victoire Portland Trail Blazers",
+     "odds": 1.22,
+     "src": "unibet",
+     "p": 0.7484,
+     "ev": -0.0869
+    },
+    {
+     "match_id": "cae480fb1195f0032554a268cb80eb44",
+     "league": "Bundesliga",
+     "kickoff": "2026-11-20T19:30:00Z",
+     "home": "Bayern Munich",
+     "away": "1. FC Köln",
+     "fd_home": "Bayern Munich",
+     "fd_away": "FC Koln",
+     "div": "D1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
+     "market": "+4.5",
+     "label": "Plus de 4,5 buts",
+     "odds": 1.91,
+     "src": "pmu",
+     "p": 0.4673,
+     "ev": -0.1075
+    },
+    {
+     "match_id": "5dcc9d2b0da87770a4f49e924275be39",
+     "league": "Ligue 1",
+     "kickoff": "2026-11-20T19:45:00Z",
+     "home": "Troyes",
+     "away": "Le Havre",
+     "fd_home": "Troyes",
+     "fd_away": "Le Havre",
+     "div": "F1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395788/troyes-vs-le-havre",
+     "market": "1",
+     "label": "Victoire Troyes",
+     "odds": 2.0,
+     "src": "unibet",
+     "p": 0.4421,
+     "ev": -0.1158
+    }
+   ],
+   "odds": 4.66,
+   "p": 0.1546,
+   "cost": 0.2794,
+   "stars": 1,
+   "stake": 1,
+   "status": "en attente",
+   "mix": true,
+   "alt": true
+  },
+  {
+   "id": "2026-11-20|5dcc9d2b0da87770a4f49e924275be39:1|cae480fb1195f0032554a268cb80eb44:+4.5|nba-401910019:1",
+   "day": "2026-11-20",
+   "kind": "x3",
+   "legs": [
+    {
+     "match_id": "nba-401910019",
+     "league": "NBA",
+     "kickoff": "2026-11-20T01:00:00Z",
+     "home": "Memphis Grizzlies",
+     "away": "Golden State Warriors",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "NBA",
+     "sport": "basket",
+     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399056/mem-grizzlies-vs-gs-warriors",
+     "market": "1",
+     "label": "Victoire Memphis Grizzlies",
+     "odds": 1.23,
+     "src": "unibet",
+     "p": 0.739,
+     "ev": -0.091
+    },
+    {
+     "match_id": "cae480fb1195f0032554a268cb80eb44",
+     "league": "Bundesliga",
+     "kickoff": "2026-11-20T19:30:00Z",
+     "home": "Bayern Munich",
+     "away": "1. FC Köln",
+     "fd_home": "Bayern Munich",
+     "fd_away": "FC Koln",
+     "div": "D1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
+     "market": "+4.5",
+     "label": "Plus de 4,5 buts",
+     "odds": 1.91,
+     "src": "pmu",
+     "p": 0.4673,
+     "ev": -0.1075
+    },
+    {
+     "match_id": "5dcc9d2b0da87770a4f49e924275be39",
+     "league": "Ligue 1",
+     "kickoff": "2026-11-20T19:45:00Z",
+     "home": "Troyes",
+     "away": "Le Havre",
+     "fd_home": "Troyes",
+     "fd_away": "Le Havre",
+     "div": "F1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395788/troyes-vs-le-havre",
+     "market": "1",
+     "label": "Victoire Troyes",
+     "odds": 2.0,
+     "src": "unibet",
+     "p": 0.4421,
+     "ev": -0.1158
+    }
+   ],
+   "odds": 4.7,
+   "p": 0.1527,
+   "cost": 0.2827,
+   "stars": 1,
+   "stake": 1,
+   "status": "en attente",
+   "mix": true,
+   "alt": true
+  },
+  {
+   "id": "2026-11-20|5dcc9d2b0da87770a4f49e924275be39:1|cae480fb1195f0032554a268cb80eb44:-4.5|nba-401910020:2",
+   "day": "2026-11-20",
+   "kind": "x3",
+   "legs": [
+    {
+     "match_id": "nba-401910020",
+     "league": "NBA",
+     "kickoff": "2026-11-20T01:00:00Z",
+     "home": "Milwaukee Bucks",
+     "away": "Portland Trail Blazers",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "NBA",
+     "sport": "basket",
+     "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399057/mil-bucks-vs-por-tblazers",
+     "market": "2",
+     "label": "Victoire Portland Trail Blazers",
+     "odds": 1.22,
+     "src": "unibet",
+     "p": 0.7484,
+     "ev": -0.0869
+    },
+    {
+     "match_id": "cae480fb1195f0032554a268cb80eb44",
+     "league": "Bundesliga",
+     "kickoff": "2026-11-20T19:30:00Z",
+     "home": "Bayern Munich",
+     "away": "1. FC Köln",
+     "fd_home": "Bayern Munich",
+     "fd_away": "FC Koln",
+     "div": "D1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387557/bayern-munich-vs-cologne",
+     "market": "-4.5",
+     "label": "Moins de 4,5 buts",
+     "odds": 1.67,
+     "src": "pmu",
+     "p": 0.5327,
+     "ev": -0.1104
+    },
+    {
+     "match_id": "5dcc9d2b0da87770a4f49e924275be39",
+     "league": "Ligue 1",
+     "kickoff": "2026-11-20T19:45:00Z",
+     "home": "Troyes",
+     "away": "Le Havre",
+     "fd_home": "Troyes",
+     "fd_away": "Le Havre",
+     "div": "F1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395788/troyes-vs-le-havre",
+     "market": "1",
+     "label": "Victoire Troyes",
+     "odds": 2.0,
+     "src": "unibet",
+     "p": 0.4421,
+     "ev": -0.1158
+    }
+   ],
+   "odds": 4.07,
+   "p": 0.1763,
+   "cost": 0.2818,
    "stars": 1,
    "stake": 1,
    "status": "en attente",
@@ -4579,39 +4653,6 @@
   }
  ],
  "matches": [
-  {
-   "id": "91d621e106bf38d41c61739852993840",
-   "sport": "tennis",
-   "league": "ATP",
-   "event": "ATP Finals",
-   "div": "ATP",
-   "kickoff": "2026-11-19T13:00:00Z",
-   "day": "2026-11-19",
-   "home": "Ben Shelton",
-   "away": "Rafael Jodar",
-   "fd_home": null,
-   "fd_away": null,
-   "sel": [
-    {
-     "market": "1",
-     "label": "Victoire Ben Shelton",
-     "odds": 1.39,
-     "src": "unibet",
-     "p": 0.6658,
-     "ev": -0.0746
-    },
-    {
-     "market": "2",
-     "label": "Victoire Rafael Jodar",
-     "odds": 2.7,
-     "src": "unibet",
-     "p": 0.3342,
-     "ev": -0.0976
-    }
-   ],
-   "link": "https://www.unibet.fr/paris-tennis/atp/atp-finals/3399456/b.shelton-vs-r.jodar",
-   "odds_at": "2026-11-19T06:30:59.922251+00:00"
-  },
   {
    "id": "66cc3b98e9e67560a34198715ee78d75",
    "sport": "tennis",
@@ -5111,126 +5152,126 @@
    "fd_home": "Troyes",
    "fd_away": "Le Havre",
    "lambdas": [
-    1.507,
-    1.214
+    1.532,
+    1.191
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Troyes",
-     "odds": 2.05,
+     "odds": 2.0,
      "src": "unibet",
-     "p": 0.431,
-     "ev": -0.1165
+     "p": 0.4421,
+     "ev": -0.1158
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 3.1,
+     "odds": 3.2,
      "src": "unibet",
-     "p": 0.2695,
-     "ev": -0.1645
+     "p": 0.2683,
+     "ev": -0.1414
     },
     {
      "market": "2",
      "label": "Victoire Le Havre",
-     "odds": 3.0,
+     "odds": 3.1,
      "src": "unibet",
-     "p": 0.2995,
-     "ev": -0.1015
+     "p": 0.2897,
+     "ev": -0.1019
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
      "odds": 1.68,
      "src": "netbet",
-     "p": 0.5072,
-     "ev": -0.1479
+     "p": 0.5078,
+     "ev": -0.1469
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
      "odds": 1.77,
      "src": "netbet",
-     "p": 0.4928,
-     "ev": -0.1277
+     "p": 0.4922,
+     "ev": -0.1288
     },
     {
      "market": "1N",
      "label": "Troyes ou nul",
-     "odds": 1.25,
+     "odds": 1.24,
      "src": "estimee",
-     "p": 0.7005,
-     "ev": -0.1244
+     "p": 0.7103,
+     "ev": -0.1192
     },
     {
      "market": "N2",
      "label": "Le Havre ou nul",
-     "odds": 1.54,
+     "odds": 1.58,
      "src": "estimee",
-     "p": 0.569,
-     "ev": -0.1237
+     "p": 0.5579,
+     "ev": -0.1185
     },
     {
      "market": "12",
      "label": "Pas de match nul",
      "odds": 1.2,
      "src": "estimee",
-     "p": 0.7305,
-     "ev": -0.1234
+     "p": 0.7317,
+     "ev": -0.122
     },
     {
      "market": "BTTS",
      "label": "Les deux équipes marquent",
-     "odds": 1.59,
+     "odds": 1.6,
      "src": "estimee",
-     "p": 0.5511,
-     "ev": -0.1238
+     "p": 0.5497,
+     "ev": -0.1205
     },
     {
      "market": "NBTTS",
      "label": "Une équipe au moins ne marque pas",
-     "odds": 1.95,
+     "odds": 1.96,
      "src": "estimee",
-     "p": 0.4489,
-     "ev": -0.1246
+     "p": 0.4503,
+     "ev": -0.1174
     },
     {
      "market": "+1.5",
      "label": "Plus de 1,5 buts",
-     "odds": 1.15,
+     "odds": 1.16,
      "src": "estimee",
-     "p": 0.7588,
-     "ev": -0.1274
+     "p": 0.7592,
+     "ev": -0.1193
     },
     {
      "market": "-1.5",
      "label": "Moins de 1,5 buts",
-     "odds": 3.62,
+     "odds": 3.66,
      "src": "estimee",
-     "p": 0.2412,
-     "ev": -0.1269
+     "p": 0.2408,
+     "ev": -0.1187
     },
     {
      "market": "+3.5",
      "label": "Plus de 3,5 buts",
-     "odds": 3.05,
+     "odds": 3.06,
      "src": "estimee",
-     "p": 0.2871,
-     "ev": -0.1243
+     "p": 0.2876,
+     "ev": -0.1199
     },
     {
      "market": "-3.5",
      "label": "Moins de 3,5 buts",
-     "odds": 1.23,
+     "odds": 1.24,
      "src": "estimee",
-     "p": 0.7129,
-     "ev": -0.1231
+     "p": 0.7124,
+     "ev": -0.1166
     }
    ],
    "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395788/troyes-vs-le-havre",
-   "odds_at": "2026-11-19T06:30:59.922251+00:00",
+   "odds_at": "2026-11-19T15:31:34.111879+00:00",
    "goals_at": "2026-11-19T06:30:59.922251+00:00"
   },
   {
@@ -5244,126 +5285,126 @@
    "fd_home": "Ath Bilbao",
    "fd_away": "Espanol",
    "lambdas": [
-    1.943,
-    0.834
+    1.975,
+    0.804
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Athletic Bilbao",
-     "odds": 1.39,
+     "odds": 1.36,
      "src": "unibet",
-     "p": 0.6249,
-     "ev": -0.1314
+     "p": 0.6391,
+     "ev": -0.1308
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 4.0,
+     "odds": 4.2,
      "src": "unibet",
-     "p": 0.2253,
-     "ev": -0.0988
+     "p": 0.2205,
+     "ev": -0.0739
     },
     {
      "market": "2",
      "label": "Victoire Espanyol",
-     "odds": 5.8,
+     "odds": 6.1,
      "src": "unibet",
-     "p": 0.1498,
-     "ev": -0.1312
+     "p": 0.1404,
+     "ev": -0.1436
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
      "odds": 1.65,
      "src": "netbet",
-     "p": 0.5234,
-     "ev": -0.1364
+     "p": 0.5238,
+     "ev": -0.1357
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
      "odds": 1.82,
      "src": "netbet",
-     "p": 0.4766,
-     "ev": -0.1326
+     "p": 0.4762,
+     "ev": -0.1333
     },
     {
      "market": "N2",
      "label": "Espanyol ou nul",
-     "odds": 2.33,
+     "odds": 2.44,
      "src": "estimee",
-     "p": 0.3751,
-     "ev": -0.126
+     "p": 0.3609,
+     "ev": -0.1194
     },
     {
      "market": "12",
      "label": "Pas de match nul",
      "odds": 1.13,
      "src": "estimee",
-     "p": 0.7747,
-     "ev": -0.1246
+     "p": 0.7795,
+     "ev": -0.1192
     },
     {
      "market": "BTTS",
      "label": "Les deux équipes marquent",
-     "odds": 1.78,
+     "odds": 1.82,
      "src": "estimee",
-     "p": 0.4909,
-     "ev": -0.1262
+     "p": 0.4819,
+     "ev": -0.1229
     },
     {
      "market": "NBTTS",
      "label": "Une équipe au moins ne marque pas",
-     "odds": 1.72,
+     "odds": 1.7,
      "src": "estimee",
-     "p": 0.5091,
-     "ev": -0.1243
+     "p": 0.5181,
+     "ev": -0.1192
     },
     {
      "market": "+1.5",
      "label": "Plus de 1,5 buts",
      "odds": 1.14,
      "src": "estimee",
-     "p": 0.7698,
-     "ev": -0.1224
+     "p": 0.77,
+     "ev": -0.1222
     },
     {
      "market": "-1.5",
      "label": "Moins de 1,5 buts",
-     "odds": 3.8,
+     "odds": 3.82,
      "src": "estimee",
-     "p": 0.2302,
-     "ev": -0.1252
+     "p": 0.23,
+     "ev": -0.1214
     },
     {
      "market": "+3.5",
      "label": "Plus de 3,5 buts",
-     "odds": 2.9,
+     "odds": 2.91,
      "src": "estimee",
-     "p": 0.3015,
-     "ev": -0.1257
+     "p": 0.3019,
+     "ev": -0.1215
     },
     {
      "market": "-3.5",
      "label": "Moins de 3,5 buts",
-     "odds": 1.25,
+     "odds": 1.26,
      "src": "estimee",
-     "p": 0.6985,
-     "ev": -0.1269
+     "p": 0.6981,
+     "ev": -0.1204
     },
     {
      "market": "H1",
      "label": "Athletic Bilbao gagne par 2 buts ou + (handicap -1)",
-     "odds": 2.29,
+     "odds": 2.22,
      "src": "estimee",
-     "p": 0.3818,
-     "ev": -0.1257
+     "p": 0.3956,
+     "ev": -0.1218
     }
    ],
    "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376352/ath.-bilbao-vs-espanyol",
-   "odds_at": "2026-11-19T06:30:59.922251+00:00",
+   "odds_at": "2026-11-19T15:31:34.111879+00:00",
    "goals_at": "2026-11-19T06:30:59.922251+00:00"
   },
   {
@@ -5502,126 +5543,126 @@
    "fd_home": "Alaves",
    "fd_away": "La Coruna",
    "lambdas": [
-    1.314,
-    1.019
+    1.356,
+    0.985
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Alavés",
-     "odds": 2.05,
+     "odds": 1.93,
      "src": "unibet",
-     "p": 0.4258,
-     "ev": -0.1271
+     "p": 0.445,
+     "ev": -0.1411
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 3.0,
+     "odds": 3.2,
      "src": "unibet",
-     "p": 0.2928,
-     "ev": -0.1216
+     "p": 0.2899,
+     "ev": -0.0723
     },
     {
      "market": "2",
      "label": "Victoire Deportivo La Coruña",
-     "odds": 3.1,
+     "odds": 3.2,
      "src": "unibet",
-     "p": 0.2814,
-     "ev": -0.1277
+     "p": 0.2651,
+     "ev": -0.1517
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
      "odds": 2.15,
      "src": "pmu",
-     "p": 0.4134,
-     "ev": -0.1112
+     "p": 0.4154,
+     "ev": -0.1069
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
      "odds": 1.51,
      "src": "pmu",
-     "p": 0.5866,
-     "ev": -0.1142
+     "p": 0.5846,
+     "ev": -0.1173
     },
     {
      "market": "1N",
      "label": "Alavés ou nul",
-     "odds": 1.22,
+     "odds": 1.19,
      "src": "estimee",
-     "p": 0.7186,
-     "ev": -0.1233
+     "p": 0.7349,
+     "ev": -0.1255
     },
     {
      "market": "N2",
      "label": "Deportivo La Coruña ou nul",
-     "odds": 1.52,
+     "odds": 1.58,
      "src": "estimee",
-     "p": 0.5742,
-     "ev": -0.1272
+     "p": 0.555,
+     "ev": -0.1231
     },
     {
      "market": "12",
      "label": "Pas de match nul",
-     "odds": 1.24,
+     "odds": 1.23,
      "src": "estimee",
-     "p": 0.7072,
-     "ev": -0.1231
+     "p": 0.7101,
+     "ev": -0.1266
     },
     {
      "market": "BTTS",
      "label": "Les deux équipes marquent",
-     "odds": 1.84,
+     "odds": 1.85,
      "src": "estimee",
-     "p": 0.4756,
-     "ev": -0.1249
+     "p": 0.4734,
+     "ev": -0.1242
     },
     {
      "market": "NBTTS",
      "label": "Une équipe au moins ne marque pas",
-     "odds": 1.67,
+     "odds": 1.66,
      "src": "estimee",
-     "p": 0.5244,
-     "ev": -0.1243
+     "p": 0.5266,
+     "ev": -0.1258
     },
     {
      "market": "+1.5",
      "label": "Plus de 1,5 buts",
-     "odds": 1.28,
+     "odds": 1.27,
      "src": "estimee",
-     "p": 0.6851,
-     "ev": -0.1231
+     "p": 0.6867,
+     "ev": -0.1279
     },
     {
      "market": "-1.5",
      "label": "Moins de 1,5 buts",
-     "odds": 2.78,
+     "odds": 2.79,
      "src": "estimee",
-     "p": 0.3149,
-     "ev": -0.1246
+     "p": 0.3133,
+     "ev": -0.1259
     },
     {
      "market": "+3.5",
      "label": "Plus de 3,5 buts",
-     "odds": 4.2,
+     "odds": 4.18,
      "src": "estimee",
-     "p": 0.2079,
-     "ev": -0.1268
+     "p": 0.2095,
+     "ev": -0.1243
     },
     {
      "market": "-3.5",
      "label": "Moins de 3,5 buts",
-     "odds": 1.1,
+     "odds": 1.11,
      "src": "estimee",
-     "p": 0.7921,
-     "ev": -0.1287
+     "p": 0.7905,
+     "ev": -0.1225
     }
    ],
    "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376361/alaves-vs-la-corogne",
-   "odds_at": "2026-11-19T06:30:59.922251+00:00",
+   "odds_at": "2026-11-19T15:31:34.111879+00:00",
    "goals_at": "2026-11-19T06:30:59.922251+00:00"
   },
   {
@@ -5885,82 +5926,82 @@
    "fd_home": "Leverkusen",
    "fd_away": "Paderborn",
    "lambdas": [
-    2.671,
-    1.075
+    2.766,
+    0.983
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Bayer Leverkusen",
-     "odds": 1.24,
+     "odds": 1.18,
      "src": "unibet",
-     "p": 0.7066,
-     "ev": -0.1238
+     "p": 0.7394,
+     "ev": -0.1275
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 5.3,
+     "odds": 6.0,
      "src": "unibet",
-     "p": 0.1681,
-     "ev": -0.1091
+     "p": 0.156,
+     "ev": -0.064
     },
     {
      "market": "2",
      "label": "Victoire SC Paderborn",
-     "odds": 7.0,
+     "odds": 8.1,
      "src": "unibet",
-     "p": 0.1253,
-     "ev": -0.1229
+     "p": 0.1046,
+     "ev": -0.1527
     },
     {
      "market": "+3.5",
      "label": "Plus de 3,5 buts",
      "odds": 1.72,
      "src": "pmu",
-     "p": 0.5105,
-     "ev": -0.1219
+     "p": 0.5109,
+     "ev": -0.1213
     },
     {
      "market": "-3.5",
      "label": "Moins de 3,5 buts",
      "odds": 1.83,
      "src": "pmu",
-     "p": 0.4895,
-     "ev": -0.1042
+     "p": 0.4891,
+     "ev": -0.1049
     },
     {
      "market": "N2",
      "label": "SC Paderborn ou nul",
-     "odds": 2.99,
+     "odds": 3.37,
      "src": "estimee",
-     "p": 0.2934,
-     "ev": -0.1227
+     "p": 0.2606,
+     "ev": -0.1218
     },
     {
      "market": "12",
      "label": "Pas de match nul",
-     "odds": 1.06,
+     "odds": 1.04,
      "src": "estimee",
-     "p": 0.8319,
-     "ev": -0.1182
+     "p": 0.844,
+     "ev": -0.1222
     },
     {
      "market": "BTTS",
      "label": "Les deux équipes marquent",
-     "odds": 1.43,
+     "odds": 1.5,
      "src": "estimee",
-     "p": 0.6142,
-     "ev": -0.1217
+     "p": 0.588,
+     "ev": -0.118
     },
     {
      "market": "NBTTS",
      "label": "Une équipe au moins ne marque pas",
-     "odds": 2.28,
+     "odds": 2.13,
      "src": "estimee",
-     "p": 0.3858,
-     "ev": -0.1204
+     "p": 0.412,
+     "ev": -0.1224
     },
     {
      "market": "-1.5",
@@ -5975,28 +6016,28 @@
      "label": "Plus de 2,5 buts",
      "odds": 1.22,
      "src": "estimee",
-     "p": 0.7178,
-     "ev": -0.1243
+     "p": 0.7181,
+     "ev": -0.1239
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
-     "odds": 3.11,
+     "odds": 3.12,
      "src": "estimee",
-     "p": 0.2822,
-     "ev": -0.1224
+     "p": 0.2819,
+     "ev": -0.1205
     },
     {
      "market": "H1",
      "label": "Bayer Leverkusen gagne par 2 buts ou + (handicap -1)",
-     "odds": 1.75,
+     "odds": 1.63,
      "src": "estimee",
-     "p": 0.5008,
-     "ev": -0.1236
+     "p": 0.5379,
+     "ev": -0.1232
     }
    ],
    "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387979/leverkusen-vs-paderborn",
-   "odds_at": "2026-11-19T06:30:59.922251+00:00",
+   "odds_at": "2026-11-19T15:31:34.111879+00:00",
    "goals_at": "2026-11-19T06:30:59.922251+00:00"
   },
   {
@@ -6010,134 +6051,134 @@
    "fd_home": "M'gladbach",
    "fd_away": "Dortmund",
    "lambdas": [
-    1.172,
-    2.168
+    1.161,
+    2.178
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Borussia Monchengladbach",
-     "odds": 4.6,
+     "odds": 4.7,
      "src": "unibet",
-     "p": 0.1925,
-     "ev": -0.1145
+     "p": 0.1892,
+     "ev": -0.1108
     },
     {
      "market": "N",
      "label": "Match nul",
      "odds": 4.1,
      "src": "unibet",
-     "p": 0.2132,
-     "ev": -0.1259
+     "p": 0.2121,
+     "ev": -0.1304
     },
     {
      "market": "2",
      "label": "Victoire Borussia Dortmund",
-     "odds": 1.48,
+     "odds": 1.47,
      "src": "unibet",
-     "p": 0.5943,
-     "ev": -0.1204
+     "p": 0.5987,
+     "ev": -0.1199
     },
     {
      "market": "+3.5",
      "label": "Plus de 3,5 buts",
      "odds": 2.08,
      "src": "pmu",
-     "p": 0.4254,
-     "ev": -0.1152
+     "p": 0.4253,
+     "ev": -0.1154
     },
     {
      "market": "-3.5",
      "label": "Moins de 3,5 buts",
      "odds": 1.56,
      "src": "pmu",
-     "p": 0.5746,
-     "ev": -0.1036
+     "p": 0.5747,
+     "ev": -0.1035
     },
     {
      "market": "1N",
      "label": "Borussia Monchengladbach ou nul",
-     "odds": 2.17,
+     "odds": 2.19,
      "src": "estimee",
-     "p": 0.4057,
-     "ev": -0.1196
+     "p": 0.4013,
+     "ev": -0.1212
     },
     {
      "market": "N2",
      "label": "Borussia Dortmund ou nul",
-     "odds": 1.09,
+     "odds": 1.08,
      "src": "estimee",
-     "p": 0.8075,
-     "ev": -0.1198
+     "p": 0.8108,
+     "ev": -0.1243
     },
     {
      "market": "12",
      "label": "Pas de match nul",
      "odds": 1.12,
      "src": "estimee",
-     "p": 0.7868,
-     "ev": -0.1188
+     "p": 0.7879,
+     "ev": -0.1176
     },
     {
      "market": "BTTS",
      "label": "Les deux équipes marquent",
-     "odds": 1.43,
+     "odds": 1.44,
      "src": "estimee",
-     "p": 0.6145,
-     "ev": -0.1213
+     "p": 0.6124,
+     "ev": -0.1181
     },
     {
      "market": "NBTTS",
      "label": "Une équipe au moins ne marque pas",
-     "odds": 2.28,
+     "odds": 2.27,
      "src": "estimee",
-     "p": 0.3855,
-     "ev": -0.1211
+     "p": 0.3876,
+     "ev": -0.1201
     },
     {
      "market": "+1.5",
      "label": "Plus de 1,5 buts",
      "odds": 1.04,
      "src": "estimee",
-     "p": 0.8497,
-     "ev": -0.1163
+     "p": 0.8496,
+     "ev": -0.1164
     },
     {
      "market": "-1.5",
      "label": "Moins de 1,5 buts",
      "odds": 5.85,
      "src": "estimee",
-     "p": 0.1503,
-     "ev": -0.1207
+     "p": 0.1504,
+     "ev": -0.1202
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
      "odds": 1.36,
      "src": "estimee",
-     "p": 0.6456,
-     "ev": -0.122
+     "p": 0.6455,
+     "ev": -0.1221
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
      "odds": 2.48,
      "src": "estimee",
-     "p": 0.3544,
-     "ev": -0.1211
+     "p": 0.3545,
+     "ev": -0.1208
     },
     {
      "market": "H2",
      "label": "Borussia Dortmund gagne par 2 buts ou + (handicap -1)",
-     "odds": 2.35,
+     "odds": 2.33,
      "src": "estimee",
-     "p": 0.3735,
-     "ev": -0.1223
+     "p": 0.3777,
+     "ev": -0.12
     }
    ],
    "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387982/m'gladbach-vs-dortmund",
-   "odds_at": "2026-11-19T06:30:59.922251+00:00",
+   "odds_at": "2026-11-19T15:31:34.111879+00:00",
    "goals_at": "2026-11-19T06:30:59.922251+00:00"
   },
   {
@@ -6262,7 +6303,7 @@
     }
    ],
    "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387980/ein.francfort-vs-hoffenheim",
-   "odds_at": "2026-11-19T06:30:59.922251+00:00",
+   "odds_at": "2026-11-19T15:31:34.111879+00:00",
    "goals_at": "2026-11-19T06:30:59.922251+00:00"
   },
   {
@@ -6276,8 +6317,8 @@
    "fd_home": "Elversberg",
    "fd_away": "Freiburg",
    "lambdas": [
-    1.351,
-    1.799
+    1.34,
+    1.813
    ],
    "model": true,
    "sel": [
@@ -6286,116 +6327,116 @@
      "label": "Victoire Elversberg",
      "odds": 3.2,
      "src": "unibet",
-     "p": 0.2878,
-     "ev": -0.079
+     "p": 0.2833,
+     "ev": -0.0934
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 3.4,
+     "odds": 3.5,
      "src": "unibet",
-     "p": 0.2425,
-     "ev": -0.1755
+     "p": 0.2417,
+     "ev": -0.1541
     },
     {
      "market": "2",
      "label": "Victoire SC Freiburg",
-     "odds": 1.88,
+     "odds": 1.84,
      "src": "unibet",
-     "p": 0.4697,
-     "ev": -0.117
+     "p": 0.475,
+     "ev": -0.126
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
      "odds": 1.45,
      "src": "pmu",
-     "p": 0.6106,
-     "ev": -0.1146
+     "p": 0.6114,
+     "ev": -0.1135
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
      "odds": 2.28,
      "src": "pmu",
-     "p": 0.3894,
-     "ev": -0.1122
+     "p": 0.3886,
+     "ev": -0.114
     },
     {
      "market": "1N",
      "label": "Elversberg ou nul",
-     "odds": 1.66,
+     "odds": 1.67,
      "src": "estimee",
-     "p": 0.5303,
-     "ev": -0.1197
+     "p": 0.525,
+     "ev": -0.1232
     },
     {
      "market": "N2",
      "label": "SC Freiburg ou nul",
-     "odds": 1.23,
+     "odds": 1.22,
      "src": "estimee",
-     "p": 0.7122,
-     "ev": -0.124
+     "p": 0.7167,
+     "ev": -0.1256
     },
     {
      "market": "12",
      "label": "Pas de match nul",
      "odds": 1.16,
      "src": "estimee",
-     "p": 0.7575,
-     "ev": -0.1213
+     "p": 0.7583,
+     "ev": -0.1204
     },
     {
      "market": "BTTS",
      "label": "Les deux équipes marquent",
      "odds": 1.4,
      "src": "estimee",
-     "p": 0.6255,
-     "ev": -0.1243
+     "p": 0.625,
+     "ev": -0.125
     },
     {
      "market": "NBTTS",
      "label": "Une équipe au moins ne marque pas",
-     "odds": 2.35,
+     "odds": 2.34,
      "src": "estimee",
-     "p": 0.3745,
-     "ev": -0.1199
+     "p": 0.375,
+     "ev": -0.1225
     },
     {
      "market": "+1.5",
      "label": "Plus de 1,5 buts",
      "odds": 1.06,
      "src": "estimee",
-     "p": 0.8291,
-     "ev": -0.1212
+     "p": 0.8295,
+     "ev": -0.1207
     },
     {
      "market": "-1.5",
      "label": "Moins de 1,5 buts",
      "odds": 5.14,
      "src": "estimee",
-     "p": 0.1709,
-     "ev": -0.1216
+     "p": 0.1705,
+     "ev": -0.1236
     },
     {
      "market": "+3.5",
      "label": "Plus de 3,5 buts",
-     "odds": 2.27,
+     "odds": 2.26,
      "src": "estimee",
-     "p": 0.3875,
-     "ev": -0.1204
+     "p": 0.3883,
+     "ev": -0.1224
     },
     {
      "market": "-3.5",
      "label": "Moins de 3,5 buts",
      "odds": 1.43,
      "src": "estimee",
-     "p": 0.6125,
-     "ev": -0.1241
+     "p": 0.6117,
+     "ev": -0.1253
     }
    ],
    "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3395802/sv-elversberg-vs-fribourg",
-   "odds_at": "2026-11-19T06:30:59.922251+00:00",
+   "odds_at": "2026-11-19T15:31:34.111879+00:00",
    "goals_at": "2026-11-19T06:30:59.922251+00:00"
   },
   {
@@ -6528,7 +6569,7 @@
     }
    ],
    "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387981/union-berlin-vs-rb-leipzig",
-   "odds_at": "2026-11-19T06:30:59.922251+00:00",
+   "odds_at": "2026-11-19T15:31:34.111879+00:00",
    "goals_at": "2026-11-19T06:30:59.922251+00:00"
   },
   {
@@ -7342,7 +7383,7 @@
     }
    ],
    "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376363/rayo-vallecano-vs-cf-valence",
-   "odds_at": "2026-11-19T06:30:59.922251+00:00",
+   "odds_at": "2026-11-19T15:31:34.111879+00:00",
    "goals_at": "2026-11-19T06:30:59.922251+00:00"
   },
   {
@@ -7475,7 +7516,7 @@
     }
    ],
    "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395786/nice-vs-paris-sg",
-   "odds_at": "2026-11-19T06:30:59.922251+00:00",
+   "odds_at": "2026-11-19T15:31:34.111879+00:00",
    "goals_at": "2026-11-19T06:30:59.922251+00:00"
   },
   {
@@ -7622,126 +7663,126 @@
    "fd_home": "Sevilla",
    "fd_away": "Betis",
    "lambdas": [
-    1.339,
-    1.469
+    1.314,
+    1.496
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Sevilla",
-     "odds": 2.65,
+     "odds": 2.7,
      "src": "unibet",
-     "p": 0.3385,
-     "ev": -0.103
+     "p": 0.3275,
+     "ev": -0.1157
     },
     {
      "market": "N",
      "label": "Match nul",
      "odds": 3.2,
      "src": "unibet",
-     "p": 0.2659,
-     "ev": -0.1491
+     "p": 0.2652,
+     "ev": -0.1514
     },
     {
      "market": "2",
      "label": "Victoire Real Betis",
-     "odds": 2.25,
+     "odds": 2.15,
      "src": "unibet",
-     "p": 0.3956,
-     "ev": -0.1099
+     "p": 0.4073,
+     "ev": -0.1243
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
      "odds": 1.67,
      "src": "pmu",
-     "p": 0.5332,
-     "ev": -0.1096
+     "p": 0.5335,
+     "ev": -0.1091
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
      "odds": 1.91,
      "src": "pmu",
-     "p": 0.4668,
-     "ev": -0.1084
+     "p": 0.4665,
+     "ev": -0.109
     },
     {
      "market": "1N",
      "label": "Sevilla ou nul",
-     "odds": 1.46,
+     "odds": 1.47,
      "src": "estimee",
-     "p": 0.6044,
-     "ev": -0.1176
+     "p": 0.5927,
+     "ev": -0.1287
     },
     {
      "market": "N2",
      "label": "Real Betis ou nul",
-     "odds": 1.33,
+     "odds": 1.3,
      "src": "estimee",
-     "p": 0.6615,
-     "ev": -0.1202
+     "p": 0.6725,
+     "ev": -0.1258
     },
     {
      "market": "12",
      "label": "Pas de match nul",
-     "odds": 1.2,
+     "odds": 1.19,
      "src": "estimee",
-     "p": 0.7341,
-     "ev": -0.1191
+     "p": 0.7348,
+     "ev": -0.1256
     },
     {
      "market": "BTTS",
      "label": "Les deux équipes marquent",
-     "odds": 1.53,
+     "odds": 1.51,
      "src": "estimee",
-     "p": 0.5758,
-     "ev": -0.119
+     "p": 0.575,
+     "ev": -0.1318
     },
     {
      "market": "NBTTS",
      "label": "Une équipe au moins ne marque pas",
-     "odds": 2.08,
+     "odds": 2.05,
      "src": "estimee",
-     "p": 0.4242,
-     "ev": -0.1177
+     "p": 0.425,
+     "ev": -0.1288
     },
     {
      "market": "+1.5",
      "label": "Plus de 1,5 buts",
-     "odds": 1.13,
+     "odds": 1.12,
      "src": "estimee",
-     "p": 0.7779,
-     "ev": -0.121
+     "p": 0.7781,
+     "ev": -0.1285
     },
     {
      "market": "-1.5",
      "label": "Moins de 1,5 buts",
-     "odds": 3.97,
+     "odds": 3.93,
      "src": "estimee",
-     "p": 0.2221,
-     "ev": -0.1183
+     "p": 0.2219,
+     "ev": -0.1279
     },
     {
      "market": "+3.5",
      "label": "Plus de 3,5 buts",
-     "odds": 2.84,
+     "odds": 2.8,
      "src": "estimee",
-     "p": 0.3105,
-     "ev": -0.1182
+     "p": 0.3108,
+     "ev": -0.1298
     },
     {
      "market": "-3.5",
      "label": "Moins de 3,5 buts",
-     "odds": 1.28,
+     "odds": 1.26,
      "src": "estimee",
-     "p": 0.6895,
-     "ev": -0.1174
+     "p": 0.6892,
+     "ev": -0.1316
     }
    ],
    "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376365/fc-séville-vs-betis-séville",
-   "odds_at": "2026-11-19T06:30:59.922251+00:00",
+   "odds_at": "2026-11-19T15:31:34.111879+00:00",
    "goals_at": "2026-11-19T06:30:59.922251+00:00"
   },
   {
@@ -7866,7 +7907,7 @@
     }
    ],
    "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387983/schalke-04-vs-stuttgart",
-   "odds_at": "2026-11-19T06:30:59.922251+00:00",
+   "odds_at": "2026-11-19T15:31:34.111879+00:00",
    "goals_at": "2026-11-19T06:30:59.922251+00:00"
   },
   {
@@ -8021,34 +8062,34 @@
    "fd_home": "Monaco",
    "fd_away": "Auxerre",
    "lambdas": [
-    2.303,
-    0.952
+    2.311,
+    0.943
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire AS Monaco",
-     "odds": 1.3,
+     "odds": 1.29,
      "src": "unibet",
-     "p": 0.6691,
-     "ev": -0.1302
+     "p": 0.6725,
+     "ev": -0.1325
     },
     {
      "market": "N",
      "label": "Match nul",
      "odds": 4.8,
      "src": "unibet",
-     "p": 0.1937,
-     "ev": -0.0702
+     "p": 0.1926,
+     "ev": -0.0755
     },
     {
      "market": "2",
      "label": "Victoire Auxerre",
-     "odds": 6.2,
+     "odds": 6.3,
      "src": "unibet",
-     "p": 0.1372,
-     "ev": -0.1494
+     "p": 0.135,
+     "ev": -0.1495
     },
     {
      "market": "+3.5",
@@ -8069,50 +8110,50 @@
     {
      "market": "N2",
      "label": "Auxerre ou nul",
-     "odds": 2.65,
+     "odds": 2.67,
      "src": "estimee",
-     "p": 0.3309,
-     "ev": -0.1231
+     "p": 0.3275,
+     "ev": -0.1256
     },
     {
      "market": "12",
      "label": "Pas de match nul",
-     "odds": 1.09,
+     "odds": 1.08,
      "src": "estimee",
-     "p": 0.8063,
-     "ev": -0.1211
+     "p": 0.8074,
+     "ev": -0.128
     },
     {
      "market": "BTTS",
      "label": "Les deux équipes marquent",
      "odds": 1.58,
      "src": "estimee",
-     "p": 0.5575,
-     "ev": -0.1191
+     "p": 0.5551,
+     "ev": -0.1229
     },
     {
      "market": "NBTTS",
      "label": "Une équipe au moins ne marque pas",
-     "odds": 1.98,
+     "odds": 1.97,
      "src": "estimee",
-     "p": 0.4425,
-     "ev": -0.1239
+     "p": 0.4449,
+     "ev": -0.1235
     },
     {
      "market": "+1.5",
      "label": "Plus de 1,5 buts",
-     "odds": 1.05,
+     "odds": 1.04,
      "src": "estimee",
      "p": 0.8397,
-     "ev": -0.1183
+     "ev": -0.1267
     },
     {
      "market": "-1.5",
      "label": "Moins de 1,5 buts",
-     "odds": 5.48,
+     "odds": 5.46,
      "src": "estimee",
      "p": 0.1603,
-     "ev": -0.1216
+     "ev": -0.1248
     },
     {
      "market": "+2.5",
@@ -8125,22 +8166,22 @@
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
-     "odds": 2.37,
+     "odds": 2.36,
      "src": "estimee",
      "p": 0.3705,
-     "ev": -0.1219
+     "ev": -0.1256
     },
     {
      "market": "H1",
      "label": "AS Monaco gagne par 2 buts ou + (handicap -1)",
-     "odds": 1.97,
+     "odds": 1.95,
      "src": "estimee",
-     "p": 0.4448,
-     "ev": -0.1237
+     "p": 0.4483,
+     "ev": -0.1258
     }
    ],
    "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395789/monaco-vs-auxerre",
-   "odds_at": "2026-11-19T06:30:59.922251+00:00",
+   "odds_at": "2026-11-19T15:31:34.111879+00:00",
    "goals_at": "2026-11-19T06:30:59.922251+00:00"
   },
   {
@@ -8273,7 +8314,7 @@
     }
    ],
    "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395792/strasbourg-vs-brest",
-   "odds_at": "2026-11-19T06:30:59.922251+00:00",
+   "odds_at": "2026-11-19T15:31:34.111879+00:00",
    "goals_at": "2026-11-19T06:30:59.922251+00:00"
   },
   {
@@ -8406,7 +8447,7 @@
     }
    ],
    "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395795/lille-vs-lyon",
-   "odds_at": "2026-11-19T06:30:59.922251+00:00",
+   "odds_at": "2026-11-19T15:31:34.111879+00:00",
    "goals_at": "2026-11-19T06:30:59.922251+00:00"
   },
   {
@@ -8420,34 +8461,34 @@
    "fd_home": "Lens",
    "fd_away": "Toulouse",
    "lambdas": [
-    1.842,
-    1.21
+    1.821,
+    1.231
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire RC Lens",
-     "odds": 1.7,
+     "odds": 1.74,
      "src": "unibet",
-     "p": 0.5163,
-     "ev": -0.1223
+     "p": 0.507,
+     "ev": -0.1178
     },
     {
      "market": "N",
      "label": "Match nul",
      "odds": 3.6,
      "src": "unibet",
-     "p": 0.2406,
-     "ev": -0.1338
+     "p": 0.2422,
+     "ev": -0.1281
     },
     {
      "market": "2",
      "label": "Victoire Toulouse",
-     "odds": 3.6,
+     "odds": 3.5,
      "src": "unibet",
-     "p": 0.2431,
-     "ev": -0.1248
+     "p": 0.2508,
+     "ev": -0.1222
     },
     {
      "market": "+2.5",
@@ -8468,78 +8509,78 @@
     {
      "market": "1N",
      "label": "RC Lens ou nul",
-     "odds": 1.16,
+     "odds": 1.17,
      "src": "estimee",
-     "p": 0.7569,
-     "ev": -0.122
+     "p": 0.7492,
+     "ev": -0.1234
     },
     {
      "market": "N2",
      "label": "Toulouse ou nul",
-     "odds": 1.81,
+     "odds": 1.78,
      "src": "estimee",
-     "p": 0.4837,
-     "ev": -0.1245
+     "p": 0.493,
+     "ev": -0.1225
     },
     {
      "market": "12",
      "label": "Pas de match nul",
-     "odds": 1.15,
+     "odds": 1.16,
      "src": "estimee",
-     "p": 0.7594,
-     "ev": -0.1267
+     "p": 0.7578,
+     "ev": -0.121
     },
     {
      "market": "BTTS",
      "label": "Les deux équipes marquent",
      "odds": 1.47,
      "src": "estimee",
-     "p": 0.5963,
-     "ev": -0.1234
+     "p": 0.5991,
+     "ev": -0.1193
     },
     {
      "market": "NBTTS",
      "label": "Une équipe au moins ne marque pas",
-     "odds": 2.17,
+     "odds": 2.19,
      "src": "estimee",
-     "p": 0.4037,
-     "ev": -0.124
+     "p": 0.4009,
+     "ev": -0.122
     },
     {
      "market": "+1.5",
      "label": "Plus de 1,5 buts",
-     "odds": 1.07,
+     "odds": 1.08,
      "src": "estimee",
-     "p": 0.8146,
-     "ev": -0.1284
+     "p": 0.8147,
+     "ev": -0.1201
     },
     {
      "market": "-1.5",
      "label": "Moins de 1,5 buts",
-     "odds": 4.72,
+     "odds": 4.74,
      "src": "estimee",
-     "p": 0.1854,
-     "ev": -0.1249
+     "p": 0.1853,
+     "ev": -0.1217
     },
     {
      "market": "+3.5",
      "label": "Plus de 3,5 buts",
-     "odds": 2.4,
+     "odds": 2.41,
      "src": "estimee",
      "p": 0.3641,
-     "ev": -0.1262
+     "ev": -0.1225
     },
     {
      "market": "-3.5",
      "label": "Moins de 3,5 buts",
-     "odds": 1.37,
+     "odds": 1.38,
      "src": "estimee",
      "p": 0.6359,
-     "ev": -0.1288
+     "ev": -0.1225
     }
    ],
    "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3395790/lens-vs-toulouse",
-   "odds_at": "2026-11-19T06:30:59.922251+00:00",
+   "odds_at": "2026-11-19T15:31:34.111879+00:00",
    "goals_at": "2026-11-19T06:30:59.922251+00:00"
   },
   {
@@ -8678,110 +8719,110 @@
    "fd_home": "Real Madrid",
    "fd_away": "Celta",
    "lambdas": [
-    2.81,
-    0.823
+    2.853,
+    0.78
    ],
    "model": true,
    "sel": [
     {
      "market": "1",
      "label": "Victoire Real Madrid",
-     "odds": 1.12,
+     "odds": 1.1,
      "src": "unibet",
-     "p": 0.7791,
-     "ev": -0.1274
+     "p": 0.7928,
+     "ev": -0.1279
     },
     {
      "market": "N",
      "label": "Match nul",
-     "odds": 6.3,
+     "odds": 6.7,
      "src": "unibet",
-     "p": 0.142,
-     "ev": -0.1054
+     "p": 0.1359,
+     "ev": -0.0895
     },
     {
      "market": "2",
      "label": "Victoire Celta Vigo",
-     "odds": 11.0,
+     "odds": 12.0,
      "src": "unibet",
-     "p": 0.0789,
-     "ev": -0.1321
+     "p": 0.0713,
+     "ev": -0.1444
     },
     {
      "market": "+3.5",
      "label": "Plus de 3,5 buts",
      "odds": 1.81,
      "src": "pmu",
-     "p": 0.4874,
-     "ev": -0.1178
+     "p": 0.4875,
+     "ev": -0.1176
     },
     {
      "market": "-3.5",
      "label": "Moins de 3,5 buts",
      "odds": 1.75,
      "src": "pmu",
-     "p": 0.5126,
-     "ev": -0.103
+     "p": 0.5125,
+     "ev": -0.1031
     },
     {
      "market": "N2",
      "label": "Celta Vigo ou nul",
-     "odds": 3.96,
+     "odds": 4.23,
      "src": "estimee",
-     "p": 0.2209,
-     "ev": -0.1252
+     "p": 0.2072,
+     "ev": -0.1235
     },
     {
      "market": "BTTS",
      "label": "Les deux équipes marquent",
-     "odds": 1.66,
+     "odds": 1.71,
      "src": "estimee",
-     "p": 0.5286,
-     "ev": -0.1225
+     "p": 0.5124,
+     "ev": -0.1238
     },
     {
      "market": "NBTTS",
      "label": "Une équipe au moins ne marque pas",
-     "odds": 1.86,
+     "odds": 1.8,
      "src": "estimee",
-     "p": 0.4714,
-     "ev": -0.1232
+     "p": 0.4876,
+     "ev": -0.1223
     },
     {
      "market": "-1.5",
      "label": "Moins de 1,5 buts",
      "odds": 7.22,
      "src": "estimee",
-     "p": 0.1212,
-     "ev": -0.1249
+     "p": 0.1213,
+     "ev": -0.1242
     },
     {
      "market": "+2.5",
      "label": "Plus de 2,5 buts",
      "odds": 1.25,
      "src": "estimee",
-     "p": 0.699,
-     "ev": -0.1263
+     "p": 0.6991,
+     "ev": -0.1261
     },
     {
      "market": "-2.5",
      "label": "Moins de 2,5 buts",
      "odds": 2.91,
      "src": "estimee",
-     "p": 0.301,
-     "ev": -0.1241
+     "p": 0.3009,
+     "ev": -0.1244
     },
     {
      "market": "H1",
      "label": "Real Madrid gagne par 2 buts ou + (handicap -1)",
-     "odds": 1.51,
+     "odds": 1.46,
      "src": "estimee",
-     "p": 0.5812,
-     "ev": -0.1224
+     "p": 0.5982,
+     "ev": -0.1266
     }
    ],
    "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376360/real-madrid-vs-celta-vigo",
-   "odds_at": "2026-11-19T06:30:59.922251+00:00",
+   "odds_at": "2026-11-19T15:31:34.111879+00:00",
    "goals_at": "2026-11-19T06:30:59.922251+00:00"
   }
  ]

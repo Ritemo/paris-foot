@@ -41,7 +41,9 @@
      "odds": 1.31,
      "src": "unibet",
      "p": 0.7,
-     "ev": -0.0831
+     "ev": -0.0831,
+     "score": "107-128",
+     "won": true
     },
     {
      "match_id": "nba-401910014",
@@ -7213,5 +7215,5 @@
   "bilan_mise_suggeree": -30.01,
   "mise_suggeree_totale": 120
  },
- "updated": "2026-11-19T03:33:48.513847+00:00"
+ "updated": "2026-11-19T05:31:12.277245+00:00"
 }

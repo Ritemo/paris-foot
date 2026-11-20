@@ -73,7 +73,9 @@
      "odds": 1.78,
      "src": "pmu",
      "p": 0.5002,
-     "ev": -0.1096
+     "ev": -0.1096,
+     "score": "1-1",
+     "won": false
     },
     {
      "match_id": "5dcc9d2b0da87770a4f49e924275be39",
@@ -99,8 +101,9 @@
    "cost": 0.1996,
    "stars": 2,
    "stake": 3,
-   "status": "en attente",
-   "proposed_at": "2026-11-20T06:31:03.704220+00:00"
+   "status": "perdu",
+   "proposed_at": "2026-11-20T06:31:03.704220+00:00",
+   "settled_at": "2026-11-20T21:31:07.587098+00:00"
   },
   {
    "id": "2026-11-20|5dcc9d2b0da87770a4f49e924275be39:-3.5|dcee36f9b8a9989972b6d4ddde76c4c7:+2.5",

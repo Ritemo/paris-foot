@@ -544,7 +544,9 @@
      "odds": 1.39,
      "src": "unibet",
      "p": 0.6249,
-     "ev": -0.1314
+     "ev": -0.1314,
+     "score": "0-1",
+     "won": false
     },
     {
      "match_id": "5dcc9d2b0da87770a4f49e924275be39",
@@ -618,7 +620,9 @@
      "odds": 1.26,
      "src": "estimee",
      "p": 0.6981,
-     "ev": -0.1204
+     "ev": -0.1204,
+     "score": "0-1",
+     "won": true
     }
    ],
    "odds": 2.1,
@@ -626,9 +630,10 @@
    "cost": 0.2175,
    "stars": 2,
    "stake": 3,
-   "status": "en attente",
+   "status": "gagne",
    "proposed_at": "2026-11-19T15:31:34.111879+00:00",
-   "replaced": true
+   "replaced": true,
+   "settled_at": "2026-11-20T22:01:15.479103+00:00"
   },
   {
    "id": "2026-11-20|5dcc9d2b0da87770a4f49e924275be39:BTTS|dcee36f9b8a9989972b6d4ddde76c4c7:1",
@@ -651,7 +656,9 @@
      "odds": 1.37,
      "src": "unibet",
      "p": 0.6496,
-     "ev": -0.11
+     "ev": -0.11,
+     "score": "0-1",
+     "won": false
     },
     {
      "match_id": "5dcc9d2b0da87770a4f49e924275be39",
@@ -679,8 +686,9 @@
    "cost": 0.1989,
    "stars": 2,
    "stake": 3,
-   "status": "en attente",
-   "proposed_at": "2026-11-20T06:31:03.704220+00:00"
+   "status": "perdu",
+   "proposed_at": "2026-11-20T06:31:03.704220+00:00",
+   "settled_at": "2026-11-20T22:01:15.479103+00:00"
   },
   {
    "id": "2026-11-20|5dcc9d2b0da87770a4f49e924275be39:1N|cae480fb1195f0032554a268cb80eb44:+4.5",
@@ -758,7 +766,9 @@
      "odds": 1.66,
      "src": "pmu",
      "p": 0.5352,
-     "ev": -0.1116
+     "ev": -0.1116,
+     "score": "0-1",
+     "won": false
     },
     {
      "match_id": "5dcc9d2b0da87770a4f49e924275be39",
@@ -8033,13 +8043,13 @@
   }
  ],
  "bilan": {
-  "n": 54,
+  "n": 55,
   "gagnes": 18,
   "x2": {
-   "n": 44,
+   "n": 45,
    "gagnes": 16,
    "reussite_annoncee": 0.353,
-   "bilan": -19.51
+   "bilan": -22.51
   },
   "x3": {
    "n": 10,
@@ -8053,12 +8063,12 @@
    "reussite_annoncee": 0.034,
    "bilan": -11
   },
-  "reussite_reelle": 0.333,
+  "reussite_reelle": 0.327,
   "reussite_annoncee": 0.343,
-  "bilan_2eur": -20.18,
-  "mise_2eur": 108,
-  "bilan_mise_suggeree": -29.67,
-  "mise_suggeree_totale": 132
+  "bilan_2eur": -22.18,
+  "mise_2eur": 110,
+  "bilan_mise_suggeree": -32.67,
+  "mise_suggeree_totale": 135
  },
- "updated": "2026-11-20T21:45:53.893234+00:00"
+ "updated": "2026-11-20T22:01:15.479103+00:00"
 }

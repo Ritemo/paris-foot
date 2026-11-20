@@ -572,6 +572,26 @@ class TestCloture(unittest.TestCase):
         self.assertIn("nba-77|1", c["p"])
         self.assertGreater(c["summary"]["foot"]["avg"], 0)   # 0,51 de chance a la cloture contre 0,50 annonce
 
+    def test_cloture_foot_espn_gratuit(self):
+        import tempfile
+        old = (run.DATA, run.OP_KEY, run.op_unibet, run._board)
+        run.DATA, run.OP_KEY = tempfile.mkdtemp(), "x"
+        k = (run.NOW + timedelta(minutes=10)).isoformat().replace("+00:00", "Z")
+        run.save("today.json", {"matches": [{"id": "ev2", "sport": "foot", "league": "Bundesliga", "div": "D1", "home": "Bayern Munich", "away": "1. FC K\u00f6ln", "kickoff": k, "sel": []}]})
+        run.save("history.json", {"combos": []})
+        def boom(meta, keys):
+            raise AssertionError("OddsPapi ne doit pas etre appele")
+        run.op_unibet = boom
+        run._board = lambda path, d, boards: [{"competitions": [{"competitors": [
+            {"homeAway": "home", "team": {"displayName": "Bayern Munich"}}, {"homeAway": "away", "team": {"displayName": "FC Cologne"}}],
+            "odds": [{"moneyline": {"home": {"close": {"odds": "-1600"}}, "draw": {"close": {"odds": "+950"}}, "away": {"close": {"odds": "+2500"}}}}]}]}]
+        try:
+            self.assertTrue(run.record_closing({}))
+            c = run.load("closing.json", {})
+        finally:
+            run.DATA, run.OP_KEY, run.op_unibet, run._board = old
+        self.assertGreater(c["p"]["ev2|1"]["p"], 0.85)
+
     def test_rattrapage_tickets_passes(self):
         import tempfile, pandas as pd
         old = (run.DATA, run.http_get)

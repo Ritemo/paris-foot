@@ -1135,15 +1135,39 @@ def record_closing(meta):
     if not todo:
         return False
     got = 0
+    boards = {}
     foot = [m for m in todo if m.get("sport", "foot") == "foot"]
-    if foot and OP_KEY and meta.get("oddspapi", {}).get("used", 0) < OP_CLOSE_MAX:
-        keys = {k for k, v in LEAGUES.items() if v[1] in {m["league"] for m in foot}}
+    left = []
+    for m in foot:   # 1) ESPN, gratuit : cotes 1N2 de cloture (DraftKings)
+        pf = None
+        path = f"soccer/{ESPN_LEAGUE[m['div']]}" if m.get("div") in ESPN_LEAGUE else None
+        k = datetime.fromisoformat(m["kickoff"].replace("Z", "+00:00"))
+        for d in sorted({(k + timedelta(hours=h)).strftime("%Y%m%d") for h in (-12, 0)}) if path else []:
+            for e in _board(path, d, boards):
+                try:
+                    comp = e["competitions"][0]
+                    cs = {c["homeAway"]: c["team"]["displayName"] for c in comp["competitors"]}
+                    if min(_team_score(m["home"], cs["home"]), _team_score(m["away"], cs["away"])) < 1:
+                        continue
+                    ml = comp["odds"][0]["moneyline"]
+                    pf = fair([am2dec(ml[x]["close"]["odds"]) for x in ("home", "draw", "away")])
+                except Exception:
+                    continue
+        if pf:
+            for mk, p in zip(("1", "N", "2"), pf):
+                close["p"][f"{m['id']}|{mk}"] = {"p": round(p, 4), "t": NOW.isoformat()}
+            got += 1
+        else:
+            left.append(m)
+    if left and OP_KEY and meta.get("oddspapi", {}).get("used", 0) < OP_CLOSE_MAX:   # 2) secours : OddsPapi
+        keys = {k for k, v in LEAGUES.items() if v[1] in {m["league"] for m in left}}
         try:
             ops = op_unibet(meta, keys)
+            spent = True
         except Exception as e:
             print("cloture oddspapi", e, file=sys.stderr)
-            ops = []
-        for m in foot:
+            ops, spent = [], False
+        for m in left:
             ev = {"x": {"home_team": m["home"], "away_team": m["away"], "commence_time": m["kickoff"], "bookmakers": []}}
             if apply_op(ev, ops):
                 o = {x["name"]: x["price"] for x in ev["x"]["bookmakers"][0]["markets"][-1]["outcomes"]}
@@ -1151,9 +1175,11 @@ def record_closing(meta):
                 for mk, p in zip(("1", "N", "2"), pf):
                     close["p"][f"{m['id']}|{mk}"] = {"p": round(p, 4), "t": NOW.isoformat()}
                 got += 1
+        print(f"cloture : {len(left)} match(s) sans cote ESPN, {len(ops)} cotes OddsPapi", file=sys.stderr)
+        if spent and not got:
+            return True   # requete OddsPapi depensee : le compteur doit etre enregistre
     nba = [m for m in todo if m.get("sport") == "basket" and m["id"].startswith("nba-")]
     if nba:
-        boards = {}
         for m in nba:
             k = datetime.fromisoformat(m["kickoff"].replace("Z", "+00:00"))
             for d in sorted({(k + timedelta(hours=h)).strftime("%Y%m%d") for h in (-12, 0)}):

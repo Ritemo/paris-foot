@@ -563,6 +563,80 @@
     "mix": true,
     "alt": true
    }
+  },
+  "2026-11-21|ca93df81e976fbe345a6175bb24e3f19:-3.5|nba-401909305:1|nba-401909308:1": {
+   "mise": 2,
+   "odds": 2.87,
+   "t": 1795206686,
+   "snap": {
+    "id": "2026-11-21|ca93df81e976fbe345a6175bb24e3f19:-3.5|nba-401909305:1|nba-401909308:1",
+    "day": "2026-11-21",
+    "kind": "x3",
+    "legs": [
+     {
+      "match_id": "nba-401909308",
+      "league": "NBA",
+      "kickoff": "2026-11-21T00:30:00Z",
+      "home": "Detroit Pistons",
+      "away": "Toronto Raptors",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "NBA",
+      "sport": "basket",
+      "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399067/det-pistons-vs-tor-raptors",
+      "market": "1",
+      "label": "Victoire Detroit Pistons",
+      "odds": 1.28,
+      "src": "unibet",
+      "p": 0.7149,
+      "ev": -0.0849
+     },
+     {
+      "match_id": "nba-401909305",
+      "league": "NBA",
+      "kickoff": "2026-11-21T00:00:00Z",
+      "home": "Atlanta Hawks",
+      "away": "Charlotte Hornets",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "NBA",
+      "sport": "basket",
+      "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399045/atl-hawks-vs-cha-hornets",
+      "market": "1",
+      "label": "Victoire Atlanta Hawks",
+      "odds": 1.34,
+      "src": "unibet",
+      "p": 0.6698,
+      "ev": -0.1025
+     },
+     {
+      "match_id": "ca93df81e976fbe345a6175bb24e3f19",
+      "league": "Bundesliga",
+      "kickoff": "2026-11-21T14:30:00Z",
+      "home": "Union Berlin",
+      "away": "RB Leipzig",
+      "fd_home": "Union Berlin",
+      "fd_away": "RB Leipzig",
+      "div": "D1",
+      "sport": "foot",
+      "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387981/union-berlin-vs-rb-leipzig",
+      "market": "-3.5",
+      "label": "Moins de 3,5 buts",
+      "odds": 1.61,
+      "src": "pmu",
+      "p": 0.5553,
+      "ev": -0.106
+     }
+    ],
+    "odds": 2.76,
+    "p": 0.2659,
+    "cost": 0.2658,
+    "stars": 2,
+    "stake": 2,
+    "status": "en attente",
+    "mix": true,
+    "alt": true
+   }
   }
  },
  "kick_sent": {

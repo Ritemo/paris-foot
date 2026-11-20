@@ -717,6 +717,7 @@ def _norm_team(s):
     s = s.translate(str.maketrans({"ø": "o", "Ø": "O", "ł": "l", "Ł": "L", "đ": "d", "æ": "ae", "ß": "ss", "/": " "}))
     s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode().lower()
     s = re.sub(r"[-'.]", " ", s)
+    s = re.sub(r"\bkoln\b", "cologne", re.sub(r"\bmunchen\b", "munich", s))   # noms anglais d'ESPN
     s = re.sub(r"\b(fc|ac|as|afc|sc|rc|cf|ca|bc|tsg|vfb|vfl|fsv|ogc|ssc|us|ud|rcd|1|04|05|07|29)\b", " ", s)
     return [w for w in s.split() if len(w) > 1]
 

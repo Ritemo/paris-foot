@@ -14,6 +14,7 @@ let liveTimer = null;
 
 function normTeam(s) {
   return String(s).normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase()
+    .replace(/\bkoln\b/g, "cologne").replace(/\bmunchen\b/g, "munich")   // noms anglais utilisés par ESPN
     .replace(/[-'.]/g, " ").replace(/\b(fc|ac|as|afc|sc|rc|cf|ca|bc|tsg|vfb|vfl|fsv|ogc|ssc|us|ud|rcd|1|04|05|07|29)\b/g, " ")
     .split(/\s+/).filter((w) => w.length > 1);
 }

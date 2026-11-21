@@ -94,23 +94,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:39Z",
-      "link": null,
       "outcomes": [
        {
         "name": "Nice",
-        "price": 5.9,
-        "link": null
-       },
-       {
-        "name": "Paris Saint Germain",
-        "price": 1.34,
-        "link": null
+        "price": 5.8
        },
        {
         "name": "Draw",
-        "price": 5.3,
-        "link": null
+        "price": 5.0
+       },
+       {
+        "name": "Paris Saint Germain",
+        "price": 1.37
        }
       ]
      }
@@ -197,7 +192,7 @@
    }
   ],
   "sport": "soccer_france_ligue_one",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "9130b46991ab991f808daf307f004469": {
@@ -325,23 +320,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:39Z",
-      "link": null,
       "outcomes": [
        {
         "name": "AS Monaco",
-        "price": 1.29,
-        "link": null
-       },
-       {
-        "name": "Auxerre",
-        "price": 6.6,
-        "link": null
+        "price": 1.32
        },
        {
         "name": "Draw",
-        "price": 4.7,
-        "link": null
+        "price": 4.5
+       },
+       {
+        "name": "Auxerre",
+        "price": 6.3
        }
       ]
      }
@@ -398,7 +388,7 @@
    }
   ],
   "sport": "soccer_france_ligue_one",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "4d6dd3defbbe20fa24b719f9fcdbf280": {
@@ -526,23 +516,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:39Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Brest",
-        "price": 2.75,
-        "link": null
-       },
-       {
         "name": "Strasbourg",
-        "price": 2.1,
-        "link": null
+        "price": 2.05
        },
        {
         "name": "Draw",
-        "price": 3.3,
-        "link": null
+        "price": 3.3
+       },
+       {
+        "name": "Brest",
+        "price": 2.9
        }
       ]
      }
@@ -599,7 +584,7 @@
    }
   ],
   "sport": "soccer_france_ligue_one",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "d2113ca19873218496f8b2fe6c7e7c41": {
@@ -727,23 +712,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:39Z",
-      "link": null,
       "outcomes": [
        {
         "name": "Lille",
-        "price": 2.1,
-        "link": null
-       },
-       {
-        "name": "Lyon",
-        "price": 3.2,
-        "link": null
+        "price": 2.15
        },
        {
         "name": "Draw",
-        "price": 3.2,
-        "link": null
+        "price": 3.2
+       },
+       {
+        "name": "Lyon",
+        "price": 3.2
        }
       ]
      }
@@ -800,7 +780,7 @@
    }
   ],
   "sport": "soccer_france_ligue_one",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "13ac2151b9f6893cedb7f509e64eb070": {
@@ -928,23 +908,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:39Z",
-      "link": null,
       "outcomes": [
        {
         "name": "RC Lens",
-        "price": 1.88,
-        "link": null
-       },
-       {
-        "name": "Toulouse",
-        "price": 3.1,
-        "link": null
+        "price": 1.98
        },
        {
         "name": "Draw",
-        "price": 3.4,
-        "link": null
+        "price": 3.4
+       },
+       {
+        "name": "Toulouse",
+        "price": 2.95
        }
       ]
      }
@@ -1001,7 +976,7 @@
    }
   ],
   "sport": "soccer_france_ligue_one",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "9e5d4a91e379ddffa179b02bf9e09530": {
@@ -1099,23 +1074,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:39Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Angers",
-        "price": 7.5,
-        "link": null
-       },
-       {
         "name": "Paris FC",
-        "price": 1.24,
-        "link": null
+        "price": 1.23
        },
        {
         "name": "Draw",
-        "price": 5.0,
-        "link": null
+        "price": 5.1
+       },
+       {
+        "name": "Angers",
+        "price": 7.6
        }
       ]
      }
@@ -1202,7 +1172,7 @@
    }
   ],
   "sport": "soccer_france_ligue_one",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "8e6ee05b6ac28dc2357f72b9f5a0643e": {
@@ -1330,23 +1300,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:39Z",
-      "link": null,
       "outcomes": [
        {
         "name": "Lorient",
-        "price": 2.7,
-        "link": null
-       },
-       {
-        "name": "Rennes",
-        "price": 2.2,
-        "link": null
+        "price": 2.7
        },
        {
         "name": "Draw",
-        "price": 3.2,
-        "link": null
+        "price": 3.2
+       },
+       {
+        "name": "Rennes",
+        "price": 2.2
        }
       ]
      }
@@ -1403,7 +1368,7 @@
    }
   ],
   "sport": "soccer_france_ligue_one",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "98fae24771271c96d5dd364e535405d2": {
@@ -1501,23 +1466,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:39Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Le Mans FC",
-        "price": 5.8,
-        "link": null
-       },
-       {
         "name": "Marseille",
-        "price": 1.35,
-        "link": null
+        "price": 1.35
        },
        {
         "name": "Draw",
-        "price": 5.0,
-        "link": null
+        "price": 5.0
+       },
+       {
+        "name": "Le Mans FC",
+        "price": 6.0
        }
       ]
      }
@@ -1604,7 +1564,7 @@
    }
   ],
   "sport": "soccer_france_ligue_one",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "02ff879cf54f6d1fec2664efee0431db": {
@@ -1653,23 +1613,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:39Z",
-      "link": null,
       "outcomes": [
        {
         "name": "Brest",
-        "price": 2.8,
-        "link": null
-       },
-       {
-        "name": "Paris FC",
-        "price": 2.0,
-        "link": null
+        "price": 2.8
        },
        {
         "name": "Draw",
-        "price": 3.5,
-        "link": null
+        "price": 3.5
+       },
+       {
+        "name": "Paris FC",
+        "price": 2.0
        }
       ]
      }
@@ -1756,7 +1711,7 @@
    }
   ],
   "sport": "soccer_france_ligue_one",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "24b99950496c624f7124922fc1bda8bd": {
@@ -1805,23 +1760,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:39Z",
-      "link": null,
       "outcomes": [
        {
         "name": "Angers",
-        "price": 3.9,
-        "link": null
-       },
-       {
-        "name": "RC Lens",
-        "price": 1.53,
-        "link": null
+        "price": 3.9
        },
        {
         "name": "Draw",
-        "price": 3.7,
-        "link": null
+        "price": 3.7
+       },
+       {
+        "name": "RC Lens",
+        "price": 1.53
        }
       ]
      }
@@ -1908,7 +1858,7 @@
    }
   ],
   "sport": "soccer_france_ligue_one",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "f96c1137c9d3f7e2e691275a2988fa1d": {
@@ -1957,23 +1907,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:39Z",
-      "link": null,
       "outcomes": [
        {
         "name": "Le Havre",
-        "price": 2.65,
-        "link": null
-       },
-       {
-        "name": "Strasbourg",
-        "price": 1.95,
-        "link": null
+        "price": 2.65
        },
        {
         "name": "Draw",
-        "price": 3.5,
-        "link": null
+        "price": 3.5
+       },
+       {
+        "name": "Strasbourg",
+        "price": 1.95
        }
       ]
      }
@@ -2060,7 +2005,7 @@
    }
   ],
   "sport": "soccer_france_ligue_one",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "aaa86a483888836242da663a46957894": {
@@ -2109,23 +2054,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:39Z",
-      "link": null,
       "outcomes": [
        {
         "name": "Le Mans FC",
-        "price": 3.7,
-        "link": null
-       },
-       {
-        "name": "Lille",
-        "price": 1.66,
-        "link": null
+        "price": 3.7
        },
        {
         "name": "Draw",
-        "price": 3.3,
-        "link": null
+        "price": 3.3
+       },
+       {
+        "name": "Lille",
+        "price": 1.66
        }
       ]
      }
@@ -2212,7 +2152,7 @@
    }
   ],
   "sport": "soccer_france_ligue_one",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "12002f6f804a122db48271ff05be03c0": {
@@ -2261,23 +2201,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:39Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Lorient",
-        "price": 9.5,
-        "link": null
-       },
-       {
         "name": "Paris Saint Germain",
-        "price": 1.12,
-        "link": null
+        "price": 1.12
        },
        {
         "name": "Draw",
-        "price": 5.6,
-        "link": null
+        "price": 5.6
+       },
+       {
+        "name": "Lorient",
+        "price": 9.5
        }
       ]
      }
@@ -2364,7 +2299,7 @@
    }
   ],
   "sport": "soccer_france_ligue_one",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "e9a1243fbfbc6f58d0e0522eb07ea9a1": {
@@ -2413,23 +2348,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:39Z",
-      "link": null,
       "outcomes": [
        {
         "name": "Nice",
-        "price": 1.56,
-        "link": null
-       },
-       {
-        "name": "Troyes",
-        "price": 4.0,
-        "link": null
+        "price": 1.56
        },
        {
         "name": "Draw",
-        "price": 3.4,
-        "link": null
+        "price": 3.4
+       },
+       {
+        "name": "Troyes",
+        "price": 4.0
        }
       ]
      }
@@ -2516,7 +2446,7 @@
    }
   ],
   "sport": "soccer_france_ligue_one",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "a370db12aaff183a94f8e9a6acb6d4c9": {
@@ -2565,23 +2495,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:39Z",
-      "link": null,
       "outcomes": [
        {
         "name": "Auxerre",
-        "price": 3.5,
-        "link": null
-       },
-       {
-        "name": "Marseille",
-        "price": 1.69,
-        "link": null
+        "price": 3.5
        },
        {
         "name": "Draw",
-        "price": 3.3,
-        "link": null
+        "price": 3.3
+       },
+       {
+        "name": "Marseille",
+        "price": 1.69
        }
       ]
      }
@@ -2668,7 +2593,7 @@
    }
   ],
   "sport": "soccer_france_ligue_one",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "71c08940a73e9f42d503449f052a1bdf": {
@@ -2717,23 +2642,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:39Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Rennes",
-        "price": 2.4,
-        "link": null
-       },
-       {
         "name": "Toulouse",
-        "price": 2.1,
-        "link": null
+        "price": 2.1
        },
        {
         "name": "Draw",
-        "price": 3.4,
-        "link": null
+        "price": 3.4
+       },
+       {
+        "name": "Rennes",
+        "price": 2.4
        }
       ]
      }
@@ -2820,7 +2740,7 @@
    }
   ],
   "sport": "soccer_france_ligue_one",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "ca8aa566e27e1d05b47e8151b2066f9a": {
@@ -2869,23 +2789,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:39Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "AS Monaco",
-        "price": 2.75,
-        "link": null
-       },
-       {
         "name": "Lyon",
-        "price": 1.93,
-        "link": null
+        "price": 1.93
        },
        {
         "name": "Draw",
-        "price": 3.3,
-        "link": null
+        "price": 3.3
+       },
+       {
+        "name": "AS Monaco",
+        "price": 2.75
        }
       ]
      }
@@ -2972,1213 +2887,7 @@
    }
   ],
   "sport": "soccer_france_ligue_one",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
-  "full_at": "2026-11-21T06:31:04.381133+00:00"
- },
- "6ef39b0fd8839f6e93a3de32523e9807": {
-  "id": "6ef39b0fd8839f6e93a3de32523e9807",
-  "sport_key": "soccer_epl",
-  "sport_title": "EPL",
-  "commence_time": "2026-11-21T12:30:00Z",
-  "home_team": "Manchester City",
-  "away_team": "Fulham",
-  "bookmakers": [
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-21T06:31:11Z",
-    "link": "https://www.unibet.fr/paris-football/angleterre/premier-league/3395614/man.-city-vs-fulham",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Fulham",
-        "price": 6.2,
-        "link": null
-       },
-       {
-        "name": "Manchester City",
-        "price": 1.29,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 5.0,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-21T06:30:38Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/72221406",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:38Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Fulham",
-        "price": 6.75,
-        "link": null
-       },
-       {
-        "name": "Manchester City",
-        "price": 1.3,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 5.25,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-21T06:31:10Z",
-    "link": "https://www.pmu.fr/sport/#event/1028072761",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Fulham",
-        "price": 7.0,
-        "link": null
-       },
-       {
-        "name": "Manchester City",
-        "price": 1.32,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 5.0,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.93,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.65,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-21T06:30:57Z",
-    "link": "https://www.betclic.fr/football-sfootball/angl-premier-league-c3/manchester-city-fulham-m1268171819474948",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:57Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Fulham",
-        "price": 7.0,
-        "link": null
-       },
-       {
-        "name": "Manchester City",
-        "price": 1.3,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 5.25,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-21T06:30:38Z",
-    "link": "https://www.netbet.fr/evenement/12346492-manchester-city-fulham",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:37Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Fulham",
-        "price": 6.75,
-        "link": null
-       },
-       {
-        "name": "Manchester City",
-        "price": 1.32,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 5.1,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:30:37Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.83,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.63,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_epl",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
-  "full_at": "2026-11-21T06:31:04.381133+00:00"
- },
- "b8d6ab6ecc8bb356c6335d3f417d0ecf": {
-  "id": "b8d6ab6ecc8bb356c6335d3f417d0ecf",
-  "sport_key": "soccer_epl",
-  "sport_title": "EPL",
-  "commence_time": "2026-11-21T15:00:00Z",
-  "home_team": "Aston Villa",
-  "away_team": "Sunderland",
-  "bookmakers": [
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-21T06:31:11Z",
-    "link": "https://www.unibet.fr/paris-football/angleterre/premier-league/3395606/aston-villa-vs-sunderland",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Aston Villa",
-        "price": 1.63,
-        "link": null
-       },
-       {
-        "name": "Sunderland",
-        "price": 4.0,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.6,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-21T06:30:57Z",
-    "link": "https://www.betclic.fr/football-sfootball/angl-premier-league-c3/aston-villa-sunderland-m1268169854439425",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:57Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Aston Villa",
-        "price": 1.68,
-        "link": null
-       },
-       {
-        "name": "Sunderland",
-        "price": 4.2,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.73,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-21T06:30:38Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/72221392",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:38Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Aston Villa",
-        "price": 1.68,
-        "link": null
-       },
-       {
-        "name": "Sunderland",
-        "price": 4.0,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.6,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-21T06:31:10Z",
-    "link": "https://www.pmu.fr/sport/#event/1028072780",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Aston Villa",
-        "price": 1.68,
-        "link": null
-       },
-       {
-        "name": "Sunderland",
-        "price": 4.2,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.6,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.63,
-        "point": 2.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.95,
-        "point": 2.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-21T06:30:38Z",
-    "link": "https://www.netbet.fr/evenement/12346490-aston-villa-sunderland",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:37Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Aston Villa",
-        "price": 1.68,
-        "link": null
-       },
-       {
-        "name": "Sunderland",
-        "price": 4.3,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.75,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:30:37Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.6,
-        "point": 2.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.9,
-        "point": 2.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_epl",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
-  "full_at": "2026-11-21T06:31:04.381133+00:00"
- },
- "cf68da11fa604c13fc9ef3219fad0314": {
-  "id": "cf68da11fa604c13fc9ef3219fad0314",
-  "sport_key": "soccer_epl",
-  "sport_title": "EPL",
-  "commence_time": "2026-11-21T15:00:00Z",
-  "home_team": "Bournemouth",
-  "away_team": "Nottingham Forest",
-  "bookmakers": [
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-21T06:31:11Z",
-    "link": null,
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Bournemouth",
-        "price": 1.78,
-        "link": null
-       },
-       {
-        "name": "Nottingham Forest",
-        "price": 3.7,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.2,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-21T06:30:38Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/72221394",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:38Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Bournemouth",
-        "price": 1.8,
-        "link": null
-       },
-       {
-        "name": "Nottingham Forest",
-        "price": 3.65,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.35,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-21T06:31:10Z",
-    "link": "https://www.pmu.fr/sport/#event/1028072786",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Bournemouth",
-        "price": 1.85,
-        "link": null
-       },
-       {
-        "name": "Nottingham Forest",
-        "price": 3.65,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.35,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.75,
-        "point": 2.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.81,
-        "point": 2.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-21T06:30:57Z",
-    "link": "https://www.betclic.fr/football-sfootball/angl-premier-league-c3/bournemouth-nottingham-forest-m1268169867034626",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:57Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Bournemouth",
-        "price": 1.82,
-        "link": null
-       },
-       {
-        "name": "Nottingham Forest",
-        "price": 3.9,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.4,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-21T06:30:38Z",
-    "link": "https://www.netbet.fr/evenement/12346497-bournemouth-nottingham-forest",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:38Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Bournemouth",
-        "price": 1.8,
-        "link": null
-       },
-       {
-        "name": "Nottingham Forest",
-        "price": 3.8,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.3,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:30:38Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.77,
-        "point": 2.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.68,
-        "point": 2.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_epl",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
-  "full_at": "2026-11-21T06:31:04.381133+00:00"
- },
- "ac6cf70520a83c0949b4003bde53c709": {
-  "id": "ac6cf70520a83c0949b4003bde53c709",
-  "sport_key": "soccer_epl",
-  "sport_title": "EPL",
-  "commence_time": "2026-11-21T15:00:00Z",
-  "home_team": "Chelsea",
-  "away_team": "Leeds United",
-  "bookmakers": [
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-21T06:31:11Z",
-    "link": "https://www.unibet.fr/paris-football/angleterre/premier-league/3395615/chelsea-vs-leeds-utd",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Chelsea",
-        "price": 1.82,
-        "link": null
-       },
-       {
-        "name": "Leeds United",
-        "price": 3.5,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.3,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-21T06:30:38Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/72221398",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:38Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Chelsea",
-        "price": 1.9,
-        "link": null
-       },
-       {
-        "name": "Leeds United",
-        "price": 3.35,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.35,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-21T06:31:10Z",
-    "link": "https://www.pmu.fr/sport/#event/1028072788",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Chelsea",
-        "price": 1.83,
-        "link": null
-       },
-       {
-        "name": "Leeds United",
-        "price": 3.7,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.4,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.68,
-        "point": 2.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.88,
-        "point": 2.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-21T06:30:57Z",
-    "link": "https://www.betclic.fr/football-sfootball/angl-premier-league-c3/chelsea-leeds-m1268171778592768",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:57Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Chelsea",
-        "price": 1.9,
-        "link": null
-       },
-       {
-        "name": "Leeds United",
-        "price": 3.55,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.42,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-21T06:30:38Z",
-    "link": "https://www.netbet.fr/evenement/12346496-chelsea-leeds",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:38Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Chelsea",
-        "price": 1.88,
-        "link": null
-       },
-       {
-        "name": "Leeds United",
-        "price": 3.55,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.45,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:30:38Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.71,
-        "point": 2.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.75,
-        "point": 2.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_epl",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
-  "full_at": "2026-11-21T06:31:04.381133+00:00"
- },
- "9f38413bdad666e2d2dfcc574dd12e66": {
-  "id": "9f38413bdad666e2d2dfcc574dd12e66",
-  "sport_key": "soccer_epl",
-  "sport_title": "EPL",
-  "commence_time": "2026-11-21T15:00:00Z",
-  "home_team": "Coventry City",
-  "away_team": "Crystal Palace",
-  "bookmakers": [
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-21T06:31:11Z",
-    "link": "https://www.unibet.fr/paris-football/angleterre/premier-league/3395620/coventry-vs-crystal-palace",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Coventry City",
-        "price": 2.3,
-        "link": null
-       },
-       {
-        "name": "Crystal Palace",
-        "price": 2.55,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.2,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-21T06:30:38Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/72221400",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:38Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Coventry City",
-        "price": 2.3,
-        "link": null
-       },
-       {
-        "name": "Crystal Palace",
-        "price": 2.5,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.3,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-21T06:31:10Z",
-    "link": "https://www.pmu.fr/sport/#event/1028072753",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Coventry City",
-        "price": 2.45,
-        "link": null
-       },
-       {
-        "name": "Crystal Palace",
-        "price": 2.65,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.05,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.67,
-        "point": 2.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.91,
-        "point": 2.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-21T06:30:57Z",
-    "link": "https://www.betclic.fr/football-sfootball/angl-premier-league-c3/coventry-crystal-palace-m1268170116587520",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:57Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Coventry City",
-        "price": 2.35,
-        "link": null
-       },
-       {
-        "name": "Crystal Palace",
-        "price": 2.67,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.35,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-21T06:30:38Z",
-    "link": "https://www.netbet.fr/evenement/12346489-coventry-city-crystal-palace",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:38Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Coventry City",
-        "price": 2.32,
-        "link": null
-       },
-       {
-        "name": "Crystal Palace",
-        "price": 2.57,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.3,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:30:38Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.58,
-        "point": 2.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.91,
-        "point": 2.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_epl",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
-  "full_at": "2026-11-21T06:31:04.381133+00:00"
- },
- "e67ee3a6f93bb90b8aefcf3dd204477c": {
-  "id": "e67ee3a6f93bb90b8aefcf3dd204477c",
-  "sport_key": "soccer_epl",
-  "sport_title": "EPL",
-  "commence_time": "2026-11-21T15:00:00Z",
-  "home_team": "Tottenham Hotspur",
-  "away_team": "Ipswich Town",
-  "bookmakers": [
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-21T06:31:11Z",
-    "link": "https://www.unibet.fr/paris-football/angleterre/premier-league/3395607/tottenham-vs-ipswich",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Ipswich Town",
-        "price": 5.0,
-        "link": null
-       },
-       {
-        "name": "Tottenham Hotspur",
-        "price": 1.44,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.1,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-21T06:30:38Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/72221410",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:38Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Ipswich Town",
-        "price": 5.1,
-        "link": null
-       },
-       {
-        "name": "Tottenham Hotspur",
-        "price": 1.45,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.1,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-21T06:30:57Z",
-    "link": "https://www.betclic.fr/football-sfootball/angl-premier-league-c3/tottenham-ipswich-m1268170144899072",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:57Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Ipswich Town",
-        "price": 5.4,
-        "link": null
-       },
-       {
-        "name": "Tottenham Hotspur",
-        "price": 1.46,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.4,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-21T06:31:10Z",
-    "link": "https://www.pmu.fr/sport/#event/1028072766",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Ipswich Town",
-        "price": 5.6,
-        "link": null
-       },
-       {
-        "name": "Tottenham Hotspur",
-        "price": 1.44,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.2,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.45,
-        "point": 2.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 2.28,
-        "point": 2.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-21T06:30:38Z",
-    "link": "https://www.netbet.fr/evenement/12346491-tottenham-ipswich-town",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:38Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Ipswich Town",
-        "price": 5.4,
-        "link": null
-       },
-       {
-        "name": "Tottenham Hotspur",
-        "price": 1.47,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.3,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:30:38Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.47,
-        "point": 2.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 2.12,
-        "point": 2.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_epl",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "71bf9fe98c3e3be39cd1d059f8d71ae8": {
@@ -4197,23 +2906,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Arsenal",
-        "price": 1.45,
-        "link": null
-       },
-       {
         "name": "Newcastle United",
-        "price": 5.0,
-        "link": null
+        "price": 5.2
        },
        {
         "name": "Draw",
-        "price": 4.0,
-        "link": null
+        "price": 3.9
+       },
+       {
+        "name": "Arsenal",
+        "price": 1.45
        }
       ]
      }
@@ -4379,7 +3083,7 @@
    }
   ],
   "sport": "soccer_epl",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "230a356290e1a358e9dd2f7fa23de3b9": {
@@ -4398,23 +3102,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Brighton and Hove Albion",
-        "price": 1.43,
-        "link": null
-       },
-       {
         "name": "Hull City",
-        "price": 5.2,
-        "link": null
+        "price": 5.4
        },
        {
         "name": "Draw",
-        "price": 4.0,
-        "link": null
+        "price": 4.1
+       },
+       {
+        "name": "Brighton and Hove Albion",
+        "price": 1.4
        }
       ]
      }
@@ -4580,7 +3279,7 @@
    }
   ],
   "sport": "soccer_epl",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "4c08b213ed416e8f41e038f42a42b962": {
@@ -4629,23 +3328,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
       "outcomes": [
        {
         "name": "Liverpool",
-        "price": 1.59,
-        "link": null
-       },
-       {
-        "name": "Manchester United",
-        "price": 4.0,
-        "link": null
+        "price": 1.58
        },
        {
         "name": "Draw",
-        "price": 3.9,
-        "link": null
+        "price": 3.9
+       },
+       {
+        "name": "Manchester United",
+        "price": 4.0
        }
       ]
      }
@@ -4781,7 +3475,7 @@
    }
   ],
   "sport": "soccer_epl",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "aa77e2a08a1a003b0bbb62a5f8e8ae42": {
@@ -4800,23 +3494,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
       "outcomes": [
        {
         "name": "Brentford",
-        "price": 1.98,
-        "link": null
-       },
-       {
-        "name": "Everton",
-        "price": 3.1,
-        "link": null
+        "price": 1.98
        },
        {
         "name": "Draw",
-        "price": 3.3,
-        "link": null
+        "price": 3.3
+       },
+       {
+        "name": "Everton",
+        "price": 3.1
        }
       ]
      }
@@ -4982,7 +3671,7 @@
    }
   ],
   "sport": "soccer_epl",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "40d95e660c301c2d8a5a7a6317017b65": {
@@ -5031,23 +3720,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Chelsea",
-        "price": 2.05,
-        "link": null
-       },
-       {
         "name": "Nottingham Forest",
-        "price": 2.75,
-        "link": null
+        "price": 2.7
        },
        {
         "name": "Draw",
-        "price": 3.4,
-        "link": null
+        "price": 3.4
+       },
+       {
+        "name": "Chelsea",
+        "price": 2.1
        }
       ]
      }
@@ -5134,7 +3818,7 @@
    }
   ],
   "sport": "soccer_epl",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "ab87184803a63f7b679f1d12b01c3271": {
@@ -5183,23 +3867,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Brentford",
-        "price": 3.3,
-        "link": null
-       },
-       {
         "name": "Manchester United",
-        "price": 1.69,
-        "link": null
+        "price": 1.8
        },
        {
         "name": "Draw",
-        "price": 3.5,
-        "link": null
+        "price": 3.5
+       },
+       {
+        "name": "Brentford",
+        "price": 3.3
        }
       ]
      }
@@ -5286,7 +3965,7 @@
    }
   ],
   "sport": "soccer_epl",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "0bc17a3c7d8153e72b94688960cc603a": {
@@ -5335,23 +4014,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Coventry City",
-        "price": 4.9,
-        "link": null
-       },
-       {
         "name": "Leeds United",
-        "price": 1.4,
-        "link": null
+        "price": 1.48
        },
        {
         "name": "Draw",
-        "price": 3.8,
-        "link": null
+        "price": 3.8
+       },
+       {
+        "name": "Coventry City",
+        "price": 4.9
        }
       ]
      }
@@ -5438,7 +4112,7 @@
    }
   ],
   "sport": "soccer_epl",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "9d23f6ad21946dd258869ebc22236cf0": {
@@ -5487,23 +4161,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Aston Villa",
-        "price": 1.76,
-        "link": null
-       },
-       {
         "name": "Ipswich Town",
-        "price": 3.1,
-        "link": null
+        "price": 3.1
        },
        {
         "name": "Draw",
-        "price": 3.5,
-        "link": null
+        "price": 3.5
+       },
+       {
+        "name": "Aston Villa",
+        "price": 1.75
        }
       ]
      }
@@ -5590,7 +4259,7 @@
    }
   ],
   "sport": "soccer_epl",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "f45e9062c2f755b977c98d496c22697b": {
@@ -5609,23 +4278,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
       "outcomes": [
        {
         "name": "Everton",
-        "price": 3.1,
-        "link": null
-       },
-       {
-        "name": "Liverpool",
-        "price": 1.78,
-        "link": null
+        "price": 3.2
        },
        {
         "name": "Draw",
-        "price": 3.3,
-        "link": null
+        "price": 3.4
+       },
+       {
+        "name": "Liverpool",
+        "price": 1.75
        }
       ]
      }
@@ -5742,7 +4406,7 @@
    }
   ],
   "sport": "soccer_epl",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "56ea91809ff11d3a67557a21b3371cb9": {
@@ -5761,23 +4425,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Bournemouth",
-        "price": 2.15,
-        "link": null
-       },
-       {
         "name": "Fulham",
-        "price": 2.45,
-        "link": null
+        "price": 2.5
        },
        {
         "name": "Draw",
-        "price": 3.2,
-        "link": null
+        "price": 3.2
+       },
+       {
+        "name": "Bournemouth",
+        "price": 2.15
        }
       ]
      }
@@ -5894,7 +4553,7 @@
    }
   ],
   "sport": "soccer_epl",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "e9c2b74ecaafd494e3b2d8521b52216a": {
@@ -5913,23 +4572,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
       "outcomes": [
        {
         "name": "Brighton and Hove Albion",
-        "price": 1.39,
-        "link": null
-       },
-       {
-        "name": "Newcastle United",
-        "price": 4.7,
-        "link": null
+        "price": 1.4
        },
        {
         "name": "Draw",
-        "price": 4.0,
-        "link": null
+        "price": 4.0
+       },
+       {
+        "name": "Newcastle United",
+        "price": 4.6
        }
       ]
      }
@@ -6046,7 +4700,7 @@
    }
   ],
   "sport": "soccer_epl",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "e12585885a7f135127f276b7f1ecdf89": {
@@ -6065,23 +4719,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
       "outcomes": [
        {
         "name": "Crystal Palace",
-        "price": 1.61,
-        "link": null
-       },
-       {
-        "name": "Hull City",
-        "price": 3.7,
-        "link": null
+        "price": 1.61
        },
        {
         "name": "Draw",
-        "price": 3.5,
-        "link": null
+        "price": 3.5
+       },
+       {
+        "name": "Hull City",
+        "price": 3.7
        }
       ]
      }
@@ -6198,7 +4847,7 @@
    }
   ],
   "sport": "soccer_epl",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "09bb0ba9a9025d64fed410375c0c8f80": {
@@ -6217,23 +4866,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
       "outcomes": [
        {
         "name": "Sunderland",
-        "price": 3.0,
-        "link": null
-       },
-       {
-        "name": "Tottenham Hotspur",
-        "price": 1.9,
-        "link": null
+        "price": 3.0
        },
        {
         "name": "Draw",
-        "price": 3.1,
-        "link": null
+        "price": 3.1
+       },
+       {
+        "name": "Tottenham Hotspur",
+        "price": 1.9
        }
       ]
      }
@@ -6350,7 +4994,7 @@
    }
   ],
   "sport": "soccer_epl",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "d20ede55e54ed7b55fdc36ca373727c0": {
@@ -6369,23 +5013,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
       "outcomes": [
        {
         "name": "Arsenal",
-        "price": 1.78,
-        "link": null
-       },
-       {
-        "name": "Manchester City",
-        "price": 3.2,
-        "link": null
+        "price": 1.7
        },
        {
         "name": "Draw",
-        "price": 3.3,
-        "link": null
+        "price": 3.4
+       },
+       {
+        "name": "Manchester City",
+        "price": 3.3
        }
       ]
      }
@@ -6502,349 +5141,7 @@
    }
   ],
   "sport": "soccer_epl",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
-  "full_at": "2026-11-21T06:31:04.381133+00:00"
- },
- "9881e56a732493272e688663b26cd37f": {
-  "id": "9881e56a732493272e688663b26cd37f",
-  "sport_key": "soccer_spain_la_liga",
-  "sport_title": "La Liga - Spain",
-  "commence_time": "2026-11-21T13:00:00Z",
-  "home_team": "Alavés",
-  "away_team": "Deportivo La Coruña",
-  "bookmakers": [
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-21T06:31:16Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/72478706",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:31:16Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Alavés",
-        "price": 2.2,
-        "link": null
-       },
-       {
-        "name": "Deportivo La Coruña",
-        "price": 2.85,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.1,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-21T06:30:55Z",
-    "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376361/alaves-vs-la-corogne",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:55Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Alavés",
-        "price": 2.1,
-        "link": null
-       },
-       {
-        "name": "Deportivo La Coruña",
-        "price": 2.95,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.0,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-21T06:30:25Z",
-    "link": "https://www.netbet.fr/evenement/12358283-alaves-deportivo-la-corogne",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:25Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Alavés",
-        "price": 2.15,
-        "link": null
-       },
-       {
-        "name": "Deportivo La Coruña",
-        "price": 3.0,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.05,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:30:25Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.99,
-        "point": 2.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.53,
-        "point": 2.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-21T06:30:41Z",
-    "link": "https://www.pmu.fr/sport/#event/1028209221",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:41Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Alavés",
-        "price": 2.25,
-        "link": null
-       },
-       {
-        "name": "Deportivo La Coruña",
-        "price": 2.9,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.1,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:30:41Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 2.08,
-        "point": 2.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.55,
-        "point": 2.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_spain_la_liga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
-  "full_at": "2026-11-21T06:31:04.381133+00:00"
- },
- "ebe638278f4d70eaf211ad5be9795fa0": {
-  "id": "ebe638278f4d70eaf211ad5be9795fa0",
-  "sport_key": "soccer_spain_la_liga",
-  "sport_title": "La Liga - Spain",
-  "commence_time": "2026-11-21T15:15:00Z",
-  "home_team": "Rayo Vallecano",
-  "away_team": "Valencia",
-  "bookmakers": [
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-21T06:31:16Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/72478720",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:31:16Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Rayo Vallecano",
-        "price": 1.8,
-        "link": null
-       },
-       {
-        "name": "Valencia",
-        "price": 3.6,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.35,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-21T06:30:55Z",
-    "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376363/rayo-vallecano-vs-cf-valence",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:55Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Rayo Vallecano",
-        "price": 1.78,
-        "link": null
-       },
-       {
-        "name": "Valencia",
-        "price": 3.7,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.2,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-21T06:30:25Z",
-    "link": "https://www.netbet.fr/evenement/12358288-rayo-vallecano-valence",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:25Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Rayo Vallecano",
-        "price": 1.8,
-        "link": null
-       },
-       {
-        "name": "Valencia",
-        "price": 3.8,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.3,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:30:25Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.82,
-        "point": 2.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.65,
-        "point": 2.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-21T06:30:41Z",
-    "link": "https://www.pmu.fr/sport/#event/1028209199",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:41Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Rayo Vallecano",
-        "price": 1.83,
-        "link": null
-       },
-       {
-        "name": "Valencia",
-        "price": 3.8,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.3,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:30:41Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.92,
-        "point": 2.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.66,
-        "point": 2.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_spain_la_liga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "1bb4951d418dcb641c608e085b87a1c3": {
@@ -6893,23 +5190,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:55Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Real Betis",
-        "price": 2.2,
-        "link": null
-       },
-       {
         "name": "Sevilla",
-        "price": 2.7,
-        "link": null
+        "price": 2.65
        },
        {
         "name": "Draw",
-        "price": 3.2,
-        "link": null
+        "price": 3.2
+       },
+       {
+        "name": "Real Betis",
+        "price": 2.2
        }
       ]
      }
@@ -7015,7 +5307,7 @@
    }
   ],
   "sport": "soccer_spain_la_liga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "90af957b2f622a5cf805e60b151c54b9": {
@@ -7064,23 +5356,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:55Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Celta Vigo",
-        "price": 15.0,
-        "link": null
-       },
-       {
         "name": "Real Madrid",
-        "price": 1.09,
-        "link": null
+        "price": 1.09
        },
        {
         "name": "Draw",
-        "price": 7.0,
-        "link": null
+        "price": 7.0
+       },
+       {
+        "name": "Celta Vigo",
+        "price": 15.0
        }
       ]
      }
@@ -7186,7 +5473,7 @@
    }
   ],
   "sport": "soccer_spain_la_liga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "214a79b6e08dbe3f508844936158c038": {
@@ -7235,23 +5522,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:55Z",
-      "link": null,
       "outcomes": [
        {
         "name": "Barcelona",
-        "price": 1.12,
-        "link": null
-       },
-       {
-        "name": "Villarreal",
-        "price": 9.5,
-        "link": null
+        "price": 1.12
        },
        {
         "name": "Draw",
-        "price": 7.0,
-        "link": null
+        "price": 7.0
+       },
+       {
+        "name": "Villarreal",
+        "price": 9.5
        }
       ]
      }
@@ -7357,7 +5639,7 @@
    }
   ],
   "sport": "soccer_spain_la_liga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "9718f9ea901236855faf57f77a0bd5b3": {
@@ -7406,23 +5688,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:55Z",
-      "link": null,
       "outcomes": [
        {
         "name": "Real Racing Club de Santander",
-        "price": 2.9,
-        "link": null
-       },
-       {
-        "name": "Real Sociedad",
-        "price": 1.88,
-        "link": null
+        "price": 2.9
        },
        {
         "name": "Draw",
-        "price": 3.8,
-        "link": null
+        "price": 3.8
+       },
+       {
+        "name": "Real Sociedad",
+        "price": 1.88
        }
       ]
      }
@@ -7528,7 +5805,7 @@
    }
   ],
   "sport": "soccer_spain_la_liga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "893268e5503c4e58fbf137e4b5db7e93": {
@@ -7577,23 +5854,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:55Z",
-      "link": null,
       "outcomes": [
        {
         "name": "CA Osasuna",
-        "price": 1.72,
-        "link": null
-       },
-       {
-        "name": "Málaga",
-        "price": 3.9,
-        "link": null
+        "price": 1.72
        },
        {
         "name": "Draw",
-        "price": 3.3,
-        "link": null
+        "price": 3.3
+       },
+       {
+        "name": "Málaga",
+        "price": 3.9
        }
       ]
      }
@@ -7699,7 +5971,7 @@
    }
   ],
   "sport": "soccer_spain_la_liga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "7a62fe738bd20cfff6027c52fec05d51": {
@@ -7710,6 +5982,28 @@
   "home_team": "Getafe",
   "away_team": "Atlético Madrid",
   "bookmakers": [
+   {
+    "key": "unibet_fr",
+    "markets": [
+     {
+      "key": "h2h",
+      "outcomes": [
+       {
+        "name": "Getafe",
+        "price": 5.6
+       },
+       {
+        "name": "Draw",
+        "price": 3.7
+       },
+       {
+        "name": "Atlético Madrid",
+        "price": 1.44
+       }
+      ]
+     }
+    ]
+   },
    {
     "key": "winamax_fr",
     "title": "Winamax (FR)",
@@ -7840,7 +6134,7 @@
    }
   ],
   "sport": "soccer_spain_la_liga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "afae1c9d986e4ab2200dc9bd44b6b6c4": {
@@ -7889,23 +6183,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:55Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Elche CF",
-        "price": 2.95,
-        "link": null
-       },
-       {
         "name": "Levante",
-        "price": 2.0,
-        "link": null
+        "price": 2.0
        },
        {
         "name": "Draw",
-        "price": 3.3,
-        "link": null
+        "price": 3.3
+       },
+       {
+        "name": "Elche CF",
+        "price": 2.95
        }
       ]
      }
@@ -8011,7 +6300,7 @@
    }
   ],
   "sport": "soccer_spain_la_liga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "80c92a163a81b69fef76530221e2edd0": {
@@ -8030,23 +6319,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:55Z",
-      "link": null,
       "outcomes": [
        {
         "name": "Levante",
-        "price": 1.94,
-        "link": null
-       },
-       {
-        "name": "Real Racing Club de Santander",
-        "price": 2.95,
-        "link": null
+        "price": 1.94
        },
        {
         "name": "Draw",
-        "price": 3.5,
-        "link": null
+        "price": 3.5
+       },
+       {
+        "name": "Real Racing Club de Santander",
+        "price": 2.95
        }
       ]
      }
@@ -8133,7 +6417,7 @@
    }
   ],
   "sport": "soccer_spain_la_liga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "c81520b9a9794749cfdab57f89bdeb16": {
@@ -8152,23 +6436,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:55Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Rayo Vallecano",
-        "price": 5.1,
-        "link": null
-       },
-       {
         "name": "Real Betis",
-        "price": 1.34,
-        "link": null
+        "price": 1.43
        },
        {
         "name": "Draw",
-        "price": 4.2,
-        "link": null
+        "price": 4.2
+       },
+       {
+        "name": "Rayo Vallecano",
+        "price": 5.0
        }
       ]
      }
@@ -8255,7 +6534,7 @@
    }
   ],
   "sport": "soccer_spain_la_liga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "33d92dabbd2606dfe9d31058f7b20cc8": {
@@ -8274,23 +6553,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:55Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Athletic Bilbao",
-        "price": 1.57,
-        "link": null
-       },
-       {
         "name": "Málaga",
-        "price": 4.0,
-        "link": null
+        "price": 4.0
        },
        {
         "name": "Draw",
-        "price": 3.4,
-        "link": null
+        "price": 3.4
+       },
+       {
+        "name": "Athletic Bilbao",
+        "price": 1.68
        }
       ]
      }
@@ -8377,7 +6651,7 @@
    }
   ],
   "sport": "soccer_spain_la_liga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "40236ab976955345ebd1edb72abf6b22": {
@@ -8388,6 +6662,28 @@
   "home_team": "Elche CF",
   "away_team": "Atlético Madrid",
   "bookmakers": [
+   {
+    "key": "unibet_fr",
+    "markets": [
+     {
+      "key": "h2h",
+      "outcomes": [
+       {
+        "name": "Elche CF",
+        "price": 4.5
+       },
+       {
+        "name": "Draw",
+        "price": 3.9
+       },
+       {
+        "name": "Atlético Madrid",
+        "price": 1.43
+       }
+      ]
+     }
+    ]
+   },
    {
     "key": "winamax_fr",
     "title": "Winamax (FR)",
@@ -8469,7 +6765,7 @@
    }
   ],
   "sport": "soccer_spain_la_liga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "c99772cba1418e72f2eded26e4afeb59": {
@@ -8488,23 +6784,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:55Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Alavés",
-        "price": 12.0,
-        "link": null
-       },
-       {
         "name": "Real Madrid",
-        "price": 1.07,
-        "link": null
+        "price": 1.07
        },
        {
         "name": "Draw",
-        "price": 6.4,
-        "link": null
+        "price": 6.4
+       },
+       {
+        "name": "Alavés",
+        "price": 12.0
        }
       ]
      }
@@ -8591,7 +6882,7 @@
    }
   ],
   "sport": "soccer_spain_la_liga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "1ab9541320cecbe9f043565fd4a141e0": {
@@ -8610,23 +6901,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:55Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "CA Osasuna",
-        "price": 3.2,
-        "link": null
-       },
-       {
         "name": "Valencia",
-        "price": 1.84,
-        "link": null
+        "price": 1.84
        },
        {
         "name": "Draw",
-        "price": 3.1,
-        "link": null
+        "price": 3.1
+       },
+       {
+        "name": "CA Osasuna",
+        "price": 3.1
        }
       ]
      }
@@ -8713,7 +6999,7 @@
    }
   ],
   "sport": "soccer_spain_la_liga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "69fc06d019491be2aa1bf69b8f8041e3": {
@@ -8732,23 +7018,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:55Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Barcelona",
-        "price": 1.16,
-        "link": null
-       },
-       {
         "name": "Deportivo La Coruña",
-        "price": 7.2,
-        "link": null
+        "price": 7.6
        },
        {
         "name": "Draw",
-        "price": 5.6,
-        "link": null
+        "price": 5.8
+       },
+       {
+        "name": "Barcelona",
+        "price": 1.14
        }
       ]
      }
@@ -8835,7 +7116,7 @@
    }
   ],
   "sport": "soccer_spain_la_liga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "20c78c2ef75c4a6d7f4af81dd32e97cd": {
@@ -8854,23 +7135,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:55Z",
-      "link": null,
       "outcomes": [
        {
         "name": "Celta Vigo",
-        "price": 2.5,
-        "link": null
-       },
-       {
-        "name": "Villarreal",
-        "price": 2.15,
-        "link": null
+        "price": 2.5
        },
        {
         "name": "Draw",
-        "price": 3.2,
-        "link": null
+        "price": 3.2
+       },
+       {
+        "name": "Villarreal",
+        "price": 2.15
        }
       ]
      }
@@ -8957,7 +7233,7 @@
    }
   ],
   "sport": "soccer_spain_la_liga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "f892ea6d5eca105c36ca9468b12857f2": {
@@ -8976,23 +7252,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:55Z",
-      "link": null,
       "outcomes": [
        {
         "name": "Real Sociedad",
-        "price": 1.9,
-        "link": null
-       },
-       {
-        "name": "Sevilla",
-        "price": 2.85,
-        "link": null
+        "price": 1.9
        },
        {
         "name": "Draw",
-        "price": 3.1,
-        "link": null
+        "price": 3.1
+       },
+       {
+        "name": "Sevilla",
+        "price": 2.85
        }
       ]
      }
@@ -9079,7 +7350,7 @@
    }
   ],
   "sport": "soccer_spain_la_liga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "b648a7246af1d3a839b0fcd212849a7c": {
@@ -9098,23 +7369,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:55Z",
-      "link": null,
       "outcomes": [
        {
         "name": "Espanyol",
-        "price": 1.82,
-        "link": null
-       },
-       {
-        "name": "Getafe",
-        "price": 3.4,
-        "link": null
+        "price": 1.82
        },
        {
         "name": "Draw",
-        "price": 3.0,
-        "link": null
+        "price": 3.0
+       },
+       {
+        "name": "Getafe",
+        "price": 3.4
        }
       ]
      }
@@ -9201,349 +7467,7 @@
    }
   ],
   "sport": "soccer_spain_la_liga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
-  "full_at": "2026-11-21T06:31:04.381133+00:00"
- },
- "9e8d72c6c27c1667be7b88416a36ca80": {
-  "id": "9e8d72c6c27c1667be7b88416a36ca80",
-  "sport_key": "soccer_italy_serie_a",
-  "sport_title": "Serie A - Italy",
-  "commence_time": "2026-11-21T14:00:00Z",
-  "home_team": "Como",
-  "away_team": "Cagliari",
-  "bookmakers": [
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-21T06:30:54Z",
-    "link": "https://www.unibet.fr/paris-football/italie/serie-a/3395829/como-1907-vs-cagliari",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:54Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Cagliari",
-        "price": 8.4,
-        "link": null
-       },
-       {
-        "name": "Como",
-        "price": 1.19,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 5.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-21T06:31:15Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/71945410",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:31:15Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Cagliari",
-        "price": 8.25,
-        "link": null
-       },
-       {
-        "name": "Como",
-        "price": 1.2,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 5.75,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-21T06:30:25Z",
-    "link": "https://www.netbet.fr/evenement/12354875-come-cagliari",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:25Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Cagliari",
-        "price": 9.25,
-        "link": null
-       },
-       {
-        "name": "Como",
-        "price": 1.23,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 5.7,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:30:25Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 2.12,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.47,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-21T06:30:24Z",
-    "link": "https://www.pmu.fr/sport/#event/1027911532",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:24Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Cagliari",
-        "price": 9.0,
-        "link": null
-       },
-       {
-        "name": "Como",
-        "price": 1.24,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 5.1,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:30:24Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 2.18,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.5,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_italy_serie_a",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
-  "full_at": "2026-11-21T06:31:04.381133+00:00"
- },
- "bf921a2780e2a25201da8a3bfece84c4": {
-  "id": "bf921a2780e2a25201da8a3bfece84c4",
-  "sport_key": "soccer_italy_serie_a",
-  "sport_title": "Serie A - Italy",
-  "commence_time": "2026-11-21T14:00:00Z",
-  "home_team": "Lazio",
-  "away_team": "Lecce",
-  "bookmakers": [
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-21T06:30:54Z",
-    "link": "https://www.unibet.fr/paris-football/italie/serie-a/3395825/lazio-rome-vs-lecce",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:54Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Lazio",
-        "price": 1.32,
-        "link": null
-       },
-       {
-        "name": "Lecce",
-        "price": 5.8,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.7,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-21T06:31:15Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/71945414",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:31:15Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Lazio",
-        "price": 1.42,
-        "link": null
-       },
-       {
-        "name": "Lecce",
-        "price": 6.75,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.6,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-21T06:30:25Z",
-    "link": "https://www.netbet.fr/evenement/12354820-lazio-rome-lecce",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:25Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Lazio",
-        "price": 1.39,
-        "link": null
-       },
-       {
-        "name": "Lecce",
-        "price": 6.2,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.6,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:30:25Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.48,
-        "point": 2.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 2.07,
-        "point": 2.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-21T06:30:24Z",
-    "link": "https://www.pmu.fr/sport/#event/1027911534",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:24Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Lazio",
-        "price": 1.36,
-        "link": null
-       },
-       {
-        "name": "Lecce",
-        "price": 6.75,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.35,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:30:24Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.51,
-        "point": 2.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 2.16,
-        "point": 2.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_italy_serie_a",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "cb513fd9869c9aa6ce506bb499bcd48b": {
@@ -9562,23 +7486,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:54Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "AS Roma",
-        "price": 1.19,
-        "link": null
-       },
-       {
         "name": "Parma",
-        "price": 8.6,
-        "link": null
+        "price": 9.5
        },
        {
         "name": "Draw",
-        "price": 5.4,
-        "link": null
+        "price": 6.0
+       },
+       {
+        "name": "AS Roma",
+        "price": 1.15
        }
       ]
      }
@@ -9714,7 +7633,7 @@
    }
   ],
   "sport": "soccer_italy_serie_a",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "e59809eb38340e3bca323cef070dfd34": {
@@ -9733,23 +7652,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:54Z",
-      "link": null,
       "outcomes": [
        {
         "name": "Napoli",
-        "price": 1.41,
-        "link": null
-       },
-       {
-        "name": "Torino",
-        "price": 5.3,
-        "link": null
+        "price": 1.4
        },
        {
         "name": "Draw",
-        "price": 4.1,
-        "link": null
+        "price": 4.1
+       },
+       {
+        "name": "Torino",
+        "price": 5.5
        }
       ]
      }
@@ -9885,7 +7799,7 @@
    }
   ],
   "sport": "soccer_italy_serie_a",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "be2fcabc408be29ca01ce92ab266f8b7": {
@@ -9904,23 +7818,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:54Z",
-      "link": null,
       "outcomes": [
        {
         "name": "Juventus",
-        "price": 1.24,
-        "link": null
-       },
-       {
-        "name": "Venezia",
-        "price": 7.6,
-        "link": null
+        "price": 1.24
        },
        {
         "name": "Draw",
-        "price": 5.0,
-        "link": null
+        "price": 5.0
+       },
+       {
+        "name": "Venezia",
+        "price": 7.5
        }
       ]
      }
@@ -10056,7 +7965,7 @@
    }
   ],
   "sport": "soccer_italy_serie_a",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "5bc13c44b33981f3185400163388267e": {
@@ -10075,23 +7984,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:54Z",
-      "link": null,
       "outcomes": [
        {
         "name": "Bologna",
-        "price": 1.6,
-        "link": null
-       },
-       {
-        "name": "Udinese",
-        "price": 4.4,
-        "link": null
+        "price": 1.6
        },
        {
         "name": "Draw",
-        "price": 3.5,
-        "link": null
+        "price": 3.5
+       },
+       {
+        "name": "Udinese",
+        "price": 4.4
        }
       ]
      }
@@ -10227,7 +8131,7 @@
    }
   ],
   "sport": "soccer_italy_serie_a",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "76d4698a8417f32cb059f14a469939f3": {
@@ -10246,23 +8150,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:54Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Genoa",
-        "price": 2.35,
-        "link": null
-       },
-       {
         "name": "Sassuolo",
-        "price": 2.55,
-        "link": null
+        "price": 2.4
        },
        {
         "name": "Draw",
-        "price": 3.1,
-        "link": null
+        "price": 3.1
+       },
+       {
+        "name": "Genoa",
+        "price": 2.5
        }
       ]
      }
@@ -10398,7 +8297,7 @@
    }
   ],
   "sport": "soccer_italy_serie_a",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "5faf836ce6c0fd72af5d1fe258c63bc6": {
@@ -10417,23 +8316,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:54Z",
-      "link": null,
       "outcomes": [
        {
         "name": "AC Milan",
-        "price": 1.42,
-        "link": null
-       },
-       {
-        "name": "Frosinone",
-        "price": 4.7,
-        "link": null
+        "price": 1.42
        },
        {
         "name": "Draw",
-        "price": 4.4,
-        "link": null
+        "price": 4.5
+       },
+       {
+        "name": "Frosinone",
+        "price": 4.7
        }
       ]
      }
@@ -10569,7 +8463,7 @@
    }
   ],
   "sport": "soccer_italy_serie_a",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "e22f82b10fe71d230248b88fef87e58f": {
@@ -10588,23 +8482,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:54Z",
-      "link": null,
       "outcomes": [
        {
         "name": "Atalanta BC",
-        "price": 4.5,
-        "link": null
-       },
-       {
-        "name": "Inter Milan",
-        "price": 1.48,
-        "link": null
+        "price": 4.5
        },
        {
         "name": "Draw",
-        "price": 4.2,
-        "link": null
+        "price": 4.2
+       },
+       {
+        "name": "Inter Milan",
+        "price": 1.47
        }
       ]
      }
@@ -10740,7 +8629,7 @@
    }
   ],
   "sport": "soccer_italy_serie_a",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "99776445d5a5f4ed008f9a6d6a1495b7": {
@@ -10759,23 +8648,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:54Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Fiorentina",
-        "price": 1.8,
-        "link": null
-       },
-       {
         "name": "Monza",
-        "price": 3.4,
-        "link": null
+        "price": 3.4
        },
        {
         "name": "Draw",
-        "price": 3.5,
-        "link": null
+        "price": 3.5
+       },
+       {
+        "name": "Fiorentina",
+        "price": 1.8
        }
       ]
      }
@@ -10911,7 +8795,7 @@
    }
   ],
   "sport": "soccer_italy_serie_a",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "e9a663f13e7503c0ac20a54804338b60": {
@@ -10960,23 +8844,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:54Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Bologna",
-        "price": 1.9,
-        "link": null
-       },
-       {
         "name": "Venezia",
-        "price": 3.3,
-        "link": null
+        "price": 3.3
        },
        {
         "name": "Draw",
-        "price": 3.3,
-        "link": null
+        "price": 3.3
+       },
+       {
+        "name": "Bologna",
+        "price": 1.9
        }
       ]
      }
@@ -11033,7 +8912,7 @@
    }
   ],
   "sport": "soccer_italy_serie_a",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "af3432ca724da03d38f0ff4e62045e4c": {
@@ -11082,23 +8961,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:54Z",
-      "link": null,
       "outcomes": [
        {
         "name": "Frosinone",
-        "price": 1.33,
-        "link": null
-       },
-       {
-        "name": "Parma",
-        "price": 5.1,
-        "link": null
+        "price": 1.41
        },
        {
         "name": "Draw",
-        "price": 4.3,
-        "link": null
+        "price": 4.3
+       },
+       {
+        "name": "Parma",
+        "price": 5.1
        }
       ]
      }
@@ -11155,7 +9029,7 @@
    }
   ],
   "sport": "soccer_italy_serie_a",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "aec86b479e922f437ba228b9a9d74da1": {
@@ -11204,23 +9078,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:54Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Lazio",
-        "price": 1.8,
-        "link": null
-       },
-       {
         "name": "Torino",
-        "price": 3.2,
-        "link": null
+        "price": 3.2
        },
        {
         "name": "Draw",
-        "price": 3.2,
-        "link": null
+        "price": 3.2
+       },
+       {
+        "name": "Lazio",
+        "price": 1.8
        }
       ]
      }
@@ -11277,7 +9146,7 @@
    }
   ],
   "sport": "soccer_italy_serie_a",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "f128c19fa7af43e30dbe3c373e7bc27e": {
@@ -11326,23 +9195,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:54Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Genoa",
-        "price": 8.6,
-        "link": null
-       },
-       {
         "name": "Inter Milan",
-        "price": 1.15,
-        "link": null
+        "price": 1.15
        },
        {
         "name": "Draw",
-        "price": 5.2,
-        "link": null
+        "price": 5.2
+       },
+       {
+        "name": "Genoa",
+        "price": 8.6
        }
       ]
      }
@@ -11399,7 +9263,7 @@
    }
   ],
   "sport": "soccer_italy_serie_a",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "d3d47b94324eb7cde85bd93993437d1c": {
@@ -11448,23 +9312,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:54Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Fiorentina",
-        "price": 1.84,
-        "link": null
-       },
-       {
         "name": "Udinese",
-        "price": 3.0,
-        "link": null
+        "price": 3.0
        },
        {
         "name": "Draw",
-        "price": 3.3,
-        "link": null
+        "price": 3.3
+       },
+       {
+        "name": "Fiorentina",
+        "price": 1.84
        }
       ]
      }
@@ -11521,7 +9380,7 @@
    }
   ],
   "sport": "soccer_italy_serie_a",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "dc63586a1b1d938a461d71bf5b36d982": {
@@ -11570,23 +9429,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:54Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Napoli",
-        "price": 1.48,
-        "link": null
-       },
-       {
         "name": "Sassuolo",
-        "price": 4.2,
-        "link": null
+        "price": 4.2
        },
        {
         "name": "Draw",
-        "price": 3.8,
-        "link": null
+        "price": 3.8
+       },
+       {
+        "name": "Napoli",
+        "price": 1.48
        }
       ]
      }
@@ -11643,7 +9497,7 @@
    }
   ],
   "sport": "soccer_italy_serie_a",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "c979bd4559d2d81a8e2fe8f2d4aec376": {
@@ -11692,23 +9546,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:54Z",
-      "link": null,
       "outcomes": [
        {
         "name": "AS Roma",
-        "price": 1.13,
-        "link": null
-       },
-       {
-        "name": "Monza",
-        "price": 8.5,
-        "link": null
+        "price": 1.13
        },
        {
         "name": "Draw",
-        "price": 5.5,
-        "link": null
+        "price": 5.5
+       },
+       {
+        "name": "Monza",
+        "price": 8.5
        }
       ]
      }
@@ -11765,7 +9614,7 @@
    }
   ],
   "sport": "soccer_italy_serie_a",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "3876ad367184af2f8fc04a544fc894aa": {
@@ -11814,23 +9663,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:54Z",
-      "link": null,
       "outcomes": [
        {
         "name": "Como",
-        "price": 1.9,
-        "link": null
-       },
-       {
-        "name": "Juventus",
-        "price": 2.9,
-        "link": null
+        "price": 1.9
        },
        {
         "name": "Draw",
-        "price": 3.3,
-        "link": null
+        "price": 3.2
+       },
+       {
+        "name": "Juventus",
+        "price": 2.9
        }
       ]
      }
@@ -11887,7 +9731,7 @@
    }
   ],
   "sport": "soccer_italy_serie_a",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "f1d2a6064d1452074570bbc656d36a20": {
@@ -11936,23 +9780,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:54Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Atalanta BC",
-        "price": 1.7,
-        "link": null
-       },
-       {
         "name": "Lecce",
-        "price": 3.3,
-        "link": null
+        "price": 3.4
        },
        {
         "name": "Draw",
-        "price": 3.5,
-        "link": null
+        "price": 3.4
+       },
+       {
+        "name": "Atalanta BC",
+        "price": 1.69
        }
       ]
      }
@@ -12009,7 +9848,7 @@
    }
   ],
   "sport": "soccer_italy_serie_a",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "3d57da6bdb20b65145bc2479ee5f2ae7": {
@@ -12058,23 +9897,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:54Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "AC Milan",
-        "price": 1.52,
-        "link": null
-       },
-       {
         "name": "Cagliari",
-        "price": 4.2,
-        "link": null
+        "price": 4.3
        },
        {
         "name": "Draw",
-        "price": 3.5,
-        "link": null
+        "price": 3.5
+       },
+       {
+        "name": "AC Milan",
+        "price": 1.51
        }
       ]
      }
@@ -12131,1012 +9965,7 @@
    }
   ],
   "sport": "soccer_italy_serie_a",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
-  "full_at": "2026-11-21T06:31:04.381133+00:00"
- },
- "c24cf629b4eaf0ebc4ca2c5beb73747c": {
-  "id": "c24cf629b4eaf0ebc4ca2c5beb73747c",
-  "sport_key": "soccer_germany_bundesliga",
-  "sport_title": "Bundesliga - Germany",
-  "commence_time": "2026-11-21T14:30:00Z",
-  "home_team": "Bayer Leverkusen",
-  "away_team": "SC Paderborn",
-  "bookmakers": [
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-21T06:30:38Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/72513312",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:38Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Bayer Leverkusen",
-        "price": 1.2,
-        "link": null
-       },
-       {
-        "name": "SC Paderborn",
-        "price": 8.0,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 6.75,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-21T06:30:22Z",
-    "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387979/leverkusen-vs-paderborn",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:22Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Bayer Leverkusen",
-        "price": 1.18,
-        "link": null
-       },
-       {
-        "name": "SC Paderborn",
-        "price": 8.0,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 6.0,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-21T06:27:15Z",
-    "link": "https://www.betclic.fr/football-sfootball/allemagne-bundesliga-c5/bayer-leverkusen-sc-paderborn-07-m1268859954819072",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:27:15Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Bayer Leverkusen",
-        "price": 1.2,
-        "link": null
-       },
-       {
-        "name": "SC Paderborn",
-        "price": 8.75,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 6.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-21T06:31:13Z",
-    "link": "https://www.netbet.fr/evenement/12354801-bayer-leverkusen-paderborn",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:31:12Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Bayer Leverkusen",
-        "price": 1.2,
-        "link": null
-       },
-       {
-        "name": "SC Paderborn",
-        "price": 8.75,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 6.5,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:31:12Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.68,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.77,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-21T06:31:11Z",
-    "link": "https://www.pmu.fr/sport/#event/1028230556",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Bayer Leverkusen",
-        "price": 1.22,
-        "link": null
-       },
-       {
-        "name": "SC Paderborn",
-        "price": 8.5,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 5.75,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.73,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.83,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_germany_bundesliga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
-  "full_at": "2026-11-21T06:31:04.381133+00:00"
- },
- "577976c4b042018534e14db9ce579cf6": {
-  "id": "577976c4b042018534e14db9ce579cf6",
-  "sport_key": "soccer_germany_bundesliga",
-  "sport_title": "Bundesliga - Germany",
-  "commence_time": "2026-11-21T14:30:00Z",
-  "home_team": "Borussia Monchengladbach",
-  "away_team": "Borussia Dortmund",
-  "bookmakers": [
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-21T06:30:38Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/72513320",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:38Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Borussia Dortmund",
-        "price": 1.5,
-        "link": null
-       },
-       {
-        "name": "Borussia Monchengladbach",
-        "price": 4.75,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.4,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-21T06:30:22Z",
-    "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387982/m'gladbach-vs-dortmund",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:22Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Borussia Dortmund",
-        "price": 1.48,
-        "link": null
-       },
-       {
-        "name": "Borussia Monchengladbach",
-        "price": 4.6,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.0,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-21T06:27:15Z",
-    "link": "https://www.betclic.fr/football-sfootball/allemagne-bundesliga-c5/borussia-m'gladbach-borussia-dortmund-m1268860129931276",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:27:15Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Borussia Dortmund",
-        "price": 1.53,
-        "link": null
-       },
-       {
-        "name": "Borussia Monchengladbach",
-        "price": 4.7,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.3,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-21T06:31:13Z",
-    "link": "https://www.netbet.fr/evenement/12354787-borussia-monchengladbach-borussia-dortmund",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:31:12Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Borussia Dortmund",
-        "price": 1.53,
-        "link": null
-       },
-       {
-        "name": "Borussia Monchengladbach",
-        "price": 4.8,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.2,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:31:12Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 2.07,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.48,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-21T06:31:11Z",
-    "link": "https://www.pmu.fr/sport/#event/1028230560",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Borussia Dortmund",
-        "price": 1.51,
-        "link": null
-       },
-       {
-        "name": "Borussia Monchengladbach",
-        "price": 4.8,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.1,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 2.06,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.56,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_germany_bundesliga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
-  "full_at": "2026-11-21T06:31:04.381133+00:00"
- },
- "d0128b7d64e40ca3f1ae1b288b47117a": {
-  "id": "d0128b7d64e40ca3f1ae1b288b47117a",
-  "sport_key": "soccer_germany_bundesliga",
-  "sport_title": "Bundesliga - Germany",
-  "commence_time": "2026-11-21T14:30:00Z",
-  "home_team": "Eintracht Frankfurt",
-  "away_team": "TSG Hoffenheim",
-  "bookmakers": [
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-21T06:30:38Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/72513314",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:38Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Eintracht Frankfurt",
-        "price": 2.3,
-        "link": null
-       },
-       {
-        "name": "TSG Hoffenheim",
-        "price": 2.3,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.8,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-21T06:30:22Z",
-    "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387980/ein.francfort-vs-hoffenheim",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:22Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Eintracht Frankfurt",
-        "price": 2.2,
-        "link": null
-       },
-       {
-        "name": "TSG Hoffenheim",
-        "price": 2.4,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.8,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-21T06:27:15Z",
-    "link": "https://www.betclic.fr/football-sfootball/allemagne-bundesliga-c5/eintracht-francfort-hoffenheim-m1268869352157186",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:27:15Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Eintracht Frankfurt",
-        "price": 2.35,
-        "link": null
-       },
-       {
-        "name": "TSG Hoffenheim",
-        "price": 2.42,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.83,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-21T06:31:13Z",
-    "link": "https://www.netbet.fr/evenement/12355251-eintracht-francfort-hoffenheim",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:31:12Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Eintracht Frankfurt",
-        "price": 2.27,
-        "link": null
-       },
-       {
-        "name": "TSG Hoffenheim",
-        "price": 2.37,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.8,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:31:12Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.73,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.75,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-21T06:31:11Z",
-    "link": "https://www.pmu.fr/sport/#event/1028230555",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Eintracht Frankfurt",
-        "price": 2.2,
-        "link": null
-       },
-       {
-        "name": "TSG Hoffenheim",
-        "price": 2.5,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.75,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.71,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.85,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_germany_bundesliga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
-  "full_at": "2026-11-21T06:31:04.381133+00:00"
- },
- "c8bcd407a7b987234c72c62ec37246ef": {
-  "id": "c8bcd407a7b987234c72c62ec37246ef",
-  "sport_key": "soccer_germany_bundesliga",
-  "sport_title": "Bundesliga - Germany",
-  "commence_time": "2026-11-21T14:30:00Z",
-  "home_team": "Elversberg",
-  "away_team": "SC Freiburg",
-  "bookmakers": [
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-21T06:30:38Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/72513326",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:38Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Elversberg",
-        "price": 3.2,
-        "link": null
-       },
-       {
-        "name": "SC Freiburg",
-        "price": 1.9,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-21T06:30:22Z",
-    "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3395802/sv-elversberg-vs-fribourg",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:22Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Elversberg",
-        "price": 3.2,
-        "link": null
-       },
-       {
-        "name": "SC Freiburg",
-        "price": 1.87,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-21T06:27:15Z",
-    "link": "https://www.betclic.fr/football-sfootball/allemagne-bundesliga-c5/elversberg-fribourg-m1268860081700864",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:27:15Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Elversberg",
-        "price": 3.37,
-        "link": null
-       },
-       {
-        "name": "SC Freiburg",
-        "price": 1.88,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.7,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-21T06:31:13Z",
-    "link": "https://www.netbet.fr/evenement/12354788-sv-elversberg-fribourg",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:31:13Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Elversberg",
-        "price": 3.3,
-        "link": null
-       },
-       {
-        "name": "SC Freiburg",
-        "price": 1.85,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.55,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:31:13Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 2.17,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.43,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-21T06:31:11Z",
-    "link": "https://www.pmu.fr/sport/#event/1028230561",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Elversberg",
-        "price": 3.3,
-        "link": null
-       },
-       {
-        "name": "SC Freiburg",
-        "price": 1.88,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.55,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.47,
-        "point": 2.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 2.25,
-        "point": 2.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_germany_bundesliga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
-  "full_at": "2026-11-21T06:31:04.381133+00:00"
- },
- "ca93df81e976fbe345a6175bb24e3f19": {
-  "id": "ca93df81e976fbe345a6175bb24e3f19",
-  "sport_key": "soccer_germany_bundesliga",
-  "sport_title": "Bundesliga - Germany",
-  "commence_time": "2026-11-21T14:30:00Z",
-  "home_team": "Union Berlin",
-  "away_team": "RB Leipzig",
-  "bookmakers": [
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-21T06:30:38Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/72513318",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:38Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "RB Leipzig",
-        "price": 1.41,
-        "link": null
-       },
-       {
-        "name": "Union Berlin",
-        "price": 5.2,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-21T06:30:22Z",
-    "link": "https://www.unibet.fr/paris-football/allemagne/bundesliga-1/3387981/union-berlin-vs-rb-leipzig",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:30:22Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "RB Leipzig",
-        "price": 1.4,
-        "link": null
-       },
-       {
-        "name": "Union Berlin",
-        "price": 5.0,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.4,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-21T06:27:15Z",
-    "link": "https://www.betclic.fr/football-sfootball/allemagne-bundesliga-c5/union-berlin-rb-leipzig-m1268872294469632",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:27:15Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "RB Leipzig",
-        "price": 1.41,
-        "link": null
-       },
-       {
-        "name": "Union Berlin",
-        "price": 5.5,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.75,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-21T06:31:13Z",
-    "link": "https://www.netbet.fr/evenement/12354797-union-berlin-rb-leipzig",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:31:13Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "RB Leipzig",
-        "price": 1.38,
-        "link": null
-       },
-       {
-        "name": "Union Berlin",
-        "price": 5.5,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.6,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:31:13Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.93,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.58,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-21T06:31:11Z",
-    "link": "https://www.pmu.fr/sport/#event/1028230557",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "RB Leipzig",
-        "price": 1.43,
-        "link": null
-       },
-       {
-        "name": "Union Berlin",
-        "price": 5.3,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.3,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-21T06:31:11Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 2.0,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.61,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_germany_bundesliga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "67846fc0359aeff2d0b6f3f8a2a674f4": {
@@ -13185,23 +10014,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:22Z",
-      "link": null,
       "outcomes": [
        {
         "name": "FC Schalke 04",
-        "price": 3.6,
-        "link": null
-       },
-       {
-        "name": "VfB Stuttgart",
-        "price": 1.7,
-        "link": null
+        "price": 3.6
        },
        {
         "name": "Draw",
-        "price": 3.7,
-        "link": null
+        "price": 3.7
+       },
+       {
+        "name": "VfB Stuttgart",
+        "price": 1.7
        }
       ]
      }
@@ -13337,7 +10161,7 @@
    }
   ],
   "sport": "soccer_germany_bundesliga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "4c2262eccc903b9b1792325d09451c0a": {
@@ -13386,23 +10210,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:22Z",
-      "link": null,
       "outcomes": [
        {
         "name": "Augsburg",
-        "price": 2.45,
-        "link": null
-       },
-       {
-        "name": "FSV Mainz 05",
-        "price": 2.2,
-        "link": null
+        "price": 2.45
        },
        {
         "name": "Draw",
-        "price": 3.6,
-        "link": null
+        "price": 3.6
+       },
+       {
+        "name": "FSV Mainz 05",
+        "price": 2.2
        }
       ]
      }
@@ -13538,7 +10357,7 @@
    }
   ],
   "sport": "soccer_germany_bundesliga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "9a214142c9b31ad8233dccad53f75d6d": {
@@ -13587,23 +10406,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:22Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Hamburger SV",
-        "price": 4.2,
-        "link": null
-       },
-       {
         "name": "Werder Bremen",
-        "price": 1.55,
-        "link": null
+        "price": 1.52
        },
        {
         "name": "Draw",
-        "price": 3.9,
-        "link": null
+        "price": 3.9
+       },
+       {
+        "name": "Hamburger SV",
+        "price": 4.4
        }
       ]
      }
@@ -13739,7 +10553,7 @@
    }
   ],
   "sport": "soccer_germany_bundesliga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "698f4a7967ead89e10205a68ceb4bda4": {
@@ -13788,23 +10602,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:22Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Borussia Monchengladbach",
-        "price": 3.7,
-        "link": null
-       },
-       {
         "name": "Werder Bremen",
-        "price": 1.66,
-        "link": null
+        "price": 1.65
        },
        {
         "name": "Draw",
-        "price": 3.8,
-        "link": null
+        "price": 3.8
+       },
+       {
+        "name": "Borussia Monchengladbach",
+        "price": 3.7
        }
       ]
      }
@@ -13891,7 +10700,7 @@
    }
   ],
   "sport": "soccer_germany_bundesliga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "2c30e2ebaf6c30aaa4e3fb56cffa6a29": {
@@ -13940,23 +10749,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:22Z",
-      "link": null,
       "outcomes": [
        {
         "name": "1. FC Köln",
-        "price": 1.72,
-        "link": null
-       },
-       {
-        "name": "Elversberg",
-        "price": 3.2,
-        "link": null
+        "price": 1.85
        },
        {
         "name": "Draw",
-        "price": 3.5,
-        "link": null
+        "price": 3.5
+       },
+       {
+        "name": "Elversberg",
+        "price": 3.1
        }
       ]
      }
@@ -14043,7 +10847,7 @@
    }
   ],
   "sport": "soccer_germany_bundesliga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "3b025a029f51fbeb9580a178d0612f50": {
@@ -14092,23 +10896,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:22Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Bayern Munich",
-        "price": 1.15,
-        "link": null
-       },
-       {
         "name": "Hamburger SV",
-        "price": 7.1,
-        "link": null
+        "price": 8.0
        },
        {
         "name": "Draw",
-        "price": 6.0,
-        "link": null
+        "price": 6.2
+       },
+       {
+        "name": "Bayern Munich",
+        "price": 1.17
        }
       ]
      }
@@ -14195,7 +10994,7 @@
    }
   ],
   "sport": "soccer_germany_bundesliga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "f84a9da7eedd0ca11a28a1a7a8edddc7": {
@@ -14244,23 +11043,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:22Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "FC Schalke 04",
-        "price": 2.7,
-        "link": null
-       },
-       {
         "name": "SC Paderborn",
-        "price": 2.0,
-        "link": null
+        "price": 2.2
        },
        {
         "name": "Draw",
-        "price": 3.2,
-        "link": null
+        "price": 3.1
+       },
+       {
+        "name": "FC Schalke 04",
+        "price": 2.7
        }
       ]
      }
@@ -14347,7 +11141,7 @@
    }
   ],
   "sport": "soccer_germany_bundesliga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "365e1a00908ab1cd5a51a53ede2b86b2": {
@@ -14396,23 +11190,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:22Z",
-      "link": null,
       "outcomes": [
        {
         "name": "FSV Mainz 05",
-        "price": 1.34,
-        "link": null
-       },
-       {
-        "name": "Union Berlin",
-        "price": 5.1,
-        "link": null
+        "price": 1.41
        },
        {
         "name": "Draw",
-        "price": 4.2,
-        "link": null
+        "price": 4.2
+       },
+       {
+        "name": "Union Berlin",
+        "price": 5.1
        }
       ]
      }
@@ -14499,7 +11288,7 @@
    }
   ],
   "sport": "soccer_germany_bundesliga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "5d838190a8f5932d7fcfbcc26bacdd9c": {
@@ -14548,23 +11337,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:22Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Eintracht Frankfurt",
-        "price": 3.7,
-        "link": null
-       },
-       {
         "name": "VfB Stuttgart",
-        "price": 1.5,
-        "link": null
+        "price": 1.5
        },
        {
         "name": "Draw",
-        "price": 4.1,
-        "link": null
+        "price": 4.1
+       },
+       {
+        "name": "Eintracht Frankfurt",
+        "price": 3.7
        }
       ]
      }
@@ -14651,7 +11435,7 @@
    }
   ],
   "sport": "soccer_germany_bundesliga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "2aa9aa95157eb36fed45135c995cdd80": {
@@ -14700,23 +11484,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:22Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "RB Leipzig",
-        "price": 2.15,
-        "link": null
-       },
-       {
         "name": "SC Freiburg",
-        "price": 2.25,
-        "link": null
+        "price": 2.25
        },
        {
         "name": "Draw",
-        "price": 3.7,
-        "link": null
+        "price": 3.7
+       },
+       {
+        "name": "RB Leipzig",
+        "price": 2.15
        }
       ]
      }
@@ -14803,7 +11582,7 @@
    }
   ],
   "sport": "soccer_germany_bundesliga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "98dc79e39433bb4c59bf9753e35a5cdf": {
@@ -14852,23 +11631,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:22Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Augsburg",
-        "price": 3.7,
-        "link": null
-       },
-       {
         "name": "TSG Hoffenheim",
-        "price": 1.5,
-        "link": null
+        "price": 1.5
        },
        {
         "name": "Draw",
-        "price": 4.1,
-        "link": null
+        "price": 4.1
+       },
+       {
+        "name": "Augsburg",
+        "price": 3.8
        }
       ]
      }
@@ -14955,7 +11729,7 @@
    }
   ],
   "sport": "soccer_germany_bundesliga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  },
  "98415e21c147d701bd81e70b1af0f3a7": {
@@ -15004,23 +11778,18 @@
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-21T06:30:22Z",
-      "link": null,
       "outcomes": [
        {
-        "name": "Bayer Leverkusen",
-        "price": 2.85,
-        "link": null
-       },
-       {
         "name": "Borussia Dortmund",
-        "price": 1.8,
-        "link": null
+        "price": 1.8
        },
        {
         "name": "Draw",
-        "price": 3.6,
-        "link": null
+        "price": 3.6
+       },
+       {
+        "name": "Bayer Leverkusen",
+        "price": 2.85
        }
       ]
      }
@@ -15107,7 +11876,7 @@
    }
   ],
   "sport": "soccer_germany_bundesliga",
-  "fetched_at": "2026-11-21T06:31:04.381133+00:00",
+  "fetched_at": "2026-11-21T15:31:09.003321+00:00",
   "full_at": "2026-11-21T06:31:04.381133+00:00"
  }
 }

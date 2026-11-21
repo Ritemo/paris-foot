@@ -679,7 +679,9 @@
      "odds": 1.79,
      "src": "pmu",
      "p": 0.5016,
-     "ev": -0.1021
+     "ev": -0.1021,
+     "score": "2-1",
+     "won": true
     },
     {
      "match_id": "67846fc0359aeff2d0b6f3f8a2a674f4",
@@ -773,7 +775,9 @@
      "odds": 1.79,
      "src": "pmu",
      "p": 0.5015,
-     "ev": -0.1023
+     "ev": -0.1023,
+     "score": "2-1",
+     "won": true
     },
     {
      "match_id": "67846fc0359aeff2d0b6f3f8a2a674f4",
@@ -8599,5 +8603,5 @@
   "bilan_mise_suggeree": -33.29,
   "mise_suggeree_totale": 147
  },
- "updated": "2026-11-21T21:45:56.240061+00:00"
+ "updated": "2026-11-21T22:15:46.863003+00:00"
 }

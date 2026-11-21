@@ -549,7 +549,9 @@
      "odds": 1.55,
      "src": "pmu",
      "p": 0.5805,
-     "ev": -0.1002
+     "ev": -0.1002,
+     "score": "0-0",
+     "won": true
     },
     {
      "match_id": "9e8d72c6c27c1667be7b88416a36ca80",
@@ -577,8 +579,9 @@
    "cost": 0.1957,
    "stars": 2,
    "stake": 2,
-   "status": "en attente",
-   "proposed_at": "2026-11-21T06:31:04.381133+00:00"
+   "status": "gagne",
+   "proposed_at": "2026-11-21T06:31:04.381133+00:00",
+   "settled_at": "2026-11-21T19:31:09.653055+00:00"
   },
   {
    "id": "2026-11-21|4d6dd3defbbe20fa24b719f9fcdbf280:+2.5|577976c4b042018534e14db9ce579cf6:-3.5",
@@ -691,7 +694,9 @@
      "odds": 1.55,
      "src": "pmu",
      "p": 0.5781,
-     "ev": -0.1039
+     "ev": -0.1039,
+     "score": "0-0",
+     "won": true
     },
     {
      "match_id": "d2113ca19873218496f8b2fe6c7e7c41",
@@ -781,7 +786,9 @@
      "odds": 1.55,
      "src": "pmu",
      "p": 0.5781,
-     "ev": -0.1039
+     "ev": -0.1039,
+     "score": "0-0",
+     "won": true
     },
     {
      "match_id": "c24cf629b4eaf0ebc4ca2c5beb73747c",
@@ -873,7 +880,9 @@
      "odds": 1.55,
      "src": "pmu",
      "p": 0.5805,
-     "ev": -0.1002
+     "ev": -0.1002,
+     "score": "0-0",
+     "won": true
     },
     {
      "match_id": "9e8d72c6c27c1667be7b88416a36ca80",
@@ -8556,13 +8565,13 @@
   }
  ],
  "bilan": {
-  "n": 58,
-  "gagnes": 19,
+  "n": 59,
+  "gagnes": 20,
   "x2": {
-   "n": 47,
-   "gagnes": 17,
-   "reussite_annoncee": 0.354,
-   "bilan": -21.79
+   "n": 48,
+   "gagnes": 18,
+   "reussite_annoncee": 0.353,
+   "bilan": -19.13
   },
   "x3": {
    "n": 11,
@@ -8576,12 +8585,12 @@
    "reussite_annoncee": 0.035,
    "bilan": -12
   },
-  "reussite_reelle": 0.328,
+  "reussite_reelle": 0.339,
   "reussite_annoncee": 0.343,
-  "bilan_2eur": -23.7,
-  "mise_2eur": 116,
-  "bilan_mise_suggeree": -33.95,
-  "mise_suggeree_totale": 143
+  "bilan_2eur": -21.04,
+  "mise_2eur": 118,
+  "bilan_mise_suggeree": -31.29,
+  "mise_suggeree_totale": 145
  },
- "updated": "2026-11-21T18:30:59.684653+00:00"
+ "updated": "2026-11-21T19:31:09.653055+00:00"
 }

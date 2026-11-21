@@ -494,7 +494,9 @@
      "odds": 1.34,
      "src": "unibet",
      "p": 0.6697,
-     "ev": -0.1026
+     "ev": -0.1026,
+     "score": "2-3",
+     "won": true
     },
     {
      "match_id": "ca93df81e976fbe345a6175bb24e3f19",
@@ -8581,5 +8583,5 @@
   "bilan_mise_suggeree": -33.95,
   "mise_suggeree_totale": 143
  },
- "updated": "2026-11-21T16:31:03.181399+00:00"
+ "updated": "2026-11-21T18:30:59.684653+00:00"
 }

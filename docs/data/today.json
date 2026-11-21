@@ -78,7 +78,9 @@
      "odds": 1.34,
      "src": "unibet",
      "p": 0.6697,
-     "ev": -0.1026
+     "ev": -0.1026,
+     "score": "2-3",
+     "won": true
     },
     {
      "match_id": "ca93df81e976fbe345a6175bb24e3f19",

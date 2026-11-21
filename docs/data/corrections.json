@@ -76,6 +76,27 @@
    "key": "foot|total|netbet",
    "est": 1.77,
    "real": 1.75
+  },
+  {
+   "id": "dHsXjK3Ww3nt",
+   "t": 1795206553,
+   "key": "foot|total|pmu",
+   "est": 2.23,
+   "real": 2.1
+  },
+  {
+   "id": "tpMjTdAbTRRs",
+   "t": 1795206585,
+   "key": "foot|total|pmu",
+   "est": 2.16,
+   "real": 2.0
+  },
+  {
+   "id": "bgHkGOsnodbJ",
+   "t": 1795206617,
+   "key": "foot|total|pmu",
+   "est": 1.61,
+   "real": 1.62
   }
  ],
  "adj": {
@@ -85,7 +106,7 @@
   "basket|1n2|estimee": 1,
   "basket|total|estimee": 5,
   "basket|hcpts|estimee": 1,
-  "foot|total|pmu": 1,
+  "foot|total|pmu": 4,
   "foot|hcp|estimee": 1,
   "foot|total|estimee": 1,
   "foot|total|netbet": 1

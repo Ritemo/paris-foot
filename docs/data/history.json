@@ -226,7 +226,9 @@
      "odds": 1.6,
      "src": "pmu",
      "p": 0.5581,
-     "ev": -0.107
+     "ev": -0.107,
+     "score": "3-1",
+     "won": false
     },
     {
      "match_id": "98fae24771271c96d5dd364e535405d2",
@@ -252,9 +254,10 @@
    "cost": 0.204,
    "stars": 3,
    "stake": 3,
-   "status": "en attente",
+   "status": "perdu",
    "proposed_at": "2026-11-21T06:31:04.381133+00:00",
-   "replaced": true
+   "replaced": true,
+   "settled_at": "2026-11-22T16:31:07.772574+00:00"
   },
   {
    "id": "2026-11-22|9a214142c9b31ad8233dccad53f75d6d:-3.5|9e5d4a91e379ddffa179b02bf9e09530:-3.5",
@@ -593,7 +596,9 @@
      "odds": 2.02,
      "src": "pmu",
      "p": 0.4419,
-     "ev": -0.1074
+     "ev": -0.1074,
+     "score": "3-1",
+     "won": true
     }
    ],
    "odds": 16.24,
@@ -626,7 +631,9 @@
      "odds": 2.5,
      "src": "unibet",
      "p": 0.3619,
-     "ev": -0.0953
+     "ev": -0.0953,
+     "score": "3-1",
+     "won": true
     },
     {
      "match_id": "4c08b213ed416e8f41e038f42a42b962",
@@ -9012,5 +9019,5 @@
   "bilan_mise_suggeree": -32.41,
   "mise_suggeree_totale": 152
  },
- "updated": "2026-11-22T16:01:24.636550+00:00"
+ "updated": "2026-11-22T16:31:07.772574+00:00"
 }

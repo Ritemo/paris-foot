@@ -70,7 +70,7 @@ document.addEventListener("click", async (e) => {
   if (!(await checkOdds(c))) return;
   const v = await ask("Combien tu mises ?", `Ton combiné à ${fmt(combo(c).odds)}, ${pct(c.p)} de chance. ${pocketNote()}`, c.stake, { steps: [1, 2, 3, 4, 5] });
   if (!v || isNaN(v) || v <= 0) return;
-  if (overPocket(v) && !confirm("Avec cette mise, l'argent sorti de ta poche dépasserait ta limite. La garder quand même ?")) return;
+  if (overPocket(v) && !confirm("Cette mise est grosse pour ta bankroll (plus de 10 %) ou te ferait perdre tout ton apport. La garder quand même ?")) return;
   { const w = stakeWarning(v); if (w && !confirm(w + "\n\nGarder cette mise ?")) return; }
   const all = bets();
   all[c.id] = { mise: v, odds: +combo(c).odds.toFixed(4), date: isoDay(new Date()), ts: Date.now(), snap: c };

@@ -711,41 +711,50 @@ function renderHeader() {
   document.getElementById("budget-strip").innerHTML = (br ? `<div class="line bank-line"><span>Bankroll</span><span><b data-count="${br.value.toFixed(2)}" data-count-key="bankhead">${fmt(br.value)} €</b>${br.engaged ? ` + ${fmt(br.engaged)} € en jeu` : ""}</span></div>` : "") + playGauge();
 }
 
-/* Jauge de jeu : est-ce que je joue avec mes gains ou avec l'argent de ma poche ?
-   réserve = gains nets des paris terminés - mises en jeu. Positive : je rejoue mes gains. Négative : ça sort de ma poche. */
+/* Jauge de jeu, deux questions :
+   1. est-ce que je rejoue mes gains, ou est-ce que je mange mon apport (l'argent mis au départ, 30 €) ?
+   2. est-ce que je flambe (mises trop grosses par rapport à ma bankroll, trop d'argent en jeu, trop de tickets) ? */
+const SEV = ["ok", "attention", "limite", "stop"];
 function playState() {
-  let net = 0, engaged = 0, n = 0;
-  for (const [id, b] of Object.entries(bets())) {
-    const c = findCombo(id);
-    if (!c) continue;
-    if (c.status === "en attente") engaged += b.mise;
-    else { n++; net += c.status === "gagne" ? b.mise * (b.odds - 1) : -b.mise; }
-  }
-  const limit = Math.max(1, settings().budget || 20);
-  const reserve = net - engaged;
-  const level = reserve >= 0 ? "ok" : -reserve <= limit / 2 ? "attention" : -reserve <= limit ? "limite" : "stop";
-  return { net, engaged, reserve, limit, level, n };
+  const br = bankroll();
+  const apport = br ? Math.max(1, br.moves) : 30;
+  const result = br ? br.result : 0, engaged = br ? br.engaged : 0;
+  const total = Math.max(1, apport + result);   // bankroll, mises en cours comprises
+  const reserve = result - engaged;             // gains nets moins ce qui est en jeu
+  const eaten = Math.max(0, -reserve) / apport;
+  const money = reserve >= 0 ? 0 : eaten <= 1 / 3 ? 1 : eaten <= 2 / 3 ? 2 : 3;
+  const since = isoDay(new Date(Date.now() - 7 * 864e5));
+  const week = Object.values(bets()).filter((b) => (b.date || "") >= since);
+  const avgStake = week.length ? week.reduce((x, b) => x + b.mise, 0) / week.length : 0;
+  const share = avgStake / total, inPlay = engaged / total, perDay = week.length / 7;
+  const pace = share <= 0.06 && inPlay <= 0.15 && perDay <= 2 ? 0 : share <= 0.1 && inPlay <= 0.25 && perDay <= 4 ? 1 : 2;
+  return { apport, result, engaged, reserve, eaten, total, money, pace, share, inPlay, perDay, n: week.length,
+    level: SEV[Math.max(money, pace)], started: !!br };
 }
 function pocketNote() {
   const s = playState();
-  return s.reserve >= 0 ? `Tu joues avec tes gains : ${fmt(s.reserve)} € d'avance.` : `${fmt(-s.reserve)} € déjà sortis de ta poche, sur ta limite de ${fmt(s.limit, 0)} €.`;
+  return s.reserve >= 0 ? `Tu joues avec tes gains : ${fmt(s.reserve)} € d'avance.` : `Tu entames ton apport : ${fmt(-s.reserve)} € sur ${fmt(s.apport, 0)} €.`;
 }
-function overPocket(v) { const s = playState(); return s.reserve - v < -s.limit; }
+function overPocket(v) {
+  const s = playState();
+  return v > 0.1 * s.total || s.reserve - v < -s.apport;
+}
 function playGauge() {
   const s = playState();
-  const pos = 50 + 50 * Math.max(-1, Math.min(1, s.reserve / s.limit));
-  const text = {
-    ok: s.engaged ? `Tu joues avec tes gains : ${fmt(s.net)} € gagnés, ${fmt(s.engaged)} € en jeu.` : `Tu joues avec tes gains : ${fmt(s.net)} € d'avance.`,
-    attention: `${fmt(-s.reserve)} € sortis de ta poche. Ça reste raisonnable.`,
-    limite: `${fmt(-s.reserve)} € sortis de ta poche, proche de ta limite de ${fmt(s.limit, 0)} €. Lève le pied.`,
-    stop: `${fmt(-s.reserve)} € sortis de ta poche, au-delà de ta limite de ${fmt(s.limit, 0)} €. Mieux vaut faire une pause.`,
-  }[s.level];
-  if (!s.n && !s.engaged) return `<div class="play ok"><div class="line"><span>Jauge de jeu</span><b>Prête</b></div><div class="play-track"><i class="play-zero"></i><i class="play-dot" style="left:50%"></i></div><p>Elle montrera si tu joues avec tes gains ou avec l'argent de ta poche.</p></div>`;
-  const title = { ok: "Avec tes gains", attention: "Raisonnable", limite: "Attention", stop: "Pause conseillée" }[s.level];
+  if (!s.started) return `<div class="play ok"><div class="line"><span>Jauge de jeu</span><b>Prête</b></div><div class="play-track"><i class="play-zero"></i><i class="play-dot" style="left:50%"></i></div><p>Elle montrera si tu rejoues tes gains ou ton apport, et si tu restes raisonnable.</p></div>`;
+  const pos = 50 + 50 * Math.max(-1, Math.min(1, s.reserve / s.apport));
+  const money = s.reserve >= 0 ? `Tu rejoues tes gains : ${fmt(s.result)} € gagnés${s.engaged ? `, ${fmt(s.engaged)} € en jeu` : ""}.`
+    : `Tu entames ton apport : ${fmt(-s.reserve)} € sur ${fmt(s.apport, 0)} €${s.engaged ? ` (dont ${fmt(s.engaged)} € en jeu)` : ""}.`;
+  const why = [];
+  if (s.share > 0.06) why.push(`mise moyenne ${pct(s.share)} de ta bankroll`);
+  if (s.inPlay > 0.15) why.push(`${pct(s.inPlay)} de ta bankroll en jeu`);
+  if (s.perDay > 2) why.push(`${fmt(s.perDay, 1)} tickets par jour`);
+  const pace = ["Rythme calme", "Rythme soutenu", "Tu flambes"][s.pace] + (why.length ? ` : ${why.join(", ")}.` : ` : ${s.n} ticket${s.n > 1 ? "s" : ""} en 7 jours, mises raisonnables.`);
+  const title = { ok: "Raisonnable", attention: "Attention", limite: "Lève le pied", stop: "Pause conseillée" }[s.level];
   return `<div class="play ${s.level}"><div class="line"><span>Jauge de jeu</span><b>${title}</b></div>
     <div class="play-track"><i class="play-zero"></i><i class="play-dot" style="left:${pos}%"></i></div>
-    <div class="play-ends"><span>ta poche (−${fmt(s.limit, 0)} €)</span><span>0</span><span>tes gains</span></div>
-    <p>${text}</p></div>`;
+    <div class="play-ends"><span>apport (${fmt(s.apport, 0)} €)</span><span>0</span><span>gains</span></div>
+    <p>${money}</p><p class="pace p${s.pace}">${pace}</p></div>`;
 }
 /* --------------------------------------------------------------- tickets joués en cours */
 function renderEncours() {
@@ -959,7 +968,7 @@ document.addEventListener("click", async (e) => {
       const v = await ask("Combien tu mises ?", c.kind === "folie" ? `Pour le fun : 1 € suffit, ${fmt(combo(c).odds)} fois la mise si ça passe. ${pocketNote()}`
         : `${c.stake} € conseillés. ${pocketNote()}`, c.stake, { steps: c.kind === "folie" ? [1, 2] : [1, 2, 3, 4, 5] });
       if (!v || isNaN(v) || v <= 0) return;
-      if (overPocket(v) && !confirm("Avec cette mise, l'argent sorti de ta poche dépasserait ta limite. La garder quand même ?")) return;
+      if (overPocket(v) && !confirm("Cette mise est grosse pour ta bankroll (plus de 10 %) ou te ferait perdre tout ton apport. La garder quand même ?")) return;
       { const w = stakeWarning(v); if (w && !confirm(w + "\n\nGarder cette mise ?")) return; }
       all[c.id] = { mise: v, odds: +combo(c).odds.toFixed(4), date: isoDay(new Date()), ts: Date.now(), snap: c };
       freshStamp = c.id;

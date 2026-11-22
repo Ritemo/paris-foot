@@ -33,7 +33,7 @@ Comme pour l'appli hand : coller l'adresse de l'appli sur pwabuilder.com, puis *
 - Les combinés du jour J restent provisoires la veille, puis sont **figés au premier passage du jour J** pour que le bilan soit honnête.
 - Résultats : football-data.co.uk en priorité, sinon l'API (2 crédits) si assez de crédits restent.
 - Tes paris joués, tes cotes corrigées et ton budget sont enregistrés sur ton téléphone.
-- **Jauge de jeu** (en haut de l'appli) : à droite, tu rejoues tes gains (gains nets de tes paris terminés, moins tes mises en cours) ; à gauche, de l'argent sort de ta poche. Vert tant que tu joues avec tes gains, orange jusqu'à la moitié de ta limite (réglable dans Réglages), puis rouge, et une pause est conseillée au-delà de la limite. Les messages de mise reprennent le même calcul.
+- **Jauge de jeu** (en haut de l'appli) : elle répond à deux questions. 1) Est-ce que tu rejoues tes gains (à droite, vert) ou est-ce que tu entames ton apport de départ de 30 € (à gauche : orange jusqu'au tiers, puis rouge) ? Le calcul : gains nets des paris terminés moins les mises en cours. 2) Est-ce que tu flambes ? Sur 7 jours : mise moyenne au-delà de 6 % de la bankroll, plus de 15 % de la bankroll en jeu ou plus de 2 tickets par jour donnent un rythme soutenu ; au-delà de 10 %, 25 % ou 4 tickets par jour, « tu flambes ». Le titre prend le pire des deux. À la mise, l'appli prévient si le ticket dépasse 10 % de la bankroll ou ferait perdre tout l'apport.
 
 ### NBA et tennis
 

@@ -623,3 +623,4 @@ body { overscroll-behavior-y: contain; }
 .play-ends { display: grid; grid-template-columns: 1fr auto 1fr; font-size: 11px; opacity: .7; }
 .play p { margin: 6px 0 0; font-size: 13px; opacity: .9; }
 .play-ends span:last-child { text-align: right; }
+.play .pace { margin-top: 2px; } .play .pace.p1 { color: var(--jaune); } .play .pace.p2 { color: #ff8a8a; }

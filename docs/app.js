@@ -707,11 +707,45 @@ function renderHeader() {
   document.getElementById("maj").textContent = g
     ? `Cotes du ${new Date(g).toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", timeZone: "Europe/Paris" })} à ${hour(g)}, ${today.credits_remaining ?? "?"} crédits API`
     : "En attente du premier passage du robot";
-  const s = settings(), spent = monthSpent();
   const br = bankroll();
-  document.getElementById("budget-strip").innerHTML = (br ? `<div class="line bank-line"><span>Bankroll</span><span><b data-count="${br.value.toFixed(2)}" data-count-key="bankhead">${fmt(br.value)} €</b>${br.engaged ? ` + ${fmt(br.engaged)} € en jeu` : ""}</span></div>` : "") +
-    `<div class="line"><span>Budget du mois</span><span><b>${fmt(spent, 0)} €</b> sur ${fmt(s.budget, 0)} €</span></div>
-    <div class="gauge ${spent > s.budget ? "over" : ""}"><i style="width:${Math.min(100, (100 * spent) / Math.max(s.budget, 1))}%"></i></div>`;
+  document.getElementById("budget-strip").innerHTML = (br ? `<div class="line bank-line"><span>Bankroll</span><span><b data-count="${br.value.toFixed(2)}" data-count-key="bankhead">${fmt(br.value)} €</b>${br.engaged ? ` + ${fmt(br.engaged)} € en jeu` : ""}</span></div>` : "") + playGauge();
+}
+
+/* Jauge de jeu : est-ce que je joue avec mes gains ou avec l'argent de ma poche ?
+   réserve = gains nets des paris terminés - mises en jeu. Positive : je rejoue mes gains. Négative : ça sort de ma poche. */
+function playState() {
+  let net = 0, engaged = 0, n = 0;
+  for (const [id, b] of Object.entries(bets())) {
+    const c = findCombo(id);
+    if (!c) continue;
+    if (c.status === "en attente") engaged += b.mise;
+    else { n++; net += c.status === "gagne" ? b.mise * (b.odds - 1) : -b.mise; }
+  }
+  const limit = Math.max(1, settings().budget || 20);
+  const reserve = net - engaged;
+  const level = reserve >= 0 ? "ok" : -reserve <= limit / 2 ? "attention" : -reserve <= limit ? "limite" : "stop";
+  return { net, engaged, reserve, limit, level, n };
+}
+function pocketNote() {
+  const s = playState();
+  return s.reserve >= 0 ? `Tu joues avec tes gains : ${fmt(s.reserve)} € d'avance.` : `${fmt(-s.reserve)} € déjà sortis de ta poche, sur ta limite de ${fmt(s.limit, 0)} €.`;
+}
+function overPocket(v) { const s = playState(); return s.reserve - v < -s.limit; }
+function playGauge() {
+  const s = playState();
+  const pos = 50 + 50 * Math.max(-1, Math.min(1, s.reserve / s.limit));
+  const text = {
+    ok: s.engaged ? `Tu joues avec tes gains : ${fmt(s.net)} € gagnés, ${fmt(s.engaged)} € en jeu.` : `Tu joues avec tes gains : ${fmt(s.net)} € d'avance.`,
+    attention: `${fmt(-s.reserve)} € sortis de ta poche. Ça reste raisonnable.`,
+    limite: `${fmt(-s.reserve)} € sortis de ta poche, proche de ta limite de ${fmt(s.limit, 0)} €. Lève le pied.`,
+    stop: `${fmt(-s.reserve)} € sortis de ta poche, au-delà de ta limite de ${fmt(s.limit, 0)} €. Mieux vaut faire une pause.`,
+  }[s.level];
+  if (!s.n && !s.engaged) return `<div class="play ok"><div class="line"><span>Jauge de jeu</span><b>Prête</b></div><div class="play-track"><i class="play-zero"></i><i class="play-dot" style="left:50%"></i></div><p>Elle montrera si tu joues avec tes gains ou avec l'argent de ta poche.</p></div>`;
+  const title = { ok: "Avec tes gains", attention: "Raisonnable", limite: "Attention", stop: "Pause conseillée" }[s.level];
+  return `<div class="play ${s.level}"><div class="line"><span>Jauge de jeu</span><b>${title}</b></div>
+    <div class="play-track"><i class="play-zero"></i><i class="play-dot" style="left:${pos}%"></i></div>
+    <div class="play-ends"><span>ta poche (−${fmt(s.limit, 0)} €)</span><span>0</span><span>tes gains</span></div>
+    <p>${text}</p></div>`;
 }
 /* --------------------------------------------------------------- tickets joués en cours */
 function renderEncours() {
@@ -922,11 +956,10 @@ document.addEventListener("click", async (e) => {
       if (v <= 0) delete all[c.id]; else all[c.id].mise = v;
     } else {
       if (!(await checkOdds(c))) return;
-      const left = settings().budget - monthSpent();
-      const v = await ask("Combien tu mises ?", c.kind === "folie" ? `Pour le fun : 1 € suffit, ${fmt(combo(c).odds)} fois la mise si ça passe. Il te reste ${fmt(Math.max(left, 0), 0)} € dans ton budget du mois.`
-        : `${c.stake} € conseillés. Il te reste ${fmt(Math.max(left, 0), 0)} € dans ton budget du mois.`, c.stake, { steps: c.kind === "folie" ? [1, 2] : [1, 2, 3, 4, 5] });
+      const v = await ask("Combien tu mises ?", c.kind === "folie" ? `Pour le fun : 1 € suffit, ${fmt(combo(c).odds)} fois la mise si ça passe. ${pocketNote()}`
+        : `${c.stake} € conseillés. ${pocketNote()}`, c.stake, { steps: c.kind === "folie" ? [1, 2] : [1, 2, 3, 4, 5] });
       if (!v || isNaN(v) || v <= 0) return;
-      if (v > left && !confirm("Cette mise dépasse ton budget du mois. La garder quand même ?")) return;
+      if (overPocket(v) && !confirm("Avec cette mise, l'argent sorti de ta poche dépasserait ta limite. La garder quand même ?")) return;
       { const w = stakeWarning(v); if (w && !confirm(w + "\n\nGarder cette mise ?")) return; }
       all[c.id] = { mise: v, odds: +combo(c).odds.toFixed(4), date: isoDay(new Date()), ts: Date.now(), snap: c };
       freshStamp = c.id;

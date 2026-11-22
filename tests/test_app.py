@@ -304,6 +304,7 @@ async def main():
         br2 = await pg.evaluate("bankroll()")
         check(abs(br2["value"] - br["value"] - 20) < 0.01, "un dépôt s'ajoute au disponible")
         check("Bankroll" in await pg.inner_text("#budget-strip"), "bankroll dans le bandeau")
+        check("Jauge de jeu" in await pg.inner_text("#budget-strip") and "Budget du mois" not in await pg.inner_text("#budget-strip"), "jauge de jeu à la place du budget")
         print("Logos et navigation")
         await pg.click('.tabs button[data-tab="matchs"]')
         n_logo = await pg.evaluate("[...document.querySelectorAll('#tab-matchs .crest.has-logo img')].filter(i => i.complete && i.naturalWidth > 0).length")

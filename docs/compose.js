@@ -68,10 +68,9 @@ document.addEventListener("click", async (e) => {
   if (!c) return;
   if (bets()[c.id]) { toast("Tu as déjà joué exactement ce combiné."); return; }
   if (!(await checkOdds(c))) return;
-  const left = settings().budget - monthSpent();
-  const v = await ask("Combien tu mises ?", `Ton combiné à ${fmt(combo(c).odds)}, ${pct(c.p)} de chance. Il te reste ${fmt(Math.max(left, 0), 0)} € dans ton budget du mois.`, c.stake, { steps: [1, 2, 3, 4, 5] });
+  const v = await ask("Combien tu mises ?", `Ton combiné à ${fmt(combo(c).odds)}, ${pct(c.p)} de chance. ${pocketNote()}`, c.stake, { steps: [1, 2, 3, 4, 5] });
   if (!v || isNaN(v) || v <= 0) return;
-  if (v > left && !confirm("Cette mise dépasse ton budget du mois. La garder quand même ?")) return;
+  if (overPocket(v) && !confirm("Avec cette mise, l'argent sorti de ta poche dépasserait ta limite. La garder quand même ?")) return;
   { const w = stakeWarning(v); if (w && !confirm(w + "\n\nGarder cette mise ?")) return; }
   const all = bets();
   all[c.id] = { mise: v, odds: +combo(c).odds.toFixed(4), date: isoDay(new Date()), ts: Date.now(), snap: c };

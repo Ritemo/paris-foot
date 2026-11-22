@@ -33,6 +33,7 @@ Comme pour l'appli hand : coller l'adresse de l'appli sur pwabuilder.com, puis *
 - Les combinés du jour J restent provisoires la veille, puis sont **figés au premier passage du jour J** pour que le bilan soit honnête.
 - Résultats : football-data.co.uk en priorité, sinon l'API (2 crédits) si assez de crédits restent.
 - Tes paris joués, tes cotes corrigées et ton budget sont enregistrés sur ton téléphone.
+- **Jauge de jeu** (en haut de l'appli) : à droite, tu rejoues tes gains (gains nets de tes paris terminés, moins tes mises en cours) ; à gauche, de l'argent sort de ta poche. Vert tant que tu joues avec tes gains, orange jusqu'à la moitié de ta limite (réglable dans Réglages), puis rouge, et une pause est conseillée au-delà de la limite. Les messages de mise reprennent le même calcul.
 
 ### NBA et tennis
 

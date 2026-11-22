@@ -328,7 +328,9 @@
      "odds": 1.53,
      "src": "pmu",
      "p": 0.583,
-     "ev": -0.108
+     "ev": -0.108,
+     "score": "4-0",
+     "won": true
     },
     {
      "match_id": "9a214142c9b31ad8233dccad53f75d6d",
@@ -8997,5 +8999,5 @@
   "bilan_mise_suggeree": -30.41,
   "mise_suggeree_totale": 150
  },
- "updated": "2026-11-22T06:31:00.487702+00:00"
+ "updated": "2026-11-22T13:24:45.434424+00:00"
 }

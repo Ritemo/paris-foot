@@ -788,6 +788,61 @@
     "mix": true,
     "alt": true
    }
+  },
+  "2026-11-23|nba-401910030:1|nba-401910033:HC2:-1.5": {
+   "mise": 2,
+   "odds": 3.08,
+   "t": 1795379104,
+   "snap": {
+    "id": "2026-11-23|nba-401910030:1|nba-401910033:HC2:-1.5",
+    "day": "2026-11-23",
+    "kind": "x2",
+    "legs": [
+     {
+      "match_id": "nba-401910030",
+      "league": "NBA",
+      "kickoff": "2026-11-22T23:00:00Z",
+      "home": "Miami Heat",
+      "away": "Oklahoma City Thunder",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "NBA",
+      "sport": "basket",
+      "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399076/mia-heat-vs-okc-thunder",
+      "market": "1",
+      "label": "Victoire Miami Heat",
+      "odds": 1.59,
+      "src": "unibet",
+      "p": 0.5579,
+      "ev": -0.1129
+     },
+     {
+      "match_id": "nba-401910033",
+      "league": "NBA",
+      "kickoff": "2026-11-23T00:00:00Z",
+      "home": "Utah Jazz",
+      "away": "Dallas Mavericks",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "NBA",
+      "sport": "basket",
+      "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399079/uta-jazz-vs-dal-mavericks",
+      "market": "HC2:-1.5",
+      "label": "Mavericks handicap -1,5",
+      "odds": 1.73,
+      "src": "estimee",
+      "p": 0.5108,
+      "ev": -0.1163
+     }
+    ],
+    "odds": 2.75,
+    "p": 0.285,
+    "cost": 0.2161,
+    "stars": 1,
+    "stake": 2,
+    "status": "en attente",
+    "alt": true
+   }
   }
  },
  "kick_sent": {

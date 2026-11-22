@@ -338,7 +338,7 @@ label.btn { display: inline-block; }
 .live.goal { animation: goal 1s ease-in-out 3; position: relative; }
 @keyframes goal { 50% { background: var(--jaune); color: #14261c; } }
 .goal-tag { position: absolute; right: 8px; top: 6px; font: 800 13px var(--display); font-style: normal; color: var(--rouge); animation: pop .4s cubic-bezier(.2, 1.8, .4, 1); }
-@keyframes pop { from { transform: scale(0); } }
+@keyframes pop { from { transform: scale(.9); opacity: 0; } }
 .sim-btn { display: block; margin-top: 6px; background: none; border: 0; padding: 0; color: var(--pelouse-2); font-weight: 800; font-size: 13px; text-decoration: underline; cursor: pointer; }
 .comp-clear + .comp-clear { margin-left: 10px; }
 .comp-head .comp-clear:first-of-type { margin-left: auto; }
@@ -346,7 +346,7 @@ label.btn { display: inline-block; }
 /* ---------- ecran de celebration */
 .celebrate { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 20px; background: rgba(6, 30, 18, .82);
   backdrop-filter: blur(3px); animation: fadein .3s ease-out; }
-.celebrate.out { animation: fadeout .3s ease-in forwards; }
+.celebrate.out { animation: fadeout .2s cubic-bezier(.23, 1, .32, 1) forwards; }
 @keyframes fadein { from { opacity: 0; } } @keyframes fadeout { to { opacity: 0; } }
 .confetti { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .cel-card { position: relative; width: min(100%, 380px); max-height: 88vh; overflow: auto; background: var(--ticket); border-radius: 26px; padding: 26px 22px 20px;
@@ -368,7 +368,7 @@ label.btn { display: inline-block; }
 .sim-grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 5px; margin: 14px 0; }
 .sim-grid i { aspect-ratio: 1; border-radius: 50%; background: var(--trait); animation: dot .3s ease-out both; }
 .sim-grid i.w { background: var(--vert); } .sim-grid i.l { background: color-mix(in srgb, var(--rouge) 70%, var(--ticket)); }
-@keyframes dot { from { transform: scale(0); } }
+@keyframes dot { from { transform: scale(.9); opacity: 0; } }
 .sim-res { font: 800 22px var(--display); margin: 0 0 6px; }
 
 /* ---------- logos des clubs */
@@ -381,21 +381,13 @@ label.btn { display: inline-block; }
 .crests .crest.h { z-index: 1; }
 
 /* ---------- navigation : transitions, glisser, tirer pour actualiser */
-body { overscroll-behavior-y: contain; }
-.tab.enter-r { animation: slideR .32s cubic-bezier(.2, .8, .3, 1); }
-.tab.enter-l { animation: slideL .32s cubic-bezier(.2, .8, .3, 1); }
-@keyframes slideR { from { opacity: 0; transform: translateX(28px); } }
-@keyframes slideL { from { opacity: 0; transform: translateX(-28px); } }
-.tab.enter-r .ticket, .tab.enter-l .ticket, .tab.enter-r .match, .tab.enter-l .match { animation: cardIn .45s cubic-bezier(.2, .9, .3, 1.1) both; }
-.tab .ticket:nth-of-type(2), .tab .match:nth-of-type(2) { animation-delay: .05s; }
-.tab .ticket:nth-of-type(3), .tab .match:nth-of-type(3) { animation-delay: .1s; }
-.tab .ticket:nth-of-type(4), .tab .match:nth-of-type(4) { animation-delay: .15s; }
-.tab .ticket:nth-of-type(n+5), .tab .match:nth-of-type(n+5) { animation-delay: .2s; }
+body { overscroll-behavior-y: contain; font-variant-numeric: tabular-nums; }
+/* changement d'onglet : geste tres frequent, simple fondu court */
+.tab.enter-r, .tab.enter-l { animation: tabFade .15s cubic-bezier(.23, 1, .32, 1); }
+@keyframes tabFade { from { opacity: 0; } }
 @keyframes cardIn { from { opacity: 0; transform: translateY(14px) scale(.98); } }
 .tabs button { transition: background .25s, color .25s, transform .15s; }
-.tabs button:active { transform: scale(.92); }
-.tabs button.active svg { animation: tabpop .35s cubic-bezier(.2, 1.8, .4, 1); }
-@keyframes tabpop { 40% { transform: scale(1.25) rotate(-6deg); } }
+.tabs button:active { transform: scale(.95); }
 .ptr { position: fixed; z-index: 30; top: 0; left: 50%; width: 44px; height: 44px; margin-top: -48px; border-radius: 50%; background: #fff;
   display: grid; place-items: center; box-shadow: 0 6px 16px -4px rgba(0,0,0,.35); opacity: 0; transform: translate(-50%, 0); transition: opacity .2s; pointer-events: none; }
 .ptr.show { opacity: 1; transition: none; } .ptr.spin { transition: transform .2s; }
@@ -481,7 +473,7 @@ body { overscroll-behavior-y: contain; }
 .mchart .diag { stroke: var(--sous); stroke-width: 1.5; stroke-dasharray: 4 4; }
 .mchart .dot { fill: var(--pelouse-2); stroke: var(--ticket); stroke-width: 2; }
 .mchart .halo { fill: transparent; }
-.mchart .hit.on .dot, .mchart .hit:hover .dot { stroke: var(--encre); }
+.mchart .hit.on .dot { stroke: var(--encre); }
 .mchart .ln { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
 .mchart .s0 { stroke: #13784c; fill: #13784c; }
 .mchart .s1 { stroke: #2f6fd6; fill: #2f6fd6; }
@@ -489,7 +481,7 @@ body { overscroll-behavior-y: contain; }
 .mchart .pt { stroke: var(--ticket); stroke-width: 2; }
 .mchart .dl { font-size: 11px; font-weight: 700; fill: var(--encre); }
 .mchart .col { fill: transparent; cursor: pointer; }
-.mchart .col.on, .mchart .col:hover { fill: var(--encre); fill-opacity: .06; }
+.mchart .col.on { fill: var(--encre); fill-opacity: .06; }
 .mchart .tip { font-size: 12px; color: var(--sous); min-height: 18px; margin-top: 4px; }
 .mlegend { display: flex; gap: 14px; font-size: 12px; color: var(--sous); margin-bottom: 4px; }
 .mlegend i { display: inline-block; width: 14px; height: 3px; border-radius: 2px; vertical-align: middle; margin-right: 5px; }
@@ -500,14 +492,14 @@ body { overscroll-behavior-y: contain; }
   .mchart .dot { fill: #1faa59; }
 }
 .mchart .gbar.up { fill: #13784c; } .mchart .gbar.down { fill: var(--sous); }
-.mchart .hit.on .gbar, .mchart .hit:hover .gbar { stroke: var(--encre); stroke-width: 1.5; }
+.mchart .hit.on .gbar { stroke: var(--encre); stroke-width: 1.5; }
 @media (prefers-color-scheme: dark) { .mchart .gbar.up { fill: #1faa59; } }
 
 /* ---------- explications « i » */
 .info { display: inline-grid; place-items: center; width: 18px; height: 18px; margin-left: 6px; vertical-align: 2px; border-radius: 50%; border: 0; padding: 0;
   background: var(--ticket-2); color: var(--pelouse-2); font: 800 12px/1 Georgia, serif; font-style: italic; cursor: pointer; }
 .section-title .info { width: 22px; height: 22px; font-size: 14px; vertical-align: 3px; }
-.info.on, .info:hover { background: var(--pelouse-2); color: #fff; }
+.info.on { background: var(--pelouse-2); color: #fff; }
 
 .info-pop { position: absolute; z-index: 40; background: #14261c; color: #eef6f0; border-radius: 14px; padding: 12px 14px; font-size: 14px; line-height: 1.45;
   box-shadow: 0 14px 34px -10px rgba(0,0,0,.5); animation: cardIn .2s ease-out; }
@@ -637,3 +629,14 @@ body { overscroll-behavior-y: contain; }
 .balance .bal-row input[type=range] { margin: 0; height: 22px; }
 .bal-opts { display: flex; flex-wrap: wrap; gap: 2px 8px; } .bal-opts .pw { gap: 3px; } .bal-opts .pw span { margin-right: 1px; }
 .bal-opts .pw { margin-top: 2px; font-size: 11px; } .bal-opts .pw button { padding: 2px 8px; font-size: 11px; }
+
+/* survols seulement avec une souris (sinon l'element reste allume apres un tap) */
+@media (hover: hover) and (pointer: fine) {
+  .mchart .hit:hover .dot { stroke: var(--encre); }
+  .mchart .col:hover { fill: var(--encre); fill-opacity: .06; }
+  .mchart .hit:hover .gbar { stroke: var(--encre); stroke-width: 1.5; }
+  .info:hover { background: var(--pelouse-2); color: #fff; }
+}
+/* bouton « i » : zone de toucher elargie sans changer son dessin */
+.info { position: relative; }
+.info::before { content: ""; position: absolute; inset: -12px; }

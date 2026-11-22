@@ -64,7 +64,7 @@ function celebrate() {
   lastCount.cel = 0;
   setTimeout(() => animateCounters(ov), 350);
   if (!calm()) confetti(ov.querySelector(".confetti"));
-  if (navigator.vibrate) try { navigator.vibrate([60, 40, 120]); } catch {}
+  if (navigator.vibrate) try { navigator.vibrate(20); } catch {}
   const close = () => { markCelebrated([...won, ...lost]); ov.classList.add("out"); setTimeout(() => ov.remove(), 200); };
   ov.querySelector(".cel-ok").onclick = close;
   ov.addEventListener("click", (e) => { if (e.target === ov) close(); });

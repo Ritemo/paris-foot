@@ -21,7 +21,7 @@
   "Ligue des champions",
   "Ligue Europa"
  ],
- "last_results_run": "2026-11-22T18:31:03.865552+00:00",
+ "last_results_run": "2026-11-22T21:45:43.963120+00:00",
  "last_odds_run": "2026-11-22T15:31:09.417366+00:00",
  "played": {
   "2026-11-13|nba-401909976:1|nba-401909977:HC1:+10.5|nba-401909978:1": {
@@ -776,7 +776,9 @@
       "odds": 1.35,
       "src": "unibet",
       "p": 0.6706,
-      "ev": -0.0947
+      "ev": -0.0947,
+      "score": "2-3",
+      "won": false
      }
     ],
     "odds": 3.2,
@@ -784,9 +786,10 @@
     "cost": 0.241,
     "stars": 2,
     "stake": 1,
-    "status": "en attente",
+    "status": "perdu",
     "mix": true,
-    "alt": true
+    "alt": true,
+    "settled_at": "2026-11-22T21:45:43.963120+00:00"
    }
   },
   "2026-11-23|nba-401910030:1|nba-401910033:HC2:-1.5": {

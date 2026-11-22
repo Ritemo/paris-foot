@@ -246,7 +246,9 @@
      "odds": 1.35,
      "src": "unibet",
      "p": 0.6603,
-     "ev": -0.1086
+     "ev": -0.1086,
+     "score": "2-3",
+     "won": false
     }
    ],
    "odds": 2.16,
@@ -412,7 +414,9 @@
      "odds": 1.35,
      "src": "unibet",
      "p": 0.6646,
-     "ev": -0.1028
+     "ev": -0.1028,
+     "score": "2-3",
+     "won": false
     }
    ],
    "odds": 2.15,
@@ -420,8 +424,9 @@
    "cost": 0.1898,
    "stars": 3,
    "stake": 3,
-   "status": "en attente",
-   "proposed_at": "2026-11-22T06:31:00.487702+00:00"
+   "status": "perdu",
+   "proposed_at": "2026-11-22T06:31:00.487702+00:00",
+   "settled_at": "2026-11-22T21:45:43.963120+00:00"
   },
   {
    "id": "2026-11-22|4c08b213ed416e8f41e038f42a42b962:-3.5|9a214142c9b31ad8233dccad53f75d6d:-3.5",
@@ -552,7 +557,9 @@
      "odds": 2.1,
      "src": "pmu",
      "p": 0.4273,
-     "ev": -0.1027
+     "ev": -0.1027,
+     "score": "2-3",
+     "won": true
     },
     {
      "match_id": "230a356290e1a358e9dd2f7fa23de3b9",
@@ -620,9 +627,10 @@
    "cost": 0.3561,
    "stars": 0,
    "stake": 1,
-   "status": "en attente",
+   "status": "gagne",
    "proposed_at": "2026-11-21T06:31:04.381133+00:00",
-   "replaced": true
+   "replaced": true,
+   "settled_at": "2026-11-22T21:45:43.963120+00:00"
   },
   {
    "id": "2026-11-22|214a79b6e08dbe3f508844936158c038:-4.5|4c08b213ed416e8f41e038f42a42b962:1|4c2262eccc903b9b1792325d09451c0a:1|9e5d4a91e379ddffa179b02bf9e09530:-2.5",
@@ -9008,13 +9016,13 @@
   }
  ],
  "bilan": {
-  "n": 63,
+  "n": 64,
   "gagnes": 21,
   "x2": {
-   "n": 52,
+   "n": 53,
    "gagnes": 19,
    "reussite_annoncee": 0.353,
-   "bilan": -22.25
+   "bilan": -25.25
   },
   "x3": {
    "n": 11,
@@ -9028,12 +9036,12 @@
    "reussite_annoncee": 0.035,
    "bilan": -13
   },
-  "reussite_reelle": 0.333,
+  "reussite_reelle": 0.328,
   "reussite_annoncee": 0.344,
-  "bilan_2eur": -25.12,
-  "mise_2eur": 126,
-  "bilan_mise_suggeree": -34.41,
-  "mise_suggeree_totale": 154
+  "bilan_2eur": -27.12,
+  "mise_2eur": 128,
+  "bilan_mise_suggeree": -37.41,
+  "mise_suggeree_totale": 157
  },
- "updated": "2026-11-22T18:31:03.865552+00:00"
+ "updated": "2026-11-22T21:45:43.963120+00:00"
 }

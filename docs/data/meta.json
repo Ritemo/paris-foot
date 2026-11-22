@@ -1,7 +1,7 @@
 {
  "credits_remaining": 284,
- "credits_used_last_run": 12,
- "last_run": "2026-11-22T06:31:00.487702+00:00",
+ "credits_used_last_run": 0,
+ "last_run": "2026-11-22T15:31:09.417366+00:00",
  "frozen_days": [
   "2026-11-15",
   "2026-11-16",
@@ -22,7 +22,7 @@
   "Ligue Europa"
  ],
  "last_results_run": "2026-11-22T15:01:15.236586+00:00",
- "last_odds_run": "2026-11-22T06:31:00.487702+00:00",
+ "last_odds_run": "2026-11-22T15:31:09.417366+00:00",
  "played": {
   "2026-11-13|nba-401909976:1|nba-401909977:HC1:+10.5|nba-401909978:1": {
    "mise": 2,
@@ -729,6 +729,6 @@
  "closing_backfill": "2026-11-22",
  "oddspapi": {
   "month": "2026-11",
-  "used": 8
+  "used": 9
  }
 }

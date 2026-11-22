@@ -326,11 +326,10 @@ function renderCombos() {
   if (!document.getElementById("style")) {
     const st = style(), wp = priceW();
     el.innerHTML = `<div class="balance panel no-swipe"><div class="bal-head"><b>Ton style de jeu</b><span id="bal-label">${styleLabel(st)}</span></div>
-      <input id="style" type="range" min="0" max="100" step="5" value="${Math.round(st * 100)}" aria-label="Style de jeu, du petit gain sûr au gros gain">
-      <div class="bal-ends"><span>Petit gain sûr</span><span>Gros gain</span></div>
-      <div class="pw" role="radiogroup" aria-label="Importance du prix"><span>Poids du prix</span>${[[0.3, "faible"], [0.5, "normal"], [0.7, "fort"]]
+      <div class="bal-row"><span>Petit gain sûr</span><input id="style" type="range" min="0" max="100" step="5" value="${Math.round(st * 100)}" aria-label="Style de jeu, du petit gain sûr au gros gain"><span>Gros gain</span></div>
+      <div class="bal-opts"><div class="pw" role="radiogroup" aria-label="Importance du prix"><span>Poids du prix</span>${[[0.3, "faible"], [0.5, "normal"], [0.7, "fort"]]
         .map(([v, t]) => `<button type="button" role="radio" data-pw="${v}" aria-checked="${Math.abs(wp - v) < 0.01}">${t}</button>`).join("")}</div>
-      <div class="pw"><span>Mélanger les sports</span><button type="button" id="mix-toggle" role="switch" aria-checked="${mixOn()}">${mixOn() ? "oui" : "non"}</button></div></div><div id="combos-list"></div>`;
+      <div class="pw"><span>Multisport</span><button type="button" id="mix-toggle" role="switch" aria-label="Mélanger les sports dans un ticket" aria-checked="${mixOn()}">${mixOn() ? "oui" : "non"}</button></div></div></div><div id="combos-list"></div>`;
   }
   let h = "";
   if (!current.length) h += `<div class="empty">${EMPTY_BALL}<b>Plus de ticket jouable pour l'instant</b>
@@ -741,20 +740,20 @@ function overPocket(v) {
 }
 function playGauge() {
   const s = playState();
-  if (!s.started) return `<div class="play ok"><div class="line"><span>Jauge de jeu</span><b>Prête</b></div><div class="play-track"><i class="play-zero"></i><i class="play-dot" style="left:50%"></i></div><p>Elle montrera si tu rejoues tes gains ou ton apport, et si tu restes raisonnable.</p></div>`;
+  if (!s.started) return `<div class="play ok"><div class="line"><span>Jauge de jeu</span><b>Prête</b></div><div class="play-track"><i class="play-zero"></i><i class="play-dot" style="left:50%"></i></div><p class="play-why">Elle montrera si tu rejoues tes gains ou ton apport, et si tu restes raisonnable.</p></div>`;
   const pos = 50 + 50 * Math.max(-1, Math.min(1, s.reserve / s.apport));
-  const money = s.reserve >= 0 ? `Tu rejoues tes gains : ${fmt(s.result)} € gagnés${s.engaged ? `, ${fmt(s.engaged)} € en jeu` : ""}.`
-    : `Tu entames ton apport : ${fmt(-s.reserve)} € sur ${fmt(s.apport, 0)} €${s.engaged ? ` (dont ${fmt(s.engaged)} € en jeu)` : ""}.`;
-  const why = [];
-  if (s.share > 0.06) why.push(`mise moyenne ${pct(s.share)} de ta bankroll`);
-  if (s.inPlay > 0.15) why.push(`${pct(s.inPlay)} de ta bankroll en jeu`);
-  if (s.perDay > 2) why.push(`${fmt(s.perDay, 1)} tickets par jour`);
-  const pace = ["Rythme calme", "Rythme soutenu", "Tu flambes"][s.pace] + (why.length ? ` : ${why.join(", ")}.` : ` : ${s.n} ticket${s.n > 1 ? "s" : ""} en 7 jours, mises raisonnables.`);
   const title = { ok: "Raisonnable", attention: "Attention", limite: "Lève le pied", stop: "Pause conseillée" }[s.level];
-  return `<div class="play ${s.level}"><div class="line"><span>Jauge de jeu</span><b>${title}</b></div>
+  const money = s.reserve >= 0 ? `<b>Sur tes gains</b> +${fmt(s.reserve)} €` : `<b>Apport entamé</b> ${fmt(-s.reserve)} / ${fmt(s.apport, 0)} €`;
+  const why = [];
+  if (s.share > 0.06) why.push(`mise moyenne ${pct(s.share)} de la bankroll`);
+  if (s.inPlay > 0.15) why.push(`${pct(s.inPlay)} de la bankroll en jeu`);
+  if (s.perDay > 2) why.push(`${fmt(s.perDay, 1)} tickets par jour`);
+  const pace = `<b>Rythme</b> ${["calme", "soutenu", "tu flambes"][s.pace]}`;
+  const detail = why.length ? why.join(", ") : `${s.n} ticket${s.n > 1 ? "s" : ""} en 7 jours, mise moyenne ${pct(s.share)} de la bankroll`;
+  return `<div class="play ${s.level}"><div class="line"><span>Jauge de jeu</span><b class="play-title">${title}</b></div>
     <div class="play-track"><i class="play-zero"></i><i class="play-dot" style="left:${pos}%"></i></div>
-    <div class="play-ends"><span>apport (${fmt(s.apport, 0)} €)</span><span>0</span><span>gains</span></div>
-    <p>${money}</p><p class="pace p${s.pace}">${pace}</p></div>`;
+    <div class="play-ends"><span>apport ${fmt(s.apport, 0)} €</span><span>0</span><span>gains</span></div>
+    <div class="play-chips"><span class="pchip m${s.money}">${money}${s.engaged ? `<small>${fmt(s.engaged)} € en jeu compris</small>` : ""}</span><span class="pchip m${s.pace}">${pace}<small>${detail}</small></span></div></div>`;
 }
 /* --------------------------------------------------------------- tickets joués en cours */
 function renderEncours() {

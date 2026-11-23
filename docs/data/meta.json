@@ -1,16 +1,16 @@
 {
- "credits_remaining": 284,
- "credits_used_last_run": 0,
- "last_run": "2026-11-22T15:31:09.417366+00:00",
+ "credits_remaining": 275,
+ "credits_used_last_run": 9,
+ "last_run": "2026-11-23T06:31:07.091707+00:00",
  "frozen_days": [
-  "2026-11-15",
   "2026-11-16",
   "2026-11-17",
   "2026-11-18",
   "2026-11-19",
   "2026-11-20",
   "2026-11-21",
-  "2026-11-22"
+  "2026-11-22",
+  "2026-11-23"
  ],
  "leagues": [
   "Ligue 1",
@@ -22,7 +22,7 @@
   "Ligue Europa"
  ],
  "last_results_run": "2026-11-23T02:31:02.938627+00:00",
- "last_odds_run": "2026-11-22T15:31:09.417366+00:00",
+ "last_odds_run": "2026-11-23T06:31:07.091707+00:00",
  "played": {
   "2026-11-14|nba-401909298:1|nba-401909299:2|nba-401909304:2": {
    "mise": 3,
@@ -714,66 +714,6 @@
     "alt": true,
     "settled_at": "2026-11-22T21:45:43.963120+00:00"
    }
-  },
-  "2026-11-23|nba-401910030:1|nba-401910033:HC2:-1.5": {
-   "mise": 2,
-   "odds": 3.08,
-   "t": 1795379104,
-   "snap": {
-    "id": "2026-11-23|nba-401910030:1|nba-401910033:HC2:-1.5",
-    "day": "2026-11-23",
-    "kind": "x2",
-    "legs": [
-     {
-      "match_id": "nba-401910030",
-      "league": "NBA",
-      "kickoff": "2026-11-22T23:00:00Z",
-      "home": "Miami Heat",
-      "away": "Oklahoma City Thunder",
-      "fd_home": null,
-      "fd_away": null,
-      "div": "NBA",
-      "sport": "basket",
-      "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399076/mia-heat-vs-okc-thunder",
-      "market": "1",
-      "label": "Victoire Miami Heat",
-      "odds": 1.59,
-      "src": "unibet",
-      "p": 0.5579,
-      "ev": -0.1129,
-      "score": "123-113",
-      "won": true
-     },
-     {
-      "match_id": "nba-401910033",
-      "league": "NBA",
-      "kickoff": "2026-11-23T00:00:00Z",
-      "home": "Utah Jazz",
-      "away": "Dallas Mavericks",
-      "fd_home": null,
-      "fd_away": null,
-      "div": "NBA",
-      "sport": "basket",
-      "link": "https://www.unibet.fr/paris-basketball/usa/nba/3399079/uta-jazz-vs-dal-mavericks",
-      "market": "HC2:-1.5",
-      "label": "Mavericks handicap -1,5",
-      "odds": 1.73,
-      "src": "estimee",
-      "p": 0.5108,
-      "ev": -0.1163,
-      "score": "114-116",
-      "won": true
-     }
-    ],
-    "odds": 2.75,
-    "p": 0.285,
-    "cost": 0.2161,
-    "stars": 1,
-    "stake": 2,
-    "status": "gagne",
-    "alt": true,
-    "settled_at": "2026-11-23T02:31:02.938627+00:00"
-   }
   }
  },
  "kick_sent": {
@@ -791,8 +731,8 @@
   "nba-401910033": "2026-11-23T00:01:22.619549+00:00"
  },
  "recap_week": "2026-W47",
- "other_day": "2026-11-22",
- "full_day": "2026-11-22",
+ "other_day": "2026-11-23",
+ "full_day": "2026-11-23",
  "closing_backfill": "2026-11-22",
  "oddspapi": {
   "month": "2026-11",

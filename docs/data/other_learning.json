@@ -878,6 +878,96 @@
    "p": 0.3433,
    "odds": 2.65,
    "won": false
+  },
+  "nba-401910036": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-24T00:00:00Z",
+   "home": "Charlotte Hornets",
+   "away": "Memphis Grizzlies",
+   "p": 0.4066,
+   "odds": 2.15
+  },
+  "nba-401910037": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-24T00:00:00Z",
+   "home": "Philadelphia 76ers",
+   "away": "Portland Trail Blazers",
+   "p": 0.6032,
+   "odds": 1.52
+  },
+  "nba-401910038": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-24T00:30:00Z",
+   "home": "Indiana Pacers",
+   "away": "Oklahoma City Thunder",
+   "p": 0.3695,
+   "odds": 2.4
+  },
+  "nba-401910039": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-24T00:30:00Z",
+   "home": "Toronto Raptors",
+   "away": "Milwaukee Bucks",
+   "p": 0.799,
+   "odds": 1.15
+  },
+  "nba-401910040": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-24T00:30:00Z",
+   "home": "Minnesota Timberwolves",
+   "away": "Brooklyn Nets",
+   "p": 0.827,
+   "odds": 1.11
+  },
+  "nba-401910041": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-24T01:00:00Z",
+   "home": "Chicago Bulls",
+   "away": "Cleveland Cavaliers",
+   "p": 0.259,
+   "odds": 3.0
+  },
+  "nba-401910042": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-24T01:00:00Z",
+   "home": "New Orleans Pelicans",
+   "away": "Phoenix Suns",
+   "p": 0.416,
+   "odds": 2.05
+  },
+  "nba-401910043": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-24T01:30:00Z",
+   "home": "Houston Rockets",
+   "away": "LA Clippers",
+   "p": 0.8319,
+   "odds": 1.15
+  },
+  "nba-401910044": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-24T03:00:00Z",
+   "home": "Los Angeles Lakers",
+   "away": "Utah Jazz",
+   "p": 0.8531,
+   "odds": 1.08
+  },
+  "nba-401910045": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-24T03:00:00Z",
+   "home": "Sacramento Kings",
+   "away": "San Antonio Spurs",
+   "p": 0.2039,
+   "odds": 3.55
   }
  },
  "summary": {
@@ -941,5 +1031,5 @@
    ]
   }
  },
- "updated": "2026-11-23T06:15:43.152286+00:00"
+ "updated": "2026-11-23T06:31:07.091707+00:00"
 }

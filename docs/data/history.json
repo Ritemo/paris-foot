@@ -1,6 +1,74 @@
 {
  "combos": [
   {
+   "id": "2026-11-24|50b80f3ebd38bf63663b11ae0afc575b:BTTS|aea973c122c91837c15e066c757c747f:1|aee4e3c225603397ab52de3d066b566b:1",
+   "day": "2026-11-24",
+   "kind": "x3",
+   "legs": [
+    {
+     "match_id": "aee4e3c225603397ab52de3d066b566b",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-24T20:00:00Z",
+     "home": "Arsenal",
+     "away": "Borussia Dortmund",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377087/arsenal-vs-dortmund",
+     "market": "1",
+     "label": "Victoire Arsenal",
+     "odds": 1.28,
+     "src": "unibet",
+     "p": 0.6867,
+     "ev": -0.121
+    },
+    {
+     "match_id": "aea973c122c91837c15e066c757c747f",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-24T20:00:00Z",
+     "home": "RB Leipzig",
+     "away": "RC Lens",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377084/rb-leipzig-vs-lens",
+     "market": "1",
+     "label": "Victoire RB Leipzig",
+     "odds": 1.29,
+     "src": "unibet",
+     "p": 0.6807,
+     "ev": -0.1219
+    },
+    {
+     "match_id": "50b80f3ebd38bf63663b11ae0afc575b",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-24T17:45:00Z",
+     "home": "Bodø/Glimt",
+     "away": "LASK",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377070/bodø/glimt-vs-lask-linz",
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odds": 1.29,
+     "src": "estimee",
+     "p": 0.6879,
+     "ev": -0.1126
+    }
+   ],
+   "odds": 2.13,
+   "p": 0.3215,
+   "cost": 0.3151,
+   "stars": 2,
+   "stake": 2,
+   "status": "en attente",
+   "proposed_at": "2026-11-23T15:31:09.876937+00:00"
+  },
+  {
    "id": "2026-11-24|nba-401910037:1|nba-401910042:2",
    "day": "2026-11-24",
    "kind": "x2",
@@ -98,7 +166,8 @@
    "stars": 2,
    "stake": 3,
    "status": "en attente",
-   "proposed_at": "2026-11-23T06:31:07.091707+00:00"
+   "proposed_at": "2026-11-23T06:31:07.091707+00:00",
+   "replaced": true
   },
   {
    "id": "2026-11-24|nba-401910036:2|nba-401910038:2",
@@ -148,7 +217,58 @@
    "stars": 2,
    "stake": 3,
    "status": "en attente",
-   "proposed_at": "2026-11-23T06:31:07.091707+00:00"
+   "proposed_at": "2026-11-23T06:31:07.091707+00:00",
+   "replaced": true
+  },
+  {
+   "id": "2026-11-24|3fb5e4a792cf34a0459efcb79a11a785:BTTS|50b80f3ebd38bf63663b11ae0afc575b:1",
+   "day": "2026-11-24",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "50b80f3ebd38bf63663b11ae0afc575b",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-24T17:45:00Z",
+     "home": "Bodø/Glimt",
+     "away": "LASK",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377070/bodø/glimt-vs-lask-linz",
+     "market": "1",
+     "label": "Victoire Bodø/Glimt",
+     "odds": 1.42,
+     "src": "unibet",
+     "p": 0.6249,
+     "ev": -0.1126
+    },
+    {
+     "match_id": "3fb5e4a792cf34a0459efcb79a11a785",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-24T20:00:00Z",
+     "home": "Real Madrid",
+     "away": "PSV Eindhoven",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377085/real-madrid-vs-psv-eindhoven",
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odds": 1.44,
+     "src": "estimee",
+     "p": 0.6229,
+     "ev": -0.103
+    }
+   ],
+   "odds": 2.04,
+   "p": 0.3893,
+   "cost": 0.204,
+   "stars": 2,
+   "stake": 3,
+   "status": "en attente",
+   "proposed_at": "2026-11-23T15:31:09.876937+00:00"
   },
   {
    "id": "2026-11-24|9a2ebad454db4ab3d53b89e96c79847a:N|aea973c122c91837c15e066c757c747f:+3.5|ba719e378ac366262013bdb51a06aa6f:+3.5|e422af92d1fc06c0a330838c1c2f2e08:1",
@@ -238,7 +358,98 @@
    "stars": 0,
    "stake": 1,
    "status": "en attente",
-   "proposed_at": "2026-11-23T06:31:07.091707+00:00"
+   "proposed_at": "2026-11-23T06:31:07.091707+00:00",
+   "replaced": true
+  },
+  {
+   "id": "2026-11-24|9a2ebad454db4ab3d53b89e96c79847a:N|aea973c122c91837c15e066c757c747f:+3.5|ba719e378ac366262013bdb51a06aa6f:+3.5|e422af92d1fc06c0a330838c1c2f2e08:2",
+   "day": "2026-11-24",
+   "kind": "folie",
+   "legs": [
+    {
+     "match_id": "9a2ebad454db4ab3d53b89e96c79847a",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-24T20:00:00Z",
+     "home": "Feyenoord",
+     "away": "Porto",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377082/feyenoord-vs-fc-porto",
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.5,
+     "src": "unibet",
+     "p": 0.2572,
+     "ev": -0.0998
+    },
+    {
+     "match_id": "e422af92d1fc06c0a330838c1c2f2e08",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-24T17:45:00Z",
+     "home": "Galatasaray",
+     "away": "Aston Villa",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377069/galatasaray-vs-aston-villa",
+     "market": "2",
+     "label": "Victoire Aston Villa",
+     "odds": 2.05,
+     "src": "unibet",
+     "p": 0.4354,
+     "ev": -0.1074
+    },
+    {
+     "match_id": "ba719e378ac366262013bdb51a06aa6f",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-24T20:00:00Z",
+     "home": "Como",
+     "away": "AEK Athens",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377088/como-1907-vs-aek-athènes",
+     "market": "+3.5",
+     "label": "Plus de 3,5 buts",
+     "odds": 1.71,
+     "src": "pmu",
+     "p": 0.5008,
+     "ev": -0.1436,
+     "raw_odds": 1.78,
+     "adj": 0.958
+    },
+    {
+     "match_id": "aea973c122c91837c15e066c757c747f",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-24T20:00:00Z",
+     "home": "RB Leipzig",
+     "away": "RC Lens",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377084/rb-leipzig-vs-lens",
+     "market": "+3.5",
+     "label": "Plus de 3,5 buts",
+     "odds": 1.63,
+     "src": "pmu",
+     "p": 0.5248,
+     "ev": -0.1446,
+     "raw_odds": 1.7,
+     "adj": 0.958
+    }
+   ],
+   "odds": 20.0,
+   "p": 0.0294,
+   "cost": 0.4114,
+   "stars": 0,
+   "stake": 1,
+   "status": "en attente",
+   "proposed_at": "2026-11-23T15:31:09.876937+00:00"
   },
   {
    "id": "2026-11-23|nba-401910030:1|nba-401910031:2",
@@ -9446,5 +9657,5 @@
   "bilan_mise_suggeree": -40.41,
   "mise_suggeree_totale": 160
  },
- "updated": "2026-11-23T06:31:07.091707+00:00"
+ "updated": "2026-11-23T15:31:09.876937+00:00"
 }

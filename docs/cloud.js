@@ -155,6 +155,7 @@ async function importAdded() {
     try {
       const b = await openBackup(it.blob, backupCode());
       done[it.id] = Date.now();
+      if (b.remove && bets()[b.remove]) { const all = bets(); delete all[b.remove]; LS.set("pf_bets", all); }   // correction : remplace un pari mal enregistré
       if (bets()[b.id]) continue;
       const all = bets(); all[b.id] = b.bet; LS.set("pf_bets", all);
       added.push(b.bet.snap?.legs?.length || 0);
@@ -163,6 +164,6 @@ async function importAdded() {
   LS.set("pf_ajouts_done", done);
   if (added.length) {
     renderAll(); scheduleLive?.(); syncPlayed(); scheduleBackup();
-    toast(added.length > 1 ? `${added.length} paris ajoutés pour toi.` : "Ton pari validé sur Unibet a été ajouté dans En cours.", 5000);
+    toast(added.length > 1 ? `${added.length} paris ajoutés pour toi.` : "Ton pari a été ajouté ou corrigé d'après ton ticket Unibet.", 5000);
   }
 }

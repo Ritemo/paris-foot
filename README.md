@@ -106,7 +106,9 @@ Notifications d'échec des tests : sujet ntfy `combines-foot-ritemo-7k3q9x`.
 | Résultats manquants | football-data.co.uk publie parfois avec un jour de retard ; le robot réessaie à chaque passage. |
 | Le téléphone garde une ancienne version | Fermer et rouvrir l'appli ; si besoin, vérifier que `tools/bump_version.py` a bien été lancé avant la publication. |
 
-Paris ajoutés à distance : `docs/data/ajouts.json` contient des paris chiffrés avec le code de récupération (par exemple un ticket validé sur Unibet mais oublié dans l'appli). À l'ouverture, l'appli les ajoute une seule fois dans En cours, puis les envoie au robot comme les autres.
+Handicap NBA : Unibet n'a pas de lignes en ,5. Son « 1N2 Handicap » se joue sur le temps réglementaire, avec des lignes entières, et l'égalité fait perdre. Le robot propose donc directement la ligne Unibet équivalente (-1,5 devient [-1], +3,5 devient [+4]), corrige la chance pour la prolongation (environ 6 % des matchs) et règle ces paris sur le score après 4 quart-temps.
+
+Paris ajoutés à distance : `docs/data/ajouts.json` contient des paris chiffrés avec le code de récupération (par exemple un ticket validé sur Unibet mais oublié dans l'appli). À l'ouverture, l'appli les ajoute une seule fois dans En cours, puis les envoie au robot comme les autres. Un ajout peut aussi remplacer un pari mal enregistré (correction).
 
 ## Confidentialité
 

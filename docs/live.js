@@ -177,7 +177,7 @@ function legLive(l) {
     const gap = m === "1" ? a - h + 1 : m === "2" ? h - a + 1 : Math.abs(h - a);
     const who = m === "1" ? l.home : m === "2" ? l.away : "l'équipe menée";
     note = ok ? (end ? "gagné" : "ça passe pour l'instant") : end ? "perdu" : `il faut ${gap} ${unit(l, gap)} de ${who}`;
-  } else if (m.startsWith("HC1:") || m.startsWith("HC2:")) {   // handicap en points (NBA)
+  } else if (/^H[CR][12]:/.test(m)) {   // handicap en points (NBA) ; HR = 1N2 Handicap Unibet, l'égalité fait perdre
     const line = parseFloat(m.slice(4)), d = (m[2] === "1" ? h - a : a - h) + line;
     state = end ? (d > 0 ? "ok" : "ko") : d > 0 ? "on" : "risk";
     note = d > 0 ? (end ? "gagné" : `${Math.floor(d) + 1} points de marge`) : end ? "perdu" : `il manque ${Math.ceil(-d)} points`;

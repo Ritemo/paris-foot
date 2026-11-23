@@ -333,6 +333,11 @@ class TestAutresSports(unittest.TestCase):
         self.assertFalse(run.leg_result({"market": "HC1:-7.5"}, 105, 100))
         self.assertTrue(run.leg_result({"market": "HC2:+7.5"}, 105, 100))
         self.assertTrue(run.leg_result({"market": "+220.5"}, 112, 110))
+        # handicap Unibet (1N2 Handicap, ligne entiere) : l'egalite fait perdre
+        self.assertTrue(run.leg_result({"market": "HR2:-1"}, 114, 116))
+        self.assertFalse(run.leg_result({"market": "HR2:-2"}, 114, 116))
+        self.assertTrue(run.leg_result({"market": "HR1:+4"}, 100, 103))
+        self.assertFalse(run.leg_result({"market": "HR1:+4"}, 100, 104))
 
     def test_nba_depuis_espn(self):
         k = (run.NOW + timedelta(hours=5)).strftime("%Y-%m-%dT%H:%MZ")
@@ -351,9 +356,13 @@ class TestAutresSports(unittest.TestCase):
         self.assertEqual(len(ms), 1)
         sel = {s["market"]: s for s in ms[0]["sel"]}
         self.assertEqual((sel["1"]["odds"], sel["1"]["src"]), (1.34, "unibet"))
-        self.assertIn("HC1:-7.5", sel)
+        self.assertNotIn("HC1:-7.5", sel)              # Unibet n'a pas de ligne en ,5
+        self.assertIn("HR1:-7", sel)                     # -7,5 devient [-7] au 1N2 Handicap
+        self.assertIn("HR2:+8", sel)                     # +7,5 devient [+8]
+        self.assertIn("temps réglementaire", sel["HR1:-7"]["label"])
+        self.assertLess(sel["HR1:-7"]["p"], sel["HR2:+8"]["p"] + 0.2)
         self.assertIn("+223.5", sel)
-        self.assertEqual(sel["HC1:-7.5"]["src"], "estimee")
+        self.assertEqual(sel["HR1:-7"]["src"], "estimee")
         self.assertEqual(ms[0]["sport"], "basket")
 
     def test_tennis_resultat_espn(self):
@@ -615,6 +624,23 @@ class TestCloture(unittest.TestCase):
             self.assertIn(key, c["p"])
         self.assertAlmostEqual(c["p"]["ev9|1N"]["p"], c["p"]["ev9|1"]["p"] + c["p"]["ev9|N"]["p"], places=3)
         self.assertIn("basket", c["summary"])
+
+class TestTempsReglementaire(unittest.TestCase):
+    def test_score_apres_4_quart_temps(self):
+        k = "2026-11-23T00:00Z"
+        q = lambda *v: [{"value": x} for x in v]
+        board = [{"competitions": [{"date": k, "status": {"type": {"completed": True}}, "competitors": [
+            {"homeAway": "home", "team": {"displayName": "Utah Jazz"}, "score": "120", "linescores": q(25, 25, 25, 25, 20)},
+            {"homeAway": "away", "team": {"displayName": "Dallas Mavericks"}, "score": "112", "linescores": q(25, 25, 25, 25, 12)}]}]}]
+        old = run._board
+        run._board = lambda path, d, boards: board
+        try:
+            leg = {"div": "NBA", "kickoff": k, "home": "Utah Jazz", "away": "Dallas Mavericks"}
+            self.assertEqual(run.espn_other_score(dict(leg, market="HR1:-1"), {}), (100, 100))
+            self.assertEqual(run.espn_other_score(dict(leg, market="1"), {}), (120, 112))
+        finally:
+            run._board = old
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=1)

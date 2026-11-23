@@ -369,8 +369,15 @@ def nba_matches(horizon, unibet):
                 lh, la = float(sp["home"]["close"]["line"]), float(sp["away"]["close"]["line"])
                 ps = fair([am2dec(sp["home"]["close"]["odds"]), am2dec(sp["away"]["close"]["odds"])])
                 es = fr_estimate(ps, FR_OVERROUND["basket"])
-                sel += [_sel(f"HC1:{lh:+g}", f"{hs} handicap {lh:+g}".replace(".", ","), es[0], "estimee", ps[0]),
-                        _sel(f"HC2:{la:+g}", f"{as_} handicap {la:+g}".replace(".", ","), es[1], "estimee", ps[1])]
+                # Unibet ne propose pas les lignes en ,5 : son « 1N2 Handicap » se joue sur le temps reglementaire, avec des lignes
+                # entieres et le nul qui fait perdre. -1,5 equivaut a [-1], +3,5 a [+4] (meme condition sur l'ecart final).
+                # Le cas qui change : la prolongation (environ 6 % des matchs), perdue pour le favori, gagnee pour l'outsider.
+                for side, ln, team, p0, e0 in ((1, lh, hs, ps[0], es[0]), (2, la, as_, ps[1], es[1])):
+                    if abs(ln * 2) % 2 != 1:
+                        continue   # ligne entiere : pas d'equivalent exact chez Unibet
+                    u = int(math.ceil(ln))
+                    p1 = min(0.97, max(0.03, p0 - OT_SHARE * 0.45 if u <= 0 else p0 + OT_SHARE * 0.15))
+                    sel.append(_sel(f"HR{side}:{u:+d}", f"{team} handicap {u:+d} (1N2 Handicap, temps réglementaire)", round(e0 * p0 / p1, 2), "estimee", p1))
             except Exception:
                 pass
             try:  # total de points principal
@@ -839,6 +846,10 @@ def espn_other_score(l, boards):
         if A.get("winner") and a <= h:
             a = h + 1
         return h, a
+    if str(l.get("market", "")).startswith("HR"):   # handicap Unibet : score a la fin du temps reglementaire (4 quart-temps)
+        qh, qa = H.get("linescores") or [], A.get("linescores") or []
+        if len(qh) >= 4 and len(qa) >= 4:
+            return int(sum(float(x.get("value", 0)) for x in qh[:4])), int(sum(float(x.get("value", 0)) for x in qa[:4]))
     return int(float(H["score"])), int(float(A["score"]))
 
 
@@ -861,7 +872,7 @@ def espn_scores(history):
                 print("espn", l.get("div"), e, file=sys.stderr)
                 sc = None
             if sc:
-                out[l["match_id"]] = sc
+                out[l["match_id"] + ("|reg" if str(l.get("market", "")).startswith("HR") else "")] = sc
             continue
         lg = ESPN_LEAGUE.get(l.get("div"))
         if not lg:
@@ -1123,6 +1134,7 @@ def apply_adjust(matches, adj):
 # Juste avant chaque match (moins de 25 min), le robot note la chance donnee par le marche (cote de cloture, marge retiree) :
 # foot 1N2 via OddsPapi (cote Unibet), NBA vainqueur via ESPN (cote DraftKings de cloture).
 # Si la chance d'une selection a monte entre la proposition (ou ton pari) et le coup d'envoi, le prix pris etait bon.
+OT_SHARE = 0.06   # part des matchs NBA qui vont en prolongation
 CLOSE_BEFORE = timedelta(minutes=25)
 OP_CLOSE_MAX = 200   # au-dela, on garde les requetes OddsPapi pour les actualisations de cotes
 
@@ -1439,7 +1451,7 @@ def leg_result(l, hg, ag):
         return hg - ag >= 2
     if m == "H2":
         return ag - hg >= 2
-    if m.startswith(("HC1:", "HC2:")):   # handicap en points (NBA) : l'equipe gagne avec le handicap ajoute a son score
+    if m.startswith(("HC1:", "HC2:", "HR1:", "HR2:")):   # HR : temps reglementaire, ligne entiere, egalite = perdu   # handicap en points (NBA) : l'equipe gagne avec le handicap ajoute a son score
         ln = float(m[4:])
         return hg + ln > ag if m[2] == "1" else ag + ln > hg
     return None
@@ -1466,7 +1478,7 @@ def settle(history, fd, api_scores, espn=None):
         for l in c["legs"]:
             if "won" in l:
                 continue
-            sc = espn.get(l["match_id"])  # ESPN : uniquement des matchs termines
+            sc = espn.get(l["match_id"] + ("|reg" if l["market"].startswith("HR") else ""))  # ESPN : uniquement des matchs termines
             if not sc and l["kickoff"] <= (NOW - timedelta(hours=2, minutes=15)).isoformat():
                 sc = api_scores.get(l["match_id"]) or find_score_fd(fd, l)
             if sc:

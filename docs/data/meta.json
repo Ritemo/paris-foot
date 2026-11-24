@@ -574,6 +574,67 @@
     "alt": true,
     "settled_at": "2026-11-22T21:45:43.963120+00:00"
    }
+  },
+  "2026-11-24|3fb5e4a792cf34a0459efcb79a11a785:BTTS|9a2ebad454db4ab3d53b89e96c79847a:2": {
+   "mise": 2,
+   "odds": 2.87,
+   "t": 1795537123,
+   "snap": {
+    "id": "2026-11-24|3fb5e4a792cf34a0459efcb79a11a785:BTTS|9a2ebad454db4ab3d53b89e96c79847a:2",
+    "day": "2026-11-24",
+    "kind": "x2",
+    "legs": [
+     {
+      "match_id": "9a2ebad454db4ab3d53b89e96c79847a",
+      "league": "Ligue des champions",
+      "kickoff": "2026-11-24T20:00:00Z",
+      "home": "Feyenoord",
+      "away": "Porto",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "CL",
+      "sport": "foot",
+      "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377082/feyenoord-vs-fc-porto",
+      "market": "2",
+      "label": "Victoire Porto",
+      "odds": 1.94,
+      "src": "unibet",
+      "p": 0.4586,
+      "ev": -0.1103
+     },
+     {
+      "match_id": "3fb5e4a792cf34a0459efcb79a11a785",
+      "league": "Ligue des champions",
+      "kickoff": "2026-11-24T20:00:00Z",
+      "home": "Real Madrid",
+      "away": "PSV Eindhoven",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "CL",
+      "sport": "foot",
+      "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377085/real-madrid-vs-psv-eindhoven",
+      "market": "BTTS",
+      "label": "Les deux équipes marquent",
+      "odds": 1.47,
+      "src": "estimee",
+      "p": 0.6203,
+      "ev": -0.0882
+     }
+    ],
+    "odds": 2.85,
+    "p": 0.2845,
+    "cost": 0.1888,
+    "stars": 2,
+    "stake": 2,
+    "status": "en attente",
+    "alt": true
+   }
+  },
+  "2026-11-24|8e93849b4c1ccbf1c207836d5c470150:+3.5|9a2ebad454db4ab3d53b89e96c79847a:2|ba719e378ac366262013bdb51a06aa6f:+3.5|e422af92d1fc06c0a330838c1c2f2e08:1": {
+   "mise": 1,
+   "odds": 16.14,
+   "t": 1795537262,
+   "snap": null
   }
  },
  "kick_sent": {

@@ -66,7 +66,8 @@
    "stars": 2,
    "stake": 2,
    "status": "en attente",
-   "proposed_at": "2026-11-24T06:31:05.786416+00:00"
+   "proposed_at": "2026-11-24T06:31:05.786416+00:00",
+   "replaced": true
   },
   {
    "id": "2026-11-25|14007bc0605bce3bd164b132254ba24c:BTTS|99459b90f3e732106e09585bf94b36b4:2",
@@ -116,7 +117,8 @@
    "stars": 3,
    "stake": 3,
    "status": "en attente",
-   "proposed_at": "2026-11-24T06:31:05.786416+00:00"
+   "proposed_at": "2026-11-24T06:31:05.786416+00:00",
+   "replaced": true
   },
   {
    "id": "2026-11-25|01a61442fe04f8751b62eb251f234079:BTTS|0ee2cfddf20153779cd2cc3e1f1f879f:2",
@@ -166,7 +168,158 @@
    "stars": 2,
    "stake": 3,
    "status": "en attente",
-   "proposed_at": "2026-11-24T06:31:05.786416+00:00"
+   "proposed_at": "2026-11-24T06:31:05.786416+00:00",
+   "replaced": true
+  },
+  {
+   "id": "2026-11-25|0ee2cfddf20153779cd2cc3e1f1f879f:2|14007bc0605bce3bd164b132254ba24c:BTTS",
+   "day": "2026-11-25",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "0ee2cfddf20153779cd2cc3e1f1f879f",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-25T20:00:00Z",
+     "home": "Lille",
+     "away": "Bayern Munich",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377479/lille-vs-bayern-munich",
+     "market": "2",
+     "label": "Victoire Bayern Munich",
+     "odds": 1.49,
+     "src": "unibet",
+     "p": 0.5956,
+     "ev": -0.1126
+    },
+    {
+     "match_id": "14007bc0605bce3bd164b132254ba24c",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-25T20:00:00Z",
+     "home": "Paris Saint Germain",
+     "away": "AS Roma",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377480/paris-sg-vs-as-rome",
+     "market": "BTTS",
+     "label": "Les deux équipes marquent",
+     "odds": 1.43,
+     "src": "estimee",
+     "p": 0.6351,
+     "ev": -0.0918
+    }
+   ],
+   "odds": 2.13,
+   "p": 0.3783,
+   "cost": 0.1941,
+   "stars": 3,
+   "stake": 3,
+   "status": "en attente",
+   "proposed_at": "2026-11-24T15:31:02.284192+00:00"
+  },
+  {
+   "id": "2026-11-25|14007bc0605bce3bd164b132254ba24c:1|99459b90f3e732106e09585bf94b36b4:2",
+   "day": "2026-11-25",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "14007bc0605bce3bd164b132254ba24c",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-25T20:00:00Z",
+     "home": "Paris Saint Germain",
+     "away": "AS Roma",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377480/paris-sg-vs-as-rome",
+     "market": "1",
+     "label": "Victoire Paris Saint Germain",
+     "odds": 1.33,
+     "src": "unibet",
+     "p": 0.681,
+     "ev": -0.0943
+    },
+    {
+     "match_id": "99459b90f3e732106e09585bf94b36b4",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-25T20:00:00Z",
+     "home": "Club Brugge",
+     "away": "Liverpool",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377478/club-bruges-vs-liverpool",
+     "market": "2",
+     "label": "Victoire Liverpool",
+     "odds": 1.53,
+     "src": "unibet",
+     "p": 0.5778,
+     "ev": -0.116
+    }
+   ],
+   "odds": 2.03,
+   "p": 0.3935,
+   "cost": 0.1994,
+   "stars": 2,
+   "stake": 3,
+   "status": "en attente",
+   "proposed_at": "2026-11-24T15:31:02.284192+00:00"
+  },
+  {
+   "id": "2026-11-25|14007bc0605bce3bd164b132254ba24c:+2.5|a7c87fac9e9cbcfc02ad0e0b29ca89e2:2",
+   "day": "2026-11-25",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "a7c87fac9e9cbcfc02ad0e0b29ca89e2",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-25T17:45:00Z",
+     "home": "Slavia Praha",
+     "away": "Villarreal",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377439/slavia-prague-vs-villarreal",
+     "market": "2",
+     "label": "Victoire Villarreal",
+     "odds": 1.97,
+     "src": "unibet",
+     "p": 0.447,
+     "ev": -0.1194
+    },
+    {
+     "match_id": "14007bc0605bce3bd164b132254ba24c",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-25T20:00:00Z",
+     "home": "Paris Saint Germain",
+     "away": "AS Roma",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377480/paris-sg-vs-as-rome",
+     "market": "+2.5",
+     "label": "Plus de 2,5 buts",
+     "odds": 1.26,
+     "src": "estimee",
+     "p": 0.7213,
+     "ev": -0.0912
+    }
+   ],
+   "odds": 2.48,
+   "p": 0.3224,
+   "cost": 0.1997,
+   "stars": 2,
+   "stake": 2,
+   "status": "en attente",
+   "proposed_at": "2026-11-24T15:31:02.284192+00:00"
   },
   {
    "id": "2026-11-25|01a61442fe04f8751b62eb251f234079:1|49c66d76bc4085e63a181179cc47ef4d:2|99459b90f3e732106e09585bf94b36b4:2|a7c87fac9e9cbcfc02ad0e0b29ca89e2:2",
@@ -252,7 +405,94 @@
    "stars": 0,
    "stake": 1,
    "status": "en attente",
-   "proposed_at": "2026-11-24T06:31:05.786416+00:00"
+   "proposed_at": "2026-11-24T06:31:05.786416+00:00",
+   "replaced": true
+  },
+  {
+   "id": "2026-11-25|01a61442fe04f8751b62eb251f234079:1|0ee2cfddf20153779cd2cc3e1f1f879f:2|49c66d76bc4085e63a181179cc47ef4d:2|a7c87fac9e9cbcfc02ad0e0b29ca89e2:2",
+   "day": "2026-11-25",
+   "kind": "folie",
+   "legs": [
+    {
+     "match_id": "49c66d76bc4085e63a181179cc47ef4d",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-25T20:00:00Z",
+     "home": "Shakhtar Donetsk",
+     "away": "Fenerbahce",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377475/shakht.donetsk-vs-fenerbahce",
+     "market": "2",
+     "label": "Victoire Fenerbahce",
+     "odds": 2.35,
+     "src": "unibet",
+     "p": 0.3818,
+     "ev": -0.1028
+    },
+    {
+     "match_id": "0ee2cfddf20153779cd2cc3e1f1f879f",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-25T20:00:00Z",
+     "home": "Lille",
+     "away": "Bayern Munich",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377479/lille-vs-bayern-munich",
+     "market": "2",
+     "label": "Victoire Bayern Munich",
+     "odds": 1.49,
+     "src": "unibet",
+     "p": 0.5956,
+     "ev": -0.1126
+    },
+    {
+     "match_id": "01a61442fe04f8751b62eb251f234079",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-25T20:00:00Z",
+     "home": "Sporting Lisbon",
+     "away": "Manchester United",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377477/sporting-vs-man.-united",
+     "market": "1",
+     "label": "Victoire Sporting Lisbon",
+     "odds": 2.25,
+     "src": "unibet",
+     "p": 0.3938,
+     "ev": -0.1139
+    },
+    {
+     "match_id": "a7c87fac9e9cbcfc02ad0e0b29ca89e2",
+     "league": "Ligue des champions",
+     "kickoff": "2026-11-25T17:45:00Z",
+     "home": "Slavia Praha",
+     "away": "Villarreal",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "CL",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377439/slavia-prague-vs-villarreal",
+     "market": "2",
+     "label": "Victoire Villarreal",
+     "odds": 1.97,
+     "src": "unibet",
+     "p": 0.447,
+     "ev": -0.1194
+    }
+   ],
+   "odds": 15.52,
+   "p": 0.04,
+   "cost": 0.3787,
+   "stars": 0,
+   "stake": 1,
+   "status": "en attente",
+   "proposed_at": "2026-11-24T15:31:02.284192+00:00"
   },
   {
    "id": "2026-11-24|50b80f3ebd38bf63663b11ae0afc575b:BTTS|aea973c122c91837c15e066c757c747f:1|aee4e3c225603397ab52de3d066b566b:1",
@@ -10207,5 +10447,5 @@
   "bilan_mise_suggeree": -49.41,
   "mise_suggeree_totale": 169
  },
- "updated": "2026-11-24T06:31:05.786416+00:00"
+ "updated": "2026-11-24T15:31:02.284192+00:00"
 }

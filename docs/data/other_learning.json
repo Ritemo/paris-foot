@@ -978,6 +978,33 @@
    "p": 0.2039,
    "odds": 3.55,
    "won": false
+  },
+  "nba-401909314": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-25T00:00:00Z",
+   "home": "Orlando Magic",
+   "away": "Detroit Pistons",
+   "p": 0.4573,
+   "odds": 1.9
+  },
+  "nba-401909315": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-25T01:00:00Z",
+   "home": "Washington Wizards",
+   "away": "Boston Celtics",
+   "p": 0.213,
+   "odds": 3.6
+  },
+  "nba-401909316": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-25T03:00:00Z",
+   "home": "Denver Nuggets",
+   "away": "Dallas Mavericks",
+   "p": 0.7331,
+   "odds": 1.24
   }
  },
  "summary": {
@@ -1041,5 +1068,5 @@
    ]
   }
  },
- "updated": "2026-11-24T06:15:52.415200+00:00"
+ "updated": "2026-11-24T06:31:05.786416+00:00"
 }

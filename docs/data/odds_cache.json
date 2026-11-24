@@ -1,140 +1,36 @@
 {
- "aa77e2a08a1a003b0bbb62a5f8e8ae42": {
-  "id": "aa77e2a08a1a003b0bbb62a5f8e8ae42",
-  "sport_key": "soccer_epl",
-  "sport_title": "EPL",
-  "commence_time": "2026-11-23T20:00:00Z",
-  "home_team": "Brentford",
-  "away_team": "Everton",
+ "e422af92d1fc06c0a330838c1c2f2e08": {
+  "id": "e422af92d1fc06c0a330838c1c2f2e08",
+  "sport_key": "soccer_uefa_champs_league",
+  "sport_title": "UEFA Champions League",
+  "commence_time": "2026-11-24T17:45:00Z",
+  "home_team": "Galatasaray",
+  "away_team": "Aston Villa",
   "bookmakers": [
    {
     "key": "unibet_fr",
     "title": "Unibet (FR)",
-    "last_update": "2026-11-23T06:31:02Z",
-    "link": "https://www.unibet.fr/paris-football/angleterre/premier-league/3395610/brentford-vs-everton",
+    "last_update": "2026-11-24T06:31:13Z",
+    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377069/galatasaray-vs-aston-villa",
     "markets": [
      {
       "key": "h2h",
-      "outcomes": [
-       {
-        "name": "Brentford",
-        "price": 2.05
-       },
-       {
-        "name": "Draw",
-        "price": 3.5
-       },
-       {
-        "name": "Everton",
-        "price": 3.1
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-23T06:29:50Z",
-    "link": "https://www.betclic.fr/football-sfootball/angl-premier-league-c3/brentford-everton-m1268170347270146",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:29:50Z",
+      "last_update": "2026-11-24T06:31:13Z",
       "link": null,
       "outcomes": [
        {
-        "name": "Brentford",
-        "price": 2.17,
+        "name": "Aston Villa",
+        "price": 2.05,
         "link": null
        },
        {
-        "name": "Everton",
-        "price": 2.88,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.32,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-23T06:31:03Z",
-    "link": "https://www.pmu.fr/sport/#event/1028072784",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:03Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Brentford",
-        "price": 2.18,
-        "link": null
-       },
-       {
-        "name": "Everton",
-        "price": 2.88,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.3,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:31:03Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.66,
-        "point": 2.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.92,
-        "point": 2.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-23T06:30:37Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/72221396",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:30:37Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Brentford",
-        "price": 2.15,
-        "link": null
-       },
-       {
-        "name": "Everton",
+        "name": "Galatasaray",
         "price": 2.75,
         "link": null
        },
        {
         "name": "Draw",
-        "price": 3.3,
+        "price": 3.6,
         "link": null
        }
       ]
@@ -144,22 +40,826 @@
    {
     "key": "netbet_fr",
     "title": "NetBet",
-    "last_update": "2026-11-23T06:30:50Z",
-    "link": "https://www.netbet.fr/evenement/12346494-brentford-everton",
+    "last_update": "2026-11-24T06:31:15Z",
+    "link": "https://www.netbet.fr/evenement/12371448-galatasaray-aston-villa",
     "markets": [
      {
       "key": "h2h",
-      "last_update": "2026-11-23T06:30:50Z",
+      "last_update": "2026-11-24T06:31:15Z",
       "link": null,
       "outcomes": [
        {
-        "name": "Brentford",
+        "name": "Aston Villa",
+        "price": 2.12,
+        "link": null
+       },
+       {
+        "name": "Galatasaray",
+        "price": 2.72,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 3.55,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.88,
+        "point": 3.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 1.6,
+        "point": 3.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "winamax_fr",
+    "title": "Winamax (FR)",
+    "last_update": "2026-11-24T06:29:17Z",
+    "link": "https://www.winamax.fr/paris-sportifs/match/74166016",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:17Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Aston Villa",
+        "price": 2.1,
+        "link": null
+       },
+       {
+        "name": "Galatasaray",
+        "price": 2.65,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 3.65,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "pmu_fr",
+    "title": "PMU (FR)",
+    "last_update": "2026-11-24T06:30:53Z",
+    "link": "https://www.pmu.fr/sport/#event/1029147328",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Aston Villa",
+        "price": 2.15,
+        "link": null
+       },
+       {
+        "name": "Galatasaray",
+        "price": 2.65,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 3.6,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.93,
+        "point": 3.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 1.65,
+        "point": 3.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "betclic_fr",
+    "title": "Betclic (FR)",
+    "last_update": "2026-11-24T06:29:47Z",
+    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/galatasaray-aston-villa-m1271904379887616",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:47Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Aston Villa",
         "price": 2.2,
         "link": null
        },
        {
-        "name": "Everton",
-        "price": 2.87,
+        "name": "Galatasaray",
+        "price": 2.75,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 3.68,
+        "link": null
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "sport": "soccer_uefa_champs_league",
+  "fetched_at": "2026-11-24T06:31:05.786416+00:00",
+  "full_at": "2026-11-24T06:31:05.786416+00:00"
+ },
+ "50b80f3ebd38bf63663b11ae0afc575b": {
+  "id": "50b80f3ebd38bf63663b11ae0afc575b",
+  "sport_key": "soccer_uefa_champs_league",
+  "sport_title": "UEFA Champions League",
+  "commence_time": "2026-11-24T17:45:00Z",
+  "home_team": "Bodø/Glimt",
+  "away_team": "LASK",
+  "bookmakers": [
+   {
+    "key": "netbet_fr",
+    "title": "NetBet",
+    "last_update": "2026-11-24T06:31:15Z",
+    "link": "https://www.netbet.fr/evenement/12370110-bodo-glimt-lask",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Bodø/Glimt",
+        "price": 1.4,
+        "link": null
+       },
+       {
+        "name": "LASK",
+        "price": 5.1,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 4.8,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.58,
+        "point": 3.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 1.91,
+        "point": 3.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "winamax_fr",
+    "title": "Winamax (FR)",
+    "last_update": "2026-11-24T06:29:17Z",
+    "link": "https://www.winamax.fr/paris-sportifs/match/74166014",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:17Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Bodø/Glimt",
+        "price": 1.42,
+        "link": null
+       },
+       {
+        "name": "LASK",
+        "price": 4.8,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 5.0,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "unibet_fr",
+    "title": "Unibet (FR)",
+    "last_update": "2026-11-24T06:31:13Z",
+    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377070/bodø/glimt-vs-lask-linz",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:13Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Bodø/Glimt",
+        "price": 1.41,
+        "link": null
+       },
+       {
+        "name": "LASK",
+        "price": 4.8,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 4.6,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "betclic_fr",
+    "title": "Betclic (FR)",
+    "last_update": "2026-11-24T06:29:47Z",
+    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/bodø/glimt-lask-linz-m1271904160731136",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:47Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Bodø/Glimt",
+        "price": 1.43,
+        "link": null
+       },
+       {
+        "name": "LASK",
+        "price": 5.25,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 5.0,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "pmu_fr",
+    "title": "PMU (FR)",
+    "last_update": "2026-11-24T06:30:53Z",
+    "link": "https://www.pmu.fr/sport/#event/1029038205",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Bodø/Glimt",
+        "price": 1.43,
+        "link": null
+       },
+       {
+        "name": "LASK",
+        "price": 5.1,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 4.5,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.62,
+        "point": 3.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 1.97,
+        "point": 3.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "sport": "soccer_uefa_champs_league",
+  "fetched_at": "2026-11-24T06:31:05.786416+00:00",
+  "full_at": "2026-11-24T06:31:05.786416+00:00"
+ },
+ "ba719e378ac366262013bdb51a06aa6f": {
+  "id": "ba719e378ac366262013bdb51a06aa6f",
+  "sport_key": "soccer_uefa_champs_league",
+  "sport_title": "UEFA Champions League",
+  "commence_time": "2026-11-24T20:00:00Z",
+  "home_team": "Como",
+  "away_team": "AEK Athens",
+  "bookmakers": [
+   {
+    "key": "netbet_fr",
+    "title": "NetBet",
+    "last_update": "2026-11-24T06:31:15Z",
+    "link": "https://www.netbet.fr/evenement/12371182-come-aek-athenes",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "AEK Athens",
+        "price": 10.5,
+        "link": null
+       },
+       {
+        "name": "Como",
+        "price": 1.18,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 5.8,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.73,
+        "point": 3.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 1.75,
+        "point": 3.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "winamax_fr",
+    "title": "Winamax (FR)",
+    "last_update": "2026-11-24T06:29:17Z",
+    "link": "https://www.winamax.fr/paris-sportifs/match/74166020",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:17Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "AEK Athens",
+        "price": 8.5,
+        "link": null
+       },
+       {
+        "name": "Como",
+        "price": 1.18,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 6.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "unibet_fr",
+    "title": "Unibet (FR)",
+    "last_update": "2026-11-24T06:31:13Z",
+    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377088/como-1907-vs-aek-athènes",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:13Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "AEK Athens",
+        "price": 8.5,
+        "link": null
+       },
+       {
+        "name": "Como",
+        "price": 1.17,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 6.3,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "betclic_fr",
+    "title": "Betclic (FR)",
+    "last_update": "2026-11-24T06:29:47Z",
+    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/côme-aek-athènes-m1271904335859712",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:47Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "AEK Athens",
+        "price": 11.0,
+        "link": null
+       },
+       {
+        "name": "Como",
+        "price": 1.2,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 6.0,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "pmu_fr",
+    "title": "PMU (FR)",
+    "last_update": "2026-11-24T06:30:53Z",
+    "link": "https://www.pmu.fr/sport/#event/1028943236",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "AEK Athens",
+        "price": 9.0,
+        "link": null
+       },
+       {
+        "name": "Como",
+        "price": 1.2,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 6.0,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.7,
+        "point": 3.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 1.87,
+        "point": 3.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "sport": "soccer_uefa_champs_league",
+  "fetched_at": "2026-11-24T06:31:05.786416+00:00",
+  "full_at": "2026-11-24T06:31:05.786416+00:00"
+ },
+ "aee4e3c225603397ab52de3d066b566b": {
+  "id": "aee4e3c225603397ab52de3d066b566b",
+  "sport_key": "soccer_uefa_champs_league",
+  "sport_title": "UEFA Champions League",
+  "commence_time": "2026-11-24T20:00:00Z",
+  "home_team": "Arsenal",
+  "away_team": "Borussia Dortmund",
+  "bookmakers": [
+   {
+    "key": "winamax_fr",
+    "title": "Winamax (FR)",
+    "last_update": "2026-11-24T06:29:17Z",
+    "link": "https://www.winamax.fr/paris-sportifs/match/74166018",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:17Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Arsenal",
+        "price": 1.3,
+        "link": null
+       },
+       {
+        "name": "Borussia Dortmund",
+        "price": 7.0,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 5.0,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "pmu_fr",
+    "title": "PMU (FR)",
+    "last_update": "2026-11-24T06:30:53Z",
+    "link": "https://www.pmu.fr/sport/#event/1028943241",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Arsenal",
+        "price": 1.36,
+        "link": null
+       },
+       {
+        "name": "Borussia Dortmund",
+        "price": 7.0,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 4.3,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.55,
+        "point": 2.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 2.08,
+        "point": 2.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "unibet_fr",
+    "title": "Unibet (FR)",
+    "last_update": "2026-11-24T06:31:13Z",
+    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377087/arsenal-vs-dortmund",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:13Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Arsenal",
+        "price": 1.34,
+        "link": null
+       },
+       {
+        "name": "Borussia Dortmund",
+        "price": 6.2,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 4.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "netbet_fr",
+    "title": "NetBet",
+    "last_update": "2026-11-24T06:31:15Z",
+    "link": "https://www.netbet.fr/evenement/12370124-arsenal-borussia-dortmund",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Arsenal",
+        "price": 1.33,
+        "link": null
+       },
+       {
+        "name": "Borussia Dortmund",
+        "price": 6.75,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 4.5,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.53,
+        "point": 2.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 2.0,
+        "point": 2.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "betclic_fr",
+    "title": "Betclic (FR)",
+    "last_update": "2026-11-24T06:29:47Z",
+    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/arsenal-borussia-dortmund-m1271905024757778",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:47Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Arsenal",
+        "price": 1.36,
+        "link": null
+       },
+       {
+        "name": "Borussia Dortmund",
+        "price": 6.9,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 4.8,
+        "link": null
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "sport": "soccer_uefa_champs_league",
+  "fetched_at": "2026-11-24T06:31:05.786416+00:00",
+  "full_at": "2026-11-24T06:31:05.786416+00:00"
+ },
+ "9a2ebad454db4ab3d53b89e96c79847a": {
+  "id": "9a2ebad454db4ab3d53b89e96c79847a",
+  "sport_key": "soccer_uefa_champs_league",
+  "sport_title": "UEFA Champions League",
+  "commence_time": "2026-11-24T20:00:00Z",
+  "home_team": "Feyenoord",
+  "away_team": "Porto",
+  "bookmakers": [
+   {
+    "key": "unibet_fr",
+    "title": "Unibet (FR)",
+    "last_update": "2026-11-24T06:31:13Z",
+    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377082/feyenoord-vs-fc-porto",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:13Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Feyenoord",
+        "price": 2.85,
+        "link": null
+       },
+       {
+        "name": "Porto",
+        "price": 2.1,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 3.4,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "pmu_fr",
+    "title": "PMU (FR)",
+    "last_update": "2026-11-24T06:30:53Z",
+    "link": "https://www.pmu.fr/sport/#event/1028943233",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Feyenoord",
+        "price": 2.85,
+        "link": null
+       },
+       {
+        "name": "Porto",
+        "price": 2.12,
         "link": null
        },
        {
@@ -171,18 +871,2319 @@
      },
      {
       "key": "totals",
-      "last_update": "2026-11-23T06:30:50Z",
+      "last_update": "2026-11-24T06:30:53Z",
       "link": null,
       "outcomes": [
        {
         "name": "Over",
-        "price": 1.63,
+        "price": 1.56,
         "point": 2.5,
         "link": null
        },
        {
         "name": "Under",
+        "price": 2.08,
+        "point": 2.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "winamax_fr",
+    "title": "Winamax (FR)",
+    "last_update": "2026-11-24T06:29:17Z",
+    "link": "https://www.winamax.fr/paris-sportifs/match/74166022",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:17Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Feyenoord",
+        "price": 2.85,
+        "link": null
+       },
+       {
+        "name": "Porto",
+        "price": 2.05,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 3.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "netbet_fr",
+    "title": "NetBet",
+    "last_update": "2026-11-24T06:31:15Z",
+    "link": "https://www.netbet.fr/evenement/12371446-feyenoord-fc-porto",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Feyenoord",
+        "price": 2.87,
+        "link": null
+       },
+       {
+        "name": "Porto",
+        "price": 2.1,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 3.45,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.48,
+        "point": 2.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 2.07,
+        "point": 2.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "betclic_fr",
+    "title": "Betclic (FR)",
+    "last_update": "2026-11-24T06:29:47Z",
+    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/feyenoord-fc-porto-m1271904506773504",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:47Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Feyenoord",
+        "price": 2.95,
+        "link": null
+       },
+       {
+        "name": "Porto",
+        "price": 2.15,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 3.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "sport": "soccer_uefa_champs_league",
+  "fetched_at": "2026-11-24T06:31:05.786416+00:00",
+  "full_at": "2026-11-24T06:31:05.786416+00:00"
+ },
+ "b9f00a4d399ec661e733857c9d5fb2dc": {
+  "id": "b9f00a4d399ec661e733857c9d5fb2dc",
+  "sport_key": "soccer_uefa_champs_league",
+  "sport_title": "UEFA Champions League",
+  "commence_time": "2026-11-24T20:00:00Z",
+  "home_team": "Manchester City",
+  "away_team": "Napoli",
+  "bookmakers": [
+   {
+    "key": "pmu_fr",
+    "title": "PMU (FR)",
+    "last_update": "2026-11-24T06:30:53Z",
+    "link": "https://www.pmu.fr/sport/#event/1028943234",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Manchester City",
+        "price": 1.22,
+        "link": null
+       },
+       {
+        "name": "Napoli",
+        "price": 8.5,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 5.75,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.68,
+        "point": 3.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 1.88,
+        "point": 3.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "unibet_fr",
+    "title": "Unibet (FR)",
+    "last_update": "2026-11-24T06:31:13Z",
+    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377083/man.-city-vs-naples",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:13Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Manchester City",
+        "price": 1.19,
+        "link": null
+       },
+       {
+        "name": "Napoli",
+        "price": 8.5,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 6.0,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "winamax_fr",
+    "title": "Winamax (FR)",
+    "last_update": "2026-11-24T06:29:17Z",
+    "link": "https://www.winamax.fr/paris-sportifs/match/74166024",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:17Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Manchester City",
+        "price": 1.2,
+        "link": null
+       },
+       {
+        "name": "Napoli",
+        "price": 8.0,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 6.25,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "netbet_fr",
+    "title": "NetBet",
+    "last_update": "2026-11-24T06:31:15Z",
+    "link": "https://www.netbet.fr/evenement/12371445-manchester-city-naples",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Manchester City",
+        "price": 1.22,
+        "link": null
+       },
+       {
+        "name": "Napoli",
+        "price": 8.25,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 5.7,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.65,
+        "point": 3.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 1.82,
+        "point": 3.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "betclic_fr",
+    "title": "Betclic (FR)",
+    "last_update": "2026-11-24T06:29:47Z",
+    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/manchester-city-naples-m1271904177508352",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:47Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Manchester City",
+        "price": 1.25,
+        "link": null
+       },
+       {
+        "name": "Napoli",
+        "price": 8.5,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 5.9,
+        "link": null
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "sport": "soccer_uefa_champs_league",
+  "fetched_at": "2026-11-24T06:31:05.786416+00:00",
+  "full_at": "2026-11-24T06:31:05.786416+00:00"
+ },
+ "3fb5e4a792cf34a0459efcb79a11a785": {
+  "id": "3fb5e4a792cf34a0459efcb79a11a785",
+  "sport_key": "soccer_uefa_champs_league",
+  "sport_title": "UEFA Champions League",
+  "commence_time": "2026-11-24T20:00:00Z",
+  "home_team": "Real Madrid",
+  "away_team": "PSV Eindhoven",
+  "bookmakers": [
+   {
+    "key": "betclic_fr",
+    "title": "Betclic (FR)",
+    "last_update": "2026-11-24T06:29:47Z",
+    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/real-madrid-psv-eindhoven-m1271904224698368",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:47Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "PSV Eindhoven",
+        "price": 13.75,
+        "link": null
+       },
+       {
+        "name": "Real Madrid",
+        "price": 1.1,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 9.0,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "pmu_fr",
+    "title": "PMU (FR)",
+    "last_update": "2026-11-24T06:30:53Z",
+    "link": "https://www.pmu.fr/sport/#event/1029581020",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "PSV Eindhoven",
+        "price": 12.0,
+        "link": null
+       },
+       {
+        "name": "Real Madrid",
+        "price": 1.11,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 8.5,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.81,
+        "point": 4.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 1.75,
+        "point": 4.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "netbet_fr",
+    "title": "NetBet",
+    "last_update": "2026-11-24T06:31:15Z",
+    "link": "https://www.netbet.fr/evenement/12371197-real-madrid-psv-eindhoven",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "PSV Eindhoven",
+        "price": 14.0,
+        "link": null
+       },
+       {
+        "name": "Real Madrid",
+        "price": 1.06,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 9.25,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.8,
+        "point": 4.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 1.68,
+        "point": 4.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "winamax_fr",
+    "title": "Winamax (FR)",
+    "last_update": "2026-11-24T06:29:17Z",
+    "link": "https://www.winamax.fr/paris-sportifs/match/74166028",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:17Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "PSV Eindhoven",
+        "price": 10.0,
+        "link": null
+       },
+       {
+        "name": "Real Madrid",
+        "price": 1.11,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 9.25,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "unibet_fr",
+    "title": "Unibet (FR)",
+    "last_update": "2026-11-24T06:31:13Z",
+    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377085/real-madrid-vs-psv-eindhoven",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:13Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "PSV Eindhoven",
+        "price": 11.0,
+        "link": null
+       },
+       {
+        "name": "Real Madrid",
+        "price": 1.1,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 9.25,
+        "link": null
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "sport": "soccer_uefa_champs_league",
+  "fetched_at": "2026-11-24T06:31:05.786416+00:00",
+  "full_at": "2026-11-24T06:31:05.786416+00:00"
+ },
+ "aea973c122c91837c15e066c757c747f": {
+  "id": "aea973c122c91837c15e066c757c747f",
+  "sport_key": "soccer_uefa_champs_league",
+  "sport_title": "UEFA Champions League",
+  "commence_time": "2026-11-24T20:00:00Z",
+  "home_team": "RB Leipzig",
+  "away_team": "RC Lens",
+  "bookmakers": [
+   {
+    "key": "pmu_fr",
+    "title": "PMU (FR)",
+    "last_update": "2026-11-24T06:30:53Z",
+    "link": "https://www.pmu.fr/sport/#event/1028943201",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "RB Leipzig",
+        "price": 1.3,
+        "link": null
+       },
+       {
+        "name": "RC Lens",
+        "price": 6.5,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 5.1,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.65,
+        "point": 3.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 1.93,
+        "point": 3.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "unibet_fr",
+    "title": "Unibet (FR)",
+    "last_update": "2026-11-24T06:31:13Z",
+    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377084/rb-leipzig-vs-lens",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:13Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "RB Leipzig",
+        "price": 1.29,
+        "link": null
+       },
+       {
+        "name": "RC Lens",
+        "price": 6.25,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 5.75,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "winamax_fr",
+    "title": "Winamax (FR)",
+    "last_update": "2026-11-24T06:29:17Z",
+    "link": "https://www.winamax.fr/paris-sportifs/match/74166026",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:17Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "RB Leipzig",
+        "price": 1.3,
+        "link": null
+       },
+       {
+        "name": "RC Lens",
+        "price": 5.75,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 5.75,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "netbet_fr",
+    "title": "NetBet",
+    "last_update": "2026-11-24T06:31:15Z",
+    "link": "https://www.netbet.fr/evenement/12371151-rb-leipzig-lens",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "RB Leipzig",
+        "price": 1.28,
+        "link": null
+       },
+       {
+        "name": "RC Lens",
+        "price": 6.75,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 5.2,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.65,
+        "point": 3.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 1.82,
+        "point": 3.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "betclic_fr",
+    "title": "Betclic (FR)",
+    "last_update": "2026-11-24T06:29:47Z",
+    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/rb-leipzig-rc-lens-m1271904014995456",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:47Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "RB Leipzig",
+        "price": 1.33,
+        "link": null
+       },
+       {
+        "name": "RC Lens",
+        "price": 6.5,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 5.4,
+        "link": null
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "sport": "soccer_uefa_champs_league",
+  "fetched_at": "2026-11-24T06:31:05.786416+00:00",
+  "full_at": "2026-11-24T06:31:05.786416+00:00"
+ },
+ "8e93849b4c1ccbf1c207836d5c470150": {
+  "id": "8e93849b4c1ccbf1c207836d5c470150",
+  "sport_key": "soccer_uefa_champs_league",
+  "sport_title": "UEFA Champions League",
+  "commence_time": "2026-11-24T20:00:00Z",
+  "home_team": "ŠK Slovan Bratislava",
+  "away_team": "Real Betis",
+  "bookmakers": [
+   {
+    "key": "unibet_fr",
+    "title": "Unibet (FR)",
+    "last_update": "2026-11-24T06:31:13Z",
+    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377086/slo.bratislava-vs-betis-séville",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:13Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Real Betis",
+        "price": 1.15,
+        "link": null
+       },
+       {
+        "name": "ŠK Slovan Bratislava",
+        "price": 9.5,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 6.4,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "winamax_fr",
+    "title": "Winamax (FR)",
+    "last_update": "2026-11-24T06:29:17Z",
+    "link": "https://www.winamax.fr/paris-sportifs/match/74166030",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:17Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Real Betis",
+        "price": 1.17,
+        "link": null
+       },
+       {
+        "name": "ŠK Slovan Bratislava",
+        "price": 9.25,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 6.6,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "netbet_fr",
+    "title": "NetBet",
+    "last_update": "2026-11-24T06:31:15Z",
+    "link": "https://www.netbet.fr/evenement/12370534-slovan-bratislava-betis",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Real Betis",
+        "price": 1.17,
+        "link": null
+       },
+       {
+        "name": "ŠK Slovan Bratislava",
+        "price": 10.0,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 6.2,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.78,
+        "point": 3.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 1.68,
+        "point": 3.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "pmu_fr",
+    "title": "PMU (FR)",
+    "last_update": "2026-11-24T06:30:53Z",
+    "link": "https://www.pmu.fr/sport/#event/1029582507",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Real Betis",
+        "price": 1.2,
+        "link": null
+       },
+       {
+        "name": "ŠK Slovan Bratislava",
+        "price": 9.5,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 5.8,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.78,
+        "point": 3.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 1.78,
+        "point": 3.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "betclic_fr",
+    "title": "Betclic (FR)",
+    "last_update": "2026-11-24T06:29:47Z",
+    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/slovan-bratislava-betis-m1271902414852096",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:47Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Real Betis",
+        "price": 1.18,
+        "link": null
+       },
+       {
+        "name": "ŠK Slovan Bratislava",
+        "price": 11.0,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 6.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "sport": "soccer_uefa_champs_league",
+  "fetched_at": "2026-11-24T06:31:05.786416+00:00",
+  "full_at": "2026-11-24T06:31:05.786416+00:00"
+ },
+ "e6fa007f93e0cef004be920f96ee95ba": {
+  "id": "e6fa007f93e0cef004be920f96ee95ba",
+  "sport_key": "soccer_uefa_champs_league",
+  "sport_title": "UEFA Champions League",
+  "commence_time": "2026-11-25T17:45:00Z",
+  "home_team": "Sabah FK",
+  "away_team": "Barcelona",
+  "bookmakers": [
+   {
+    "key": "unibet_fr",
+    "title": "Unibet (FR)",
+    "last_update": "2026-11-24T06:31:13Z",
+    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377440/sabah-fk-vs-fc-barcelone",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:13Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Barcelona",
+        "price": 1.04,
+        "link": null
+       },
+       {
+        "name": "Sabah FK",
+        "price": 14.0,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 10.0,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "netbet_fr",
+    "title": "NetBet",
+    "last_update": "2026-11-24T06:31:15Z",
+    "link": "https://www.netbet.fr/evenement/12370638-sabah-fc-barcelone",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Barcelona",
+        "price": 1.02,
+        "link": null
+       },
+       {
+        "name": "Sabah FK",
+        "price": 19.0,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 11.5,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.57,
+        "point": 4.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 1.93,
+        "point": 4.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "winamax_fr",
+    "title": "Winamax (FR)",
+    "last_update": "2026-11-24T06:29:17Z",
+    "link": "https://www.winamax.fr/paris-sportifs/match/74166032",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:17Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Barcelona",
+        "price": 1.05,
+        "link": null
+       },
+       {
+        "name": "Sabah FK",
+        "price": 14.0,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 11.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "pmu_fr",
+    "title": "PMU (FR)",
+    "last_update": "2026-11-24T06:30:53Z",
+    "link": "https://www.pmu.fr/sport/#event/1028943198",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Barcelona",
+        "price": 1.05,
+        "link": null
+       },
+       {
+        "name": "Sabah FK",
+        "price": 18.0,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 10.5,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.6,
+        "point": 4.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 2.0,
+        "point": 4.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "betclic_fr",
+    "title": "Betclic (FR)",
+    "last_update": "2026-11-24T06:29:47Z",
+    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/sabah-fk-barcelone-m1271904759480320",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:47Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Barcelona",
+        "price": 1.05,
+        "link": null
+       },
+       {
+        "name": "Sabah FK",
+        "price": 14.25,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 11.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "sport": "soccer_uefa_champs_league",
+  "fetched_at": "2026-11-24T06:31:05.786416+00:00",
+  "full_at": "2026-11-24T06:31:05.786416+00:00"
+ },
+ "a7c87fac9e9cbcfc02ad0e0b29ca89e2": {
+  "id": "a7c87fac9e9cbcfc02ad0e0b29ca89e2",
+  "sport_key": "soccer_uefa_champs_league",
+  "sport_title": "UEFA Champions League",
+  "commence_time": "2026-11-25T17:45:00Z",
+  "home_team": "Slavia Praha",
+  "away_team": "Villarreal",
+  "bookmakers": [
+   {
+    "key": "unibet_fr",
+    "title": "Unibet (FR)",
+    "last_update": "2026-11-24T06:31:13Z",
+    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377439/slavia-prague-vs-villarreal",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:13Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Slavia Praha",
+        "price": 2.85,
+        "link": null
+       },
+       {
+        "name": "Villarreal",
+        "price": 1.96,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 3.65,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "betclic_fr",
+    "title": "Betclic (FR)",
+    "last_update": "2026-11-24T06:29:47Z",
+    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/slavia-prague-villarreal-m1271902484066306",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:47Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Slavia Praha",
+        "price": 2.95,
+        "link": null
+       },
+       {
+        "name": "Villarreal",
+        "price": 2.0,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 3.7,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "winamax_fr",
+    "title": "Winamax (FR)",
+    "last_update": "2026-11-24T06:29:17Z",
+    "link": "https://www.winamax.fr/paris-sportifs/match/74166034",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:17Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Slavia Praha",
+        "price": 2.85,
+        "link": null
+       },
+       {
+        "name": "Villarreal",
+        "price": 2.0,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 3.7,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "pmu_fr",
+    "title": "PMU (FR)",
+    "last_update": "2026-11-24T06:30:53Z",
+    "link": "https://www.pmu.fr/sport/#event/1028943197",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Slavia Praha",
+        "price": 2.95,
+        "link": null
+       },
+       {
+        "name": "Villarreal",
+        "price": 2.05,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 3.45,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.44,
+        "point": 2.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 2.3,
+        "point": 2.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "netbet_fr",
+    "title": "NetBet",
+    "last_update": "2026-11-24T06:31:15Z",
+    "link": "https://www.netbet.fr/evenement/12370540-slavia-prague-villarreal",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Slavia Praha",
+        "price": 2.92,
+        "link": null
+       },
+       {
+        "name": "Villarreal",
+        "price": 1.99,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 3.65,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 2.15,
+        "point": 3.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 1.45,
+        "point": 3.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "sport": "soccer_uefa_champs_league",
+  "fetched_at": "2026-11-24T06:31:05.786416+00:00",
+  "full_at": "2026-11-24T06:31:05.786416+00:00"
+ },
+ "14007bc0605bce3bd164b132254ba24c": {
+  "id": "14007bc0605bce3bd164b132254ba24c",
+  "sport_key": "soccer_uefa_champs_league",
+  "sport_title": "UEFA Champions League",
+  "commence_time": "2026-11-25T20:00:00Z",
+  "home_team": "Paris Saint Germain",
+  "away_team": "AS Roma",
+  "bookmakers": [
+   {
+    "key": "winamax_fr",
+    "title": "Winamax (FR)",
+    "last_update": "2026-11-24T06:29:17Z",
+    "link": "https://www.winamax.fr/paris-sportifs/match/74166046",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:17Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "AS Roma",
+        "price": 6.0,
+        "link": null
+       },
+       {
+        "name": "Paris Saint Germain",
+        "price": 1.32,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 5.1,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "betclic_fr",
+    "title": "Betclic (FR)",
+    "last_update": "2026-11-24T06:29:47Z",
+    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/paris-sg-roma-m1271904579117056",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:47Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "AS Roma",
+        "price": 6.1,
+        "link": null
+       },
+       {
+        "name": "Paris Saint Germain",
+        "price": 1.33,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 5.1,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "pmu_fr",
+    "title": "PMU (FR)",
+    "last_update": "2026-11-24T06:30:53Z",
+    "link": "https://www.pmu.fr/sport/#event/1028943189",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "AS Roma",
+        "price": 6.25,
+        "link": null
+       },
+       {
+        "name": "Paris Saint Germain",
+        "price": 1.34,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 4.8,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.73,
+        "point": 3.5,
+        "link": null
+       },
+       {
+        "name": "Under",
         "price": 1.83,
+        "point": 3.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "unibet_fr",
+    "title": "Unibet (FR)",
+    "last_update": "2026-11-24T06:31:13Z",
+    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377480/paris-sg-vs-as-rome",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:13Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "AS Roma",
+        "price": 6.5,
+        "link": null
+       },
+       {
+        "name": "Paris Saint Germain",
+        "price": 1.31,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 5.2,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "netbet_fr",
+    "title": "NetBet",
+    "last_update": "2026-11-24T06:31:15Z",
+    "link": "https://www.netbet.fr/evenement/12371152-paris-sg-as-rome",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "AS Roma",
+        "price": 6.3,
+        "link": null
+       },
+       {
+        "name": "Paris Saint Germain",
+        "price": 1.33,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 4.8,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.73,
+        "point": 3.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 1.75,
+        "point": 3.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "sport": "soccer_uefa_champs_league",
+  "fetched_at": "2026-11-24T06:31:05.786416+00:00",
+  "full_at": "2026-11-24T06:31:05.786416+00:00"
+ },
+ "b1af6789fe6db7aab18a2945ce56f035": {
+  "id": "b1af6789fe6db7aab18a2945ce56f035",
+  "sport_key": "soccer_uefa_champs_league",
+  "sport_title": "UEFA Champions League",
+  "commence_time": "2026-11-25T20:00:00Z",
+  "home_team": "Atlético Madrid",
+  "away_team": "Viking FK",
+  "bookmakers": [
+   {
+    "key": "winamax_fr",
+    "title": "Winamax (FR)",
+    "last_update": "2026-11-24T06:29:17Z",
+    "link": "https://www.winamax.fr/paris-sportifs/match/74166036",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:17Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Atlético Madrid",
+        "price": 1.06,
+        "link": null
+       },
+       {
+        "name": "Viking FK",
+        "price": 17.0,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 10.0,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "unibet_fr",
+    "title": "Unibet (FR)",
+    "last_update": "2026-11-24T06:31:13Z",
+    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377476/atl.-madrid-vs-viking-fk",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:13Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Atlético Madrid",
+        "price": 1.05,
+        "link": null
+       },
+       {
+        "name": "Viking FK",
+        "price": 15.0,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 8.0,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "pmu_fr",
+    "title": "PMU (FR)",
+    "last_update": "2026-11-24T06:30:53Z",
+    "link": "https://www.pmu.fr/sport/#event/1028943176",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Atlético Madrid",
+        "price": 1.07,
+        "link": null
+       },
+       {
+        "name": "Viking FK",
+        "price": 18.0,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 8.5,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.61,
+        "point": 3.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 2.0,
+        "point": 3.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "betclic_fr",
+    "title": "Betclic (FR)",
+    "last_update": "2026-11-24T06:29:47Z",
+    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/atlético-madrid-viking-fk-m1271904806666240",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:47Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Atlético Madrid",
+        "price": 1.06,
+        "link": null
+       },
+       {
+        "name": "Viking FK",
+        "price": 17.75,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 9.0,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "netbet_fr",
+    "title": "NetBet",
+    "last_update": "2026-11-24T06:31:15Z",
+    "link": "https://www.netbet.fr/evenement/12372463-atletico-madrid-viking",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Atlético Madrid",
+        "price": 1.05,
+        "link": null
+       },
+       {
+        "name": "Viking FK",
+        "price": 19.0,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 9.25,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.53,
+        "point": 3.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 1.99,
+        "point": 3.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "sport": "soccer_uefa_champs_league",
+  "fetched_at": "2026-11-24T06:31:05.786416+00:00",
+  "full_at": "2026-11-24T06:31:05.786416+00:00"
+ },
+ "0ee2cfddf20153779cd2cc3e1f1f879f": {
+  "id": "0ee2cfddf20153779cd2cc3e1f1f879f",
+  "sport_key": "soccer_uefa_champs_league",
+  "sport_title": "UEFA Champions League",
+  "commence_time": "2026-11-25T20:00:00Z",
+  "home_team": "Lille",
+  "away_team": "Bayern Munich",
+  "bookmakers": [
+   {
+    "key": "netbet_fr",
+    "title": "NetBet",
+    "last_update": "2026-11-24T06:31:15Z",
+    "link": "https://www.netbet.fr/evenement/12370538-lille-bayern-munich",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Bayern Munich",
+        "price": 1.5,
+        "link": null
+       },
+       {
+        "name": "Lille",
+        "price": 4.8,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 4.1,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "winamax_fr",
+    "title": "Winamax (FR)",
+    "last_update": "2026-11-24T06:29:17Z",
+    "link": "https://www.winamax.fr/paris-sportifs/match/74166044",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:17Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Bayern Munich",
+        "price": 1.5,
+        "link": null
+       },
+       {
+        "name": "Lille",
+        "price": 4.5,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 4.35,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "unibet_fr",
+    "title": "Unibet (FR)",
+    "last_update": "2026-11-24T06:31:13Z",
+    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377479/lille-vs-bayern-munich",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:13Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Bayern Munich",
+        "price": 1.48,
+        "link": null
+       },
+       {
+        "name": "Lille",
+        "price": 4.6,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 4.2,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "pmu_fr",
+    "title": "PMU (FR)",
+    "last_update": "2026-11-24T06:30:53Z",
+    "link": "https://www.pmu.fr/sport/#event/1028943187",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Bayern Munich",
+        "price": 1.51,
+        "link": null
+       },
+       {
+        "name": "Lille",
+        "price": 4.9,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 4.0,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 2.16,
+        "point": 3.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 1.51,
+        "point": 3.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "betclic_fr",
+    "title": "Betclic (FR)",
+    "last_update": "2026-11-24T06:29:47Z",
+    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/lille-bayern-munich-m1271904433377280",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:47Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Bayern Munich",
+        "price": 1.5,
+        "link": null
+       },
+       {
+        "name": "Lille",
+        "price": 4.8,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 4.25,
+        "link": null
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "sport": "soccer_uefa_champs_league",
+  "fetched_at": "2026-11-24T06:31:05.786416+00:00",
+  "full_at": "2026-11-24T06:31:05.786416+00:00"
+ },
+ "99459b90f3e732106e09585bf94b36b4": {
+  "id": "99459b90f3e732106e09585bf94b36b4",
+  "sport_key": "soccer_uefa_champs_league",
+  "sport_title": "UEFA Champions League",
+  "commence_time": "2026-11-25T20:00:00Z",
+  "home_team": "Club Brugge",
+  "away_team": "Liverpool",
+  "bookmakers": [
+   {
+    "key": "unibet_fr",
+    "title": "Unibet (FR)",
+    "last_update": "2026-11-24T06:31:13Z",
+    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377478/club-bruges-vs-liverpool",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:13Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Club Brugge",
+        "price": 4.1,
+        "link": null
+       },
+       {
+        "name": "Liverpool",
+        "price": 1.54,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 4.3,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "pmu_fr",
+    "title": "PMU (FR)",
+    "last_update": "2026-11-24T06:30:53Z",
+    "link": "https://www.pmu.fr/sport/#event/1028943196",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Club Brugge",
+        "price": 4.2,
+        "link": null
+       },
+       {
+        "name": "Liverpool",
+        "price": 1.57,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 4.1,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.67,
+        "point": 3.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 1.89,
+        "point": 3.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "winamax_fr",
+    "title": "Winamax (FR)",
+    "last_update": "2026-11-24T06:29:17Z",
+    "link": "https://www.winamax.fr/paris-sportifs/match/74166038",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:17Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Club Brugge",
+        "price": 3.9,
+        "link": null
+       },
+       {
+        "name": "Liverpool",
+        "price": 1.56,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 4.3,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "netbet_fr",
+    "title": "NetBet",
+    "last_update": "2026-11-24T06:31:15Z",
+    "link": "https://www.netbet.fr/evenement/12370125-club-bruges-liverpool",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Club Brugge",
+        "price": 4.2,
+        "link": null
+       },
+       {
+        "name": "Liverpool",
+        "price": 1.53,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 4.4,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.6,
+        "point": 3.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 1.9,
+        "point": 3.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "betclic_fr",
+    "title": "Betclic (FR)",
+    "last_update": "2026-11-24T06:29:47Z",
+    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/club-bruges-liverpool-m1271904677691392",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:47Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Club Brugge",
+        "price": 4.05,
+        "link": null
+       },
+       {
+        "name": "Liverpool",
+        "price": 1.57,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 4.4,
+        "link": null
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "sport": "soccer_uefa_champs_league",
+  "fetched_at": "2026-11-24T06:31:05.786416+00:00",
+  "full_at": "2026-11-24T06:31:05.786416+00:00"
+ },
+ "49c66d76bc4085e63a181179cc47ef4d": {
+  "id": "49c66d76bc4085e63a181179cc47ef4d",
+  "sport_key": "soccer_uefa_champs_league",
+  "sport_title": "UEFA Champions League",
+  "commence_time": "2026-11-25T20:00:00Z",
+  "home_team": "Shakhtar Donetsk",
+  "away_team": "Fenerbahce",
+  "bookmakers": [
+   {
+    "key": "pmu_fr",
+    "title": "PMU (FR)",
+    "last_update": "2026-11-24T06:30:53Z",
+    "link": "https://www.pmu.fr/sport/#event/1028943195",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Fenerbahce",
+        "price": 2.48,
+        "link": null
+       },
+       {
+        "name": "Shakhtar Donetsk",
+        "price": 2.43,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 3.3,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.56,
+        "point": 2.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 2.05,
+        "point": 2.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "unibet_fr",
+    "title": "Unibet (FR)",
+    "last_update": "2026-11-24T06:31:13Z",
+    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377475/shakht.donetsk-vs-fenerbahce",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:13Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Fenerbahce",
+        "price": 2.35,
+        "link": null
+       },
+       {
+        "name": "Shakhtar Donetsk",
+        "price": 2.5,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 3.25,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "winamax_fr",
+    "title": "Winamax (FR)",
+    "last_update": "2026-11-24T06:29:17Z",
+    "link": "https://www.winamax.fr/paris-sportifs/match/74166042",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:17Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Fenerbahce",
+        "price": 2.4,
+        "link": null
+       },
+       {
+        "name": "Shakhtar Donetsk",
+        "price": 2.45,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 3.35,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "betclic_fr",
+    "title": "Betclic (FR)",
+    "last_update": "2026-11-24T06:29:47Z",
+    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/shakhtar-donetsk-fenerbahçe-m1271932149338112",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:47Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Fenerbahce",
+        "price": 2.4,
+        "link": null
+       },
+       {
+        "name": "Shakhtar Donetsk",
+        "price": 2.53,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 3.35,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "netbet_fr",
+    "title": "NetBet",
+    "last_update": "2026-11-24T06:31:15Z",
+    "link": "https://www.netbet.fr/evenement/12370609-shakhtar-donetsk-fenerbahce",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Fenerbahce",
+        "price": 2.45,
+        "link": null
+       },
+       {
+        "name": "Shakhtar Donetsk",
+        "price": 2.5,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 3.25,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.58,
+        "point": 2.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 1.93,
         "point": 2.5,
         "link": null
        }
@@ -191,9 +3192,411 @@
     ]
    }
   ],
-  "sport": "soccer_epl",
-  "fetched_at": "2026-11-23T15:31:09.876937+00:00",
-  "full_at": "2026-11-23T06:31:07.091707+00:00"
+  "sport": "soccer_uefa_champs_league",
+  "fetched_at": "2026-11-24T06:31:05.786416+00:00",
+  "full_at": "2026-11-24T06:31:05.786416+00:00"
+ },
+ "e7e64568f6af00d395a3fdfc27de8ae3": {
+  "id": "e7e64568f6af00d395a3fdfc27de8ae3",
+  "sport_key": "soccer_uefa_champs_league",
+  "sport_title": "UEFA Champions League",
+  "commence_time": "2026-11-25T20:00:00Z",
+  "home_team": "Inter Milan",
+  "away_team": "VfB Stuttgart",
+  "bookmakers": [
+   {
+    "key": "winamax_fr",
+    "title": "Winamax (FR)",
+    "last_update": "2026-11-24T06:29:17Z",
+    "link": "https://www.winamax.fr/paris-sportifs/match/74166040",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:17Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Inter Milan",
+        "price": 1.35,
+        "link": null
+       },
+       {
+        "name": "VfB Stuttgart",
+        "price": 5.2,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 5.2,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "pmu_fr",
+    "title": "PMU (FR)",
+    "last_update": "2026-11-24T06:30:53Z",
+    "link": "https://www.pmu.fr/sport/#event/1028943193",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Inter Milan",
+        "price": 1.36,
+        "link": null
+       },
+       {
+        "name": "VfB Stuttgart",
+        "price": 5.75,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 4.9,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.5,
+        "point": 3.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 2.18,
+        "point": 3.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "netbet_fr",
+    "title": "NetBet",
+    "last_update": "2026-11-24T06:31:15Z",
+    "link": "https://www.netbet.fr/evenement/12371185-inter-milan-stuttgart",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Inter Milan",
+        "price": 1.33,
+        "link": null
+       },
+       {
+        "name": "VfB Stuttgart",
+        "price": 5.8,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 5.2,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.48,
+        "point": 3.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 2.07,
+        "point": 3.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "unibet_fr",
+    "title": "Unibet (FR)",
+    "last_update": "2026-11-24T06:31:13Z",
+    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377474/inter-milan-vs-stuttgart",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:13Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Inter Milan",
+        "price": 1.34,
+        "link": null
+       },
+       {
+        "name": "VfB Stuttgart",
+        "price": 5.4,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 5.1,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "betclic_fr",
+    "title": "Betclic (FR)",
+    "last_update": "2026-11-24T06:29:47Z",
+    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/inter-milan-stuttgart-m1271904927244290",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:47Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Inter Milan",
+        "price": 1.35,
+        "link": null
+       },
+       {
+        "name": "VfB Stuttgart",
+        "price": 5.6,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 5.25,
+        "link": null
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "sport": "soccer_uefa_champs_league",
+  "fetched_at": "2026-11-24T06:31:05.786416+00:00",
+  "full_at": "2026-11-24T06:31:05.786416+00:00"
+ },
+ "01a61442fe04f8751b62eb251f234079": {
+  "id": "01a61442fe04f8751b62eb251f234079",
+  "sport_key": "soccer_uefa_champs_league",
+  "sport_title": "UEFA Champions League",
+  "commence_time": "2026-11-25T20:00:00Z",
+  "home_team": "Sporting Lisbon",
+  "away_team": "Manchester United",
+  "bookmakers": [
+   {
+    "key": "winamax_fr",
+    "title": "Winamax (FR)",
+    "last_update": "2026-11-24T06:29:17Z",
+    "link": "https://www.winamax.fr/paris-sportifs/match/74166048",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:17Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Manchester United",
+        "price": 2.45,
+        "link": null
+       },
+       {
+        "name": "Sporting Lisbon",
+        "price": 2.3,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 3.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "unibet_fr",
+    "title": "Unibet (FR)",
+    "last_update": "2026-11-24T06:31:13Z",
+    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377477/sporting-vs-man.-united",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:13Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Manchester United",
+        "price": 2.5,
+        "link": null
+       },
+       {
+        "name": "Sporting Lisbon",
+        "price": 2.25,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 3.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "pmu_fr",
+    "title": "PMU (FR)",
+    "last_update": "2026-11-24T06:30:53Z",
+    "link": "https://www.pmu.fr/sport/#event/1028943181",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Manchester United",
+        "price": 2.5,
+        "link": null
+       },
+       {
+        "name": "Sporting Lisbon",
+        "price": 2.35,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 3.4,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:30:53Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 1.49,
+        "point": 2.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 2.2,
+        "point": 2.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "netbet_fr",
+    "title": "NetBet",
+    "last_update": "2026-11-24T06:31:15Z",
+    "link": "https://www.netbet.fr/evenement/12370610-sporting-manchester-united",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Manchester United",
+        "price": 2.52,
+        "link": null
+       },
+       {
+        "name": "Sporting Lisbon",
+        "price": 2.32,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 3.45,
+        "link": null
+       }
+      ]
+     },
+     {
+      "key": "totals",
+      "last_update": "2026-11-24T06:31:15Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Over",
+        "price": 2.12,
+        "point": 3.5,
+        "link": null
+       },
+       {
+        "name": "Under",
+        "price": 1.45,
+        "point": 3.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "betclic_fr",
+    "title": "Betclic (FR)",
+    "last_update": "2026-11-24T06:29:47Z",
+    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/sporting-portugal-manchester-united-m1271932086419456",
+    "markets": [
+     {
+      "key": "h2h",
+      "last_update": "2026-11-24T06:29:47Z",
+      "link": null,
+      "outcomes": [
+       {
+        "name": "Manchester United",
+        "price": 2.57,
+        "link": null
+       },
+       {
+        "name": "Sporting Lisbon",
+        "price": 2.3,
+        "link": null
+       },
+       {
+        "name": "Draw",
+        "price": 3.5,
+        "link": null
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "sport": "soccer_uefa_champs_league",
+  "fetched_at": "2026-11-24T06:31:05.786416+00:00",
+  "full_at": "2026-11-24T06:31:05.786416+00:00"
  },
  "40d95e660c301c2d8a5a7a6317017b65": {
   "id": "40d95e660c301c2d8a5a7a6317017b65",
@@ -3184,172 +6587,6 @@
   "fetched_at": "2026-11-23T15:31:09.876937+00:00",
   "full_at": "2026-11-23T06:31:07.091707+00:00"
  },
- "afae1c9d986e4ab2200dc9bd44b6b6c4": {
-  "id": "afae1c9d986e4ab2200dc9bd44b6b6c4",
-  "sport_key": "soccer_spain_la_liga",
-  "sport_title": "La Liga - Spain",
-  "commence_time": "2026-11-23T20:00:00Z",
-  "home_team": "Levante",
-  "away_team": "Elche CF",
-  "bookmakers": [
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-23T06:31:06Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/72478714",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:06Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Elche CF",
-        "price": 2.95,
-        "link": null
-       },
-       {
-        "name": "Levante",
-        "price": 2.0,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.4,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-23T06:31:06Z",
-    "link": "https://www.unibet.fr/paris-football/espagne/laliga/3376359/levante-vs-elche",
-    "markets": [
-     {
-      "key": "h2h",
-      "outcomes": [
-       {
-        "name": "Levante",
-        "price": 2.0
-       },
-       {
-        "name": "Draw",
-        "price": 3.4
-       },
-       {
-        "name": "Elche CF",
-        "price": 3.0
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-23T06:30:26Z",
-    "link": "https://www.netbet.fr/evenement/12358280-levante-elche",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:30:25Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Elche CF",
-        "price": 3.05,
-        "link": null
-       },
-       {
-        "name": "Levante",
-        "price": 2.07,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.5,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:30:25Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.53,
-        "point": 2.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.99,
-        "point": 2.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-23T06:30:25Z",
-    "link": "https://www.pmu.fr/sport/#event/1028209204",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:30:25Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Elche CF",
-        "price": 3.05,
-        "link": null
-       },
-       {
-        "name": "Levante",
-        "price": 2.07,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.35,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:30:25Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.63,
-        "point": 2.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.96,
-        "point": 2.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_spain_la_liga",
-  "fetched_at": "2026-11-23T15:31:09.876937+00:00",
-  "full_at": "2026-11-23T06:31:07.091707+00:00"
- },
  "80c92a163a81b69fef76530221e2edd0": {
   "id": "80c92a163a81b69fef76530221e2edd0",
   "sport_key": "soccer_spain_la_liga",
@@ -5583,172 +8820,6 @@
    }
   ],
   "sport": "soccer_spain_la_liga",
-  "fetched_at": "2026-11-23T15:31:09.876937+00:00",
-  "full_at": "2026-11-23T06:31:07.091707+00:00"
- },
- "99776445d5a5f4ed008f9a6d6a1495b7": {
-  "id": "99776445d5a5f4ed008f9a6d6a1495b7",
-  "sport_key": "soccer_italy_serie_a",
-  "sport_title": "Serie A - Italy",
-  "commence_time": "2026-11-23T19:45:00Z",
-  "home_team": "Monza",
-  "away_team": "Fiorentina",
-  "bookmakers": [
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-23T06:31:21Z",
-    "link": "https://www.unibet.fr/paris-football/italie/serie-a/3390216/ac-monza-vs-fiorentina",
-    "markets": [
-     {
-      "key": "h2h",
-      "outcomes": [
-       {
-        "name": "Monza",
-        "price": 3.7
-       },
-       {
-        "name": "Draw",
-        "price": 3.4
-       },
-       {
-        "name": "Fiorentina",
-        "price": 1.78
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-23T06:30:31Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/71945418",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:30:31Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Fiorentina",
-        "price": 1.84,
-        "link": null
-       },
-       {
-        "name": "Monza",
-        "price": 3.35,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.55,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-23T06:30:39Z",
-    "link": "https://www.netbet.fr/evenement/12355339-monza-fiorentina",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:30:39Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Fiorentina",
-        "price": 1.85,
-        "link": null
-       },
-       {
-        "name": "Monza",
-        "price": 3.45,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.65,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:30:39Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.43,
-        "point": 2.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 2.17,
-        "point": 2.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-23T06:31:20Z",
-    "link": "https://www.pmu.fr/sport/#event/1027911528",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:20Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Fiorentina",
-        "price": 1.85,
-        "link": null
-       },
-       {
-        "name": "Monza",
-        "price": 3.4,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.55,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:31:20Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.51,
-        "point": 2.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 2.16,
-        "point": 2.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_italy_serie_a",
   "fetched_at": "2026-11-23T15:31:09.876937+00:00",
   "full_at": "2026-11-23T06:31:07.091707+00:00"
  },
@@ -7991,3515 +11062,6 @@
    }
   ],
   "sport": "soccer_italy_serie_a",
-  "fetched_at": "2026-11-23T15:31:09.876937+00:00",
-  "full_at": "2026-11-23T06:31:07.091707+00:00"
- },
- "e422af92d1fc06c0a330838c1c2f2e08": {
-  "id": "e422af92d1fc06c0a330838c1c2f2e08",
-  "sport_key": "soccer_uefa_champs_league",
-  "sport_title": "UEFA Champions League",
-  "commence_time": "2026-11-24T17:45:00Z",
-  "home_team": "Galatasaray",
-  "away_team": "Aston Villa",
-  "bookmakers": [
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-23T06:30:54Z",
-    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377069/galatasaray-vs-aston-villa",
-    "markets": [
-     {
-      "key": "h2h",
-      "outcomes": [
-       {
-        "name": "Galatasaray",
-        "price": 2.65
-       },
-       {
-        "name": "Draw",
-        "price": 3.8
-       },
-       {
-        "name": "Aston Villa",
-        "price": 2.05
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-23T06:30:52Z",
-    "link": "https://www.netbet.fr/evenement/12371448-galatasaray-aston-villa",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Aston Villa",
-        "price": 2.17,
-        "link": null
-       },
-       {
-        "name": "Galatasaray",
-        "price": 2.57,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.55,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.73,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.75,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-23T06:31:08Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/74166016",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:08Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Aston Villa",
-        "price": 2.15,
-        "link": null
-       },
-       {
-        "name": "Galatasaray",
-        "price": 2.5,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.8,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-23T06:31:10Z",
-    "link": "https://www.pmu.fr/sport/#event/1029147328",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Aston Villa",
-        "price": 2.25,
-        "link": null
-       },
-       {
-        "name": "Galatasaray",
-        "price": 2.55,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.65,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.8,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.76,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-23T06:29:47Z",
-    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/galatasaray-aston-villa-m1271904379887616",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:29:47Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Aston Villa",
-        "price": 2.17,
-        "link": null
-       },
-       {
-        "name": "Galatasaray",
-        "price": 2.65,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.7,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_uefa_champs_league",
-  "fetched_at": "2026-11-23T15:31:09.876937+00:00",
-  "full_at": "2026-11-23T06:31:07.091707+00:00"
- },
- "50b80f3ebd38bf63663b11ae0afc575b": {
-  "id": "50b80f3ebd38bf63663b11ae0afc575b",
-  "sport_key": "soccer_uefa_champs_league",
-  "sport_title": "UEFA Champions League",
-  "commence_time": "2026-11-24T17:45:00Z",
-  "home_team": "Bodø/Glimt",
-  "away_team": "LASK",
-  "bookmakers": [
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-23T06:30:52Z",
-    "link": "https://www.netbet.fr/evenement/12370110-bodo-glimt-lask",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Bodø/Glimt",
-        "price": 1.43,
-        "link": null
-       },
-       {
-        "name": "LASK",
-        "price": 4.7,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.6,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.6,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.9,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-23T06:31:08Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/74166014",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:08Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Bodø/Glimt",
-        "price": 1.47,
-        "link": null
-       },
-       {
-        "name": "LASK",
-        "price": 4.5,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.7,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-23T06:30:54Z",
-    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377070/bodø/glimt-vs-lask-linz",
-    "markets": [
-     {
-      "key": "h2h",
-      "outcomes": [
-       {
-        "name": "Bodø/Glimt",
-        "price": 1.42
-       },
-       {
-        "name": "Draw",
-        "price": 4.6
-       },
-       {
-        "name": "LASK",
-        "price": 4.8
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-23T06:29:47Z",
-    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/bodø/glimt-lask-linz-m1271904160731136",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:29:47Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Bodø/Glimt",
-        "price": 1.47,
-        "link": null
-       },
-       {
-        "name": "LASK",
-        "price": 4.7,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.6,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-23T06:31:10Z",
-    "link": "https://www.pmu.fr/sport/#event/1029038205",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Bodø/Glimt",
-        "price": 1.43,
-        "link": null
-       },
-       {
-        "name": "LASK",
-        "price": 5.0,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.5,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.63,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.95,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_uefa_champs_league",
-  "fetched_at": "2026-11-23T15:31:09.876937+00:00",
-  "full_at": "2026-11-23T06:31:07.091707+00:00"
- },
- "ba719e378ac366262013bdb51a06aa6f": {
-  "id": "ba719e378ac366262013bdb51a06aa6f",
-  "sport_key": "soccer_uefa_champs_league",
-  "sport_title": "UEFA Champions League",
-  "commence_time": "2026-11-24T20:00:00Z",
-  "home_team": "Como",
-  "away_team": "AEK Athens",
-  "bookmakers": [
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-23T06:30:52Z",
-    "link": "https://www.netbet.fr/evenement/12371182-come-aek-athenes",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "AEK Athens",
-        "price": 9.5,
-        "link": null
-       },
-       {
-        "name": "Como",
-        "price": 1.19,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 5.4,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.71,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.75,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-23T06:31:08Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/74166020",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:08Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "AEK Athens",
-        "price": 8.0,
-        "link": null
-       },
-       {
-        "name": "Como",
-        "price": 1.22,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 5.75,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-23T06:30:54Z",
-    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377088/como-1907-vs-aek-athènes",
-    "markets": [
-     {
-      "key": "h2h",
-      "outcomes": [
-       {
-        "name": "Como",
-        "price": 1.17
-       },
-       {
-        "name": "Draw",
-        "price": 6.3
-       },
-       {
-        "name": "AEK Athens",
-        "price": 8.5
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-23T06:29:47Z",
-    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/côme-aek-athènes-m1271904335859712",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:29:47Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "AEK Athens",
-        "price": 9.5,
-        "link": null
-       },
-       {
-        "name": "Como",
-        "price": 1.22,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 5.4,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-23T06:31:10Z",
-    "link": "https://www.pmu.fr/sport/#event/1028943236",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "AEK Athens",
-        "price": 8.0,
-        "link": null
-       },
-       {
-        "name": "Como",
-        "price": 1.25,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 5.4,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.78,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.78,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_uefa_champs_league",
-  "fetched_at": "2026-11-23T15:31:09.876937+00:00",
-  "full_at": "2026-11-23T06:31:07.091707+00:00"
- },
- "aee4e3c225603397ab52de3d066b566b": {
-  "id": "aee4e3c225603397ab52de3d066b566b",
-  "sport_key": "soccer_uefa_champs_league",
-  "sport_title": "UEFA Champions League",
-  "commence_time": "2026-11-24T20:00:00Z",
-  "home_team": "Arsenal",
-  "away_team": "Borussia Dortmund",
-  "bookmakers": [
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-23T06:31:08Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/74166018",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:08Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Arsenal",
-        "price": 1.3,
-        "link": null
-       },
-       {
-        "name": "Borussia Dortmund",
-        "price": 7.0,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 5.0,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-23T06:31:10Z",
-    "link": "https://www.pmu.fr/sport/#event/1028943241",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Arsenal",
-        "price": 1.33,
-        "link": null
-       },
-       {
-        "name": "Borussia Dortmund",
-        "price": 7.0,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.5,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.55,
-        "point": 2.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 2.08,
-        "point": 2.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-23T06:30:54Z",
-    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377087/arsenal-vs-dortmund",
-    "markets": [
-     {
-      "key": "h2h",
-      "outcomes": [
-       {
-        "name": "Arsenal",
-        "price": 1.28
-       },
-       {
-        "name": "Draw",
-        "price": 4.9
-       },
-       {
-        "name": "Borussia Dortmund",
-        "price": 7.0
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-23T06:30:52Z",
-    "link": "https://www.netbet.fr/evenement/12370124-arsenal-borussia-dortmund",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Arsenal",
-        "price": 1.29,
-        "link": null
-       },
-       {
-        "name": "Borussia Dortmund",
-        "price": 7.25,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.7,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.53,
-        "point": 2.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 2.02,
-        "point": 2.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-23T06:29:47Z",
-    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/arsenal-borussia-dortmund-m1271905024757778",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:29:47Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Arsenal",
-        "price": 1.3,
-        "link": null
-       },
-       {
-        "name": "Borussia Dortmund",
-        "price": 7.25,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.9,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_uefa_champs_league",
-  "fetched_at": "2026-11-23T15:31:09.876937+00:00",
-  "full_at": "2026-11-23T06:31:07.091707+00:00"
- },
- "9a2ebad454db4ab3d53b89e96c79847a": {
-  "id": "9a2ebad454db4ab3d53b89e96c79847a",
-  "sport_key": "soccer_uefa_champs_league",
-  "sport_title": "UEFA Champions League",
-  "commence_time": "2026-11-24T20:00:00Z",
-  "home_team": "Feyenoord",
-  "away_team": "Porto",
-  "bookmakers": [
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-23T06:30:54Z",
-    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377082/feyenoord-vs-fc-porto",
-    "markets": [
-     {
-      "key": "h2h",
-      "outcomes": [
-       {
-        "name": "Feyenoord",
-        "price": 2.6
-       },
-       {
-        "name": "Draw",
-        "price": 3.5
-       },
-       {
-        "name": "Porto",
-        "price": 2.15
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-23T06:31:10Z",
-    "link": "https://www.pmu.fr/sport/#event/1028943233",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Feyenoord",
-        "price": 2.7,
-        "link": null
-       },
-       {
-        "name": "Porto",
-        "price": 2.25,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.3,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.56,
-        "point": 2.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 2.06,
-        "point": 2.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-23T06:31:08Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/74166022",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:08Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Feyenoord",
-        "price": 2.55,
-        "link": null
-       },
-       {
-        "name": "Porto",
-        "price": 2.25,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.55,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-23T06:30:52Z",
-    "link": "https://www.netbet.fr/evenement/12371446-feyenoord-fc-porto",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Feyenoord",
-        "price": 2.55,
-        "link": null
-       },
-       {
-        "name": "Porto",
-        "price": 2.22,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.45,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.47,
-        "point": 2.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 2.12,
-        "point": 2.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-23T06:29:47Z",
-    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/feyenoord-fc-porto-m1271904506773504",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:29:47Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Feyenoord",
-        "price": 2.6,
-        "link": null
-       },
-       {
-        "name": "Porto",
-        "price": 2.25,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.55,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_uefa_champs_league",
-  "fetched_at": "2026-11-23T15:31:09.876937+00:00",
-  "full_at": "2026-11-23T06:31:07.091707+00:00"
- },
- "b9f00a4d399ec661e733857c9d5fb2dc": {
-  "id": "b9f00a4d399ec661e733857c9d5fb2dc",
-  "sport_key": "soccer_uefa_champs_league",
-  "sport_title": "UEFA Champions League",
-  "commence_time": "2026-11-24T20:00:00Z",
-  "home_team": "Manchester City",
-  "away_team": "Napoli",
-  "bookmakers": [
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-23T06:31:10Z",
-    "link": "https://www.pmu.fr/sport/#event/1028943234",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Manchester City",
-        "price": 1.2,
-        "link": null
-       },
-       {
-        "name": "Napoli",
-        "price": 9.5,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 5.75,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.79,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.77,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-23T06:30:54Z",
-    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377083/man.-city-vs-naples",
-    "markets": [
-     {
-      "key": "h2h",
-      "outcomes": [
-       {
-        "name": "Manchester City",
-        "price": 1.19
-       },
-       {
-        "name": "Draw",
-        "price": 6.0
-       },
-       {
-        "name": "Napoli",
-        "price": 8.0
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-23T06:31:08Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/74166024",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:08Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Manchester City",
-        "price": 1.18,
-        "link": null
-       },
-       {
-        "name": "Napoli",
-        "price": 8.5,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 6.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-23T06:30:52Z",
-    "link": "https://www.netbet.fr/evenement/12371445-manchester-city-naples",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Manchester City",
-        "price": 1.17,
-        "link": null
-       },
-       {
-        "name": "Napoli",
-        "price": 9.25,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 6.2,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.73,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.75,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-23T06:29:47Z",
-    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/manchester-city-naples-m1271904177508352",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:29:47Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Manchester City",
-        "price": 1.18,
-        "link": null
-       },
-       {
-        "name": "Napoli",
-        "price": 9.0,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 6.4,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_uefa_champs_league",
-  "fetched_at": "2026-11-23T15:31:09.876937+00:00",
-  "full_at": "2026-11-23T06:31:07.091707+00:00"
- },
- "3fb5e4a792cf34a0459efcb79a11a785": {
-  "id": "3fb5e4a792cf34a0459efcb79a11a785",
-  "sport_key": "soccer_uefa_champs_league",
-  "sport_title": "UEFA Champions League",
-  "commence_time": "2026-11-24T20:00:00Z",
-  "home_team": "Real Madrid",
-  "away_team": "PSV Eindhoven",
-  "bookmakers": [
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-23T06:29:47Z",
-    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/real-madrid-psv-eindhoven-m1271904224698368",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:29:47Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "PSV Eindhoven",
-        "price": 11.0,
-        "link": null
-       },
-       {
-        "name": "Real Madrid",
-        "price": 1.12,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 8.0,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-23T06:31:10Z",
-    "link": "https://www.pmu.fr/sport/#event/1029581020",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "PSV Eindhoven",
-        "price": 10.5,
-        "link": null
-       },
-       {
-        "name": "Real Madrid",
-        "price": 1.14,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 7.5,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.97,
-        "point": 4.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.61,
-        "point": 4.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-23T06:30:52Z",
-    "link": "https://www.netbet.fr/evenement/12371197-real-madrid-psv-eindhoven",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "PSV Eindhoven",
-        "price": 12.0,
-        "link": null
-       },
-       {
-        "name": "Real Madrid",
-        "price": 1.08,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 8.25,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.85,
-        "point": 4.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.63,
-        "point": 4.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-23T06:31:08Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/74166028",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:08Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "PSV Eindhoven",
-        "price": 10.0,
-        "link": null
-       },
-       {
-        "name": "Real Madrid",
-        "price": 1.12,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 8.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-23T06:30:54Z",
-    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377085/real-madrid-vs-psv-eindhoven",
-    "markets": [
-     {
-      "key": "h2h",
-      "outcomes": [
-       {
-        "name": "Real Madrid",
-        "price": 1.1
-       },
-       {
-        "name": "Draw",
-        "price": 9.0
-       },
-       {
-        "name": "PSV Eindhoven",
-        "price": 11.0
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_uefa_champs_league",
-  "fetched_at": "2026-11-23T15:31:09.876937+00:00",
-  "full_at": "2026-11-23T06:31:07.091707+00:00"
- },
- "aea973c122c91837c15e066c757c747f": {
-  "id": "aea973c122c91837c15e066c757c747f",
-  "sport_key": "soccer_uefa_champs_league",
-  "sport_title": "UEFA Champions League",
-  "commence_time": "2026-11-24T20:00:00Z",
-  "home_team": "RB Leipzig",
-  "away_team": "RC Lens",
-  "bookmakers": [
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-23T06:31:10Z",
-    "link": "https://www.pmu.fr/sport/#event/1028943201",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "RB Leipzig",
-        "price": 1.33,
-        "link": null
-       },
-       {
-        "name": "RC Lens",
-        "price": 6.4,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.9,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.7,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.87,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-23T06:30:54Z",
-    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377084/rb-leipzig-vs-lens",
-    "markets": [
-     {
-      "key": "h2h",
-      "outcomes": [
-       {
-        "name": "RB Leipzig",
-        "price": 1.29
-       },
-       {
-        "name": "Draw",
-        "price": 5.5
-       },
-       {
-        "name": "RC Lens",
-        "price": 5.8
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-23T06:31:08Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/74166026",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:08Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "RB Leipzig",
-        "price": 1.32,
-        "link": null
-       },
-       {
-        "name": "RC Lens",
-        "price": 5.6,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 5.3,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-23T06:30:52Z",
-    "link": "https://www.netbet.fr/evenement/12371151-rb-leipzig-lens",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "RB Leipzig",
-        "price": 1.3,
-        "link": null
-       },
-       {
-        "name": "RC Lens",
-        "price": 6.3,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 5.0,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.63,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.83,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-23T06:29:47Z",
-    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/rb-leipzig-rc-lens-m1271904014995456",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:29:47Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "RB Leipzig",
-        "price": 1.32,
-        "link": null
-       },
-       {
-        "name": "RC Lens",
-        "price": 6.25,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 5.25,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_uefa_champs_league",
-  "fetched_at": "2026-11-23T15:31:09.876937+00:00",
-  "full_at": "2026-11-23T06:31:07.091707+00:00"
- },
- "8e93849b4c1ccbf1c207836d5c470150": {
-  "id": "8e93849b4c1ccbf1c207836d5c470150",
-  "sport_key": "soccer_uefa_champs_league",
-  "sport_title": "UEFA Champions League",
-  "commence_time": "2026-11-24T20:00:00Z",
-  "home_team": "ŠK Slovan Bratislava",
-  "away_team": "Real Betis",
-  "bookmakers": [
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-23T06:30:54Z",
-    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377086/slo.bratislava-vs-betis-séville",
-    "markets": [
-     {
-      "key": "h2h",
-      "outcomes": [
-       {
-        "name": "ŠK Slovan Bratislava",
-        "price": 10.0
-       },
-       {
-        "name": "Draw",
-        "price": 6.2
-       },
-       {
-        "name": "Real Betis",
-        "price": 1.15
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-23T06:31:08Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/74166030",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:08Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Real Betis",
-        "price": 1.16,
-        "link": null
-       },
-       {
-        "name": "ŠK Slovan Bratislava",
-        "price": 9.0,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 6.75,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-23T06:30:52Z",
-    "link": "https://www.netbet.fr/evenement/12370534-slovan-bratislava-betis",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Real Betis",
-        "price": 1.15,
-        "link": null
-       },
-       {
-        "name": "ŠK Slovan Bratislava",
-        "price": 10.0,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 6.2,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.75,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.73,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-23T06:31:10Z",
-    "link": "https://www.pmu.fr/sport/#event/1029582507",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Real Betis",
-        "price": 1.19,
-        "link": null
-       },
-       {
-        "name": "ŠK Slovan Bratislava",
-        "price": 9.5,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 6.0,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.76,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.8,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-23T06:29:47Z",
-    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/slovan-bratislava-betis-m1271902414852096",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:29:47Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Real Betis",
-        "price": 1.16,
-        "link": null
-       },
-       {
-        "name": "ŠK Slovan Bratislava",
-        "price": 10.25,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 6.6,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_uefa_champs_league",
-  "fetched_at": "2026-11-23T15:31:09.876937+00:00",
-  "full_at": "2026-11-23T06:31:07.091707+00:00"
- },
- "e6fa007f93e0cef004be920f96ee95ba": {
-  "id": "e6fa007f93e0cef004be920f96ee95ba",
-  "sport_key": "soccer_uefa_champs_league",
-  "sport_title": "UEFA Champions League",
-  "commence_time": "2026-11-25T17:45:00Z",
-  "home_team": "Sabah FK",
-  "away_team": "Barcelona",
-  "bookmakers": [
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-23T06:30:54Z",
-    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377440/sabah-fk-vs-fc-barcelone",
-    "markets": [
-     {
-      "key": "h2h",
-      "outcomes": [
-       {
-        "name": "Sabah FK",
-        "price": 15.0
-       },
-       {
-        "name": "Draw",
-        "price": 9.0
-       },
-       {
-        "name": "Barcelona",
-        "price": 1.05
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-23T06:30:52Z",
-    "link": "https://www.netbet.fr/evenement/12370638-sabah-fc-barcelone",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Barcelona",
-        "price": 1.01,
-        "link": null
-       },
-       {
-        "name": "Sabah FK",
-        "price": 20.0,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 11.5,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.51,
-        "point": 4.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 2.05,
-        "point": 4.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-23T06:31:08Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/74166032",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:08Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Barcelona",
-        "price": 1.04,
-        "link": null
-       },
-       {
-        "name": "Sabah FK",
-        "price": 15.0,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 11.0,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-23T06:31:10Z",
-    "link": "https://www.pmu.fr/sport/#event/1028943198",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Barcelona",
-        "price": 1.04,
-        "link": null
-       },
-       {
-        "name": "Sabah FK",
-        "price": 20.0,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 11.0,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.57,
-        "point": 4.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 2.04,
-        "point": 4.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-23T06:29:47Z",
-    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/sabah-fk-barcelone-m1271904759480320",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:29:47Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Barcelona",
-        "price": 1.04,
-        "link": null
-       },
-       {
-        "name": "Sabah FK",
-        "price": 17.0,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 10.0,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_uefa_champs_league",
-  "fetched_at": "2026-11-23T15:31:09.876937+00:00",
-  "full_at": "2026-11-23T06:31:07.091707+00:00"
- },
- "a7c87fac9e9cbcfc02ad0e0b29ca89e2": {
-  "id": "a7c87fac9e9cbcfc02ad0e0b29ca89e2",
-  "sport_key": "soccer_uefa_champs_league",
-  "sport_title": "UEFA Champions League",
-  "commence_time": "2026-11-25T17:45:00Z",
-  "home_team": "Slavia Praha",
-  "away_team": "Villarreal",
-  "bookmakers": [
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-23T06:30:54Z",
-    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377439/slavia-prague-vs-villarreal",
-    "markets": [
-     {
-      "key": "h2h",
-      "outcomes": [
-       {
-        "name": "Slavia Praha",
-        "price": 2.85
-       },
-       {
-        "name": "Draw",
-        "price": 3.65
-       },
-       {
-        "name": "Villarreal",
-        "price": 1.97
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-23T06:29:47Z",
-    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/slavia-prague-villarreal-m1271902484066306",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:29:47Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Slavia Praha",
-        "price": 2.82,
-        "link": null
-       },
-       {
-        "name": "Villarreal",
-        "price": 2.02,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.7,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-23T06:31:08Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/74166034",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:08Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Slavia Praha",
-        "price": 2.8,
-        "link": null
-       },
-       {
-        "name": "Villarreal",
-        "price": 2.0,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.7,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-23T06:31:10Z",
-    "link": "https://www.pmu.fr/sport/#event/1028943197",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Slavia Praha",
-        "price": 3.0,
-        "link": null
-       },
-       {
-        "name": "Villarreal",
-        "price": 2.04,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.45,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 2.2,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.49,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-23T06:30:52Z",
-    "link": "https://www.netbet.fr/evenement/12370540-slavia-prague-villarreal",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Slavia Praha",
-        "price": 2.85,
-        "link": null
-       },
-       {
-        "name": "Villarreal",
-        "price": 2.0,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.55,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 2.12,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.45,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_uefa_champs_league",
-  "fetched_at": "2026-11-23T15:31:09.876937+00:00",
-  "full_at": "2026-11-23T06:31:07.091707+00:00"
- },
- "14007bc0605bce3bd164b132254ba24c": {
-  "id": "14007bc0605bce3bd164b132254ba24c",
-  "sport_key": "soccer_uefa_champs_league",
-  "sport_title": "UEFA Champions League",
-  "commence_time": "2026-11-25T20:00:00Z",
-  "home_team": "Paris Saint Germain",
-  "away_team": "AS Roma",
-  "bookmakers": [
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-23T06:31:08Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/74166046",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:08Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "AS Roma",
-        "price": 6.25,
-        "link": null
-       },
-       {
-        "name": "Paris Saint Germain",
-        "price": 1.3,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 5.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-23T06:29:47Z",
-    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/paris-sg-roma-m1271904579117056",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:29:47Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "AS Roma",
-        "price": 6.4,
-        "link": null
-       },
-       {
-        "name": "Paris Saint Germain",
-        "price": 1.3,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 5.1,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-23T06:31:10Z",
-    "link": "https://www.pmu.fr/sport/#event/1028943189",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "AS Roma",
-        "price": 7.0,
-        "link": null
-       },
-       {
-        "name": "Paris Saint Germain",
-        "price": 1.29,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 5.1,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.71,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.85,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-23T06:30:54Z",
-    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377480/paris-sg-vs-as-rome",
-    "markets": [
-     {
-      "key": "h2h",
-      "outcomes": [
-       {
-        "name": "Paris Saint Germain",
-        "price": 1.29
-       },
-       {
-        "name": "Draw",
-        "price": 5.3
-       },
-       {
-        "name": "AS Roma",
-        "price": 6.8
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-23T06:30:52Z",
-    "link": "https://www.netbet.fr/evenement/12371152-paris-sg-as-rome",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "AS Roma",
-        "price": 6.75,
-        "link": null
-       },
-       {
-        "name": "Paris Saint Germain",
-        "price": 1.28,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.9,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.68,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.8,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_uefa_champs_league",
-  "fetched_at": "2026-11-23T15:31:09.876937+00:00",
-  "full_at": "2026-11-23T06:31:07.091707+00:00"
- },
- "b1af6789fe6db7aab18a2945ce56f035": {
-  "id": "b1af6789fe6db7aab18a2945ce56f035",
-  "sport_key": "soccer_uefa_champs_league",
-  "sport_title": "UEFA Champions League",
-  "commence_time": "2026-11-25T20:00:00Z",
-  "home_team": "Atlético Madrid",
-  "away_team": "Viking FK",
-  "bookmakers": [
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-23T06:31:08Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/74166036",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:08Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Atlético Madrid",
-        "price": 1.06,
-        "link": null
-       },
-       {
-        "name": "Viking FK",
-        "price": 18.0,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 10.0,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-23T06:30:54Z",
-    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377476/atl.-madrid-vs-viking-fk",
-    "markets": [
-     {
-      "key": "h2h",
-      "outcomes": [
-       {
-        "name": "Atlético Madrid",
-        "price": 1.05
-       },
-       {
-        "name": "Draw",
-        "price": 8.0
-       },
-       {
-        "name": "Viking FK",
-        "price": 15.0
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-23T06:31:10Z",
-    "link": "https://www.pmu.fr/sport/#event/1028943176",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Atlético Madrid",
-        "price": 1.08,
-        "link": null
-       },
-       {
-        "name": "Viking FK",
-        "price": 17.0,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 8.5,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.67,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.91,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-23T06:29:47Z",
-    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/atlético-madrid-viking-fk-m1271904806666240",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:29:47Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Atlético Madrid",
-        "price": 1.06,
-        "link": null
-       },
-       {
-        "name": "Viking FK",
-        "price": 16.75,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 8.25,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-23T06:30:52Z",
-    "link": "https://www.netbet.fr/evenement/12372463-atletico-madrid-viking",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Atlético Madrid",
-        "price": 1.04,
-        "link": null
-       },
-       {
-        "name": "Viking FK",
-        "price": 19.0,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 9.0,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.55,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.97,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_uefa_champs_league",
-  "fetched_at": "2026-11-23T15:31:09.876937+00:00",
-  "full_at": "2026-11-23T06:31:07.091707+00:00"
- },
- "0ee2cfddf20153779cd2cc3e1f1f879f": {
-  "id": "0ee2cfddf20153779cd2cc3e1f1f879f",
-  "sport_key": "soccer_uefa_champs_league",
-  "sport_title": "UEFA Champions League",
-  "commence_time": "2026-11-25T20:00:00Z",
-  "home_team": "Lille",
-  "away_team": "Bayern Munich",
-  "bookmakers": [
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-23T06:30:52Z",
-    "link": "https://www.netbet.fr/evenement/12370538-lille-bayern-munich",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Bayern Munich",
-        "price": 1.48,
-        "link": null
-       },
-       {
-        "name": "Lille",
-        "price": 4.8,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.0,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-23T06:31:08Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/74166044",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:08Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Bayern Munich",
-        "price": 1.5,
-        "link": null
-       },
-       {
-        "name": "Lille",
-        "price": 4.5,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.4,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-23T06:30:54Z",
-    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377479/lille-vs-bayern-munich",
-    "markets": [
-     {
-      "key": "h2h",
-      "outcomes": [
-       {
-        "name": "Lille",
-        "price": 4.8
-       },
-       {
-        "name": "Draw",
-        "price": 4.2
-       },
-       {
-        "name": "Bayern Munich",
-        "price": 1.46
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-23T06:31:10Z",
-    "link": "https://www.pmu.fr/sport/#event/1028943187",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Bayern Munich",
-        "price": 1.53,
-        "link": null
-       },
-       {
-        "name": "Lille",
-        "price": 4.7,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.0,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 2.18,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.5,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-23T06:29:47Z",
-    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/lille-bayern-munich-m1271904433377280",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:29:47Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Bayern Munich",
-        "price": 1.5,
-        "link": null
-       },
-       {
-        "name": "Lille",
-        "price": 4.7,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.15,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_uefa_champs_league",
-  "fetched_at": "2026-11-23T15:31:09.876937+00:00",
-  "full_at": "2026-11-23T06:31:07.091707+00:00"
- },
- "99459b90f3e732106e09585bf94b36b4": {
-  "id": "99459b90f3e732106e09585bf94b36b4",
-  "sport_key": "soccer_uefa_champs_league",
-  "sport_title": "UEFA Champions League",
-  "commence_time": "2026-11-25T20:00:00Z",
-  "home_team": "Club Brugge",
-  "away_team": "Liverpool",
-  "bookmakers": [
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-23T06:30:54Z",
-    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377478/club-bruges-vs-liverpool",
-    "markets": [
-     {
-      "key": "h2h",
-      "outcomes": [
-       {
-        "name": "Club Brugge",
-        "price": 4.0
-       },
-       {
-        "name": "Draw",
-        "price": 4.3
-       },
-       {
-        "name": "Liverpool",
-        "price": 1.54
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-23T06:31:10Z",
-    "link": "https://www.pmu.fr/sport/#event/1028943196",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Club Brugge",
-        "price": 4.2,
-        "link": null
-       },
-       {
-        "name": "Liverpool",
-        "price": 1.57,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.1,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.75,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.82,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-23T06:31:08Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/74166038",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:08Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Club Brugge",
-        "price": 3.8,
-        "link": null
-       },
-       {
-        "name": "Liverpool",
-        "price": 1.58,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.3,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-23T06:30:52Z",
-    "link": "https://www.netbet.fr/evenement/12370125-club-bruges-liverpool",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Club Brugge",
-        "price": 4.0,
-        "link": null
-       },
-       {
-        "name": "Liverpool",
-        "price": 1.55,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.2,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.63,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.83,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-23T06:29:47Z",
-    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/club-bruges-liverpool-m1271904677691392",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:29:47Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Club Brugge",
-        "price": 4.05,
-        "link": null
-       },
-       {
-        "name": "Liverpool",
-        "price": 1.56,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.35,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_uefa_champs_league",
-  "fetched_at": "2026-11-23T15:31:09.876937+00:00",
-  "full_at": "2026-11-23T06:31:07.091707+00:00"
- },
- "49c66d76bc4085e63a181179cc47ef4d": {
-  "id": "49c66d76bc4085e63a181179cc47ef4d",
-  "sport_key": "soccer_uefa_champs_league",
-  "sport_title": "UEFA Champions League",
-  "commence_time": "2026-11-25T20:00:00Z",
-  "home_team": "Shakhtar Donetsk",
-  "away_team": "Fenerbahce",
-  "bookmakers": [
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-23T06:31:10Z",
-    "link": "https://www.pmu.fr/sport/#event/1028943195",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Fenerbahce",
-        "price": 2.48,
-        "link": null
-       },
-       {
-        "name": "Shakhtar Donetsk",
-        "price": 2.45,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.25,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.57,
-        "point": 2.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 2.04,
-        "point": 2.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-23T06:30:54Z",
-    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377475/shakht.donetsk-vs-fenerbahce",
-    "markets": [
-     {
-      "key": "h2h",
-      "outcomes": [
-       {
-        "name": "Shakhtar Donetsk",
-        "price": 2.5
-       },
-       {
-        "name": "Draw",
-        "price": 3.25
-       },
-       {
-        "name": "Fenerbahce",
-        "price": 2.35
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-23T06:31:08Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/74166042",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:08Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Fenerbahce",
-        "price": 2.4,
-        "link": null
-       },
-       {
-        "name": "Shakhtar Donetsk",
-        "price": 2.45,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.3,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-23T06:29:47Z",
-    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/shakhtar-donetsk-fenerbahçe-m1271932149338112",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:29:47Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Fenerbahce",
-        "price": 2.38,
-        "link": null
-       },
-       {
-        "name": "Shakhtar Donetsk",
-        "price": 2.52,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.3,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-23T06:30:52Z",
-    "link": "https://www.netbet.fr/evenement/12370609-shakhtar-donetsk-fenerbahce",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Fenerbahce",
-        "price": 2.42,
-        "link": null
-       },
-       {
-        "name": "Shakhtar Donetsk",
-        "price": 2.47,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.2,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.57,
-        "point": 2.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.95,
-        "point": 2.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_uefa_champs_league",
-  "fetched_at": "2026-11-23T15:31:09.876937+00:00",
-  "full_at": "2026-11-23T06:31:07.091707+00:00"
- },
- "e7e64568f6af00d395a3fdfc27de8ae3": {
-  "id": "e7e64568f6af00d395a3fdfc27de8ae3",
-  "sport_key": "soccer_uefa_champs_league",
-  "sport_title": "UEFA Champions League",
-  "commence_time": "2026-11-25T20:00:00Z",
-  "home_team": "Inter Milan",
-  "away_team": "VfB Stuttgart",
-  "bookmakers": [
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-23T06:31:08Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/74166040",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:08Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Inter Milan",
-        "price": 1.35,
-        "link": null
-       },
-       {
-        "name": "VfB Stuttgart",
-        "price": 5.2,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 5.2,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-23T06:31:10Z",
-    "link": "https://www.pmu.fr/sport/#event/1028943193",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Inter Milan",
-        "price": 1.36,
-        "link": null
-       },
-       {
-        "name": "VfB Stuttgart",
-        "price": 5.5,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 4.9,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.51,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 2.17,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-23T06:30:52Z",
-    "link": "https://www.netbet.fr/evenement/12371185-inter-milan-stuttgart",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Inter Milan",
-        "price": 1.32,
-        "link": null
-       },
-       {
-        "name": "VfB Stuttgart",
-        "price": 5.6,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 5.1,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.48,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 2.07,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-23T06:30:54Z",
-    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377474/inter-milan-vs-stuttgart",
-    "markets": [
-     {
-      "key": "h2h",
-      "outcomes": [
-       {
-        "name": "Inter Milan",
-        "price": 1.32
-       },
-       {
-        "name": "Draw",
-        "price": 5.2
-       },
-       {
-        "name": "VfB Stuttgart",
-        "price": 5.5
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-23T06:29:47Z",
-    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/inter-milan-stuttgart-m1271904927244290",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:29:47Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Inter Milan",
-        "price": 1.35,
-        "link": null
-       },
-       {
-        "name": "VfB Stuttgart",
-        "price": 5.4,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 5.1,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_uefa_champs_league",
-  "fetched_at": "2026-11-23T15:31:09.876937+00:00",
-  "full_at": "2026-11-23T06:31:07.091707+00:00"
- },
- "01a61442fe04f8751b62eb251f234079": {
-  "id": "01a61442fe04f8751b62eb251f234079",
-  "sport_key": "soccer_uefa_champs_league",
-  "sport_title": "UEFA Champions League",
-  "commence_time": "2026-11-25T20:00:00Z",
-  "home_team": "Sporting Lisbon",
-  "away_team": "Manchester United",
-  "bookmakers": [
-   {
-    "key": "winamax_fr",
-    "title": "Winamax (FR)",
-    "last_update": "2026-11-23T06:31:08Z",
-    "link": "https://www.winamax.fr/paris-sportifs/match/74166048",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:08Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Manchester United",
-        "price": 2.45,
-        "link": null
-       },
-       {
-        "name": "Sporting Lisbon",
-        "price": 2.3,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "unibet_fr",
-    "title": "Unibet (FR)",
-    "last_update": "2026-11-23T06:30:54Z",
-    "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-des-champions/3377477/sporting-vs-man.-united",
-    "markets": [
-     {
-      "key": "h2h",
-      "outcomes": [
-       {
-        "name": "Sporting Lisbon",
-        "price": 2.25
-       },
-       {
-        "name": "Draw",
-        "price": 3.4
-       },
-       {
-        "name": "Manchester United",
-        "price": 2.55
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "pmu_fr",
-    "title": "PMU (FR)",
-    "last_update": "2026-11-23T06:31:10Z",
-    "link": "https://www.pmu.fr/sport/#event/1028943181",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Manchester United",
-        "price": 2.45,
-        "link": null
-       },
-       {
-        "name": "Sporting Lisbon",
-        "price": 2.4,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.4,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:31:10Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 1.5,
-        "point": 2.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 2.17,
-        "point": 2.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "netbet_fr",
-    "title": "NetBet",
-    "last_update": "2026-11-23T06:30:52Z",
-    "link": "https://www.netbet.fr/evenement/12370610-sporting-manchester-united",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Manchester United",
-        "price": 2.47,
-        "link": null
-       },
-       {
-        "name": "Sporting Lisbon",
-        "price": 2.32,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.35,
-        "link": null
-       }
-      ]
-     },
-     {
-      "key": "totals",
-      "last_update": "2026-11-23T06:30:52Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Over",
-        "price": 2.12,
-        "point": 3.5,
-        "link": null
-       },
-       {
-        "name": "Under",
-        "price": 1.45,
-        "point": 3.5,
-        "link": null
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "key": "betclic_fr",
-    "title": "Betclic (FR)",
-    "last_update": "2026-11-23T06:29:47Z",
-    "link": "https://www.betclic.fr/football-sfootball/ligue-des-champions-c8/sporting-portugal-manchester-united-m1271932086419456",
-    "markets": [
-     {
-      "key": "h2h",
-      "last_update": "2026-11-23T06:29:47Z",
-      "link": null,
-      "outcomes": [
-       {
-        "name": "Manchester United",
-        "price": 2.53,
-        "link": null
-       },
-       {
-        "name": "Sporting Lisbon",
-        "price": 2.28,
-        "link": null
-       },
-       {
-        "name": "Draw",
-        "price": 3.47,
-        "link": null
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "sport": "soccer_uefa_champs_league",
   "fetched_at": "2026-11-23T15:31:09.876937+00:00",
   "full_at": "2026-11-23T06:31:07.091707+00:00"
  },

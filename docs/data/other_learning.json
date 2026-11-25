@@ -1008,6 +1008,87 @@
    "p": 0.7331,
    "odds": 1.24,
    "won": false
+  },
+  "nba-401909317": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-25T22:00:00Z",
+   "home": "Philadelphia 76ers",
+   "away": "Miami Heat",
+   "p": 0.5154,
+   "odds": 1.73
+  },
+  "nba-401909318": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-26T00:00:00Z",
+   "home": "Charlotte Hornets",
+   "away": "Chicago Bulls",
+   "p": 0.583,
+   "odds": 1.52
+  },
+  "nba-401909319": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-26T00:30:00Z",
+   "home": "New York Knicks",
+   "away": "Cleveland Cavaliers",
+   "p": 0.595,
+   "odds": 1.52
+  },
+  "nba-401909320": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-26T00:30:00Z",
+   "home": "Oklahoma City Thunder",
+   "away": "Minnesota Timberwolves",
+   "p": 0.522,
+   "odds": 1.66
+  },
+  "nba-401909321": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-26T01:00:00Z",
+   "home": "Memphis Grizzlies",
+   "away": "LA Clippers",
+   "p": 0.6969,
+   "odds": 1.33
+  },
+  "nba-401909322": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-26T01:00:00Z",
+   "home": "Milwaukee Bucks",
+   "away": "Brooklyn Nets",
+   "p": 0.5055,
+   "odds": 1.76
+  },
+  "nba-401909323": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-26T01:30:00Z",
+   "home": "Houston Rockets",
+   "away": "Phoenix Suns",
+   "p": 0.7707,
+   "odds": 1.19
+  },
+  "nba-401909324": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-26T03:00:00Z",
+   "home": "Golden State Warriors",
+   "away": "Sacramento Kings",
+   "p": 0.6788,
+   "odds": 1.36
+  },
+  "nba-401909325": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-26T03:00:00Z",
+   "home": "Portland Trail Blazers",
+   "away": "San Antonio Spurs",
+   "p": 0.417,
+   "odds": 2.05
   }
  },
  "summary": {
@@ -1071,5 +1152,5 @@
    ]
   }
  },
- "updated": "2026-11-25T06:15:53.407162+00:00"
+ "updated": "2026-11-25T06:31:01.631892+00:00"
 }

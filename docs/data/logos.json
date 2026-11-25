@@ -834,5 +834,10 @@
   "logo": "https://a.espncdn.com/i/teamlogos/nba/500/den.png",
   "color": "#0e2240",
   "espn": "Denver Nuggets"
+ },
+ "Olympiakos Piraeus": {
+  "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/435.png",
+  "color": "#d01729",
+  "espn": "Olympiacos"
  }
 }

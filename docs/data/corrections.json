@@ -132,6 +132,20 @@
    "key": "basket|hcpts|estimee",
    "est": 1.73,
    "real": 2.0
+  },
+  {
+   "id": "cqx6c7cP7akM",
+   "t": 1795589335,
+   "key": "foot|hcp|estimee",
+   "est": 1.91,
+   "real": 1.9
+  },
+  {
+   "id": "l73ikQKMNPqR",
+   "t": 1795589356,
+   "key": "foot|btts|estimee",
+   "est": 1.69,
+   "real": 1.75
   }
  ],
  "adj": {
@@ -143,8 +157,9 @@
   "basket|total|estimee": 5,
   "basket|hcpts|estimee": 2,
   "foot|total|pmu": 8,
-  "foot|hcp|estimee": 1,
+  "foot|hcp|estimee": 2,
   "foot|total|estimee": 1,
-  "foot|total|netbet": 1
+  "foot|total|netbet": 1,
+  "foot|btts|estimee": 1
  }
 }

@@ -234,7 +234,94 @@
    "stars": 0,
    "stake": 1,
    "status": "en attente",
-   "proposed_at": "2026-11-25T06:31:01.631892+00:00"
+   "proposed_at": "2026-11-25T06:31:01.631892+00:00",
+   "replaced": true
+  },
+  {
+   "id": "2026-11-26|31ebd41354699af625fa3372932206f0:N|7da3be4f6fe50a39ecdf3a8dc12966c8:N|cdf4b848361b0374c2027326bd54d8eb:2|de10dd2e5917108a9478c07275ba8cdb:2",
+   "day": "2026-11-26",
+   "kind": "folie",
+   "legs": [
+    {
+     "match_id": "31ebd41354699af625fa3372932206f0",
+     "league": "Ligue Europa",
+     "kickoff": "2026-11-26T17:45:00Z",
+     "home": "Olympiakos Piraeus",
+     "away": "AC Milan",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "EL",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-europa/3377849/olympiakos-vs-milan-ac",
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.3,
+     "src": "unibet",
+     "p": 0.2744,
+     "ev": -0.0945
+    },
+    {
+     "match_id": "7da3be4f6fe50a39ecdf3a8dc12966c8",
+     "league": "Ligue Europa",
+     "kickoff": "2026-11-26T17:45:00Z",
+     "home": "Celta Vigo",
+     "away": "Bournemouth",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "EL",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-europa/3377838/celta-vigo-vs-bournemouth",
+     "market": "N",
+     "label": "Match nul",
+     "odds": 3.4,
+     "src": "unibet",
+     "p": 0.2653,
+     "ev": -0.098
+    },
+    {
+     "match_id": "de10dd2e5917108a9478c07275ba8cdb",
+     "league": "Ligue Europa",
+     "kickoff": "2026-11-26T20:00:00Z",
+     "home": "OFI Crete",
+     "away": "Anderlecht",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "EL",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-europa/3377882/ofi-crète-vs-anderlecht",
+     "market": "2",
+     "label": "Victoire Anderlecht",
+     "odds": 1.66,
+     "src": "unibet",
+     "p": 0.5387,
+     "ev": -0.1058
+    },
+    {
+     "match_id": "cdf4b848361b0374c2027326bd54d8eb",
+     "league": "Ligue Europa",
+     "kickoff": "2026-11-26T17:45:00Z",
+     "home": "Dinamo Zagreb",
+     "away": "Bayer Leverkusen",
+     "fd_home": null,
+     "fd_away": null,
+     "div": "EL",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-europa/3377848/dinamo-zagreb-vs-leverkusen",
+     "market": "2",
+     "label": "Victoire Bayer Leverkusen",
+     "odds": 1.58,
+     "src": "unibet",
+     "p": 0.5635,
+     "ev": -0.1097
+    }
+   ],
+   "odds": 29.43,
+   "p": 0.0221,
+   "cost": 0.3498,
+   "stars": 0,
+   "stake": 1,
+   "status": "en attente",
+   "proposed_at": "2026-11-25T15:31:05.749133+00:00"
   },
   {
    "id": "2026-11-25|14007bc0605bce3bd164b132254ba24c:1|99459b90f3e732106e09585bf94b36b4:+2.5|e7e64568f6af00d395a3fdfc27de8ae3:1",
@@ -10933,5 +11020,5 @@
   "bilan_mise_suggeree": -52.05,
   "mise_suggeree_totale": 176
  },
- "updated": "2026-11-25T06:31:01.631892+00:00"
+ "updated": "2026-11-25T15:31:05.749133+00:00"
 }

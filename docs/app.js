@@ -265,9 +265,10 @@ function stakeWarning(v) {
 function legHtml(c, l, i) {
   const ov = legOverride(c, i);
   const res = l.void ? `<span class="tag">match annulé, cote 1</span>` : l.won === true ? `<span class="tag win">✓ ${esc(l.score)}</span>` : l.won === false ? `<span class="tag loss">✗ ${esc(l.score)}</span>` : "";
+  const sameDay = isoDay(new Date(l.kickoff)) === c.day;   // la date est déjà dans le titre du jour : l'heure suffit
   return `<div class="leg">
-    <div class="pick"><b>${esc(l.label)}</b><span class="vs"><span class="vt">${crest(l.home, "mini")}${esc(l.home)}</span><i>contre</i><span class="vt">${crest(l.away, "mini")}${esc(l.away)}</span></span>
-      <div class="meta"><span class="tag">${esc(l.league)}</span><span class="tag">${when(l.kickoff)}</span><span class="tag">${pct(l.p)}</span>${res}${unibetLink(l, c)}</div>${bets()[c.id] && l.won === undefined ? liveLegHtml(l) : ""}</div>
+    <div class="pick"><b>${esc(l.label)}</b><span class="vs"><span class="vt">${crest(l.home, "mini")}<span>${esc(l.home)}</span></span><i>-</i><span class="vt">${crest(l.away, "mini")}<span>${esc(l.away)}</span></span></span>
+      <div class="meta"><span>${esc(l.league)}</span><span>${sameDay ? hour(l.kickoff) : when(l.kickoff)}</span><span>${pct(l.p)}</span>${res}${unibetLink(l, c)}</div>${bets()[c.id] && l.won === undefined ? liveLegHtml(l) : ""}</div>
     <button class="odd ${esc(l.src)} ${ov ? "edited" : ""}" data-combo="${esc(c.id)}" data-leg="${i}" aria-label="Corriger la cote">
       ${fmt(ov || l.odds)}<small>${ov ? "ta cote" : esc(SRC[l.src] || l.src) + (l.adj ? " ajustée" : "")}</small></button>
   </div>`;
@@ -304,19 +305,18 @@ function ticketHtml(c) {
   const rk = folie ? null : dayRank(c);
   const head = folie
     ? `<span class="kind">Folie de la semaine, ${c.legs.length} matchs</span><span class="fun">pour le fun</span>`
-    : `<span class="kind">${c.kind === "manuel" ? "Pari ajouté à la main" : c.kind === "perso" ? `Mon combiné de ${c.legs.length}` : `Combiné ${c.kind === "x3" ? "de 3" : "de 2"}${c.mix ? " multisport" : ""}`}</span>
-      ${starsHtml(k)}${rk ? rankHtml(rk) : ""}${(() => { const n = !b && c.status === "en attente" ? c.legs.filter((l, i) => l.src !== "unibet" && !legOverride(c, i)).length : 0;
-        return n ? `<span class="verif" title="Cote PMU ou estimée : vérifie-la sur Unibet avant de jouer">${n} cote${n > 1 ? "s" : ""} à vérifier</span>` : ""; })()}
-      <div class="mix" aria-label="Prix ${Math.round(k.price * 10)} sur 10, proche de ton style ${Math.round(k.fit * 10)} sur 10">
-        <span>${k.cheap ? "Bon prix" : "Prix moyen"}<i style="--v:${Math.round(k.price * 100)}%"></i></span><span>${k.mine ? "Ton style" : "Loin de ton style"}<i style="--v:${Math.round(k.fit * 100)}%"></i></span>${c.alt ? `<em class="alt-tag">pour ton style</em>` : ""}</div>`;
+    : `<div class="b-top"><span class="kind">${c.kind === "perso" ? `Mon combiné de ${c.legs.length}` : `Combiné ${c.kind === "x3" ? "de 3" : "de 2"}${c.mix ? " multisport" : ""}`}</span>${rk ? rankHtml(rk) : ""}</div>`;
+  const nVerif = !b && c.status === "en attente" ? c.legs.filter((l, i) => l.src !== "unibet" && !legOverride(c, i)).length : 0;
+  const tags = folie ? "" : `<div class="b-tags"><span class="why ${k.cheap ? "ok" : ""}">${k.cheap ? "Bon prix" : "Prix moyen"}</span><span class="why ${k.mine ? "ok" : ""}">${k.mine ? "Ton style" : "Loin de ton style"}</span>${c.alt ? `<span class="why ok alt-tag">pour ton style</span>` : ""}${nVerif ? `<span class="verif" title="Cote PMU ou estimée : vérifie-la sur Unibet avant de jouer">${nVerif} cote${nVerif > 1 ? "s" : ""} à vérifier</span>` : ""}</div>`;
   return `<article class="ticket ${c.status} ${folie ? "folie" : ""} ${c.kind === "perso" ? "perso" : ""} ${b ? "is-played" : ""} ${c.mix ? "mixed" : ""}">
     <div class="board">
-      ${head}
-      <div class="score">
-        <div class="cote">${fmt(k.odds)}<small>cote</small></div>
-        <div class="stat">${c.p < 0.1 ? fmt(c.p * 100, 1) + " %" : pct(c.p)}<small>de chance</small></div>
-        <div class="stat ${costCls}">${Math.round(k.cost * 100)} %<small>de coût</small></div>
-      </div>
+      <div class="b-main">${head}
+        <div class="score">
+          <div class="cote">${fmt(k.odds)}<small>cote</small></div>
+          <div class="stat">${c.p < 0.1 ? fmt(c.p * 100, 1) + " %" : pct(c.p)}<small>de chance</small></div>
+          <div class="stat ${costCls}">${Math.round(k.cost * 100)} %<small>de coût</small></div>
+        </div>${tags}</div>
+      ${folie ? "" : gaugeHtml(k)}
     </div>
     ${b && c.status === "en attente" ? liveTicketHtml(c) : ""}
     <div class="legs">${c.legs.map((l, i) => legHtml(c, l, i)).join("")}</div>
@@ -330,7 +330,7 @@ function ticketHtml(c) {
 }
 
 function gainText(c, k, b, mise) {
-  if (c.status === "en attente") return `<b>${fmt(mise * k.odds)} €</b>à gagner pour ${fmtMise(mise)} € ${b ? "misés" : "conseillés"}<span class="exp-loss">perte moyenne à la longue : ${fmt(mise * Math.max(k.cost, 0))} € par ticket</span>`;
+  if (c.status === "en attente") return `<b>${fmt(mise * k.odds)} €</b>pour ${fmtMise(mise)} € ${b ? "misés" : "conseillés"}<span class="exp-loss">perte moyenne : ${fmt(mise * Math.max(k.cost, 0))} € par ticket</span>`;
   if (!b) return `<b>${c.status === "gagne" ? "Passé" : "Raté"}</b>ticket non joué`;
   return c.status === "gagne" ? `<b>${fmt(b.mise * b.odds)} €</b>récupérés pour ${fmtMise(b.mise)} € misés` : `<b>${fmtMise(b.mise)} € perdus</b>ce coup-ci`;
 }
@@ -354,6 +354,7 @@ function renderCombos() {
       <div class="bal-opts"><div class="pw" role="radiogroup" aria-label="Importance du prix"><span>Poids du prix</span>${[[0.3, "faible"], [0.5, "normal"], [0.7, "fort"]]
         .map(([v, t]) => `<button type="button" role="radio" data-pw="${v}" aria-checked="${Math.abs(wp - v) < 0.01}">${t}</button>`).join("")}</div>
       <div class="pw"><span>Multisport</span><button type="button" id="mix-toggle" role="switch" aria-label="Mélanger les sports dans un ticket" aria-checked="${mixOn()}">${mixOn() ? "oui" : "non"}</button></div></div></div><div id="combos-list"></div>`;
+    stuckCheck();
   }
   let h = "";
   if (!current.length) h += `<div class="empty">${EMPTY_BALL}<b>Plus de ticket jouable pour l'instant</b>
@@ -367,6 +368,12 @@ function renderCombos() {
   freshStamp = null;
 }
 setInterval(() => { if (!document.hidden) renderCombos(); }, 60e3);
+/* l'encadré du style se réduit quand il est collé en haut de l'écran */
+function stuckCheck() {
+  const el = document.querySelector(".balance");
+  if (el) el.classList.toggle("stuck", el.getBoundingClientRect().top <= 9 && window.scrollY > 120);
+}
+window.addEventListener("scroll", stuckCheck, { passive: true });
 function styleLabel(st) {
   const t = targetOdds(st), p = Math.round(100 * 0.82 / t);   // chance typique à cette cote, marge comprise
   return `vise une cote de ${fmt(t, 1)}, environ ${p} % de chance`;

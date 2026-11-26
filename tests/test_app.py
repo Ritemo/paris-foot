@@ -193,7 +193,7 @@ async def main():
 
         check(await pg.locator("#tab-combos .rank").count() >= 1 and "du jour sur" in await pg.inner_text("#tab-combos"), "rang du jour affiché sur les tickets")
         check("/10" in await pg.inner_text("#tab-combos .gauge-note >> nth=0"), "note sur 10 en compteur avec son libellé")
-        check(await pg.locator("#tab-combos .mix").count() >= 1, "jauges prix et chance sur les tickets")
+        check(await pg.locator("#tab-combos .b-tags .why").count() >= 2, "prix et style indiqués sur les tickets")
         check(await pg.locator("#style").count() == 1 and await pg.locator("[data-pw]").count() == 3, "curseur de style de jeu et importance du prix")
         await pg.evaluate("const r = document.getElementById('style'); r.value = 100; r.dispatchEvent(new Event('input', {bubbles: true}))")
         await pg.wait_for_timeout(300)

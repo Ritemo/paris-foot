@@ -654,3 +654,54 @@ body { overscroll-behavior-y: contain; font-variant-numeric: tabular-nums; }
 .gauge-note em { font-style: normal; font-size: 11px; font-weight: 700; margin-top: 3px; white-space: nowrap; opacity: .9; }
 .gauge-note .why { font-size: 10px; opacity: .75; margin-top: 2px; white-space: nowrap; }
 .comp-notes .gauge-note { justify-items: start; }
+
+/* ---------- carte ticket compacte (audit IHM du 26/11) : environ deux tickets par écran de téléphone */
+.board { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: start; padding: 12px 14px 12px; }
+.b-main { min-width: 0; display: grid; gap: 8px; }
+.b-top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.board .kind { font: 700 14px var(--display); }
+.b-top .rank { margin: 0; grid-column: auto; grid-row: auto; }
+.board .score { gap: 14px; grid-row: auto; }
+.score .cote { font-size: 38px; }
+.score .stat { font-size: 19px; }
+.score .cote small, .score .stat small { font-size: 11px; margin-top: 3px; }
+.b-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.b-tags .why { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 20px; background: rgba(255,255,255,.1); color: rgba(255,255,255,.8); }
+.b-tags .why.ok { background: rgba(126,226,160,.18); color: #9ff0bf; }
+.b-tags .verif { grid-column: auto; }
+.board .gauge-note { width: 84px; align-self: center; }
+.board .gauge-note svg { width: 84px; height: 48px; }
+.board .gauge-note b { font-size: 18px; }
+.board .gauge-note em { font-size: 10.5px; }
+.legs { padding: 0 14px; }
+.leg { gap: 10px; padding: 9px 0; }
+.pick { min-width: 0; }
+.pick b { font-size: 14.5px; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pick .vs { display: flex; flex-wrap: nowrap; align-items: center; gap: 5px; margin-top: 3px; min-width: 0; font-size: 12.5px; }
+.pick .vs i { font-style: normal; color: var(--sous); flex: none; }
+.vt { min-width: 0; gap: 4px; font-weight: 600; }
+.vt > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.crest.mini { width: 18px; height: 18px; font-size: 6.5px; flex-shrink: 0; }
+.leg .meta { gap: 0; margin-top: 3px; font-size: 11.5px; color: var(--sous); align-items: center; font-variant-numeric: tabular-nums; }
+.leg .meta > span:not(.tag) + span:not(.tag)::before { content: "·"; margin: 0 5px; opacity: .6; }
+.leg .meta .tag { margin-left: 6px; font-size: 11px; }
+.odd { min-width: 58px; padding: 4px 6px; border-radius: 10px; font-variant-numeric: tabular-nums; }
+.odd small { font-size: 10px; }
+.perf { height: 16px; } .perf::before { top: 7px; } .perf::after, .perf .notch { width: 16px; height: 16px; } .perf::after { right: -24px; } .perf .notch { left: -24px; }
+.stub { padding: 2px 14px 12px; gap: 10px; }
+.stub .gain { font-size: 12.5px; line-height: 1.25; }
+.stub .gain b { display: inline; font-size: 19px; margin-right: 5px; }
+.stub .gain .exp-loss { display: block; font-size: 11px; opacity: .85; }
+.sim-btn { display: inline; margin-top: 2px; font-size: 11.5px; }
+.stamp { bottom: 54px; }
+.btn:active, .odd:active, .pick-btn:active { transform: scale(.97); }
+.btn, .odd, .pick-btn, .chip, .more { transition: transform 160ms cubic-bezier(.23, 1, .32, 1), background .2s, border-color .2s; }
+.cote, .stat, .gain b, .gauge-note b { font-variant-numeric: tabular-nums; }
+.vt { flex: 0 1 auto; max-width: 47%; }
+/* encadré du style collé en haut pendant le défilement : réduit au curseur seul */
+.balance.stuck { padding: 6px 12px; }
+.balance.stuck .bal-opts { display: none; }
+.balance.stuck .bal-head b { display: none; }
+.balance .bal-opts, .balance .bal-head b { transition: opacity 160ms cubic-bezier(.23, 1, .32, 1); }
+.board .gauge-note b { text-shadow: 0 1px 3px rgba(0,0,0,.45); }
+.stamp { right: 96px; }

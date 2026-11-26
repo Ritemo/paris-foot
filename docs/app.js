@@ -162,7 +162,7 @@ function starsHtml(n) {
   return `<span class="stars" aria-label="${n} étoile${n > 1 ? "s" : ""} sur 3, ${PRICE[n]}">${[1, 2, 3].map((i) => `<i class="${i <= n ? "on" : ""}"></i>`).join("")}<em>${PRICE[n]}</em></span>`;
 }
 // à note égale, les tickets dont les cotes viennent d'Unibet passent devant : moins de cotes à vérifier à la main
-const ticketScore = (c) => combo(c).score + 0.03 * c.legs.filter((l) => l.src === "unibet").length / c.legs.length;   // même critère que le robot, avec ta balance
+const ticketScore = (c) => combo(c).score + 0.08 * c.legs.filter((l) => l.src === "unibet").length / c.legs.length;   // même critère que le robot, avec ta balance
 // les meilleurs tickets d'un jour selon ta balance : ceux du robot et ses autres candidats, sans sélection en commun
 const mixOn = () => !!LS.get("pf_mix", false);
 function dayPicks(day, n = 3) {
@@ -280,9 +280,10 @@ function ticketHtml(c) {
   const folie = c.kind === "folie";
   const rk = folie ? null : dayRank(c);
   const head = folie
-    ? `<span class="kind">Folie du jour, ${c.legs.length} matchs</span><span class="fun">pour le fun</span>`
+    ? `<span class="kind">Folie de la semaine, ${c.legs.length} matchs</span><span class="fun">pour le fun</span>`
     : `<span class="kind">${c.kind === "manuel" ? "Pari ajouté à la main" : c.kind === "perso" ? `Mon combiné de ${c.legs.length}` : `Combiné ${c.kind === "x3" ? "de 3" : "de 2"}${c.mix ? " multisport" : ""}`}</span>
-      ${starsHtml(k.stars)}${rk ? rankHtml(rk) : ""}
+      ${starsHtml(k.stars)}${rk ? rankHtml(rk) : ""}${(() => { const n = !b && c.status === "en attente" ? c.legs.filter((l, i) => l.src !== "unibet" && !legOverride(c, i)).length : 0;
+        return n ? `<span class="verif" title="Cote PMU ou estimée : vérifie-la sur Unibet avant de jouer">${n} cote${n > 1 ? "s" : ""} à vérifier</span>` : ""; })()}
       <div class="mix" aria-label="Prix ${Math.round(k.price * 10)} sur 10, proche de ton style ${Math.round(k.fit * 10)} sur 10">
         <span>Prix<i style="--v:${Math.round(k.price * 100)}%"></i></span><span>Ton style<i style="--v:${Math.round(k.fit * 100)}%"></i></span>${c.alt ? `<em class="alt-tag">pour ton style</em>` : ""}</div>`;
   return `<article class="ticket ${c.status} ${folie ? "folie" : ""} ${c.kind === "perso" ? "perso" : ""} ${b ? "is-played" : ""} ${c.mix ? "mixed" : ""}">

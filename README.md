@@ -55,7 +55,7 @@ Comme pour l'appli hand : coller l'adresse de l'appli sur pwabuilder.com, puis *
 - Au premier passage, il rejoue les 13 derniers mois semaine par semaine pour démarrer avec des mesures (cotes moyennes des bookmakers publiées par football-data) ; les matchs suivants utilisent les vraies cotes du jour.
 - L'onglet **Modèle** de l'appli affiche les leçons, qui voit le plus juste (robot, bookmakers, modèle seul), la calibration, les écarts par type de pari avec la marge du hasard, et l'évolution mois par mois (`docs/data/model.json`). En tête : une conclusion « en une phrase » et le résumé « En bref ». Le « score de Brier » y est appelé « erreur de prévision » : plus il est bas, mieux c'est.
 - **Valeur de clôture** (onglet Bilan) : 25 minutes avant chaque match, le robot relève la chance de la sélection au dernier moment (1N2 foot et vainqueur NBA via ESPN, gratuit ; OddsPapi seulement en secours, au plus 200 requêtes par mois) dans `docs/data/closing.json`. Si les sélections jouées gagnent en probabilité avant le coup d'envoi, on prend en général de bons prix : c'est le meilleur signal disponible sur peu de tickets. Pour les matchs déjà joués, le robot rattrape une fois par jour (après midi) les cotes de clôture publiées par football-data (1N2, double chance, plus/moins de 2,5 buts, 5 championnats) et ESPN (vainqueur NBA) ; pas de rattrapage pour la Ligue des champions, la Ligue Europa, le tennis, les handicaps ni les autres lignes de buts. Verdict à partir de 20 sélections ; le conseil « Quand jouer ? » du Modèle apparaît à partir de 10 sélections mesurées.
-- Les « Folies du jour » sont comptées à part dans le bilan du robot.
+- La folie (grosse cote pour le fun) n'est proposée qu'une fois par semaine, le samedi, et reste comptée à part dans le bilan du robot.
 
 Rappel du backtest : aucune stratégie testée ne bat durablement les bookmakers. Les combinés de 2 favoris sont simplement les moins coûteux. Joue pour le plaisir et dans ton budget.
 
@@ -105,6 +105,12 @@ Notifications d'échec des tests : sujet ntfy `combines-foot-ritemo-7k3q9x`.
 | Une équipe n'est pas reconnue | Ajouter la correspondance de nom dans `robot/teams.py`. |
 | Résultats manquants | football-data.co.uk publie parfois avec un jour de retard ; le robot réessaie à chaque passage. |
 | Le téléphone garde une ancienne version | Fermer et rouvrir l'appli ; si besoin, vérifier que `tools/bump_version.py` a bien été lancé avant la publication. |
+
+Améliorations du 26/11 :
+- NBA le soir : un passage de plus à 19h30 réactualise gratuitement les cotes NBA (ESPN) et refait les tickets NBA de la nuit. Les cotes Unibet du vainqueur relevées le matin sont gardées avec leur heure. Raison : la valeur de clôture montrait que les cotes NBA du matin étaient en moyenne un peu trop chères. Ce passage refait aussi le 1N2 foot via OddsPapi (1 requête).
+- Contrôle par type de pari : le robot compare, sur les sélections foot de ses tickets, les gagnées aux attendues (victoire à domicile, nul, extérieur, buts...). Si l'écart dépasse nettement le hasard (au moins 40 cas et 2 écarts-types), il corrige ce type avec prudence. Tableau « Par type de pari » dans l'onglet Modèle.
+- Les tickets avec des cotes Unibet réelles sont davantage favorisés (bonus de classement porté de 0,03 à 0,08), et chaque ticket affiche « N cotes à vérifier » quand il contient des cotes PMU ou estimées.
+- Chaque matin, le robot vérifie que les matchs de foot et de NBA des prochaines 24 h sont reconnus par ESPN (direct et résultats). Sinon, il envoie une notification « Direct : match non reconnu ».
 
 Handicap NBA : Unibet n'a pas de lignes en ,5. Son « 1N2 Handicap » se joue sur le temps réglementaire, avec des lignes entières, et l'égalité fait perdre. Le robot propose donc directement la ligne Unibet équivalente (-1,5 devient [-1], +3,5 devient [+4]), corrige la chance pour la prolongation (environ 6 % des matchs) et règle ces paris sur le score après 4 quart-temps.
 

@@ -14,7 +14,7 @@ import unicodedata
 import urllib.parse
 from difflib import SequenceMatcher
 import urllib.request
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from itertools import combinations
 from zoneinfo import ZoneInfo
 
@@ -503,7 +503,27 @@ def other_journal(matches=None):
 def other_sports(prev_matches, horizon, paid):
     """NBA et tennis. paid=False : on reprend les matchs du releve precedent (aucun credit)."""
     if not paid or (credits["remaining"] or 0) < CREDIT_FLOOR_TOTALS:
-        return [m for m in prev_matches if m.get("sport") in ("basket", "tennis") and m["kickoff"] > NOW.isoformat()]
+        keep = [m for m in prev_matches if m.get("sport") in ("basket", "tennis") and m["kickoff"] > NOW.isoformat()]
+        if NOW.astimezone(PARIS).hour < NBA_EVENING_HOUR or not any(m.get("div") == "NBA" for m in keep):
+            return keep
+        # le soir : cotes NBA reactualisees gratuitement (ESPN). Les cotes Unibet du vainqueur relevees le matin sont gardees,
+        # avec leur heure : la cote affichee peut avoir un peu bouge, l'appli le signale.
+        ub, at = {}, {}
+        for m in keep:
+            s = {x["market"]: x for x in m["sel"]}
+            if m.get("div") == "NBA" and s.get("1", {}).get("src") == "unibet" and s.get("2", {}).get("src") == "unibet":
+                ub[(m["home"], m["away"])] = (s["1"]["odds"], s["2"]["odds"], m.get("link"))
+                at[m["id"]] = m.get("odds_at")
+        try:
+            fresh = nba_matches(horizon, ub)
+        except Exception as e:
+            print("nba soir", e, file=sys.stderr)
+            return keep
+        for m in fresh:
+            if at.get(m["id"]):
+                m["odds_at"] = at[m["id"]]
+        ids = {m["id"] for m in fresh}
+        return fresh + [m for m in keep if m.get("div") != "NBA" or m["id"] not in ids and not fresh]
     out = []
     try:
         out += nba_matches(horizon, nba_unibet())
@@ -661,7 +681,7 @@ def combos_for_day(day, matches):
     """Les 3 meilleurs combines selon le style de jeu et le poids du prix par defaut, sans selection en commun, plus la folie."""
     cands, legs = candidates(day, matches)
     # a note egale, les tickets aux cotes Unibet passent devant (moins de cotes a verifier a la main), comme dans l'appli
-    uni = lambda cb: 0.03 * sum(l["src"] == "unibet" for l in cb["legs"]) / len(cb["legs"])
+    uni = lambda cb: UNIBET_BONUS * sum(l["src"] == "unibet" for l in cb["legs"]) / len(cb["legs"])
     cands = sorted([c for c in cands if not c.get("mix")], key=lambda cb: -(interest(cb["p"], cb["cost"], len(cb["legs"])) + uni(cb)))
     chosen, used = [], set()
     for cb in cands:
@@ -693,7 +713,10 @@ def alts_for_day(day, matches, exclude):
 
 
 def folie_for_day(day, legs):
-    """Pari 'folie' : grosse cote (15 a 40) pour le fun, en choisissant les selections les moins taxees."""
+    """Pari 'folie' : grosse cote (15 a 40) pour le fun, en choisissant les selections les moins taxees.
+    Une seule par semaine, le samedi : elle perd presque toujours, ce n'est pas un ticket a jouer souvent."""
+    if date.fromisoformat(day).weekday() != FOLIE_WEEKDAY:
+        return None
     pool = [l for l in legs if 1.45 <= l["odds"] <= 4.5 and l["src"] != "estimee" and l["p"] >= 0.25 and l.get("sport", "foot") == "foot"]
     pool.sort(key=lambda l: -l["ev"])
     pool = pool[:14]
@@ -1134,6 +1157,8 @@ def apply_adjust(matches, adj):
 # Juste avant chaque match (moins de 25 min), le robot note la chance donnee par le marche (cote de cloture, marge retiree) :
 # foot 1N2 via OddsPapi (cote Unibet), NBA vainqueur via ESPN (cote DraftKings de cloture).
 # Si la chance d'une selection a monte entre la proposition (ou ton pari) et le coup d'envoi, le prix pris etait bon.
+FOLIE_WEEKDAY = 5   # samedi
+UNIBET_BONUS = 0.08   # bonus de classement d un ticket 100 % cote Unibet (moins de surprises au moment de jouer)
 OT_SHARE = 0.06   # part des matchs NBA qui vont en prolongation
 CLOSE_BEFORE = timedelta(minutes=25)
 OP_CLOSE_MAX = 200   # au-dela, on garde les requetes OddsPapi pour les actualisations de cotes
@@ -1411,6 +1436,46 @@ def weekly_recap(meta, history, force=False):
     return True
 
 
+def check_names(matches, meta):
+    """Chaque matin : chaque match des prochaines 24 h est-il reconnu par ESPN (direct et resultats) ?
+    Sinon une notification, pour corriger le nom avant que le direct manque (comme Cologne ou Bodo/Glimt)."""
+    day = NOW.date().isoformat()
+    if meta.get("names_checked") == day:
+        return []
+    meta["names_checked"] = day
+    boards, missing = {}, []
+    for m in matches:
+        k = datetime.fromisoformat(m["kickoff"].replace("Z", "+00:00"))
+        if not NOW < k < NOW + timedelta(hours=24):
+            continue
+        div = m.get("div")
+        path = ESPN_OTHER.get(div) if div == "NBA" else (f"soccer/{ESPN_LEAGUE[div]}" if div in ESPN_LEAGUE else None)
+        if not path:
+            continue   # tennis : le programme ESPN n'est connu que le jour meme, trop de fausses alertes
+        found = False
+        for d in sorted({(k + timedelta(hours=h)).strftime("%Y%m%d") for h in (-12, 0)}):
+            try:
+                evs = _board(path, d, boards)
+            except Exception:
+                found = True   # ESPN injoignable : on ne crie pas au loup
+                break
+            for e in evs:
+                comps = [g2 for g in e.get("groupings", []) for g2 in g.get("competitions", [])] if path.startswith("tennis") else e.get("competitions", [])[:1]
+                for c in comps:
+                    ns = [_name_of(x) for x in c.get("competitors", [])]
+                    if len(ns) == 2 and max(min(_team_score(m["home"], ns[0]), _team_score(m["away"], ns[1])),
+                                            min(_team_score(m["home"], ns[1]), _team_score(m["away"], ns[0]))) > 0:
+                        found = True
+            if found:
+                break
+        if not found:
+            missing.append(f"{m['home']} - {m['away']} ({m.get('league')})")
+    if missing:
+        notify("Direct : match non reconnu", "Le direct et le résultat automatique risquent de manquer pour : " + ", ".join(missing[:6])
+               + ". Demande à Claude de corriger le nom.", "warning", 3)
+    return missing
+
+
 def notify_new_day(day, combos):
     todays = [c for c in combos if c["day"] == day and not c.get("replaced")]
     if not todays:
@@ -1643,7 +1708,8 @@ def settle_predictions(store, fd):
 
 
 # ---------------------------------------------------------------- programme principal
-ODDS_SLOTS = ((7, 30), (16, 30))  # heures de Paris ou les cotes sont actualisees (credits)
+ODDS_SLOTS = ((7, 30), (16, 30), (19, 30))  # heures de Paris ou les cotes sont actualisees (19h30 : NBA du soir, gratuit, et 1N2 foot via OddsPapi)
+NBA_EVENING_HOUR = 19
 
 
 def odds_due(meta):
@@ -1752,6 +1818,11 @@ def main():
             print("amorcage impossible", e, file=sys.stderr)
     params = learn.learn_params(store, NOW)
     PARAMS.update(params)
+    # en plus : ecart net et durable sur les selections des tickets du robot (par type de pari)
+    tk = learn.ticket_offsets(history)
+    if tk:
+        PARAMS["offsets"] = {k: round(PARAMS["offsets"].get(k, 0.0) + tk.get(k, 0.0), 3) for k in set(PARAMS["offsets"]) | set(tk)}
+        print("corrections tickets", tk)
 
     # 1. quels championnats jouent d'ici la fin de demain ? (appel gratuit)
     today = NOW.astimezone(PARIS).date()
@@ -1827,6 +1898,10 @@ def main():
         if day == today.isoformat():
             frozen.add(day)
             notify_new_day(day, history["combos"])
+            try:
+                check_names(matches, meta)
+            except Exception as e:
+                print("noms", e, file=sys.stderr)
 
     # 4. resultats et bilan
     espn = espn_scores(history)

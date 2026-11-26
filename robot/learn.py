@@ -225,6 +225,58 @@ def ticket_check(history):
     return out
 
 
+TK_MIN_N, TK_N0, TK_Z = 40, 150, 2.0   # correction propre aux selections des tickets : echantillon minimal, prudence, seuil
+
+
+def _leg_family(l):
+    """Famille de pari d'une selection foot, et sens (True = la probabilite annoncee est celle de la famille)."""
+    m = str(l.get("market", ""))
+    if l.get("sport", "foot") != "foot":
+        return None, True
+    if m in ("1", "N", "2"):
+        return {"1": "dom", "N": "nul", "2": "ext"}[m], True
+    if m[:1] in "+-" and m[1:2].isdigit():
+        return "buts", m[0] == "+"
+    if m == "BTT":
+        return "btts", True
+    if m in ("H1", "H2"):
+        return "hcp", True
+    return None, True
+
+
+def ticket_families(history):
+    """Annonce contre realite par type de pari, sur les selections foot des tickets du robot (hors folies).
+    Une correction n'est proposee que si l'ecart depasse nettement la marge du hasard (|z| >= 2) sur au moins 40 cas."""
+    cs = [c for c in history.get("combos", []) if c.get("status") in ("gagne", "perdu") and not c.get("replaced") and c["kind"] != "folie"]
+    groups = {}
+    for c in cs:
+        for l in c["legs"]:
+            if "won" not in l or l.get("void"):
+                continue
+            fam, direct = _leg_family(l)
+            if fam:
+                p = float(l["p"]) if direct else 1 - float(l["p"])
+                y = float(bool(l["won"])) if direct else 1 - float(bool(l["won"]))
+                groups.setdefault(fam, []).append((p, y))
+    out = {}
+    for fam, rows in groups.items():
+        p = np.array([r[0] for r in rows]); y = np.array([r[1] for r in rows])
+        z = _z(y.sum(), p.sum(), (p * (1 - p)).sum())
+        off = 0.0
+        if len(rows) >= TK_MIN_N and abs(z) >= TK_Z:
+            lz, b = _logit(p), 0.0
+            for _ in range(25):
+                q = _sig(lz + b)
+                b -= (q - y).sum() / ((q * (1 - q)).sum() + 1e-9)
+            off = round(float(np.clip(b * len(rows) / (len(rows) + TK_N0), -CAL_MAX, CAL_MAX)), 3)
+        out[fam] = dict(nom=FAMILIES[fam][0], n=len(rows), attendus=round(float(p.sum()), 1), observes=int(y.sum()), z=z, offset=off)
+    return out
+
+
+def ticket_offsets(history):
+    return {k: v["offset"] for k, v in ticket_families(history).items() if v["offset"]}
+
+
 def verdict(z):
     a = abs(z)
     return "hasard" if a < 2 else "net" if a >= 3 else "probable"
@@ -244,6 +296,7 @@ def metrics(store, params, history, now):
                            live_since=min((r["d"] for r in live), default=None)),
                min_verdict=MIN_MATCHES_VERDICT)
     out["tickets"] = ticket_check(history)
+    out["tickets"]["familles"] = ticket_families(history)
     out["log"] = [dict(d=x["d"], w=x["w"], off=x["off"]) for x in store.get("params_log", [])][-120:]
     if not rs:
         out["lessons"] = ["Le robot n'a encore aucun match terminé dans son journal : les mesures apparaîtront après les premiers résultats."]

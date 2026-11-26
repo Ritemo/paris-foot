@@ -7,7 +7,7 @@ import os
 import sys
 import time
 import unittest
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "robot"))
@@ -640,6 +640,57 @@ class TestTempsReglementaire(unittest.TestCase):
             self.assertEqual(run.espn_other_score(dict(leg, market="1"), {}), (120, 112))
         finally:
             run._board = old
+
+
+class TestAudit26(unittest.TestCase):
+    def test_noms_non_reconnus(self):
+        k = (run.NOW + timedelta(hours=3)).isoformat().replace("+00:00", "Z")
+        ms = [dict(id="a", div="D1", league="Bundesliga", home="Bayern Munich", away="1. FC K\u00f6ln", kickoff=k),
+              dict(id="b", div="D1", league="Bundesliga", home="Mainz", away="Inconnu FC", kickoff=k)]
+        board = [{"competitions": [{"competitors": [{"team": {"displayName": "Bayern Munich"}}, {"team": {"displayName": "FC Cologne"}}]}]},
+                 {"competitions": [{"competitors": [{"team": {"displayName": "Mainz"}}, {"team": {"displayName": "Wolfsburg"}}]}]}]
+        sent = []
+        old = (run._board, run.notify)
+        run._board = lambda path, d, boards: board
+        run.notify = lambda *a, **kw: sent.append(a)
+        try:
+            meta = {}
+            self.assertEqual(run.check_names(ms, meta), ["Mainz - Inconnu FC (Bundesliga)"])
+            self.assertEqual(run.check_names(ms, meta), [])   # une seule fois par jour
+        finally:
+            run._board, run.notify = old
+        self.assertEqual(len(sent), 1)
+
+    def test_folie_le_samedi_seulement(self):
+        self.assertIsNone(run.folie_for_day("2026-11-26", []))   # jeudi
+
+    def test_correction_par_type_de_pari(self):
+        k = "2026-11-01T15:00Z"
+        mk = lambda i, won: {"id": f"c{i}", "kind": "x2", "status": "perdu", "p": 0.3, "legs": [
+            {"market": "1", "p": 0.6, "won": won, "sport": "foot", "kickoff": k}]}
+        h = {"combos": [mk(i, i % 3 == 0) for i in range(60)]}   # 20 gagnes pour 36 attendus : ecart net
+        f = learn.ticket_families(h)["dom"]
+        self.assertLess(f["offset"], 0)
+        h = {"combos": [mk(i, i % 5 < 3) for i in range(60)]}    # 36 sur 36 : rien a corriger
+        self.assertEqual(learn.ticket_families(h)["dom"]["offset"], 0.0)
+
+    def test_nba_du_soir_gratuit(self):
+        k = (run.NOW + timedelta(hours=8)).isoformat().replace("+00:00", "Z")
+        prev = [dict(id="nba-1", sport="basket", div="NBA", league="NBA", home="Utah Jazz", away="Dallas Mavericks", kickoff=k,
+                     odds_at="2026-11-26T06:30:00+00:00", link="u", sel=[{"market": "1", "odds": 2.4, "src": "unibet"}, {"market": "2", "odds": 1.6, "src": "unibet"}])]
+        seen = {}
+        def fake(horizon, ub):
+            seen.update(ub)
+            return [dict(prev[0], odds_at=run.NOW.isoformat(), sel=[{"market": "1", "odds": 2.4, "src": "unibet", "p": 0.38}])]
+        old = (run.nba_matches, run.NOW)
+        run.nba_matches = fake
+        run.NOW = run.NOW.astimezone(run.PARIS).replace(hour=19, minute=30).astimezone(timezone.utc)
+        try:
+            out = run.other_sports(prev, run.NOW + timedelta(days=2), paid=False)
+        finally:
+            run.nba_matches, run.NOW = old
+        self.assertEqual(seen[("Utah Jazz", "Dallas Mavericks")][:2], (2.4, 1.6))   # cotes Unibet du matin gardees
+        self.assertEqual(out[0]["odds_at"], "2026-11-26T06:30:00+00:00")          # avec leur heure
 
 
 if __name__ == "__main__":

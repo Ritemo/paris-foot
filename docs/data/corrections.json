@@ -146,6 +146,27 @@
    "key": "foot|btts|estimee",
    "est": 1.69,
    "real": 1.75
+  },
+  {
+   "id": "DqPSU5Ck3GUp",
+   "t": 1795701626,
+   "key": "foot|btts|estimee",
+   "est": 1.81,
+   "real": 1.7
+  },
+  {
+   "id": "7pAxmqWGzXyf",
+   "t": 1795701696,
+   "key": "foot|btts|estimee",
+   "est": 1.81,
+   "real": 1.62
+  },
+  {
+   "id": "sQafc5VJ6CdV",
+   "t": 1795701705,
+   "key": "foot|btts|estimee",
+   "est": 1.77,
+   "real": 1.9
   }
  ],
  "adj": {
@@ -160,6 +181,6 @@
   "foot|hcp|estimee": 2,
   "foot|total|estimee": 1,
   "foot|total|netbet": 1,
-  "foot|btts|estimee": 1
+  "foot|btts|estimee": 4
  }
 }

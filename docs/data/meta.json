@@ -757,6 +757,61 @@
     "status": "en attente",
     "alt": true
    }
+  },
+  "2026-11-27|02ff879cf54f6d1fec2664efee0431db:2|40d95e660c301c2d8a5a7a6317017b65:1N": {
+   "mise": 2,
+   "odds": 2.8,
+   "t": 1795727395,
+   "snap": {
+    "id": "2026-11-27|02ff879cf54f6d1fec2664efee0431db:2|40d95e660c301c2d8a5a7a6317017b65:1N",
+    "day": "2026-11-27",
+    "kind": "x2",
+    "legs": [
+     {
+      "match_id": "02ff879cf54f6d1fec2664efee0431db",
+      "league": "Ligue 1",
+      "kickoff": "2026-11-27T19:45:00Z",
+      "home": "Brest",
+      "away": "Paris FC",
+      "fd_home": "Brest",
+      "fd_away": "Paris FC",
+      "div": "F1",
+      "sport": "foot",
+      "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3397876/brest-vs-paris-fc",
+      "market": "2",
+      "label": "Victoire Paris FC",
+      "odds": 2,
+      "src": "unibet",
+      "p": 0.4468,
+      "ev": -0.1064
+     },
+     {
+      "match_id": "40d95e660c301c2d8a5a7a6317017b65",
+      "league": "Premier League",
+      "kickoff": "2026-11-27T20:00:00Z",
+      "home": "Nottingham Forest",
+      "away": "Chelsea",
+      "fd_home": "Nott'm Forest",
+      "fd_away": "Chelsea",
+      "div": "E0",
+      "sport": "foot",
+      "link": "https://www.unibet.fr/paris-football/angleterre/premier-league/3397689/nottingham-f.-vs-chelsea",
+      "market": "1N",
+      "label": "Nottingham Forest ou nul",
+      "odds": 1.38,
+      "src": "estimee",
+      "p": 0.6453,
+      "ev": -0.1095
+     }
+    ],
+    "odds": 2.76,
+    "p": 0.2883,
+    "cost": 0.2042,
+    "stars": 2,
+    "stake": 2,
+    "status": "en attente",
+    "alt": true
+   }
   }
  },
  "kick_sent": {

@@ -1,6 +1,6 @@
 # Combinés Foot
 
-Appli PWA (GitHub Pages) qui propose chaque jour les meilleurs combinés (foot des 5 grands championnats et coupes d'Europe, NBA, tennis ATP/WTA) avec chance estimée, note d'intérêt, mise conseillée et suivi juste/faux. Robot Python sur GitHub Actions (passage complet à 7h30, actualisation à 16h30, résultats toutes les 15 min via cron-job.org). Détails dans le README.
+Appli PWA (GitHub Pages) qui propose chaque jour les meilleurs combinés (foot des 5 grands championnats et coupes d'Europe, NBA, tennis ATP/WTA) avec chance estimée, note d'intérêt, mise conseillée et suivi juste/faux. Robot Python sur GitHub Actions (passage complet à 7h30, actualisations à 16h30 et 19h30 avec la NBA du soir, résultats toutes les 15 min via cron-job.org). Détails dans le README.
 
 ## Qui je suis et comment je travaille
 
@@ -23,7 +23,7 @@ Appli PWA (GitHub Pages) qui propose chaque jour les meilleurs combinés (foot d
 - Tests : `python tests/test_robot.py` puis `python tests/test_app.py` (appli testée avec Playwright), et `node --check` sur les fichiers JS de `docs/`. L'appli est dans `docs/`.
 - Je parie sur Unibet. Sources de cotes, toutes gratuites :
   - The Odds API (secret `ODDS_API_KEY`, 500 crédits/mois) : relevé complet du matin (1N2 Unibet, buts PMU, NBA, tennis). Chaque appel coûte des crédits : ne jamais en ajouter sans vérifier le budget (économe sous 40, arrêt sous 12).
-  - OddsPapi (secret `ODDSPAPI_KEY`, 250 requêtes/mois, arrêt à 230) : seulement le 1N2 Unibet, pour les actualisations (16h30, ballon) et en secours.
+  - OddsPapi (secret `ODDSPAPI_KEY`, 250 requêtes/mois, arrêt à 230) : seulement le 1N2 Unibet, pour les actualisations (16h30, 19h30, ballon) et en secours.
   - ESPN (gratuit, non officiel) : scores, direct, cotes NBA de référence, logos.
 - Pas de scraping d'Unibet, ni de son offre internationale (conditions d'utilisation). Historique : football-data.co.uk (gratuit).
 - Objectif : un outil d'aide qui évite les pièges, pas une promesse de gain. Le bookmaker gagne sur le long terme ; j'accepte un ROI légèrement négatif si le combiné reste assez probable.

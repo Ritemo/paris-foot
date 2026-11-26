@@ -56,8 +56,12 @@ class Reglement(unittest.TestCase):
         self.assertEqual(run.stars(0.95 ** 2 / 2.0, 1 - 0.95 ** 2, 2), 3)
         # meme cote, 12 % de marge par selection : le prix fait baisser la note
         self.assertEqual(run.stars(0.88 ** 2 / 2.0, 1 - 0.88 ** 2, 2), 2)
-        # cote 6 alors que le style vise ~2 : hors de ton style
-        self.assertEqual(run.stars(0.95 ** 3 / 6.0, 1 - 0.95 ** 3, 3), 1)
+        # cote 6 alors que le style vise ~2 : bon prix mais hors de ton style
+        self.assertEqual(run.stars(0.95 ** 3 / 6.0, 1 - 0.95 ** 3, 3), 2)
+        # cote 6 et marge de 12 % : aucun critere
+        self.assertEqual(run.stars(0.88 ** 3 / 6.0, 1 - 0.88 ** 3, 3), 1)
+        # marge habituelle d'Unibet (11 %) et cote dans le style : 2 etoiles
+        self.assertEqual(run.stars(0.89 ** 2 / 2.1, 1 - 0.89 ** 2, 2), 2)
         # le style « gros gain » fait monter les grosses cotes
         self.assertGreater(run.interest(0.95 ** 3 / 4.0, 1 - 0.95 ** 3, 3, style=1), run.interest(0.95 ** 3 / 4.0, 1 - 0.95 ** 3, 3, style=0))
 

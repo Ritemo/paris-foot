@@ -612,19 +612,24 @@ def interest(p, cost, n=2, wp=PRICE_W, style=STYLE):
     """Interet d'un ticket, de 0 a 1. Meme formule que l'appli.
     - prix : marge du bookmaker ramenee a une selection (4 % = excellent, 13 % = cher) ;
     - style : la cote du ticket est-elle proche de celle que tu vises (petit gain sur ou gros gain) ?
-      La cote visee va de 1,7 a 4,5 ; une cote deux fois plus haute ou plus basse que la cible ne marque plus."""
+      La cote visee va de 1,7 a 4,5 ; une cote deux fois plus haute ou plus basse que la cible ne marque plus.
+    (Sur Unibet la marge tourne autour de 11 % par selection : l'echelle du prix est resserree autour de cette valeur.)"""
     per_leg = 1 - (1 - max(cost, 0)) ** (1 / max(n, 1))
-    price = min(1.0, max(0.0, (0.13 - per_leg) / 0.09))
+    price = min(1.0, max(0.0, (0.12 - per_leg) / 0.035))   # 8,5 % de marge par selection = excellent, 12 % = cher
     odds = (1 - cost) / max(p, 1e-9)
     target = math.exp(math.log(STYLE_LO) + style * math.log(STYLE_HI / STYLE_LO))
     fit = max(0.0, 1 - abs(math.log(odds / target)) / math.log(2))
     return wp * price + (1 - wp) * fit
 
 
-def stars(p, cost, n=2):
-    """3 etoiles = tres interessant (>= 0,62), 2 = interessant (>= 0,45), 1 = peu interessant."""
-    s = interest(p, cost, n)
-    return 3 if s >= 0.62 else 2 if s >= 0.45 else 1
+def stars(p, cost, n=2, style=STYLE):
+    """Un point par critere rempli, comme dans l'appli : bon prix (marge <= 10 % par selection) et ton style (cote proche
+    de la cote visee). 3 etoiles = les deux, 2 = un des deux, 1 = aucun."""
+    per_leg = 1 - (1 - max(cost, 0)) ** (1 / max(n, 1))
+    odds = (1 - cost) / max(p, 1e-9)
+    target = math.exp(math.log(STYLE_LO) + style * math.log(STYLE_HI / STYLE_LO))
+    fit = max(0.0, 1 - abs(math.log(odds / target)) / math.log(2))
+    return 1 + (per_leg <= 0.10 + 1e-9) + (fit >= 0.5)
 
 
 def stake(p):
@@ -1158,7 +1163,7 @@ def apply_adjust(matches, adj):
 # foot 1N2 via OddsPapi (cote Unibet), NBA vainqueur via ESPN (cote DraftKings de cloture).
 # Si la chance d'une selection a monte entre la proposition (ou ton pari) et le coup d'envoi, le prix pris etait bon.
 FOLIE_WEEKDAY = 5   # samedi
-UNIBET_BONUS = 0.08   # bonus de classement d un ticket 100 % cote Unibet (moins de surprises au moment de jouer)
+UNIBET_BONUS = 0.03   # petit bonus de classement pour un ticket 100 % cote Unibet
 OT_SHARE = 0.06   # part des matchs NBA qui vont en prolongation
 CLOSE_BEFORE = timedelta(minutes=25)
 OP_CLOSE_MAX = 200   # au-dela, on garde les requetes OddsPapi pour les actualisations de cotes

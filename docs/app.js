@@ -83,20 +83,26 @@ function combo(c) {
   // étoiles : intérêt du ticket = son prix et sa ressemblance avec ton style de jeu (même formule que le robot)
   const it = interest(c.p, cost, c.legs.length);
   // Unibet arrondit la cote totale au centième le plus proche (2,465 -> 2,47), puis gain = mise x cote totale
-  return { odds: Math.round(odds * 100 + 1e-6) / 100, cost, stars: it.stars, score: it.score, price: it.price, fit: it.fit };
+  return { odds: Math.round(odds * 100 + 1e-6) / 100, cost, stars: it.stars, score: it.score, price: it.price, fit: it.fit, cheap: it.cheap, mine: it.mine, perLeg: it.perLeg };
 }
 // ton style de jeu : 0 = petit gain sûr (cote visée ~1,7), 1 = gros gain (cote visée ~4,5) ; et le poids du prix dans la note
 const clamp01 = (x, d) => (isNaN(+x) ? d : Math.min(1, Math.max(0, +x)));
 const style = () => clamp01(LS.get("pf_style", 0.25), 0.25);
 const priceW = () => clamp01(LS.get("pf_pricew", 0.5), 0.5);
 const targetOdds = (st = style()) => Math.exp(Math.log(1.7) + st * Math.log(4.5 / 1.7));
+/* Étoiles : deux critères simples, un point chacun.
+   - bon prix : marge du bookmaker de 10 % ou moins par sélection (sur Unibet, elle tourne autour de 11 %) ;
+   - ton style : la cote du ticket est proche de celle que tu vises (curseur « Ton style de jeu »).
+   3 étoiles = les deux, 2 = un des deux, 1 = aucun. La note fine (score) sert au classement, avec le poids du prix réglable. */
+const GOOD_PRICE = 0.10, GOOD_FIT = 0.5;
 function interest(p, cost, n = 2, wp = priceW(), st = style()) {
   const perLeg = 1 - Math.pow(1 - Math.max(cost, 0), 1 / Math.max(n, 1));
-  const price = Math.min(1, Math.max(0, (0.13 - perLeg) / 0.09));    // 4 % de marge par sélection = excellent, 13 % = cher
+  const price = Math.min(1, Math.max(0, (0.12 - perLeg) / 0.035));    // 8,5 % de marge par sélection = excellent, 12 % = cher
   const odds = (1 - cost) / Math.max(p, 1e-9);
   const fit = Math.max(0, 1 - Math.abs(Math.log(odds / targetOdds(st))) / Math.log(2));   // 0 dès qu'on est 2 fois au-dessus ou en dessous de la cote visée
   const score = wp * price + (1 - wp) * fit;
-  return { score, price, fit, stars: score >= 0.62 ? 3 : score >= 0.45 ? 2 : 1 };
+  const cheap = perLeg <= GOOD_PRICE + 1e-9, mine = fit >= GOOD_FIT;
+  return { score, price, fit, perLeg, cheap, mine, stars: 1 + cheap + mine };
 }
 // un ticket joué garde la cote à laquelle tu l'as pris : si tu corriges une cote, on recalcule la cote du ticket joué
 function syncBetOdds(id) {
@@ -158,11 +164,13 @@ function findCombo(id) {
 
 /* deux notes : étoiles = intérêt du ticket (prix et chance, selon ta balance) ; rang = place parmi les tickets du même jour */
 const PRICE = { 3: "très intéressant", 2: "intéressant", 1: "peu intéressant" };
-function starsHtml(n) {
-  return `<span class="stars" aria-label="${n} étoile${n > 1 ? "s" : ""} sur 3, ${PRICE[n]}">${[1, 2, 3].map((i) => `<i class="${i <= n ? "on" : ""}"></i>`).join("")}<em>${PRICE[n]}</em></span>`;
+function starsHtml(k, withWhy = false) {
+  const n = typeof k === "number" ? k : k.stars;
+  const why = typeof k === "number" || !withWhy ? "" : `<small class="why">${k.cheap ? "bon prix" : "prix moyen"} · ${k.mine ? "ton style" : "loin de ton style"}</small>`;
+  return `<span class="stars" aria-label="${n} étoile${n > 1 ? "s" : ""} sur 3, ${PRICE[n]}">${[1, 2, 3].map((i) => `<i class="${i <= n ? "on" : ""}"></i>`).join("")}<em>${PRICE[n]}</em>${why}</span>`;
 }
 // à note égale, les tickets dont les cotes viennent d'Unibet passent devant : moins de cotes à vérifier à la main
-const ticketScore = (c) => combo(c).score + 0.08 * c.legs.filter((l) => l.src === "unibet").length / c.legs.length;   // même critère que le robot, avec ta balance
+const ticketScore = (c) => combo(c).score + 0.03 * c.legs.filter((l) => l.src === "unibet").length / c.legs.length;   // même critère que le robot, avec ta balance
 // les meilleurs tickets d'un jour selon ta balance : ceux du robot et ses autres candidats, sans sélection en commun
 const mixOn = () => !!LS.get("pf_mix", false);
 function dayPicks(day, n = 3) {
@@ -282,10 +290,10 @@ function ticketHtml(c) {
   const head = folie
     ? `<span class="kind">Folie de la semaine, ${c.legs.length} matchs</span><span class="fun">pour le fun</span>`
     : `<span class="kind">${c.kind === "manuel" ? "Pari ajouté à la main" : c.kind === "perso" ? `Mon combiné de ${c.legs.length}` : `Combiné ${c.kind === "x3" ? "de 3" : "de 2"}${c.mix ? " multisport" : ""}`}</span>
-      ${starsHtml(k.stars)}${rk ? rankHtml(rk) : ""}${(() => { const n = !b && c.status === "en attente" ? c.legs.filter((l, i) => l.src !== "unibet" && !legOverride(c, i)).length : 0;
+      ${starsHtml(k)}${rk ? rankHtml(rk) : ""}${(() => { const n = !b && c.status === "en attente" ? c.legs.filter((l, i) => l.src !== "unibet" && !legOverride(c, i)).length : 0;
         return n ? `<span class="verif" title="Cote PMU ou estimée : vérifie-la sur Unibet avant de jouer">${n} cote${n > 1 ? "s" : ""} à vérifier</span>` : ""; })()}
       <div class="mix" aria-label="Prix ${Math.round(k.price * 10)} sur 10, proche de ton style ${Math.round(k.fit * 10)} sur 10">
-        <span>Prix<i style="--v:${Math.round(k.price * 100)}%"></i></span><span>Ton style<i style="--v:${Math.round(k.fit * 100)}%"></i></span>${c.alt ? `<em class="alt-tag">pour ton style</em>` : ""}</div>`;
+        <span>${k.cheap ? "Bon prix" : "Prix moyen"}<i style="--v:${Math.round(k.price * 100)}%"></i></span><span>${k.mine ? "Ton style" : "Loin de ton style"}<i style="--v:${Math.round(k.fit * 100)}%"></i></span>${c.alt ? `<em class="alt-tag">pour ton style</em>` : ""}</div>`;
   return `<article class="ticket ${c.status} ${folie ? "folie" : ""} ${c.kind === "perso" ? "perso" : ""} ${b ? "is-played" : ""} ${c.mix ? "mixed" : ""}">
     <div class="board">
       ${head}

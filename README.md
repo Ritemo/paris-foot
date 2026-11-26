@@ -106,10 +106,12 @@ Notifications d'échec des tests : sujet ntfy `combines-foot-ritemo-7k3q9x`.
 | Résultats manquants | football-data.co.uk publie parfois avec un jour de retard ; le robot réessaie à chaque passage. |
 | Le téléphone garde une ancienne version | Fermer et rouvrir l'appli ; si besoin, vérifier que `tools/bump_version.py` a bien été lancé avant la publication. |
 
+Étoiles (depuis le 26/11) : un point par critère rempli. Bon prix = marge du bookmaker de 10 % ou moins par sélection (sur Unibet elle tourne autour de 11 %, donc un bon prix est une vraie exception). Ton style = la cote du ticket est proche de la cote visée par le curseur « Ton style de jeu ». 3 étoiles = les deux, 2 = un des deux, 1 = aucun. Les barres « Bon prix / Prix moyen » et « Ton style / Loin de ton style » des tickets disent lequel est rempli. Le classement du jour, lui, garde la note fine (avec le poids du prix réglable).
+
 Améliorations du 26/11 :
 - NBA le soir : un passage de plus à 19h30 réactualise gratuitement les cotes NBA (ESPN) et refait les tickets NBA de la nuit. Les cotes Unibet du vainqueur relevées le matin sont gardées avec leur heure. Raison : la valeur de clôture montrait que les cotes NBA du matin étaient en moyenne un peu trop chères. Ce passage refait aussi le 1N2 foot via OddsPapi (1 requête).
 - Contrôle par type de pari : le robot compare, sur les sélections foot de ses tickets, les gagnées aux attendues (victoire à domicile, nul, extérieur, buts...). Si l'écart dépasse nettement le hasard (au moins 40 cas et 2 écarts-types), il corrige ce type avec prudence. Tableau « Par type de pari » dans l'onglet Modèle.
-- Les tickets avec des cotes Unibet réelles sont davantage favorisés (bonus de classement porté de 0,03 à 0,08), et chaque ticket affiche « N cotes à vérifier » quand il contient des cotes PMU ou estimées.
+- Chaque ticket affiche « N cotes à vérifier » quand il contient des cotes PMU ou estimées (les cotes suggérées restent proposées, tu les affines en jouant).
 - Chaque matin, le robot vérifie que les matchs de foot et de NBA des prochaines 24 h sont reconnus par ESPN (direct et résultats). Sinon, il envoie une notification « Direct : match non reconnu ».
 
 Handicap NBA : Unibet n'a pas de lignes en ,5. Son « 1N2 Handicap » se joue sur le temps réglementaire, avec des lignes entières, et l'égalité fait perdre. Le robot propose donc directement la ligne Unibet équivalente (-1,5 devient [-1], +3,5 devient [+4]), corrige la chance pour la prolongation (environ 6 % des matchs) et règle ces paris sur le score après 4 quart-temps.

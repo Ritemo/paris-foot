@@ -164,11 +164,26 @@ function findCombo(id) {
 
 /* deux notes : étoiles = intérêt du ticket (prix et chance, selon ta balance) ; rang = place parmi les tickets du même jour */
 const PRICE = { 3: "très intéressant", 2: "intéressant", 1: "peu intéressant" };
-function starsHtml(k, withWhy = false) {
-  const n = typeof k === "number" ? k : k.stars;
+/* note sur 10 en compteur de vitesse : 10 crans du rouge (0) au vert (10). La note = score fin du ticket
+   (prix et ton style, avec ton poids du prix), la même qui sert au classement du jour. */
+const noteOf = (k) => Math.max(0, Math.min(10, Math.round((typeof k === "number" ? k : k.score) * 10)));
+const NOTE_LABEL = (n) => n >= 8 ? "très intéressant" : n >= 6 ? "intéressant" : n >= 4 ? "moyen" : "à éviter";
+const noteColor = (i) => `hsl(${Math.round(i * 13)}, 78%, ${i >= 8 ? 45 : 52}%)`;
+function gaugeHtml(k, withWhy = false) {
+  const n = noteOf(k), R = 38, cx = 50, cy = 50;
+  const pt = (deg, r = R) => [cx + r * Math.cos((deg * Math.PI) / 180), cy - r * Math.sin((deg * Math.PI) / 180)].map((v) => v.toFixed(2)).join(" ");
+  let segs = "";
+  for (let i = 0; i < 10; i++) {
+    const a0 = 180 - i * 18 - 1.2, a1 = 180 - (i + 1) * 18 + 1.2;
+    segs += `<path d="M ${pt(a0)} A ${R} ${R} 0 0 1 ${pt(a1)}" stroke="${noteColor(i)}" opacity="${i < n ? 1 : 0.22}"/>`;
+  }
+  const ang = 180 - n * 18;
   const why = typeof k === "number" || !withWhy ? "" : `<small class="why">${k.cheap ? "bon prix" : "prix moyen"} · ${k.mine ? "ton style" : "loin de ton style"}</small>`;
-  return `<span class="stars" aria-label="${n} étoile${n > 1 ? "s" : ""} sur 3, ${PRICE[n]}">${[1, 2, 3].map((i) => `<i class="${i <= n ? "on" : ""}"></i>`).join("")}<em>${PRICE[n]}</em>${why}</span>`;
+  return `<span class="gauge-note" aria-label="Note ${n} sur 10, ${NOTE_LABEL(n)}"><svg viewBox="0 3 100 54" aria-hidden="true"><g fill="none" stroke-width="9">${segs}</g>
+    <line x1="${cx}" y1="${cy}" x2="${pt(ang, R - 9).split(" ")[0]}" y2="${pt(ang, R - 9).split(" ")[1]}" class="needle"/><circle cx="${cx}" cy="${cy}" r="5" class="hub"/></svg>
+    <b style="color:${n ? noteColor(n - 1) : noteColor(0)}">${n}<small>/10</small></b><em>${NOTE_LABEL(n)}</em>${why}</span>`;
 }
+function starsHtml(k, withWhy = false) { return gaugeHtml(k, withWhy); }
 // à note égale, les tickets dont les cotes viennent d'Unibet passent devant : moins de cotes à vérifier à la main
 const ticketScore = (c) => combo(c).score + 0.03 * c.legs.filter((l) => l.src === "unibet").length / c.legs.length;   // même critère que le robot, avec ta balance
 // les meilleurs tickets d'un jour selon ta balance : ceux du robot et ses autres candidats, sans sélection en commun
@@ -676,7 +691,7 @@ function missedWinners() {
   if (won.length) {
     h += won.map((c) => `<div class="hist"><span class="dot gagne">✓</span>
       <div>${c.legs.map((l) => esc(l.label) + (l.score ? ` <small style="display:inline">(${esc(l.home)} ${esc(l.score)} ${esc(l.away)})</small>` : "")).join(" + ")}
-        <small>${esc(longDate(c.day))}, ${c.kind === "folie" ? "Folie du jour" : "★".repeat(combo(c).stars)}, ${stake(c)} € auraient rapporté ${fmt(stake(c) * c.odds)} €</small></div>
+        <small>${esc(longDate(c.day))}, ${c.kind === "folie" ? "Folie" : `note ${noteOf(combo(c))}/10`}, ${stake(c)} € auraient rapporté ${fmt(stake(c) * c.odds)} €</small></div>
       <span class="o">${fmt(c.odds)}</span></div>`).join("");
   } else h += `<p class="hint" style="margin:0">Aucun ticket gagnant laissé de côté ces 14 derniers jours.</p>`;
   return h + `</div>`;
@@ -688,9 +703,9 @@ function bilanRobot() {
   const all = (hist?.combos || []).filter((c) => (!c.replaced || bets()[c.id]) && c.status !== "en attente")
     .map((c) => { const x = findCombo(c.id); return x && x.status !== "en attente" ? x : c; });
   if (!all.length) return `<div class="panel" style="margin-top:14px"><p class="hint" style="margin:0">Aucun ticket terminé pour l'instant.</p></div>`;
-  const st = (c) => combo(c).stars;  // même règle pour tous les tickets, anciens compris
-  const groups = [["3 étoiles", (c) => c.kind !== "folie" && st(c) === 3, 2], ["2 étoiles", (c) => c.kind !== "folie" && st(c) === 2, 2],
-    ["1 étoile", (c) => c.kind !== "folie" && st(c) <= 1, 2], ["Folies du jour", (c) => c.kind === "folie", 1]];
+  const st = (c) => noteOf(combo(c));  // même règle pour tous les tickets, anciens compris
+  const groups = [["Note 8 à 10", (c) => c.kind !== "folie" && st(c) >= 8, 2], ["Note 6 à 7", (c) => c.kind !== "folie" && st(c) >= 6 && st(c) < 8, 2],
+    ["Note 0 à 5", (c) => c.kind !== "folie" && st(c) < 6, 2], ["Folies", (c) => c.kind === "folie", 1]];
   const pending = (hist?.combos || []).filter((c) => !c.replaced && c.status === "en attente").length;
   let h = `<p class="hint" style="margin:14px 4px">Tickets proposés par le robot et terminés, joués ou non, pour juger si ses notes tiennent la route.${pending ? ` ${pending} ticket${pending > 1 ? "s" : ""} encore en cours ${pending > 1 ? "seront comptés" : "sera compté"} à la fin de leurs matchs.` : ""} Il faut plusieurs dizaines de tickets par groupe avant d'en tirer une conclusion.</p>`;
   for (const [name, f, stake] of groups) {

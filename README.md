@@ -1,6 +1,6 @@
 # Combinés Foot
 
-Appli (PWA) qui propose 2 à 3 combinés football par jour de match, avec la chance estimée de chaque combiné, son coût (marge des bookmakers), une note en étoiles, une mise conseillée de 1 à 5 € et le suivi juste/faux.
+Appli (PWA) qui propose 2 à 3 combinés football par jour de match, avec la chance estimée de chaque combiné, son coût (marge des bookmakers), une note sur 10 (compteur), une mise conseillée de 1 à 5 € et le suivi juste/faux.
 
 - **Championnats** : Ligue 1, Premier League, Liga, Serie A, Bundesliga, Ligue des champions, Ligue Europa, et Ligue des champions (probabilités des bookmakers seules, pas d'historique football-data)
 - **Cotes** : 1N2 Unibet France, nombre de buts PMU (à vérifier sur Unibet), handicap estimé (à saisir dans l'appli)
@@ -106,7 +106,7 @@ Notifications d'échec des tests : sujet ntfy `combines-foot-ritemo-7k3q9x`.
 | Résultats manquants | football-data.co.uk publie parfois avec un jour de retard ; le robot réessaie à chaque passage. |
 | Le téléphone garde une ancienne version | Fermer et rouvrir l'appli ; si besoin, vérifier que `tools/bump_version.py` a bien été lancé avant la publication. |
 
-Étoiles (depuis le 26/11) : un point par critère rempli. Bon prix = marge du bookmaker de 10 % ou moins par sélection (sur Unibet elle tourne autour de 11 %, donc un bon prix est une vraie exception). Ton style = la cote du ticket est proche de la cote visée par le curseur « Ton style de jeu ». 3 étoiles = les deux, 2 = un des deux, 1 = aucun. Les barres « Bon prix / Prix moyen » et « Ton style / Loin de ton style » des tickets disent lequel est rempli. Le classement du jour, lui, garde la note fine (avec le poids du prix réglable).
+Note sur 10 (compteur, depuis le 26/11) : chaque ticket a un petit compteur à 10 crans, du rouge (0, à éviter) au vert (10). La note = 10 x (poids du prix x prix + reste x ton style). Prix : marge du bookmaker par sélection, 8,5 % ou moins = plein, 12 % = zéro (Unibet tourne autour de 11 %). Style : cote du ticket proche de la cote visée par le curseur. 8 à 10 = très intéressant, 6 à 7 = intéressant, 4 à 5 = moyen, 0 à 3 = à éviter. Les barres « Bon prix / Prix moyen » et « Ton style / Loin de ton style » disent ce qui fait monter ou baisser la note. Le bilan du robot est rangé par tranches de note.
 
 Améliorations du 26/11 :
 - NBA le soir : un passage de plus à 19h30 réactualise gratuitement les cotes NBA (ESPN) et refait les tickets NBA de la nuit. Les cotes Unibet du vainqueur relevées le matin sont gardées avec leur heure. Raison : la valeur de clôture montrait que les cotes NBA du matin étaient en moyenne un peu trop chères. Ce passage refait aussi le 1N2 foot via OddsPapi (1 requête).

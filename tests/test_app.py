@@ -192,7 +192,7 @@ async def main():
         check("c-alt" in ids and await pg.locator("#tab-combos .alt-tag").count() == 1, "un autre candidat du robot est proposé selon ton style")
 
         check(await pg.locator("#tab-combos .rank").count() >= 1 and "du jour sur" in await pg.inner_text("#tab-combos"), "rang du jour affiché sur les tickets")
-        check("intéressant" in await pg.inner_text("#tab-combos .stars >> nth=0"), "étoiles avec leur libellé d'intérêt")
+        check("/10" in await pg.inner_text("#tab-combos .gauge-note >> nth=0"), "note sur 10 en compteur avec son libellé")
         check(await pg.locator("#tab-combos .mix").count() >= 1, "jauges prix et chance sur les tickets")
         check(await pg.locator("#style").count() == 1 and await pg.locator("[data-pw]").count() == 3, "curseur de style de jeu et importance du prix")
         await pg.evaluate("const r = document.getElementById('style'); r.value = 100; r.dispatchEvent(new Event('input', {bubbles: true}))")
@@ -268,7 +268,7 @@ async def main():
         await pg.click('[data-pick="m6"][data-market="BTTS"]')
         check(await pg.locator('#tab-matchs .mk-title').count() >= 3, "double chance, les deux équipes marquent et seuils de buts affichés")
         check(await pg.is_visible("#composer"), "le bandeau Mon combiné apparaît")
-        check(await pg.locator("#composer .stars i").count() == 3, "le combiné composé est noté en étoiles")
+        check(await pg.locator("#composer .gauge-note svg path").count() == 10, "le combiné composé est noté sur 10 (compteur à 10 crans)")
         await pg.click('[data-compose="play"]')
         await pg.click('#dlg-odds button[value="skip"]')
         await pg.click('#dlg button[value="ok"]')

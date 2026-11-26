@@ -95,7 +95,7 @@ function oneLine(m) {
   const s = m.scores || {}, z = s.z_vs_marche || 0, t = (m.tickets || {}).tickets;
   const calib = t && Math.abs(t.z) < 2 ? "les chances annoncées sont fiables" : "les chances annoncées s'écartent un peu de la réalité";
   const vs = Math.abs(z) < 2 ? "personne ne prévoit mieux que les bookmakers" : z > 0 ? "le robot prévoit un peu mieux que les bookmakers" : "le robot prévoit moins bien que les bookmakers";
-  return `<div class="panel one-line"><small>En une phrase</small><p>${calib.charAt(0).toUpperCase() + calib.slice(1)}, et ${vs} : ce qui fait la différence, c'est le prix payé (étoiles, coût) et la valeur de clôture dans ton Bilan.</p></div>`;
+  return `<div class="panel one-line"><small>En une phrase</small><p>${calib.charAt(0).toUpperCase() + calib.slice(1)}, et ${vs} : ce qui fait la différence, c'est le prix payé (note sur 10, coût) et la valeur de clôture dans ton Bilan.</p></div>`;
 }
 
 /* « En bref » : la lecture des mesures en quelques phrases simples, recalculée à chaque passage du robot */
@@ -126,7 +126,7 @@ function summaryPanel(m) {
     `On en attendait ${fr1(t.attendus)}. ${Math.abs(t.z) < 2 ? `L'écart est normal : sur si peu de tickets, la chance fait varier ce chiffre de ${fr1(t.marge || 0)} dans un sens ou dans l'autre. Il faudra plusieurs centaines de tickets pour juger.` : "L'écart dépasse ce que la chance explique d'habitude : à surveiller."}`]);
   const when = timingAdvice();
   if (when) items.push(["neutre", "Quand jouer ?", when]);
-  items.push(["cle", "Ce qui compte vraiment : le prix", "Puisque personne ne prévoit mieux que les cotes, ce qui décide de ton résultat à long terme, c'est la marge que prend le bookmaker. C'est ce que mesure le coût. Les étoiles donnent un point par critère : bon prix (marge de 10 % ou moins par sélection, alors qu'Unibet tourne autour de 11 %) et ton style (cote proche de celle que tu vises en haut des tickets). 3 étoiles = les deux, 2 = un des deux, 1 = aucun. Garde de petites mises, et fie-toi à ton flair pour ce que les chiffres ignorent (blessures, enjeu, rotation)."]);
+  items.push(["cle", "Ce qui compte vraiment : le prix", "Puisque personne ne prévoit mieux que les cotes, ce qui décide de ton résultat à long terme, c'est la marge que prend le bookmaker. C'est ce que mesure le coût. La note sur 10 du compteur mélange les deux : le prix (marge par sélection, Unibet tourne autour de 11 %) et ton style (cote proche de celle que tu vises en haut des tickets), selon ton poids du prix. Rouge à 0, vert à 10. Garde de petites mises, et fie-toi à ton flair pour ce que les chiffres ignorent (blessures, enjeu, rotation)."]);
   return `<h2 class="section-title">En bref</h2><div class="panel brief">${items.map(([k, title, txt]) => `<div class="brief-item ${k}"><i aria-hidden="true"></i><div><b>${esc(title)}</b><p>${esc(txt)}</p></div></div>`).join("")}</div>`;
 }
 

@@ -166,7 +166,30 @@ function findCombo(id) {
 const PRICE = { 3: "très intéressant", 2: "intéressant", 1: "peu intéressant" };
 /* note sur 10 en compteur de vitesse : 10 crans du rouge (0) au vert (10). La note = score fin du ticket
    (prix et ton style, avec ton poids du prix), la même qui sert au classement du jour. */
-const noteOf = (k) => Math.max(0, Math.min(10, Math.round((typeof k === "number" ? k : k.score) * 10)));
+/* Note sur 10 relative : on compare le ticket à tous ceux que le robot a étudiés (tickets du jour, candidats,
+   tickets des 60 derniers jours), notés avec TON style et TON poids du prix. 10 = parmi les 10 % meilleurs,
+   5 = dans la moyenne. Ainsi la note utilise toute l'échelle au lieu de se tasser entre 5 et 7. */
+let noteCache = { key: "", scores: [] };
+function noteScale() {
+  const key = `${style()}|${priceW()}|${(hist?.combos || []).length}|${(today?.alts || []).length}|${(today?.combos || []).length}`;
+  if (noteCache.key === key) return noteCache.scores;
+  const since = isoDay(new Date(Date.now() - 60 * 864e5)), seen = new Set(), scores = [];
+  for (const c of [...(today?.combos || []), ...(today?.alts || []), ...(hist?.combos || [])]) {
+    if (!c || c.kind === "folie" || c.kind === "manuel" || seen.has(c.id) || (c.day || "") < since || !c.legs?.length) continue;
+    seen.add(c.id);
+    scores.push(interest(c.p, c.cost, c.legs.length).score);
+  }
+  scores.sort((a, b) => a - b);
+  noteCache = { key, scores };
+  return scores;
+}
+const noteOf = (k) => {
+  const s = typeof k === "number" ? k : k.score, sc = noteScale();
+  if (sc.length < 30) return Math.max(0, Math.min(10, Math.round(s * 10)));   // pas assez de recul : note brute
+  let below = 0;
+  for (const x of sc) { if (x < s - 1e-9) below++; else break; }
+  return Math.max(0, Math.min(10, Math.round((10 * below) / sc.length)));
+};
 const NOTE_LABEL = (n) => n >= 8 ? "très intéressant" : n >= 6 ? "intéressant" : n >= 4 ? "moyen" : "à éviter";
 const noteColor = (i) => `hsl(${Math.round(i * 13)}, 78%, ${i >= 8 ? 45 : 52}%)`;
 function gaugeHtml(k, withWhy = false) {
@@ -207,8 +230,12 @@ function dayPicks(day, n = 3) {
     out.push(c); keys.forEach((k) => used.add(k));
     if (out.length === n) break;
   }
+  // le meilleur prix du jour (marge la plus faible), quel que soit ton style : toujours montré
+  const best = pool.slice().sort((a, b) => combo(a).perLeg - combo(b).perLeg || b.p - a.p)[0];
+  if (best) { BEST_PRICE.add(best.id); if (!out.includes(best)) out.push(best); }
   return out.sort((a, b) => ticketScore(b) - ticketScore(a));
 }
+const BEST_PRICE = new Set();
 function dayRank(c, extra = false) {
   const pool = dayPicks(c.day);
   if (extra || !pool.some((x) => x.id === c.id)) pool.push(c);
@@ -307,7 +334,10 @@ function ticketHtml(c) {
     ? `<span class="kind">Folie de la semaine, ${c.legs.length} matchs</span><span class="fun">pour le fun</span>`
     : `<div class="b-top"><span class="kind">${c.kind === "perso" ? `Mon combiné de ${c.legs.length}` : `Combiné ${c.kind === "x3" ? "de 3" : "de 2"}${c.mix ? " multisport" : ""}`}</span>${rk ? rankHtml(rk) : ""}</div>`;
   const nVerif = !b && c.status === "en attente" ? c.legs.filter((l, i) => l.src !== "unibet" && !legOverride(c, i)).length : 0;
-  const tags = folie ? "" : `<div class="b-tags"><span class="why ${k.cheap ? "ok" : ""}">${k.cheap ? "Bon prix" : "Prix moyen"}</span><span class="why ${k.mine ? "ok" : ""}">${k.mine ? "Ton style" : "Loin de ton style"}</span>${c.alt ? `<span class="why ok alt-tag">pour ton style</span>` : ""}${nVerif ? `<span class="verif" title="Cote PMU ou estimée : vérifie-la sur Unibet avant de jouer">${nVerif} cote${nVerif > 1 ? "s" : ""} à vérifier</span>` : ""}</div>`;
+  const isBest = BEST_PRICE.has(c.id) && !b && c.status === "en attente";
+  const priceTag = isBest ? `<span class="why best">Meilleur prix du jour</span>` : `<span class="why ${k.cheap ? "ok" : ""}">${k.cheap ? "Bon prix" : "Prix moyen"}</span>`;
+  const styleTag = c.alt ? `<span class="why ok alt-tag">Pour ton style</span>` : `<span class="why ${k.mine ? "ok" : ""}">${k.mine ? "Ton style" : "Loin de ton style"}</span>`;
+  const tags = folie ? "" : `<div class="b-tags">${priceTag}${styleTag}${nVerif ? `<span class="verif" title="Cote PMU ou estimée : vérifie-la sur Unibet avant de jouer">${nVerif} cote${nVerif > 1 ? "s" : ""} à vérifier</span>` : ""}</div>`;
   return `<article class="ticket ${c.status} ${folie ? "folie" : ""} ${c.kind === "perso" ? "perso" : ""} ${b ? "is-played" : ""} ${c.mix ? "mixed" : ""}">
     <div class="board">
       <div class="b-main">${head}

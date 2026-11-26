@@ -705,3 +705,4 @@ body { overscroll-behavior-y: contain; font-variant-numeric: tabular-nums; }
 .balance .bal-opts, .balance .bal-head b { transition: opacity 160ms cubic-bezier(.23, 1, .32, 1); }
 .board .gauge-note b { text-shadow: 0 1px 3px rgba(0,0,0,.45); }
 .stamp { right: 96px; }
+.b-tags .why.best { background: var(--jaune); color: #14261c; }

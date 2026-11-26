@@ -700,6 +700,61 @@
     "alt": true,
     "settled_at": "2026-11-25T22:01:07.536113+00:00"
    }
+  },
+  "2026-11-26|a24c89b65c5a30fb9473735049589e64:BTTS|cdf4b848361b0374c2027326bd54d8eb:2": {
+   "mise": 2,
+   "odds": 2.95,
+   "t": 1795701839,
+   "snap": {
+    "id": "2026-11-26|a24c89b65c5a30fb9473735049589e64:BTTS|cdf4b848361b0374c2027326bd54d8eb:2",
+    "day": "2026-11-26",
+    "kind": "x2",
+    "legs": [
+     {
+      "match_id": "cdf4b848361b0374c2027326bd54d8eb",
+      "league": "Ligue Europa",
+      "kickoff": "2026-11-26T17:45:00Z",
+      "home": "Dinamo Zagreb",
+      "away": "Bayer Leverkusen",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "EL",
+      "sport": "foot",
+      "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-europa/3377848/dinamo-zagreb-vs-leverkusen",
+      "market": "2",
+      "label": "Victoire Bayer Leverkusen",
+      "odds": 1.55,
+      "src": "unibet",
+      "p": 0.5751,
+      "ev": -0.1086
+     },
+     {
+      "match_id": "a24c89b65c5a30fb9473735049589e64",
+      "league": "Ligue Europa",
+      "kickoff": "2026-11-26T20:00:00Z",
+      "home": "Lyon",
+      "away": "Lillestrom",
+      "fd_home": null,
+      "fd_away": null,
+      "div": "EL",
+      "sport": "foot",
+      "link": "https://www.unibet.fr/paris-football/coupes-d'europe/ligue-europa/3377883/lyon-vs-lillestrøm",
+      "market": "BTTS",
+      "label": "Les deux équipes marquent",
+      "odds": 1.77,
+      "src": "estimee",
+      "p": 0.5056,
+      "ev": -0.1051
+     }
+    ],
+    "odds": 2.74,
+    "p": 0.2908,
+    "cost": 0.2023,
+    "stars": 2,
+    "stake": 2,
+    "status": "en attente",
+    "alt": true
+   }
   }
  },
  "kick_sent": {

@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T20:45:46.258307+00:00",
+ "updated": "2026-11-27T06:31:03.469753+00:00",
  "params": {
   "w_model": 0.026,
   "w_prior": 0.2,
@@ -15,10 +15,10 @@
   }
  },
  "counts": {
-  "settled": 2065,
-  "last_year": 1757,
-  "live": 139,
-  "pending": 108,
+  "settled": 2075,
+  "last_year": 1767,
+  "live": 149,
+  "pending": 98,
   "backtest": 1926,
   "since": "2025-09-30",
   "live_since": "2026-11-05"
@@ -26,38 +26,46 @@
  "min_verdict": 300,
  "tickets": {
   "tickets": {
-   "n": 77,
-   "annonce": 0.346,
+   "n": 80,
+   "annonce": 0.347,
    "reel": 0.312,
-   "attendus": 26.7,
-   "observes": 24,
-   "z": -0.64,
-   "marge": 8.3
+   "attendus": 27.8,
+   "observes": 25,
+   "z": -0.65,
+   "marge": 8.5
   },
   "selections": {
-   "n": 166,
-   "annonce": 0.613,
-   "reel": 0.602,
-   "attendus": 101.7,
-   "observes": 100,
-   "z": -0.27,
-   "marge": 12.4
+   "n": 172,
+   "annonce": 0.612,
+   "reel": 0.605,
+   "attendus": 105.3,
+   "observes": 104,
+   "z": -0.21,
+   "marge": 12.7
   },
   "familles": {
    "ext": {
     "nom": "Victoire à l'extérieur",
-    "n": 8,
-    "attendus": 4.6,
-    "observes": 4,
-    "z": -0.44,
+    "n": 10,
+    "attendus": 5.7,
+    "observes": 6,
+    "z": 0.18,
     "offset": 0.0
    },
    "dom": {
     "nom": "Victoire à domicile",
-    "n": 15,
-    "attendus": 10.0,
-    "observes": 8,
-    "z": -1.11,
+    "n": 17,
+    "attendus": 11.4,
+    "observes": 10,
+    "z": -0.72,
+    "offset": 0.0
+   },
+   "hcp": {
+    "nom": "Victoire par 2 buts ou +",
+    "n": 6,
+    "attendus": 3.6,
+    "observes": 3,
+    "z": -0.52,
     "offset": 0.0
    },
    "buts": {
@@ -66,14 +74,6 @@
     "attendus": 28.2,
     "observes": 26,
     "z": -0.59,
-    "offset": 0.0
-   },
-   "hcp": {
-    "nom": "Victoire par 2 buts ou +",
-    "n": 5,
-    "attendus": 3.0,
-    "observes": 3,
-    "z": -0.0,
     "offset": 0.0
    }
   }
@@ -510,18 +510,30 @@
     "btts": 0.0,
     "hcp": 0.0
    }
+  },
+  {
+   "d": "2026-11-27",
+   "w": 0.026,
+   "off": {
+    "dom": 0.0,
+    "nul": 0.0,
+    "ext": 0.0,
+    "buts": 0.0,
+    "btts": 0.0,
+    "hcp": 0.0
+   }
   }
  ],
  "scores": {
-  "n": 1757,
+  "n": 1767,
   "robot": {
-   "brier": 0.5803,
-   "logloss": 0.9759,
-   "acc": 0.538
+   "brier": 0.5806,
+   "logloss": 0.976,
+   "acc": 0.539
   },
   "marche": {
-   "brier": 0.5801,
-   "logloss": 0.9755,
+   "brier": 0.5804,
+   "logloss": 0.9756,
    "acc": 0.54
   },
   "modele": {
@@ -543,111 +555,111 @@
   {
    "lo": 0.0,
    "p": 0.076,
-   "f": 0.05,
-   "n": 141
+   "f": 0.049,
+   "n": 144
   },
   {
    "lo": 0.1,
    "p": 0.159,
-   "f": 0.147,
-   "n": 701
+   "f": 0.15,
+   "n": 708
   },
   {
    "lo": 0.2,
    "p": 0.253,
-   "f": 0.255,
-   "n": 2132
+   "f": 0.254,
+   "n": 2140
   },
   {
    "lo": 0.3,
    "p": 0.348,
    "f": 0.334,
-   "n": 911
+   "n": 913
   },
   {
    "lo": 0.4,
    "p": 0.452,
    "f": 0.471,
-   "n": 1143
+   "n": 1146
   },
   {
    "lo": 0.5,
    "p": 0.547,
-   "f": 0.548,
-   "n": 1108
+   "f": 0.549,
+   "n": 1112
   },
   {
    "lo": 0.6,
    "p": 0.643,
-   "f": 0.643,
-   "n": 610
+   "f": 0.642,
+   "n": 618
   },
   {
    "lo": 0.7,
    "p": 0.739,
-   "f": 0.741,
-   "n": 228
+   "f": 0.736,
+   "n": 231
   },
   {
    "lo": 0.8,
-   "p": 0.834,
-   "f": 0.906,
-   "n": 53
+   "p": 0.832,
+   "f": 0.891,
+   "n": 55
   }
  ],
  "families": [
   {
    "key": "dom",
    "name": "Victoire à domicile",
-   "n": 1757,
+   "n": 1767,
    "annonce": 0.438,
-   "reel": 0.438,
-   "z": -0.02,
+   "reel": 0.437,
+   "z": -0.08,
    "offset": 0.0
   },
   {
    "key": "nul",
    "name": "Match nul",
-   "n": 1757,
+   "n": 1767,
    "annonce": 0.243,
    "reel": 0.246,
-   "z": 0.29,
+   "z": 0.34,
    "offset": 0.0
   },
   {
    "key": "ext",
    "name": "Victoire à l'extérieur",
-   "n": 1757,
+   "n": 1767,
    "annonce": 0.319,
    "reel": 0.316,
-   "z": -0.26,
+   "z": -0.25,
    "offset": 0.0
   },
   {
    "key": "buts",
    "name": "Nombre de buts",
-   "n": 1757,
+   "n": 1767,
    "annonce": 0.548,
-   "reel": 0.546,
-   "z": -0.16,
+   "reel": 0.547,
+   "z": -0.13,
    "offset": 0.0
   },
   {
    "key": "btts",
    "name": "Les deux équipes marquent",
-   "n": 1757,
+   "n": 1767,
    "annonce": 0.54,
-   "reel": 0.55,
-   "z": 0.87,
+   "reel": 0.552,
+   "z": 0.98,
    "offset": 0.0
   },
   {
    "key": "hcp",
    "name": "Victoire par 2 buts ou +",
-   "n": 1757,
+   "n": 1767,
    "annonce": 0.197,
-   "reel": 0.182,
-   "z": -1.59,
+   "reel": 0.183,
+   "z": -1.58,
    "offset": 0.0
   }
  ],
@@ -714,9 +726,9 @@
   },
   {
    "m": "2026-11",
-   "n": 160,
-   "robot": 0.5427,
-   "marche": 0.5425
+   "n": 170,
+   "robot": 0.5478,
+   "marche": 0.5475
   }
  ],
  "leagues": [
@@ -752,9 +764,9 @@
   },
   {
    "name": "Ligue Europa",
-   "n": 25,
-   "robot": 0.6163,
-   "marche": 0.6163
+   "n": 35,
+   "robot": 0.6199,
+   "marche": 0.6199
   }
  ],
  "lessons": [
@@ -762,6 +774,6 @@
   "Seul, le modèle maison prévoit nettement moins bien que les bookmakers sur ces matchs.",
   "Le poids du modèle maison est passé de 20 % à 3 % du mélange, car il apporte moins que prévu sur les matchs récents.",
   "Aucun type de pari n'est durablement mal estimé : pas de correction appliquée.",
-  "Tickets proposés : 24 gagnés sur 77 pour 26,7 attendus. Écart compatible avec le hasard, rien à corriger à ce stade."
+  "Tickets proposés : 25 gagnés sur 80 pour 27,8 attendus. Écart compatible avec le hasard, rien à corriger à ce stade."
  ]
 }

@@ -816,7 +816,9 @@
      "odds": 1.39,
      "src": "unibet",
      "p": 0.6347,
-     "ev": -0.1178
+     "ev": -0.1178,
+     "score": "2-1",
+     "won": true
     }
    ],
    "odds": 2.31,
@@ -935,7 +937,9 @@
      "odds": 3.3,
      "src": "unibet",
      "p": 0.2762,
-     "ev": -0.0885
+     "ev": -0.0885,
+     "score": "5-0",
+     "won": false
     },
     {
      "match_id": "f96c1137c9d3f7e2e691275a2988fa1d",
@@ -971,7 +975,9 @@
      "odds": 2.35,
      "src": "unibet",
      "p": 0.3835,
-     "ev": -0.0988
+     "ev": -0.0988,
+     "score": "8-1",
+     "won": true
     },
     {
      "match_id": "5d838190a8f5932d7fcfbcc26bacdd9c",
@@ -997,9 +1003,10 @@
    "cost": 0.3292,
    "stars": 0,
    "stake": 1,
-   "status": "en attente",
+   "status": "perdu",
    "proposed_at": "2026-11-27T15:31:05.856849+00:00",
-   "replaced": true
+   "replaced": true,
+   "settled_at": "2026-11-28T16:31:08.933402+00:00"
   },
   {
    "id": "2026-11-28|24b99950496c624f7124922fc1bda8bd:2|9d23f6ad21946dd258869ebc22236cf0:1|f84a9da7eedd0ca11a28a1a7a8edddc7:1|f96c1137c9d3f7e2e691275a2988fa1d:1",
@@ -1058,7 +1065,9 @@
      "odds": 2.4,
      "src": "unibet",
      "p": 0.3763,
-     "ev": -0.0969
+     "ev": -0.0969,
+     "score": "8-1",
+     "won": true
     },
     {
      "match_id": "24b99950496c624f7124922fc1bda8bd",
@@ -1109,7 +1118,9 @@
      "odds": 3.3,
      "src": "unibet",
      "p": 0.2762,
-     "ev": -0.0885
+     "ev": -0.0885,
+     "score": "5-0",
+     "won": false
     },
     {
      "match_id": "9d23f6ad21946dd258869ebc22236cf0",
@@ -1171,8 +1182,9 @@
    "cost": 0.3275,
    "stars": 0,
    "stake": 1,
-   "status": "en attente",
-   "proposed_at": "2026-11-28T06:30:56.331112+00:00"
+   "status": "perdu",
+   "proposed_at": "2026-11-28T06:30:56.331112+00:00",
+   "settled_at": "2026-11-28T16:31:08.933402+00:00"
   },
   {
    "id": "2026-11-27|40d95e660c301c2d8a5a7a6317017b65:-3.5|698f4a7967ead89e10205a68ceb4bda4:1",
@@ -13037,10 +13049,10 @@
    "bilan": -12.8
   },
   "folie": {
-   "n": 16,
+   "n": 17,
    "gagnes": 0,
-   "reussite_annoncee": 0.036,
-   "bilan": -16
+   "reussite_annoncee": 0.035,
+   "bilan": -17
   },
   "reussite_reelle": 0.306,
   "reussite_annoncee": 0.348,
@@ -13049,5 +13061,5 @@
   "bilan_mise_suggeree": -63.91,
   "mise_suggeree_totale": 213
  },
- "updated": "2026-11-28T15:31:04.512296+00:00"
+ "updated": "2026-11-28T16:31:08.933402+00:00"
 }

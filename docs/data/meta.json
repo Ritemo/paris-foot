@@ -21,7 +21,7 @@
   "Ligue des champions",
   "Ligue Europa"
  ],
- "last_results_run": "2026-11-28T05:15:51.674287+00:00",
+ "last_results_run": "2026-11-28T16:31:08.933402+00:00",
  "last_odds_run": "2026-11-28T15:31:04.512296+00:00",
  "played": {
   "perso|2026-11-19|nba-401910011:1|nba-401910018:2|91d621e106bf38d41c61739852993840:1": {
@@ -815,6 +815,61 @@
     "stake": 2,
     "status": "en attente",
     "mix": true,
+    "alt": true
+   }
+  },
+  "2026-11-28|12002f6f804a122db48271ff05be03c0:+2.5|f96c1137c9d3f7e2e691275a2988fa1d:2": {
+   "mise": 2,
+   "odds": 2.8,
+   "t": 1795883026,
+   "snap": {
+    "id": "2026-11-28|12002f6f804a122db48271ff05be03c0:+2.5|f96c1137c9d3f7e2e691275a2988fa1d:2",
+    "day": "2026-11-28",
+    "kind": "x2",
+    "legs": [
+     {
+      "match_id": "f96c1137c9d3f7e2e691275a2988fa1d",
+      "league": "Ligue 1",
+      "kickoff": "2026-11-28T19:45:00Z",
+      "home": "Le Havre",
+      "away": "Strasbourg",
+      "fd_home": "Le Havre",
+      "fd_away": "Strasbourg",
+      "div": "F1",
+      "sport": "foot",
+      "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3397878/le-havre-vs-strasbourg",
+      "market": "2",
+      "label": "Victoire Strasbourg",
+      "odds": 2,
+      "src": "unibet",
+      "p": 0.4505,
+      "ev": -0.099
+     },
+     {
+      "match_id": "12002f6f804a122db48271ff05be03c0",
+      "league": "Ligue 1",
+      "kickoff": "2026-11-28T19:45:00Z",
+      "home": "Paris Saint Germain",
+      "away": "Lorient",
+      "fd_home": "Paris SG",
+      "fd_away": "Lorient",
+      "div": "F1",
+      "sport": "foot",
+      "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3397875/paris-sg-vs-lorient",
+      "market": "+2.5",
+      "label": "Plus de 2,5 buts",
+      "odds": 1.35,
+      "src": "estimee",
+      "p": 0.6774,
+      "ev": -0.0855
+     }
+    ],
+    "odds": 2.7,
+    "p": 0.3052,
+    "cost": 0.176,
+    "stars": 3,
+    "stake": 2,
+    "status": "en attente",
     "alt": true
    }
   }

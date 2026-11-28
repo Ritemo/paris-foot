@@ -1208,6 +1208,51 @@
    "p": 0.7668,
    "odds": 1.2,
    "won": true
+  },
+  "nba-401910046": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-28T22:00:00Z",
+   "home": "Washington Wizards",
+   "away": "Orlando Magic",
+   "p": 0.3968,
+   "odds": 2.15
+  },
+  "nba-401910047": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-28T23:00:00Z",
+   "home": "Charlotte Hornets",
+   "away": "Brooklyn Nets",
+   "p": 0.6641,
+   "odds": 1.35
+  },
+  "nba-401910048": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-29T01:00:00Z",
+   "home": "Chicago Bulls",
+   "away": "Indiana Pacers",
+   "p": 0.5617,
+   "odds": 1.57
+  },
+  "nba-401910049": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-29T01:00:00Z",
+   "home": "Milwaukee Bucks",
+   "away": "Oklahoma City Thunder",
+   "p": 0.1847,
+   "odds": 3.95
+  },
+  "nba-401910050": {
+   "sport": "basket",
+   "div": "NBA",
+   "kickoff": "2026-11-29T01:30:00Z",
+   "home": "Houston Rockets",
+   "away": "Philadelphia 76ers",
+   "p": 0.8062,
+   "odds": 1.14
   }
  },
  "summary": {
@@ -1271,5 +1316,5 @@
    ]
   }
  },
- "updated": "2026-11-28T06:15:46.399248+00:00"
+ "updated": "2026-11-28T06:30:56.331112+00:00"
 }

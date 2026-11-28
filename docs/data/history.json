@@ -185,7 +185,9 @@
      "odds": 1.54,
      "src": "estimee",
      "p": 0.588,
-     "ev": -0.0946
+     "ev": -0.0946,
+     "score": "104-105",
+     "won": false
     }
    ],
    "odds": 2.11,
@@ -193,9 +195,10 @@
    "cost": 0.1849,
    "stars": 3,
    "stake": 3,
-   "status": "en attente",
+   "status": "perdu",
    "proposed_at": "2026-11-27T06:31:03.469753+00:00",
-   "replaced": true
+   "replaced": true,
+   "settled_at": "2026-11-28T05:01:11.094345+00:00"
   },
   {
    "id": "2026-11-28|5d838190a8f5932d7fcfbcc26bacdd9c:1|ab87184803a63f7b679f1d12b01c3271:1N",
@@ -12538,5 +12541,5 @@
   "bilan_mise_suggeree": -67.33,
   "mise_suggeree_totale": 210
  },
- "updated": "2026-11-28T04:01:13.724479+00:00"
+ "updated": "2026-11-28T05:01:11.094345+00:00"
 }

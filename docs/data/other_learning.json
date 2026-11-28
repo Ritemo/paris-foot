@@ -1106,7 +1106,8 @@
    "home": "New York Knicks",
    "away": "Miami Heat",
    "p": 0.6097,
-   "odds": 1.46
+   "odds": 1.46,
+   "won": false
   },
   "nba-401909327": {
    "sport": "basket",
@@ -1115,7 +1116,8 @@
    "home": "Detroit Pistons",
    "away": "Milwaukee Bucks",
    "p": 0.7668,
-   "odds": 1.19
+   "odds": 1.19,
+   "won": true
   },
   "nba-401909328": {
    "sport": "basket",
@@ -1124,7 +1126,8 @@
    "home": "Indiana Pacers",
    "away": "Philadelphia 76ers",
    "p": 0.417,
-   "odds": 2.0
+   "odds": 2.0,
+   "won": false
   },
   "nba-401909329": {
    "sport": "basket",
@@ -1201,9 +1204,9 @@
  },
  "summary": {
   "basket": {
-   "n": 90,
-   "brier": 0.2141,
-   "fav": 0.678,
+   "n": 93,
+   "brier": 0.2136,
+   "fav": 0.677,
    "bins": [
     {
      "p": 0.15,
@@ -1216,14 +1219,14 @@
      "n": 22
     },
     {
-     "p": 0.492,
-     "f": 0.481,
-     "n": 27
+     "p": 0.489,
+     "f": 0.464,
+     "n": 28
     },
     {
-     "p": 0.711,
-     "f": 0.577,
-     "n": 26
+     "p": 0.71,
+     "f": 0.571,
+     "n": 28
     },
     {
      "p": 0.856,
@@ -1260,5 +1263,5 @@
    ]
   }
  },
- "updated": "2026-11-28T02:45:47.971227+00:00"
+ "updated": "2026-11-28T03:01:17.807109+00:00"
 }

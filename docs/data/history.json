@@ -50,7 +50,8 @@
    "stars": 2,
    "stake": 3,
    "status": "en attente",
-   "proposed_at": "2026-11-28T06:30:56.331112+00:00"
+   "proposed_at": "2026-11-28T06:30:56.331112+00:00",
+   "replaced": true
   },
   {
    "id": "2026-11-29|nba-401910047:1|nba-401910048:1",
@@ -150,7 +151,112 @@
    "stars": 2,
    "stake": 2,
    "status": "en attente",
-   "proposed_at": "2026-11-28T06:30:56.331112+00:00"
+   "proposed_at": "2026-11-28T06:30:56.331112+00:00",
+   "replaced": true
+  },
+  {
+   "id": "2026-11-29|1ab9541320cecbe9f043565fd4a141e0:12|a370db12aaff183a94f8e9a6acb6d4c9:2",
+   "day": "2026-11-29",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "a370db12aaff183a94f8e9a6acb6d4c9",
+     "league": "Ligue 1",
+     "kickoff": "2026-11-29T14:00:00Z",
+     "home": "Auxerre",
+     "away": "Marseille",
+     "fd_home": "Auxerre",
+     "fd_away": "Marseille",
+     "div": "F1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3397877/auxerre-vs-marseille",
+     "market": "2",
+     "label": "Victoire Marseille",
+     "odds": 1.78,
+     "src": "unibet",
+     "p": 0.5019,
+     "ev": -0.1066
+    },
+    {
+     "match_id": "1ab9541320cecbe9f043565fd4a141e0",
+     "league": "Liga",
+     "kickoff": "2026-11-29T13:00:00Z",
+     "home": "Valencia",
+     "away": "CA Osasuna",
+     "fd_home": "Valencia",
+     "fd_away": "Osasuna",
+     "div": "SP1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/espagne/laliga/3378661/cf-valence-vs-osasuna",
+     "market": "12",
+     "label": "Pas de match nul",
+     "odds": 1.27,
+     "src": "estimee",
+     "p": 0.7159,
+     "ev": -0.0908,
+     "raw_odds": 1.25,
+     "adj": 1.014
+    }
+   ],
+   "odds": 2.26,
+   "p": 0.3593,
+   "cost": 0.1877,
+   "stars": 3,
+   "stake": 3,
+   "status": "en attente",
+   "proposed_at": "2026-11-28T15:31:04.512296+00:00"
+  },
+  {
+   "id": "2026-11-29|a370db12aaff183a94f8e9a6acb6d4c9:1N|e9c2b74ecaafd494e3b2d8521b52216a:1",
+   "day": "2026-11-29",
+   "kind": "x2",
+   "legs": [
+    {
+     "match_id": "a370db12aaff183a94f8e9a6acb6d4c9",
+     "league": "Ligue 1",
+     "kickoff": "2026-11-29T14:00:00Z",
+     "home": "Auxerre",
+     "away": "Marseille",
+     "fd_home": "Auxerre",
+     "fd_away": "Marseille",
+     "div": "F1",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/france/ligue-1-mcdonalds/3397877/auxerre-vs-marseille",
+     "market": "1N",
+     "label": "Auxerre ou nul",
+     "odds": 1.83,
+     "src": "estimee",
+     "p": 0.4981,
+     "ev": -0.0885,
+     "raw_odds": 1.8,
+     "adj": 1.014
+    },
+    {
+     "match_id": "e9c2b74ecaafd494e3b2d8521b52216a",
+     "league": "Premier League",
+     "kickoff": "2026-11-29T14:05:00Z",
+     "home": "Brighton and Hove Albion",
+     "away": "Newcastle United",
+     "fd_home": "Brighton",
+     "fd_away": "Newcastle",
+     "div": "E0",
+     "sport": "foot",
+     "link": "https://www.unibet.fr/paris-football/angleterre/premier-league/3397685/brighton-hove-vs-newcastle",
+     "market": "1",
+     "label": "Victoire Brighton and Hove Albion",
+     "odds": 1.45,
+     "src": "unibet",
+     "p": 0.6076,
+     "ev": -0.119
+    }
+   ],
+   "odds": 2.65,
+   "p": 0.3026,
+   "cost": 0.197,
+   "stars": 2,
+   "stake": 2,
+   "status": "en attente",
+   "proposed_at": "2026-11-28T15:31:04.512296+00:00"
   },
   {
    "id": "2026-11-28|nba-401909328:2|nba-401909329:1|nba-401909336:1",
@@ -12943,5 +13049,5 @@
   "bilan_mise_suggeree": -63.91,
   "mise_suggeree_totale": 213
  },
- "updated": "2026-11-28T06:30:56.331112+00:00"
+ "updated": "2026-11-28T15:31:04.512296+00:00"
 }

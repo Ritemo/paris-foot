@@ -1176,7 +1176,8 @@
    "home": "San Antonio Spurs",
    "away": "Los Angeles Lakers",
    "p": 0.6571,
-   "odds": 1.37
+   "odds": 1.37,
+   "won": true
   },
   "nba-401909334": {
    "sport": "basket",
@@ -1205,14 +1206,15 @@
    "home": "Portland Trail Blazers",
    "away": "Golden State Warriors",
    "p": 0.7668,
-   "odds": 1.2
+   "odds": 1.2,
+   "won": true
   }
  },
  "summary": {
   "basket": {
-   "n": 99,
-   "brier": 0.2181,
-   "fav": 0.657,
+   "n": 101,
+   "brier": 0.2155,
+   "fav": 0.663,
    "bins": [
     {
      "p": 0.15,
@@ -1231,8 +1233,8 @@
     },
     {
      "p": 0.712,
-     "f": 0.567,
-     "n": 30
+     "f": 0.594,
+     "n": 32
     },
     {
      "p": 0.856,
@@ -1269,5 +1271,5 @@
    ]
   }
  },
- "updated": "2026-11-28T05:01:11.094345+00:00"
+ "updated": "2026-11-28T05:15:51.674287+00:00"
 }

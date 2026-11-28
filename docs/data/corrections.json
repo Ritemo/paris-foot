@@ -230,12 +230,62 @@
    "key": "foot|btts|estimee",
    "est": 1.56,
    "real": 1.65
+  },
+  {
+   "id": "sBdV697RxsGN",
+   "t": 1795882641,
+   "key": "foot|hcp|estimee",
+   "est": 1.4,
+   "real": 1.38
+  },
+  {
+   "id": "PUW7GgadLV61",
+   "t": 1795882703,
+   "key": "foot|hcp|estimee",
+   "est": 1.52,
+   "real": 1.49
+  },
+  {
+   "id": "38ggHA0ALhdL",
+   "t": 1795882793,
+   "key": "foot|total|estimee",
+   "est": 1.28,
+   "real": 1.25
+  },
+  {
+   "id": "NkLD5LbFNV13",
+   "t": 1795882841,
+   "key": "foot|total|estimee",
+   "est": 1.35,
+   "real": 1.4
+  },
+  {
+   "id": "xIQ0vRrwwpJ7",
+   "t": 1795882993,
+   "key": "foot|total|estimee",
+   "est": 1.49,
+   "real": 1.36
+  },
+  {
+   "id": "vfIuiL7UDvIn",
+   "t": 1795883108,
+   "key": "foot|btts|estimee",
+   "est": 1.75,
+   "real": 1.7
+  },
+  {
+   "id": "PkA5YfrrHa7M",
+   "t": 1795883197,
+   "key": "foot|btts|estimee",
+   "est": 1.76,
+   "real": 1.52
   }
  ],
  "adj": {
   "basket|total|estimee": 0.966,
   "foot|total|pmu": 0.958,
-  "foot|btts|estimee": 0.987,
+  "foot|total|estimee": 0.996,
+  "foot|btts|estimee": 0.955,
   "foot|dc|estimee": 1.014
  },
  "counts": {
@@ -243,10 +293,10 @@
   "basket|total|estimee": 5,
   "basket|hcpts|estimee": 2,
   "foot|total|pmu": 8,
-  "foot|hcp|estimee": 2,
-  "foot|total|estimee": 3,
+  "foot|hcp|estimee": 4,
+  "foot|total|estimee": 6,
   "foot|total|netbet": 1,
-  "foot|btts|estimee": 6,
+  "foot|btts|estimee": 8,
   "foot|dc|estimee": 5
  }
 }
